@@ -17,7 +17,7 @@ Keep vanilla province map; redraw states, strategic regions, supply. Playable: E
 - Remove/hide air, nukes, radar, modern systems. Unit display: NATO counters.
 
 ## Phases
-0. Foundation: mod folder, git, date engine test  <- CURRENT
+0. Foundation: mod folder, git, date engine test  (DONE: 245.1.1.12 loads; history runs from -1.1.1.1, vanilla history before 245 is applied)
 1. Skeleton: states, countries, empty out modern content
 2. Tech/units/equipment
 3. Rome + neighbours fully playable (start date 1)
