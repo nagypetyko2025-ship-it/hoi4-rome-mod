@@ -30,18 +30,12 @@ REPLACE_PATHS = [
     "history/states",
     "history/units",
     "map/supplyareas",
-    "common/national_focus",
-    "events",
-    "common/decisions",
-    "common/decisions/categories",
-    "common/characters",
-    "common/ai_strategy",
-    "common/ai_strategy_plans",
-    "common/on_actions",
+    "common/national_focus", "events", "common/decisions", "common/decisions/categories",
+    "common/characters", "common/ai_strategy", "common/ai_strategy_plans", "common/on_actions",
 ]
 
 GENERATED = [
-    "history/states", "history/countries", "history/units", "map/supplyareas", "map/buildings.txt",
+    "history/states", "history/countries", "history/units", "map/supplyareas", "map/buildings.txt", "map/railways.txt", "map/supply_nodes.txt",
     "common/country_tags", "common/countries", "common/bookmarks", "gfx/flags",
     "localisation/english/replace",
 ]
@@ -67,7 +61,18 @@ def write(rel, text, bom=False):
 
 
 # ---------------------------------------------------------------- validation
+def strategic_regions():
+    reg = {}
+    for fp in (GAME / "map" / "strategicregions").glob("*.txt"):
+        t = re.sub(r"#[^\n]*", "", fp.read_text(encoding="utf-8-sig"))
+        rid = int(re.search(r"\bid\s*=\s*(\d+)", t).group(1))
+        for p in re.search(r"provinces\s*=\s*\{([^}]*)\}", t).group(1).split():
+            reg[int(p)] = rid
+    return reg
+
+
 def validate(d):
+    region_of = strategic_regions()
     seen = {}
     for key, name, owner, provs, pop, ex in W.STATES:
         if owner not in W.COUNTRIES:
@@ -86,6 +91,10 @@ def validate(d):
         for p in ex.get("vp", {}):
             if p not in provs:
                 fail(f"state {key}: VP province {p} not in state")
+        # HARD RULE (map fails to load otherwise): a state must lie inside one strategic region
+        regs = {region_of.get(p) for p in provs}
+        if len(regs) != 1:
+            fail(f"state {key} spans strategic regions: { {p: region_of.get(p) for p in provs} }")
         # connectivity warning
         provset, start = set(provs), provs[0]
         stack, comp = [start], {start}
@@ -121,10 +130,28 @@ def build_states(d, assigned):
     states = []  # dicts in final id order
     for key, name, owner, provs, pop, ex in W.STATES:
         states.append(dict(key=key, name=name, owner=owner, provinces=list(provs), pop=pop, ex=ex, waste=False))
+    # Lakes: vanilla puts (almost) every lake in a state and the map loader fails without them.
+    # A lake joins the explicit state of an adjacent land province of the same vanilla state.
+    by_key = {s["key"]: s for s in states}
+    lake_taken = set()
+    for sid, vs in d["states"].items():
+        for p in vs["provinces"]:
+            if d["defs"].get(p, {}).get("type") != "lake":
+                continue
+            for n in d["stats"][p]["n"]:
+                if n in assigned and n in vs["provinces"]:
+                    by_key[assigned[n]]["provinces"].append(p)
+                    lake_taken.add(p)
+                    break
     # wasteland: leftovers of every vanilla state, keeping vanilla grouping
     for sid in sorted(d["states"]):
         vs = d["states"][sid]
-        left = [p for p in vs["provinces"] if p not in assigned and d["defs"].get(p, {}).get("type") == "land"]
+        left = [p for p in vs["provinces"] if p not in assigned and p not in lake_taken]
+        if left and all(d["defs"][p]["type"] != "land" for p in left):
+            # only lakes left over: attach them to the explicit state holding this vanilla state's land
+            owner_key = next(assigned[p] for p in vs["provinces"] if p in assigned)
+            by_key[owner_key]["provinces"].extend(left)
+            continue
         if left:
             states.append(dict(key=f"waste_{sid}", name="Terra Incognita", owner=W.WASTELAND_TAG,
                                provinces=left, pop=1000, ex={}, waste=True, vanilla=sid))
@@ -237,6 +264,33 @@ def write_supply_areas(d, states):
     # Supply areas are a legacy leftover (vanilla ships one file with 4 states); keep one valid stub.
     write("map/supplyareas/1-SupplyArea.txt",
           "supply_area={\n\tid=1\n\tname=\"SUPPLYAREA_1\"\n\tvalue=12\n\tstates={\n\t\t1\n\t}\n}\n")
+
+
+# ---------------------------------------------------------------- railways / supply nodes
+def write_rail_and_supply(playable):
+    """Keep only railway segments and supply nodes inside the playable (non-wasteland) area."""
+    out = []
+    for line in (GAME / "map" / "railways.txt").read_text(encoding="utf-8-sig").splitlines():
+        parts = line.split()
+        if len(parts) < 4:
+            continue
+        level, provs = parts[0], [int(x) for x in parts[2:]]
+        seg = []
+        for p in provs + [None]:
+            if p is not None and p in playable:
+                seg.append(p)
+                continue
+            if len(seg) >= 2:
+                out.append(f"{level} {len(seg)} " + " ".join(map(str, seg)) + " ")
+            seg = []
+    write("map/railways.txt", "\n".join(out) + "\n")
+    nodes = []
+    for line in (GAME / "map" / "supply_nodes.txt").read_text(encoding="utf-8-sig").splitlines():
+        parts = line.split()
+        if len(parts) == 2 and int(parts[1]) in playable:
+            nodes.append(f"{parts[0]} {parts[1]} ")
+    write("map/supply_nodes.txt", "\n".join(nodes) + "\n")
+    return len(out), len(nodes)
 
 
 # ---------------------------------------------------------------- countries
@@ -397,6 +451,9 @@ def main():
     write_states(states)
     write_buildings(d, states, prov_new)
     write_supply_areas(d, states)
+    playable_provs = {p for s in states if not s["waste"] for p in s["provinces"]}
+    rails, nodes = write_rail_and_supply(playable_provs)
+    print(f"railway segments kept: {rails}, supply nodes kept: {nodes}")
     write_countries(states)
     write_flags()
     write_localisation(states)

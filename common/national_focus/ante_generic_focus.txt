@@ -1,0 +1,21 @@
+# Ante Imperium: fallback focus tree for every people without its own tree.
+# The engine crashes if no focus tree exists at all, so this must always be present.
+focus_tree = {
+	id = ante_generic_focus
+	country = {
+		factor = 1
+	}
+	default = yes
+
+	focus = {
+		id = ante_council_of_elders
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+}

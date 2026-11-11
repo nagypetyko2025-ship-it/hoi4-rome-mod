@@ -105,11 +105,11 @@ st("caere", "Caere", "CAE", [11751], 30_000, capital=True, vp={11751: (6, "Caere
 st("tarquinii", "Tarquinii", "TAR", [6862, 6875], 40_000, capital=True, vp={6862: (6, "Tarquinii"), 6875: (3, "Vulci")}, port=[6862])
 st("clusium", "Clusium", "CLU", [9750, 910], 45_000, capital=True, vp={9750: (8, "Clusium")})
 st("perusia", "Perusia", "CLU", [3885], 20_000, vp={3885: (3, "Perusia")})
-st("volaterrae", "Volaterrae", "VLT", [6946, 1616], 35_000, capital=True, vp={6946: (5, "Volaterrae"), 1616: (2, "Pisae")}, port=[6946])
+st("volaterrae", "Volaterrae", "VLT", [6946, 1616, 6973], 35_000, capital=True, vp={6946: (5, "Volaterrae"), 1616: (2, "Pisae")}, port=[6946])
 st("vetulonia", "Vetulonia", "VLT", [11833], 15_000, vp={11833: (3, "Vetulonia")}, port=[11833])
 st("arretium", "Arretium", "ARR", [9879], 25_000, capital=True, vp={9879: (5, "Arretium")})
 st("faesulae", "Faesulae", "ARR", [9907, 11889], 20_000, vp={9907: (2, "Faesulae")})
-st("felsina", "Felsina", "FEL", [6606, 3976, 9752, 3773], 50_000, capital=True, vp={6606: (6, "Felsina")})
+st("felsina", "Felsina", "FEL", [6606, 3976, 9752, 3773, 6790], 50_000, capital=True, vp={6606: (6, "Felsina")})
 st("spina", "Spina", "FEL", [6985, 6793, 782], 25_000, vp={6793: (4, "Spina")}, port=[6793])
 st("mantua", "Mantua", "FEL", [11734, 3776], 20_000, vp={11734: (2, "Mantua")})
 st("campania_etrusca", "Campania", "CAP", [11803, 955], 60_000, capital=True, vp={11803: (8, "Capua"), 955: (2, "Nuceria")})
@@ -145,9 +145,9 @@ st("sardinia_septentrionalis", "Nuragic North", "SAR", [6891, 9772, 9863], 45_00
 st("sardinia_centralis", "Nuragic Highlands", "SAR", [11824, 11755], 35_000)
 st("corsica", "Corsica", "COR", [9851, 11804, 3838], 30_000, capital=True, vp={11804: (2, "Alalia")}, port=[11804])
 # Northern Italy
-st("taurinia", "Taurinia", "LIG", [611, 3782, 6780, 11570, 6635, 9738, 11730, 9741, 11726, 776, 6790], 40_000,
+st("taurinia", "Taurinia", "LIG", [611, 3782, 6780, 11570, 6635, 9738, 11730, 9741, 11726, 776], 40_000,
    vp={6780: (2, "Taurasia")})
-st("liguria", "Liguria", "LIG", [771, 6788, 770, 11723, 3772, 11721, 11891, 6973], 50_000,
+st("liguria", "Liguria", "LIG", [771, 6788, 770, 11723, 3772, 11721, 11891], 50_000,
    capital=True, vp={6788: (3, "Genua")}, port=[6788])
 st("insubria", "Insubria", "INS", [607, 6661, 9584, 3780, 969, 773], 50_000, capital=True, vp={3780: (4, "Mediolanum")})
 st("raetia", "Raetia", "RAE", [656, 6675, 9630, 11598, 11615, 6631, 9598, 11568, 11587], 40_000, capital=True,
