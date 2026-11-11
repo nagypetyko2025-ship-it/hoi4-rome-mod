@@ -1,0 +1,20 @@
+state = {
+	id = 21
+	name = "STATE_21"  # Felsina
+	manpower = 50000
+	state_category = large_town
+	history = {
+		owner = FEL
+		add_core_of = FEL
+		victory_points = { 6606 6 }  # Felsina
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		6606 3976 9752 3773
+	}
+	local_supplies = 0.0
+}

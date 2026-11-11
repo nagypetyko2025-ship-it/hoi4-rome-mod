@@ -1,0 +1,20 @@
+state = {
+	id = 5
+	name = "STATE_5"  # Sabina
+	manpower = 45000
+	state_category = town
+	history = {
+		owner = SAB
+		add_core_of = SAB
+		victory_points = { 6926 2 }  # Cures
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		6926 11790
+	}
+	local_supplies = 0.0
+}

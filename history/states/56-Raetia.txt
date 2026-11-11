@@ -1,0 +1,20 @@
+state = {
+	id = 56
+	name = "STATE_56"  # Raetia
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = RAE
+		add_core_of = RAE
+		victory_points = { 6631 1 }  # Tridentum
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		656 6675 9630 11598 11615 6631 9598 11568 11587
+	}
+	local_supplies = 0.0
+}

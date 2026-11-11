@@ -1,0 +1,21 @@
+state = {
+	id = 60
+	name = "STATE_60"  # Utica
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		victory_points = { 9994 5 }  # Utica
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 1
+			9994 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		9994 4163 1046
+	}
+	local_supplies = 0.0
+}

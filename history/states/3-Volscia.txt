@@ -1,0 +1,22 @@
+state = {
+	id = 3
+	name = "STATE_3"  # Volscia
+	manpower = 50000
+	state_category = town
+	history = {
+		owner = VOL
+		add_core_of = VOL
+		victory_points = { 923 2 }  # Velitrae
+		victory_points = { 9826 2 }  # Anxur
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			9826 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		923 9826
+	}
+	local_supplies = 0.0
+}

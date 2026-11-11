@@ -1,0 +1,21 @@
+state = {
+	id = 37
+	name = "STATE_37"  # Messapia
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = MES
+		add_core_of = MES
+		victory_points = { 11998 3 }  # Brentesion
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			11998 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		11998 6979
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 16
+	name = "STATE_16"  # Perusia
+	manpower = 20000
+	state_category = town
+	history = {
+		owner = CLU
+		add_core_of = CLU
+		victory_points = { 3885 3 }  # Perusia
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		3885
+	}
+	local_supplies = 0.0
+}

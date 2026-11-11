@@ -1,0 +1,20 @@
+state = {
+	id = 41
+	name = "STATE_41"  # Zankle
+	manpower = 20000
+	state_category = town
+	history = {
+		owner = ZAN
+		add_core_of = ZAN
+		victory_points = { 4159 5 }  # Zankle
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			4159 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4159 1156
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 66
+	name = "STATE_66"  # Massylian Highlands
+	manpower = 30000
+	state_category = town
+	history = {
+		owner = NUM
+		add_core_of = NUM
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		1141 9943 12034
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 18
+	name = "STATE_18"  # Vetulonia
+	manpower = 15000
+	state_category = town
+	history = {
+		owner = VLT
+		add_core_of = VLT
+		victory_points = { 11833 3 }  # Vetulonia
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			11833 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		11833
+	}
+	local_supplies = 0.0
+}

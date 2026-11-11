@@ -1,0 +1,21 @@
+state = {
+	id = 35
+	name = "STATE_35"  # Daunia
+	manpower = 45000
+	state_category = town
+	history = {
+		owner = DAU
+		add_core_of = DAU
+		victory_points = { 883 2 }  # Arpi
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			6980 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		883 6939 6980
+	}
+	local_supplies = 0.0
+}

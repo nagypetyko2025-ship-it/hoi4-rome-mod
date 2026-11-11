@@ -1,0 +1,21 @@
+state = {
+	id = 29
+	name = "STATE_29"  # Taras
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = TAS
+		add_core_of = TAS
+		victory_points = { 11837 10 }  # Taras
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 1
+			11837 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		11837
+	}
+	local_supplies = 0.0
+}

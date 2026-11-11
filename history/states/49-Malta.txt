@@ -1,0 +1,19 @@
+state = {
+	id = 49
+	name = "STATE_49"  # Malta
+	manpower = 8000
+	state_category = rural
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		victory_points = { 12003 2 }  # Melite
+		buildings = {
+			infrastructure = 2
+			12003 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		12003
+	}
+	local_supplies = 0.0
+}

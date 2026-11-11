@@ -1,0 +1,18 @@
+state = {
+	id = 4
+	name = "STATE_4"  # Aequia
+	manpower = 20000
+	state_category = rural
+	history = {
+		owner = AEQ
+		add_core_of = AEQ
+		victory_points = { 3910 1 }  # Carsioli
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3910
+	}
+	local_supplies = 0.0
+}

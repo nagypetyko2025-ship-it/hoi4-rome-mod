@@ -1,0 +1,20 @@
+state = {
+	id = 55
+	name = "STATE_55"  # Insubria
+	manpower = 50000
+	state_category = town
+	history = {
+		owner = INS
+		add_core_of = INS
+		victory_points = { 3780 4 }  # Mediolanum
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		607 6661 9584 3780 969 773
+	}
+	local_supplies = 0.0
+}

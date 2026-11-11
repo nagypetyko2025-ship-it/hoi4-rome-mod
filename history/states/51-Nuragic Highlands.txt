@@ -1,0 +1,19 @@
+state = {
+	id = 51
+	name = "STATE_51"  # Nuragic Highlands
+	manpower = 35000
+	state_category = town
+	history = {
+		owner = SAR
+		add_core_of = SAR
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		11824 11755
+	}
+	local_supplies = 0.0
+}

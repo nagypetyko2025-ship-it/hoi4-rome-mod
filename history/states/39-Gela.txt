@@ -1,0 +1,20 @@
+state = {
+	id = 39
+	name = "STATE_39"  # Gela
+	manpower = 20000
+	state_category = town
+	history = {
+		owner = GEL
+		add_core_of = GEL
+		victory_points = { 1009 6 }  # Gela
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			1009 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		1009
+	}
+	local_supplies = 0.0
+}

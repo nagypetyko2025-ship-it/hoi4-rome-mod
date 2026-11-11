@@ -1,0 +1,20 @@
+state = {
+	id = 47
+	name = "STATE_47"  # Karalis
+	manpower = 25000
+	state_category = town
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		victory_points = { 11773 4 }  # Karalis
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			11773 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		11773 902
+	}
+	local_supplies = 0.0
+}

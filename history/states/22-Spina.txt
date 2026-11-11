@@ -1,0 +1,20 @@
+state = {
+	id = 22
+	name = "STATE_22"  # Spina
+	manpower = 25000
+	state_category = town
+	history = {
+		owner = FEL
+		add_core_of = FEL
+		victory_points = { 6793 4 }  # Spina
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			6793 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6985 6793 782
+	}
+	local_supplies = 0.0
+}

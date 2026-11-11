@@ -1,0 +1,18 @@
+state = {
+	id = 9
+	name = "STATE_9"  # Frentania
+	manpower = 20000
+	state_category = rural
+	history = {
+		owner = SAM
+		add_core_of = SAM
+		buildings = {
+			infrastructure = 1
+			3966 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		3966
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 64
+	name = "STATE_64"  # Inner Libya
+	manpower = 25000
+	state_category = rural
+	history = {
+		owner = LIB
+		add_core_of = LIB
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3987 10082 9983 12000 1105 4992
+	}
+	local_supplies = 0.0
+}

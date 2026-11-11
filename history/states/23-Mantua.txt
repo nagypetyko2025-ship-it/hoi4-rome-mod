@@ -1,0 +1,19 @@
+state = {
+	id = 23
+	name = "STATE_23"  # Mantua
+	manpower = 20000
+	state_category = town
+	history = {
+		owner = FEL
+		add_core_of = FEL
+		victory_points = { 11734 2 }  # Mantua
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		11734 3776
+	}
+	local_supplies = 0.0
+}

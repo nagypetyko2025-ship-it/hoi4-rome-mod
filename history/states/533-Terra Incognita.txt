@@ -1,0 +1,15 @@
+state = {
+	id = 533
+	name = "STATE_533"  # Terra Incognita
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		2037 4898 7935 8097 10809 10830 10916 12745 12827 12850 12897
+	}
+	local_supplies = 0.0
+}

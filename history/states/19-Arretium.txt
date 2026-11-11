@@ -1,0 +1,19 @@
+state = {
+	id = 19
+	name = "STATE_19"  # Arretium
+	manpower = 25000
+	state_category = town
+	history = {
+		owner = ARR
+		add_core_of = ARR
+		victory_points = { 9879 5 }  # Arretium
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		9879
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,22 @@
+state = {
+	id = 2
+	name = "STATE_2"  # Latium Vetus
+	manpower = 70000
+	state_category = city
+	history = {
+		owner = LAT
+		add_core_of = LAT
+		victory_points = { 11846 5 }  # Aricia
+		victory_points = { 11882 3 }  # Praeneste
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 3
+			arms_factory = 1
+			11846 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		11846 11882
+	}
+	local_supplies = 0.0
+}

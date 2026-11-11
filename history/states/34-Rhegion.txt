@@ -1,0 +1,20 @@
+state = {
+	id = 34
+	name = "STATE_34"  # Rhegion
+	manpower = 15000
+	state_category = town
+	history = {
+		owner = RHE
+		add_core_of = RHE
+		victory_points = { 9990 4 }  # Rhegion
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			9990 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		9990
+	}
+	local_supplies = 0.0
+}

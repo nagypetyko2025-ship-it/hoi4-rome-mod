@@ -1,0 +1,21 @@
+state = {
+	id = 10
+	name = "STATE_10"  # Picenum
+	manpower = 50000
+	state_category = town
+	history = {
+		owner = PIC
+		add_core_of = PIC
+		victory_points = { 925 2 }  # Asculum
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			967 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		967 925
+	}
+	local_supplies = 0.0
+}

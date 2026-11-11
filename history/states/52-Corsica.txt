@@ -1,0 +1,21 @@
+state = {
+	id = 52
+	name = "STATE_52"  # Corsica
+	manpower = 30000
+	state_category = town
+	history = {
+		owner = COR
+		add_core_of = COR
+		victory_points = { 11804 2 }  # Alalia
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			11804 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		9851 11804 3838
+	}
+	local_supplies = 0.0
+}

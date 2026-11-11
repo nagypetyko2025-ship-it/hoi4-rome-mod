@@ -1,0 +1,20 @@
+state = {
+	id = 25
+	name = "STATE_25"  # Kyme
+	manpower = 25000
+	state_category = town
+	history = {
+		owner = CUM
+		add_core_of = CUM
+		victory_points = { 819 8 }  # Kyme
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			819 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		819
+	}
+	local_supplies = 0.0
+}

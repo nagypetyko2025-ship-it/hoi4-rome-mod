@@ -1,0 +1,21 @@
+state = {
+	id = 54
+	name = "STATE_54"  # Liguria
+	manpower = 50000
+	state_category = town
+	history = {
+		owner = LIG
+		add_core_of = LIG
+		victory_points = { 6788 3 }  # Genua
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			6788 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		771 6788 770 11723 3772 11721 11891 6973
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,22 @@
+state = {
+	id = 14
+	name = "STATE_14"  # Tarquinii
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = TAR
+		add_core_of = TAR
+		victory_points = { 6862 6 }  # Tarquinii
+		victory_points = { 6875 3 }  # Vulci
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+			6862 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		6862 6875
+	}
+	local_supplies = 0.0
+}

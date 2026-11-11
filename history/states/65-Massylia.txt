@@ -1,0 +1,20 @@
+state = {
+	id = 65
+	name = "STATE_65"  # Massylia
+	manpower = 50000
+	state_category = town
+	history = {
+		owner = NUM
+		add_core_of = NUM
+		victory_points = { 11953 2 }  # Thugga
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		1160 1058 11953 7081 12051
+	}
+	local_supplies = 0.0
+}

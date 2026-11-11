@@ -1,0 +1,21 @@
+state = {
+	id = 6
+	name = "STATE_6"  # Marsica
+	manpower = 35000
+	state_category = town
+	history = {
+		owner = MAR
+		add_core_of = MAR
+		victory_points = { 6831 1 }  # Marruvium
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			9838 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		9838 6831
+	}
+	local_supplies = 0.0
+}

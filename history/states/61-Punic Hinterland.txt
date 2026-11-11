@@ -1,0 +1,19 @@
+state = {
+	id = 61
+	name = "STATE_61"  # Punic Hinterland
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		7180 7077 4061 1037
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 20
+	name = "STATE_20"  # Faesulae
+	manpower = 20000
+	state_category = town
+	history = {
+		owner = ARR
+		add_core_of = ARR
+		victory_points = { 9907 2 }  # Faesulae
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		9907 11889
+	}
+	local_supplies = 0.0
+}

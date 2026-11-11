@@ -1,0 +1,20 @@
+state = {
+	id = 26
+	name = "STATE_26"  # Poseidonia
+	manpower = 15000
+	state_category = town
+	history = {
+		owner = POS
+		add_core_of = POS
+		victory_points = { 851 4 }  # Poseidonia
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			851 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		851
+	}
+	local_supplies = 0.0
+}

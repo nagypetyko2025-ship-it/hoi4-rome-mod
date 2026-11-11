@@ -1,0 +1,21 @@
+state = {
+	id = 24
+	name = "STATE_24"  # Campania
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = CAP
+		add_core_of = CAP
+		victory_points = { 11803 8 }  # Capua
+		victory_points = { 955 2 }  # Nuceria
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+		}
+	}
+	provinces = {
+		11803 955
+	}
+	local_supplies = 0.0
+}

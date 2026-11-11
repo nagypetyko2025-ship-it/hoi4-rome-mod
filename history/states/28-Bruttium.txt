@@ -1,0 +1,17 @@
+state = {
+	id = 28
+	name = "STATE_28"  # Bruttium
+	manpower = 15000
+	state_category = rural
+	history = {
+		owner = OEN
+		add_core_of = OEN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3901
+	}
+	local_supplies = 0.0
+}

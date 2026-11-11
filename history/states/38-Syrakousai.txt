@@ -1,0 +1,21 @@
+state = {
+	id = 38
+	name = "STATE_38"  # Syrakousai
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = SYR
+		add_core_of = SYR
+		victory_points = { 13256 12 }  # Syrakousai
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 1
+			13256 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		13256
+	}
+	local_supplies = 0.0
+}

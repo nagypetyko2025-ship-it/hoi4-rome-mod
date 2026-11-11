@@ -1,0 +1,19 @@
+state = {
+	id = 42
+	name = "STATE_42"  # Himera
+	manpower = 10000
+	state_category = rural
+	history = {
+		owner = ZAN
+		add_core_of = ZAN
+		victory_points = { 3857 3 }  # Himera
+		buildings = {
+			infrastructure = 2
+			3857 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		3857
+	}
+	local_supplies = 0.0
+}

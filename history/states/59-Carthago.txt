@@ -1,0 +1,21 @@
+state = {
+	id = 59
+	name = "STATE_59"  # Carthago
+	manpower = 100000
+	state_category = large_city
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		victory_points = { 11969 25 }  # Qart-Hadasht
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 4
+			arms_factory = 1
+			11969 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		11969 10091
+	}
+	local_supplies = 0.0
+}

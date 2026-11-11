@@ -1,0 +1,19 @@
+state = {
+	id = 45
+	name = "STATE_45"  # Elymia
+	manpower = 20000
+	state_category = rural
+	history = {
+		owner = ELY
+		add_core_of = ELY
+		victory_points = { 7059 3 }  # Segesta
+		buildings = {
+			infrastructure = 1
+			7059 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		7059
+	}
+	local_supplies = 0.0
+}
