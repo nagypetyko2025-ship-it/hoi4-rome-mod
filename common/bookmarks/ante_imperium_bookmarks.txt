@@ -1,0 +1,27 @@
+# Ante Imperium bookmarks. Dates are AUC years (see common/defines/zz_ante_imperium.lua).
+# TEMPORARY: engine date test only. Country list uses a vanilla placeholder tag
+# until the ancient countries exist.
+bookmarks = {
+	bookmark = {
+		name = "ANTE_BOOKMARK_REPUBLIC_NAME"
+		desc = "ANTE_BOOKMARK_REPUBLIC_DESC"
+		date = 245.1.1.12
+		picture = "GFX_select_date_1936"
+		default_country = "ITA"
+		default = yes
+
+		"ITA" = {
+			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			ideology = fascism
+			ideas = { }
+			focuses = { }
+		}
+		"---" = {
+			history = "OTHER_GATHERING_STORM_DESC"
+		}
+
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+		}
+	}
+}
