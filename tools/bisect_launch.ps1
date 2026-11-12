@@ -7,8 +7,9 @@
 # usage:  powershell -ExecutionPolicy Bypass -File tools/bisect_launch.ps1
 #         powershell -ExecutionPolicy Bypass -File tools/bisect_launch.ps1 -Variants baseline,rivers_blank
 #
-# Takes about a minute per variant. Stops after "baseline" when the committed files already run.
-# Needs git and python (numpy) on the PATH. map/ and history/states must have no uncommitted changes,
+# Takes about a minute per variant. Stops after "baseline" when the committed files already run
+# (pass -All to run every variant anyway, e.g. to confirm with the no_region_defines control).
+# Needs git and python (numpy) on the PATH. map/, history/states and common/defines must have no uncommitted changes,
 # because the originals are restored with "git checkout".
 param([string[]]$Variants = @(), [int]$TimeoutSec = 240, [string]$Python = "python", [switch]$All)
 
@@ -22,9 +23,9 @@ $launcher = Join-Path $PSScriptRoot "test_launch.ps1"
 # -crash_data_log makes the crash report name the file that was read last
 $extra = "-quickstart -start_tag=ROM -crash_data_log"
 
-$dirty = & git -C $mod status --porcelain -- map history/states
+$dirty = & git -C $mod status --porcelain -- map history/states common/defines
 if ($dirty) {
-    "Uncommitted changes in map/ or history/states - commit or stash them first:"
+    "Uncommitted changes in map/, history/states or common/defines - commit or stash them first:"
     $dirty
     exit 1
 }
@@ -73,7 +74,7 @@ try {
             $lastError = [string](Get-Content $errLog -Tail 1)
             if ($lastError.Length -gt 160) { $lastError = $lastError.Substring(0, 160) }
         }
-        & git -C $mod checkout -- map history/states
+        & git -C $mod checkout -- map history/states common/defines
         $rows += [pscustomobject]@{ Variant = $v; Result = $result; Crash = $crash; LastRead = $lastRead; LastError = $lastError }
         "    $result"
         if ($v -eq "baseline" -and $result -match "GAME RUNNING" -and -not $All) {
@@ -82,7 +83,7 @@ try {
         }
     }
 } finally {
-    & git -C $mod checkout -- map history/states
+    & git -C $mod checkout -- map history/states common/defines
     Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
 }
 

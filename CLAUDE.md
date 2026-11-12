@@ -31,6 +31,11 @@
   alone a whole state – into a naval region (`settle_regions()` in newmap.py enforces it).
 - rivers.bmp: every 4-connected river system needs exactly one source (index 0) at an open end; flow-in/out markers
   (1/2) must touch their junction; no loops, no diagonal-only contacts (`repair_rivers()` in newmap.py).
+- Vanilla defines hard-code strategic region ids: `NDefines.NGeography.MEDITERRANEAN_SEA_REGIONS` (vanilla ids 29, 68,
+  69, 168, 169, 202). They MUST be overridden with region ids that exist on this map (generated into
+  `common/defines/zz_ante_regions.lua` by newmap.py) – prime suspect for the crash at session start that no content
+  change could move (bisect 2026-11-12: every variant crashed at the same address).
+- When a crash survives every content change, look for vanilla files/defines that reference ids of the vanilla map.
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after

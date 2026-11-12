@@ -39,7 +39,8 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `docs/design.md` | Terv és fázisok. |
 
 Generált (ne kézzel szerkeszd, hanem a forrást + futtasd újra): `history/states`, `history/countries`,
-`history/units`, `map/*`, `common/country_tags`, `common/countries`, `common/names`, `common/bookmarks`, `gfx/flags`,
+`history/units`, `map/*`, `common/defines/zz_ante_regions.lua`, `common/country_tags`, `common/countries`,
+`common/names`, `common/bookmarks`, `gfx/flags`,
 `localisation/english/replace`, `descriptor.mod`.
 
 ## Építés
@@ -126,6 +127,11 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
     megjelenik minden indításkor (a játéklobbi egy elkapott kivétele).
 24. **Formátumot ne fejből és ne csak a wiki szövegéből írj**: előbb nézd meg egy működő mod valódi fájlját
     (pl. Kaiserreich `map/` mappa a GitHubon).
+25. **A vanilla define-ok között van stratégiairégió-azonosító lista**:
+    `NDefines.NGeography.MEDITERRANEAN_SEA_REGIONS = { 29, 68, 69, 168, 169, 202 }` (vanilla régiószámok). A mi
+    régióink át vannak számozva és kevesebb van belőlük, tehát ezt **kötelező felülírni** létező tengeri régiókkal –
+    a `newmap.py` írja a `common/defines/zz_ante_regions.lua` fájlba, a `validate.py` ellenőrzi. Ez az egyetlen
+    ilyen lista a `00_defines.lua`-ban (1.17+); a Millennium Dawn is a saját régióira írja át.
 
 ## Állapot (2026-11-12, második kör – statikus javítás, játékban még NEM tesztelve)
 
@@ -232,6 +238,43 @@ Ami továbbra is gyanús, ha a felezés `all_min` sora is összeomlik:
 - a térkép mérete (3328×3072): a wiki szerint szabályos, de ezzel a mérettel a játék még sosem futott –
   `ANTE_MAP=wide` (5632×2048, vanilla méret) generálással ellenőrizhető;
 - a keleti térképszél szárazföld, a nyugati tenger: 91 pusztaság-tartomány csak a varraton át „partmenti”.
+
+## Negyedik kör (2026-11-12 éjjel) – a bisect eredménye és a javítás, játékban még NEM tesztelve
+
+**A bisect eredménye** (`docs/crash_reports/bisect_20261112_2015.md`): mind a 13 változat ugyanazon a címen
+omlott össze (`0x00007FF74DDA4370`, `LastRead: start_game_command`), az `all_min` is. Ez kizárja a folyókat, az
+épületpozíciókat, a kikötőket, az ellátást, a szomszédságokat, a fákat, a városokat, a domborzatot és az
+időjárás-méretet. Maradt: valami, ami **a tartalomtól független**, de az új térképhez kötődik.
+
+**A legvalószínűbb ok** (25. szabály): a vanilla `NGeography.MEDITERRANEAN_SEA_REGIONS` define a 29, 68, 69, 168,
+169, 202-es vanilla régiókra mutat. Az új térképen 119 régió van, tehát a 168, 169 és 202 **nem létezik**, a 68
+és a 69 pedig szárazföldi régió. Ez megmagyaráz mindent, amit eddig láttunk:
+
+- a vanilla térképes és az „identity” változat futott (ott megvan minden vanilla régió, ugyanazzal a számmal);
+- az új térkép minden változata ugyanott fagy, bármit cserélünk a tartalmon;
+- a hiba a játék indításakor jön, amikor a motor ezeket a régiókat előkeresi.
+
+Bizonyíték, hogy ez számít: a Millennium Dawn (1.19-es mod) ugyanezt a listát a saját régióira írja át. Ellenjel:
+egy 68 régiós 1.18-as mod nem írja felül – erről nem tudjuk, fut-e. Tehát **erős gyanú, nem bizonyosság**.
+
+Javítás:
+
+- `common/defines/zz_ante_regions.lua` (generált): a lista a mi régióinkkal – `{ 28, 45, 46, 71, 72, 82 }`, ezek
+  ugyanazok a tengerek (Nyugat-, Közép-, Kelet-Mediterráneum, Tirrén-tenger stb.), csak az új sorszámukkal.
+- `common/defines/zz_ante_imperium.lua`: `HANDS_OFF_START_TAG = "ROM"` (a vanilla „HAI” tag nálunk nincs), és a
+  világfeszültség kezdődátuma az újabb verziók `NDiplomacy` táblájában is 245.
+- A `newmap.py` a régiók átszámozásakor írja a fájlt, a `validate.py` hibát jelez, ha hiányzik vagy nem létező,
+  illetve nem tengeri régióra mutat.
+
+Teszt: ugyanaz, mint eddig – `tools/bisect_launch.ps1`. Ha a `baseline` fut, megáll. Megerősítéshez érdemes
+`-All` kapcsolóval is lefuttatni: a `no_region_defines` sor (a javítás nélküli állapot) akkor **összeomlik**, a
+`baseline` pedig fut – ez bizonyítja, hogy ez volt az ok. Három új változat is van (`no_region_defines`,
+`unitstacks_min`, `no_impassable`) arra az esetre, ha mégsem.
+
+Amit ebben a körben **nem** csináltam meg, pedig felmerült: a térkép átültetése a vanilla 5632×2048-as keretbe,
+kétoldalt óceánsávval. Egy 4096×3072-es, 1.19-en futó mod (Magna Europa) azt mutatja, hogy nem a méret a gond,
+ezért egy ekkora, kipróbálhatatlan átalakítás most több kockázatot hozna, mint hasznot. Ha a fenti javítás után is
+fagy, ez a következő lépés (a varrat miatt: a keleti szél szárazföld, a nyugati tenger).
 
 ## Tervezett fázisok
 

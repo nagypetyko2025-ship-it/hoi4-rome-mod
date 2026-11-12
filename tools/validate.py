@@ -734,6 +734,36 @@ def check_flags_and_ai(regions):
                 f"(areas outside the map must be removed)")
 
 
+# vanilla defines that hard-code strategic region ids -> what the listed regions must be
+REGION_DEFINES = {
+    "NGeography.MEDITERRANEAN_SEA_REGIONS": "sea",
+}
+
+
+def check_defines(defs, regions):
+    """Vanilla defines list strategic region ids. Our regions are renumbered, so the mod must override
+    every such define with ids that exist here - a missing region id crashes the game at session start."""
+    print("== defines")
+    text = ""
+    for fp in sorted((MOD / "common" / "defines").glob("*.lua")):
+        text += re.sub(r"--[^\n]*", "", fp.read_text(encoding="utf-8-sig")) + "\n"
+    for name, kind in REGION_DEFINES.items():
+        m = re.findall(r"NDefines\." + re.escape(name) + r"\s*=\s*\{([^}]*)\}", text)
+        if not m:
+            err(f"common/defines: NDefines.{name} is not overridden - the vanilla list of strategic region ids "
+                f"(for the vanilla map) would be used")
+            continue
+        ids = [int(x) for x in re.findall(r"\d+", m[-1])]
+        info(f"NDefines.{name} = {ids}")
+        for i in ids:
+            if i not in regions:
+                err(f"NDefines.{name}: strategic region {i} does not exist")
+            elif kind == "sea" and any(defs[p]["type"] != "sea" for p in regions[i]["provinces"]):
+                err(f"NDefines.{name}: strategic region {i} is not a naval region")
+        if not ids:
+            warn(f"NDefines.{name} is empty")
+
+
 def check_text_files():
     print("== script syntax")
     n = 0
@@ -787,6 +817,7 @@ def main():
     check_supply(defs, neigh, prov_state, states)
     check_misc(defs, neigh, states, regions, prov_state, W, H, labels)
     check_flags_and_ai(regions)
+    check_defines(defs, regions)
     check_text_files()
     print(f"\n{len(errors)} errors, {len(warnings)} warnings")
     sys.exit(1 if errors else 0)

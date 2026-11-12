@@ -101,6 +101,33 @@ def weather(size):
     return {"map/weatherpositions.txt": ("\r\n".join(lines) + "\r\n").encode()}
 
 
+def no_region_defines():
+    """the vanilla NGeography.MEDITERRANEAN_SEA_REGIONS (vanilla region ids) instead of our translated list"""
+    return {"common/defines/zz_ante_regions.lua": b"-- bisect variant: no region id overrides (vanilla lists apply)\n"}
+
+
+def unitstacks_min():
+    """like the mapit generator: land provinces only, stack types 0 and 38"""
+    land = set()
+    for ln in text("map/definition.csv").splitlines():
+        p = ln.split(";")
+        if len(p) > 4 and p[4] == "land":
+            land.add(p[0])
+    lines = [ln for ln in text("map/unitstacks.txt").splitlines()
+             if ln.split(";")[0] in land and ln.split(";")[1] in ("0", "38")]
+    return {"map/unitstacks.txt": ("\n".join(lines) + "\n").encode()}
+
+
+def no_impassable():
+    out = {}
+    for fp in (MOD / "history" / "states").glob("*.txt"):
+        t = fp.read_text(encoding="utf-8-sig")
+        t2 = re.sub(r"[ \t]*impassable\s*=\s*yes[ \t]*\r?\n", "", t)
+        if t2 != t:
+            out[f"history/states/{fp.name}"] = t2.encode()
+    return out
+
+
 def combine(*parts):
     out = {}
     for p in parts:
@@ -110,6 +137,9 @@ def combine(*parts):
 
 VARIANTS = {
     "baseline": (lambda: {}, "the files exactly as committed"),
+    "no_region_defines": (no_region_defines, "WITHOUT the translated region-id defines (control: expected to crash)"),
+    "unitstacks_min": (unitstacks_min, "unit stack positions for land provinces only, types 0 and 38"),
+    "no_impassable": (no_impassable, "wasteland states passable"),
     "rivers_blank": (rivers_blank, "no rivers at all"),
     "buildings_no_state_level": (lambda: buildings(lambda t: t not in STATE_LEVEL),
                                  "buildings.txt without the state-level lines (air_base, arms_factory, ...)"),
