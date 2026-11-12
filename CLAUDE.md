@@ -25,7 +25,14 @@
 - An empty railways.txt is suspected to crash on game start; build.py writes placeholder rail stubs.
 - 8-bit BMPs must be written with vanilla-style headers (`save_bmp8`), else "Palette in rivers.bmp is probably not correct".
 - Debug a "Failed to load the map" dialog by launching with `-ExtraArgs "-debug"`: only then map errors reach error.log.
-- `weatherpositions.txt` sizes are `large` / `small` only, one of each per strategic region; no `large` entry = crash.
+- `weatherpositions.txt` sizes are `big` / `small` (as in the real game files; the wiki's "large" is wrong), one of each
+  per strategic region.
+- A strategic region is either naval (sea provinces only) or land (land + lakes only). Never put a land province – let
+  alone a whole state – into a naval region (`settle_regions()` in newmap.py enforces it).
+- rivers.bmp: every 4-connected river system needs exactly one source (index 0) at an open end; flow-in/out markers
+  (1/2) must touch their junction; no loops, no diagonal-only contacts (`repair_rivers()` in newmap.py).
+- Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
+  (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after
   country selection).
 - `buildings.txt`: last field (adjacent sea province) non-zero ONLY for `naval_base_spawn` and `floating_harbor`; every

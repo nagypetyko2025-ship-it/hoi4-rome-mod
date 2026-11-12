@@ -633,7 +633,167 @@ def write_rivers(cls):
                 for yy in range(ctr(y) + 1, ctr(y + 1)):
                     put(yy, ctr(x), v)
     out[(out < 12) & (cls != LAND)] = 254
+    repair_rivers(out, cls)
     save_bmp8(OUT / "rivers.bmp", out, VMAP / "rivers.bmp")
+
+
+def repair_rivers(out, cls, min_px=8):
+    """Make every river system of the (upscaled, cropped) river layer valid, in place.
+
+    Engine rules: a river is a 1 px wide, 4-connected line; every connected system has exactly
+    ONE source pixel (index 0) at an open end; a tributary's last pixel before the junction is a
+    flow-in marker (1), a branch leaving the river starts with a flow-out marker (2).
+    Cropping the map, coast smoothing and lakes cut vanilla rivers apart, which leaves systems
+    without a source, stray pixels, loops and diagonal contacts. Those are removed or completed."""
+    def bg(p):
+        return 255 if cls[p] == LAND else 254
+
+    def neighbours(p, pix):
+        y, x = p
+        return [q for q in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)) if q in pix]
+
+    # rivers must not run off the bitmap: clear a two pixel frame, the cut ends are repaired below
+    frame = np.zeros(out.shape, bool)
+    frame[:2] = frame[-2:] = True
+    frame[:, :2] = frame[:, -2:] = True
+    frame &= out < 12
+    out[frame] = np.where(cls[frame] == LAND, 255, 254)
+    stats = dict(edge=int(frame.sum()), diagonal=0, loops=0, dropped=0, sources=0, markers=0, moved=0)
+    for _ in range(20):
+        changed = 0
+        pix = {tuple(p) for p in np.argwhere(out < 12).tolist()}
+        # 1. two river pixels touching only diagonally: drop the one with fewer river neighbours
+        for (y, x) in sorted(pix):
+            for q in ((y + 1, x + 1), (y + 1, x - 1)):
+                if q in pix and (y, x) in pix and (y, q[1]) not in pix and (q[0], x) not in pix:
+                    a, b = (y, x), q
+                    kill = a if len(neighbours(a, pix)) <= len(neighbours(b, pix)) else b
+                    if out[kill] < 3 and out[b if kill == a else a] >= 3:
+                        kill = b if kill == a else a   # keep sources and markers
+                    out[kill] = bg(kill)
+                    pix.discard(kill)
+                    stats["diagonal"] += 1
+                    changed += 1
+        # 2. connected systems
+        seen = set()
+        for start in sorted(pix):
+            if start in seen or start not in pix:
+                continue
+            comp, stack, parent = [start], [start], {start: None}
+            seen.add(start)
+            cycle_edge = None
+            while stack:
+                p = stack.pop()
+                for q in neighbours(p, pix):
+                    if q not in parent:
+                        parent[q] = p
+                        seen.add(q)
+                        comp.append(q)
+                        stack.append(q)
+                    elif parent[p] != q and parent.get(q) != p and cycle_edge is None:
+                        cycle_edge = (p, q)
+            if len(comp) < min_px:                       # stray pixels and stumps
+                for p in comp:
+                    out[p] = bg(p)
+                    pix.discard(p)
+                stats["dropped"] += 1
+                changed += 1
+                continue
+            if cycle_edge is not None:                   # a loop: cut it at a plain river pixel
+                path, p = [], cycle_edge[0]
+                while p is not None:
+                    path.append(p)
+                    p = parent[p]
+                anc = set(path)
+                other, p = [], cycle_edge[1]
+                while p is not None and p not in anc:
+                    other.append(p)
+                    p = parent[p]
+                ring = path[:path.index(p) + 1] + other if p is not None else path + other
+                plain = [c for c in ring if out[c] >= 3 and len(neighbours(c, pix)) == 2] or ring
+                cut = plain[len(plain) // 2]
+                out[cut] = bg(cut)
+                pix.discard(cut)
+                stats["loops"] += 1
+                changed += 1
+                continue                                 # re-examine the pieces in the next pass
+            deg = {p: len(neighbours(p, pix)) for p in comp}
+            # 3. junctions: every branch but two (the main channel) needs a marker next to the junction
+            for j in [p for p in comp if deg[p] >= 3]:
+                nb = neighbours(j, pix)
+                # upscaling leaves the marker a few pixels up its branch: pull it next to the junction
+                for q in nb:
+                    if out[q] in (1, 2):
+                        continue
+                    prev, cur = j, q
+                    for _step in range(4):
+                        if deg.get(cur, 0) != 2:
+                            break
+                        prev, cur = cur, next(r for r in neighbours(cur, pix) if r != prev)
+                        if out[cur] in (1, 2) and deg.get(cur, 0) == 2:
+                            out[q], out[cur] = out[cur], (out[q] if out[q] >= 3 else 3)
+                            stats["moved"] += 1
+                            changed += 1
+                            break
+                plain = [q for q in nb if out[q] >= 3 or out[q] == 0]
+                need = len(plain) - 2
+                if need <= 0:
+                    continue
+
+                def reach(q):                            # length of the branch leaving j through q
+                    n, prev, cur = 1, j, q
+                    while deg.get(cur, 0) == 2 and n < 100000:
+                        prev, cur = cur, next(r for r in neighbours(cur, pix) if r != prev)
+                        n += 1
+                    return n
+
+                for q in sorted(plain, key=reach)[:need]:
+                    if out[q] == 0 or deg[q] == 1:       # a one-pixel tributary: remove it
+                        out[q] = bg(q)
+                        pix.discard(q)
+                    else:
+                        out[q] = 1
+                    stats["markers"] += 1
+                    changed += 1
+            # a marker whose junction is gone (the other river was cut away) is an ordinary river pixel
+            for p in comp:
+                if p in pix and out[p] in (1, 2) and not any(len(neighbours(q, pix)) >= 3 for q in neighbours(p, pix)):
+                    widths = [int(out[q]) for q in neighbours(p, pix) if out[q] >= 3]
+                    out[p] = min(widths) if widths else 3
+                    stats["markers"] += 1
+                    changed += 1
+            # 4. exactly one source
+            srcs = [p for p in comp if p in pix and out[p] == 0]
+            for p in srcs[1:]:
+                out[p] = 3
+                changed += 1
+            if not srcs:
+                ends = [p for p in comp if p in pix and len(neighbours(p, pix)) == 1]
+                if not ends:
+                    continue
+
+                def score(e):
+                    prev, cur = None, e
+                    while len(neighbours(cur, pix)) <= 2:
+                        nxt = [r for r in neighbours(cur, pix) if r != prev]
+                        if not nxt:
+                            break
+                        prev, cur = cur, nxt[0]
+                    branch = prev is not None and len(neighbours(cur, pix)) >= 3 and out[prev] in (1, 2)
+                    y, x = e
+                    near = cls[max(0, y - 3):y + 4, max(0, x - 3):x + 4]
+                    water = 2 if (near == SEA).any() else (1 if (near == LAKE).any() else 0)
+                    # the head of the main channel: not a tributary, far from the sea, narrow
+                    return (branch, water, int(out[e]), e)
+
+                head = min(ends, key=score)
+                out[head] = 0
+                stats["sources"] += 1
+                changed += 1
+        if not changed:
+            break
+    log(f"rivers repaired: {stats}")
+    return stats
 
 
 def write_definitions(labels, n, cls, vid, d, colors, typ):
@@ -717,23 +877,113 @@ def inside_points(labels, provs, cx, cy, k=8):
         provs[i]["pts"] = [[float(xs[s]) + 0.5, float(ys[s]) + 0.5] for s in sel] or [provs[i]["c"]]
 
 
-def write_regions(provs, labels, region_of_vid, reg_files):
-    log("strategic regions")
-    for i, p in provs.items():
-        p["vreg"] = int(region_of_vid[p["vid"]])
-    # sea regions cut by the crop may fall apart: keep the biggest connected part,
-    # hand the rest to the region of an adjacent sea province
-    for _ in range(5):
-        moved = 0
-        regs, nsea = {}, {}
+def drop_empty_ai_areas(text, continents_on_map):
+    """Remove the AI areas (common/ai_areas) that cover nothing on this map: no strategic region
+    left after the translation and no continent that has land here (Pacific, Japan, America ...).
+    Returns (new text, list of dropped area names)."""
+    m = re.search(r"areas\s*=\s*\{", text)
+    out, pos, depth, start, dropped = [text[:m.end()]], m.end(), 1, None, []
+    j, n = m.end(), len(text)
+    while j < n:
+        ch = text[j]
+        if ch == "#":
+            j = text.find("\n", j)
+            j = n if j < 0 else j
+            continue
+        if depth == 1 and start is None and (ch.isalnum() or ch == "_"):
+            start = j
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 1 and start is not None:
+                block = text[start:j + 1]
+                body = re.sub(r"#[^\n]*", "", block)
+                regs = re.search(r"strategic_regions\s*=\s*\{([^}]*)\}", body)
+                conts = re.search(r"continents\s*=\s*\{([^}]*)\}", body)
+                covered = bool(regs and regs.group(1).split()) or \
+                    bool(conts and set(conts.group(1).split()) & set(continents_on_map))
+                out.append(text[pos:start])
+                if covered:
+                    out.append(block)
+                else:
+                    dropped.append(re.match(r"\w+", block).group(0))
+                pos, start = j + 1, None
+            elif depth == 0:
+                break
+        j += 1
+    out.append(text[pos:])
+    return "".join(out), dropped
+
+
+def sea_region_ids(d, region_of_vid):
+    """vanilla strategic regions that are naval regions (they hold sea provinces)"""
+    return {int(region_of_vid[vp]) for vp, v in d["defs"].items() if v["type"] == "sea"}
+
+
+def settle_regions(provs, sea_regions):
+    """Give every province a strategic region of its own kind, in provs[i]["vreg"].
+
+    Vanilla never mixes the two kinds: a naval region holds sea provinces only, a land region land
+    and lakes only. The new province layout breaks that (islets grown on vanilla sea, sea provinces
+    grown on vanilla land), and a land province inside a naval region crashes the game at start.
+    1. every province in a region of the wrong kind moves, together with the touching provinces in
+       the same situation, to the region of the nearest province of its own kind;
+    2. naval regions must be contiguous ("fractioned" map error): detached groups of sea provinces
+       join the naval region they touch."""
+    from collections import Counter
+
+    def is_sea(i):
+        return provs[i]["type"] == "sea"
+
+    def wrong(i):
+        return is_sea(i) != (provs[i]["vreg"] in sea_regions)
+
+    def nearest_region(comp, want_sea):
+        seen, frontier = set(comp), list(comp)
+        while frontier:
+            nxt = []
+            for i in frontier:
+                for q in provs[i]["n"]:
+                    if q in seen:
+                        continue
+                    seen.add(q)
+                    if is_sea(q) == want_sea and not wrong(q):
+                        return provs[q]["vreg"]
+                    nxt.append(q)
+            frontier = nxt
+        return None
+
+    stats = dict(land_out_of_naval=0, sea_out_of_land=0, sea_reattached=0, unresolved=0)
+    todo = sorted(i for i in provs if wrong(i))
+    todo_set, seen = set(todo), set()
+    for s in todo:
+        if s in seen:
+            continue
+        comp, stack = [s], [s]
+        seen.add(s)
+        while stack:
+            for q in provs[stack.pop()]["n"]:
+                if q in todo_set and q not in seen and is_sea(q) == is_sea(s):
+                    seen.add(q)
+                    comp.append(q)
+                    stack.append(q)
+        r = nearest_region(comp, is_sea(s))
+        if r is None:
+            stats["unresolved"] += len(comp)
+            continue
+        for i in comp:
+            provs[i]["vreg"] = r
+        stats["sea_out_of_land" if is_sea(s) else "land_out_of_naval"] += len(comp)
+    for _ in range(10):
+        changed = 0
+        members = {}
         for i, p in provs.items():
-            regs.setdefault(p["vreg"], []).append(i)
-            nsea[p["vreg"]] = nsea.get(p["vreg"], 0) + (p["type"] == "sea")
-        # only naval regions must be contiguous (the engine reports them as "fractioned")
-        regs = {r: m for r, m in regs.items() if nsea[r] > 0}
-        for r, members in regs.items():
-            mset, comps, seen = set(members), [], set()
-            for s in members:
+            if is_sea(i):
+                members.setdefault(p["vreg"], []).append(i)
+        for r, mem in sorted(members.items()):
+            mset, comps, seen = set(mem), [], set()
+            for s in mem:
                 if s in seen:
                     continue
                 comp, stack = {s}, [s]
@@ -745,21 +995,31 @@ def write_regions(provs, labels, region_of_vid, reg_files):
                             comp.add(q)
                             stack.append(q)
                 comps.append(comp)
-            if len(comps) < 2:
-                continue
             comps.sort(key=lambda c: -sum(provs[i]["px"] for i in c))
             for comp in comps[1:]:
+                votes = Counter(provs[q]["vreg"] for i in comp for q in provs[i]["n"]
+                                if q not in comp and is_sea(q) and provs[q]["vreg"] != r)
+                if not votes:
+                    stats["unresolved"] += len(comp)
+                    continue
+                new = votes.most_common(1)[0][0]
                 for i in comp:
-                    other = [provs[q]["vreg"] for q in provs[i]["n"] if q not in comp]
-                    same = [provs[q]["vreg"] for q in provs[i]["n"] if q not in comp
-                            and provs[q]["type"] == provs[i]["type"]]
-                    other = same or other
-                    if other:
-                        provs[i]["vreg"] = other[0]
-                        moved += 1
-        if not moved:
+                    provs[i]["vreg"] = new
+                changed += len(comp)
+        stats["sea_reattached"] += changed
+        if not changed:
             break
-        log(f"reattached {moved} detached provinces")
+    log(f"strategic regions settled: {stats}")
+    if stats["unresolved"]:
+        log("WARN: some provinces could not be given a region of their own kind (run tools/validate.py)")
+    return stats
+
+
+def write_regions(provs, labels, region_of_vid, reg_files, sea_regions):
+    log("strategic regions")
+    for i, p in provs.items():
+        p["vreg"] = int(region_of_vid[p["vid"]])
+    settle_regions(provs, sea_regions)
     by_reg = {}
     for i, p in provs.items():
         by_reg.setdefault(p["vreg"], []).append(i)
@@ -781,8 +1041,9 @@ def write_regions(provs, labels, region_of_vid, reg_files):
         big = max(ps, key=lambda i: provs[i]["px"])
         bx, by = provs[big]["c"]
         sx_, sy_ = provs[big]["pts"][-1]
-        # the engine only knows the sizes "large" and "small"; without a "large" entry it crashes
-        weather.append(f"{k};{bx:.2f};10.00;{H - by:.2f};large")
+        # the sizes in the real game files are "big" and "small" (the wiki prose says "large", the
+        # files of working mods such as Kaiserreich say "big"); the engine wants one of each
+        weather.append(f"{k};{bx:.2f};10.00;{H - by:.2f};big")
         weather.append(f"{k};{sx_:.2f};10.00;{H - sy_:.2f};small")
     for p in provs.values():
         p["region"] = newid[p["vreg"]]
@@ -796,6 +1057,11 @@ def write_regions(provs, labels, region_of_vid, reg_files):
         return "strategic_regions = {\n\t\t\t" + " ".join(map(str, new)) + "\n\t\t}"
 
     out = re.sub(r"strategic_regions\s*=\s*\{([^}]*)\}", fix_block, src)
+    names = re.search(r"continents\s*=\s*\{([^}]*)\}",
+                      re.sub(r"#[^\n]*", "", (VMAP / "continent.txt").read_text(encoding="utf-8-sig"))).group(1).split()
+    used = {p["continent"] for p in provs.values() if p["type"] == "land"}
+    out, dropped = drop_empty_ai_areas(out, {n for k, n in enumerate(names, 1) if k in used})
+    log(f"AI areas outside the map dropped: {dropped}")
     ai = MOD / "common" / "ai_areas"
     ai.mkdir(parents=True, exist_ok=True)
     (ai / "default.txt").write_text(out, encoding="utf-8")
@@ -917,7 +1183,7 @@ def identity_rest(d, labels, n, cls, vid, typ, region_of_vid, reg_files):
     colors = province_colors(n)
     Image.fromarray(colors[labels], "RGB").save(OUT / "provinces.bmp")
     provs = write_definitions(labels, n, cls, vid, d, colors, typ)
-    write_regions(provs, labels, region_of_vid, reg_files)
+    write_regions(provs, labels, region_of_vid, reg_files, sea_region_ids(d, region_of_vid))
     write_adjacencies(provs, labels, d)
     ys, xs = src_index()
     write_layers(cls, ys, xs)
@@ -976,8 +1242,14 @@ def main():
     colors = province_colors(n)
     Image.fromarray(colors[labels], "RGB").save(OUT / "provinces.bmp")
     provs = write_definitions(labels, n, cls, vid, d, colors, typ)
-    write_regions(provs, labels, region_of_vid, reg_files)
+    write_regions(provs, labels, region_of_vid, reg_files, sea_region_ids(d, region_of_vid))
     write_adjacencies(provs, labels, d)
+    # the repairs moved pixels between provinces: the layers must follow the final province types,
+    # so that every land pixel is above and every water pixel below sea level, and no river runs on water
+    ptype = np.zeros(n + 1, np.int8)
+    for i, p in provs.items():
+        ptype[i] = {"land": LAND, "sea": SEA, "lake": LAKE}[p["type"]]
+    cls = ptype[labels]
     write_layers(cls, ys, xs)
     write_rivers(cls)
     hmap = np.asarray(Image.open(OUT / "heightmap.bmp"))

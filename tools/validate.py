@@ -368,9 +368,13 @@ def check_states(defs, neigh, states, regions, tags):
                     stack.append(q)
         if len(comp) != len(sea):
             err(f"strategic region {rid}: sea provinces are not contiguous ({len(sea) - len(comp)} detached)")
-        landn = sum(defs[p]["type"] == "land" for p in members)
-        if landn and sea:
-            pass  # mixed regions exist in vanilla as well
+        # vanilla never mixes: a naval region holds sea provinces only (a land state inside a naval
+        # region is a prime suspect for the crash at game start)
+        other = [p for p in members if defs[p]["type"] != "sea"]
+        if other:
+            sts = sorted({prov_state[p] for p in other if p in prov_state})
+            err(f"strategic region {rid} is a naval region but holds {len(other)} land/lake provinces "
+                f"(states {sts[:8]})")
     return prov_state, prov_reg
 
 
@@ -559,13 +563,14 @@ def check_misc(defs, neigh, states, regions, prov_state, W, H, labels):
             prov = int(labels[int(H - z), int(x)])
             if prov not in regions[rid]["provinces"]:
                 warn(f"weatherpositions.txt:{ln}: position lies outside region {rid}")
-    # the engine knows the sizes "large" and "small" only and crashes without one of each
-    odd = sorted({s for v in seen.values() for s in v} - {"large", "small"})
+    # the sizes in the real game files are "big" and "small" (checked against Kaiserreich's file;
+    # the wiki prose says "large"); the engine crashes without one of each
+    odd = sorted({s for v in seen.values() for s in v} - {"big", "small"})
     if odd:
-        err(f"weatherpositions.txt: unknown sizes {odd} (only 'large' and 'small' exist)")
-    miss = [r for r in regions if seen[r] != {"large", "small"}]
+        err(f"weatherpositions.txt: unknown sizes {odd} (only 'big' and 'small' exist)")
+    miss = [r for r in regions if seen[r] != {"big", "small"}]
     if miss:
-        err(f"{len(miss)} strategic regions without large+small weather position, e.g. {miss[:10]}")
+        err(f"{len(miss)} strategic regions without big+small weather position, e.g. {miss[:10]}")
     for name in ("airports.txt", "rocketsites.txt"):
         if (MAP / name).exists():
             warn(f"map/{name}: removed from the game in 1.15 (air_base / rocket_site_spawn lines in buildings.txt)")
@@ -580,6 +585,68 @@ def check_misc(defs, neigh, states, regions, prov_state, W, H, labels):
         for m in re.finditer(r"\bstate\s*=\s*(\d+)", t):
             if int(m.group(1)) not in states:
                 err(f"tutorial/tutorial.txt: state {m.group(1)} does not exist")
+
+
+# ---------------------------------------------------------------- rivers
+def check_rivers(defs, labels):
+    """every 4-connected river system: one source at an open end, no loops, no diagonal contacts,
+    markers right next to their junction, no river pixel on water"""
+    print("== rivers.bmp")
+    riv = read_bmp(MAP / "rivers.bmp")
+    land = np.array([defs[i]["type"] == "land" for i in range(len(defs))])[labels]
+    r = riv < 12
+    if (r & ~land).any():
+        err(f"{int((r & ~land).sum())} river pixels on sea or lake provinces")
+    d1 = r[:-1, :-1] & r[1:, 1:] & ~r[:-1, 1:] & ~r[1:, :-1]
+    d2 = r[:-1, 1:] & r[1:, :-1] & ~r[:-1, :-1] & ~r[1:, 1:]
+    if d1.any() or d2.any():
+        err(f"{int(d1.sum() + d2.sum())} places where river pixels touch only diagonally")
+    if r[0].any() or r[-1].any() or r[:, 0].any() or r[:, -1].any():
+        err("river pixels on the edge of the bitmap")
+    if (r[:-1, :-1] & r[:-1, 1:] & r[1:, :-1] & r[1:, 1:]).any():
+        err("rivers thicker than one pixel (2x2 blocks)")
+    pix = {tuple(p): int(riv[tuple(p)]) for p in np.argwhere(r).tolist()}
+
+    def nb(p):
+        y, x = p
+        return [q for q in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)) if q in pix]
+
+    seen, systems = set(), 0
+    no_src, many_src, loops, small, bad_src, far_marker = [], [], [], [], [], []
+    for start in pix:
+        if start in seen:
+            continue
+        systems += 1
+        comp, stack = [start], [start]
+        seen.add(start)
+        while stack:
+            for q in nb(stack.pop()):
+                if q not in seen:
+                    seen.add(q)
+                    comp.append(q)
+                    stack.append(q)
+        edges = sum(len(nb(p)) for p in comp) // 2
+        srcs = [p for p in comp if pix[p] == 0]
+        where = (start[1], start[0])
+        if edges >= len(comp):
+            loops.append(where)
+        if len(comp) < 8:
+            small.append(where)
+        if not srcs:
+            no_src.append(where)
+        elif len(srcs) > 1:
+            many_src.append(where)
+        bad_src += [(p[1], p[0]) for p in srcs if len(nb(p)) != 1]
+        far_marker += [(p[1], p[0]) for p in comp if pix[p] in (1, 2) and not any(len(nb(q)) >= 3 for q in nb(p))]
+    info(f"{systems} river systems, {len(pix)} river pixels")
+    for name, lst in (("without a source", no_src), ("with more than one source", many_src), ("with a loop", loops),
+                      ("smaller than 8 px", small)):
+        if lst:
+            err(f"{len(lst)} river systems {name}, e.g. at (x, y) {lst[:5]}")
+    if bad_src:
+        err(f"{len(bad_src)} river sources that are not at an open end, e.g. {bad_src[:5]}")
+    if far_marker:
+        err(f"{len(far_marker)} flow-in/flow-out markers that do not touch a junction, e.g. {far_marker[:5]}")
 
 
 # ---------------------------------------------------------------- countries
@@ -662,7 +729,9 @@ def check_flags_and_ai(regions):
             for i in ids:
                 if i not in regions:
                     err(f"common/ai_areas/default.txt: strategic region {i} does not exist")
-        info(f"ai areas: {empty} with an empty region list")
+        if empty:
+            err(f"common/ai_areas/default.txt: {empty} areas with an empty strategic_regions list "
+                f"(areas outside the map must be removed)")
 
 
 def check_text_files():
@@ -708,6 +777,7 @@ def main():
     check_provinces(defs, labels, unknown, W, H)
     neigh = neighbours(labels)
     check_definitions(defs, neigh)
+    check_rivers(defs, labels)
     states = load_states()
     regions = load_regions()
     tags = check_countries(states)

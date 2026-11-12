@@ -94,8 +94,9 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
 10. `unitstacks.txt`: tartományfajtánként más pozíciótípusok kellenek (szárazföld 0–10, 21–29, 38;
     part 19–20; tenger 0–18, 21–38; tó lásd kód).
 11. Teljesen üres `railways.txt` gyanús – a build minden fővárosba ír egy rövid „vasút” csonkot (később utak lesznek).
-12. **`weatherpositions.txt`: a méret csak `large` vagy `small` lehet.** Régiónként mindkettő kell; `large` nélkül
-    a játék összeomlik (korábban `big` állt a fájlban).
+12. **`weatherpositions.txt`: a méret `big` vagy `small`.** Régiónként mindkettő kell. (A wiki szövege „large”-ot
+    ír, de a valódi játékfájlokban – pl. a Kaiserreich `map/weatherpositions.txt`-jében – `big` áll. A második kör
+    ezt tévesen `large`-ra írta át, a harmadik visszaállította.)
 13. **`tutorial/tutorial.txt` kötelező** (`tutorial = { }`): a vanilla oktatófájl vanilla államazonosítókra mutat,
     amik ezen a térképen nincsenek → összeomlás országválasztás után.
 14. Az X-kereszteződést a motor **a térkép jobb és bal széle között is** ellenőrzi (a térkép körbeér):
@@ -111,6 +112,20 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
 18. A legfeljebb 8 pixeles tartomány hiba („has only N pixels”) – a generátor ezeket 12 pixelre növeszti.
 19. `map/airports.txt` és `map/rocketsites.txt` az 1.15-ös javítás óta nem létezik; helyettük a
     `buildings.txt` `air_base` és `rocket_site_spawn` sorai számítanak.
+20. **`rivers.bmp`**: a folyó 1 pixel széles, 4-szomszédosan összefüggő vonal. Minden összefüggő folyórendszernek
+    **pontosan egy forráspixele** (0-s index) van, egy szabad végen; a mellékfolyó utolsó pixele a torkolat előtt
+    befolyásjelölő (1), az elágazás első pixele kifolyásjelölő (2), és a jelölőnek **érintenie kell a torkolatot**.
+    Nem lehet hurok, csak átlós érintkezés, 8 pixelnél rövidebb csonk, és a folyó nem érhet a bitkép széléig.
+    A felnagyítás és a kivágás mindezt elrontja – a `newmap.py` `repair_rivers()` függvénye javítja.
+21. **Stratégiai régiók fajtája**: a tengeri régióba csak tengeri tartomány kerüljön, a szárazföldibe csak
+    szárazföld és tó. (A vanilla/Kaiserreich tengeri régiókban előfordul egy-egy apró sziget, de egész játszható
+    államok tengeri régióban – nálunk Szardínia, Korzika, Málta – nem.) A `newmap.py` `settle_regions()` intézi.
+22. **`common/ai_areas`**: az a terület, amelynek a térképen nem marad régiója vagy kontinense (Csendes-óceán,
+    Japán, Amerika…), kimarad – üres `strategic_regions = { }` blokk nem maradhat.
+23. A `Failed allocate data buffer` sor az `error.log` végén **nem a hiba oka**: működő játékok naplójában is
+    megjelenik minden indításkor (a játéklobbi egy elkapott kivétele).
+24. **Formátumot ne fejből és ne csak a wiki szövegéből írj**: előbb nézd meg egy működő mod valódi fájlját
+    (pl. Kaiserreich `map/` mappa a GitHubon).
 
 ## Állapot (2026-11-12, második kör – statikus javítás, játékban még NEM tesztelve)
 
@@ -120,9 +135,9 @@ javítottuk, és ugyanezek a javítások bekerültek a `newmap.py`-ba és a `bui
 
 Javítva (zárójelben a szabály száma):
 
-- **Összeomlás játékindításkor**: `weatherpositions.txt` `big` → `large` (12); üres `tutorial/tutorial.txt` (13).
-  Ez a kettő magyarázza, hogy a vanilla térképes változat miért futott, az új térképes miért nem: a régi a vanilla
-  időjárásfájlt használta, és megvolt benne minden vanilla államazonosító.
+- **Összeomlás játékindításkor**: üres `tutorial/tutorial.txt` (13). ~~`weatherpositions.txt` `big` → `large`~~ –
+  **ez tévedés volt**, a harmadik kör visszaállította (12. szabály). A játékbeli teszt szerint a fagyást egyik sem
+  szüntette meg.
 - **Térképbetöltés**: egy X-kereszteződés a térkép varratán (14); 7 darab 8 pixeles vagy kisebb tartomány (18);
   hiányzó záró sor és 29 hibás/duplikált sor az `adjacencies.csv`-ben (16).
 - **`buildings.txt`**: 4758 sorban tengeri tartomány állt olyan épülettípusnál, ami nem kaphat (15).
@@ -170,6 +185,53 @@ Ennek ellenére a játék **indításkor összeomlik** („Initializing game” 
   nuclear_reactor_spawn, radar_station, rocket_site_spawn, stronghold_network, synthetic_refinery) cseréltük a
   generáltakra, **összeomlott**. (Ez még az „inside points” javítás előtti generálással volt.) Érdemes ugyanezt
   a felezést a mostani fájlokkal megismételni.
+
+## Harmadik kör (2026-11-12 este) – javítások a crash report alapján, játékban még NEM tesztelve
+
+A crash report (`docs/crash_reports/2026-11-12_game_start/`) a hiba helyét nem nevezi meg: a verem szimbólumok
+nélküli, a `meta.yml`-ben nincs „utoljára olvasott fájl”, az `error.log` utolsó sora pedig ártalmatlan (23. szabály).
+Ezért azt kerestük, miben tér el az új térkép attól az „identity” változattól, ami játékban futott (vanilla
+térképgeometria a saját íróinkon át). Az alábbiak **csak az új térképen** léteztek, és mind ki lettek javítva – a
+kész fájlokban és a generátorban is:
+
+- **Folyók** (20. szabály): 38 folyórendszernek nem volt forrása, 75 mellékfolyó-jelölő 1–2 pixellel elcsúszott a
+  torkolattól, volt egy hurok, 4 átlós érintkezés, 17 csonk és 70 pixel a térkép szélén. A játék ezzel a
+  folyóréteggel még sosem futott (az „identity” térképen a vanilla folyók voltak). Most 131 szabályos rendszer van.
+- **Stratégiai régiók** (21.): a régi „szétszakadt régió” javítás 142 szárazföldi tartományt tett tengeri régióba,
+  köztük hat teljes játszható államot (Karalis, Tharros, Malta, Nuragic North, Nuragic Highlands, Corsica) és 13
+  pusztaság-államot. Ezek most a legközelebbi szárazföldi régióban vannak.
+- **Időjárás-méret** (12.): vissza `big`-re. A második kör `large` átírása hiba volt – az én hibám, a wiki szövegére
+  hagyatkoztam a valódi fájl helyett. (A fagyást nem ez okozta: előtte és utána ugyanott omlott össze.)
+- **AI-területek** (22.): 24 üres terület törölve.
+- **Magasságtérkép**: 621 pixel nem egyezett a tartománya típusával (szárazföld a vízszint alatt és fordítva).
+- A `tools/validate.py` mostantól a folyókat, a régiók fajtáját és az AI-területeket is ellenőrzi; a feltöltött
+  (hibás) változaton 17 hibát jelez, a mostanin 0-t.
+
+**Őszintén:** egyik pontról sem tudjuk bizonyosan, hogy ez okozta a fagyást. Ha a játék még mindig összeomlik,
+ne találgassunk tovább, hanem futtasd az automata felezést:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/bisect_launch.ps1
+```
+
+- Kb. 13 változatot próbál végig (változatonként ~1 perc): mindegyiknél egy-egy generált fájl leegyszerűsített
+  változatát cseréli be (folyók nélkül, államszintű épületsorok nélkül, kikötők nélkül, lapos domborzat stb.),
+  elindítja a játékot, feljegyzi, hogy fut-e, majd `git checkout`-tal visszaállítja az eredetit.
+- Ha már az első (`baseline`) fut, megáll – akkor kész vagyunk.
+- Az eredménytáblát a `docs/crash_reports/bisect_<dátum>.md` fájlba írja: **ezt commitold és told fel**. Ebből
+  egyértelműen kiderül, melyik fájl a hibás (vagy az `all_min` sor alapján az, hogy a tartománykiosztás, a
+  térképméret, az államok vagy a régiók).
+- A `map/` és a `history/states` mappában ne legyen commitolatlan változás (a szkript ellenőrzi).
+- A változatok listája: `python tools/make_variants.py --list`.
+
+A felezés `-crash_data_log` kapcsolóval indít, így a crash report `meta.yml`-je az utoljára olvasott fájlt is
+megnevezi. Kézi teszthez ugyanez: `tools/test_launch.ps1 -ExtraArgs "-quickstart -start_tag=ROM -crash_data_log"`.
+
+Ami továbbra is gyanús, ha a felezés `all_min` sora is összeomlik:
+
+- a térkép mérete (3328×3072): a wiki szerint szabályos, de ezzel a mérettel a játék még sosem futott –
+  `ANTE_MAP=wide` (5632×2048, vanilla méret) generálással ellenőrizhető;
+- a keleti térképszél szárazföld, a nyugati tenger: 91 pusztaság-tartomány csak a varraton át „partmenti”.
 
 ## Tervezett fázisok
 

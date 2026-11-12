@@ -102,19 +102,9 @@ areas = {
 		}
 	}
 
-	north_america = {
+	
 
-		continents = {
-			north_america
-		}
-	}
-
-	south_america = {
-
-		continents = {
-			south_america
-		}
-	}
+	
 
 	africa = {
 
@@ -137,43 +127,17 @@ areas = {
 		}
 	}
 
-	pacific = {
+	
 
-		strategic_regions = {
-			
-		}
-	}
-
-	oceania = {
-
-		strategic_regions = {
-			
-		}
-	}
 	
-	home_islands = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	just_philippines = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	east_indies = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	burma = {
-		strategic_regions = {
-			
-		}
-	}
+	
+	
+	
+	
+	
 
 	horn_of_africa = {
 		strategic_regions = {
@@ -192,11 +156,7 @@ areas = {
 		}
 	}
 	
-	belgian_congo = {
-		strategic_regions = {
-			
-		}
-	}
+	
 
 	sub_saharan_africa = {
 		strategic_regions = {
@@ -235,95 +195,35 @@ areas = {
 		}
 	}
 
-	andaman_islands = {
-		strategic_regions = {
-			
-		}
-	}
-
-	guam_area = {
-		strategic_regions = {
-			
-		}
-	}
-
-	japan = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	us_west_coast = {
-		strategic_regions = {
-			
-		}
-	}
+
 	
-	pearl_harbor_pacific_control_zone = {
-		strategic_regions = {
-			
-		}
-	}
 
-	borneo_area = {
-		strategic_regions = {
-			
-		}
-	}
-
-	sumatra_area = {
-		strategic_regions = {
-			
-		}
-	}
-
-	java_area = {
-		strategic_regions = {
-			
-		}
-	}
-
-	bismarck_sea_area = {
-		strategic_regions = {
-			
-		}
-	}
-
-	kokoda_trail_area = {
-		strategic_regions = {
-			
-		}
-	}
-
-	north_australia = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	micronesia_pacific_control_zone = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	mariana_pacific_control_zone = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	north_pacific_control_zone = {
-		strategic_regions = {
-			
-		}
-	}
 	
-	home_islands_control_zone = {
-		strategic_regions = {
-			
-		}
-	}
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	western_med_control_zone = {
 		strategic_regions = {
