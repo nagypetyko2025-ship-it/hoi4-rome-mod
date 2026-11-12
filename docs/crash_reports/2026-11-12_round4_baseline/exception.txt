@@ -1,0 +1,21 @@
+Application: HOI4 
+Version: Operation Postern v1.19.4.2.2da5 
+Date/Time: 2026-11-12 20:41:23
+
+Unhandled Exception C0000005 (EXCEPTION_ACCESS_VIOLATION) at address 0x00007FF74DDA4370
+
+Stack Trace: 
+  1    hoi4.exe                 PHYSFS_swapULE64 (+ 11816992)
+  2    hoi4.exe                 PHYSFS_swapULE64 (+ 11811451)
+  3    hoi4.exe                 PHYSFS_swapULE64 (+ 11828402)
+  4    hoi4.exe                 PHYSFS_swapULE64 (+ 12719596)
+  5    hoi4.exe                 PHYSFS_swapULE64 (+ 9971520)
+  6    hoi4.exe                 PHYSFS_swapULE64 (+ 9960447)
+  7    hoi4.exe                 PHYSFS_swapULE64 (+ 34099909)
+  8    hoi4.exe                 PHYSFS_swapULE64 (+ 34097850)
+  9    hoi4.exe                 (function-name not available) (+ 0)
+  10   hoi4.exe                 PHYSFS_writeULE64 (+ 423042)
+  11   hoi4.exe                 PHYSFS_writeULE64 (+ 558)
+  12   KERNEL32.DLL             BaseThreadInitThunk (+ 23)
+  13   ntdll.dll                RtlUserThreadStart (+ 44)
+  14   ntdll.dll                RtlUserThreadStart (+ 44)
