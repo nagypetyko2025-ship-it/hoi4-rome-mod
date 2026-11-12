@@ -1,0 +1,283 @@
+[19:23:56][no_game_date]: Invalid supported_version in  file: mod/ugc_1913968458.mod line: 8
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_ENG.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_FRA.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_GER.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_GER.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_GER.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_GER.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_GER.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_GER.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_GER.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_GER.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_GER.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_ITA.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 104" in file: "common/ai_navy/goals/goals_JAP.txt" near line: 105
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_SOV.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 5" in file: "common/ai_navy/goals/goals_USA.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 16" in file: "common/ai_navy/goals/goals_USA.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 27" in file: "common/ai_navy/goals/goals_USA.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 38" in file: "common/ai_navy/goals/goals_USA.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 49" in file: "common/ai_navy/goals/goals_USA.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 60" in file: "common/ai_navy/goals/goals_USA.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 71" in file: "common/ai_navy/goals/goals_USA.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 82" in file: "common/ai_navy/goals/goals_USA.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: available_for, near line: 93" in file: "common/ai_navy/goals/goals_USA.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 5
+Invalid country tag: blocked_for, near line: 5
+Invalid country tag: blocked_for, near line: 5
+Invalid country tag: blocked_for, near line: 5
+Invalid country tag: blocked_for, near line: 5
+Invalid country tag: blocked_for, near line: 5
+Invalid country tag: blocked_for, near line: 5" in file: "common/ai_navy/goals/goals_generic.txt" near line: 6
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 16
+Invalid country tag: blocked_for, near line: 16
+Invalid country tag: blocked_for, near line: 16
+Invalid country tag: blocked_for, near line: 16
+Invalid country tag: blocked_for, near line: 16
+Invalid country tag: blocked_for, near line: 16
+Invalid country tag: blocked_for, near line: 16" in file: "common/ai_navy/goals/goals_generic.txt" near line: 17
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 27
+Invalid country tag: blocked_for, near line: 27
+Invalid country tag: blocked_for, near line: 27
+Invalid country tag: blocked_for, near line: 27
+Invalid country tag: blocked_for, near line: 27
+Invalid country tag: blocked_for, near line: 27
+Invalid country tag: blocked_for, near line: 27" in file: "common/ai_navy/goals/goals_generic.txt" near line: 28
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 38
+Invalid country tag: blocked_for, near line: 38
+Invalid country tag: blocked_for, near line: 38
+Invalid country tag: blocked_for, near line: 38
+Invalid country tag: blocked_for, near line: 38
+Invalid country tag: blocked_for, near line: 38
+Invalid country tag: blocked_for, near line: 38" in file: "common/ai_navy/goals/goals_generic.txt" near line: 39
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 49
+Invalid country tag: blocked_for, near line: 49
+Invalid country tag: blocked_for, near line: 49
+Invalid country tag: blocked_for, near line: 49
+Invalid country tag: blocked_for, near line: 49
+Invalid country tag: blocked_for, near line: 49
+Invalid country tag: blocked_for, near line: 49" in file: "common/ai_navy/goals/goals_generic.txt" near line: 50
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 60
+Invalid country tag: blocked_for, near line: 60
+Invalid country tag: blocked_for, near line: 60
+Invalid country tag: blocked_for, near line: 60
+Invalid country tag: blocked_for, near line: 60
+Invalid country tag: blocked_for, near line: 60
+Invalid country tag: blocked_for, near line: 60" in file: "common/ai_navy/goals/goals_generic.txt" near line: 61
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 71
+Invalid country tag: blocked_for, near line: 71
+Invalid country tag: blocked_for, near line: 71
+Invalid country tag: blocked_for, near line: 71
+Invalid country tag: blocked_for, near line: 71
+Invalid country tag: blocked_for, near line: 71
+Invalid country tag: blocked_for, near line: 71" in file: "common/ai_navy/goals/goals_generic.txt" near line: 72
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 82
+Invalid country tag: blocked_for, near line: 82
+Invalid country tag: blocked_for, near line: 82
+Invalid country tag: blocked_for, near line: 82
+Invalid country tag: blocked_for, near line: 82
+Invalid country tag: blocked_for, near line: 82
+Invalid country tag: blocked_for, near line: 82" in file: "common/ai_navy/goals/goals_generic.txt" near line: 83
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 93
+Invalid country tag: blocked_for, near line: 93
+Invalid country tag: blocked_for, near line: 93
+Invalid country tag: blocked_for, near line: 93
+Invalid country tag: blocked_for, near line: 93
+Invalid country tag: blocked_for, near line: 93
+Invalid country tag: blocked_for, near line: 93" in file: "common/ai_navy/goals/goals_generic.txt" near line: 94
+[19:24:02][no_game_date]: Error: "Invalid country tag: blocked_for, near line: 104" in file: "common/ai_navy/goals/goals_generic.txt" near line: 105
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: GER, near line: 361
+Expected 'default', a continent name or a country tag: SOV, near line: 828
+Expected 'default', a continent name or a country tag: USA, near line: 1141
+Expected 'default', a continent name or a country tag: ENG, near line: 1500
+Expected 'default', a continent name or a country tag: FRA, near line: 1962
+Expected 'default', a continent name or a country tag: JAP, near line: 2267
+Expected 'default', a continent name or a country tag: ITA, near line: 2776
+Expected 'default', a continent name or a country tag: AST, near line: 3208
+Expected 'default', a continent name or a country tag: RAJ, near line: 3331
+Expected 'default', a continent name or a country tag: CAN, near line: 3440
+Expected 'default', a continent name or a country tag: SAF, near line: 3521
+Expected 'default', a continent name or a country tag: NZL, near line: 3602
+Expected 'default', a continent name or a country tag: POL, near line: 3685
+Expected 'default', a continent name or a country tag: HUN, near line: 3748
+Expected 'default', a continent name or a country tag: CZE, near line: 3826" in file: "gfx/interface/equipmentdesigner/graphic_db/00_plane_icons.txt" near line: 3918
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: YUG, near line: 3991
+Expected 'default', a continent name or a country tag: CHI, near line: 4073
+Expected 'default', a continent name or a country tag: PRC, near line: 4407
+Expected 'default', a continent name or a country tag: YUN, near line: 4654
+Expected 'default', a continent name or a country tag: XSM, near line: 4729
+Expected 'default', a continent name or a country tag: SIK, near line: 4804
+Expected 'default', a continent name or a country tag: GXC, near line: 4879
+Expected 'default', a continent name or a country tag: SHX, near line: 4954
+Expected 'default', a continent name or a country tag: HOL, near line: 5031
+Expected 'default', a continent name or a country tag: MEX, near line: 5112
+Expected 'default', a continent name or a country tag: POR, near line: 5195
+Expected 'default', a continent name or a country tag: SPR, near line: 5264
+Expected 'default', a continent name or a country tag: TUR, near line: 5341
+Expected 'default', a continent name or a country tag: GRE, near line: 5410
+Expected 'default', a continent name or a country tag: BUL, near line: 5479
+Expected 'default', a continent name or a country tag: EST, near line: 5548" in file: "gfx/interface/equipmentdesigner/graphic_db/00_plane_icons.txt" near line: 5622
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: LIT, near line: 5686
+Expected 'default', a continent name or a country tag: SWI, near line: 5755
+Expected 'default', a continent name or a country tag: MAN, near line: 5819
+Expected 'default', a continent name or a country tag: DEN, near line: 5909
+Expected 'default', a continent name or a country tag: FIN, near line: 6534
+Expected 'default', a continent name or a country tag: NOR, near line: 7070
+Expected 'default', a continent name or a country tag: SWE, near line: 7688" in file: "gfx/interface/equipmentdesigner/graphic_db/00_plane_icons.txt" near line: 9642
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: ENG, near line: 740
+Expected 'default', a continent name or a country tag: USA, near line: 1021
+Expected 'default', a continent name or a country tag: FRA, near line: 1293
+Expected 'default', a continent name or a country tag: GER, near line: 1503
+Expected 'default', a continent name or a country tag: ITA, near line: 1706
+Expected 'default', a continent name or a country tag: JAP, near line: 1913
+Expected 'default', a continent name or a country tag: SOV, near line: 2125" in file: "gfx/interface/equipmentdesigner/graphic_db/00_ship_icons.txt" near line: 2333
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: GER, near line: 553
+Expected 'default', a continent name or a country tag: SOV, near line: 1383
+Expected 'default', a continent name or a country tag: USA, near line: 2033
+Expected 'default', a continent name or a country tag: ENG, near line: 2640
+Expected 'default', a continent name or a country tag: FRA, near line: 3253
+Expected 'default', a continent name or a country tag: JAP, near line: 3795
+Expected 'default', a continent name or a country tag: ITA, near line: 4293
+Expected 'default', a continent name or a country tag: AST, near line: 4755
+Expected 'default', a continent name or a country tag: RAJ, near line: 5355
+Expected 'default', a continent name or a country tag: CAN, near line: 5971
+Expected 'default', a continent name or a country tag: SAF, near line: 6600
+Expected 'default', a continent name or a country tag: NZL, near line: 7200
+Expected 'default', a continent name or a country tag: POL, near line: 7824
+Expected 'default', a continent name or a country tag: HUN, near line: 8009
+Expected 'default', a continent name or a country tag: CZE, near line: 8141" in file: "gfx/interface/equipmentdesigner/graphic_db/00_tank_icons.txt" near line: 8311
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: YUG, near line: 8435
+Expected 'default', a continent name or a country tag: CHI, near line: 8572
+Expected 'default', a continent name or a country tag: PRC, near line: 8703
+Expected 'default', a continent name or a country tag: SIK, near line: 8833
+Expected 'default', a continent name or a country tag: YUN, near line: 8976
+Expected 'default', a continent name or a country tag: XSM, near line: 9119
+Expected 'default', a continent name or a country tag: GXC, near line: 9262
+Expected 'default', a continent name or a country tag: SHX, near line: 9405
+Expected 'default', a continent name or a country tag: HOL, near line: 9554
+Expected 'default', a continent name or a country tag: MEX, near line: 9732
+Expected 'default', a continent name or a country tag: POR, near line: 9913
+Expected 'default', a continent name or a country tag: SPR, near line: 10090
+Expected 'default', a continent name or a country tag: BUL, near line: 10272
+Expected 'default', a continent name or a country tag: GRE, near line: 10449
+Expected 'default', a continent name or a country tag: TUR, near line: 10626
+Expected 'default', a continent name or a country tag: NOR, near line: 10808
+Expected 'default', a continent name or a country tag: FIN, near line: 10991
+Expected 'default', a continent name or a country tag: SWE, near line: 11270
+Expected 'default', a continent name or a country tag: DEN, near line: 11782
+Expected 'default', a continent name or a country tag: AUS, near line: 11958
+Expected 'default', a continent name or a country tag: BEL, near line: 12133
+Expected 'default', a continent name or a country tag: PHI, near line: 12347" in file: "gfx/interface/equipmentdesigner/graphic_db/00_tank_icons.txt" near line: 12971
+[19:24:02][no_game_date]: Error: "Expected 'default', a continent name or a country tag: SOV, near line: 1
+Expected 'default', a continent name or a country tag: USA, near line: 313
+Expected 'default', a continent name or a country tag: ENG, near line: 671
+Expected 'default', a continent name or a country tag: FRA, near line: 824
+Expected 'default', a continent name or a country tag: RAJ, near line: 1001
+Expected 'default', a continent name or a country tag: AST, near line: 1154
+Expected 'default', a continent name or a country tag: CAN, near line: 1307
+Expected 'default', a continent name or a country tag: NZL, near line: 1460" in file: "gfx/interface/equipmentdesigner/graphic_db/02_allied_tank_icons.txt" near line: 1611
+[19:24:02][no_game_date]: Operation: FRA_instigate_workers_revolution_italy has an outcome_chance of 0 but also has an outcome defined
+[19:24:02][no_game_date]: Operation: FRA_instigate_workers_revolution_spain has an outcome_chance of 0 but also has an outcome defined
+[19:24:02][no_game_date]: Operation: FRA_instigate_workers_revolution_germany has an outcome_chance of 0 but also has an outcome defined
+[19:24:02][no_game_date]: Error: "Invalid tag. If you meant to specify a variable, prefix it with 'var:'.: GER, near line: 17" in file: "common/operations/LaR_historical_operations.txt" near line: 20
+[19:24:02][no_game_date]: Error: "Invalid tag. If you meant to specify a variable, prefix it with 'var:'.: NOR, near line: 22" in file: "common/operations/LaR_historical_operations.txt" near line: 25
+[19:24:02][no_game_date]: Error: "Invalid tag. If you meant to specify a variable, prefix it with 'var:'.: MEX, near line: 15" in file: "common/operations/NSB_historical_operations.txt" near line: 18
+[19:24:02][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:02][no_game_date]: Error: "" in file: "common/factions/goals/faction_goals_short_term.txt" near line: 279
+[19:24:02][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:02][no_game_date]: Error: "" in file: "common/factions/goals/faction_goals_short_term.txt" near line: 295
+[19:24:02][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:02][no_game_date]: Error: "" in file: "common/factions/goals/faction_goals_short_term.txt" near line: 315
+[19:24:02][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:02][no_game_date]: Error: "" in file: "common/factions/goals/faction_goals_short_term.txt" near line: 374
+[19:24:02][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:02][no_game_date]: Error: "" in file: "common/factions/goals/faction_goals_short_term.txt" near line: 390
+[19:24:02][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:02][no_game_date]: Error: "" in file: "common/factions/goals/faction_goals_short_term.txt" near line: 396
+[19:24:02][no_game_date]: No styles scripted, will create one in code and use that as default.
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: ger
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: ger
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: ger
+[19:24:03][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:03][no_game_date]: Error: "" in file: "common/scripted_effects/INS_scripted_effects.txt" near line: 2596
+[19:24:03][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:03][no_game_date]: Error: "" in file: "common/scripted_effects/INS_scripted_effects.txt" near line: 2611
+[19:24:03][no_game_date]: invalid database object for effect/trigger:  file: common/scripted_effects/SIA_scripted_effects.txt line: 1528 SIA. use var:var_name to explicitly use variables in effects/triggers
+[19:24:03][no_game_date]: invalid database object for effect/trigger:  file: common/scripted_effects/SIA_scripted_effects.txt line: 1645 SIA. use var:var_name to explicitly use variables in effects/triggers
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:03][no_game_date]: common/ideas/chile.txt:2218: remove_relation_rule_override: Missing valid target or trigger
+[19:24:03][no_game_date]: Invalid Decision Category lar_local_recruitment
+[19:24:03][no_game_date]: Unable to find focus tree with ID: italian_focus
+[19:24:03][no_game_date]: Unable to find focus tree with ID: soviet_focus
+[19:24:04][no_game_date]: Tried to get dynamic token that does not exist: ger
+[19:24:04][no_game_date]: Tried to get dynamic token that does not exist: ger
+[19:24:04][no_game_date]: Tried to get dynamic token that does not exist: ger
+[19:24:04][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:04][no_game_date]: Error: "" in file: "common/scripted_effects/INS_scripted_effects.txt" near line: 2596
+[19:24:04][no_game_date]: Errors occurred while reading math expression defaulting to 0
+[19:24:04][no_game_date]: Error: "" in file: "common/scripted_effects/INS_scripted_effects.txt" near line: 2611
+[19:24:04][no_game_date]: invalid database object for effect/trigger:  file: common/scripted_effects/SIA_scripted_effects.txt line: 1528 SIA. use var:var_name to explicitly use variables in effects/triggers
+[19:24:04][no_game_date]: invalid database object for effect/trigger:  file: common/scripted_effects/SIA_scripted_effects.txt line: 1645 SIA. use var:var_name to explicitly use variables in effects/triggers
+[19:24:04][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:04][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:04][no_game_date]: Tried to get dynamic token that does not exist: swi
+[19:24:04][no_game_date]: 2183 errors.
+[19:24:04][no_game_date]: =============================
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:77: has_game_rule: game rule LIT_ai_behavior does not exist
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:83: has_game_rule: game rule LIT_ai_behavior does not exist
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:213: has_game_rule: game rule EST_ai_behavior does not exist
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:219: has_game_rule: game rule EST_ai_behavior does not exist
+[19:24:06][no_game_date]: Unable to find focus tree with ID: italian_focus
+[19:24:06][no_game_date]: Unable to find focus tree with ID: soviet_focus
+[19:24:08][0245.01.01.12]: Exception in: , line: 238. Description: Failed allocate data buffer.

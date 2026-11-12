@@ -1,0 +1,26 @@
+# Crash Information
+AppName: HOI4 
+AppVersion: Operation Postern v1.19.4.2.2da5 
+SCMBranch: HEAD 
+SCMCommit: 2da5926752c96c473d7d307bb2d6f51576221558 
+SCMTimeStamp: "2026-11-02 20:56:12 +0100" 
+DateTime: "2026-11-12 19:24:09 +0100" 
+BuildType: Release 
+Platform: Windows 
+Architecture: 64-bit 
+OperatingSystem: Windows 11 x86_64 
+SystemLanguage: hu 
+CPUModel: Intel(R) Core(TM) i7-14700KF 
+CPUSpeed: 0 
+CPUPhysicalCores: 20 
+CPULogicalCores: 28 
+SystemMemory: 32549 
+LaunchArguments: --gdpr-compliant --quickstart --start_tag="" 
+
+# Application Specific Data 
+IsLiveBuild: true 
+DataChecksum: 51aba8324e7612c53e37bde0ecd3c8c8
+AppChecksum: d41d8cd98f00b204e9800998ecf8427e
+HasMods: true
+Mods: Ante Imperium
+IsOldSave: false

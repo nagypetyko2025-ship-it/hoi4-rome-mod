@@ -1,0 +1,40 @@
+[19:24:04][no_game_date]: Invalid effect 'BRA' in common/scripted_effects/TOA_scripted_effects.txt line : 1175
+[19:24:04][no_game_date]: Error: "Unknown effect-type: BRA, near line: 1175" in file: "common/scripted_effects/TOA_scripted_effects.txt" near line: 1189
+[19:24:04][no_game_date]: Invalid trigger 'USA' in common/scripted_effects/TOA_scripted_effects.txt line : 1228
+[19:24:04][no_game_date]: Error: "Unknown trigger-type: USA, near line: 1228" in file: "common/scripted_effects/TOA_scripted_effects.txt" near line: 1238
+[19:24:04][no_game_date]: Invalid trigger 'TUR_mustafa_kemal_ataturk' in common/scripted_effects/TUR_scripted_effects.txt line : 1061
+[19:24:04][no_game_date]: Error: "Unknown trigger-type: TUR_mustafa_kemal_ataturk, near line: 1061" in file: "common/scripted_effects/TUR_scripted_effects.txt" near line: 1062
+[19:24:04][no_game_date]: Invalid effect 'TUR_mustafa_kemal_ataturk' in common/scripted_effects/TUR_scripted_effects.txt line : 1063
+[19:24:04][no_game_date]: Error: "Unknown effect-type: TUR_mustafa_kemal_ataturk, near line: 1063" in file: "common/scripted_effects/TUR_scripted_effects.txt" near line: 1064
+[19:24:04][no_game_date]: Invalid effect 'GXC' in common/scripted_effects/WTT_china_political_struggle_effects.txt line : 69
+[19:24:04][no_game_date]: Invalid effect 'YUN' in common/scripted_effects/WTT_china_political_struggle_effects.txt line : 70
+[19:24:04][no_game_date]: Invalid effect 'SHX' in common/scripted_effects/WTT_china_political_struggle_effects.txt line : 71
+[19:24:04][no_game_date]: Invalid effect 'XSM' in common/scripted_effects/WTT_china_political_struggle_effects.txt line : 72
+[19:24:04][no_game_date]: Invalid effect 'SIK' in common/scripted_effects/WTT_china_political_struggle_effects.txt line : 73
+[19:24:04][no_game_date]: Error: "Unknown effect-type: GXC, near line: 69
+Unknown effect-type: YUN, near line: 70
+Unknown effect-type: SHX, near line: 71
+Unknown effect-type: XSM, near line: 72
+Unknown effect-type: SIK, near line: 73" in file: "common/scripted_effects/WTT_china_political_struggle_effects.txt" near line: 84
+[19:24:04][no_game_date]: Invalid effect 'YUG_peter_ii' in common/scripted_effects/YUG_scripted_effects.txt line : 102
+[19:24:04][no_game_date]: Error: "Unknown effect-type: YUG_peter_ii, near line: 102" in file: "common/scripted_effects/YUG_scripted_effects.txt" near line: 106
+[19:24:04][no_game_date]: Invalid effect 'YUG_peter_ii' in common/scripted_effects/YUG_scripted_effects.txt line : 108
+[19:24:04][no_game_date]: Invalid effect 'YUG_peter_ii' in common/scripted_effects/YUG_scripted_effects.txt line : 130
+[19:24:04][no_game_date]: Error: "Unknown effect-type: YUG_peter_ii, near line: 108
+Unknown effect-type: YUG_peter_ii, near line: 130" in file: "common/scripted_effects/YUG_scripted_effects.txt" near line: 137
+[19:24:04][no_game_date]: 2183 errors.
+[19:24:04][no_game_date]: =============================
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:77: has_game_rule: game rule LIT_ai_behavior does not exist
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:83: has_game_rule: game rule LIT_ai_behavior does not exist
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:213: has_game_rule: game rule EST_ai_behavior does not exist
+[19:24:06][no_game_date]: common/scripted_effects/BLT_scripted_effects.txt:219: has_game_rule: game rule EST_ai_behavior does not exist
+[19:24:06][no_game_date]: Invalid decision in has_active_timed_decision trigger: has_active_mission = SWI_recently_finished_president_initiative_mission
+[19:24:06][no_game_date]: Unable to find focus tree with ID: italian_focus
+[19:24:06][no_game_date]: Unable to find focus tree with ID: soviet_focus
+[19:24:07][0245.01.01.12]: Invalid trigger 'SPR' in history/general/spain_shared_advisors.txt line : 1989
+[19:24:07][0245.01.01.12]: Error: "Unknown trigger-type: SPR, near line: 1989" in file: "history/general/spain_shared_advisors.txt" near line: 1996
+[19:24:07][0245.01.01.12]: Invalid trigger 'SPR' in history/general/spain_shared_advisors.txt line : 2111
+[19:24:07][0245.01.01.12]: Error: "Unknown trigger-type: SPR, near line: 2111" in file: "history/general/spain_shared_advisors.txt" near line: 2118
+[19:24:07][0245.01.01.12]: Invalid trigger 'SPR' in history/general/spain_shared_advisors.txt line : 2429
+[19:24:07][0245.01.01.12]: Error: "Unknown trigger-type: SPR, near line: 2429" in file: "history/general/spain_shared_advisors.txt" near line: 2436
+[19:24:08][0245.01.01.12]: Exception in: , line: 238. Description: Failed allocate data buffer.

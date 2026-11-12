@@ -145,6 +145,32 @@ Még nyitott:
 - A térkép keleti széle szárazföld, a nyugati tenger, így a varraton át „partmenti” a keleti szél. Ez szabályos,
   de szokatlan; ha a varrat környékén furcsaság látszik, a keleti szélre érdemes tengersávot tenni.
 
+## Játékbeli teszt a második kör után (2026-11-12 19:24) – MÉG MINDIG ÖSSZEOMLIK
+
+A `10fa1db` commit (második kör) letöltve, `tools/validate.py`: **0 hiba, 0 figyelmeztetés**, a leírók egyeznek.
+Ennek ellenére a játék **indításkor összeomlik** („Initializing game” után, kb. 15 mp).
+
+- Indítás: `tools/test_launch.ps1 -ExtraArgs "-quickstart -start_tag=ROM"`. Ugyanez történt korábban kézzel
+  is (főmenü → 245 AUC → Róma vagy Karthágó → Start Game), tehát nem a gyorsindítás okozza.
+- Térképhiba a naplóban: **nincs** (0 X crossing / MAP_ERROR / fractioned). A főmenüig hibátlanul betölt.
+- **Ugyanaz a memóriacím, mint a javítások előtt**: `EXCEPTION_ACCESS_VIOLATION at 0x00007FF74DDA4370`
+  (verem: `PHYSFS_swapULE64 +11816992, +11811451, +11828402, +12719596, +9971520, +9960447, +34099909`).
+  Az időjárás- és az oktatójavítás tehát nem ezt a hibát szüntette meg.
+- Furcsaság a `meta.yml`-ben: `LaunchArguments: --gdpr-compliant --quickstart --start_tag=""` – a tag üresen
+  érkezett meg (a PowerShell idézőjelezése miatt?). A kézi indítás ettől függetlenül ugyanígy összeomlott.
+- A teljes jelentés szöveges része: [`docs/crash_reports/2026-11-12_game_start/`](docs/crash_reports/2026-11-12_game_start/)
+  - `exception.txt` – veremlista, `meta.yml` – verzió, rendszer, indítási paraméterek
+  - `game.log`, `error_log_tail.txt` (az `error.log` utolsó 40 sora), `error_log_filtered.txt` (az `error.log` a
+    hiányzó vanilla tagekre/fókuszokra vonatkozó zaj nélkül)
+  - A 45 MB-os `minidump.dmp` nincs feltöltve (szimbólumok nélkül nem olvasható, és memóriaadat van benne);
+    ezen a gépen megvan: `Documents/Paradox Interactive/Hearts of Iron IV/crashes/hoi4_20261112_192409/`.
+- Legerősebb nyom (első kör felezéses tesztje, „identity” térkép = vanilla tartományok a saját íróinkon át):
+  a régi, vanilla-alapú `buildings.txt` mellett a játék **elindult és futott**; amikor abban csak az
+  **államszintű épületsorokat** (air_base, anti_air_building, arms_factory, industrial_complex, fuel_silo,
+  nuclear_reactor_spawn, radar_station, rocket_site_spawn, stronghold_network, synthetic_refinery) cseréltük a
+  generáltakra, **összeomlott**. (Ez még az „inside points” javítás előtti generálással volt.) Érdemes ugyanezt
+  a felezést a mostani fájlokkal megismételni.
+
 ## Tervezett fázisok
 
 0. Alapozás – kész.
