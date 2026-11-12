@@ -587,13 +587,19 @@ def write_layers(cls, ys, xs):
     resample(nm, X0 / 2, Y0 / 2, SCALE, W // 2, H // 2, Image.BICUBIC).save(OUT / "world_normal.bmp")
     # colormaps (half resolution)
     (OUT / "terrain").mkdir(parents=True, exist_ok=True)
-    cm = Image.open(VMAP / "terrain" / "colormap_rgb_cityemissivemask_a.dds")
-    resample(cm, X0 / 2, Y0 / 2, SCALE, W // 2, H // 2, Image.BICUBIC).save(
+    # Colour and alpha are resized SEPARATELY. Resizing an RGBA image premultiplies by alpha, and the
+    # alpha of this texture is the city light mask - 0 almost everywhere - so the land colour came
+    # out black (a black and white map on which no country had a colour).
+    cm = Image.open(VMAP / "terrain" / "colormap_rgb_cityemissivemask_a.dds").convert("RGBA")
+    half = (X0 / 2, Y0 / 2, SCALE, W // 2, H // 2, Image.BICUBIC)
+    Image.merge("RGBA", (*resample(cm.convert("RGB"), *half).split(), resample(cm.getchannel("A"), *half))).save(
         OUT / "terrain" / "colormap_rgb_cityemissivemask_a.dds")
     for lod in range(3):
         wm = Image.open(VMAP / "terrain" / f"colormap_water_{lod}.dds")
         f = 2 ** (lod + 1)
-        wim = resample(wm, X0 / f, Y0 / f, SCALE, W // f, H // f, Image.BICUBIC).convert("RGBA")
+        wm = wm.convert("RGBA")
+        part = (X0 / f, Y0 / f, SCALE, W // f, H // f, Image.BICUBIC)
+        wim = Image.merge("RGBA", (*resample(wm.convert("RGB"), *part).split(), resample(wm.getchannel("A"), *part)))
         wim.save(OUT / "terrain" / f"colormap_water_{lod}.dds", pixel_format="DXT5")
 
 

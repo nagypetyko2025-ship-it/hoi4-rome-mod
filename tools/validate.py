@@ -131,6 +131,18 @@ def check_bitmaps(defs):
         mips = struct.unpack("<I", raw[28:32])[0]
         fourcc = raw[84:88]
         info(f"terrain/{f.name} {ww}x{hh} mips={mips} fourcc={fourcc!r} bits={struct.unpack('<I', raw[88:92])[0]}")
+        if f.name == "colormap_rgb_cityemissivemask_a.dds":
+            if (ww, hh) != (W // 2, H // 2):
+                err(f"terrain/{f.name}: {ww}x{hh}, expected half the map size {W // 2}x{H // 2}")
+            if fourcc == b"\x00\x00\x00\x00":
+                # RGB tints the whole land (country colours included): a black texture = a black and white map.
+                # It turns black when the RGBA image is resized as one (alpha is 0 almost everywhere).
+                px = np.fromfile(f, np.uint8, offset=128).reshape(-1, 4)[:, :3]
+                mean = px.mean(0)
+                info(f"terrain/{f.name} mean colour (b, g, r) = {[round(float(v)) for v in mean]}")
+                if mean.max() < 30:
+                    err(f"terrain/{f.name} is black (mean colour {[round(float(v)) for v in mean]}): "
+                        f"the map would be black and white - run tools/colormap.py")
     # rivers palette indices
     riv = read_bmp(MAP / "rivers.bmp")
     vals = np.unique(riv)

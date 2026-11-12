@@ -1,7 +1,8 @@
 # Ante Imperium – Hearts of Iron IV ókori mod
 
 Teljes átalakító (total conversion) HoI4 mod: Európa, Észak-Afrika és a Közel-Kelet Róma felemelkedése
-előtt és alatt. **Fejlesztés alatt, jelenleg NEM játszható** (lásd: „Állapot”).
+előtt és alatt. **Fejlesztés alatt: a váz elindul és fut (2026-11-12, ötödik kör), a tartalom kidolgozása
+most kezdődik** (lásd a „…kör” szakaszokat lent).
 
 - Játékverzió: **1.19.4.2** (Operation Postern). Csak a beépített DLC-kre épít
   (Together for Victory, Death or Dishonor, Waking the Tiger, Man the Guns).
@@ -31,6 +32,7 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `tools/test_launch.ps1` | Automatikus tesztindítás (lásd lent). |
 | `tools/validate.py` | **Statikus ellenőrző**: játék nélkül végignézi a térkép- és történelemfájlokat a lenti motorszabályok szerint. Minden generálás után futtasd. |
 | `tools/positions.py` | A kész térképből újraírja a `buildings.txt` és az `unitstacks.txt` pozícióit – játék nélkül is fut. |
+| `tools/colormap.py` | A szárazföld színtextúrája: játék nélkül megfesti a terepből, `--vanilla` kapcsolóval a játék sajátjából vágja ki. |
 | `tools/bisect_launch.ps1`, `tools/make_variants.py` | Automata felező teszt: egyszerűsített fájlváltozatokkal indítja a játékot, és táblát ír az eredményről. |
 | `tools/data/names_245.py` | Ókori névlisták kultúránként (vezetők, tábornokok) → `common/names/ante_names.txt`. |
 | `tutorial/tutorial.txt` | Üres `tutorial = { }` blokk (kötelező, lásd szabályok). Kézzel írt, nem generált. |
@@ -141,6 +143,10 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
     `-debug` vagy `-crash_data_log` mellett!): *„Province N is setup as coastal but has no port building in the
     nudger. This will likely crash the game.”* – és játékindításkor összeomlik. A `validate.py` ezzel a
     számítással ellenőriz.
+27. **`colormap_rgb_cityemissivemask_a.dds`**: az RGB a szárazföld színe (ezt szorozza a motor mindenre, az
+    országszínekre is), az alfa a városfények maszkja. **RGBA-ként tilos átméretezni**: a Pillow ilyenkor az
+    alfával előszoroz, az alfa pedig szinte mindenhol 0, így a szín feketére vált – fekete-fehér térkép, színtelen
+    országokkal. A színt és az alfát külön kell átméretezni (`newmap.py`), a `validate.py` jelzi a fekete textúrát.
 
 ## Állapot (2026-11-12, második kör – statikus javítás, játékban még NEM tesztelve)
 
@@ -328,6 +334,30 @@ Javítás:
 
 Teszt: `tools/bisect_launch.ps1` (ha a `baseline` fut, megáll). Ha mégis fagy, a `crashes/<dátum>/` mappából az
 `error.log` **utolsó 300 sora** kell – a „Province … has no port building” sorokat most már nem szabad látnunk.
+
+## Hatodik kör (2026-11-12 éjjel) – A JÁTÉK FUT; a fekete-fehér térkép javítva (játékban még nem láttuk)
+
+Az ötödik kör után a játék elindul és fut (`docs/crash_reports/bisect_20261112_2055.md`: `GAME RUNNING`).
+A fagyás oka tehát a kikötő-pozíciók elcsúszása volt (26. szabály).
+
+Új hiba volt: **az egész térkép fekete-fehér, egyik országnak sincs színe.** Az ok (27. szabály): a szárazföld
+színtextúrája (`map/terrain/colormap_rgb_cityemissivemask_a.dds`) szinte teljesen fekete volt (átlagszín 4/255),
+mert a generátor egyben, RGBA-ként méretezte át a vanilla fájlt. Az országszínek fájljaiban (`colors.txt`,
+országfájlok) nem volt hiba.
+
+Javítás:
+
+- **`tools/colormap.py`** (új): játék nélkül megfesti a színtextúrát a `terrain.bmp` tereptípusaiból és a
+  `heightmap.bmp` domborzatából (természetes színek, délre szárazabb, északon szürkébb, domborzati árnyékolás);
+  a városfény-maszk (alfa) megmarad. A most feltöltött fájl ezzel készült.
+- Aki előtt ott a játék, az **eredeti vanilla színeket** is visszakaphatja egyetlen paranccsal, a térkép többi
+  részének újragenerálása nélkül: `python tools/colormap.py --vanilla` (ezt a részét itt nem tudtam kipróbálni).
+- `newmap.py`: a színt és az alfát külön méretezi át, a vízszín-textúráknál is.
+- `validate.py`: hibát jelez, ha a színtextúra fekete vagy nem fél térképméretű.
+
+Amit érdemes tudni a színekről: a térkép kb. 90%-a „Terra Incognita” (WLD), ami szürke (90, 90, 90) és
+járhatatlan, ezért csíkozva jelenik meg – a játszható országok egyelőre csak Itáliában és Észak-Afrikában
+vannak. Ez nem hiba, hanem a váz állapota; a kidolgozásnál érdemes lesz a pusztaságnak barátságosabb megjelenést adni.
 
 ## Tervezett fázisok
 

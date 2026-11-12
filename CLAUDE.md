@@ -43,6 +43,11 @@
 - That log line only appears with `-debug` or `-crash_data_log`: always test with `-crash_data_log` and read the END of
   error.log (the last few hundred lines), not a filtered excerpt.
 - `python tools/positions.py` rewrites buildings.txt / unitstacks.txt from the committed map without the game.
+- Never resize `colormap_rgb_cityemissivemask_a.dds` as one RGBA image: Pillow premultiplies by alpha (the city light
+  mask, 0 almost everywhere) and the land colour turns black = black and white map, colourless countries. Resize RGB and
+  A separately. `python tools/colormap.py` repaints it from terrain.bmp + heightmap.bmp (no game), `--vanilla` crops the
+  game's own.
+- STATUS 2026-11-12: the game starts and runs (round 5). Phase 1 skeleton works; next is content.
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after
