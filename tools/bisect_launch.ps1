@@ -2,7 +2,8 @@
 #
 # For every variant of tools/make_variants.py: swap the simplified file(s) into the mod, start the game with
 # -quickstart (through tools/test_launch.ps1), note whether it runs or crashes, and put the original files back.
-# The result table is written to docs/crash_reports/bisect_<date>.md - commit that file.
+# The result table goes to docs/crash_reports/bisect_<date>.md; for every run that did not start, the last 300 lines
+# of error.log go to bisect_<date>_<variant>_error_tail.txt - commit and push docs/crash_reports.
 #
 # usage:  powershell -ExecutionPolicy Bypass -File tools/bisect_launch.ps1
 #         powershell -ExecutionPolicy Bypass -File tools/bisect_launch.ps1 -Variants baseline,rivers_blank
@@ -37,6 +38,9 @@ if ($Variants.Count -eq 0) {
 $desc = @{}
 & $Python $maker --list | ForEach-Object { $p = $_ -split "`t"; $desc[$p[0]] = $p[1] }
 
+$stamp = Get-Date -Format "yyyyMMdd_HHmm"
+$reportDir = Join-Path $mod "docs\crash_reports"
+New-Item -ItemType Directory -Force $reportDir | Out-Null
 $rows = @()
 try {
     foreach ($v in $Variants) {
@@ -73,6 +77,13 @@ try {
         if (Test-Path $errLog) {
             $lastError = [string](Get-Content $errLog -Tail 1)
             if ($lastError.Length -gt 160) { $lastError = $lastError.Substring(0, 160) }
+            # the engine's own warnings ("... This will likely crash the game", MAP_ERROR) are the best lead
+            $alarms = @(Select-String -Path $errLog -Pattern "likely crash|MAP_ERROR").Count
+            if ($alarms -gt 0) { $lastError = "[$alarms 'likely crash' / MAP_ERROR lines] " + $lastError }
+            if ($result -notmatch "GAME RUNNING") {
+                Get-Content $errLog -Tail 300 |
+                    Set-Content -Path (Join-Path $reportDir ("bisect_" + $stamp + "_" + $v + "_error_tail.txt")) -Encoding UTF8
+            }
         }
         & git -C $mod checkout -- map history/states common/defines
         $rows += [pscustomobject]@{ Variant = $v; Result = $result; Crash = $crash; LastRead = $lastRead; LastError = $lastError }
@@ -87,9 +98,7 @@ try {
     Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
 }
 
-$stamp = Get-Date -Format "yyyyMMdd_HHmm"
-$report = Join-Path $mod "docs\crash_reports\bisect_$stamp.md"
-New-Item -ItemType Directory -Force (Split-Path $report) | Out-Null
+$report = Join-Path $reportDir ("bisect_" + $stamp + ".md")
 $commit = [string](& git -C $mod rev-parse --short HEAD)
 $lines = @("# Bisect of the crash at game start ($stamp, commit $commit)", "",
            "Started with: ``$extra``. One variant per row, originals restored after each run.", "",
@@ -103,4 +112,4 @@ foreach ($r in $rows) {
 Set-Content -Path $report -Value $lines -Encoding UTF8
 ""
 $rows | Format-Table Variant, Result, Crash -AutoSize
-"Report written to $report - please commit and push it."
+"Report written to $report (plus the last 300 lines of error.log for every run that did not start) - please commit and push docs/crash_reports."

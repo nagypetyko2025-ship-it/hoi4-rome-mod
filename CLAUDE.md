@@ -36,6 +36,13 @@
   `common/defines/zz_ante_regions.lua` by newmap.py) – prime suspect for the crash at session start that no content
   change could move (bisect 2026-11-12: every variant crashed at the same address).
 - When a crash survives every content change, look for vanilla files/defines that reference ids of the vanilla map.
+- **Position -> province: the engine uses column floor(x) and row H - 1 - floor(z).** A whole-number z = H - y lands one
+  row ABOVE the intended pixel. Always write pixel centres (x + 0.5, z = H - y - 0.5). Coastal positions on whole
+  numbers left 686 of 1586 coastal provinces without a port in the engine's eyes ("Province N is setup as coastal but
+  has no port building in the nudger. This will likely crash the game") = the crash at session start (found 2026-11-12).
+- That log line only appears with `-debug` or `-crash_data_log`: always test with `-crash_data_log` and read the END of
+  error.log (the last few hundred lines), not a filtered excerpt.
+- `python tools/positions.py` rewrites buildings.txt / unitstacks.txt from the committed map without the game.
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after

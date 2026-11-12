@@ -1183,28 +1183,61 @@ def write_static_files(provs, hmap):
 
 
 def coast_points(labels, provs):
-    """for coastal land provinces: a land pixel touching the sea and the sea province id"""
+    """Coastal land provinces get provs[p]["coast"] = [x, y, sea province]: the CENTRE of one of their
+    land pixels on the shore, and the sea province that pixel touches.
+
+    The centre matters. The engine finds the province of a position as the pixel in column floor(x)
+    and row H - 1 - floor(z). A whole-number z = H - y therefore lands one row ABOVE the pixel that
+    was meant - on the sea, or in the neighbouring province. Such a province then has no port in the
+    engine's eyes ("Province N is setup as coastal but has no port building in the nudger. This will
+    likely crash the game") and the game dies when a session starts. With x + 0.5 / y + 0.5 every
+    rounding convention agrees.
+
+    Every coastal province gets a point (no sampling): the pixel in the middle of its longest
+    stretch of shore with one sea province. Shores that exist only across the east-west seam are
+    used when a province has no other."""
     log("coast points")
-    pts = {}
+    n = max(provs)
+    is_land = np.zeros(n + 1, bool)
+    is_sea = np.zeros(n + 1, bool)
+    for i, p in provs.items():
+        is_land[i], is_sea[i] = p["type"] == "land", p["type"] == "sea"
+
+    def shore(a, b, ys, xs):
+        m = is_land[a] & is_sea[b]
+        return np.stack([a[m], b[m], ys[m], xs[m]], 1)
+
+    recs = []
     for dy, dx in SHIFTS4:
         ty, sy = _sl(dy, H)
         tx, sx = _sl(dx, W)
-        a = labels[ty, tx]
-        b = labels[sy, sx]
-        m = a != b
-        ys, xs = np.nonzero(m)
-        av, bv = a[m], b[m]
-        for y, x, p, q in zip(ys[::7], xs[::7], av[::7], bv[::7]):
-            p, q = int(p), int(q)
-            if p in pts or provs[p]["type"] != "land" or provs[q]["type"] != "sea":
+        a, b = labels[ty, tx], labels[sy, sx]
+        ys, xs = np.indices(a.shape)
+        recs.append(shore(a.ravel(), b.ravel(), ys.ravel() + ty.start, xs.ravel() + tx.start))
+    rows = np.arange(H)
+    seam = [shore(labels[:, -1], labels[:, 0], rows, np.full(H, W - 1)),
+            shore(labels[:, 0], labels[:, -1], rows, np.zeros(H, np.int64))]
+    for group in (recs, seam):                   # real shores first, seam-only shores for the rest
+        rec = np.concatenate(group)
+        if not len(rec):
+            continue
+        rec = rec[np.lexsort((rec[:, 3], rec[:, 2], rec[:, 1], rec[:, 0]))]
+        starts = np.unique(rec[:, 0], return_index=True)[1].tolist() + [len(rec)]
+        for s, e in zip(starts, starts[1:]):
+            land = int(rec[s, 0])
+            if "coast" in provs[land]:
                 continue
-            pts[p] = (int(x + tx.start), int(y + ty.start), q)
-    for p, v in provs.items():
-        if v["type"] == "land" and v["coastal"] and p not in pts:
+            part = rec[s:e]
+            seas, counts = np.unique(part[:, 1], return_counts=True)
+            sea = int(seas[np.argmax(counts)])
+            line = part[part[:, 1] == sea]
+            _l, _s, y, x = line[len(line) // 2].tolist()
+            provs[land]["coast"] = [x + 0.5, y + 0.5, sea]
+    for p, v in provs.items():                   # cannot happen while "coastal" follows the bitmap
+        if v["type"] == "land" and v["coastal"] and "coast" not in v:
             sea = next((q for q in v["n"] if provs[q]["type"] == "sea"), None)
-            pts[p] = (int(v["x"]), int(v["y"]), sea)
-    for p, (x, y, q) in pts.items():
-        provs[p]["coast"] = [x, y, q]
+            v["coast"] = [v["c"][0], v["c"][1], sea]
+            log(f"WARN: coastal province {p} has no shore pixel")
 
 
 def identity_rest(d, labels, n, cls, vid, typ, region_of_vid, reg_files):

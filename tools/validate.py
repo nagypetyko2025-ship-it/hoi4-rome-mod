@@ -379,9 +379,18 @@ def check_states(defs, neigh, states, regions, tags):
 
 
 # ---------------------------------------------------------------- positions
+# The engine finds the province of a position (x, z) as the bitmap pixel in column floor(x) and row
+# H - 1 - floor(z) (row 0 = top). A whole-number z = H - y therefore lands one row ABOVE pixel row y.
+# Positions must sit inside their pixel (x + 0.5, z = H - y - 0.5), then every convention agrees.
+def pixel_rows(z, H):
+    """-> (row the engine uses, row a naive 'H - z' reading would give)"""
+    return H - 1 - np.floor(z).astype(int), np.floor(H - z).astype(int)
+
+
 def check_buildings(defs, labels, neigh, states, prov_state, W, H):
     print("== buildings.txt")
     wrong_state, outside, bad_sea, types = Counter(), 0, Counter(), Counter()
+    on_edge = Counter()
     examples = defaultdict(list)
     per_state = defaultdict(Counter)
     naval_prov = defaultdict(set)
@@ -398,11 +407,14 @@ def check_buildings(defs, labels, neigh, states, prov_state, W, H):
         if sid not in states:
             err(f"buildings.txt:{ln}: state {sid} does not exist")
             continue
-        px, py = int(x), int(H - z)
+        px = int(np.floor(x))
+        py, py_naive = (int(v) for v in pixel_rows(np.float64(z), H))
         if not (0 <= px < W and 0 <= py < H):
             outside += 1
             continue
         prov = int(labels[py, px])
+        if 0 <= py_naive < H and int(labels[py_naive, px]) != prov:
+            on_edge[typ] += 1
         if prov_state.get(prov) != sid:
             wrong_state[typ] += 1
             if len(examples[typ]) < 3:
@@ -424,6 +436,9 @@ def check_buildings(defs, labels, neigh, states, prov_state, W, H):
         err(f"{n} '{typ}' positions lie in a province of another state / in water, e.g. (line, state, province, type, real state) {examples[typ]}")
     for k, n in bad_sea.items():
         err(f"{n} buildings with a bad adjacent sea province ({k})")
+    for typ, n in on_edge.items():
+        err(f"{n} '{typ}' positions sit on a pixel edge between two provinces (whole-number z): "
+            f"the engine reads them one row higher - use the pixel centre")
     # every coastal land province should have a naval base position (ports can be built anywhere)
     coastal = {i for i, d in defs.items() if i and d["type"] == "land" and d["coastal"]}
     for typ in ("naval_base_spawn", "floating_harbor"):
@@ -443,19 +458,20 @@ def check_unitstacks(defs, labels, W, H):
     print("== unitstacks.txt")
     arr = np.loadtxt(MAP / "unitstacks.txt", delimiter=";")
     prov, typ, x, z = arr[:, 0].astype(int), arr[:, 1].astype(int), arr[:, 2], arr[:, 4]
-    px, py = x.astype(int), (H - z).astype(int)
+    px = np.floor(x).astype(int)
+    py, py_naive = pixel_rows(z, H)
     out = (px < 0) | (px >= W) | (py < 0) | (py >= H)
     if out.any():
         err(f"{int(out.sum())} unit stack positions outside the map")
     px, py = px.clip(0, W - 1), py.clip(0, H - 1)
     at = labels[py, px]
     wrong = at != prov
-    # types 19/20 (disembark / ship in port) may sit on the shore line
-    hard = wrong & ~np.isin(typ, (19, 20))
-    if hard.any():
-        err(f"{int(hard.sum())} unit stack positions outside their province, e.g. provinces {np.unique(prov[hard])[:10].tolist()}")
-    if (wrong & ~hard).any():
-        warn(f"{int((wrong & ~hard).sum())} port stack positions (type 19/20) outside their province")
+    if wrong.any():
+        err(f"{int(wrong.sum())} unit stack positions outside their province (engine lookup), "
+            f"e.g. provinces {np.unique(prov[wrong])[:10].tolist()}, types {np.unique(typ[wrong]).tolist()[:8]}")
+    edge = labels[py_naive.clip(0, H - 1), px] != at
+    if edge.any():
+        err(f"{int(edge.sum())} unit stack positions sit on a pixel edge between two provinces - use the pixel centre")
     have = defaultdict(set)
     for p, t in zip(prov.tolist(), typ.tolist()):
         have[p].add(t)
@@ -557,10 +573,10 @@ def check_misc(defs, neigh, states, regions, prov_state, W, H, labels):
         seen[rid].add(size)
         if rid not in regions:
             err(f"weatherpositions.txt:{ln}: region {rid} does not exist")
-        elif not (0 <= x < W and 0 <= H - z < H):
+        elif not (0 <= x < W and 0 <= H - 1 - int(np.floor(z)) < H):
             err(f"weatherpositions.txt:{ln}: outside the map")
         else:
-            prov = int(labels[int(H - z), int(x)])
+            prov = int(labels[H - 1 - int(np.floor(z)), int(np.floor(x))])
             if prov not in regions[rid]["provinces"]:
                 warn(f"weatherpositions.txt:{ln}: position lies outside region {rid}")
     # the sizes in the real game files are "big" and "small" (checked against Kaiserreich's file;

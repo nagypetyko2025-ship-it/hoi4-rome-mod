@@ -30,6 +30,8 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `tools/render_region.py` | Címkézett tartománytérkép-kép egy régióról (tervezéshez). |
 | `tools/test_launch.ps1` | Automatikus tesztindítás (lásd lent). |
 | `tools/validate.py` | **Statikus ellenőrző**: játék nélkül végignézi a térkép- és történelemfájlokat a lenti motorszabályok szerint. Minden generálás után futtasd. |
+| `tools/positions.py` | A kész térképből újraírja a `buildings.txt` és az `unitstacks.txt` pozícióit – játék nélkül is fut. |
+| `tools/bisect_launch.ps1`, `tools/make_variants.py` | Automata felező teszt: egyszerűsített fájlváltozatokkal indítja a játékot, és táblát ír az eredményről. |
 | `tools/data/names_245.py` | Ókori névlisták kultúránként (vezetők, tábornokok) → `common/names/ante_names.txt`. |
 | `tutorial/tutorial.txt` | Üres `tutorial = { }` blokk (kötelező, lásd szabályok). Kézzel írt, nem generált. |
 | `.gitattributes` | A `definition.csv` és az `adjacencies.csv` bájtra pontosan (CRLF sorvéggel) marad a repóban. |
@@ -132,6 +134,13 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
     régióink át vannak számozva és kevesebb van belőlük, tehát ezt **kötelező felülírni** létező tengeri régiókkal –
     a `newmap.py` írja a `common/defines/zz_ante_regions.lua` fájlba, a `validate.py` ellenőrzi. Ez az egyetlen
     ilyen lista a `00_defines.lua`-ban (1.17+); a Millennium Dawn is a saját régióira írja át.
+26. **Pozíció → tartomány: a motor a `floor(x)` oszlopot és a `H − 1 − floor(z)` sort nézi** (0. sor = felül).
+    Egész számú `z = H − y` ezért **egy sorral a szánt pixel fölé** esik – a tengerre vagy a szomszéd tartományba.
+    Minden pozíciót a pixel **közepére** kell tenni: `x + 0.5`, `z = H − y − 0.5`. Ha egy parti tartomány
+    kikötő-pozíciója (`naval_base_spawn`) nem a saját tartományába esik, a motor ezt írja a naplóba (csak
+    `-debug` vagy `-crash_data_log` mellett!): *„Province N is setup as coastal but has no port building in the
+    nudger. This will likely crash the game.”* – és játékindításkor összeomlik. A `validate.py` ezzel a
+    számítással ellenőriz.
 
 ## Állapot (2026-11-12, második kör – statikus javítás, játékban még NEM tesztelve)
 
@@ -246,6 +255,8 @@ omlott össze (`0x00007FF74DDA4370`, `LastRead: start_game_command`), az `all_mi
 épületpozíciókat, a kikötőket, az ellátást, a szomszédságokat, a fákat, a városokat, a domborzatot és az
 időjárás-méretet. Maradt: valami, ami **a tartalomtól független**, de az új térképhez kötődik.
 
+> **Utólag (ötödik kör):** a játékbeli teszt szerint nem ez volt az ok – lásd lent. A felülírás helyes, bent marad.
+
 **A legvalószínűbb ok** (25. szabály): a vanilla `NGeography.MEDITERRANEAN_SEA_REGIONS` define a 29, 68, 69, 168,
 169, 202-es vanilla régiókra mutat. Az új térképen 119 régió van, tehát a 168, 169 és 202 **nem létezik**, a 68
 és a 69 pedig szárazföldi régió. Ez megmagyaráz mindent, amit eddig láttunk:
@@ -275,6 +286,48 @@ Amit ebben a körben **nem** csináltam meg, pedig felmerült: a térkép átül
 kétoldalt óceánsávval. Egy 4096×3072-es, 1.19-en futó mod (Magna Europa) azt mutatja, hogy nem a méret a gond,
 ezért egy ekkora, kipróbálhatatlan átalakítás most több kockázatot hozna, mint hasznot. Ha a fenti javítás után is
 fagy, ez a következő lépés (a varrat miatt: a keleti szél szárazföld, a nyugati tenger).
+
+## Ötödik kör (2026-11-12 éjjel) – a hiba megvan: kikötő-pozíciók, játékban még NEM tesztelve
+
+A negyedik kör tesztje (`docs/crash_reports/2026-11-12_round4_baseline/`, `bisect_20261112_2041/2042.md`) szerint
+a régió-define javítása **nem** szüntette meg a fagyást (a kontroll és a javított változat ugyanott omlott össze).
+A felülírás ettől még helyes és bent marad, de nem ez volt az ok.
+
+A `-crash_data_log` kapcsoló viszont bekapcsolta a hibakereső naplózást, és az `error.log` végén megjelent a
+motor saját üzenete, soronként egy tartományra:
+
+> Province 9092 is setup as coastal but has no port building in the nudger. This will likely crash the game.
+
+**Az ok** (26. szabály): a parti pozíciók (`naval_base_spawn`, `floating_harbor`, `coastal_bunker`,
+`naval_headquarters`, `naval_supply_hub`, `dockyard`, valamint az egységpozíciók 19-es és 20-as típusa) egész
+számú koordinátára kerültek. A motor az ilyen pozíciót egy pixelsorral feljebb keresi, így az **1586 parti
+tartományból 686-nak a motor szemében nem volt kikötője** – köztük 11 olyannak, ahol már áll kikötő (Róma is).
+
+Bizonyíték: a naplóvégen szereplő 39 tartomány mind benne van az így kiszámolt 686-ban, és a napló utolsó 24
+sora sorrendre is egyezik a számított lista végével.
+
+Ez megmagyarázza az egész eddigi történetet:
+
+- a vanilla-alapú `buildings.txt`-vel a játék futott (ott a vanilla kikötő-pozíciók voltak);
+- minden generált változat ugyanott fagyott, és a bisect egyik változata sem segített, mert a parti sorokat
+  egyik sem javította (a `buildings_ports_only` és az `all_min` is a hibás sorokat tartotta meg);
+- a korábbi `validate.py` nem vette észre, mert `int(H − z)`-vel számolt, ami egész `z`-nél más sort ad, mint
+  a motor. Ez az én hibám volt; az ellenőrző most a motor számítását használja.
+
+Javítás:
+
+- `newmap.py` `coast_points()` újraírva: minden parti tartomány a leghosszabb partszakaszának közepén kap pontot,
+  a pixel **közepén**; nincs többé mintavételezés és súlypont-tartalék (a régi minden 7. határpixelt nézte, a
+  kimaradt szigetek a súlypontjukra kerültek).
+- **Új eszköz: `tools/positions.py`** – a kész térképből (játék és `tools/cache` nélkül) újraírja a
+  `map/buildings.txt` és a `map/unitstacks.txt` fájlt ugyanazokkal a függvényekkel, amiket a generátor használ.
+  Ezzel készültek a most feltöltött fájlok.
+- `validate.py`: a motor pixelszámítása; hibát jelez, ha egy pozíció két tartomány határára esik, ha egy parti
+  tartománynak nincs kikötő-pozíciója, vagy ha egy megépített kikötőhöz nincs pozíció. Az előző commiton 29
+  hibát talál (pontosan a 686 tartományt), a mostanin 0-t.
+
+Teszt: `tools/bisect_launch.ps1` (ha a `baseline` fut, megáll). Ha mégis fagy, a `crashes/<dátum>/` mappából az
+`error.log` **utolsó 300 sora** kell – a „Province … has no port building” sorokat most már nem szabad látnunk.
 
 ## Tervezett fázisok
 
