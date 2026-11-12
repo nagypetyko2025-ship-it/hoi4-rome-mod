@@ -6,13 +6,13 @@ state = {
 	history = {
 		owner = OEN
 		add_core_of = OEN
-		victory_points = { 3968 1 }  # Pandosia
+		victory_points = { 5179 1 }  # Pandosia
 		buildings = {
 			infrastructure = 1
 		}
 	}
 	provinces = {
-		3968 6972
+		5068 5179
 	}
 	local_supplies = 0.0
 }

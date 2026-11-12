@@ -1,4 +1,4 @@
-*.tmp
 *.bak
+*.tmp
 __pycache__/
 tools/cache/

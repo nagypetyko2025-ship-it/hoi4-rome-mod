@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = CAE
 		add_core_of = CAE
-		victory_points = { 11751 6 }  # Caere
+		victory_points = { 4723 6 }  # Caere
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
-			11751 = { naval_base = 2 }
+			4765 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		11751
+		4716 4723 4765
 	}
 	local_supplies = 0.0
 }

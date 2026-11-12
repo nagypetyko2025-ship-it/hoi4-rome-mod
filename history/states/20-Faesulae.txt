@@ -6,14 +6,14 @@ state = {
 	history = {
 		owner = ARR
 		add_core_of = ARR
-		victory_points = { 9907 2 }  # Faesulae
+		victory_points = { 4429 2 }  # Faesulae
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 		}
 	}
 	provinces = {
-		9907 11889
+		4404 4429 4530
 	}
 	local_supplies = 0.0
 }

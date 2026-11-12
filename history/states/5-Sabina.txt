@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = SAB
 		add_core_of = SAB
-		victory_points = { 6926 2 }  # Cures
+		victory_points = { 4562 2 }  # Cures
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		6926 11790
+		4554 4562 4573 4613 4655
 	}
 	local_supplies = 0.0
 }

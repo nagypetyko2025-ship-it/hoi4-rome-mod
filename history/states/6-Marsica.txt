@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = MAR
 		add_core_of = MAR
-		victory_points = { 6831 1 }  # Marruvium
+		victory_points = { 4717 1 }  # Marruvium
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			9838 = { naval_base = 2 }
+			4566 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		9838 6831
+		4566 4662 4689 4717 4727
 	}
 	local_supplies = 0.0
 }

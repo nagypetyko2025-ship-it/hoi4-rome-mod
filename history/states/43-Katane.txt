@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = KAT
 		add_core_of = KAT
-		victory_points = { 4014 4 }  # Katane
+		victory_points = { 5666 4 }  # Katane
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			4014 = { naval_base = 1 }
+			5666 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		4014
+		5666
 	}
 	local_supplies = 0.0
 }

@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = SAM
 		add_core_of = SAM
-		victory_points = { 963 3 }  # Bovianum
+		victory_points = { 4791 3 }  # Bovianum
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 2
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		963 3923
+		4713 4791 4810 4837 4853 4865
 	}
 	local_supplies = 0.0
 }

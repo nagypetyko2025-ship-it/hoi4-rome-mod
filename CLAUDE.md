@@ -19,6 +19,14 @@
 - Lakes listed in vanilla states must stay in some state (build.py attaches them).
 - `common/national_focus` must contain at least one focus tree (`ante_generic_focus`, default = yes) or the game crashes.
 - State ids contiguous 1..N; every land province in exactly one state.
+- Custom map (`tools/newmap.py`, 3328x3072 = 2.4x zoom of vanilla Europe): height 3840 crashes at "loading textures";
+  3072 works. Province pixels may not touch only diagonally, 4 provinces may not meet at one vertex, no 1-pixel
+  spots; naval strategic regions must be contiguous; the map wraps east-west (affects coastal flags).
+- An empty railways.txt is suspected to crash on game start; build.py writes placeholder rail stubs.
+- 8-bit BMPs must be written with vanilla-style headers (`save_bmp8`), else "Palette in rivers.bmp is probably not correct".
+- Debug a "Failed to load the map" dialog by launching with `-ExtraArgs "-debug"`: only then map errors reach error.log.
+- Pipeline: `python tools/newmap.py` (map, ~2 min) then `python tools/build.py` (states/countries, translated from
+  vanilla province ids in world_245.py to the new provinces).
 
 ## Conventions
 - Dates are AUC years (ab urbe condita): AUC = 754 - BC year. 509 BC = 245 AUC, 343 BC = 411 AUC, 264 BC = 490 AUC.

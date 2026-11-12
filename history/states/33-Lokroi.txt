@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = LOK
 		add_core_of = LOK
-		victory_points = { 12066 4 }  # Lokroi
+		victory_points = { 5479 4 }  # Lokroi
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			12066 = { naval_base = 1 }
+			5479 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		12066
+		5411 5479
 	}
 	local_supplies = 0.0
 }

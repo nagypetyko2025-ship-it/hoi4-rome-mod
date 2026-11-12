@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = TAS
 		add_core_of = TAS
-		victory_points = { 11837 10 }  # Taras
+		victory_points = { 5110 10 }  # Taras
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
-			11837 = { naval_base = 2 }
+			5110 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		11837
+		4993 5110
 	}
 	local_supplies = 0.0
 }

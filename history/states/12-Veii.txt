@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = VEI
 		add_core_of = VEI
-		victory_points = { 9794 8 }  # Veii
+		victory_points = { 4684 8 }  # Veii
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		9794
+		4669 4684
 	}
 	local_supplies = 0.0
 }

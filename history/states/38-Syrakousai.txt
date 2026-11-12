@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = SYR
 		add_core_of = SYR
-		victory_points = { 13256 12 }  # Syrakousai
+		victory_points = { 5827 12 }  # Syrakousai
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
-			13256 = { naval_base = 2 }
+			5827 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		13256
+		5764 5765 5826 5827
 	}
 	local_supplies = 0.0
 }

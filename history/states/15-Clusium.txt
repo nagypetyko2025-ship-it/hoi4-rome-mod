@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = CLU
 		add_core_of = CLU
-		victory_points = { 9750 8 }  # Clusium
+		victory_points = { 4594 8 }  # Clusium
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		9750 910
+		4537 4538 4559 4594
 	}
 	local_supplies = 0.0
 }

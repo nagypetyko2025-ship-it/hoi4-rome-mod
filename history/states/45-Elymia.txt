@@ -6,14 +6,14 @@ state = {
 	history = {
 		owner = ELY
 		add_core_of = ELY
-		victory_points = { 7059 3 }  # Segesta
+		victory_points = { 5625 3 }  # Segesta
 		buildings = {
 			infrastructure = 1
-			7059 = { naval_base = 1 }
+			5625 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		7059
+		5587 5625 5641 5661 5665
 	}
 	local_supplies = 0.0
 }

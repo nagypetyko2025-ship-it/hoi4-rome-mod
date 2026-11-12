@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = INS
 		add_core_of = INS
-		victory_points = { 3780 4 }  # Mediolanum
+		victory_points = { 4033 4 }  # Mediolanum
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		607 6661 9584 3780 969 773
+		3789 3817 3870 3875 3895 3910 3955 3977 4033 4059 4072 4084 4090
 	}
 	local_supplies = 0.0
 }

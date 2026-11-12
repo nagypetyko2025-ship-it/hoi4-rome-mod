@@ -8,11 +8,11 @@ state = {
 		add_core_of = SAM
 		buildings = {
 			infrastructure = 1
-			3966 = { naval_base = 1 }
+			4761 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		3966
+		4761 4887
 	}
 	local_supplies = 0.0
 }

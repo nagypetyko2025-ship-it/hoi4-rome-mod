@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = LIG
 		add_core_of = LIG
-		victory_points = { 6780 2 }  # Taurasia
+		victory_points = { 4174 2 }  # Taurasia
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		611 3782 6780 11570 6635 9738 11730 9741 11726 776
+		3848 3861 3883 3886 3894 3922 3925 3940 3945 3988 3989 4065 4071 4089 4102 4119 4131 4157 4174 4176 4189
 	}
 	local_supplies = 0.0
 }

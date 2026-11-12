@@ -9,7 +9,7 @@ state = {
 		buildings = { infrastructure = 0 }
 	}
 	provinces = {
-		223 236 3210 3278 3297 6243 9253 9351 11336
+		1245 1248 1249 1262 1296 1319 1381 1398 1414 1421
 	}
 	local_supplies = 0.0
 }

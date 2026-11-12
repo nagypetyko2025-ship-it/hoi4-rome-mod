@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = DAU
 		add_core_of = DAU
-		victory_points = { 883 2 }  # Arpi
+		victory_points = { 4949 2 }  # Arpi
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			6980 = { naval_base = 2 }
+			4900 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		883 6939 6980
+		4811 4899 4900 4949
 	}
 	local_supplies = 0.0
 }

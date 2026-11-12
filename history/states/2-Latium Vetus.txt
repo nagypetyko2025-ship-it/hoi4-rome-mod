@@ -6,17 +6,17 @@ state = {
 	history = {
 		owner = LAT
 		add_core_of = LAT
-		victory_points = { 11846 5 }  # Aricia
-		victory_points = { 11882 3 }  # Praeneste
+		victory_points = { 4886 5 }  # Aricia
+		victory_points = { 4794 3 }  # Praeneste
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 3
 			arms_factory = 1
-			11846 = { naval_base = 2 }
+			4886 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		11846 11882
+		4708 4785 4794 4822 4873 4886
 	}
 	local_supplies = 0.0
 }

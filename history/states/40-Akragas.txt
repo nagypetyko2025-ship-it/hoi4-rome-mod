@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = AKR
 		add_core_of = AKR
-		victory_points = { 7147 6 }  # Akragas
+		victory_points = { 5680 6 }  # Akragas
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			7147 = { naval_base = 1 }
+			5680 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		7147
+		5658 5680
 	}
 	local_supplies = 0.0
 }

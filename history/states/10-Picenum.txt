@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = PIC
 		add_core_of = PIC
-		victory_points = { 925 2 }  # Asculum
+		victory_points = { 4518 2 }  # Asculum
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			967 = { naval_base = 2 }
+			4484 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		967 925
+		4451 4484 4487 4518
 	}
 	local_supplies = 0.0
 }

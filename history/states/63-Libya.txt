@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = LIB
 		add_core_of = LIB
-		victory_points = { 10026 1 }  # Thysdrus
+		victory_points = { 6124 1 }  # Thysdrus
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		11935 10026 7005 11957 13179
+		6124 6127 6172 6189 6237 8890 9023
 	}
 	local_supplies = 0.0
 }

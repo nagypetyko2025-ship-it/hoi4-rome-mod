@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = SAM
 		add_core_of = SAM
-		victory_points = { 3958 1 }  # Maloenton
+		victory_points = { 4968 1 }  # Maloenton
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		3958
+		4968 4989 5088
 	}
 	local_supplies = 0.0
 }

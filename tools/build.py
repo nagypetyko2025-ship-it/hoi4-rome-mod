@@ -30,6 +30,7 @@ REPLACE_PATHS = [
     "history/states",
     "history/units",
     "map/supplyareas",
+    "map/strategicregions",
     "common/national_focus", "events", "common/decisions", "common/decisions/categories",
     "common/characters", "common/ai_strategy", "common/ai_strategy_plans", "common/on_actions",
 ]
@@ -209,53 +210,120 @@ def write_states(states):
         write(f"history/states/{s['id']}-{safe_name(s['name'])}.txt", state_text(s, culture))
 
 
-# ---------------------------------------------------------------- buildings.txt
-def write_buildings(d, states, prov_new):
-    ids = mapdata.load_ids()
-    H, Wd = ids.shape
-    hm = np.asarray(Image.open(GAME / "map" / "heightmap.bmp"))
-    stats = d["stats"]
+# ---------------------------------------------------------------- new map translation
+def load_newmap():
+    import json
+    nm = json.loads((MOD / "tools" / "cache" / "newmap.json").read_text())
+    provs = {int(k): v for k, v in nm["provinces"].items()}
+    by_vid = defaultdict(list)
+    for i, p in provs.items():
+        by_vid[p["vid"]].append(i)
+    nm["provinces"] = provs
+    nm["by_vid"] = by_vid
+    return nm
 
-    def nearest_in(provs, x, y):
-        return min(provs, key=lambda p: (stats[p]["x"] - x) ** 2 + (stats[p]["y"] - y) ** 2)
 
-    per_state = defaultdict(list)  # new sid -> list of (type, rest-of-line)
-    out = []
-    for line in (GAME / "map" / "buildings.txt").read_text(encoding="utf-8-sig").splitlines():
-        parts = line.strip().split(";")
-        if len(parts) < 7:
-            continue
-        old_sid, btype = int(parts[0]), parts[1]
-        x, z = float(parts[2]), float(parts[4])
-        px, py = min(Wd - 1, max(0, int(x))), min(H - 1, max(0, H - 1 - int(z)))
-        pid = int(ids[py, px])
-        if pid not in prov_new:
-            vprovs = [p for p in d["states"].get(old_sid, {}).get("provinces", []) if p in prov_new]
-            if not vprovs:
-                continue
-            pid = nearest_in(vprovs, px, py)
-        nsid = prov_new[pid]
-        if btype in STATE_LEVEL:
-            per_state[nsid].append((btype, parts[2:]))
-        else:
-            out.append(";".join([str(nsid), btype] + parts[2:]))
-    rng = np.random.default_rng(245)
+def translate_states(d, states, nm):
+    """Vanilla-province states -> new-map provinces. Drops states that fall outside the map."""
+    provs, by_vid = nm["provinces"], nm["by_vid"]
+    sc, x0, y0 = nm["scale"], nm["x0"], nm["y0"]
+
+    def scaled(vp):
+        s = d["stats"][vp]
+        return (s["x"] - x0) * sc + sc / 2, (s["y"] - y0) * sc + sc / 2
+
+    def nearest(cands, vp):
+        x, y = scaled(vp)
+        return min(cands, key=lambda i: (provs[i]["x"] - x) ** 2 + (provs[i]["y"] - y) ** 2)
+
+    labels = np.load(MOD / "tools" / "cache" / "newmap_labels.npy")
+
+    def at_vanilla(vp):
+        x, y = scaled(vp)
+        return int(labels[min(labels.shape[0] - 1, int(y)), min(labels.shape[1] - 1, int(x))])
+
+    # explicit (non-wasteland) states that would end up without land claim the province at their towns
+    claimed = {}
     for s in states:
-        have = Counter(t for t, _ in per_state[s["id"]])
-        kept = Counter()
-        for btype, rest in per_state[s["id"]]:
-            if kept[btype] < STATE_LEVEL[btype]:
-                out.append(";".join([str(s["id"]), btype] + rest))
-                kept[btype] += 1
-        big = max(s["provinces"], key=lambda p: stats[p]["px"])
+        if s["waste"]:
+            continue
+        if not any(provs[i]["type"] == "land" for vp in s["provinces"] for i in by_vid.get(vp, [])):
+            for vp in s["provinces"]:
+                p = at_vanilla(vp)
+                if provs[p]["type"] == "land":
+                    claimed[p] = s["key"]
+    out = []
+    for s in states:
+        new = {i for vp in s["provinces"] for i in by_vid.get(vp, []) if i not in claimed}
+        new |= {p for p, k in claimed.items() if k == s["key"]}
+        new = sorted(new)
+        if not any(provs[i]["type"] == "land" for i in new):
+            continue
+        ex = dict(s["ex"])
+        if "vp" in ex:
+            ex["vp"] = {nearest([i for i in new if provs[i]["type"] == "land"], vp): v for vp, v in ex["vp"].items()}
+        if "port" in ex:
+            coastal = [i for i in new if provs[i]["coastal"]]
+            ex["port"] = sorted({nearest(coastal, vp) for vp in ex["port"]}) if coastal else []
+        # a state must lie in one strategic region: split off pieces in other regions
+        groups = defaultdict(list)
+        for i in new:
+            groups[provs[i]["region"]].append(i)
+        main_reg = max(groups, key=lambda r: (any(i in ex.get("vp", {}) for i in groups[r]),
+                                              sum(provs[i]["px"] for i in groups[r])))
+        out.append(dict(s, provinces=groups[main_reg], ex=ex))
+        for r, ps in groups.items():
+            if r == main_reg or not any(provs[i]["type"] == "land" for i in ps):
+                continue  # lakes in a foreign region simply stay outside any state
+            if not s["waste"]:
+                print(f"WARN: state {s['key']} split by strategic region {r}: {len(ps)} provinces")
+            out.append(dict(s, key=f"{s['key']}_r{r}", provinces=ps, pop=max(1000, s["pop"] // 10),
+                            ex={k: v for k, v in ex.items() if k == "cores"}))
+    for i, s in enumerate(out, 1):
+        s["id"] = i
+    covered = {i for s in out for i in s["provinces"]}
+    missing = [i for i, p in provs.items() if p["type"] == "land" and i not in covered]
+    if missing:
+        fail(f"{len(missing)} new land provinces without state, e.g. {missing[:10]}")
+    regs = [s for s in out if len({provs[i]["region"] for i in s["provinces"]}) != 1]
+    if regs:
+        fail(f"states spanning strategic regions on new map: {[s['key'] for s in regs[:5]]}")
+    return out
+
+
+# ---------------------------------------------------------------- buildings.txt (new map)
+def write_buildings(nm, states):
+    provs = nm["provinces"]
+    Wd, H = nm["size"]
+    hm = np.asarray(Image.open(MOD / "map" / "heightmap.bmp"))
+    rng = np.random.default_rng(245)
+
+    def at(x, y):
+        return hm[min(H - 1, max(0, int(y))), min(Wd - 1, max(0, int(x)))] / 10.0
+
+    out = []
+    for s in states:
+        sid = s["id"]
+        land = sorted((i for i in s["provinces"] if provs[i]["type"] == "land"), key=lambda i: -provs[i]["px"])
         for btype, need in STATE_LEVEL.items():
-            for _ in range(need - min(have[btype], need)):
-                cx = stats[big]["x"] + rng.uniform(-2, 2)
-                cy = stats[big]["y"] + rng.uniform(-2, 2)
-                if int(ids[int(cy), int(cx)]) != big:
-                    cx, cy = stats[big]["x"], stats[big]["y"]
-                y = hm[int(cy), int(cx)] / 10.0
-                out.append(f"{s['id']};{btype};{cx:.2f};{y:.2f};{H - cy:.2f};{rng.uniform(0, 6.28):.2f};0")
+            for k in range(need):
+                p = provs[land[k % len(land)]]
+                x, y = p["x"] + rng.uniform(-1.5, 1.5), p["y"] + rng.uniform(-1.5, 1.5)
+                out.append(f"{sid};{btype};{x:.2f};{at(x, y):.2f};{H - y:.2f};{rng.uniform(0, 6.28):.2f};0")
+        dock = False
+        for i in land:
+            p = provs[i]
+            x, y = p["x"], p["y"]
+            for btype in ("bunker", "supply_node", "special_project_facility_spawn"):
+                out.append(f"{sid};{btype};{x:.2f};{at(x, y):.2f};{H - y:.2f};0.00;0")
+            if p["coastal"] and p.get("coast") and p["coast"][2]:
+                cx, cy, sea = p["coast"]
+                for btype in ("coastal_bunker", "naval_base_spawn", "naval_headquarters", "naval_supply_hub",
+                              "floating_harbor"):
+                    out.append(f"{sid};{btype};{cx:.2f};{at(cx, cy):.2f};{H - cy:.2f};0.00;{sea}")
+                if not dock:
+                    out.append(f"{sid};dockyard;{cx:.2f};{at(cx, cy):.2f};{H - cy:.2f};0.00;0")
+                    dock = True
     write("map/buildings.txt", "\n".join(out) + "\n")
 
 
@@ -267,30 +335,22 @@ def write_supply_areas(d, states):
 
 
 # ---------------------------------------------------------------- railways / supply nodes
-def write_rail_and_supply(playable):
-    """Keep only railway segments and supply nodes inside the playable (non-wasteland) area."""
-    out = []
-    for line in (GAME / "map" / "railways.txt").read_text(encoding="utf-8-sig").splitlines():
-        parts = line.split()
-        if len(parts) < 4:
+def write_rail_and_supply(states, nm):
+    """Placeholder network until roads exist: one short level-1 'road' (railway) and a supply node
+    in every playable state's main town. The engine crashes on game start with no railways at all."""
+    provs = nm["provinces"]
+    rails, nodes = [], []
+    for s in states:
+        if s["waste"]:
             continue
-        level, provs = parts[0], [int(x) for x in parts[2:]]
-        seg = []
-        for p in provs + [None]:
-            if p is not None and p in playable:
-                seg.append(p)
-                continue
-            if len(seg) >= 2:
-                out.append(f"{level} {len(seg)} " + " ".join(map(str, seg)) + " ")
-            seg = []
-    write("map/railways.txt", "\n".join(out) + "\n")
-    nodes = []
-    for line in (GAME / "map" / "supply_nodes.txt").read_text(encoding="utf-8-sig").splitlines():
-        parts = line.split()
-        if len(parts) == 2 and int(parts[1]) in playable:
-            nodes.append(f"{parts[0]} {parts[1]} ")
+        for p in list(s["ex"].get("vp", {}))[:1]:
+            nodes.append(f"1 {p} ")
+            q = next((n for n in provs[p]["n"] if n in s["provinces"] and provs[n]["type"] == "land"), None)
+            if q:
+                rails.append(f"1 2 {p} {q} ")
+    write("map/railways.txt", "\n".join(rails) + "\n")
     write("map/supply_nodes.txt", "\n".join(nodes) + "\n")
-    return len(out), len(nodes)
+    return 0, len(nodes)
 
 
 # ---------------------------------------------------------------- countries
@@ -443,17 +503,13 @@ def main():
         elif p.exists():
             p.unlink()
     states = build_states(d, assigned)
-    prov_new = {p: s["id"] for s in states for p in s["provinces"]}
-    land = [p for p, v in d["defs"].items() if v["type"] == "land"]
-    missing = [p for p in land if p not in prov_new]
-    if missing:
-        fail(f"{len(missing)} land provinces without state, e.g. {missing[:10]}")
+    nm = load_newmap()
+    states = translate_states(d, states, nm)
     write_states(states)
-    write_buildings(d, states, prov_new)
+    write_buildings(nm, states)
     write_supply_areas(d, states)
-    playable_provs = {p for s in states if not s["waste"] for p in s["provinces"]}
-    rails, nodes = write_rail_and_supply(playable_provs)
-    print(f"railway segments kept: {rails}, supply nodes kept: {nodes}")
+    rails, nodes = write_rail_and_supply(states, nm)
+    print(f"supply nodes: {nodes}")
     write_countries(states)
     write_flags()
     write_localisation(states)

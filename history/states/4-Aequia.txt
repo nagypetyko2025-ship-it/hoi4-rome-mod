@@ -6,13 +6,13 @@ state = {
 	history = {
 		owner = AEQ
 		add_core_of = AEQ
-		victory_points = { 3910 1 }  # Carsioli
+		victory_points = { 4695 1 }  # Carsioli
 		buildings = {
 			infrastructure = 1
 		}
 	}
 	provinces = {
-		3910
+		4695
 	}
 	local_supplies = 0.0
 }

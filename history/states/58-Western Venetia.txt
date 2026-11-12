@@ -6,13 +6,13 @@ state = {
 	history = {
 		owner = VEN
 		add_core_of = VEN
-		victory_points = { 603 2 }  # Verona
+		victory_points = { 4025 2 }  # Verona
 		buildings = {
 			infrastructure = 1
 		}
 	}
 	provinces = {
-		603 9582
+		3982 4025 4026 4066 4095 4106 4141
 	}
 	local_supplies = 0.0
 }

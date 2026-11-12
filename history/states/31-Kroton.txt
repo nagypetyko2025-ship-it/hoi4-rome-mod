@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = KRO
 		add_core_of = KRO
-		victory_points = { 12098 8 }  # Kroton
+		victory_points = { 5363 8 }  # Kroton
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
-			12098 = { naval_base = 2 }
+			5363 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		12098
+		5302 5303 5363 5434
 	}
 	local_supplies = 0.0
 }

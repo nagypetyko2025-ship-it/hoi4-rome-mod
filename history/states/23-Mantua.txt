@@ -6,14 +6,14 @@ state = {
 	history = {
 		owner = FEL
 		add_core_of = FEL
-		victory_points = { 11734 2 }  # Mantua
+		victory_points = { 4158 2 }  # Mantua
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 		}
 	}
 	provinces = {
-		11734 3776
+		4073 4121 4153 4158 4182
 	}
 	local_supplies = 0.0
 }

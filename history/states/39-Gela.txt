@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = GEL
 		add_core_of = GEL
-		victory_points = { 1009 6 }  # Gela
+		victory_points = { 5782 6 }  # Gela
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			1009 = { naval_base = 1 }
+			5782 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		1009
+		5731 5782 5783
 	}
 	local_supplies = 0.0
 }

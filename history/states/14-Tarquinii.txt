@@ -6,17 +6,17 @@ state = {
 	history = {
 		owner = TAR
 		add_core_of = TAR
-		victory_points = { 6862 6 }  # Tarquinii
-		victory_points = { 6875 3 }  # Vulci
+		victory_points = { 4711 6 }  # Tarquinii
+		victory_points = { 4612 3 }  # Vulci
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
 			arms_factory = 1
-			6862 = { naval_base = 2 }
+			4711 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		6862 6875
+		4612 4634 4668 4683 4711
 	}
 	local_supplies = 0.0
 }
