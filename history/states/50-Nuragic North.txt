@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = SAR
 		add_core_of = SAR
-		victory_points = { 5021 1 }  # Barumini
+		victory_points = { 4986 1 }  # Barumini
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		4963 4973 4977 4992 5021 5030 5034 5079
+		4928 4938 4942 4957 4986 4995 4999 5044
 	}
 	local_supplies = 0.0
 }

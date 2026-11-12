@@ -25,6 +25,14 @@ try {
         if ($procs.Count -eq 0) { $result = "EXITED"; break }
         $titles = ($procs | ForEach-Object { $_.MainWindowTitle }) -join " | "
         if ($titles -match "Fail|Error|error") { $result = "FAILED: $titles"; break }
+        # quickstart: the game itself was launched
+        if (Select-String -Path (Join-Path $logs "game.log") -Pattern "Launching SINGLEPLAYER" -Quiet) {
+            Start-Sleep 30
+            $newCrash = Get-ChildItem $crashDir -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt $start }
+            if ($newCrash -or @(Get-Process hoi4 -ErrorAction SilentlyContinue).Count -eq 0) { $result = "CRASHED at game start"; break }
+            $result = "GAME RUNNING"; break
+        }
+        if ($ExtraArgs -match "start_tag") { continue }
         # history is executed for the default bookmark when the main menu is built
         if (Select-String -Path (Join-Path $logs "game.log") -Pattern "Executing History from 2\.1\.1\.1" -Quiet) {
             $p = $procs | Sort-Object WorkingSet64 -Descending | Select-Object -First 1

@@ -305,15 +305,17 @@ def write_buildings(nm, states):
     for s in states:
         sid = s["id"]
         land = sorted((i for i in s["provinces"] if provs[i]["type"] == "land"), key=lambda i: -provs[i]["px"])
+        slot = 0
         for btype, need in STATE_LEVEL.items():
             for k in range(need):
-                p = provs[land[k % len(land)]]
-                x, y = p["x"] + rng.uniform(-1.5, 1.5), p["y"] + rng.uniform(-1.5, 1.5)
+                p = provs[land[slot % len(land)]]
+                x, y = p["pts"][(slot // len(land)) % len(p["pts"])]  # always inside the province
+                slot += 1
                 out.append(f"{sid};{btype};{x:.2f};{at(x, y):.2f};{H - y:.2f};{rng.uniform(0, 6.28):.2f};0")
         dock = False
         for i in land:
             p = provs[i]
-            x, y = p["x"], p["y"]
+            x, y = p["c"]
             for btype in ("bunker", "supply_node", "special_project_facility_spawn"):
                 out.append(f"{sid};{btype};{x:.2f};{at(x, y):.2f};{H - y:.2f};0.00;0")
             if p["coastal"] and p.get("coast") and p["coast"][2]:

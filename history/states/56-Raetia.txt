@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = RAE
 		add_core_of = RAE
-		victory_points = { 3843 1 }  # Tridentum
+		victory_points = { 3810 1 }  # Tridentum
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		3552 3625 3643 3674 3678 3679 3686 3687 3693 3698 3701 3724 3731 3743 3764 3790 3810 3818 3826 3835 3843 3884 3896 3923 3946 3990
+		3521 3593 3611 3642 3646 3647 3654 3655 3660 3665 3668 3691 3698 3710 3731 3757 3777 3785 3793 3802 3810 3851 3863 3890 3913 3957
 	}
 	local_supplies = 0.0
 }

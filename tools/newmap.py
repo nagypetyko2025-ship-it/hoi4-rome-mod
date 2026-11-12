@@ -26,11 +26,18 @@ OUT = MOD / "map"
 CACHE = MOD / "tools" / "cache"
 
 # crop in vanilla pixels (y from top) and zoom
-X0, Y0 = 2530, 0
+import os
+X0, Y0 = (0, 0) if os.environ.get("ANTE_MAP") in ("vanilla", "identity") else (2530, 0)
 import os
 # map size and zoom; ANTE_MAP=small -> 2304x2048 (vanilla height) for engine tests
 if os.environ.get("ANTE_MAP") == "small":
     SCALE, W, H = 1.6, 2304, 2048
+elif os.environ.get("ANTE_MAP") == "wide":
+    SCALE, W, H = 1.6, 5632, 2048   # vanilla dimensions, Europe zoomed 1.6x, rest filler
+elif os.environ.get("ANTE_MAP") == "identity":
+    SCALE, W, H = 1, 5632, 2048   # engine test: vanilla provinces through our writers
+elif os.environ.get("ANTE_MAP") == "vanilla":
+    SCALE, W, H = 1, 5632, 2048   # engine test: vanilla geometry, our generated content
 elif os.environ.get("ANTE_MAP") == "big":
     SCALE, W, H = 3, 4096, 3840   # crashes while loading textures (engine limit) - kept for reference
 else:
@@ -168,6 +175,8 @@ def area_target(cls, vid, d, ys, xs):
     area = np.where(remote & ~medit, 2400.0, area)
     area = np.where(harsh[vid], 6500.0, area)
     area = np.where(italy, 300.0, area)
+    outside = (vx < 2530) | (vx > 3900) | (vy > 1290)
+    area = np.where(outside, 25000.0, area)
     # sea: small near coasts, big in open water
     land = Image.fromarray(((cls == LAND) * 255).astype(np.uint8)).filter(ImageFilter.BoxBlur(max(1, round(24 * LF))))
     near = np.asarray(land) > 3
@@ -364,6 +373,49 @@ def absorb_enclosed_sea(labels, cls, domain):
     return labels
 
 
+def components(labels):
+    """4-connected component id per pixel (min pixel index of the component)"""
+    comp = np.arange(H * W, dtype=np.int64).reshape(H, W)
+    for _ in range(5000):
+        c = comp.copy()
+        for dy, dx in SHIFTS4:
+            ty, sy = _sl(dy, H)
+            tx, sx = _sl(dx, W)
+            same = labels[ty, tx] == labels[sy, sx]
+            np.minimum(c[ty, tx], np.where(same, c[sy, sx], c[ty, tx]), out=c[ty, tx])
+        if (c == comp).all():
+            break
+        comp = c
+    return comp
+
+
+def drop_fragments(labels, cls):
+    """Every province keeps only its largest 4-connected piece; the other pieces are regrown
+    from neighbouring provinces of the same class (any class as a last resort)."""
+    for rnd in range(3):
+        comp = components(labels)
+        key = labels.ravel().astype(np.int64) * (H * W) + comp.ravel()
+        uk, uc = np.unique(key, return_counts=True)
+        ul = uk // (H * W)
+        if len(np.unique(ul)) == len(ul):
+            break
+        order = np.lexsort((-uc, ul))
+        uk, ul = uk[order], ul[order]
+        first = np.unique(ul, return_index=True)[1]
+        keep = np.zeros(len(uk), bool)
+        keep[first] = True
+        bad_keys = uk[~keep]
+        bad = np.isin(key, bad_keys).reshape(H, W)
+        log(f"fragments round {rnd}: {len(bad_keys)} pieces, {int(bad.sum())} px")
+        labels = labels.copy()
+        labels[bad] = -1
+        grow(labels, cls.astype(np.int32))
+        left = labels < 0
+        if left.any():
+            grow(labels, np.zeros((H, W), np.int32))
+    return labels
+
+
 def renumber(labels):
     u, inv = np.unique(labels, return_inverse=True)
     return (inv.reshape(labels.shape) + 1).astype(np.int32), len(u)
@@ -457,6 +509,7 @@ def write_rivers(cls):
     import math
     cw, ch = math.ceil(W / SCALE) + 1, math.ceil(H / SCALE) + 1
     crop = src[Y0:Y0 + ch, X0:X0 + cw]
+    ch, cw = crop.shape
     river = crop < 12
     ry, rx = np.nonzero(river)
 
@@ -482,6 +535,7 @@ def write_rivers(cls):
             else:
                 for yy in range(ctr(y) + 1, ctr(y + 1)):
                     put(yy, ctr(x), v)
+    out[(out < 12) & (cls != LAND)] = 254
     save_bmp8(OUT / "rivers.bmp", out, VMAP / "rivers.bmp")
 
 
@@ -529,7 +583,41 @@ def write_definitions(labels, n, cls, vid, d, colors, typ):
                     "x": round(float(cx[i]), 1), "y": round(float(cy[i]), 1), "px": int(cnt[i]),
                     "vid": v, "n": sorted(neigh[i])}
     (OUT / "definition.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    inside_points(labels, provs, cx, cy)
     return provs
+
+
+def inside_points(labels, provs, cx, cy, k=8):
+    """Positions guaranteed to lie inside each province (centroids may not):
+    'c' = interior pixel closest to the centroid, 'pts' = up to k random interior pixels."""
+    log("inside points")
+    inner = np.ones(labels.shape, bool)
+    for dy, dx in SHIFTS4:
+        ty, sy = _sl(dy, H)
+        tx, sx = _sl(dx, W)
+        inner[ty, tx] &= labels[ty, tx] == labels[sy, sx]
+    ys, xs = np.nonzero(inner)
+    lab = labels[ys, xs]
+    have = np.zeros(len(cx), bool)
+    have[lab] = True
+    if not have[1:].all():  # very thin provinces: any of their pixels
+        miss = np.isin(labels, np.nonzero(~have)[0])
+        my, mx = np.nonzero(miss)
+        ys, xs, lab = np.concatenate([ys, my]), np.concatenate([xs, mx]), np.concatenate([lab, labels[my, mx]])
+    dist = (xs - cx[lab]) ** 2 + (ys - cy[lab]) ** 2
+    order = np.lexsort((dist, lab))
+    lo, xo, yo = lab[order], xs[order], ys[order]
+    first = np.unique(lo, return_index=True)[1]
+    for j in first:
+        provs[int(lo[j])]["c"] = [float(xo[j]) + 0.5, float(yo[j]) + 0.5]
+    rnd = RNG.permutation(len(lab))
+    order = rnd[np.argsort(lab[rnd], kind="stable")]
+    sl = lab[order]
+    starts = np.searchsorted(sl, np.arange(len(cx)))
+    ends = np.searchsorted(sl, np.arange(len(cx)), side="right")
+    for i in provs:
+        sel = order[starts[i]:min(ends[i], starts[i] + k)]
+        provs[i]["pts"] = [[float(xs[s]) + 0.5, float(ys[s]) + 0.5] for s in sel] or [provs[i]["c"]]
 
 
 def write_regions(provs, labels, region_of_vid, reg_files):
@@ -594,8 +682,10 @@ def write_regions(provs, labels, region_of_vid, reg_files):
         (sr / f"{k}-region.txt").write_text(t, encoding="utf-8")
         ps = by_reg[r]
         big = max(ps, key=lambda i: provs[i]["px"])
-        weather.append(f"{k};{provs[big]['x']:.2f};10.00;{H - provs[big]['y']:.2f};big")
-        weather.append(f"{k};{provs[big]['x'] + 3:.2f};10.00;{H - provs[big]['y'] + 3:.2f};small")
+        bx, by = provs[big]["c"]
+        sx_, sy_ = provs[big]["pts"][-1]
+        weather.append(f"{k};{bx:.2f};10.00;{H - by:.2f};big")
+        weather.append(f"{k};{sx_:.2f};10.00;{H - sy_:.2f};small")
     for p in provs.values():
         p["region"] = newid[p["vreg"]]
     (OUT / "weatherpositions.txt").write_text("\n".join(weather) + "\n", encoding="utf-8")
@@ -665,13 +755,23 @@ def write_static_files(provs, hmap):
     (OUT / "ambient_object.txt").write_text("", encoding="utf-8")
     (OUT / "positions.txt").write_text("", encoding="utf-8")
     lines = []
-    types = list(range(0, 11)) + list(range(21, 29)) + [38]
+    # unit stack position types, as used by vanilla per province kind
+    land_t = list(range(0, 11)) + list(range(21, 30)) + [38]
+    sea_t = list(range(0, 19)) + list(range(21, 39))
+    lake_t = [0, 1, 2, 3, 4, 5, 9, 10, 21, 22, 23, 24, 25, 26, 38]
     for i, p in provs.items():
         x, y = p["x"], p["y"]
-        z = H - y
-        hh = hmap[min(H - 1, int(y)), min(W - 1, int(x))] / 10.0
+        types = {"land": land_t, "sea": sea_t, "lake": lake_t}[p["type"]]
+        pts = [p["c"]] + p["pts"]
         for k, t in enumerate(types):
-            lines.append(f"{i};{t};{x + (k % 3 - 1) * 0.5:.2f};{hh:.2f};{z + (k // 3 % 3 - 1) * 0.5:.2f};0.00;0.30")
+            px, py = pts[k % len(pts)]
+            hh = hmap[min(H - 1, int(py)), min(W - 1, int(px))] / 10.0
+            lines.append(f"{i};{t};{px:.2f};{hh:.2f};{H - py:.2f};0.00;0.30")
+        if p["type"] == "land" and p.get("coast"):
+            cx, cy, _ = p["coast"]
+            hh = hmap[min(H - 1, int(cy)), min(W - 1, int(cx))] / 10.0
+            for t in (19, 20):
+                lines.append(f"{i};{t};{cx:.2f};{hh:.2f};{H - cy:.2f};0.00;0.30")
     (OUT / "unitstacks.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -700,6 +800,24 @@ def coast_points(labels, provs):
         provs[p]["coast"] = [x, y, q]
 
 
+def identity_rest(d, labels, n, cls, vid, typ, region_of_vid, reg_files):
+    colors = province_colors(n)
+    Image.fromarray(colors[labels], "RGB").save(OUT / "provinces.bmp")
+    provs = write_definitions(labels, n, cls, vid, d, colors, typ)
+    write_regions(provs, labels, region_of_vid, reg_files)
+    write_adjacencies(provs, labels, d)
+    ys, xs = src_index()
+    write_layers(cls, ys, xs)
+    write_rivers(cls)
+    hmap = np.asarray(Image.open(OUT / "heightmap.bmp"))
+    coast_points(labels, provs)
+    write_static_files(provs, hmap)
+    np.save(CACHE / "newmap_labels.npy", labels)
+    (CACHE / "newmap.json").write_text(json.dumps({"size": [W, H], "x0": X0, "y0": Y0, "scale": SCALE,
+                                                   "provinces": provs}))
+    log(f"identity done: {n} provinces")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     CACHE.mkdir(parents=True, exist_ok=True)
@@ -709,12 +827,24 @@ def main():
     region_of_vid = np.zeros(max(d["defs"]) + 1, np.int32)
     for p, r in regs.items():
         region_of_vid[p] = r
+    if os.environ.get("ANTE_MAP") == "identity":
+        n0 = max(d["defs"]) + 1
+        typ = np.zeros(n0, np.int8)
+        for p, v in d["defs"].items():
+            typ[p] = {"land": LAND, "sea": SEA, "lake": LAKE}[v["type"]]
+        vid = vids.astype(np.int32)
+        cls = typ[vid]
+        domain = (region_of_vid[vid] * 4 + cls).astype(np.int32)
+        labels, n = renumber(vid)
+        return identity_rest(d, labels, n, cls, vid, typ, region_of_vid, reg_files)
     cls, vid, typ = build_class_and_vid(d, vids, ys, xs)
     area = area_target(cls, vid, d, ys, xs)
     labels, domain = make_provinces(cls, vid, region_of_vid, typ, area)
     del area
     labels = merge_small(labels, domain, cls)
     labels = absorb_enclosed_sea(labels, cls, domain)
+    labels = fix_x_crossings(labels, domain)
+    labels = drop_fragments(labels, cls)
     labels = fix_x_crossings(labels, domain)
     assert (labels >= 0).all(), "unassigned pixels left"
     labels, n = renumber(labels)
@@ -727,8 +857,8 @@ def main():
     write_layers(cls, ys, xs)
     write_rivers(cls)
     hmap = np.asarray(Image.open(OUT / "heightmap.bmp"))
-    write_static_files(provs, hmap)
     coast_points(labels, provs)
+    write_static_files(provs, hmap)
     np.save(CACHE / "newmap_labels.npy", labels)
     (CACHE / "newmap.json").write_text(json.dumps({"size": [W, H], "x0": X0, "y0": Y0, "scale": SCALE,
                                                    "provinces": provs}))

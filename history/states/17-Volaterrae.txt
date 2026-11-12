@@ -6,17 +6,17 @@ state = {
 	history = {
 		owner = VLT
 		add_core_of = VLT
-		victory_points = { 4428 5 }  # Volaterrae
-		victory_points = { 4403 2 }  # Pisae
+		victory_points = { 4395 5 }  # Volaterrae
+		victory_points = { 4370 2 }  # Pisae
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
-			4428 = { naval_base = 2 }
+			4395 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		4320 4342 4371 4403 4428 4497 4511
+		4287 4309 4338 4370 4395 4464 4478
 	}
 	local_supplies = 0.0
 }

@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = ZAN
 		add_core_of = ZAN
-		victory_points = { 5598 5 }  # Zankle
+		victory_points = { 5562 5 }  # Zankle
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			5598 = { naval_base = 1 }
+			5562 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		5596 5597 5598 5610 5629
+		5560 5561 5562 5574 5592
 	}
 	local_supplies = 0.0
 }

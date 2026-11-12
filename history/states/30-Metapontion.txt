@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = MET
 		add_core_of = MET
-		victory_points = { 5171 4 }  # Metapontion
+		victory_points = { 5135 4 }  # Metapontion
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			5171 = { naval_base = 1 }
+			5135 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		5171
+		5135
 	}
 	local_supplies = 0.0
 }

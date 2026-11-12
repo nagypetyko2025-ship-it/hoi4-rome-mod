@@ -1,66 +1,66 @@
 From;To;Type;Through;start_x;start_y;stop_x;stop_y;adjacency_rule_name;Comment
-2718;2610;sea;2477;-1;-1;-1;-1;;Netherlands outlier
-1866;2037;sea;1842;-1;-1;-1;-1;;Sjaelland-Fyn
-2037;8764;sea;1842;-1;-1;-1;-1;;Langeland-Lolland
-1899;2037;sea;1842;-1;-1;-1;-1;;Fyn-Jylland
-2037;8746;sea;1842;-1;-1;-1;-1;;Fyn-Samsö
-1841;8746;sea;1842;-1;-1;-1;-1;;Jylland-Samsö
-1899;8752;sea;1842;-1;-1;-1;-1;;Sönderjylland-Als
-1899;2037;sea;1842;-1;-1;-1;-1;;Fyn-SdrJylland
-4963;4820;sea;4815;-1;-1;-1;-1;;Sardinia-Corsica
-5615;5598;sea;5458;-1;-1;-1;-1;;Calabria-Sicily
-5271;8813;sea;5176;-1;-1;-1;-1;;Menorca-Mallorca
-5849;5750;sea;5829;-1;-1;-1;-1;;Kos-Bodrum
-4896;5007;sea;4639;-1;-1;-1;-1;;Bosphorus
-1614;1591;sea;1758;-1;-1;-1;-1;;Isle of Skye
-1422;8702;sea;1423;-1;-1;-1;-1;;Orkney-Thurso
-5958;5780;;-1;-1;-1;-1;-1;;Gibraltar North
-5958;6154;;-1;-1;-1;-1;-1;;Gibraltar South
-1519;1856;;-1;-1;-1;-1;-1;;Øresund
-4639;4984;;-1;-1;-1;-1;-1;;Bosphorus
-5189;4984;;-1;-1;-1;-1;-1;;Dardanelles
-6808;6927;;-1;-1;-1;-1;-1;;hormuz
-6448;6192;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-6448;6280;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-6448;6280;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-6448;6422;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-6494;6422;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-6517;6422;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-6517;6414;impassable;-1;-1;-1;-1;-1;;peshawar mountains
-5614;5726;impassable;-1;-1;-1;-1;-1;;stalinabad mountains
-5614;5742;impassable;-1;-1;-1;-1;-1;;stalinabad mountains
-5768;5742;impassable;-1;-1;-1;-1;-1;;stalinabad mountains
-3894;3787;impassable;-1;-1;-1;-1;-1;;western alps
-3925;3787;impassable;-1;-1;-1;-1;-1;;western alps
-3925;3782;impassable;-1;-1;-1;-1;-1;;western alps
-3861;3782;impassable;-1;-1;-1;-1;-1;;western alps
-3763;3565;impassable;-1;-1;-1;-1;-1;;central alps
-3763;3723;impassable;-1;-1;-1;-1;-1;;central alps
-3789;3692;impassable;-1;-1;-1;-1;-1;;eastern alps
-3692;3764;impassable;-1;-1;-1;-1;-1;;eastern alps
-3764;3642;impassable;-1;-1;-1;-1;-1;;eastern alps
-3642;3686;impassable;-1;-1;-1;-1;-1;;eastern alps
-3686;3520;impassable;-1;-1;-1;-1;-1;;eastern alps
-3520;3674;impassable;-1;-1;-1;-1;-1;;eastern alps
-3674;3612;impassable;-1;-1;-1;-1;-1;;eastern alps
-3584;3393;impassable;-1;-1;-1;-1;-1;;austrian alps
-3584;3464;impassable;-1;-1;-1;-1;-1;;austrian alps
-3464;3522;impassable;-1;-1;-1;-1;-1;;austrian alps
-3529;3464;impassable;-1;-1;-1;-1;-1;;austrian alps
-3529;3461;impassable;-1;-1;-1;-1;-1;;austrian alps
-3461;3480;impassable;-1;-1;-1;-1;-1;;austrian alps
-3461;3320;impassable;-1;-1;-1;-1;-1;;austrian alps
-3320;3406;impassable;-1;-1;-1;-1;-1;;austrian alps
-6224;6128;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
-6188;6128;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
-6188;6164;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
-6264;6164;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
-5957;5850;impassable;-1;-1;-1;-1;-1;;North Afghanistan
-5956;5850;impassable;-1;-1;-1;-1;-1;;North Afghanistan
-6064;5957;impassable;-1;-1;-1;-1;-1;;North Afghanistan
-6064;5742;impassable;-1;-1;-1;-1;-1;;North Afghanistan
-6378;6218;impassable;-1;-1;-1;-1;-1;;South Afghanistan
-6378;6264;impassable;-1;-1;-1;-1;-1;;South Afghanistan
-6378;6385;impassable;-1;-1;-1;-1;-1;;South Afghanistan
-6414;6385;impassable;-1;-1;-1;-1;-1;;South Afghanistan
-5227;4795;;-1;-1;-1;-1;-1;;Otranto Strait
+2688;2580;sea;2448;-1;-1;-1;-1;;Netherlands outlier
+1842;2011;sea;1819;-1;-1;-1;-1;;Sjaelland-Fyn
+2011;8715;sea;1819;-1;-1;-1;-1;;Langeland-Lolland
+1874;2011;sea;1819;-1;-1;-1;-1;;Fyn-Jylland
+2011;8697;sea;1819;-1;-1;-1;-1;;Fyn-Samsö
+1818;8697;sea;1819;-1;-1;-1;-1;;Jylland-Samsö
+1874;8703;sea;1819;-1;-1;-1;-1;;Sönderjylland-Als
+1874;2011;sea;1819;-1;-1;-1;-1;;Fyn-SdrJylland
+4928;4786;sea;4781;-1;-1;-1;-1;;Sardinia-Corsica
+5578;5562;sea;5422;-1;-1;-1;-1;;Calabria-Sicily
+5235;8817;sea;5140;-1;-1;-1;-1;;Menorca-Mallorca
+5809;5711;sea;5789;-1;-1;-1;-1;;Kos-Bodrum
+4862;4972;sea;4606;-1;-1;-1;-1;;Bosphorus
+1592;1569;sea;1735;-1;-1;-1;-1;;Isle of Skye
+1401;8653;sea;1402;-1;-1;-1;-1;;Orkney-Thurso
+5918;5740;;-1;-1;-1;-1;-1;;Gibraltar North
+5918;6114;;-1;-1;-1;-1;-1;;Gibraltar South
+1497;1832;;-1;-1;-1;-1;-1;;Øresund
+4606;4949;;-1;-1;-1;-1;-1;;Bosphorus
+5153;4949;;-1;-1;-1;-1;-1;;Dardanelles
+6764;6881;;-1;-1;-1;-1;-1;;hormuz
+6453;6152;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+6453;6240;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+6453;6240;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+6453;6382;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+6472;6382;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+6476;6382;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+6476;6374;impassable;-1;-1;-1;-1;-1;;peshawar mountains
+5580;5765;impassable;-1;-1;-1;-1;-1;;stalinabad mountains
+5580;5765;impassable;-1;-1;-1;-1;-1;;stalinabad mountains
+5729;5765;impassable;-1;-1;-1;-1;-1;;stalinabad mountains
+3861;3754;impassable;-1;-1;-1;-1;-1;;western alps
+3892;3754;impassable;-1;-1;-1;-1;-1;;western alps
+3892;3749;impassable;-1;-1;-1;-1;-1;;western alps
+3828;3749;impassable;-1;-1;-1;-1;-1;;western alps
+3730;3534;impassable;-1;-1;-1;-1;-1;;central alps
+3730;3690;impassable;-1;-1;-1;-1;-1;;central alps
+3756;3659;impassable;-1;-1;-1;-1;-1;;eastern alps
+3659;3731;impassable;-1;-1;-1;-1;-1;;eastern alps
+3731;3610;impassable;-1;-1;-1;-1;-1;;eastern alps
+3610;3654;impassable;-1;-1;-1;-1;-1;;eastern alps
+3654;3489;impassable;-1;-1;-1;-1;-1;;eastern alps
+3489;3642;impassable;-1;-1;-1;-1;-1;;eastern alps
+3642;3580;impassable;-1;-1;-1;-1;-1;;eastern alps
+3552;3362;impassable;-1;-1;-1;-1;-1;;austrian alps
+3552;3433;impassable;-1;-1;-1;-1;-1;;austrian alps
+3433;3491;impassable;-1;-1;-1;-1;-1;;austrian alps
+3498;3433;impassable;-1;-1;-1;-1;-1;;austrian alps
+3498;3430;impassable;-1;-1;-1;-1;-1;;austrian alps
+3430;3449;impassable;-1;-1;-1;-1;-1;;austrian alps
+3430;3289;impassable;-1;-1;-1;-1;-1;;austrian alps
+3289;3375;impassable;-1;-1;-1;-1;-1;;austrian alps
+6184;6088;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
+6148;6088;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
+6148;6124;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
+6224;6124;impassable;-1;-1;-1;-1;-1;;Paropamisus Mountains
+5917;5810;impassable;-1;-1;-1;-1;-1;;North Afghanistan
+5916;5810;impassable;-1;-1;-1;-1;-1;;North Afghanistan
+6024;5917;impassable;-1;-1;-1;-1;-1;;North Afghanistan
+6024;5765;impassable;-1;-1;-1;-1;-1;;North Afghanistan
+6338;6178;impassable;-1;-1;-1;-1;-1;;South Afghanistan
+6338;6224;impassable;-1;-1;-1;-1;-1;;South Afghanistan
+6338;6345;impassable;-1;-1;-1;-1;-1;;South Afghanistan
+6374;6345;impassable;-1;-1;-1;-1;-1;;South Afghanistan
+5191;4761;;-1;-1;-1;-1;-1;;Otranto Strait

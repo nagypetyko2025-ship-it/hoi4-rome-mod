@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = RHE
 		add_core_of = RHE
-		victory_points = { 5615 4 }  # Rhegion
+		victory_points = { 5578 4 }  # Rhegion
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			5615 = { naval_base = 1 }
+			5578 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		5531 5615
+		5495 5578
 	}
 	local_supplies = 0.0
 }

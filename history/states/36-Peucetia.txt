@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = PEU
 		add_core_of = PEU
-		victory_points = { 4950 2 }  # Caelia
+		victory_points = { 4915 2 }  # Caelia
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			4950 = { naval_base = 2 }
+			4915 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		4895 4931 4950 5022
+		4861 4897 4915 4987
 	}
 	local_supplies = 0.0
 }

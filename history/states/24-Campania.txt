@@ -6,8 +6,8 @@ state = {
 	history = {
 		owner = CAP
 		add_core_of = CAP
-		victory_points = { 4964 8 }  # Capua
-		victory_points = { 5048 2 }  # Nuceria
+		victory_points = { 4929 8 }  # Capua
+		victory_points = { 5013 2 }  # Nuceria
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 2
@@ -15,7 +15,7 @@ state = {
 		}
 	}
 	provinces = {
-		4906 4964 4967 5048
+		4872 4929 4932 5013
 	}
 	local_supplies = 0.0
 }

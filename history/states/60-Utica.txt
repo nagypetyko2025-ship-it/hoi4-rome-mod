@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = CAR
 		add_core_of = CAR
-		victory_points = { 5738 5 }  # Utica
+		victory_points = { 5700 5 }  # Utica
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
-			5738 = { naval_base = 2 }
+			5700 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		5738 5803 5808 5843 5874 5887 5897 5934 5950 5953
+		5700 5763 5768 5803 5834 5847 5857 5894 5910 5913
 	}
 	local_supplies = 0.0
 }

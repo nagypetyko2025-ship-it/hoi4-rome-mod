@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = COR
 		add_core_of = COR
-		victory_points = { 4679 2 }  # Alalia
+		victory_points = { 4646 2 }  # Alalia
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			4679 = { naval_base = 2 }
+			4646 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		4679 4739 4820
+		4646 4706 4786
 	}
 	local_supplies = 0.0
 }

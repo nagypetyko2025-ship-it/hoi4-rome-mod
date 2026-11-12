@@ -6,7 +6,7 @@ state = {
 	history = {
 		owner = NUM
 		add_core_of = NUM
-		victory_points = { 5988 2 }  # Thugga
+		victory_points = { 5948 2 }  # Thugga
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
@@ -14,7 +14,7 @@ state = {
 		}
 	}
 	provinces = {
-		5812 5816 5834 5838 5846 5865 5882 5896 5906 5914 5926 5930 5933 5938 5939 5940 5973 5974 5987 5988 5996 6048 6060
+		5772 5776 5794 5798 5806 5825 5842 5856 5866 5874 5886 5890 5893 5898 5899 5900 5933 5934 5947 5948 5956 6008 6020
 	}
 	local_supplies = 0.0
 }

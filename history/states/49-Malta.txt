@@ -6,14 +6,14 @@ state = {
 	history = {
 		owner = CAR
 		add_core_of = CAR
-		victory_points = { 5970 2 }  # Melite
+		victory_points = { 5930 2 }  # Melite
 		buildings = {
 			infrastructure = 2
-			5970 = { naval_base = 1 }
+			5930 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		5970 8877
+		5930 8881
 	}
 	local_supplies = 0.0
 }

@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = LIG
 		add_core_of = LIG
-		victory_points = { 4264 3 }  # Genua
+		victory_points = { 4231 3 }  # Genua
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			4264 = { naval_base = 2 }
+			4231 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		4169 4175 4209 4215 4251 4264 4272 4287 4288 4295 4327 4359 4379
+		4136 4142 4176 4182 4218 4231 4239 4254 4255 4262 4294 4326 4346
 	}
 	local_supplies = 0.0
 }

@@ -6,17 +6,17 @@ state = {
 	history = {
 		owner = VEN
 		add_core_of = VEN
-		victory_points = { 3991 5 }  # Ateste
-		victory_points = { 4008 2 }  # Altinum
+		victory_points = { 3958 5 }  # Ateste
+		victory_points = { 3975 2 }  # Altinum
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			4008 = { naval_base = 2 }
+			3975 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		3663 3744 3765 3779 3819 3849 3862 3876 3900 3901 3911 3912 3978 3991 4001 4008 4039 4074
+		3631 3711 3732 3746 3786 3816 3829 3843 3867 3868 3878 3879 3945 3958 3968 3975 4006 4041
 	}
 	local_supplies = 0.0
 }

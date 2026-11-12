@@ -6,14 +6,14 @@ state = {
 	history = {
 		owner = ARR
 		add_core_of = ARR
-		victory_points = { 4479 5 }  # Arretium
+		victory_points = { 4446 5 }  # Arretium
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 		}
 	}
 	provinces = {
-		4468 4479 4493
+		4435 4446 4460
 	}
 	local_supplies = 0.0
 }

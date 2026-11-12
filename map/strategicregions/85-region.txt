@@ -3,7 +3,7 @@ strategic_region={
 	id = 85
 	name="STRATEGICREGION_207"
 	provinces = {
-		1842 1856 1925 1929 1973
+		1819 1832 1900 1904 1948
 	}
 	naval_terrain=water_fjords
 	weather={

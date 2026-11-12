@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = FEL
 		add_core_of = FEL
-		victory_points = { 4177 4 }  # Spina
+		victory_points = { 4144 4 }  # Spina
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			4170 = { naval_base = 1 }
+			4137 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		4170 4177 4231 4279 4291 4298 4315
+		4137 4144 4198 4246 4258 4265 4282
 	}
 	local_supplies = 0.0
 }

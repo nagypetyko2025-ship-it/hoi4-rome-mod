@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = UMB
 		add_core_of = UMB
-		victory_points = { 4476 2 }  # Iguvium
+		victory_points = { 4443 2 }  # Iguvium
 		buildings = {
 			infrastructure = 1
 			industrial_complex = 1
 			arms_factory = 1
-			4372 = { naval_base = 2 }
+			4339 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		4372 4405 4442 4476
+		4339 4372 4409 4443
 	}
 	local_supplies = 0.0
 }

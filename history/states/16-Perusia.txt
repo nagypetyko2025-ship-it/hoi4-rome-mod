@@ -6,14 +6,14 @@ state = {
 	history = {
 		owner = CLU
 		add_core_of = CLU
-		victory_points = { 4572 3 }  # Perusia
+		victory_points = { 4539 3 }  # Perusia
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
 		}
 	}
 	provinces = {
-		4498 4572 4616
+		4465 4539 4583
 	}
 	local_supplies = 0.0
 }

@@ -6,16 +6,16 @@ state = {
 	history = {
 		owner = CAR
 		add_core_of = CAR
-		victory_points = { 5769 25 }  # Qart-Hadasht
+		victory_points = { 5730 25 }  # Qart-Hadasht
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 4
 			arms_factory = 1
-			5769 = { naval_base = 2 }
+			5730 = { naval_base = 2 }
 		}
 	}
 	provinces = {
-		5769 5835 5847 5852 5888
+		5730 5795 5807 5812 5848
 	}
 	local_supplies = 0.0
 }

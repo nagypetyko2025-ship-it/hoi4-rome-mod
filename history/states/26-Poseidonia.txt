@@ -6,15 +6,15 @@ state = {
 	history = {
 		owner = POS
 		add_core_of = POS
-		victory_points = { 5144 4 }  # Poseidonia
+		victory_points = { 5108 4 }  # Poseidonia
 		buildings = {
 			infrastructure = 2
 			industrial_complex = 1
-			5144 = { naval_base = 1 }
+			5108 = { naval_base = 1 }
 		}
 	}
 	provinces = {
-		5102 5115 5144 5178
+		5067 5080 5108 5142
 	}
 	local_supplies = 0.0
 }
