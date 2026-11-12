@@ -334,6 +334,100 @@ def fix_x_crossings(labels, domain):
     return labels
 
 
+def fix_seam(labels, cls=None, domain=None):
+    """The map wraps east-west, so the last and the first pixel column are neighbours too and the
+    engine checks X crossings there as well. fix_x_crossings() does not look across that seam:
+    repair 4-province vertices and diagonal-only touches there by letting the upper pixel on the
+    east edge take the province (and land/sea class) below it."""
+    for rnd in range(10):
+        a, b = labels[:-1, -1], labels[:-1, 0]
+        c, d = labels[1:, -1], labels[1:, 0]
+        bad = ((a != b) & (a != c) & (a != d) & (b != c) & (b != d) & (c != d)) \
+            | ((a == d) & (b != a) & (c != a)) | ((b == c) & (a != b) & (d != b))
+        ys = np.nonzero(bad)[0]
+        if not len(ys):
+            break
+        labels[ys, W - 1] = labels[ys + 1, W - 1]
+        for arr in (cls, domain):
+            if arr is not None:
+                arr[ys, W - 1] = arr[ys + 1, W - 1]
+        log(f"seam repair round {rnd}: {len(ys)} vertices")
+    return labels
+
+
+def grow_tiny(labels, cls=None, domain=None, below=10, target=12, forbidden=None):
+    """The engine reports provinces of NGraphics.MINIMUM_PROVINCE_SIZE_IN_PIXELS (8) pixels or less
+    ("Province X has only N pixels"). These are islets with no neighbour of their own kind to merge
+    with, so they take single pixels from their neighbours until they have `target` pixels.
+    A pixel is only taken when the donor stays in one piece and no diagonal touch / 4-province
+    vertex appears. `forbidden` marks pixels that must stay (positions already written to files)."""
+    size = np.bincount(labels.ravel())
+    changed = []
+
+    def vertex_ok(y, x):
+        a, b, c, d = labels[y, x], labels[y, x + 1], labels[y + 1, x], labels[y + 1, x + 1]
+        if a == d and b != a and c != a:
+            return False
+        if b == c and a != b and d != b:
+            return False
+        return len({int(a), int(b), int(c), int(d)}) < 4
+
+    def donor_stays_whole(y, x, don):
+        win = labels[y - 1:y + 2, x - 1:x + 2] == don
+        win[1, 1] = False
+        ring = [(0, 1), (1, 0), (1, 2), (2, 1)]
+        starts = [p for p in ring if win[p]]
+        if not starts:
+            return False
+        seen, stack = {starts[0]}, [starts[0]]
+        while stack:
+            cy, cx = stack.pop()
+            for dy, dx in SHIFTS4:
+                q = (cy + dy, cx + dx)
+                if 0 <= q[0] < 3 and 0 <= q[1] < 3 and win[q] and q not in seen:
+                    seen.add(q)
+                    stack.append(q)
+        return all(p in seen for p in starts)
+
+    for i in np.nonzero((size > 0) & (size < below))[0].tolist():
+        pix = [tuple(p) for p in np.argwhere(labels == i).tolist()]
+        own_cls = cls[pix[0]] if cls is not None else None
+        own_dom = domain[pix[0]] if domain is not None else None
+        while len(pix) < target:
+            cands = {}
+            for y, x in pix:
+                for dy, dx in SHIFTS4:
+                    q = (y + dy, x + dx)
+                    if 2 <= q[0] < H - 2 and 2 <= q[1] < W - 2 and labels[q] != i:
+                        cands[q] = cands.get(q, 0) + 1
+            done = False
+            for (y, x), _ in sorted(cands.items(), key=lambda kv: (-kv[1], kv[0])):
+                don = int(labels[y, x])
+                if size[don] < 4 * target or (forbidden is not None and forbidden[y, x]):
+                    continue
+                if not donor_stays_whole(y, x, don):
+                    continue
+                labels[y, x] = i
+                if all(vertex_ok(vy, vx) for vy in (y - 1, y) for vx in (x - 1, x)):
+                    size[don] -= 1
+                    size[i] += 1
+                    pix.append((y, x))
+                    changed.append((y, x))
+                    if cls is not None:
+                        cls[y, x] = own_cls
+                    if domain is not None:
+                        domain[y, x] = own_dom
+                    done = True
+                    break
+                labels[y, x] = don
+            if not done:
+                log(f"WARN: province {i} stays at {len(pix)} px (no pixel can be taken safely)")
+                break
+    if changed:
+        log(f"grew tiny provinces by {len(changed)} px")
+    return labels, changed
+
+
 def absorb_enclosed_sea(labels, cls, domain):
     """Sea provinces without any sea neighbour (lagoons cut off by smoothing) join the land
     province they share the longest border with."""
@@ -392,12 +486,15 @@ def components(labels):
 def drop_fragments(labels, cls):
     """Every province keeps only its largest 4-connected piece; the other pieces are regrown
     from neighbouring provinces of the same class (any class as a last resort)."""
-    for rnd in range(3):
+    for rnd in range(12):  # regrowing can cut another province in two, so repeat until nothing is left
         comp = components(labels)
         key = labels.ravel().astype(np.int64) * (H * W) + comp.ravel()
         uk, uc = np.unique(key, return_counts=True)
         ul = uk // (H * W)
         if len(np.unique(ul)) == len(ul):
+            break
+        if rnd == 11:
+            log(f"WARN: {len(ul) - len(np.unique(ul))} province fragments left (run tools/validate.py)")
             break
         order = np.lexsort((-uc, ul))
         uk, ul = uk[order], ul[order]
@@ -563,10 +660,9 @@ def write_definitions(labels, n, cls, vid, d, colors, typ):
         neigh[q].append(int(p))
     coastal = np.zeros(n + 1, bool)
     for p, q in pairs:
-        if pcls[p] == LAND and pcls[q] == SEA:
-            coastal[p] = True
-        if pcls[q] == LAND and pcls[p] == SEA:
-            coastal[q] = True
+        # like vanilla, both sides are coastal: the land province and the sea province it touches
+        if {int(pcls[p]), int(pcls[q])} == {LAND, SEA}:
+            coastal[p] = coastal[q] = True
     lines = ["0;0;0;0;land;false;unknown;0"]
     provs = {}
     for i in range(1, n + 1):
@@ -582,7 +678,8 @@ def write_definitions(labels, n, cls, vid, d, colors, typ):
         provs[i] = {"type": t, "coastal": bool(coastal[i]), "terrain": terrain, "continent": int(cont),
                     "x": round(float(cx[i]), 1), "y": round(float(cy[i]), 1), "px": int(cnt[i]),
                     "vid": v, "n": sorted(neigh[i])}
-    (OUT / "definition.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # the engine wants Windows line endings in this file (kept as-is by .gitattributes)
+    (OUT / "definition.csv").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\r\n")
     inside_points(labels, provs, cx, cy)
     return provs
 
@@ -684,7 +781,8 @@ def write_regions(provs, labels, region_of_vid, reg_files):
         big = max(ps, key=lambda i: provs[i]["px"])
         bx, by = provs[big]["c"]
         sx_, sy_ = provs[big]["pts"][-1]
-        weather.append(f"{k};{bx:.2f};10.00;{H - by:.2f};big")
+        # the engine only knows the sizes "large" and "small"; without a "large" entry it crashes
+        weather.append(f"{k};{bx:.2f};10.00;{H - by:.2f};large")
         weather.append(f"{k};{sx_:.2f};10.00;{H - sy_:.2f};small")
     for p in provs.values():
         p["region"] = newid[p["vreg"]]
@@ -726,6 +824,7 @@ def write_adjacencies(provs, labels, d):
             return cands[0] if cands else None
         return p
 
+    seen = set()
     for line in text:
         parts = line.split(";")
         if len(parts) < 9 or not parts[0].lstrip("-").isdigit():
@@ -738,16 +837,30 @@ def write_adjacencies(provs, labels, d):
         nf, nt = new_at(f, ft), new_at(t, tt)
         if not nf or not nt or nf == nt:
             continue
+        key = (min(nf, nt), max(nf, nt))
+        if key in seen:
+            continue  # two vanilla crossings can collapse onto the same pair of new provinces
+        adjacent = nt in provs[nf]["n"]
         nthr = -1
-        if thr >= 0:
-            nthr = new_at(thr, d["defs"].get(thr, {}).get("type"))
-            if not nthr:
+        if typ == "impassable":
+            if not adjacent:
+                continue  # can only block a border that exists on the new map
+        elif typ == "sea":
+            # strait crossing: two land provinces that do not touch, through a sea province touching both
+            if adjacent or ft != "land" or tt != "land" or thr < 0:
                 continue
-        if nthr != -1 and (nf not in provs[nthr]["n"] or nt not in provs[nthr]["n"]):
+            nthr = new_at(thr, "sea")
+            if not nthr or nf not in provs[nthr]["n"] or nt not in provs[nthr]["n"]:
+                continue
+        else:
+            # vanilla sea-to-sea straits/canals only make sense with their adjacency rule; we ship no
+            # rules yet, and between provinces that no longer touch the line would be a teleport
             continue
+        seen.add(key)
         out.append(f"{nf};{nt};{typ};{nthr};-1;-1;-1;-1;;{parts[9] if len(parts) > 9 else ''}")
-    (OUT / "adjacencies.csv").write_text("\n".join(out) + "\n", encoding="utf-8")
     log(f"{len(out) - 1} adjacencies kept")
+    out.append("-1;-1;-1;-1;-1;-1;-1;-1;-1")  # vanilla terminator: must be the last line of the file
+    (OUT / "adjacencies.csv").write_text("\n".join(out) + "\n", encoding="utf-8", newline="\r\n")
 
 
 def write_static_files(provs, hmap):
@@ -793,7 +906,7 @@ def coast_points(labels, provs):
                 continue
             pts[p] = (int(x + tx.start), int(y + ty.start), q)
     for p, v in provs.items():
-        if v["coastal"] and p not in pts:
+        if v["type"] == "land" and v["coastal"] and p not in pts:
             sea = next((q for q in v["n"] if provs[q]["type"] == "sea"), None)
             pts[p] = (int(v["x"]), int(v["y"]), sea)
     for p, (x, y, q) in pts.items():
@@ -844,8 +957,19 @@ def main():
     labels = merge_small(labels, domain, cls)
     labels = absorb_enclosed_sea(labels, cls, domain)
     labels = fix_x_crossings(labels, domain)
-    labels = drop_fragments(labels, cls)
-    labels = fix_x_crossings(labels, domain)
+    # the repairs can undo each other (a repainted pixel may split a province, a regrown fragment
+    # may create a new diagonal touch), so repeat them until the province map no longer changes
+    for _ in range(5):
+        before = labels.copy()
+        labels, _ = grow_tiny(labels, cls, domain)
+        labels = drop_fragments(labels, cls)
+        labels = fix_x_crossings(labels, domain)
+        labels = fix_seam(labels, cls, domain)
+        labels = fix_x_crossings(labels, domain)
+        if (labels == before).all():
+            break
+    else:
+        log("WARN: province repairs did not settle - run tools/validate.py")
     assert (labels >= 0).all(), "unassigned pixels left"
     labels, n = renumber(labels)
     log(f"{n} provinces")

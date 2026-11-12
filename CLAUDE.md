@@ -25,6 +25,16 @@
 - An empty railways.txt is suspected to crash on game start; build.py writes placeholder rail stubs.
 - 8-bit BMPs must be written with vanilla-style headers (`save_bmp8`), else "Palette in rivers.bmp is probably not correct".
 - Debug a "Failed to load the map" dialog by launching with `-ExtraArgs "-debug"`: only then map errors reach error.log.
+- `weatherpositions.txt` sizes are `large` / `small` only, one of each per strategic region; no `large` entry = crash.
+- `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after
+  country selection).
+- `buildings.txt`: last field (adjacent sea province) non-zero ONLY for `naval_base_spawn` and `floating_harbor`; every
+  coastal land province needs a `naval_base_spawn` line.
+- `adjacencies.csv` ends with `-1;-1;-1;-1;-1;-1;-1;-1;-1`; no duplicate pairs; `impassable` only between touching
+  provinces. `definition.csv` needs CRLF line endings; sea provinces touching land are `coastal = true` too.
+- X crossings are also checked across the east-west seam. Provinces of 8 px or less are an error.
+- `map/airports.txt` / `map/rocketsites.txt` no longer exist (removed in 1.15).
+- Run `python tools/validate.py` after every generation: it checks all of the above without the game.
 - Pipeline: `python tools/newmap.py` (map, ~2 min) then `python tools/build.py` (states/countries, translated from
   vanilla province ids in world_245.py to the new provinces).
 

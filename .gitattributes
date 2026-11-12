@@ -1,0 +1,4 @@
+# The engine reads these CSV files line by line and wants Windows line endings.
+# Keep their bytes exactly as generated, whatever core.autocrlf says (also in ZIP downloads).
+map/definition.csv -text
+map/adjacencies.csv -text

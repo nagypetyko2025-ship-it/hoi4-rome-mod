@@ -1,0 +1,3 @@
+# Ante Imperium: the vanilla tutorial points at vanilla state ids that do not exist on this map,
+# which crashes the game right after country selection. An empty tutorial block is the documented fix.
+tutorial = { }

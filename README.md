@@ -1,7 +1,7 @@
 # Ante Imperium – Hearts of Iron IV ókori mod
 
 Teljes átalakító (total conversion) HoI4 mod: Európa, Észak-Afrika és a Közel-Kelet Róma felemelkedése
-előtt és alatt. **Fejlesztés alatt, jelenleg NEM játszható** (lásd: „Ismert hibák”).
+előtt és alatt. **Fejlesztés alatt, jelenleg NEM játszható** (lásd: „Állapot”).
 
 - Játékverzió: **1.19.4.2** (Operation Postern). Csak a beépített DLC-kre épít
   (Together for Victory, Death or Dishonor, Waking the Tiger, Man the Guns).
@@ -29,13 +29,17 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `tools/mapdata.py` | Vanilla térképadat olvasása (csak olvas). |
 | `tools/render_region.py` | Címkézett tartománytérkép-kép egy régióról (tervezéshez). |
 | `tools/test_launch.ps1` | Automatikus tesztindítás (lásd lent). |
+| `tools/validate.py` | **Statikus ellenőrző**: játék nélkül végignézi a térkép- és történelemfájlokat a lenti motorszabályok szerint. Minden generálás után futtasd. |
+| `tools/data/names_245.py` | Ókori névlisták kultúránként (vezetők, tábornokok) → `common/names/ante_names.txt`. |
+| `tutorial/tutorial.txt` | Üres `tutorial = { }` blokk (kötelező, lásd szabályok). Kézzel írt, nem generált. |
+| `.gitattributes` | A `definition.csv` és az `adjacencies.csv` bájtra pontosan (CRLF sorvéggel) marad a repóban. |
 | `common/national_focus/ante_generic_focus.txt` | Minimális alap fókuszfa (kötelező, lásd szabályok). |
 | `common/defines/zz_ante_imperium.lua` | Kezdő-/végdátum felülírása. |
 | `CLAUDE.md` | Rövid szabálylista a fejlesztéshez (AI asszisztensnek is). |
 | `docs/design.md` | Terv és fázisok. |
 
 Generált (ne kézzel szerkeszd, hanem a forrást + futtasd újra): `history/states`, `history/countries`,
-`history/units`, `map/*`, `common/country_tags`, `common/countries`, `common/bookmarks`, `gfx/flags`,
+`history/units`, `map/*`, `common/country_tags`, `common/countries`, `common/names`, `common/bookmarks`, `gfx/flags`,
 `localisation/english/replace`, `descriptor.mod`.
 
 ## Építés
@@ -43,7 +47,11 @@ Generált (ne kézzel szerkeszd, hanem a forrást + futtasd újra): `history/sta
 ```bash
 python tools/newmap.py     # térkép (~3-5 perc), Pillow + numpy kell
 python tools/build.py      # államok, országok, minden más (~10 mp)
+python tools/validate.py   # statikus ellenőrzés (~1 perc), játék nem kell hozzá; 0 hibával kell végeznie
 ```
+
+A `validate.py` csak a mod mappáját olvassa (numpy kell, scipy-val gyorsabb), ezért olyan gépen is fut,
+ahol nincs HoI4. A két generátorhoz viszont kell az alapjáték (a vanilla térképből dolgoznak).
 
 Térképméret választása a `ANTE_MAP` környezeti változóval (`tools/newmap.py` eleje):
 
@@ -86,24 +94,56 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
 10. `unitstacks.txt`: tartományfajtánként más pozíciótípusok kellenek (szárazföld 0–10, 21–29, 38;
     part 19–20; tenger 0–18, 21–38; tó lásd kód).
 11. Teljesen üres `railways.txt` gyanús – a build minden fővárosba ír egy rövid „vasút” csonkot (később utak lesznek).
+12. **`weatherpositions.txt`: a méret csak `large` vagy `small` lehet.** Régiónként mindkettő kell; `large` nélkül
+    a játék összeomlik (korábban `big` állt a fájlban).
+13. **`tutorial/tutorial.txt` kötelező** (`tutorial = { }`): a vanilla oktatófájl vanilla államazonosítókra mutat,
+    amik ezen a térképen nincsenek → összeomlás országválasztás után.
+14. Az X-kereszteződést a motor **a térkép jobb és bal széle között is** ellenőrzi (a térkép körbeér):
+    ott sem találkozhat 4 tartomány egy pontban.
+15. `buildings.txt`: az utolsó mező (szomszédos tengeri tartomány) **csak `naval_base_spawn` és
+    `floating_harbor`** sornál lehet nem nulla. Minden partmenti tartománynak kell `naval_base_spawn` sor,
+    különben „has no port building in the nudger” → összeomlás.
+16. `adjacencies.csv`: az utolsó sor kötelezően `-1;-1;-1;-1;-1;-1;-1;-1;-1`. Egy tartománypár csak egyszer
+    szerepelhet; `impassable` csak ténylegesen szomszédos tartományok közt; `sea` (átkelő) csak két, egymással
+    nem érintkező szárazföldi tartomány közt, olyan tengeri tartományon át, ami mindkettővel határos.
+17. `definition.csv`: **CRLF sorvég** kell; a partmenti jelző a szárazfölddel érintkező **tengeri**
+    tartományoknál is `true` (különben a motor „javított” másolatot ír és hibát naplóz).
+18. A legfeljebb 8 pixeles tartomány hiba („has only N pixels”) – a generátor ezeket 12 pixelre növeszti.
+19. `map/airports.txt` és `map/rocketsites.txt` az 1.15-ös javítás óta nem létezik; helyettük a
+    `buildings.txt` `air_base` és `rocket_site_spawn` sorai számítanak.
 
-## Ismert hibák / állapot (2026-11-12)
+## Állapot (2026-11-12, második kör – statikus javítás, játékban még NEM tesztelve)
 
-- **A játék indításkor („Initializing game”) összeomlik az új térképpel**, bármelyik országgal.
-  - A főmenüig betölt.
-  - A régi, vanilla-térképes változat (commit `0869843`) elindul és fut.
-  - Felezéses keresés eredménye: a hiba a **`tools/build.py` által generált `map/buildings.txt`
-    államszintű épületpozícióiban** van (air_base, arms_factory, industrial_complex stb.). Ha csak ezeket
-    cseréltük a működő fájlban, összeomlott.
-  - Valószínű ok: a pozíciók a tartomány **súlypontja** köré kerültek, ami íves/partmenti tartománynál
-    a tartományon kívülre (tengerbe vagy más államba) esik.
-  - **Utolsó, még NEM TESZTELT javítás:** a `newmap.py` `inside_points()` függvénye garantáltan
-    tartományon belüli pontokat (`c`, `pts`) számol, és ezeket használja minden pozíció (épületek,
-    unitstacks, időjárás). Első teendő: `newmap.py` + `build.py`, majd quickstart-teszt.
-- Egy korábbi tesztnél (régi változat) **az országoknak nem volt színe** a térképen – még nincs kivizsgálva.
-- Vezetőnevek hiányoznak (nincs ókori névlista `common/names`-ben) → hibák a naplóban, nem összeomlás.
-- Az `error.log` tele van a vanilla modern tartalom (spanyol tanácsadók, ötletek, hajónevek…) hibáival – kiürítendő.
-- Egy tartomány (pár pixeles beékelt darab) még több részből állhat a generálás után (`fragments round 2: 1 pieces`).
+Ezen a körön nem volt elérhető a játék, ezért a hibákat a `tools/validate.py` statikus ellenőrzővel és a
+HoI4-wiki (Map modding, Troubleshooting) dokumentált szabályaival kerestük meg. A generált fájlokat helyben
+javítottuk, és ugyanezek a javítások bekerültek a `newmap.py`-ba és a `build.py`-ba is.
+
+Javítva (zárójelben a szabály száma):
+
+- **Összeomlás játékindításkor**: `weatherpositions.txt` `big` → `large` (12); üres `tutorial/tutorial.txt` (13).
+  Ez a kettő magyarázza, hogy a vanilla térképes változat miért futott, az új térképes miért nem: a régi a vanilla
+  időjárásfájlt használta, és megvolt benne minden vanilla államazonosító.
+- **Térképbetöltés**: egy X-kereszteződés a térkép varratán (14); 7 darab 8 pixeles vagy kisebb tartomány (18);
+  hiányzó záró sor és 29 hibás/duplikált sor az `adjacencies.csv`-ben (16).
+- **`buildings.txt`**: 4758 sorban tengeri tartomány állt olyan épülettípusnál, ami nem kaphat (15).
+  Az épületpozíciók (az előző kör „inside points” javítása) az ellenőrző szerint mind a saját államukban vannak.
+- **`definition.csv`**: 596 tengeri tartomány partmenti jelzője (17).
+- **Vezetőnevek**: `common/names/ante_names.txt` mind a 45 országhoz, kultúránkénti ókori névlistával.
+- **Töredékes tartomány**: a generátor javítólépései (apró tartományok, töredékek, X-kereszteződések, varrat) most
+  addig ismétlődnek, amíg a térkép már nem változik; a `validate.py` a kész térképen ellenőrzi is.
+
+Még nyitott:
+
+- **Játékbeli teszt kell** (`tools/test_launch.ps1 -ExtraArgs "-quickstart -start_tag=ROM"`). Ha még összeomlik:
+  az `error.log` vége és a `crashes/<dátum>/exception.txt` mutatja meg, melyik fájlnál.
+- **Az országoknak nem volt színe** (régi teszt): a fájlokban nem találtunk hibát – a `common/countries/colors.txt`
+  és az országfájlok formátuma megegyezik a vaniláéval, minden országnak van színe. Gyanú: közelre nagyítva a
+  politikai színezés a motorban elhalványul, a kezdő államok pedig aprók. Játékban kell megnézni.
+- **Az `error.log` vanilla hibái** (spanyol tanácsadók, ötletek, hajónevek…): ehhez a tényleges `error.log` kell,
+  mert abból derül ki, mely vanilla fájlokat kell felülírni vagy `replace_path`-szal kiváltani. Vaktában nem
+  cseréltünk le mappát: ha egy adatbázistípusból egy bejegyzés sem marad, a játék összeomlik.
+- A térkép keleti széle szárazföld, a nyugati tenger, így a varraton át „partmenti” a keleti szél. Ez szabályos,
+  de szokatlan; ha a varrat környékén furcsaság látszik, a keleti szélre érdemes tengersávot tenni.
 
 ## Tervezett fázisok
 
