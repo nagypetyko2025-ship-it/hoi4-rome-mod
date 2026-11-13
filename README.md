@@ -597,3 +597,8 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   (sok extra naplózás), sebességet ezek nélkül érdemes nézni.
 - Pipeline: `python tools/world.py` → `python tools/content.py` → `python tools/validate.py` (0 hiba).
   Betöltési teszt a főmenüig: az új fájlokra nincs hibaüzenet az error.log-ban.
+- **Portrék** (2026-11-13): a 28 vezetőnek saját, festményszerű portréja van (`gfx/leaders/ante/`, rajzolja a
+  `python tools/portraits.py`, saját kód, külső kép nélkül, CC0). Népenként más viselet: római babérkoszorú és
+  tóga, perzsa csipkés korona, pun kúpos süveg, spártai korinthoszi sisak, makedón kausia, kusita sapkakorona
+  két ureusszal, szkíta/szaka csúcsos sapka, trák rókaprém sapka, líbiai tollak, északi népeknél hosszú haj és
+  torques. `--preview FÁJL` egy áttekintő képet is ír. Pipeline: world.py → portraits.py → content.py → validate.py.

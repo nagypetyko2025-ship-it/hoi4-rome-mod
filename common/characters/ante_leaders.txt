@@ -2,6 +2,7 @@
 characters = {
 	ROM_brutus = {
 		name = ROM_brutus
+		portraits = { civilian = { large = "gfx/leaders/ante/ROM_brutus.dds" } }
 		country_leader = {
 			ideology = conservatism
 			traits = { ante_liberator }
@@ -11,6 +12,7 @@ characters = {
 	}
 	CAR_hamilcar = {
 		name = CAR_hamilcar
+		portraits = { civilian = { large = "gfx/leaders/ante/CAR_hamilcar.dds" } }
 		country_leader = {
 			ideology = conservatism
 			traits = { ante_merchant_prince }
@@ -20,6 +22,7 @@ characters = {
 	}
 	PRS_darius = {
 		name = PRS_darius
+		portraits = { civilian = { large = "gfx/leaders/ante/PRS_darius.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_king_of_kings }
@@ -29,6 +32,7 @@ characters = {
 	}
 	ATH_cleisthenes = {
 		name = ATH_cleisthenes
+		portraits = { civilian = { large = "gfx/leaders/ante/ATH_cleisthenes.dds" } }
 		country_leader = {
 			ideology = liberalism
 			traits = { ante_lawgiver }
@@ -38,6 +42,7 @@ characters = {
 	}
 	LAK_cleomenes = {
 		name = LAK_cleomenes
+		portraits = { civilian = { large = "gfx/leaders/ante/LAK_cleomenes.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_spartan_king }
@@ -47,6 +52,7 @@ characters = {
 	}
 	CLU_porsenna = {
 		name = CLU_porsenna
+		portraits = { civilian = { large = "gfx/leaders/ante/CLU_porsenna.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_lucumo }
@@ -56,6 +62,7 @@ characters = {
 	}
 	LAT_mamilius = {
 		name = LAT_mamilius
+		portraits = { civilian = { large = "gfx/leaders/ante/LAT_mamilius.dds" } }
 		country_leader = {
 			ideology = conservatism
 			traits = { ante_war_leader }
@@ -65,6 +72,7 @@ characters = {
 	}
 	MKD_amyntas = {
 		name = MKD_amyntas
+		portraits = { civilian = { large = "gfx/leaders/ante/MKD_amyntas.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_shrewd_vassal }
@@ -74,6 +82,7 @@ characters = {
 	}
 	SCY_idanthyrsus = {
 		name = SCY_idanthyrsus
+		portraits = { civilian = { large = "gfx/leaders/ante/SCY_idanthyrsus.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_horse_lord }
@@ -83,6 +92,7 @@ characters = {
 	}
 	KSH_amaniastabarqo = {
 		name = KSH_amaniastabarqo
+		portraits = { civilian = { large = "gfx/leaders/ante/KSH_amaniastabarqo.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_king_of_kings }
@@ -92,6 +102,7 @@ characters = {
 	}
 	KYR_battus = {
 		name = KYR_battus
+		portraits = { civilian = { large = "gfx/leaders/ante/KYR_battus.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_shrewd_vassal }
@@ -101,6 +112,7 @@ characters = {
 	}
 	SAK_skunkha = {
 		name = SAK_skunkha
+		portraits = { civilian = { large = "gfx/leaders/ante/SAK_skunkha.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_horse_lord }
@@ -110,6 +122,7 @@ characters = {
 	}
 	AGA_spargapeithes = {
 		name = AGA_spargapeithes
+		portraits = { civilian = { large = "gfx/leaders/ante/AGA_spargapeithes.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_war_leader }
@@ -119,6 +132,7 @@ characters = {
 	}
 	KRO_milo = {
 		name = KRO_milo
+		portraits = { civilian = { large = "gfx/leaders/ante/KRO_milo.dds" } }
 		country_leader = {
 			ideology = conservatism
 			traits = { ante_war_leader }
@@ -128,6 +142,7 @@ characters = {
 	}
 	ODR_teres = {
 		name = ODR_teres
+		portraits = { civilian = { large = "gfx/leaders/ante/ODR_teres.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_war_leader }
@@ -137,6 +152,7 @@ characters = {
 	}
 	MSG_tomyris = {
 		name = MSG_tomyris
+		portraits = { civilian = { large = "gfx/leaders/ante/MSG_tomyris.dds" } }
 		gender = female
 		country_leader = {
 			ideology = despotism
@@ -147,6 +163,7 @@ characters = {
 	}
 	SAU_aspakos = {
 		name = SAU_aspakos
+		portraits = { civilian = { large = "gfx/leaders/ante/SAU_aspakos.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_horse_lord }
@@ -156,6 +173,7 @@ characters = {
 	}
 	NEU_vaidevutis = {
 		name = NEU_vaidevutis
+		portraits = { civilian = { large = "gfx/leaders/ante/NEU_vaidevutis.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -165,6 +183,7 @@ characters = {
 	}
 	FEN_kaleva = {
 		name = FEN_kaleva
+		portraits = { civilian = { large = "gfx/leaders/ante/FEN_kaleva.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -174,6 +193,7 @@ characters = {
 	}
 	SIG_artaios = {
 		name = SIG_artaios
+		portraits = { civilian = { large = "gfx/leaders/ante/SIG_artaios.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_horse_lord }
@@ -183,6 +203,7 @@ characters = {
 	}
 	GTA_zalmodegikos = {
 		name = GTA_zalmodegikos
+		portraits = { civilian = { large = "gfx/leaders/ante/GTA_zalmodegikos.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_war_leader }
@@ -192,6 +213,7 @@ characters = {
 	}
 	PAN_pinnes = {
 		name = PAN_pinnes
+		portraits = { civilian = { large = "gfx/leaders/ante/PAN_pinnes.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -201,6 +223,7 @@ characters = {
 	}
 	BUD_taxakis = {
 		name = BUD_taxakis
+		portraits = { civilian = { large = "gfx/leaders/ante/BUD_taxakis.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -210,6 +233,7 @@ characters = {
 	}
 	AES_gintaras = {
 		name = AES_gintaras
+		portraits = { civilian = { large = "gfx/leaders/ante/AES_gintaras.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -219,6 +243,7 @@ characters = {
 	}
 	GAE_iarbas = {
 		name = GAE_iarbas
+		portraits = { civilian = { large = "gfx/leaders/ante/GAE_iarbas.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -228,6 +253,7 @@ characters = {
 	}
 	LUG_vannius = {
 		name = LUG_vannius
+		portraits = { civilian = { large = "gfx/leaders/ante/LUG_vannius.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_tribal_chief }
@@ -237,6 +263,7 @@ characters = {
 	}
 	THY_arpoxais = {
 		name = THY_arpoxais
+		portraits = { civilian = { large = "gfx/leaders/ante/THY_arpoxais.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_horse_lord }
@@ -246,6 +273,7 @@ characters = {
 	}
 	ISS_kolaxais = {
 		name = ISS_kolaxais
+		portraits = { civilian = { large = "gfx/leaders/ante/ISS_kolaxais.dds" } }
 		country_leader = {
 			ideology = despotism
 			traits = { ante_horse_lord }

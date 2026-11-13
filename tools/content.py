@@ -241,7 +241,8 @@ def characters_file():
         assert trait in TRAITS, f"unknown trait {trait}"
         ide = SUB_OVERRIDE.get(tag) or SUB_IDEOLOGY[parties[tag]]
         cid = f"{tag}_{key}"
-        out += [f"\t{cid} = {{", f"\t\tname = {cid}"]
+        out += [f"\t{cid} = {{", f"\t\tname = {cid}",
+                f'\t\tportraits = {{ civilian = {{ large = "gfx/leaders/ante/{cid}.dds" }} }}']  # tools/portraits.py
         if female:
             out.append("\t\tgender = female")
         out += ["\t\tcountry_leader = {", f"\t\t\tideology = {ide}",
