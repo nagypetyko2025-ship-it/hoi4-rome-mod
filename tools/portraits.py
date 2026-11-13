@@ -73,7 +73,7 @@ TAG_STYLE = {"ROM": "roman", "CAR": "punic", "PRS": "persian", "ATH": "greek", "
              "SAK": "saka", "AGA": "scythian", "KRO": "greek", "ODR": "thracian", "MSG": "saka", "SAU": "scythian",
              "NEU": "northern", "FEN": "northern", "SIG": "saka", "GTA": "thracian", "PAN": "illyrian",
              "BUD": "northern", "AES": "northern", "GAE": "libyan", "LUG": "northern", "THY": "scythian",
-             "ISS": "saka"}
+             "ISS": "saka", "SYR": "greek", "THL": "greek"}
 
 
 def shade(c, f):

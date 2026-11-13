@@ -1001,10 +1001,11 @@ def write_world(M, C, states):
              '\t\tname = "ANTE_BOOKMARK_REPUBLIC_NAME"', '\t\tdesc = "ANTE_BOOKMARK_REPUBLIC_DESC"',
              "\t\tdate = 245.1.1.12", '\t\tpicture = "GFX_select_date_1936"',
              f'\t\tdefault_country = "{D.BOOKMARK_COUNTRIES[0]}"', "\t\tdefault = yes", ""]
-    def bm_entry(tag):
+    def bm_entry(tag, minor=False):
         names = C[tag].get("names", "none")
         idea = "ante_culture_roman" if tag == "ROM" else ("" if names == "none" else f"ante_culture_{names}")
-        return [f'\t\t"{tag}" = {{', f'\t\t\thistory = "ANTE_BOOKMARK_{tag}"',   # text: tools/content.py
+        return [f'\t\t"{tag}" = {{'] + (["\t\t\tminor = yes"] if minor else []) + [   # minor: the lower strip
+                f'\t\t\thistory = "ANTE_BOOKMARK_{tag}"',   # text: tools/content.py
                 f"\t\t\tideology = {GOV_IDEOLOGY[C[tag]['gov']]}", f"\t\t\tideas = {{ {idea} }}",
                 "\t\t\tfocuses = { }", "\t\t}"]
     for tag in D.BOOKMARK_COUNTRIES:                     # the major slots of the selection screen
@@ -1012,7 +1013,7 @@ def write_world(M, C, states):
     lines += ['\t\t"---" = {', '\t\t\thistory = "ANTE_BOOKMARK_REPUBLIC_DESC"', "\t\t}"]
     for tag in getattr(D, "BOOKMARK_MINORS", []):         # listed after "---"
         if tag in C:
-            lines += bm_entry(tag)
+            lines += bm_entry(tag, minor=True)
     lines += ["",
               "\t\teffect = {", "\t\t\trandomize_weather = 22345 # <- Obligatory in every bookmark !",
               "\t\t}", "\t}", "}"]

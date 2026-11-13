@@ -140,6 +140,26 @@ characters = {
 			id = -1
 		}
 	}
+	SYR_gamoroi = {
+		name = SYR_gamoroi
+		portraits = { civilian = { large = "gfx/leaders/ante/SYR_gamoroi.dds" } }
+		country_leader = {
+			ideology = conservatism
+			traits = { ante_merchant_prince }
+			expire = "999.1.1.1"
+			id = -1
+		}
+	}
+	THL_thorax = {
+		name = THL_thorax
+		portraits = { civilian = { large = "gfx/leaders/ante/THL_thorax.dds" } }
+		country_leader = {
+			ideology = despotism
+			traits = { ante_horse_lord }
+			expire = "999.1.1.1"
+			id = -1
+		}
+	}
 	ODR_teres = {
 		name = ODR_teres
 		portraits = { civilian = { large = "gfx/leaders/ante/ODR_teres.dds" } }

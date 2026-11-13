@@ -15,6 +15,7 @@ set_popularities = {
 	communism = 0
 	neutrality = 0
 }
+recruit_character = SYR_gamoroi
 add_ideas = ante_culture_greek
 oob = "SYR_245"
 set_naval_oob = "SYR_245_naval"

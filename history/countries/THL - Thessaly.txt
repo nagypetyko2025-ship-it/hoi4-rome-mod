@@ -15,6 +15,7 @@ set_popularities = {
 	communism = 0
 	neutrality = 100
 }
+recruit_character = THL_thorax
 add_ideas = ante_culture_greek
 oob = "THL_245"
 set_naval_oob = "THL_245_naval"

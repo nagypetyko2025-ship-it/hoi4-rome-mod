@@ -54,42 +54,49 @@ bookmarks = {
 			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
 		}
 		"CLU" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_CLU"
 			ideology = neutrality
 			ideas = { ante_culture_etruscan }
 			focuses = { }
 		}
 		"LAT" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_LAT"
 			ideology = democratic
 			ideas = { ante_culture_latin }
 			focuses = { }
 		}
 		"SCY" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_SCY"
 			ideology = neutrality
 			ideas = { ante_culture_scythian }
 			focuses = { }
 		}
 		"MSG" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_MSG"
 			ideology = neutrality
 			ideas = { ante_culture_scythian }
 			focuses = { }
 		}
 		"KSH" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_KSH"
 			ideology = neutrality
 			ideas = { ante_culture_nilotic }
 			focuses = { }
 		}
 		"KYR" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_KYR"
 			ideology = neutrality
 			ideas = { ante_culture_greek }
 			focuses = { }
 		}
 		"THL" = {
+			minor = yes
 			history = "ANTE_BOOKMARK_THL"
 			ideology = neutrality
 			ideas = { ante_culture_greek }
