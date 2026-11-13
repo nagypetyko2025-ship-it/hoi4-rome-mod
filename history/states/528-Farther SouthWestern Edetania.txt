@@ -1,0 +1,17 @@
+state = {
+	id = 528
+	name = "STATE_528"  # Farther South-Western Edetania
+	manpower = 20300
+	state_category = rural
+	history = {
+		owner = EDT
+		add_core_of = EDT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		5351 5372 5387 5479 5500 5512 5582 5611 5642
+	}
+	local_supplies = 0.0
+}

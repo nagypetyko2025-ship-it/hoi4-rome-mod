@@ -724,10 +724,6 @@ MCB = {
 	color = rgb { 187 224 40 }
 	color_ui = rgb { 233 255 50 }
 }
-NOK = {
-	color = rgb { 163 183 33 }
-	color_ui = rgb { 203 228 41 }
-}
 TTS = {
 	color = rgb { 215 165 55 }
 	color_ui = rgb { 255 206 68 }

@@ -1,0 +1,17 @@
+state = {
+	id = 537
+	name = "STATE_537"  # Western Vettonia
+	manpower = 20500
+	state_category = rural
+	history = {
+		owner = VTT
+		add_core_of = VTT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4689 4742 4743 4770 4857 4864 4881 4951 4952 4976 5046 5057 5114
+	}
+	local_supplies = 0.0
+}

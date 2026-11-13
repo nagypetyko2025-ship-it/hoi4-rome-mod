@@ -1,0 +1,17 @@
+state = {
+	id = 540
+	name = "STATE_540"  # Northern Lusitania
+	manpower = 21700
+	state_category = rural
+	history = {
+		owner = LUS
+		add_core_of = LUS
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4730 4735 4764 4787 4834 4912 4917 4960 4993
+	}
+	local_supplies = 0.0
+}

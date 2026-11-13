@@ -4931,32 +4931,6 @@ MCB = {
 		Ferrum Ignis
 	}
 }
-NOK = {
-	male = {
-		names = {
-			Aspelta Anlamani Aramatleqo Malonaqen Analmaaye Amaninatakilebte Karkamani Amaniastabarqa
-			Siaspiqa Nasakhma Malewiebamani Talakhamani Irikeamannote Harsiotef Nastasen Piye
-			Shabaka Taharqa Tanutamani Atlanersa Senkamanisken Alara Kashta Amanikarqo
-			Baskakeren Akhraten Amanibakhi Ariamani
-		}
-	}
-	female = {
-		names = {
-			Nasalsa Madiqen Henuttakhebit Asata Amanitakaye Atasamale Pelkha Sakhmakh
-			Batahaliye Qalhata Abar Pebatma Kheb Atakhebasken
-		}
-	}
-	surnames = {
-		"of Napata" "of Medewi" "of Kawa" "of Sanam" "of Kerma" "of Sai" "of Pnubs" "of Tare"
-		"of Gematen" "of Alwa" "of Soba" "of Naga" "of Musawwarat" "of Wad ban Naga" "of Dangeil" "of Faras"
-		"of Qasr Ibrim" "of Yeha" "of Matara" "of Hawulti" "of Adulis" "of Opone" "of Malao" "of Mundus"
-	}
-	callsigns = {
-		Aquila Lupus Falco Ursus Leo Corvus Taurus Aper
-		Vulpes Draco Fulmen Ventus Sagitta Hasta Scutum Gladius
-		Ferrum Ignis
-	}
-}
 TTS = {
 	male = {
 		names = {

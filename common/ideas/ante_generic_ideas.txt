@@ -293,5 +293,342 @@ ideas = {
 				research_speed_factor = -0.1
 			}
 		}
+		ROM_struggle_of_the_orders_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = -0.1
+			}
+		}
+		ROM_twelve_tables_spirit = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.03
+				political_power_gain = 0.05
+			}
+		}
+		ROM_concordia_ordinum_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+				political_power_gain = 0.15
+				conscription = 0.02
+			}
+		}
+		ROM_censors_spirit = {
+			picture = generic_central_management
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.05
+				conscription = 0.01
+			}
+		}
+		ROM_pax_deorum_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		ROM_ludi_romani_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				stability_factor = 0.03
+			}
+		}
+		ROM_evocatio_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				justify_war_goal_time = -0.15
+			}
+		}
+		ROM_stipendium_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.02
+			}
+		}
+		ROM_manipular_legion_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+				army_org_factor = 0.05
+			}
+		}
+		ROM_roman_roads_spirit = {
+			picture = generic_supply_line
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				supply_consumption_factor = -0.1
+				army_speed_factor = 0.05
+			}
+		}
+		ROM_coloniae_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.1
+				conscription = 0.02
+			}
+		}
+		ROM_vae_victis_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.15
+				conscription = 0.03
+			}
+		}
+		ROM_servian_wall_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+			}
+		}
+		ATH_isonomia_spirit = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.05
+			}
+		}
+		ATH_thalassocracy_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				naval_damage_factor = 0.1
+				navy_org_factor = 0.05
+			}
+		}
+		ATH_marathonomachai_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+				army_morale_factor = 0.05
+			}
+		}
+		ATH_long_walls_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+				stability_factor = 0.05
+			}
+		}
+		ATH_school_of_hellas_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.1
+				political_power_factor = 0.1
+			}
+		}
+		LAK_agoge_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.1
+				army_morale_factor = 0.1
+			}
+		}
+		LAK_spartiates_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+			}
+		}
+		LAK_helot_labour_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				stability_factor = -0.05
+			}
+		}
+		LAK_krypteia_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+			}
+		}
+		LAK_molon_labe_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.15
+				surrender_limit = 0.15
+				war_support_factor = 0.05
+			}
+		}
+		MKD_hetairoi_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				cavalry_attack_factor = 0.15
+				army_attack_factor = 0.05
+			}
+		}
+		MKD_pezhetairoi_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+				army_org_factor = 0.05
+			}
+		}
+		MKD_sarissa_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+			}
+		}
+		MKD_philhellene_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		PRS_satrapies_spirit = {
+			picture = generic_central_management
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+			}
+		}
+		PRS_royal_road_spirit = {
+			picture = generic_supply_line
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				supply_consumption_factor = -0.1
+				army_speed_factor = 0.05
+			}
+		}
+		PRS_immortals_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				army_org_factor = 0.1
+			}
+		}
+		PRS_qanats_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.15
+				stability_factor = 0.03
+			}
+		}
+		PRS_asha_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.05
+			}
+		}
+		CAR_merchant_princes_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.2
+				production_speed_buildings_factor = 0.1
+				political_power_gain = 0.05
+			}
+		}
+		CAR_mistress_of_the_sea_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				naval_damage_factor = 0.1
+				naval_speed_factor = 0.05
+			}
+		}
+		CAR_mercenaries_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.04
+				army_attack_factor = 0.05
+				stability_factor = -0.03
+			}
+		}
+		CAR_libyan_levies_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.03
+			}
+		}
+		CAR_sacred_band_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.1
+				army_morale_factor = 0.1
+			}
+		}
 	}
 }

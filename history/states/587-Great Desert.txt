@@ -1,0 +1,15 @@
+state = {
+	id = 587
+	name = "STATE_587"  # Great Desert
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		6433 6517 6534 6545 6576 6580 6584 6589 6597 6623 6629 6635 6638 6647 6657 6715 6721 6734 6753 6756 6810 6836 6848 6866 6869 6897 6908 6914 6931 6955 6962 6967 7009 7019 7021 7030 7032 7042 7044 7048 7051 7059 7062 7065 7081 7097 7107 7108 7146 7159 7160 7201
+	}
+	local_supplies = 0.0
+}

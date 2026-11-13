@@ -1,7 +1,8 @@
 # Róma fókuszfája – terv (előkészítve 2026-11-13)
 
-Állapot: **váz kész** (`common/national_focus/ROM_focus.txt`, 11 fókusz, generálja a `tools/content.py`, `ROM`
-lista). Róma már ezt kapja az általános fa helyett. A fát a következő körben építjük ki a lenti terv szerint.
+Állapot (13. kör): **a fa kész, 38 fókusz, mind a hat ág** (`common/national_focus/ROM_focus.txt`, generálja a
+`tools/national_trees.py`). Hiányzik még: saját fókuszikonok, események (Lucretia, Horatius, Coriolanus, Allia),
+a manipulusos légió saját egységtípusai (most szellem adja a bónuszt).
 
 Időkeret: Kr. e. 509 (245 AUC, a köztársaság kezdete) → Kr. e. 264 (490 AUC, az első pun háború, a második kezdés).
 A fa a valós történelmet követi, de minden ágban van mozgástér a játékosnak.

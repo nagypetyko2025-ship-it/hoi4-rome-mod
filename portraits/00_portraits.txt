@@ -1640,17 +1640,6 @@ NEU = {
 	}
 }
 
-NOK = {
-	army = { male = { "GFX_ante_portrait_kushite_male_1" "GFX_ante_portrait_kushite_male_2" "GFX_ante_portrait_kushite_male_3" "GFX_ante_portrait_kushite_male_4" } }
-	navy = { male = { "GFX_ante_portrait_kushite_male_1" "GFX_ante_portrait_kushite_male_2" "GFX_ante_portrait_kushite_male_3" "GFX_ante_portrait_kushite_male_4" } }
-	political = {
-			democratic = { male = { "GFX_ante_portrait_kushite_male_1" "GFX_ante_portrait_kushite_male_2" "GFX_ante_portrait_kushite_male_3" "GFX_ante_portrait_kushite_male_4" } }
-			fascism = { male = { "GFX_ante_portrait_kushite_male_1" "GFX_ante_portrait_kushite_male_2" "GFX_ante_portrait_kushite_male_3" "GFX_ante_portrait_kushite_male_4" } }
-			communism = { male = { "GFX_ante_portrait_kushite_male_1" "GFX_ante_portrait_kushite_male_2" "GFX_ante_portrait_kushite_male_3" "GFX_ante_portrait_kushite_male_4" } }
-			neutrality = { male = { "GFX_ante_portrait_kushite_male_1" "GFX_ante_portrait_kushite_male_2" "GFX_ante_portrait_kushite_male_3" "GFX_ante_portrait_kushite_male_4" } }
-	}
-}
-
 NRC = {
 	army = { male = { "GFX_ante_portrait_celtic_male_1" "GFX_ante_portrait_celtic_male_2" "GFX_ante_portrait_celtic_male_3" "GFX_ante_portrait_celtic_male_4" } }
 	navy = { male = { "GFX_ante_portrait_celtic_male_1" "GFX_ante_portrait_celtic_male_2" "GFX_ante_portrait_celtic_male_3" "GFX_ante_portrait_celtic_male_4" } }

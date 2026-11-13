@@ -9,55 +9,91 @@ bookmarks = {
 		default = yes
 
 		"ROM" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			history = "ANTE_BOOKMARK_ROM"
 			ideology = democratic
-			ideas = { }
+			ideas = { ante_culture_roman }
 			focuses = { }
 		}
 		"CAR" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			history = "ANTE_BOOKMARK_CAR"
 			ideology = democratic
-			ideas = { }
+			ideas = { ante_culture_punic }
 			focuses = { }
 		}
 		"PRS" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			history = "ANTE_BOOKMARK_PRS"
 			ideology = neutrality
-			ideas = { }
+			ideas = { ante_culture_persian }
 			focuses = { }
 		}
 		"ATH" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			history = "ANTE_BOOKMARK_ATH"
 			ideology = democratic
-			ideas = { }
+			ideas = { ante_culture_greek }
 			focuses = { }
 		}
 		"LAK" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			history = "ANTE_BOOKMARK_LAK"
 			ideology = neutrality
-			ideas = { }
-			focuses = { }
-		}
-		"SYR" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
-			ideology = democratic
-			ideas = { }
-			focuses = { }
-		}
-		"CLU" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
-			ideology = neutrality
-			ideas = { }
+			ideas = { ante_culture_greek }
 			focuses = { }
 		}
 		"MKD" = {
-			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+			history = "ANTE_BOOKMARK_MKD"
 			ideology = neutrality
-			ideas = { }
+			ideas = { ante_culture_greek }
+			focuses = { }
+		}
+		"SYR" = {
+			history = "ANTE_BOOKMARK_SYR"
+			ideology = democratic
+			ideas = { ante_culture_greek }
 			focuses = { }
 		}
 		"---" = {
 			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+		}
+		"CLU" = {
+			history = "ANTE_BOOKMARK_CLU"
+			ideology = neutrality
+			ideas = { ante_culture_etruscan }
+			focuses = { }
+		}
+		"LAT" = {
+			history = "ANTE_BOOKMARK_LAT"
+			ideology = democratic
+			ideas = { ante_culture_latin }
+			focuses = { }
+		}
+		"SCY" = {
+			history = "ANTE_BOOKMARK_SCY"
+			ideology = neutrality
+			ideas = { ante_culture_scythian }
+			focuses = { }
+		}
+		"MSG" = {
+			history = "ANTE_BOOKMARK_MSG"
+			ideology = neutrality
+			ideas = { ante_culture_scythian }
+			focuses = { }
+		}
+		"KSH" = {
+			history = "ANTE_BOOKMARK_KSH"
+			ideology = neutrality
+			ideas = { ante_culture_nilotic }
+			focuses = { }
+		}
+		"KYR" = {
+			history = "ANTE_BOOKMARK_KYR"
+			ideology = neutrality
+			ideas = { ante_culture_greek }
+			focuses = { }
+		}
+		"THL" = {
+			history = "ANTE_BOOKMARK_THL"
+			ideology = neutrality
+			ideas = { ante_culture_greek }
+			focuses = { }
 		}
 
 		effect = {

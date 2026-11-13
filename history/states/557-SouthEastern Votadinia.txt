@@ -1,0 +1,17 @@
+state = {
+	id = 557
+	name = "STATE_557"  # South-Eastern Votadinia
+	manpower = 2800
+	state_category = pastoral
+	history = {
+		owner = VTD
+		add_core_of = VTD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1796 1841 1963 1992
+	}
+	local_supplies = 0.0
+}

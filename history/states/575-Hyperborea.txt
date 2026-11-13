@@ -1,0 +1,15 @@
+state = {
+	id = 575
+	name = "STATE_575"  # Hyperborea
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		480 483 519 538 542 547 564 573 583 584 598 600 619 624 627 646 672 683 694 719 734 738 757 758 795 798 814 819 852 855 872 880 881 893 940 950 956 981 986 990 1023 1081 1114 1230 8599
+	}
+	local_supplies = 0.0
+}

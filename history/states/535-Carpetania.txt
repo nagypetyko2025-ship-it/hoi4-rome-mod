@@ -1,0 +1,20 @@
+state = {
+	id = 535
+	name = "STATE_535"  # Carpetania
+	manpower = 59600
+	state_category = town
+	history = {
+		owner = CRP
+		add_core_of = CRP
+		victory_points = { 5010 1 }  # Toletum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4793 4893 4913 4926 4973 4981 5010 5042
+	}
+	local_supplies = 0.0
+}

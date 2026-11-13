@@ -1,0 +1,17 @@
+state = {
+	id = 558
+	name = "STATE_558"  # Western Votadinia
+	manpower = 1400
+	state_category = pastoral
+	history = {
+		owner = VTD
+		add_core_of = VTD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1694 8686 8689 8690 8691 8693 8694 8695 8696
+	}
+	local_supplies = 0.0
+}

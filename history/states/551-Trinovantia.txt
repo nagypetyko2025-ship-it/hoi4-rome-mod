@@ -1,0 +1,20 @@
+state = {
+	id = 551
+	name = "STATE_551"  # Trinovantia
+	manpower = 70000
+	state_category = large_town
+	history = {
+		owner = TRN
+		add_core_of = TRN
+		victory_points = { 2421 1 }  # Camulodunon
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2277 2395 2421 2447 2485 2538 2552 2625
+	}
+	local_supplies = 0.0
+}

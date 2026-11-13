@@ -1,0 +1,20 @@
+state = {
+	id = 530
+	name = "STATE_530"  # Ilergetia
+	manpower = 65800
+	state_category = large_town
+	history = {
+		owner = ILR
+		add_core_of = ILR
+		victory_points = { 4837 2 }  # Iltirta
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4600 4633 4661 4704 4716 4726 4739 4828 4837 4884 4894 4927 4983 4998 5018
+	}
+	local_supplies = 0.0
+}

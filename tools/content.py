@@ -236,46 +236,19 @@ focus("ante_rise_to_greatness", "Rise to Greatness", "Lawgivers, builders and wa
       "add_political_power = 100\nadd_stability = 0.10\nadd_war_support = 0.10", filters=P, ai=3)
 
 
-# ------------------------------------------------------------------ Rome (ROM) - first draft, see docs/rome_focus_tree.md
-ROM = []
-
-
+# ------------------------------------------------------------------ country trees (tools/national_trees.py)
 def wargoal(tag):
     return (f"if = {{ limit = {{ country_exists = {tag} NOT = {{ has_war_with = {tag} }} }}\n"
             f"\tcreate_wargoal = {{ type = annex_everything target = {tag} }}\n}}")
 
 
-focus("ROM_regifugium", "Regifugium", "Tarquinius Superbus and his house are driven from the city. Rome will never again have a king.",
-      "GFX_goal_generic_political_pressure", 6, 0, [], "add_political_power = 50\nadd_stability = 0.05", tree=ROM)
-# --- Res Publica (politics)
-focus("ROM_consuls_and_senate", "Consuls and Senate", "Two magistrates for one year, the fathers of the Senate to advise them.",
-      "GFX_goal_generic_national_unity", 2, 1, [["ROM_regifugium"]], "add_political_power = 75\nadd_stability = 0.05", tree=ROM)
-focus("ROM_secession_of_the_plebs", "Secession of the Plebs", "The plebeians march out to the Sacred Mount: without them there is no army.",
-      "GFX_goal_generic_demand_territory", 1, 2, [["ROM_consuls_and_senate"]], "add_manpower = 2000\nadd_political_power = 50",
-      tree=ROM)
-focus("ROM_tribunes_of_the_plebs", "Tribunes of the Plebs", "Sacrosanct protectors of the common people.",
-      "GFX_goal_generic_improve_relations", 1, 3, [["ROM_secession_of_the_plebs"]], "add_stability = 0.10", tree=ROM)
-# --- the gods of Rome
-focus("ROM_capitoline_temple", "Temple of Jupiter on the Capitol", "The great temple vowed by the kings is dedicated in the first year of the Republic.",
-      "GFX_goal_generic_propaganda", 6, 1, [["ROM_regifugium"]], "add_stability = 0.05\nadd_war_support = 0.05", tree=ROM)
-focus("ROM_sibylline_books", "The Sibylline Books", "The prophetic books, kept by the priests, are consulted in every crisis.",
-      "GFX_goal_generic_scientific_exchange", 5, 2, [["ROM_capitoline_temple"]], "add_research_slot = 1", tree=ROM, ai=3)
-# --- the army of the centuries
-focus("ROM_servian_centuries", "Classes and Centuries", "Every citizen serves according to his property: the hoplite phalanx of Rome.",
-      "GFX_goal_generic_army_doctrines", 7, 2, [["ROM_capitoline_temple"]],
-      "army_experience = 15\nadd_doctrine_cost_reduction = { name = ante_drill_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine }",
-      tree=ROM)
-# --- Latium and the wars of the young Republic
-focus("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge.",
-      "GFX_goal_generic_defence", 10, 1, [["ROM_regifugium"]], "army_experience = 20\nadd_war_support = 0.10", tree=ROM)
-focus("ROM_lake_regillus", "Battle of Lake Regillus", "The Latins and the exiled Tarquins are beaten; the Dioscuri fought for Rome.",
-      "GFX_goal_generic_major_war", 9, 2, [["ROM_horatius_at_the_bridge"]], "army_experience = 25\n" + wargoal("LAT"),
-      tree=ROM)
-focus("ROM_foedus_cassianum", "Foedus Cassianum", "Peace and alliance with the Latins: one army against the hill peoples.",
-      "GFX_goal_generic_alliance", 9, 3, [["ROM_lake_regillus"]], "add_political_power = 100\nadd_stability = 0.05", tree=ROM)
-focus("ROM_aequi_and_volsci", "Against the Aequi and Volsci", "Every summer the hill tribes raid Latium. Every summer Rome marches.",
-      "GFX_goal_generic_territory_or_war", 11, 2, [["ROM_horatius_at_the_bridge"]], wargoal("VOL") + "\n" + wargoal("AEQ"),
-      tree=ROM)
+import national_trees  # noqa: E402
+TREES, _tree_ideas, TREE_LOC = national_trees.define(focus, build, infra, tech, wargoal)
+for _k in _tree_ideas:
+    assert _k not in IDEAS, _k
+IDEAS.update(_tree_ideas)
+COUNTRY_FOCUSES = [f for t in TREES.values() for f in t["focuses"]]
+
 
 # ------------------------------------------------------------------ writers
 def indent(text, tabs):
@@ -307,7 +280,7 @@ def check_tree(tree):
                 assert p in ids, f"{f['id']}: unknown prerequisite {p}"
         assert (f["x"], f["y"]) not in pos, f"{f['id']}: two focuses at {f['x']},{f['y']}"
         pos.add((f["x"], f["y"]))
-        for idea in re.findall(r"add_ideas = (\w+)", f["reward"]):
+        for idea in re.findall(r"(?:add_ideas|add_idea|remove_idea) = (\w+)", f["reward"]):
             assert idea in IDEAS, f"{f['id']}: unknown idea {idea}"
 
 
@@ -382,7 +355,7 @@ def traits_file():
 
 def localisation():
     out = ["l_english:"]
-    for f in F + ROM:
+    for f in F + COUNTRY_FOCUSES:
         out += [f' {f["id"]}:0 "{esc(f["name"])}"', f' {f["id"]}_desc:0 "{esc(f["desc"])}"']
     for key, (name, _, _) in IDEAS.items():
         out.append(f' {key}:0 "{esc(name)}"')
@@ -396,6 +369,8 @@ def localisation():
     names = {f["id"]: f["name"] for f in F}
     for bonus, fid in bonus_from.items():
         out.append(f' {bonus}:0 "{esc(names[fid])}"')
+    for key, text in TREE_LOC.items():
+        out.append(f' {key}:0 "{esc(text)}"')
     for tag, key, name, trait, female, attested, desc in LEADERS:
         out += [f' {tag}_{key}:0 "{esc(name)}"', f' {tag}_{key}_desc:0 "{esc(desc)}"']
     return "\n".join(out) + "\n"
@@ -403,16 +378,17 @@ def localisation():
 
 def main():
     check_tree(F)
-    check_tree(ROM)
-    write("common/national_focus/ante_generic_focus.txt", focus_file())
-    write("common/national_focus/ROM_focus.txt",
-          focus_file("ROM_focus", ROM, "ROM", "ROM_regifugium",
-                     "# Rome's own focus tree - FIRST DRAFT (skeleton of the branches). Plan: docs/rome_focus_tree.md"))
+    ids = [f["id"] for f in F + COUNTRY_FOCUSES]
+    assert len(ids) == len(set(ids)), "duplicate focus id"
+    for tag, t in TREES.items():
+        check_tree(t["focuses"])
+        assert t["focuses"][0]["id"] == t["show"]
+        write(f"common/national_focus/{tag}_focus.txt", focus_file(f"{tag}_focus", t["focuses"], tag, t["show"], t["note"]))
     write("common/ideas/ante_generic_ideas.txt", ideas_file())
     write("common/characters/ante_leaders.txt", characters_file())
     write("common/country_leader/ante_traits.txt", traits_file())
     write("localisation/english/ante_content_l_english.yml", localisation(), bom=True)
-    print(f"written: {len(F)} focuses, {len(IDEAS)} national spirits, {len(LEADERS)} leaders, {len(TRAITS)} traits")
+    print(f"written: {len(F)} generic + {len(COUNTRY_FOCUSES)} country focuses ({len(TREES)} trees), {len(IDEAS)} national spirits, {len(LEADERS)} leaders, {len(TRAITS)} traits")
 
 
 if __name__ == "__main__":

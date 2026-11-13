@@ -117,4 +117,5 @@ See `docs/design.md` for the plan and phases.
   `<key>_hull` (no module slots). Fleets: history/units/<TAG>_245_naval.txt via `set_naval_oob` (always written).
 - Production pictures: the engine shows `GFX_<equipment variant>_medium` (e.g. GFX_ante_arms_equipment_1_medium).
 - Manpower: battalions are 500 men; culture spirits (`ante_culture_<culture>`, Rome `ante_culture_roman`) add
-  conscription. Country trees: `focus_file(tree_id, list, TAG, ...)` in content.py (Rome: `ROM` list).
+  conscription. Country trees: `tools/national_trees.py` (ROM full, ATH/LAK/MKD/PRS/CAR base), called by content.py; spirits end in `_spirit`,
+  tech/doctrine bonuses are named after their focus. Bookmark: 7 major slots (`BOOKMARK_COUNTRIES`) + `BOOKMARK_MINORS`, text `ANTE_BOOKMARK_<TAG>`.

@@ -649,3 +649,25 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   a plebs kivonulása, néptribunusok, Capitoliumi templom, Sibylla-könyvek, centuriák, Horatius, Regillus-tó,
   Foedus Cassianum, aequusok és volscusok), terv: `docs/rome_focus_tree.md`.
 - Teszt: validate 0 hiba; gyorsindítással Rómával GAME RUNNING (hajók, flották, szellemek betöltenek).
+
+## Tizenharmadik kör (2026-11-13, Claude) – Róma teljes fókuszfája, öt nagyhatalom alapfája, kiválasztó képernyő, Nok
+- **Róma fókuszfája kész (38 fókusz, 13 nemzeti szellem)** a `docs/rome_focus_tree.md` hat ága szerint:
+  Res Publica (plebs kivonulása → Tizenkét tábla → Lex Hortensia; a „Rendi harc” büntető szellem lépésenként
+  „Concordia Ordinum”-má válik), az istenek Rómája (Sibylla-könyvek, Vesta-szüzek, Ludi Romani, Evocatio),
+  a légió születése (stipendium → Camillus → manipulusos légió → Via Appia, Aqua Appia → coloniák),
+  Latium és Etrúria (Regillus, Foedus Cassianum = frakció a Latin Ligával, Coriolanus, Veii, Dél-Etrúria),
+  a gall vész (Allia „Vae Victis” → Servius-fal → Camillus, a második alapító) és Itália ura
+  (latin háború, szamnisz háborúk, Sentinum, Tarentum és Pyrrhus, Italia, Szicília felé).
+- **Alap fókuszfák (13–16 fókusz, saját szellemek):** Athén (Kleiszthenész, Laurion ezüstje, Themisztoklész
+  flottája, Marathón, Déloszi Szövetség, Parthenón), Spárta (agógé, helóták, krüpteia, Peloponnészoszi Szövetség,
+  háború Argosz és Athén ellen, Molon labe), Makedónia (hetairoi, pezhetairoi, szarisza, Khalkidiké, thesszáliai
+  szövetség), Perzsia (szatrapiák, királyi út, halhatatlanok, Perszepolisz, föníciai flotta = Szidón/Türosz/Arvad
+  bábállam, Behisztun, „föld és víz”), Karthágó (Magonidák, kóthón, római szerződés, Szardínia, Szicília,
+  Hanno útja, ibériai ezüst, Szent Csapat).
+- Generátor: `tools/national_trees.py` (a `content.py` hívja). A régi Róma-váz innen jön, ugyanazokkal az azonosítókkal.
+- **Kiválasztó képernyő:** a 7 nagy hely: Róma, Karthágó, Perzsia, Athén, Spárta, Makedónia, Szürakuszai; alattuk
+  kisebbek: Clusium, Latin Liga, szkíták, masszagéták, Kús, Küréné, Thesszália. Mindegyik saját leírást és a
+  kultúra-szellemét mutatja.
+- **Nok törölve:** a Terra Incognita teljesen elzárta (se szomszéd, se kikötő). A földje a vadon része lett.
+  Emiatt az államok azonosítói átszámozódtak (régi mentések nem tölthetők).
+- Teszt: validate 0 hiba; `-quickstart -start_tag=ROM -crash_data_log` fut, az error.log-ban nincs hiba az új fákról.

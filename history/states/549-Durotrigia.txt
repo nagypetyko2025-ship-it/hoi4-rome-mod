@@ -1,0 +1,20 @@
+state = {
+	id = 549
+	name = "STATE_549"  # Durotrigia
+	manpower = 60000
+	state_category = large_town
+	history = {
+		owner = DRT
+		add_core_of = DRT
+		victory_points = { 2639 2 }  # Mai Dun
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2481 2543 2615 2619 2624 2639 8734 8735
+	}
+	local_supplies = 0.0
+}

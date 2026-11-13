@@ -1,0 +1,17 @@
+state = {
+	id = 527
+	name = "STATE_527"  # South-Western Edetania
+	manpower = 21500
+	state_category = rural
+	history = {
+		owner = EDT
+		add_core_of = EDT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		5167 5211 5234 5257 5310 5321 5391 5432
+	}
+	local_supplies = 0.0
+}

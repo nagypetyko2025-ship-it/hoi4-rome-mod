@@ -1,0 +1,19 @@
+state = {
+	id = 547
+	name = "STATE_547"  # Gymnesiai
+	manpower = 20000
+	state_category = rural
+	history = {
+		owner = BAL
+		add_core_of = BAL
+		victory_points = { 5235 1 }  # Talati
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5235 8817 8818
+	}
+	local_supplies = 0.0
+}

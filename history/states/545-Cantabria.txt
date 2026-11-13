@@ -1,0 +1,20 @@
+state = {
+	id = 545
+	name = "STATE_545"  # Cantabria
+	manpower = 60000
+	state_category = large_town
+	history = {
+		owner = CNB
+		add_core_of = CNB
+		victory_points = { 4649 1 }  # Amaya
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4649
+	}
+	local_supplies = 0.0
+}

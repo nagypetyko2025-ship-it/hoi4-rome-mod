@@ -1,0 +1,17 @@
+state = {
+	id = 560
+	name = "STATE_560"  # North-Eastern Caledonia
+	manpower = 2100
+	state_category = pastoral
+	history = {
+		owner = CAL
+		add_core_of = CAL
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1071 1096 1110
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,15 @@
+state = {
+	id = 627
+	name = "STATE_627"  # Makran
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		6596 6608 6630 6633 6662 6717 6730 6738 6748 6755 6766 6787 6805
+	}
+	local_supplies = 0.0
+}
