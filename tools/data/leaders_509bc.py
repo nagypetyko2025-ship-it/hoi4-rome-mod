@@ -39,7 +39,7 @@ LEADERS = [
     ("KRO", "milo", "Milo", "ante_war_leader", False, True,
      "Milo of Croton, six times Olympic victor, who led the army that destroyed Sybaris in 510 BC."),
     ("ROM", "tarquinius", "Lucius Tarquinius Superbus", "ante_king_of_kings", False, True,
-     "The seventh and last king of Rome, builder of the great temple and the sewers - and a tyrant. Recruited only by the focus 'The King Remains'."),
+     "The seventh and last king of Rome, builder of the great temple and the sewers - and a tyrant. Leads the (non-ruling) royalists at the start; the focus 'The King Remains' puts him in power."),
     ("SYR", "gamoroi", "Kallikrates of the Gamoroi", "ante_merchant_prince", False, False,
      "Invented: the landowning Gamoroi, heirs of the Corinthian settlers, ruled Syracuse before the tyrants; no single ruler of 509 BC is known."),
     ("THL", "thorax", "Thorax of Larisa", "ante_horse_lord", False, True,
@@ -89,6 +89,6 @@ TRAITS = {
     "ante_tribal_chief": ("Chief of the Clans", {"stability_factor": 0.05, "conscription": 0.005}),
 }
 
-# characters that are NOT recruited at the start (no recruit_character in history) but by a focus;
-# value = their sub-ideology (overrides the one taken from the ruling party)
+# leaders of a party that does not rule at the start (recruited in history like everybody, so a focus can
+# promote_character them); value = their sub-ideology (overrides the one taken from the ruling party)
 LATER = {"ROM_tarquinius": "despotism"}

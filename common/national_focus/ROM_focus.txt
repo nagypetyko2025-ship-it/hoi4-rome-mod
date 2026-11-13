@@ -901,7 +901,6 @@ focus_tree = {
 		completion_reward = {
 			set_politics = { ruling_party = neutrality elections_allowed = no }
 			set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }
-			recruit_character = ROM_tarquinius
 			promote_character = ROM_tarquinius
 			retire_character = ROM_brutus
 			add_ideas = ROM_rex_tarquinius_spirit

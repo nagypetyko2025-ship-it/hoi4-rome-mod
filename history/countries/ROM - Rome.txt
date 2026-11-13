@@ -16,6 +16,7 @@ set_popularities = {
 	neutrality = 0
 }
 recruit_character = ROM_brutus
+recruit_character = ROM_tarquinius
 add_ideas = ante_culture_roman
 oob = "ROM_245"
 set_naval_oob = "ROM_245_naval"

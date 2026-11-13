@@ -235,7 +235,7 @@ def define(focus, build, infra, tech, wargoal):
       "political_pressure", 26, 0, [],
       "set_politics = { ruling_party = neutrality elections_allowed = no }\n"
       "set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }\n"
-      "recruit_character = ROM_tarquinius\npromote_character = ROM_tarquinius\nretire_character = ROM_brutus\n"
+      "promote_character = ROM_tarquinius\nretire_character = ROM_brutus\n"
       "add_ideas = ROM_rex_tarquinius_spirit\nadd_political_power = 50",
       extra=mx("ROM_regifugium"), ai=1)
     f("ROM_purge_the_conspirators", "Purge the Conspirators", "The sons of Brutus, the Vitellii, the Aquilii: every house that plotted pays with blood or exile.",

@@ -675,7 +675,7 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
 ## Tizennegyedik kör (2026-11-13, Claude) – Róma fája döntésekkel, a király megtartása
 - **Két, egymást kizáró kezdés:** *Regifugium* (köztársaság, bal oldal) vagy *The King Remains* (jobb oldal,
   x 22–29): Tarquinius Superbus a trónon marad, Brutus visszavonul, a kormány egyeduralmi lesz, Tarquinius a vezető
-  (saját portré, `LATER` a `leaders_509bc.py`-ben: fókusz hozza be, nem a kezdés).
+  (saját portré; a kezdéstől a nem kormányzó királypárti párt vezetője, a fókusz `promote_character`-rel emeli hatalomra).
 - **Döntéspárok a köztársasági ágakban** (mindkettő továbbvisz): néptribunusok ↔ az atyák uralma;
   Lex Hortensia (Concordia) ↔ Nobilitas; Apollón és Aszklépiosz ↔ Mos maiorum; manipulusos légió ↔ polgári
   phalanx; Foedus Cassianum ↔ Latium karddal; az Allia után: fizesd ki az aranyat ↔ „nem arannyal, vassal”;
@@ -683,5 +683,5 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
 - **A királyság ága** (16 fókusz): összeesküvők megtorlása → zsarnokság ↔ a nép királya; Celeres, Cloaca Maxima,
   a Sibylla könyveinek megvétele, etruszk mesterek, a Latin Liga feje (bábállam), Gabii csele, Etrúria lucumója
   (Porsenna ellen), a tizenkét város, Regnum Italiae, szamnisz hegyek / Magna Graecia → Itália királya.
-- Róma most 66 fókusz, 20 kizáró pár. Validate 0 hiba; játékban még nem futott (az új effektek: set_politics,
+- Róma most 66 fókusz, 20 kizáró pár. Validate 0 hiba; `-quickstart -start_tag=ROM` fut, az error.log tiszta (a fókusz effektjei: set_politics,
   promote_character, retire_character a „The King Remains”-ben).
