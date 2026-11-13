@@ -38,7 +38,7 @@ MOD = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import positions as P  # noqa: E402   (load_map / province_table, and the position writers)
 from geo import to_xy  # noqa: E402
-from data.leaders_509bc import LEADERS  # noqa: E402
+from data.leaders_509bc import LEADERS, LATER  # noqa: E402
 
 D = importlib.import_module("data.world_509bc")
 OLD = importlib.import_module("data.world_245")
@@ -943,7 +943,7 @@ def write_world(M, C, states):
                 "set_popularities = {"] + [f"\t{k} = {100 if k == ide else 0}" for k in
                                            ("democratic", "fascism", "communism", "neutrality")] + ["}"]
         # named leaders (common/characters/ante_leaders.txt, written by tools/content.py)
-        hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag]
+        hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag and f"{tag}_{key}" not in LATER]
         # culture national spirit (common/ideas/ante_generic_ideas.txt, tools/content.py); Rome has its own
         if c["names"] != "none":
             hist.append(f"add_ideas = ante_culture_{'roman' if tag == 'ROM' else c['names']}")

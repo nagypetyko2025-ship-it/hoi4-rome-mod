@@ -140,6 +140,16 @@ characters = {
 			id = -1
 		}
 	}
+	ROM_tarquinius = {
+		name = ROM_tarquinius
+		portraits = { civilian = { large = "gfx/leaders/ante/ROM_tarquinius.dds" } }
+		country_leader = {
+			ideology = despotism
+			traits = { ante_king_of_kings }
+			expire = "999.1.1.1"
+			id = -1
+		}
+	}
 	SYR_gamoroi = {
 		name = SYR_gamoroi
 		portraits = { civilian = { large = "gfx/leaders/ante/SYR_gamoroi.dds" } }

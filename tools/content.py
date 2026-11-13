@@ -16,7 +16,7 @@ from pathlib import Path
 
 MOD = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data.leaders_509bc import LEADERS, TRAITS  # noqa: E402
+from data.leaders_509bc import LEADERS, TRAITS, LATER  # noqa: E402
 
 SUB_IDEOLOGY = {"democratic": "conservatism", "neutrality": "despotism", "fascism": "fascism_ideology",
                 "communism": "marxism"}
@@ -333,8 +333,8 @@ def characters_file():
     for tag, key, name, trait, female, attested, desc in LEADERS:
         assert tag in parties, f"leader for unknown country {tag}"
         assert trait in TRAITS, f"unknown trait {trait}"
-        ide = SUB_OVERRIDE.get(tag) or SUB_IDEOLOGY[parties[tag]]
         cid = f"{tag}_{key}"
+        ide = LATER.get(cid) or SUB_OVERRIDE.get(tag) or SUB_IDEOLOGY[parties[tag]]
         out += [f"\t{cid} = {{", f"\t\tname = {cid}",
                 f'\t\tportraits = {{ civilian = {{ large = "gfx/leaders/ante/{cid}.dds" }} }}']  # tools/portraits.py
         if female:

@@ -321,6 +321,25 @@ ideas = {
 				conscription = 0.02
 			}
 		}
+		ROM_nobilitas_spirit = {
+			picture = generic_central_management
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.25
+				stability_factor = 0.03
+				army_morale_factor = 0.05
+			}
+		}
+		ROM_rule_of_the_fathers_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = -0.03
+			}
+		}
 		ROM_censors_spirit = {
 			picture = generic_central_management
 			allowed = { always = no }
@@ -357,6 +376,24 @@ ideas = {
 				justify_war_goal_time = -0.15
 			}
 		}
+		ROM_greek_gods_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.07
+				monthly_population = 0.05
+			}
+		}
+		ROM_mos_maiorum_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.07
+				war_support_factor = 0.07
+			}
+		}
 		ROM_stipendium_spirit = {
 			picture = generic_manpower_bonus
 			allowed = { always = no }
@@ -374,6 +411,16 @@ ideas = {
 				army_attack_factor = 0.1
 				army_defence_factor = 0.05
 				army_org_factor = 0.05
+			}
+		}
+		ROM_citizen_phalanx_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.15
+				army_org_factor = 0.05
+				army_speed_factor = -0.05
 			}
 		}
 		ROM_roman_roads_spirit = {
@@ -409,6 +456,74 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				army_defence_factor = 0.1
+			}
+		}
+		ROM_rex_tarquinius_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.05
+				conscription = 0.02
+			}
+		}
+		ROM_tyranny_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.25
+				stability_factor = -0.1
+				war_support_factor = 0.05
+				conscription = 0.03
+			}
+		}
+		ROM_good_king_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.05
+				research_speed_factor = 0.03
+			}
+		}
+		ROM_celeres_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.1
+				army_attack_factor = 0.05
+			}
+		}
+		ROM_royal_army_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.08
+				army_defence_factor = 0.08
+			}
+		}
+		ROM_etruscan_crafts_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.03
+			}
+		}
+		ROM_regnum_spirit = {
+			picture = generic_central_management
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.1
+				conscription = 0.02
 			}
 		}
 		ATH_isonomia_spirit = {
