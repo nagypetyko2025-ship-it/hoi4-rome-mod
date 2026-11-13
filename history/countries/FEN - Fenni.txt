@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = FEN_kaleva
+oob = "FEN_245"

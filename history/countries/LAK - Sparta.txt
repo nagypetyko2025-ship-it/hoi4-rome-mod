@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = LAK_cleomenes
+oob = "LAK_245"

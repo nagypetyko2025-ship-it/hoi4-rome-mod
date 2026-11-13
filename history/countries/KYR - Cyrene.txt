@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = KYR_battus
+oob = "KYR_245"

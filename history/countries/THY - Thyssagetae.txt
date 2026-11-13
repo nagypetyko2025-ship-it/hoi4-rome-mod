@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = THY_arpoxais
+oob = "THY_245"

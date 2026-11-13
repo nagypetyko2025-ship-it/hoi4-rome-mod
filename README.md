@@ -602,3 +602,28 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   tóga, perzsa csipkés korona, pun kúpos süveg, spártai korinthoszi sisak, makedón kausia, kusita sapkakorona
   két ureusszal, szkíta/szaka csúcsos sapka, trák rókaprém sapka, líbiai tollak, északi népeknél hosszú haj és
   torques. `--preview FÁJL` egy áttekintő képet is ír. Pipeline: world.py → portraits.py → content.py → validate.py.
+
+## Tizenegyedik kör (2026-11-13, Claude) – általános portrék, ókori egységek, kezdő seregek
+
+- **Általános portrék népenként** (`tools/portraits.py`): 16 nép × 4 arc (kelta, görög, latin, etruszk, ibér, északi,
+  szkíta, szaka, trák, illír, perzsa, pun, líbiai, kusita, arab, anatóliai, kaukázusi, nuragikus szárd). **Ezek csak
+  általános portrék**: minden vezető és tábornok, akinek nincs saját képe, a népe arcai közül kap egyet
+  (`portraits/00_portraits.txt` felülírja az alapjáték modern arcait, országonként a kultúrája szerint).
+- **Ókori egységek** (`tools/army.py` → `common/units/ante_units.txt`): Levies (népfelkelők), Spearmen (lándzsások),
+  Hoplites (hopliták), Skirmishers (parittyások, gerelyvetők), Archers (íjászok), Cavalry (lovasság), Horse Archers
+  (lovasíjászok), Chariots (harci szekerek), War Elephants (harci elefántok – még zárolva, a 264-es kezdéshez),
+  támogatók: Siege Train (ostromgépek), Mounted Scouts (lovas felderítők). Saját felszerelés: lándzsa és pajzs,
+  hoplita fegyverzet, íj és parittya, ló, harci szekér, ostromgép, elefánt.
+- **A modern egységek kikerültek**: a tank, gépesített, motoros, modern tüzérség, páncélautó, mérnök stb.
+  alapjátékos fájljai üres felülírást kaptak; a puska (infantry equipment) nem gyártható. Az alapjáték saját
+  szkriptjei emiatt betöltéskor „Invalid subunit” sorokat írnak a naplóba – ártalmatlan. A hajók és repülők
+  egyelőre maradtak (következő lépés: triérészek stb.).
+- **Ikonok a HoI4 stílusában, ókori változatban**: zöld sziluett + katonai jelkép a hadosztálytervezőben, barna
+  sziluett a felszereléseknél (sisak forgóval, ló, harci szekér, íj, gerelyek, ostromtorony, elefánt) – saját rajz, CC0.
+- **Kezdő seregek erő szerint**: 411 hadosztály, országonként 1–24 a hadra fogható népesség alapján (Perzsia 24,
+  Karthágó, Spárta, Athén több, a kis városállamok 1–2). Kultúránként más sablon: görög „Phalanx” (hopliták +
+  könnyűgyalogság), római „Legio” (archaikus, hoplita alapú), itáliai „Touta”, kelta/germán „Warband”, szkíta
+  „Horde” (lovasíjászok), perzsa „Hazarabam” (lándzsások + íjászok + ostromgépek), pun „Host”, líbiai „Raiders”,
+  kusita „Bowmen”; Thesszália, Makedónia lovas, a garamantok és kaledónok szekeres alakulatokkal.
+- Teszt: validate 0 hiba; gyorsindítással Rómával GAME RUNNING (a seregek betöltenek, nincs összeomlás); menüből
+  indítva a főmenüig hibátlan.

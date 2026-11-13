@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = BUD_taxakis
+oob = "BUD_245"

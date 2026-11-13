@@ -94,7 +94,7 @@
 - X crossings are also checked across the east-west seam. Provinces of 8 px or less are an error.
 - `map/airports.txt` / `map/rocketsites.txt` no longer exist (removed in 1.15).
 - Run `python tools/validate.py` after every generation: it checks all of the above without the game.
-- Pipeline: `python tools/world.py`, then `python tools/content.py` (generic focus tree, national spirits, named leaders + traits from `tools/data/leaders_509bc.py`), then `python tools/validate.py` (0 errors). None needs the game.
+- Pipeline: `python tools/world.py`, then `python tools/portraits.py` (named + generic culture portraits, portraits/00_portraits.txt), then `python tools/army.py` (ancient units/equipment/icons, empties the base game's land unit files, history/units/<TAG>_245.txt; reads the game once), then `python tools/content.py` (generic focus tree, national spirits, named leaders + traits from `tools/data/leaders_509bc.py`), then `python tools/validate.py` (0 errors). None needs the game.
 - Focus/idea/trait keys share one localisation namespace: an idea may not have the same key as a focus (ideas end in `_spirit` where they would clash).
 - Performance: ~215 AI countries at once; `zz_ante_imperium.lua` slows AI routines that have nothing to do yet (no units). Do not test speed with `-crash_data_log` / `-debug` (extra logging).
 - Country tags: three capitals, unique, not a script keyword (world.py checks a list). Country industry is set per
@@ -109,3 +109,7 @@
 
 ## Status
 See `docs/design.md` for the plan and phases.
+- Units: vanilla land sub-units are REMOVED by empty same-name overrides in common/units (only `fake_intel_unit` kept);
+  the base game's scripts then log "Invalid subunit" at load - harmless. Ancient units are `ante_*`, active from the
+  start (elephants inactive). `common/ai_templates` and `common/ai_equipment` are replace_path'ed (AI uses the OOB templates).
+  Ships and aircraft are still vanilla (next step: triremes etc.). Crash-test armies with `-quickstart` (units load at game start, not at the menu).

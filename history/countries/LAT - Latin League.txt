@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 0
 }
 recruit_character = LAT_mamilius
+oob = "LAT_245"

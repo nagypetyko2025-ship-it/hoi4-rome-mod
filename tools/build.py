@@ -36,7 +36,7 @@ REPLACE_PATHS = [
     "map/supplyareas",
     "map/strategicregions",
     "common/national_focus", "events", "common/decisions", "common/decisions/categories",
-    "common/characters", "common/ai_strategy", "common/ai_strategy_plans", "common/on_actions",
+    "common/characters", "common/ai_strategy", "common/ai_strategy_plans", "common/on_actions", "common/ai_templates", "common/ai_equipment",
 ]
 
 GENERATED = [

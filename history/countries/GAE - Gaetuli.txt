@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = GAE_iarbas
+oob = "GAE_245"

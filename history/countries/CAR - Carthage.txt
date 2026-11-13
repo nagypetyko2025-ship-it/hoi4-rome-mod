@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 0
 }
 recruit_character = CAR_hamilcar
+oob = "CAR_245"

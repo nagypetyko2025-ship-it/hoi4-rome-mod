@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = GTA_zalmodegikos
+oob = "GTA_245"

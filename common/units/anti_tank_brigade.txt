@@ -1,0 +1,4 @@
+# Ante Imperium (tools/army.py): replaces the base game's anti_tank_brigade.txt - no modern troops in 509 BC.
+sub_units = {
+
+}

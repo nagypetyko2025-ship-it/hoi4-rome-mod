@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = SAK_skunkha
+oob = "SAK_245"

@@ -16,3 +16,4 @@ set_popularities = {
 	neutrality = 0
 }
 recruit_character = ROM_brutus
+oob = "ROM_245"

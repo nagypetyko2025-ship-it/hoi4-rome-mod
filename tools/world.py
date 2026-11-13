@@ -944,6 +944,9 @@ def write_world(M, C, states):
                                            ("democratic", "fascism", "communism", "neutrality")] + ["}"]
         # named leaders (common/characters/ante_leaders.txt, written by tools/content.py)
         hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag]
+        # starting army: history/units/<TAG>_245.txt, written by tools/army.py (the wilds have none)
+        if tag != "WLD":
+            hist.append(f'oob = "{tag}_245"')
         write(f"history/countries/{tag} - {safe_name(c['name'])}.txt", "\n".join(hist) + "\n", bom=True)
     write("common/country_tags/00_ante_countries.txt", "\n".join(tags_txt) + "\n")
     write("common/countries/colors.txt", "\n".join(colors_txt + dyn) + "\n")
