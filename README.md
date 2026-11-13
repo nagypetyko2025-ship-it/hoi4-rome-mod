@@ -431,6 +431,13 @@ Ebben a körben javítva (játék nélkül is megoldható részek):
 - **`tools/screenshot.ps1`**: mostantól ezzel lehet „megmutatni” a játékot annak, aki előtt nincs ott – a
   kidolgozásnál minden látványváltozás után érdemes futtatni és a képeket feltölteni.
 
+## Teszt a hetedik kör után (2026-11-13) – MÉG SZÜRKE
+
+Részletek: [`docs/crash_reports/2026-11-13_round7_colours.md`](docs/crash_reports/2026-11-13_round7_colours.md).
+Röviden: a `daynight.py --off` lefutott (a shader-másolat a `gfx/FX/` mappában fel van töltve), a játék fut, de
+**az országok még mindig szürkék**. A `tools/screenshot.ps1`-et a **Windows víruskeresője blokkolta**
+(„malicious content”), ezért képek nincsenek.
+
 ## Tervezett fázisok
 
 0. Alapozás – kész.
