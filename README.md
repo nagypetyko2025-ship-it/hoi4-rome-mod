@@ -90,11 +90,21 @@ Jelenleg kb. 8000 szárazföldi tartomány (Itáliában ~400, a vanillában 115)
 ## Tesztelés
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quickstart -start_tag=ROM"
+powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1                         # megáll a FŐMENÜBEN
+powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -Continue -KeepRunning  # betölti az utolsó mentést
 ```
 
 - Ideiglenesen csak ezt a modot kapcsolja be (`dlc_load.json`), elindítja a játékot, majd **visszaállítja az eredeti modlistát**.
-- `-quickstart -start_tag=ROM` a főmenü nélkül, egyből Rómával indít → kattintás nélkül tesztelhető a játékindítás.
+  A játékot magától megkeresi (bármelyik meghajtó Steam-könyvtárában; különben `-Game "X:\…\Hearts of Iron IV"`
+  vagy `HOI4_DIR`), és a `Documents\…\mod\ante_imperium.mod` leírót is ő írja meg.
+- **Így nézd meg a térképet:** első alkalommal a főmenüből indíts játékot (Single Player → Start), engedd el az
+  órát a következő hónap elsejéig (ekkor a játék magától ment: `autosave.hoi4`). Ettől kezdve a `-Continue`
+  kattintás nélkül egyből ebbe a játékba tölt be. Ha a `tools/world.py` után megváltozott a világ, indíts új
+  játékot a menüből (a régi mentés a régi világot tartalmazza).
+- **A motor saját `-quickstart` kapcsolóját NE használd a térkép megnézésére:** a gyorsindított játék
+  **egyáltalán nem rajzol országszíneket** (csupasz terep nevekkel – az alapjáték is így viselkedik). A 6–8.
+  kör összes „szürke / színtelen országok” jelentése ebből jött, nem a modból (kiderült: 2026-11-13).
+  Összeomlás-tesztre továbbra is jó (`tools/bisect_launch.ps1` ezt használja).
 - Eredmény: `MENU`, `GAME RUNNING`, `CRASHED …`, `FAILED: Failed to load the map`.
 - `-ExtraArgs "-debug"`: csak így kerülnek be a térképhibák az `error.log`-ba.
 - Naplók: `Documents/Paradox Interactive/Hearts of Iron IV/logs/error.log`; összeomlások:
@@ -455,6 +465,9 @@ Röviden: a `daynight.py --off` lefutott (a shader-másolat a `gfx/FX/` mappába
 
 ## Nyolcadik kör (2026-11-13) – az egész világ újraépítve Kr. e. 509-re (játékban még NEM tesztelve)
 
+> **Helyesbítés (9. kör):** az alábbi magyarázat csak részben állt meg. A színek hiányának valódi oka a
+> `-quickstart` tesztindítás volt (lásd a 9. kört); a járhatatlan vadonra viszont tényleg nem kerül szín.
+
 **Miért volt „szürke” minden?** Kép nélkül nem bizonyított, de a legvalószínűbb magyarázat nem színhiba,
 hanem a tartalom: a szárazföld ~90%-a egyetlen, **járhatatlan** helykitöltő ország volt (Terra Incognita).
 A játék a járhatatlan államokra **nem fest országszínt** – ott a terep látszik, a diplomáciai nézetben
@@ -493,15 +506,52 @@ Aigina kimaradt; a térkép keleti szélén (Indus, Közép-Ázsia) a régi gene
 kitöltő tartományai megmaradtak; a népességek nagyságrendi becslések; seregek továbbra sincsenek
 (`history/units` üres), mindenki békében kezd.
 
-**Teszt (Peti gépén):** indítsd a szokott módon (`tools/test_launch.ps1 -ExtraArgs "-quickstart -start_tag=ROM -crash_data_log"`).
+**Teszt:** lásd a „Tesztelés” részt fent (a 8. körben még `-quickstart`-tal kértem – az volt a hiba).
 Ha fut: nyomj **F11**-et teljesen kizoomolva, Itáliára közelítve, és egy országra jobb kattintás után, majd
 `powershell -ExecutionPolicy Bypass -File tools/collect_screenshots.ps1`, és `git add docs/screenshots`,
 commit, push. Ha nem indul: az `error.log` **vége** és az `exception.txt` kell, mint eddig.
 
+## Kilencedik kör (2026-11-13 este) – A SZÍNEK JÓK; a hibát a gyorsindítás okozta. Játékban ellenőrizve.
+
+Simnek is lett HoI4-e (1.19.5), így ezt a kört már **játékban néztük meg** – képek: `docs/screenshots/20261113_round9_*.jpg`.
+
+**Mi derült ki**
+
+- **Az országszínek működnek.** A főmenüből indított játékban (és az országválasztó képernyőn is) a mod
+  térképe teljes színekben jelenik meg, a diplomáciai nézet zöld/piros/kék jelölése is megy.
+- **A „színtelen / szürke országok” oka a `-quickstart` volt.** A motor gyorsindítása nem rajzolja ki a
+  politikai színréteget – az alapjáték ugyanígy néz ki vele, mod nélkül is. Minden eddigi teszt (a
+  `test_launch.ps1 -ExtraArgs "-quickstart …"`) ezzel indult, ezért látszott három körön át hibásnak a térkép.
+- Kizárva (helyben, kísérlettel): a textúrák illesztése a térképre jó (rácsmintás próbatextúra pontosan a
+  partvonalakra esett), a dátum, a járhatatlan vadon és a shader-másolat sem befolyásolta.
+
+**Mi változott**
+
+- **Tesztindító** (`tools/test_launch.ps1`): nincs többé gyorsindítás. Alapból a főmenüig indít; a
+  `-Continue` a játék `--continuelastsave` kapcsolójával kattintás nélkül betölti az utolsó mentést (ott a
+  színek rendben vannak). A játékot magától megkeresi, a Documents-beli leírót ő írja.
+- **Nappal–éjszaka** (valódi hiba volt): a shader a térkép teljes szélességét 360 foknak veszi, a miénk csak
+  88,6 fok. Emiatt a nappal–éjszaka határ éles függőleges vonalként állt a térkép közepén, a fele mindig
+  éjszakában volt. A shader-másolat (`gfx/FX/standardfuncsgfx.fxh`) mostantól a hosszúságot is arányosítja
+  (`LONGITUDE_SHARE`), az éjszaka-kikapcsolás (`NO_NIGHT`) kikerült: a napszakok úgy váltakoznak, mint az
+  alapjátékban Európa fölött. A `tools/daynight.py` ugyanezt állítja elő (1.19.4 és 1.19.5 alatt azonos).
+- **Zászlók és pártnevek**: ahol a mi országkódunk egyezik egy alapjátékbelivel (36 ilyen van), a játék az
+  alapjáték ideológiás zászlóját vette elő – Róma (ROM) a **román zászlót** viselte, a pártja „PNL” volt.
+  A `world.py` ezekhez megírja a négy ideológiás zászlót is, és minden országnak ókori „pártneveket” ad
+  (Róma: Senatus Populusque Romanus).
+- A `tools/mapdata.py` bármelyik meghajtón megtalálja a játékot (`HOI4_DIR` felülírja).
+
+**Ismert, még nyitott**
+
+- Az `error.log` ~34 ezer sora szinte mind az alapjáték szkriptjeiből jön, amelyek nem létező országokra
+  (GER, FRA…) hivatkoznak – ártalmatlan, de zajos; kitakarítása külön feladat.
+- A vezetők arcképe és sok felirat még az alapjátéké (1936-os öltönyös urak); seregek nincsenek.
+- A tartománytipp „helyi idő” sora a motor számítása, a mi térképünkön pontatlan.
+
 ## Tervezett fázisok
 
 0. Alapozás – kész.
-1. Váz: államok, országok, modern tartalom kiürítése – a játék fut; a teljes világ (214 ország) kész, játékbeli teszt folyamatban.
+1. Váz: államok, országok, modern tartalom kiürítése – a játék fut, a teljes világ (214 ország) kész és játékban ellenőrizve (2026-11-13).
 2. Technológiák, egységek (hoplita, manipulus, harci elefánt…), felszerelés, ipar.
 3. Róma és szomszédai teljesen játszhatóan (Kr. e. 509).
 4. A többi nép és fókuszfa (egész Európa: kelták, germánok, szkíták, ibérek, görögök, Perzsia…).

@@ -1,20 +1,21 @@
 """Fit the game's day/night shading to this map (needs the game install).
 
-usage: python tools/daynight.py            day/night stays, but at the right hours for this map
-       python tools/daynight.py --off      no night shading at all (recommended for this mod)
+usage: python tools/daynight.py            day and night as in the base game, at the right hours for this map
+       python tools/daynight.py --off      no night shading at all
        python tools/daynight.py --remove   delete the shader copy again (back to the game's own)
 
-Why: the map shader places the day/night line with constants of the VANILLA map that are written
-into the shader source (gfx/FX, in 1.7 standardfuncsgfx.fxh, later daynight.fxh):
+Why: the map shader (gfx/FX/standardfuncsgfx.fxh) works out where it is day or night with constants of
+the VANILLA world map that are written into the shader source:
     static const float GMT_OFFSET = 2793.0f;        // X position on map, of Greenwich GMT+0
     static const float SOUTH_POLE_OFFSET = 0.17f;   // how much of the globe the map misses in the south
-    //#define NO_NIGHT                               // switch: no night shading
-On our map Greenwich is at x = 631, not 2793. (1130 - 2793) / 3328 = -0.5: Italy is exactly half a
-day off, so at 12:00 - when every game starts - it is MIDNIGHT there, and the night side of the map is
-drawn dark and almost colourless (land 80 % desaturated, half as bright).
+    ... ( vWorldXZ.x - GMT_OFFSET ) / MAP_SIZE_X ...  // the WIDTH OF THE MAP is taken to be 360 degrees
+Our map is a zoomed crop: Greenwich is at x = 631 and the whole width is only 88.6 degrees. With the
+game's own shader half of the map is always in the night and the line between day and night stands
+in the middle of it as a hard vertical edge (seen in game 2026-11-13).
 The constants are compiled into the shader, a define cannot change them. So this tool copies the
-game's own shader file(s) that hold them into the mod (gfx/FX/) with only those values changed.
-Run it again after every game update (the copy must match the installed game version).
+game's own shader file into the mod (gfx/FX/) with those values changed and the longitude scaled by
+LONGITUDE_SHARE. Run it again after a game update if the game's shader changed (the copy must match
+the installed version; 1.19.4 and 1.19.5 are identical).
 """
 import re
 import sys
@@ -36,6 +37,12 @@ def map_constants():
         return VANILLA_SOUTH + span * (1.0 - row / VANILLA_H)
 
     return round(gmt, 1), round(pole(N.Y0 + N.H / N.SCALE), 3), round(pole(N.Y0), 3)
+
+
+def longitude_share():
+    """which part of the vanilla map's width (= of the 360 degrees) this map covers"""
+    import newmap as N
+    return round(N.W / N.SCALE / VANILLA_W, 4)
 
 
 def number(name, value):
@@ -60,6 +67,18 @@ def patch_files(off, game=None):
         for name, value in (("GMT_OFFSET", f"{gmt}"), ("SOUTH_POLE_OFFSET", f"{south}"), ("NORTH_POLE_OFFSET", f"{north}")):
             pat, fn = number(name, value)
             new = re.sub(pat, fn, new)
+        # the map is not the whole globe: scale the longitude (see the docstring)
+        if "LONGITUDE_SHARE" not in new:
+            new, k1 = re.subn(r"(?m)^([ \t]*)(static const float GMT_OFFSET = [^\r\n]*)(\r?\n)",
+                              lambda m: (m.group(1) + m.group(2) + " (Ante Imperium map)" + m.group(3) + m.group(1)
+                                         + f"static const float LONGITUDE_SHARE = {longitude_share()}f; // Ante Imperium: the map is "
+                                         + f"{longitude_share() * 360:.1f} of the 360 degrees wide, not the whole globe" + m.group(3)),
+                              new, count=1)
+            new, k2 = re.subn(r"/ MAP_SIZE_X \+ DayNight_Hour_SunDir\.x", "/ MAP_SIZE_X * LONGITUDE_SHARE + DayNight_Hour_SunDir.x", new)
+            if k1 and not k2:
+                print(f"WARN: {fp.name}: GMT_OFFSET found but not the longitude formula - the shader changed, check it by hand",
+                      file=sys.stderr)
+                new = old
         if off:
             # the game's own switch, if this version still has it; otherwise make the night fully transparent
             new, k = re.subn(r"(?m)^([ \t]*)//[ \t]*(#define[ \t]+NO_NIGHT\b)", r"\1\2", new)
@@ -68,9 +87,10 @@ def patch_files(off, game=None):
                 new = re.sub(pat, fn, new)
         if new != old:
             out[f"gfx/FX/{fp.name}"] = new.encode("latin-1")
-            for a, b in zip(old.splitlines(), new.splitlines()):
-                if a != b:
-                    notes.append(f"{fp.name}: {a.strip()}  ->  {b.strip()}")
+            import difflib
+            for line in difflib.unified_diff(old.splitlines(), new.splitlines(), lineterm="", n=0):
+                if line[:1] in "+-" and line[:3] not in ("+++", "---"):
+                    notes.append(f"{fp.name}: {line[0]} {line[1:].strip()}")
     if not out:
         print(f"WARN: no GMT_OFFSET / NO_NIGHT / NIGHT_OPACITY found in {fx} - nothing to patch", file=sys.stderr)
     return out, notes

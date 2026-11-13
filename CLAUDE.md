@@ -1,7 +1,7 @@
 # Ante Imperium – HoI4 total conversion (ancient Europe)
 
 ## Hard rules
-- Only edit files inside this mod folder (and the descriptor `Documents/Paradox Interactive/Hearts of Iron IV/mod/ante_imperium.mod`). NEVER modify the base game in `D:/SteamLibrary/steamapps/common/Hearts of Iron IV` outside `mod/ante_imperium`.
+- Only edit files inside this mod folder (and the descriptor `Documents/Paradox Interactive/Hearts of Iron IV/mod/ante_imperium.mod`). NEVER modify the base game install (Peti: `D:/SteamLibrary/...`, Sim: `E:/SteamLibrary/steamapps/common/Hearts of Iron IV`).
 - Base game files are read-only references. Do not copy assets from other mods (e.g. the user's "Total War Rome 2 in HOI4"). Art must be our own/procedural or CC0, noted in `docs/ASSET_LICENSES.md`.
 - Keep `descriptor.mod` and the Documents `.mod` file in sync (the Documents copy additionally has `path=`). Every `replace_path` goes into BOTH.
 - Game version 1.19.4.2. Owned/integrated DLC: Together for Victory, Death or Dishonor, Waking the Tiger, Man the Guns (+cosmetic packs). Do not depend on other DLC mechanics.
@@ -22,7 +22,11 @@
   break the frozen states - it refuses to run without `--regenerate`. `tools/build.py` is the old Italy-only
   generator (`--legacy`); positions.py and world.py still use its buildings writer and flag painter.
 - `tools/render_region.py` / `tools/mapdata.py`: labelled province maps for planning (read-only on the base game).
-- Test: `powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1` (swaps dlc_load.json to this mod only, restores it).
+- Test: `powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1` (swaps dlc_load.json to this mod only, restores it;
+  stops at the main menu). `-Continue` loads the last save game without a click (`--continuelastsave`), `-KeepRunning`
+  leaves the game open. The game is found on any drive (`-Game` / `HOI4_DIR` override).
+- **NEVER judge the map from a `-quickstart` session: the engine's quickstart draws no country colours at all** (the base
+  game too). Rounds 6-8 chased "grey countries" that only existed in quickstart. Start through the menu, or `-Continue`.
   Crash dumps: `Documents/.../crashes/<date>/` (exception.txt + logs copy).
 
 ## Engine rules learned the hard way (map/crash)
@@ -69,11 +73,16 @@
 - Visual problems cannot be judged from files: ask for the game's own F11 screenshots, collected with
   `tools/collect_screenshots.ps1` (docs/screenshots/*.jpg), and LOOK at the pictures before changing anything.
   Do not script the mouse, keyboard or screen capture: Windows Defender blocked the earlier `screenshot.ps1` for that.
-- Impassable states are not painted in their owner's colour (the terrain shows, also in the diplomacy view), and the
-  game starts on 1 January (snowy, pale terrain). A world that is mostly one impassable placeholder country therefore
-  looks grey - the likely cause of "the countries are grey" in rounds 6-7 (not confirmed by a screenshot).
-- STATUS 2026-11-13 (round 8): the whole world rebuilt for 509 BC - 214 countries, 634 states (573 playable).
-  Validates clean, NOT yet tested in the game. `docs/maps/*.jpg` show what it should look like.
+- Impassable states are not painted in their owner's colour (the terrain shows, also in the diplomacy view).
+- Day/night: the shader takes the map width for 360 degrees; this map is 88.6 degrees wide. The mod's copy of
+  `gfx/FX/standardfuncsgfx.fxh` scales the longitude (`LONGITUDE_SHARE`) and moves Greenwich (`GMT_OFFSET` 631.2,
+  `SOUTH_POLE_OFFSET` 0.455); `python tools/daynight.py` writes it from the game's file. Without it a hard day/night
+  edge stands in the middle of the map.
+- A mod tag that also exists in the base game inherits the base game's `TAG_<ideology>.tga` flags and party names
+  (ROM flew Romania's flag). world.py writes ideology flags for the tags in `tools/data/vanilla_flag_tags.py` and party
+  names for every country.
+- STATUS 2026-11-13 (round 9): verified IN THE GAME (1.19.5): the world of 509 BC shows in full colour when the game
+  is started through the menu or with `-Continue`; day/night fixed; `docs/screenshots/20261113_round9_*.jpg`.
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after

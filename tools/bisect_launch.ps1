@@ -22,6 +22,8 @@ $tmp = Join-Path $env:TEMP "ante_bisect"
 $maker = Join-Path $PSScriptRoot "make_variants.py"
 $launcher = Join-Path $PSScriptRoot "test_launch.ps1"
 # -crash_data_log makes the crash report name the file that was read last
+# (-quickstart is fine here: it only has to show whether the game survives the start. A quickstarted game draws
+#  no country colours, so never judge the look of the map from it - see tools/test_launch.ps1.)
 $extra = "-quickstart -start_tag=ROM -crash_data_log"
 
 function Restore-Mod {

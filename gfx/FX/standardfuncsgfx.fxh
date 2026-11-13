@@ -318,9 +318,10 @@ PixelShader =
 	}
 
 
-	#define NO_NIGHT
+	//#define NO_NIGHT
 
-	static const float GMT_OFFSET = 631.2f; // X position on map, of Greenwitch GMT+0
+	static const float GMT_OFFSET = 631.2f; // X position on map, of Greenwitch GMT+0 (Ante Imperium map)
+	static const float LONGITUDE_SHARE = 0.2462f; // Ante Imperium: the map is 88.6 of the 360 degrees wide, not the whole globe
 	static const float FEATHER_MIN = -0.01f;
 	static const float FEATHER_MAX = 0.01f;
 	static const float MOON_FEATHER_MIN = -0.01f;
@@ -346,7 +347,7 @@ PixelShader =
 
 	float3 CalcGlobeNormal( float2 vWorldXZ )
 	{
-		float x = fmod_loop( ( vWorldXZ.x - GMT_OFFSET ) / MAP_SIZE_X + DayNight_Hour_SunDir.x, 1.0f );
+		float x = fmod_loop( ( vWorldXZ.x - GMT_OFFSET ) / MAP_SIZE_X * LONGITUDE_SHARE + DayNight_Hour_SunDir.x, 1.0f );
 		float y = vWorldXZ.y / MAP_SIZE_Y;
 		y = SOUTH_POLE_OFFSET + ( NORTH_POLE_OFFSET - SOUTH_POLE_OFFSET ) * y;
 		y = -cos( y * 3.1415f );

@@ -11,7 +11,21 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-GAME = Path(r"D:/SteamLibrary/steamapps/common/Hearts of Iron IV")
+def find_game():
+    """the game install: HOI4_DIR if set, else the usual Steam library folders on any drive"""
+    if os.environ.get("HOI4_DIR"):
+        return Path(os.environ["HOI4_DIR"])
+    tails = ("SteamLibrary/steamapps/common/Hearts of Iron IV", "Program Files (x86)/Steam/steamapps/common/Hearts of Iron IV",
+             "Steam/steamapps/common/Hearts of Iron IV", "Games/Steam/steamapps/common/Hearts of Iron IV")
+    for drive in "DECFGHIJ":
+        for tail in tails:
+            cand = Path(f"{drive}:/{tail}")
+            if (cand / "hoi4.exe").exists():
+                return cand
+    return Path(r"D:/SteamLibrary/steamapps/common/Hearts of Iron IV")
+
+
+GAME = find_game()
 MOD = Path(__file__).resolve().parent.parent
 CACHE = MOD / "tools" / "cache"
 

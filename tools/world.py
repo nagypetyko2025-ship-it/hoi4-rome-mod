@@ -50,6 +50,30 @@ TERRAIN_COST = {"plains": 1.0, "urban": 1.0, "forest": 1.15, "hills": 1.3, "dese
 TERRAIN_FOOD = {"plains": 1.0, "urban": 1.6, "forest": 0.6, "hills": 0.7, "desert": 0.12, "marsh": 0.35,
                 "jungle": 0.4, "mountain": 0.3}
 GOV_IDEOLOGY = {"republic": "democratic", "monarchy": "neutrality", "tyranny": "fascism", "tribal": "neutrality"}
+IDEOLOGIES = ("democratic", "fascism", "communism", "neutrality")
+# "parties" of the ancient world (short name, long name): who rules, by form of government ...
+PARTY_BY_GOV = {
+    ("republic", "democratic"): ("Assembly", "Assembly of the Citizens"),
+    ("monarchy", "neutrality"): ("Royal Court", "Court of the King"),
+    ("tribal", "neutrality"): ("Elders", "Council of the Elders"),
+    ("tyranny", "fascism"): ("Tyrant", "Household of the Tyrant"),
+}
+# ... and the factions out of power
+PARTY_OTHER = {
+    "democratic": ("Commons", "Party of the Commons"),
+    "fascism": ("Strongmen", "Followers of the Strongman"),
+    "communism": ("Landless", "Party of the Landless"),
+    "neutrality": ("Nobles", "Council of the Nobles"),
+}
+PARTIES = {   # the ones history gave a name
+    ("ROM", "democratic"): ("Senatus", "Senatus Populusque Romanus"),
+    ("CAR", "democratic"): ("Adirim", "Council of the Mighty Ones"),
+    ("ATH", "democratic"): ("Ekklesia", "Ekklesia of the Athenians"),
+    ("LAK", "neutrality"): ("Gerousia", "Kings and Gerousia of Lakedaimon"),
+    ("PRS", "neutrality"): ("King of Kings", "Court of the King of Kings"),
+    ("MKD", "neutrality"): ("Argeads", "House of the Argeads"),
+    ("SYR", "democratic"): ("Gamoroi", "Assembly of the Gamoroi"),
+}
 SLOTS = {"wasteland": 0, "pastoral": 1, "rural": 2, "town": 4, "large_town": 5, "city": 6, "large_city": 8,
          "metropolis": 10, "megalopolis": 12}
 # tags the script parser reads as something else (NUM and RED were found the hard way) or Windows refuses as file names
@@ -936,18 +960,27 @@ def write_world(M, C, states):
     import build as B
     for sub in ("", "medium", "small"):
         (MOD / "gfx" / "flags" / sub).mkdir(parents=True, exist_ok=True)
+    # The engine prefers TAG_<ideology>.tga over TAG.tga. Where the base game ships such flags for a tag we
+    # reuse, ours must exist too - or Rome (ROM) flies the flag of Romania.
+    clash = importlib.import_module("data.vanilla_flag_tags").VANILLA_FLAG_TAGS
     for tag, c in C.items():
         im = B.flag_image(tag, c) if c["core"] else flag_image(tag, c)
-        im.save(MOD / "gfx" / "flags" / f"{tag}.tga")
-        im.resize((41, 26), Image.LANCZOS).save(MOD / "gfx" / "flags" / "medium" / f"{tag}.tga")
-        im.resize((10, 7), Image.LANCZOS).save(MOD / "gfx" / "flags" / "small" / f"{tag}.tga")
+        names = [tag] + ([f"{tag}_{ide}" for ide in IDEOLOGIES] if tag in clash else [])
+        for name in names:
+            im.save(MOD / "gfx" / "flags" / f"{name}.tga")
+            im.resize((41, 26), Image.LANCZOS).save(MOD / "gfx" / "flags" / "medium" / f"{name}.tga")
+            im.resize((10, 7), Image.LANCZOS).save(MOD / "gfx" / "flags" / "small" / f"{name}.tga")
     # --- localisation
     lines = ["l_english:"]
     for tag, c in C.items():
         lines += [f' {tag}:0 "{esc(c["name"])}"', f' {tag}_DEF:0 "{esc(c["name"])}"', f' {tag}_ADJ:0 "{esc(c["adj"])}"']
-        for ide in ("democratic", "fascism", "communism", "neutrality"):
+        for ide in IDEOLOGIES:
             lines += [f' {tag}_{ide}:0 "{esc(c["name"])}"', f' {tag}_{ide}_DEF:0 "{esc(c["name"])}"',
                       f' {tag}_{ide}_ADJ:0 "{esc(c["adj"])}"']
+            # party names: without these a reused tag shows the base game's parties (Rome: "PNL")
+            short, long = PARTIES.get((tag, ide)) or PARTY_BY_GOV[(c["gov"], ide)] if ide == GOV_IDEOLOGY[c["gov"]] \
+                else PARTIES.get((tag, ide)) or PARTY_OTHER[ide]
+            lines += [f' {tag}_{ide}_party:0 "{esc(short)}"', f' {tag}_{ide}_party_long:0 "{esc(long)}"']
     write("localisation/english/replace/ante_countries_l_english.yml", "\n".join(lines) + "\n", bom=True)
     lines = ["l_english:"]
     for s in states:
