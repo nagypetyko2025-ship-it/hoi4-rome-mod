@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "APP_245"
 set_naval_oob = "APP_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = APP_cmd_g0_milon

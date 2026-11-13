@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_iberian
 oob = "TTS_245"
 set_naval_oob = "TTS_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = TTS_cmd_g0_edecon_tibaste

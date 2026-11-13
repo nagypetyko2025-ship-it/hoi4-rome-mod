@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "MAS_245"
 set_naval_oob = "MAS_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = MAS_cmd_g0_ainesidemos_antiochou

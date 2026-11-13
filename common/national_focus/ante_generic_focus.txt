@@ -11,6 +11,7 @@ focus_tree = {
 	initial_show_position = {
 		focus = ante_tame_the_land
 	}
+	continuous_focus_position = { x = 50 y = 980 }
 
 	focus = {
 		id = ante_council_of_elders

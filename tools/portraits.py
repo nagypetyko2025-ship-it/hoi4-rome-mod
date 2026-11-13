@@ -27,6 +27,9 @@ HAIR = {"black": (34, 28, 24), "brown": (82, 56, 36), "fair": (176, 140, 82), "r
 STYLE = {
     "roman": dict(skin="med", hair=["black", "brown"], cloth=(226, 220, 204), accent=(110, 30, 70), head="laurel",
                   beard="none", hairstyle="short", bg=(70, 30, 30)),
+    # the kings of Rome (Tarquinius): toga picta, beard, golden crown (accent = crown colour)
+    "roman_king": dict(skin="med", hair=["black", "brown"], cloth=(120, 40, 80), accent=(212, 170, 60), head="crown",
+                       beard="full", hairstyle="short", bg=(90, 30, 50)),
     "etruscan": dict(skin="med", hair=["black"], cloth=(150, 50, 40), accent=(200, 160, 60), head="diadem",
                      beard="short", hairstyle="long", bg=(60, 40, 30)),
     "latin": dict(skin="med", hair=["black", "brown"], cloth=(170, 150, 120), accent=(120, 60, 40), head="none",
@@ -68,6 +71,7 @@ STYLE = {
     "northern": dict(skin="pale", hair=["fair", "red", "brown"], cloth=(80, 90, 60), accent=(214, 176, 70),
                      head="none", beard="full", hairstyle="flowing", bg=(30, 45, 40)),
 }
+LEADER_STYLE = {"ROM_tarquinius": "roman_king"}   # a leader who looks unlike his people
 TAG_STYLE = {"ROM": "roman", "CAR": "punic", "PRS": "persian", "ATH": "greek", "LAK": "spartan", "CLU": "etruscan",
              "LAT": "latin", "MKD": "macedonian", "SCY": "scythian", "KSH": "kushite", "KYR": "greek",
              "SAK": "saka", "AGA": "scythian", "KRO": "greek", "ODR": "thracian", "MSG": "saka", "SAU": "scythian",
@@ -154,7 +158,7 @@ def portrait(style, female, seed):
     # --- shoulders and clothes
     cv.ell((2, 150, 154, 290), cloth)
     cv.soft(lambda d: d.ellipse((90 * S, 160 * S, 170 * S, 300 * S), fill=(0, 0, 0, 120)), 10)
-    if style in ("roman", "latin"):  # toga: diagonal fold with a purple border
+    if style in ("roman", "latin", "roman_king"):  # toga: diagonal fold with a purple border
         cv.line([(30, 168), (96, 210)], shade(cloth, 0.8), 6)
         if style == "roman":
             cv.line([(22, 176), (84, 214)], acc, 5)
@@ -329,7 +333,7 @@ def main():
     (out / "generic").mkdir(parents=True, exist_ok=True)
     named = []
     for tag, key, name, trait, female, attested, desc in LEADERS:
-        im = portrait(TAG_STYLE[tag], female, seed_of(f"{tag}_{key}"))
+        im = portrait(LEADER_STYLE.get(f"{tag}_{key}", TAG_STYLE[tag]), female, seed_of(f"{tag}_{key}"))
         im.save(out / f"{tag}_{key}.dds")
         named.append(im)
     # generic portraits: a few per people, for every leader and general the game makes up itself

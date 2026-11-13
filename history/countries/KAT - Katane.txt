@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "KAT_245"
 set_naval_oob = "KAT_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = KAT_cmd_g0_kallias

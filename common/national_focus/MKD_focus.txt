@@ -12,6 +12,7 @@ focus_tree = {
 	initial_show_position = {
 		focus = MKD_argead_house
 	}
+	continuous_focus_position = { x = 50 y = 1110 }
 
 	focus = {
 		id = MKD_argead_house
@@ -40,6 +41,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			add_stability = 0.05
+			add_war_support = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -171,9 +173,12 @@ focus_tree = {
 		prerequisite = { focus = MKD_upper_macedonia focus = MKD_mines_of_pangaion }
 		x = 5
 		y = 3
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = PAE } PAE = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = CHK NOT = { has_war_with = CHK } }
 				create_wargoal = { type = annex_everything target = CHK }
@@ -206,9 +211,12 @@ focus_tree = {
 		prerequisite = { focus = MKD_chalkidike }
 		x = 5
 		y = 4
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = CHK } CHK = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { is_in_faction = no } create_faction = ante_faction_macedonian_alliance }
 			if = { limit = { is_faction_leader = yes country_exists = THL NOT = { has_war_with = THL } THL = { is_in_faction = no is_subject = no } } add_to_faction = THL }
@@ -223,9 +231,12 @@ focus_tree = {
 		prerequisite = { focus = MKD_thessalian_alliance }
 		x = 4
 		y = 5
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
+		available = {
+			has_army_experience > 30
+		}
 		completion_reward = {
 			add_doctrine_cost_reduction = { name = MKD_hammer_and_anvil cost_reduction = 0.5 uses = 1 category = land_doctrine }
 			army_experience = 30
@@ -239,9 +250,13 @@ focus_tree = {
 		prerequisite = { focus = MKD_hammer_and_anvil }
 		x = 4
 		y = 6
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 5
+			OR = { NOT = { country_exists = THL } THL = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = THB NOT = { has_war_with = THB } }
 				create_wargoal = { type = annex_everything target = THB }

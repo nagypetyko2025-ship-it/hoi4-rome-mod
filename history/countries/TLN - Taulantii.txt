@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_iapygian
 oob = "TLN_245"
 set_naval_oob = "TLN_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = TLN_cmd_g0_artorres_brentesinos

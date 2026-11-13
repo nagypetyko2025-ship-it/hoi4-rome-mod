@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "MET_245"
 set_naval_oob = "MET_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = MET_cmd_g0_gelon

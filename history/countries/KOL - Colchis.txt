@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_caucasian
 oob = "KOL_245"
 set_naval_oob = "KOL_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = KOL_cmd_g0_arshak_mtskheteli

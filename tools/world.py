@@ -50,21 +50,21 @@ TERRAIN_COST = {"plains": 1.0, "urban": 1.0, "forest": 1.15, "hills": 1.3, "dese
                 "jungle": 1.4, "mountain": 2.1}
 TERRAIN_FOOD = {"plains": 1.0, "urban": 1.6, "forest": 0.6, "hills": 0.7, "desert": 0.12, "marsh": 0.35,
                 "jungle": 0.4, "mountain": 0.3}
-GOV_IDEOLOGY = {"republic": "democratic", "monarchy": "neutrality", "tyranny": "fascism", "tribal": "neutrality"}
+GOV_IDEOLOGY = {"republic": "democratic", "monarchy": "neutrality", "tyranny": "fascism", "tribal": "communism"}   # ideologies renamed: tools/content.py (ancient forms)
 IDEOLOGIES = ("democratic", "fascism", "communism", "neutrality")
 # "parties" of the ancient world (short name, long name): who rules, by form of government ...
 PARTY_BY_GOV = {
     ("republic", "democratic"): ("Assembly", "Assembly of the Citizens"),
     ("monarchy", "neutrality"): ("Royal Court", "Court of the King"),
-    ("tribal", "neutrality"): ("Elders", "Council of the Elders"),
+    ("tribal", "communism"): ("Elders", "Council of the Elders"),
     ("tyranny", "fascism"): ("Tyrant", "Household of the Tyrant"),
 }
 # ... and the factions out of power
 PARTY_OTHER = {
-    "democratic": ("Commons", "Party of the Commons"),
-    "fascism": ("Strongmen", "Followers of the Strongman"),
-    "communism": ("Landless", "Party of the Landless"),
-    "neutrality": ("Nobles", "Council of the Nobles"),
+    "democratic": ("Citizens", "Party of the Citizens"),
+    "fascism": ("Would-be Tyrants", "Followers of the Strongman"),
+    "communism": ("Clansmen", "Gathering of the Clans"),
+    "neutrality": ("Royalists", "Friends of the King"),
 }
 PARTIES = {   # the ones history gave a name
     ("ROM", "democratic"): ("Senatus", "Senatus Populusque Romanus"),

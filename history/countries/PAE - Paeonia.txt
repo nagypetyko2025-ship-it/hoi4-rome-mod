@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_thracian
 oob = "PAE_245"
 set_naval_oob = "PAE_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = PAE_cmd_g0_sitalkes_burus

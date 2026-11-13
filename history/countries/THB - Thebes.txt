@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "THB_245"
 set_naval_oob = "THB_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = THB_cmd_g0_polyzalos

@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "THS_245"
 set_naval_oob = "THS_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = THS_cmd_g0_leontios_epikratous

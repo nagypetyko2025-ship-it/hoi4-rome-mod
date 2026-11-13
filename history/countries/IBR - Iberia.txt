@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_caucasian
 oob = "IBR_245"
 set_naval_oob = "IBR_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = IBR_cmd_g0_vache

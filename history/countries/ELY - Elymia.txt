@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_italic
 oob = "ELY_245"
 set_naval_oob = "ELY_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = ELY_cmd_g0_dekis_staius

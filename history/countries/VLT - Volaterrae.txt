@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_etruscan
 oob = "VLT_245"
 set_naval_oob = "VLT_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = VLT_cmd_g0_velthur_camna

@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_arabian
 oob = "QDR_245"
 set_naval_oob = "QDR_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = QDR_cmd_g0_yithaamar_khalil

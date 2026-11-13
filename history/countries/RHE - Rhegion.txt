@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "RHE_245"
 set_naval_oob = "RHE_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = RHE_cmd_g0_mikythos_archedamou

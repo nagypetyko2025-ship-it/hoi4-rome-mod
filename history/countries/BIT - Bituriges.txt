@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_celtic
 oob = "BIT_245"
 set_naval_oob = "BIT_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = BIT_cmd_g0_tanotalos_brennios

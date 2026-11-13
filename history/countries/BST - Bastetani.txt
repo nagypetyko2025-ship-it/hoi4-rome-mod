@@ -4,7 +4,7 @@ set_stability = 0.6
 set_war_support = 0.3
 
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = communism
 	last_election = "240.1.1"
 	election_frequency = 12
 	elections_allowed = no
@@ -12,9 +12,11 @@ set_politics = {
 set_popularities = {
 	democratic = 0
 	fascism = 0
-	communism = 0
-	neutrality = 100
+	communism = 100
+	neutrality = 0
 }
 add_ideas = ante_culture_iberian
 oob = "BST_245"
 set_naval_oob = "BST_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = BST_cmd_g0_belagasikaur

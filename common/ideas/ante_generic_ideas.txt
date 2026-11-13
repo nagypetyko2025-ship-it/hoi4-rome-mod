@@ -526,6 +526,77 @@ ideas = {
 				conscription = 0.02
 			}
 		}
+		ROM_hated_king_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.25
+				war_support_factor = -0.15
+				monthly_population = -0.3
+				political_power_gain = -0.25
+				production_speed_buildings_factor = -0.25
+				conscription = -0.05
+			}
+		}
+		ROM_smouldering_unrest_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.08
+				monthly_population = -0.1
+				political_power_gain = -0.1
+				production_speed_buildings_factor = -0.1
+				conscription = -0.02
+			}
+		}
+		ROM_grudging_obedience_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = -0.05
+			}
+		}
+		ROM_loyal_subjects_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				conscription = 0.01
+			}
+		}
+		ROM_coinage_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				political_power_gain = 0.05
+			}
+		}
+		ROM_ager_publicus_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.1
+				conscription = 0.01
+			}
+		}
+		ROM_juno_moneta_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
 		ATH_isonomia_spirit = {
 			picture = generic_constitutional_guarantees
 			allowed = { always = no }

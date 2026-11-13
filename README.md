@@ -685,3 +685,30 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   (Porsenna ellen), a tizenkét város, Regnum Italiae, szamnisz hegyek / Magna Graecia → Itália királya.
 - Róma most 66 fókusz, 20 kizáró pár. Validate 0 hiba; `-quickstart -start_tag=ROM` fut, az error.log tiszta (a fókusz effektjei: set_politics,
   promote_character, retire_character a „The King Remains”-ben).
+
+## Tizenötödik kör (2026-11-13, Claude) – ókori ideológiák, hadvezérek, gazdaság, nehezebb fókuszok, épületek
+- **Ideológiák ókori néven** (a kulcsok maradnak, csak a nevek): demokratikus = Köztársaság (arisztokratikus
+  köztársaság / demokrácia / népgyűlés), semleges = Királyság (királyság, oligarchia, papkirályság, szatrapia),
+  fasiszta = Türannisz, kommunista = Törzsi uralom (törzsfőség, harcos csapat, ősi szokás). A törzsi népek most a
+  „törzsi” ideológiát kapják. Fájl: `localisation/english/replace/ante_ideologies_l_english.yml` (content.py).
+- **Tarquinius koronát visel** (`roman_king` stílus, `LEADER_STYLE` a portraits.py-ban).
+- **A folyamatos fókuszok doboza** a fa legalsó sora alá került (`continuous_focus_position`), nem takar ki fókuszt.
+  A generikus fa írása kimaradt a content.py-ból a 13. körben (a régi fájl maradt meg) – visszatéve.
+- **Hadvezérek:** `tools/commanders.py` – minden hadsereggel bíró népnek tábornok, 8+ hadosztálynál hadvezér
+  (marsall), 4+ hajónál admirális: 6 marsall, 225 tábornok, 10 admirális. Történelmi nevek: Róma (Valerius
+  Publicola, Larcius, Postumius, Horatius Cocles, Mucius Scaevola), Karthágó, Perzsia (Mardonios, Megabazos, Datis),
+  Athén (Miltiadész, Kallimakhosz, Arisztidész, Themisztoklész), Spárta (Démaratosz, Dórieusz, Leónidász), stb.
+- **Róma gazdasági ága** (x 35–39, mindkét útról elérhető): Forum Boarium, Via Salaria, sólepárlók, tiberisi kikötő,
+  aes signatum, ager publicus, kovácsok, Juno Moneta pénzverde, nagy közmunkák.
+- **A király megtartása most fáj:** „The People Hate the King” (−25% stabilitás, −30% népességnövekedés, −25%
+  politikai erő és építés, …). Csak a királypárti ág (x 31–33) enyhíti fokozatosan: amnesztia, gabona Kümétől, a
+  telepesek visszahívása, zavargások leverése ↔ a nép meghallgatása, végül „A Loyal Rome” (stabilitás > 40% kell).
+- **Nehezebb fókuszok:** a nagy lépések hosszabbak (105–175 nap), feltételhez kötöttek (pl. Dél-Etrúria csak Veii
+  bukása után, Italia 20 állam + a szamniszok és a latinok legyőzése után, a hellén hegemónia csak Athén/Argosz
+  után) és némelyik hátránnyal jár (Pyrrhus-háború: −3000 ember, Allia: −10% stabilitás, …). `TUNE` a
+  national_trees.py-ban.
+- **Épületek:** `tools/buildings.py` – ókori nevek (Workshops, Armoury, Shipyard, Harbour, Roads, Fortifications,
+  Sea Walls); a modern épületek (repülőtér, légvédelem, radar, szintetikus finomító, üzemanyagraktár, rakéta,
+  atomreaktor, …) kikapcsolva (`dlc_allowed = { always = no }`). Ikonok még az alapjátékéi.
+- Pipeline: world → portraits → army → buildings → content → commanders → validate (0 hiba). Játékban még nem
+  futott ez a kör.

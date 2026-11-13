@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_iapygian
 oob = "ENC_245"
 set_naval_oob = "ENC_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = ENC_cmd_g0_solas_solahiaihi

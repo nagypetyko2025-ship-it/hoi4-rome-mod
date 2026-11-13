@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "POS_245"
 set_naval_oob = "POS_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = POS_cmd_g0_antiphemos

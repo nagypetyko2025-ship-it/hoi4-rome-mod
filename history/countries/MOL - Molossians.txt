@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "MOL_245"
 set_naval_oob = "MOL_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = MOL_cmd_g0_diokles_lysiou

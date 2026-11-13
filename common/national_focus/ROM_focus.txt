@@ -13,6 +13,7 @@ focus_tree = {
 	initial_show_position = {
 		focus = ROM_regifugium
 	}
+	continuous_focus_position = { x = 50 y = 1760 }
 
 	focus = {
 		id = ROM_regifugium
@@ -58,6 +59,7 @@ focus_tree = {
 		completion_reward = {
 			add_manpower = 2000
 			add_political_power = 50
+			add_stability = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -92,6 +94,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = ROM_rule_of_the_fathers_spirit
 			add_political_power = 50
+			add_stability = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -102,7 +105,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_tribunes_of_the_plebs focus = ROM_rule_of_the_fathers }
 		x = 2
 		y = 4
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -150,9 +153,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_censors }
 		x = 2
 		y = 6
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			has_stability > 0.3
+		}
 		completion_reward = {
 			add_political_power = 100
 			add_stability = 0.05
@@ -166,10 +172,13 @@ focus_tree = {
 		prerequisite = { focus = ROM_licinian_sextian_laws }
 		x = 1
 		y = 7
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_the_nobilitas }
+		available = {
+			has_stability > 0.5
+		}
 		completion_reward = {
 			swap_ideas = { remove_idea = ROM_twelve_tables_spirit add_idea = ROM_concordia_ordinum_spirit }
 		}
@@ -182,12 +191,16 @@ focus_tree = {
 		prerequisite = { focus = ROM_licinian_sextian_laws }
 		x = 3
 		y = 7
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_lex_hortensia }
+		available = {
+			has_political_power > 100
+		}
 		completion_reward = {
 			swap_ideas = { remove_idea = ROM_twelve_tables_spirit add_idea = ROM_nobilitas_spirit }
+			add_political_power = -100
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -278,6 +291,9 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			has_war = yes
+		}
 		completion_reward = {
 			add_ideas = ROM_evocatio_spirit
 		}
@@ -370,10 +386,13 @@ focus_tree = {
 		prerequisite = { focus = ROM_camillus_reforms }
 		x = 9
 		y = 4
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_citizen_phalanx }
+		available = {
+			has_army_experience > 20
+		}
 		completion_reward = {
 			add_ideas = ROM_manipular_legion_spirit
 			add_doctrine_cost_reduction = { name = ROM_manipular_legion cost_reduction = 0.5 uses = 1 category = land_doctrine }
@@ -387,10 +406,13 @@ focus_tree = {
 		prerequisite = { focus = ROM_camillus_reforms }
 		x = 11
 		y = 4
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_manipular_legion }
+		available = {
+			has_army_experience > 20
+		}
 		completion_reward = {
 			add_ideas = ROM_citizen_phalanx_spirit
 			add_doctrine_cost_reduction = { name = ROM_citizen_phalanx cost_reduction = 0.5 uses = 1 category = land_doctrine }
@@ -404,9 +426,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_manipular_legion focus = ROM_citizen_phalanx }
 		x = 9
 		y = 5
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 3
+		}
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = { impassable = no }
@@ -460,9 +485,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_aqua_appia }
 		x = 10
 		y = 6
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 4
+		}
 		completion_reward = {
 			add_ideas = ROM_coloniae_spirit
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
@@ -499,6 +527,7 @@ focus_tree = {
 		completion_reward = {
 			army_experience = 25
 			add_war_support = 0.05
+			add_manpower = -1000
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -585,14 +614,18 @@ focus_tree = {
 		prerequisite = { focus = ROM_foedus_cassianum focus = ROM_latium_by_the_sword focus = ROM_coriolanus }
 		x = 14
 		y = 4
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 1
+		}
 		completion_reward = {
 			if = { limit = { country_exists = VEI NOT = { has_war_with = VEI } }
 				create_wargoal = { type = annex_everything target = VEI }
 			}
 			add_war_support = 0.05
+			add_political_power = -50
 		}
 		ai_will_do = { factor = 2 }
 	}
@@ -603,9 +636,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_siege_of_veii }
 		x = 14
 		y = 5
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = VEI } VEI = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = CAE NOT = { has_war_with = CAE } }
 				create_wargoal = { type = annex_everything target = CAE }
@@ -631,6 +667,7 @@ focus_tree = {
 		completion_reward = {
 			add_manpower = 3000
 			add_war_support = 0.05
+			add_stability = -0.10
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -676,6 +713,7 @@ focus_tree = {
 			if = { limit = { country_exists = SEN NOT = { has_war_with = SEN } }
 				create_wargoal = { type = annex_everything target = SEN }
 			}
+			add_manpower = -2000
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -686,7 +724,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_pay_the_gold focus = ROM_not_with_gold }
 		x = 17
 		y = 7
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -728,9 +766,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_manipular_legion focus = ROM_citizen_phalanx }
 		x = 13
 		y = 7
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 4
+		}
 		completion_reward = {
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } }
 				create_wargoal = { type = annex_everything target = LAT }
@@ -746,15 +787,19 @@ focus_tree = {
 		prerequisite = { focus = ROM_latin_war }
 		x = 13
 		y = 8
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = SAM NOT = { has_war_with = SAM } }
 				create_wargoal = { type = annex_everything target = SAM }
 			}
 			every_state = { limit = { is_owned_by = SAM } add_claim_by = ROOT }
 			army_experience = 25
+			add_war_support = -0.05
 		}
 		ai_will_do = { factor = 2 }
 	}
@@ -765,9 +810,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_samnite_wars }
 		x = 15
 		y = 9
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = UMB NOT = { has_war_with = UMB } }
 				create_wargoal = { type = annex_everything target = UMB }
@@ -786,10 +834,13 @@ focus_tree = {
 		prerequisite = { focus = ROM_samnite_wars }
 		x = 11
 		y = 9
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_treaty_with_tarentum }
+		available = {
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = TAS NOT = { has_war_with = TAS } }
 				create_wargoal = { type = annex_everything target = TAS }
@@ -797,6 +848,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = TAS } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = MES } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = KRO } add_claim_by = ROOT }
+			add_manpower = -3000
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -807,13 +859,17 @@ focus_tree = {
 		prerequisite = { focus = ROM_samnite_wars }
 		x = 13
 		y = 9
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_tarentum_and_pyrrhus }
+		available = {
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = TAS NOT = { has_war_with = TAS } TAS = { is_subject = no is_in_faction = no } } puppet = TAS }
 			add_political_power = 50
+			add_political_power = -100
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -825,9 +881,14 @@ focus_tree = {
 		prerequisite = { focus = ROM_tarentum_and_pyrrhus focus = ROM_treaty_with_tarentum }
 		x = 13
 		y = 10
-		cost = 10
+		cost = 25
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 19
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			add_political_power = 150
 			add_stability = 0.10
@@ -845,7 +906,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_italia }
 		x = 12
 		y = 11
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = { any_owned_state = { is_coastal = yes } }
@@ -873,7 +934,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_italia }
 		x = 14
 		y = 11
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_towards_sicily }
@@ -903,7 +964,7 @@ focus_tree = {
 			set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }
 			promote_character = ROM_tarquinius
 			retire_character = ROM_brutus
-			add_ideas = ROM_rex_tarquinius_spirit
+			add_ideas = { ROM_rex_tarquinius_spirit ROM_hated_king_spirit }
 			add_political_power = 50
 		}
 		ai_will_do = { factor = 1 }
@@ -921,6 +982,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			add_stability = -0.03
+			add_war_support = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1083,9 +1145,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_stratagem_of_gabii }
 		x = 29
 		y = 3
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 2
+		}
 		completion_reward = {
 			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } }
 				create_wargoal = { type = annex_everything target = CLU }
@@ -1143,9 +1208,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_king_of_the_etruscans }
 		x = 29
 		y = 4
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = CLU } CLU = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = VEI NOT = { has_war_with = VEI } }
 				create_wargoal = { type = annex_everything target = VEI }
@@ -1169,9 +1237,13 @@ focus_tree = {
 		prerequisite = { focus = ROM_the_twelve_cities }
 		x = 26
 		y = 5
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 9
+			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			add_ideas = ROM_regnum_spirit
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
@@ -1187,7 +1259,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_regnum_italiae }
 		x = 24
 		y = 6
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1197,6 +1269,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = SAM } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = CAP } add_claim_by = ROOT }
 			army_experience = 25
+			add_manpower = -2000
 		}
 		ai_will_do = { factor = 2 }
 	}
@@ -1207,7 +1280,7 @@ focus_tree = {
 		prerequisite = { focus = ROM_regnum_italiae }
 		x = 28
 		y = 6
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -1231,9 +1304,12 @@ focus_tree = {
 		prerequisite = { focus = ROM_magna_graecia }
 		x = 26
 		y = 7
-		cost = 10
+		cost = 25
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 19
+		}
 		completion_reward = {
 			add_political_power = 150
 			add_stability = 0.10
@@ -1242,6 +1318,328 @@ focus_tree = {
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			add_research_slot = 1
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = ROM_royal_amnesty
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ROM_the_king_remains }
+		x = 31
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_political_power = -50
+			add_manpower = 1000
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_grain_from_cumae
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = ROM_the_king_remains }
+		x = 33
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -25
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_call_back_the_settlers
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = ROM_royal_amnesty }
+		prerequisite = { focus = ROM_grain_from_cumae }
+		x = 31
+		y = 2
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			swap_ideas = { remove_idea = ROM_hated_king_spirit add_idea = ROM_smouldering_unrest_spirit }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_crush_the_riots
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = ROM_call_back_the_settlers }
+		x = 31
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = ROM_hear_the_people }
+		completion_reward = {
+			swap_ideas = { remove_idea = ROM_smouldering_unrest_spirit add_idea = ROM_grudging_obedience_spirit }
+			add_war_support = -0.05
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_hear_the_people
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ROM_call_back_the_settlers }
+		x = 33
+		y = 3
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = ROM_crush_the_riots }
+		completion_reward = {
+			swap_ideas = { remove_idea = ROM_smouldering_unrest_spirit add_idea = ROM_grudging_obedience_spirit }
+			add_political_power = -75
+			add_stability = 0.05
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_a_loyal_rome
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = ROM_crush_the_riots focus = ROM_hear_the_people }
+		x = 32
+		y = 4
+		cost = 20
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		available = {
+			has_stability > 0.4
+		}
+		completion_reward = {
+			swap_ideas = { remove_idea = ROM_grudging_obedience_spirit add_idea = ROM_loyal_subjects_spirit }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_forum_boarium
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ROM_regifugium focus = ROM_the_king_remains }
+		x = 37
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 4 }
+	}
+
+	focus = {
+		id = ROM_via_salaria
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = ROM_forum_boarium }
+		x = 35
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+
+	focus = {
+		id = ROM_salt_pans
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = ROM_forum_boarium }
+		x = 37
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = ROM_tiber_harbour
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = ROM_forum_boarium }
+		x = 39
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		available = { any_owned_state = { is_coastal = yes } }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+					is_coastal = yes
+					free_building_slots = { building = dockyard size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = dockyard level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_aes_signatum
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = ROM_via_salaria focus = ROM_salt_pans }
+		x = 36
+		y = 3
+		cost = 15
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = ROM_coinage_spirit
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_ager_publicus
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = ROM_salt_pans focus = ROM_tiber_harbour }
+		x = 38
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 2
+		}
+		completion_reward = {
+			add_ideas = ROM_ager_publicus_spirit
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_smiths_of_rome
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = ROM_aes_signatum }
+		x = 36
+		y = 4
+		cost = 15
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 4 }
+	}
+
+	focus = {
+		id = ROM_juno_moneta
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = ROM_aes_signatum }
+		prerequisite = { focus = ROM_ager_publicus }
+		x = 38
+		y = 4
+		cost = 15
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 5
+		}
+		completion_reward = {
+			add_ideas = ROM_juno_moneta_spirit
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = ROM_great_public_works
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = ROM_smiths_of_rome }
+		prerequisite = { focus = ROM_juno_moneta }
+		x = 37
+		y = 5
+		cost = 20
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		available = {
+			num_of_controlled_states > 8
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
 		}
 		ai_will_do = { factor = 3 }
 	}

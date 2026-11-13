@@ -12,6 +12,7 @@ focus_tree = {
 	initial_show_position = {
 		focus = PRS_king_of_kings
 	}
+	continuous_focus_position = { x = 50 y = 980 }
 
 	focus = {
 		id = PRS_king_of_kings
@@ -159,7 +160,7 @@ focus_tree = {
 		prerequisite = { focus = PRS_immortals }
 		x = 8
 		y = 2
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -167,6 +168,7 @@ focus_tree = {
 			if = { limit = { country_exists = TYR NOT = { has_war_with = TYR } TYR = { is_subject = no is_in_faction = no } } puppet = TYR }
 			if = { limit = { country_exists = ARW NOT = { has_war_with = ARW } ARW = { is_subject = no is_in_faction = no } } puppet = ARW }
 			navy_experience = 20
+			add_political_power = -75
 		}
 		ai_will_do = { factor = 2 }
 	}
@@ -238,7 +240,7 @@ focus_tree = {
 		prerequisite = { focus = PRS_phoenician_fleet }
 		x = 9
 		y = 3
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -246,6 +248,7 @@ focus_tree = {
 				create_wargoal = { type = annex_everything target = SCY }
 			}
 			every_state = { limit = { is_owned_by = SCY } add_claim_by = ROOT }
+			add_war_support = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -256,7 +259,7 @@ focus_tree = {
 		prerequisite = { focus = PRS_ionia }
 		x = 7
 		y = 4
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -280,9 +283,13 @@ focus_tree = {
 		prerequisite = { focus = PRS_earth_and_water focus = PRS_scythian_campaign }
 		x = 5
 		y = 5
-		cost = 10
+		cost = 25
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = SCY } SCY = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = ATH } ATH = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			add_political_power = 150
 			add_stability = 0.10

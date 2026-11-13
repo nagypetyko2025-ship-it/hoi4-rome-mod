@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_arabian
 oob = "DDN_245"
 set_naval_oob = "DDN_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = DDN_cmd_g0_lahayathat_hazail

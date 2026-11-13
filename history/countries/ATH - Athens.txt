@@ -19,3 +19,8 @@ recruit_character = ATH_cleisthenes
 add_ideas = ante_culture_greek
 oob = "ATH_245"
 set_naval_oob = "ATH_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = ATH_cmd_miltiades
+recruit_character = ATH_cmd_callimachus
+recruit_character = ATH_cmd_aristides
+recruit_character = ATH_cmd_themistocles

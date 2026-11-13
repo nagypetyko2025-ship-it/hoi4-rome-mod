@@ -19,3 +19,5 @@ recruit_character = KSH_amaniastabarqo
 add_ideas = ante_culture_nilotic
 oob = "KSH_245"
 set_naval_oob = "KSH_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = KSH_cmd_g0_piye

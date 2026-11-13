@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_etruscan
 oob = "ARR_245"
 set_naval_oob = "ARR_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = ARR_cmd_g0_aule

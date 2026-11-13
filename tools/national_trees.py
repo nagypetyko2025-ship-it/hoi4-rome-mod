@@ -53,9 +53,9 @@ def define(focus, build, infra, tech, wargoal):
         lst = []
         TREES[tag] = dict(focuses=lst, show=show, note=note)
 
-        def f(fid, name, desc, icon, x, y, pre, reward, extra="", ai=1, filters=P):
+        def f(fid, name, desc, icon, x, y, pre, reward, extra="", ai=1, filters=P, cost=10, avail=""):
             focus(fid, name, desc, "GFX_goal_generic_" + icon, x, y, pre, reward, extra=extra, ai=ai,
-                  filters=filters, tree=lst)
+                  filters=filters, tree=lst, cost=cost, avail=avail)
         return f
 
     def idea(key, name, pic, **mods):
@@ -231,12 +231,12 @@ def define(focus, build, infra, tech, wargoal):
       wargoal("INS") + "\n" + claims("INS", "FEL", "VEN") + "\narmy_experience = 20", extra=mx("ROM_towards_sicily"))
 
     # --- 7. the King Remains (right side): Tarquinius crushes the conspiracy of Brutus and Collatinus
-    f("ROM_the_king_remains", "The King Remains", "The conspiracy of Brutus and Collatinus is betrayed. Tarquinius Superbus stays on the throne, and Rome stays a kingdom.",
+    f("ROM_the_king_remains", "The King Remains", "The conspiracy of Brutus and Collatinus is betrayed. Tarquinius Superbus stays on the throne, and Rome stays a kingdom - a kingdom whose people hate their king.",
       "political_pressure", 26, 0, [],
       "set_politics = { ruling_party = neutrality elections_allowed = no }\n"
       "set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }\n"
       "promote_character = ROM_tarquinius\nretire_character = ROM_brutus\n"
-      "add_ideas = ROM_rex_tarquinius_spirit\nadd_political_power = 50",
+      "add_ideas = { ROM_rex_tarquinius_spirit ROM_hated_king_spirit }\nadd_political_power = 50",
       extra=mx("ROM_regifugium"), ai=1)
     f("ROM_purge_the_conspirators", "Purge the Conspirators", "The sons of Brutus, the Vitellii, the Aquilii: every house that plotted pays with blood or exile.",
       "political_pressure", 23, 1, [["ROM_the_king_remains"]], "add_political_power = 100\nadd_stability = -0.03")
@@ -276,6 +276,63 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_king_of_italy", "King of Italy", "From the Alps to the Strait one king, one army, one law. The Republic is a dream nobody remembers.",
       "national_unity", 26, 7, [["ROM_the_samnite_mountains"], ["ROM_magna_graecia"]],
       "add_political_power = 150\nadd_stability = 0.10\nadd_war_support = 0.10\n" + cores(3) + "\nadd_research_slot = 1", ai=3)
+
+    # --- 8. the hated king (only after The King Remains, x 31..33): the people flee, riot and curse Tarquinius
+    idea("ROM_hated_king_spirit", "The People Hate the King", "political_support",
+         stability_factor=-0.25, war_support_factor=-0.15, monthly_population=-0.30, political_power_gain=-0.25,
+         production_speed_buildings_factor=-0.25, conscription=-0.05)
+    idea("ROM_smouldering_unrest_spirit", "Smouldering Unrest", "political_support",
+         stability_factor=-0.15, war_support_factor=-0.08, monthly_population=-0.10, political_power_gain=-0.10,
+         production_speed_buildings_factor=-0.10, conscription=-0.02)
+    idea("ROM_grudging_obedience_spirit", "Grudging Obedience", "political_support", stability_factor=-0.05, political_power_gain=-0.05)
+    idea("ROM_loyal_subjects_spirit", "Loyal Subjects of the King", "pp_unity_bonus", stability_factor=0.05, conscription=0.01)
+    f("ROM_royal_amnesty", "Amnesty for the Exiles", "Families fled to Veii, Gabii and Cumae. The king's heralds promise: come home, and nothing will be done to you.",
+      "improve_relations", 31, 1, [["ROM_the_king_remains"]], "add_political_power = -50\nadd_manpower = 1000")
+    f("ROM_grain_from_cumae", "Grain from Cumae", "Empty fields, empty granaries: the king buys grain from the Greeks so the city does not starve.",
+      "trade", 33, 1, [["ROM_the_king_remains"]], "add_stability = 0.05\nadd_political_power = -25", filters=I)
+    f("ROM_call_back_the_settlers", "Call Back the Settlers", "Land and tax freedom for every family that returns to Rome.",
+      "construct_civilian", 31, 2, [["ROM_royal_amnesty"], ["ROM_grain_from_cumae"]],
+      swap("ROM_hated_king_spirit", "ROM_smouldering_unrest_spirit"), cost=15)
+    f("ROM_crush_the_riots", "Crush the Riots", "The Celeres clear the Forum. Order is restored - and remembered.",
+      "defence", 31, 3, [["ROM_call_back_the_settlers"]],
+      swap("ROM_smouldering_unrest_spirit", "ROM_grudging_obedience_spirit") + "\nadd_war_support = -0.05",
+      extra=mx("ROM_hear_the_people"))
+    f("ROM_hear_the_people", "Hear the People", "The king sits in judgement in the Forum himself and hears every complaint - at a price to his pride and his treasury.",
+      "improve_relations", 33, 3, [["ROM_call_back_the_settlers"]],
+      swap("ROM_smouldering_unrest_spirit", "ROM_grudging_obedience_spirit") + "\nadd_political_power = -75\nadd_stability = 0.05",
+      extra=mx("ROM_crush_the_riots"), cost=15)
+    f("ROM_a_loyal_rome", "A Loyal Rome", "A generation grows up that knows no other ruler. The hatred fades into habit, and habit into loyalty.",
+      "national_unity", 32, 4, [["ROM_crush_the_riots", "ROM_hear_the_people"]],
+      swap("ROM_grudging_obedience_spirit", "ROM_loyal_subjects_spirit"), cost=20, avail="has_stability > 0.4")
+
+    # --- 9. the economy of Rome (both roads, x 35..39)
+    idea("ROM_coinage_spirit", "Aes Signatum", "economic_increase", production_speed_buildings_factor=0.10, political_power_gain=0.05)
+    idea("ROM_ager_publicus_spirit", "Ager Publicus", "agrarian_society", monthly_population=0.10, conscription=0.01)
+    idea("ROM_juno_moneta_spirit", "The Mint of Juno Moneta", "economic_increase",
+         production_speed_buildings_factor=0.10, production_factory_max_efficiency_factor=0.05)
+    root = [["ROM_regifugium", "ROM_the_king_remains"]]
+    f("ROM_forum_boarium", "Forum Boarium", "The cattle market by the Tiber ford, where Latins, Etruscans and Greeks trade.",
+      "construct_civ_factory", 37, 1, root, build("industrial_complex"), filters=I, ai=4)
+    f("ROM_via_salaria", "Via Salaria", "The salt road: from the pans at the mouth of the Tiber up into the Sabine hills.",
+      "construct_infrastructure", 35, 2, [["ROM_forum_boarium"]], infra() + "\n" + infra(), filters=I, ai=2)
+    f("ROM_salt_pans", "The Salt Pans", "Whoever holds the salt of the Tiber mouth holds the trade of central Italy.",
+      "production", 37, 2, [["ROM_forum_boarium"]], build("industrial_complex"), filters=I, ai=3)
+    f("ROM_tiber_harbour", "Harbour on the Tiber", "Wharves below the Aventine and a port at the river mouth.",
+      "construct_naval_dockyard", 39, 2, [["ROM_forum_boarium"]], build("dockyard", "is_coastal = yes"), extra=COAST, filters=I)
+    f("ROM_aes_signatum", "Aes Signatum", "Bronze bars stamped by the state: the first money of Rome.",
+      "trade", 36, 3, [["ROM_via_salaria", "ROM_salt_pans"]], "add_ideas = ROM_coinage_spirit", filters=I, cost=15)
+    f("ROM_ager_publicus", "Ager Publicus", "Conquered land belongs to the Roman people - to be settled, leased or grazed.",
+      "construct_civilian", 38, 3, [["ROM_salt_pans", "ROM_tiber_harbour"]], "add_ideas = ROM_ager_publicus_spirit",
+      filters=I, avail="num_of_controlled_states > 2")
+    f("ROM_smiths_of_rome", "Smiths of the Argiletum", "Helmets, spearheads and the iron-shod pilum by the thousand.",
+      "construct_mil_factory", 36, 4, [["ROM_aes_signatum"]], build("arms_factory") + "\n" + build("arms_factory"), filters=I, ai=4, cost=15)
+    f("ROM_juno_moneta", "The Mint of Juno Moneta", "Silver coins struck in the temple of Juno the Warner on the Capitol.",
+      "production", 38, 4, [["ROM_aes_signatum"], ["ROM_ager_publicus"]], "add_ideas = ROM_juno_moneta_spirit",
+      filters=I, cost=15, avail="num_of_controlled_states > 5")
+    f("ROM_great_public_works", "Great Public Works", "Temples, basilicas, walls and roads: the censors spend the spoils of war on the city.",
+      "construction2", 37, 5, [["ROM_smiths_of_rome"], ["ROM_juno_moneta"]],
+      build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + build("arms_factory"),
+      filters=I, ai=3, cost=20, avail="num_of_controlled_states > 8")
 
     # ============================================================== ATHENS (ATH)
     f = tree("ATH", "ATH_reforms_of_cleisthenes", "# Athens, from the reforms of Cleisthenes to the school of Hellas (base tree)")
@@ -473,6 +530,89 @@ def define(focus, build, infra, tech, wargoal):
     f("CAR_queen_of_the_sea", "Queen of the Western Sea", "From the Pillars of Herakles to Sicily, no ship sails without the leave of Carthage.",
       "major_alliance", 5, 5, [["CAR_periplus_of_hanno", "CAR_iberia"], ["CAR_sacred_band", "CAR_sicily"]],
       "add_political_power = 150\nadd_stability = 0.10\nnavy_experience = 25", ai=3)
+
+    # ============================================================== harder focuses: conditions, time, drawbacks
+    # (fid) -> (cost, available trigger, extra reward lines). cost 10 = 70 days. Big steps need the land to be
+    # taken first (gone(TAG): the rival no longer exists or is our subject), and some hurt.
+    def gone(*tags):
+        return "\n".join(f"OR = {{ NOT = {{ country_exists = {t} }} {t} = {{ is_subject_of = ROOT }} }}" for t in tags)
+
+    def states(n):
+        return f"num_of_controlled_states > {n - 1}"
+
+    TUNE = {
+        # Rome - Republic
+        "ROM_secession_of_the_plebs": (10, "", "add_stability = -0.05"),
+        "ROM_rule_of_the_fathers": (10, "", "add_stability = -0.05"),
+        "ROM_twelve_tables": (15, "", ""),
+        "ROM_licinian_sextian_laws": (15, "has_stability > 0.3", ""),
+        "ROM_lex_hortensia": (20, "has_stability > 0.5", ""),
+        "ROM_the_nobilitas": (20, "has_political_power > 100", "add_political_power = -100"),
+        "ROM_evocatio": (10, "has_war = yes", ""),
+        "ROM_manipular_legion": (15, "has_army_experience > 20", ""),
+        "ROM_citizen_phalanx": (15, "has_army_experience > 20", ""),
+        "ROM_via_appia": (15, states(4), ""),
+        "ROM_coloniae": (15, states(5), ""),
+        "ROM_lake_regillus": (10, "", "add_manpower = -1000"),
+        "ROM_siege_of_veii": (20, states(2), "add_political_power = -50"),
+        "ROM_southern_etruria": (15, gone("VEI"), ""),
+        "ROM_battle_of_the_allia": (10, "", "add_stability = -0.10"),
+        "ROM_not_with_gold": (10, "", "add_manpower = -2000"),
+        "ROM_servian_wall": (20, "", ""),
+        "ROM_latin_war": (15, states(5), ""),
+        "ROM_samnite_wars": (20, gone("LAT"), "add_war_support = -0.05"),
+        "ROM_sentinum": (15, gone("SAM"), ""),
+        "ROM_tarentum_and_pyrrhus": (15, gone("SAM"), "add_manpower = -3000"),
+        "ROM_treaty_with_tarentum": (15, gone("SAM"), "add_political_power = -100"),
+        "ROM_italia": (25, states(20) + "\n" + gone("SAM", "LAT"), ""),
+        "ROM_towards_sicily": (20, "", ""),
+        "ROM_cisalpine_gaul": (20, "", ""),
+        # Rome - the King
+        "ROM_purge_the_conspirators": (10, "", "add_war_support = -0.05"),
+        "ROM_king_of_the_etruscans": (15, states(3), ""),
+        "ROM_the_twelve_cities": (20, gone("CLU"), ""),
+        "ROM_regnum_italiae": (20, states(10) + "\n" + gone("LAT"), ""),
+        "ROM_the_samnite_mountains": (20, "", "add_manpower = -2000"),
+        "ROM_magna_graecia": (20, "", ""),
+        "ROM_king_of_italy": (25, states(20), ""),
+        # Athens
+        "ATH_themistocles_fleet": (15, "", "add_political_power = -50"),
+        "ATH_marathon": (15, "", ""),
+        "ATH_delian_league": (20, "has_navy_size = { size > 5 }", ""),
+        "ATH_long_walls": (20, "", ""),
+        "ATH_school_of_hellas": (20, states(4), ""),
+        # Sparta
+        "LAK_helots": (10, "", "add_stability = -0.03"),
+        "LAK_peloponnesian_league": (15, gone("AGS"), ""),
+        "LAK_against_athens": (15, "", "add_stability = -0.05"),
+        "LAK_hegemon_of_hellas": (25, gone("ATH"), ""),
+        # Macedon
+        "MKD_earth_and_water": (10, "", "add_war_support = -0.05"),
+        "MKD_chalkidike": (15, gone("PAE"), ""),
+        "MKD_thessalian_alliance": (15, gone("CHK"), ""),
+        "MKD_hammer_and_anvil": (20, "has_army_experience > 30", ""),
+        "MKD_hegemon_of_the_greeks": (20, states(6) + "\n" + gone("THL"), ""),
+        # Persia
+        "PRS_phoenician_fleet": (15, "", "add_political_power = -75"),
+        "PRS_scythian_campaign": (15, "", "add_war_support = -0.05"),
+        "PRS_earth_and_water": (20, "", ""),
+        "PRS_king_of_the_world": (25, gone("SCY") + "\n" + gone("ATH"), ""),
+        # Carthage
+        "CAR_mercenaries": (10, "", "add_political_power = -50"),
+        "CAR_sicily": (20, gone("SAR"), ""),
+        "CAR_iberia": (15, "", ""),
+        "CAR_queen_of_the_sea": (25, gone("SAR", "AKR") + "\nhas_navy_size = { size > 10 }", ""),
+    }
+    allf = {fo["id"]: fo for t in TREES.values() for fo in t["focuses"]}
+    for fid, (cost, avail, more) in TUNE.items():
+        fo = allf[fid]
+        fo["cost"] = cost
+        if more:
+            fo["reward"] += "\n" + more
+        if avail:
+            assert "available" not in fo["extra"], fid
+            fo["extra"] = (fo["extra"] + "\n" if fo["extra"] else "") + "available = {\n" + \
+                "\n".join("\t" + line for line in avail.splitlines()) + "\n}"
 
     # ============================================================== localisation
     LOC.update({

@@ -19,3 +19,12 @@ recruit_character = PRS_darius
 add_ideas = ante_culture_persian
 oob = "PRS_245"
 set_naval_oob = "PRS_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = PRS_cmd_mardonius
+recruit_character = PRS_cmd_megabazus
+recruit_character = PRS_cmd_otanes
+recruit_character = PRS_cmd_artaphernes
+recruit_character = PRS_cmd_hydarnes
+recruit_character = PRS_cmd_daurises
+recruit_character = PRS_cmd_datis
+recruit_character = PRS_cmd_megabates

@@ -12,6 +12,7 @@ focus_tree = {
 	initial_show_position = {
 		focus = CAR_magonid_dynasty
 	}
+	continuous_focus_position = { x = 50 y = 980 }
 
 	focus = {
 		id = CAR_magonid_dynasty
@@ -160,6 +161,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_ideas = CAR_mercenaries_spirit
+			add_political_power = -50
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -188,9 +190,12 @@ focus_tree = {
 		prerequisite = { focus = CAR_war_fleet }
 		x = 6
 		y = 3
-		cost = 10
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = SAR } SAR = { is_subject_of = ROOT } }
+		}
 		completion_reward = {
 			if = { limit = { country_exists = AKR NOT = { has_war_with = AKR } }
 				create_wargoal = { type = annex_everything target = AKR }
@@ -243,7 +248,7 @@ focus_tree = {
 		prerequisite = { focus = CAR_sardinia focus = CAR_sicily }
 		x = 5
 		y = 4
-		cost = 10
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
@@ -279,9 +284,14 @@ focus_tree = {
 		prerequisite = { focus = CAR_sacred_band focus = CAR_sicily }
 		x = 5
 		y = 5
-		cost = 10
+		cost = 25
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = SAR } SAR = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = AKR } AKR = { is_subject_of = ROOT } }
+			has_navy_size = { size > 10 }
+		}
 		completion_reward = {
 			add_political_power = 150
 			add_stability = 0.10

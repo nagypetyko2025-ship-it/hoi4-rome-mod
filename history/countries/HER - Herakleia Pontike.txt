@@ -18,3 +18,5 @@ set_popularities = {
 add_ideas = ante_culture_greek
 oob = "HER_245"
 set_naval_oob = "HER_245_naval"
+# --- commanders (tools/commanders.py)
+recruit_character = HER_cmd_g0_empedokles_kallikratous
