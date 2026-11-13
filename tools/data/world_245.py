@@ -66,8 +66,8 @@ COUNTRIES = {
     "MES": dict(name="Messapia", adj="Messapian", culture="iapygian", gov="monarchy", color=(140, 90, 140)),
     "SIC": dict(name="Sikels", adj="Sikel", culture="italic", gov="tribal", color=(170, 130, 100)),
     "ELY": dict(name="Elymia", adj="Elymian", culture="italic", gov="monarchy", color=(190, 150, 120)),
-    "SAR": dict(name="Nuragic Sardinia", adj="Nuragic", culture="island", gov="tribal", color=(150, 150, 130)),
-    "COR": dict(name="Corsi", adj="Corsican", culture="island", gov="tribal", color=(120, 120, 110)),
+    "SAR": dict(name="Nuragic Sardinia", adj="Nuragic", culture="island", gov="tribal", color=(196, 132, 84)),
+    "COR": dict(name="Corsi", adj="Corsican", culture="island", gov="tribal", color=(214, 200, 90)),
     # --- northern Italy
     "LIG": dict(name="Ligures", adj="Ligurian", culture="celtic", gov="tribal", color=(70, 140, 140)),
     "INS": dict(name="Insubres", adj="Insubrian", culture="celtic", gov="tribal", color=(40, 120, 110)),
@@ -76,9 +76,9 @@ COUNTRIES = {
     # --- Africa
     "CAR": dict(name="Carthage", adj="Carthaginian", culture="punic", gov="republic", color=(110, 40, 120)),
     "LIB": dict(name="Libyans", adj="Libyan", culture="libyan", gov="tribal", color=(200, 180, 120)),
-    "NUM": dict(name="Massylii", adj="Massylian", culture="libyan", gov="tribal", color=(170, 150, 90)),
+    "MSY": dict(name="Massylii", adj="Massylian", culture="libyan", gov="tribal", color=(170, 150, 90)),
     # --- placeholder owner of everything outside the playable area (phase 1 only)
-    "WLD": dict(name="Terra Incognita", adj="Unknown", culture="none", gov="tribal", color=(90, 90, 90)),
+    "WLD": dict(name="Terra Incognita", adj="Unknown", culture="none", gov="tribal", color=(176, 164, 138)),
 }
 
 S = []  # (key, name, owner, provinces, population, extras)
@@ -162,8 +162,8 @@ st("libya_punica", "Punic Hinterland", "CAR", [7180, 7077, 4061, 1037], 60_000)
 st("byzacium", "Byzacium", "CAR", [7162, 4129, 11921], 40_000, vp={11921: (3, "Hadrumetum")}, port=[11921])
 st("libya_septentrionalis", "Libya", "LIB", [11935, 10026, 7005, 11957], 35_000, capital=True, vp={10026: (1, "Thysdrus")})
 st("libya_australis", "Inner Libya", "LIB", [3987, 10082, 9983, 12000, 1105, 4992], 25_000)
-st("massylia", "Massylia", "NUM", [1160, 1058, 11953, 7081, 12051], 50_000, capital=True, vp={11953: (2, "Thugga")})
-st("massylia_interior", "Massylian Highlands", "NUM", [1141, 9943, 12034], 30_000)
+st("massylia", "Massylia", "MSY", [1160, 1058, 11953, 7081, 12051], 50_000, capital=True, vp={11953: (2, "Thugga")})
+st("massylia_interior", "Massylian Highlands", "MSY", [1141, 9943, 12034], 30_000)
 
 STATES = S
 

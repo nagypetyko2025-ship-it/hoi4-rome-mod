@@ -1,0 +1,60 @@
+# Ante Imperium: the seasonal colour grading of the whole screen is switched off.
+# The vanilla file sets hsv_north = { 0 0.1 1 }: where the view is snowy the frame keeps only 10 % of its
+# saturation - country colours and the diplomacy colours turn grey with it. All values here are neutral
+# (hue shift 0, saturation x1, brightness x1, colour balance 1 1 1).
+
+winter = {
+	start_date=00.12.01
+	end_date=00.02.28
+
+	hsv_north={ 0.0 1.0 1.0 }
+	colorbalance_north={ 1.0 1.0 1.0 }
+
+	hsv_center={ 0.0 1.0 1.0 }
+	colorbalance_center={ 1.0 1.0 1.0 }
+
+	hsv_south={ 0.0 1.0 1.0 }
+	colorbalance_south={ 1.0 1.0 1.0 }
+}
+
+spring = {
+	start_date=00.03.01
+	end_date=00.05.31
+
+	hsv_north={ 0.0 1.0 1.0 }
+	colorbalance_north={ 1.0 1.0 1.0 }
+
+	hsv_center={ 0.0 1.0 1.0 }
+	colorbalance_center={ 1.0 1.0 1.0 }
+
+	hsv_south={ 0.0 1.0 1.0 }
+	colorbalance_south={ 1.0 1.0 1.0 }
+}
+
+summer = {
+	start_date=00.06.01
+	end_date=00.08.31
+
+	hsv_north={ 0.0 1.0 1.0 }
+	colorbalance_north={ 1.0 1.0 1.0 }
+
+	hsv_center={ 0.0 1.0 1.0 }
+	colorbalance_center={ 1.0 1.0 1.0 }
+
+	hsv_south={ 0.0 1.0 1.0 }
+	colorbalance_south={ 1.0 1.0 1.0 }
+}
+
+autumn = {
+	start_date=00.09.01
+	end_date=00.11.30
+
+	hsv_north={ 0.0 1.0 1.0 }
+	colorbalance_north={ 1.0 1.0 1.0 }
+
+	hsv_center={ 0.0 1.0 1.0 }
+	colorbalance_center={ 1.0 1.0 1.0 }
+
+	hsv_south={ 0.0 1.0 1.0 }
+	colorbalance_south={ 1.0 1.0 1.0 }
+}

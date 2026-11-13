@@ -24,7 +24,13 @@ $launcher = Join-Path $PSScriptRoot "test_launch.ps1"
 # -crash_data_log makes the crash report name the file that was read last
 $extra = "-quickstart -start_tag=ROM -crash_data_log"
 
-$dirty = & git -C $mod status --porcelain -- map history/states common/defines
+function Restore-Mod {
+    & git -C $mod checkout -- map history/states common/defines common/bookmarks common/countries
+    & git -C $mod clean -fdq -- gfx/FX                      # shader variants add files there
+    if (& git -C $mod ls-files -- gfx/FX) { & git -C $mod checkout -- gfx/FX }
+}
+
+$dirty = & git -C $mod status --porcelain -- map history/states common/defines common/bookmarks common/countries gfx/FX
 if ($dirty) {
     "Uncommitted changes in map/, history/states or common/defines - commit or stash them first:"
     $dirty
@@ -85,7 +91,7 @@ try {
                     Set-Content -Path (Join-Path $reportDir ("bisect_" + $stamp + "_" + $v + "_error_tail.txt")) -Encoding UTF8
             }
         }
-        & git -C $mod checkout -- map history/states common/defines
+        Restore-Mod
         $rows += [pscustomobject]@{ Variant = $v; Result = $result; Crash = $crash; LastRead = $lastRead; LastError = $lastError }
         "    $result"
         if ($v -eq "baseline" -and $result -match "GAME RUNNING" -and -not $All) {
@@ -94,7 +100,7 @@ try {
         }
     }
 } finally {
-    & git -C $mod checkout -- map history/states common/defines
+    Restore-Mod
     Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
 }
 

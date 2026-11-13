@@ -592,7 +592,9 @@ def write_layers(cls, ys, xs):
     # out black (a black and white map on which no country had a colour).
     cm = Image.open(VMAP / "terrain" / "colormap_rgb_cityemissivemask_a.dds").convert("RGBA")
     half = (X0 / 2, Y0 / 2, SCALE, W // 2, H // 2, Image.BICUBIC)
-    Image.merge("RGBA", (*resample(cm.convert("RGB"), *half).split(), resample(cm.getchannel("A"), *half))).save(
+    # alpha (city lights at night) stays empty: no electric light in the ancient world
+    land = resample(cm.convert("RGB"), *half)
+    Image.merge("RGBA", (*land.split(), Image.new("L", land.size, 0))).save(
         OUT / "terrain" / "colormap_rgb_cityemissivemask_a.dds")
     for lod in range(3):
         wm = Image.open(VMAP / "terrain" / f"colormap_water_{lod}.dds")
@@ -600,7 +602,8 @@ def write_layers(cls, ys, xs):
         wm = wm.convert("RGBA")
         part = (X0 / f, Y0 / f, SCALE, W // f, H // f, Image.BICUBIC)
         wim = Image.merge("RGBA", (*resample(wm.convert("RGB"), *part).split(), resample(wm.getchannel("A"), *part)))
-        wim.save(OUT / "terrain" / f"colormap_water_{lod}.dds", pixel_format="DXT5")
+        # uncompressed 32 bit like the game's own file and every working mod (not DXT5)
+        wim.save(OUT / "terrain" / f"colormap_water_{lod}.dds")
 
 
 def write_rivers(cls):

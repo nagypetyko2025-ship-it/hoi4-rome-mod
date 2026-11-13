@@ -1179,7 +1179,7 @@ LIB = {
 		Ferrum Ignis
 	}
 }
-NUM = {
+MSY = {
 	male = {
 		names = {
 			Gaia Zelalsen Iarbas Masinissa Syphax Micipsa Gulussa Mastanabal

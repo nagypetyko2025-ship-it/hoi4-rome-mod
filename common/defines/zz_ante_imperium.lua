@@ -13,3 +13,18 @@ end
 
 -- vanilla names a country tag here ("HAI") that does not exist in this mod
 NDefines.NGame.HANDS_OFF_START_TAG = "ROM"
+
+-- Day and night: where Greenwich lies on THIS map (vanilla: column 2793 of 5632) and how much of the
+-- globe the map misses in the south (vanilla 0.17). Our map is a 2.4x zoom of the vanilla columns
+-- 2530.. and rows 0..1280: Greenwich is column (2793 - 2530) * 2.4 = 631.
+-- The map SHADER has the same numbers compiled in - tools/daynight.py patches a copy of it.
+if NDefines_Graphics and NDefines_Graphics.NGraphics then
+	NDefines_Graphics.NGraphics.GMT_OFFSET = 631
+	NDefines_Graphics.NGraphics.SOUTH_POLE_OFFSET = 0.455
+	NDefines_Graphics.NGraphics.NORTH_POLE_OFFSET = 0.93
+
+	-- The engine fades every country colour before it draws it (vanilla: saturation x0.6, brightness x0.8).
+	-- With a palette of earth tones that leaves little more than grey: show the colours of colors.txt as written.
+	NDefines_Graphics.NGraphics.COUNTRY_COLOR_SATURATION_MODIFIER = 1.0
+	NDefines_Graphics.NGraphics.COUNTRY_COLOR_BRIGHTNESS_MODIFIER = 0.9
+end

@@ -60,14 +60,8 @@ def bmp8(path):
 
 
 def city_mask(size):
-    """the alpha channel of the existing file (the resize never damaged it); none -> no city lights"""
-    if OUT.exists():
-        try:
-            a = Image.open(OUT).convert("RGBA").getchannel("A")
-            if a.size == size:
-                return a
-        except Exception as exc:  # unreadable file: start again without lights
-            print("WARN: could not read the existing colormap:", exc)
+    """The alpha channel is the mask of the city lights that glow at night. There is no electric light
+    in 509 BC, so it is empty (the vanilla mask shows the lights of modern Europe)."""
     return Image.new("L", size, 0)
 
 
@@ -111,10 +105,22 @@ def from_vanilla():
     src = Image.open(N.VMAP / "terrain" / "colormap_rgb_cityemissivemask_a.dds").convert("RGBA")
     args = (N.X0 / 2, N.Y0 / 2, N.SCALE, N.W // 2, N.H // 2, Image.BICUBIC)
     # colour and alpha separately: resizing RGBA as one image blackens the colour where alpha is 0
-    return N.resample(src.convert("RGB"), *args), N.resample(src.getchannel("A"), *args)
+    rgb = N.resample(src.convert("RGB"), *args)
+    return rgb, city_mask(rgb.size)
+
+
+def water_uncompressed():
+    """colormap_water_0/1/2.dds: the game's own files and every working mod use plain 32 bit pixels;
+    the first generator wrote them DXT5-compressed. Rewrite them uncompressed (same picture)."""
+    for lod in range(3):
+        path = MAP / "terrain" / f"colormap_water_{lod}.dds"
+        if path.exists() and path.read_bytes()[84:88] == b"DXT5":
+            Image.open(path).convert("RGBA").save(path)
+            print(f"{path.name}: rewritten without compression")
 
 
 def main():
+    water_uncompressed()
     if "--vanilla" in sys.argv:
         rgb, alpha = from_vanilla()
     else:

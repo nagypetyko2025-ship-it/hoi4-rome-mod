@@ -128,6 +128,50 @@ def no_impassable():
     return out
 
 
+def date(start, end=None):
+    """another start date (defines + bookmark): is the grey map tied to the year 245 / to winter?"""
+    out = {}
+    rel = "common/defines/zz_ante_imperium.lua"
+    t = text(rel).replace("245.1.1.12", start)
+    if end:
+        t = t.replace('"700.1.1.1"', f'"{end}"')
+    out[rel] = t.encode()
+    for fp in (MOD / "common" / "bookmarks").glob("*.txt"):
+        out[f"common/bookmarks/{fp.name}"] = fp.read_text(encoding="utf-8-sig").replace("245.1.1.12", start).encode()
+    return out
+
+
+def colours_bright():
+    """every country gets a loud, fully saturated colour: do colours from colors.txt reach the map at all?"""
+    import colorsys
+    rel = "common/countries/colors.txt"
+    k = [0]
+
+    def block(m):
+        r, g, b = (int(v * 255) for v in colorsys.hsv_to_rgb((k[0] * 0.381966) % 1.0, 1.0, 1.0))
+        k[0] += 1
+        return f"{m.group(1)} = {{\n\tcolor = rgb {{ {r} {g} {b} }}\n\tcolor_ui = rgb {{ {r} {g} {b} }}\n}}"
+
+    t = re.sub(r"^(\w+)\s*=\s*\{[^}]*\{[^}]*\}[^}]*\{[^}]*\}[^}]*\}", block, text(rel).replace("\r\n", "\n"), flags=re.M)
+    return {rel: t.encode()}
+
+
+def colormap_grey():
+    """the land colour texture as flat mid grey (city lights kept): does the painted colormap matter?"""
+    path = MAP / "terrain" / "colormap_rgb_cityemissivemask_a.dds"
+    raw = bytearray(path.read_bytes())
+    px = np.frombuffer(raw, np.uint8, offset=128).reshape(-1, 4)
+    px[:, :3] = 128
+    return {"map/terrain/colormap_rgb_cityemissivemask_a.dds": bytes(raw)}
+
+
+def shader(off):
+    """the game's own map shader with the day/night constants of this map (tools/daynight.py); needs the game"""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import daynight
+    return daynight.patch_files(off)[0]
+
+
 def combine(*parts):
     out = {}
     for p in parts:
@@ -140,6 +184,13 @@ VARIANTS = {
     "no_region_defines": (no_region_defines, "WITHOUT the translated region-id defines (control: expected to crash)"),
     "unitstacks_min": (unitstacks_min, "unit stack positions for land provinces only, types 0 and 38"),
     "no_impassable": (no_impassable, "wasteland states passable"),
+    "date_1936": (lambda: date("1936.1.1.12", "1950.1.1.1"), "start date 1936 instead of 245 (same content)"),
+    "date_summer": (lambda: date("245.7.1.12"), "start on 1 July 245 instead of 1 January (no winter)"),
+    "date_hour0": (lambda: date("245.1.1.1"), "start at 01:00 instead of 12:00 (if 12:00 is night in Italy, this is day)"),
+    "daynight_fit": (lambda: shader(False), "map shader: day/night line moved to this map's Greenwich (needs the game)"),
+    "daynight_off": (lambda: shader(True), "map shader: no night shading at all (needs the game)"),
+    "colours_bright": (colours_bright, "every country in a loud saturated colour (colors.txt)"),
+    "colormap_grey": (colormap_grey, "land colour texture flat mid grey"),
     "rivers_blank": (rivers_blank, "no rivers at all"),
     "buildings_no_state_level": (lambda: buildings(lambda t: t not in STATE_LEVEL),
                                  "buildings.txt without the state-level lines (air_base, arms_factory, ...)"),

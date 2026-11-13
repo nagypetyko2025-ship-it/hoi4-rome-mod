@@ -47,7 +47,17 @@
   mask, 0 almost everywhere) and the land colour turns black = black and white map, colourless countries. Resize RGB and
   A separately. `python tools/colormap.py` repaints it from terrain.bmp + heightmap.bmp (no game), `--vanilla` crops the
   game's own.
-- STATUS 2026-11-12: the game starts and runs (round 5). Phase 1 skeleton works; next is content.
+- Day/night: the map shader has the VANILLA Greenwich column compiled in (`GMT_OFFSET = 2793`, plus
+  `SOUTH_POLE_OFFSET = 0.17`) and treats the map width as 360 degrees. On this map Greenwich is column 631, so Italy is
+  half a day off: midnight at 12:00, when every game starts - dark, desaturated land. Only a patched copy of the game's
+  shader fixes it: `python tools/daynight.py [--off]` (needs the game; rerun after game updates).
+- Other things that grey the map: vanilla `map/seasons.txt` (`hsv_north = { 0 0.1 1 }`: whole-frame saturation x0.1 in
+  snowy views - the mod ships a neutral seasons.txt) and `NGraphics.COUNTRY_COLOR_SATURATION_MODIFIER = 0.6` /
+  `..._BRIGHTNESS_MODIFIER = 0.8` (the mod sets 1.0 / 0.9).
+- Country tags must not be script keywords: `NUM` and `RED` are reserved (Massylii is `MSY`).
+- Visual problems cannot be judged from files: ask for `tools/screenshot.ps1` output (docs/screenshots/*.jpg) and LOOK
+  at the pictures before changing anything. `-Variants colour` runs a visual bisect.
+- STATUS 2026-11-13: the game starts and runs. Open: countries drawn grey (round 7, waiting for screenshots).
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after

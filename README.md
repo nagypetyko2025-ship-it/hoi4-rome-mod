@@ -33,6 +33,8 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `tools/validate.py` | **Statikus ellenőrző**: játék nélkül végignézi a térkép- és történelemfájlokat a lenti motorszabályok szerint. Minden generálás után futtasd. |
 | `tools/positions.py` | A kész térképből újraírja a `buildings.txt` és az `unitstacks.txt` pozícióit – játék nélkül is fut. |
 | `tools/colormap.py` | A szárazföld színtextúrája: játék nélkül megfesti a terepből, `--vanilla` kapcsolóval a játék sajátjából vágja ki. |
+| `tools/daynight.py` | A játék térkép-shaderének másolata a mi térképünk nappal–éjszaka állandóival (`--off`: éjszaka nélkül). Kell hozzá a játék. |
+| `tools/screenshot.ps1` | Elindítja a játékot, és képernyőképeket ment a `docs/screenshots/` mappába (`-Variants colour`: változatonként). |
 | `tools/bisect_launch.ps1`, `tools/make_variants.py` | Automata felező teszt: egyszerűsített fájlváltozatokkal indítja a játékot, és táblát ír az eredményről. |
 | `tools/data/names_245.py` | Ókori névlisták kultúránként (vezetők, tábornokok) → `common/names/ante_names.txt`. |
 | `tutorial/tutorial.txt` | Üres `tutorial = { }` blokk (kötelező, lásd szabályok). Kézzel írt, nem generált. |
@@ -147,6 +149,15 @@ powershell -ExecutionPolicy Bypass -File tools/test_launch.ps1 -ExtraArgs "-quic
     országszínekre is), az alfa a városfények maszkja. **RGBA-ként tilos átméretezni**: a Pillow ilyenkor az
     alfával előszoroz, az alfa pedig szinte mindenhol 0, így a szín feketére vált – fekete-fehér térkép, színtelen
     országokkal. A színt és az alfát külön kell átméretezni (`newmap.py`), a `validate.py` jelzi a fekete textúrát.
+28. **Nappal–éjszaka**: a térkép-shaderbe **be van égetve** a vanilla térkép greenwichi oszlopa
+    (`GMT_OFFSET = 2793`) és déli „hiánya” (`SOUTH_POLE_OFFSET = 0.17`); a térkép szélességét a motor 360°-nak veszi.
+    A mi térképünkön Greenwich a 631. oszlop, így Itália a shader szerint **pontosan fél napot késik**: déli 12-kor
+    – amikor minden játék indul – ott éjfél van. Az éjszakai oldal sötét (fele fényerő) és fakó (a talaj 80%-ban
+    szürkített). Define-nal ez nem állítható, csak a shader módosított másolatával: `tools/daynight.py`.
+    Ugyanebben a fájlban van a `//#define NO_NIGHT` kapcsoló, ami az egész éjszakai árnyalást kikapcsolja.
+29. A vízszín-textúrák (`colormap_water_0/1/2.dds`) a játékban és minden működő modban **tömörítetlen 32 bitesek**
+    (nem DXT5), és a `colormap_rgb_cityemissivemask_a.dds` alfája (városfények) nálunk üres – Kr. e. 509-ben nincs
+    villanyfény.
 
 ## Állapot (2026-11-12, második kör – statikus javítás, játékban még NEM tesztelve)
 
@@ -358,6 +369,67 @@ Javítás:
 Amit érdemes tudni a színekről: a térkép kb. 90%-a „Terra Incognita” (WLD), ami szürke (90, 90, 90) és
 járhatatlan, ezért csíkozva jelenik meg – a játszható országok egyelőre csak Itáliában és Észak-Afrikában
 vannak. Ez nem hiba, hanem a váz állapota; a kidolgozásnál érdemes lesz a pusztaságnak barátságosabb megjelenést adni.
+
+## Hetedik kör (2026-11-13) – szürke országok: nappal–éjszaka hiba + képernyőképes teszt
+
+A hatodik kör után a térkép már nem fekete-fehér, de **minden ország szürke**, a Terra Incognita nem csíkos, és
+jobb kattintásra sem jelennek meg a diplomáciai színek (zöld / piros / kék).
+
+Amit biztosan tudunk:
+
+- A színfájlok jók: a `colors.txt` és az országfájlok formátuma betűre megegyezik a működő 1.19-es modokéval
+  (Magna Europa, Kaiserreich). Nem a színek megadása a hibás.
+- **Valódi hiba (28. szabály):** a shaderbe égetett vanilla Greenwich-oszlop miatt a mi térképünkön Itáliában
+  déli 12-kor éjfél van. A játék 12:00-kor indul és szünetel, tehát induláskor az egész játszható terület az
+  éjszakai oldalon van: sötét és fakó.
+- **Évszak-utóhatás:** a vanilla `map/seasons.txt` mind a négy évszakban `hsv_north = { 0 0.1 1 }` – ahol a
+  nézet havas, ott a motor az **egész képkocka** telítettségének 90%-át elveszi. A mi térképünk Európa-súlyú és
+  január 1-jén indul. Ez az országszíneket és a diplomáciai zöld/piros/kék színt is szürkíti.
+- **Országszín-fakítás:** a motor minden országszínt rajzolás előtt megszoroz (telítettség ×0,6, fényerő ×0,8).
+  A paletta átlagos telítettsége 0,52 volt, ebből 0,31 maradt – pasztellszürke. Két ország (Szardínia, Korzika)
+  színe eleve szürke volt.
+- Amit nem tudunk: a három közül melyik mennyit számít. Ezt csak képről lehet eldönteni.
+
+Gyors próba játékban, eszköz nélkül (bármelyik segít, megvan az ok): a jobb alsó eszköztáron a **nappal–éjszaka
+kapcsoló** (vagy a konzolban `night`); konzol `debug_postfx` (kikapcsolja az utóhatásokat); konzol `tag_color`.
+
+Teendő a játékos gépen (a shader másolatához kell a játék, itt nem lehetett előállítani):
+
+```powershell
+python tools/daynight.py --off
+powershell -ExecutionPolicy Bypass -File tools/screenshot.ps1
+```
+
+1. Az első parancs a játék saját térkép-shaderének másolatát teszi a mod `gfx/FX/` mappájába úgy, hogy az
+   éjszakai árnyalás ki van kapcsolva (és a Greenwich-oszlop a miénk). Kiírja, mely sorokat írta át. Ha azt írja,
+   hogy nem talált semmit, azt jelezd – akkor az 1.19-es shader másképp néz ki, mint a régi.
+2. A második elindítja a játékot Rómával, négy nagyítási fokon képet ment, majd a képernyő közepére jobb
+   kattintva a diplomáciai nézetről is; a képek a `docs/screenshots/` mappába kerülnek.
+3. Ha a színek rendben vannak: `git add gfx docs/screenshots`, commit, push – a shader-másolat a mod része marad.
+   (Játékfrissítés után a `daynight.py`-t újra le kell futtatni.)
+4. **Ha még mindig szürke**, akkor futtasd a változatos tesztet, és azt töltsd fel (kb. 12 perc, 7 indítás):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/screenshot.ps1 -Variants colour
+```
+
+   Ez változatonként készít képeket: alapállapot, 01:00-s indítás, éjszaka kikapcsolva, éjszaka a helyén,
+   1936-os dátum, rikító országszínek, járható pusztaság. A képekből egyértelműen látszik majd, mi számít.
+
+Ebben a körben javítva (játék nélkül is megoldható részek):
+
+- **`map/seasons.txt` (új, semleges):** nincs többé teljes képernyős színtelenítés.
+- **`common/defines`:** `COUNTRY_COLOR_SATURATION_MODIFIER = 1.0`, `COUNTRY_COLOR_BRIGHTNESS_MODIFIER = 0.9` – az
+  országok a `colors.txt`-ben megadott színükkel jelennek meg. Szardínia és Korzika új, nem szürke színt kapott.
+- `common/defines`: `GMT_OFFSET = 631`, `SOUTH_POLE_OFFSET = 0.455` – a motor számoló része (pl. éjszakai harc)
+  ezekkel dolgozik; a kirajzolást csak a shader-másolat javítja.
+- **`NUM` → `MSY`:** a `NUM` foglalt szó a játék szkriptnyelvében (a wiki szerint az ellenállás-rendszert is
+  elrontja), ezért a Massylii országkódja `MSY` lett mindenhol (kód, fájlnevek, zászlók, szövegek).
+- A vízszín-textúrák tömörítetlenek lettek, a városfény-maszk üres (29. szabály).
+- A Terra Incognita színe sötétszürke (90, 90, 90) helyett világos pergamenszín (176, 164, 138), hogy a
+  járhatatlan terület csíkozása látsszon rajta.
+- **`tools/screenshot.ps1`**: mostantól ezzel lehet „megmutatni” a játékot annak, aki előtt nincs ott – a
+  kidolgozásnál minden látványváltozás után érdemes futtatni és a képeket feltölteni.
 
 ## Tervezett fázisok
 
