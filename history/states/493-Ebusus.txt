@@ -1,0 +1,19 @@
+state = {
+	id = 493
+	name = "STATE_493"  # Ebusus
+	manpower = 10000
+	state_category = rural
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		victory_points = { 8852 3 }  # Ybshm
+		buildings = {
+			infrastructure = 2
+			8852 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		8852 8853 8855 9088
+	}
+	local_supplies = 0.0
+}

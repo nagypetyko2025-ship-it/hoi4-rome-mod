@@ -1,0 +1,21 @@
+state = {
+	id = 269
+	name = "STATE_269"  # Sinope
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = SNP
+		add_core_of = SNP
+		victory_points = { 4789 5 }  # Sinope
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4789 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		4779 4789 4833 4870 4891 4904
+	}
+	local_supplies = 0.0
+}

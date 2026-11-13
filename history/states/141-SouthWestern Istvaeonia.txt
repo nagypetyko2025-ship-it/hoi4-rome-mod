@@ -1,0 +1,17 @@
+state = {
+	id = 141
+	name = "STATE_141"  # South-Western Istvaeonia
+	manpower = 7400
+	state_category = rural
+	history = {
+		owner = IST
+		add_core_of = IST
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2544 2564 2601 2640 2647 2681 2695 2723
+	}
+	local_supplies = 0.0
+}

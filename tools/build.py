@@ -1,6 +1,10 @@
 """Generate Ante Imperium game files from tools/data/world_245.py.
 
-usage: python tools/build.py
+LEGACY since 2026-11-13: the world is built by tools/world.py (no game needed). This file stays because
+positions.py and world.py use its buildings.txt writer and Italy's flag painter; its main() refuses to
+run without --legacy.
+
+usage: python tools/build.py --legacy
 Writes ONLY inside the mod folder, plus the launcher descriptor in Documents/.../mod.
 Generated paths are wiped and rewritten on each run (see GENERATED).
 """
@@ -527,6 +531,10 @@ def write_descriptors():
 
 # ---------------------------------------------------------------- main
 def main():
+    if "--legacy" not in sys.argv:
+        fail("tools/build.py is the first, vanilla-based generator (Italy only). The world is now built by "
+             "tools/world.py from tools/data/world_509bc.py; running this would wipe it. "
+             "(python tools/build.py --legacy  if you really want the old Italy-only world back)")
     d = mapdata.load_all()
     assigned = validate(d)
     for rel in GENERATED:

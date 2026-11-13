@@ -1,0 +1,17 @@
+state = {
+	id = 479
+	name = "STATE_479"  # Farther South-Western Mauretania
+	manpower = 8800
+	state_category = rural
+	history = {
+		owner = MAU
+		add_core_of = MAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6309 6310 6365 6377 6395 6400 6415 6417 6419 6422 6443 6451 6477 6482 6490 6522
+	}
+	local_supplies = 0.0
+}

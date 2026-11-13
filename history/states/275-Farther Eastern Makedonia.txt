@@ -1,0 +1,18 @@
+state = {
+	id = 275
+	name = "STATE_275"  # Farther Eastern Makedonia
+	manpower = 24800
+	state_category = town
+	history = {
+		owner = MKD
+		add_core_of = MKD
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4890 4898 4922 4944 4971
+	}
+	local_supplies = 0.0
+}

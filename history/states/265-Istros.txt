@@ -1,0 +1,20 @@
+state = {
+	id = 265
+	name = "STATE_265"  # Istros
+	manpower = 25000
+	state_category = town
+	history = {
+		owner = ITR
+		add_core_of = ITR
+		victory_points = { 4271 3 }  # Istros
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			4271 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4158 4271
+	}
+	local_supplies = 0.0
+}

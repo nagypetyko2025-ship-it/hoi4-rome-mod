@@ -1,0 +1,20 @@
+state = {
+	id = 263
+	name = "STATE_263"  # Tyras
+	manpower = 15000
+	state_category = town
+	history = {
+		owner = TYS
+		add_core_of = TYS
+		victory_points = { 3781 2 }  # Tyras
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			3781 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		3683 3781 3826
+	}
+	local_supplies = 0.0
+}

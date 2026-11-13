@@ -1,0 +1,17 @@
+state = {
+	id = 522
+	name = "STATE_522"  # Western Nok
+	manpower = 6400
+	state_category = rural
+	history = {
+		owner = NOK
+		add_core_of = NOK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		8114 8158 8162 8193 8229 8256 8263 8287 8303 8320 8327 8328 8423
+	}
+	local_supplies = 0.0
+}

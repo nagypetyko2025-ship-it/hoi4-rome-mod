@@ -1,0 +1,17 @@
+state = {
+	id = 366
+	name = "STATE_366"  # Eastern Babirush
+	manpower = 59000
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6208 6238 6259
+	}
+	local_supplies = 0.0
+}

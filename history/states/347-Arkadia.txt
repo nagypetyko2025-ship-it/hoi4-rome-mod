@@ -1,0 +1,20 @@
+state = {
+	id = 347
+	name = "STATE_347"  # Arkadia
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = ARK
+		add_core_of = ARK
+		victory_points = { 5716 3 }  # Tegea
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		5607 5716
+	}
+	local_supplies = 0.0
+}

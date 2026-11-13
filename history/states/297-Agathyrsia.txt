@@ -1,0 +1,20 @@
+state = {
+	id = 297
+	name = "STATE_297"  # Agathyrsia
+	manpower = 69600
+	state_category = large_town
+	history = {
+		owner = AGA
+		add_core_of = AGA
+		victory_points = { 3799 2 }  # Apoulon
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3607 3726 3734 3741 3742 3748 3762 3791 3799 3803 3808 3833 3839 3855 3924 3963 3964 3983 3987
+	}
+	local_supplies = 0.0
+}

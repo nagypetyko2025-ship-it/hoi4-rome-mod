@@ -1,0 +1,20 @@
+state = {
+	id = 339
+	name = "STATE_339"  # Boiotia
+	manpower = 90000
+	state_category = city
+	history = {
+		owner = THB
+		add_core_of = THB
+		victory_points = { 5505 6 }  # Thebai
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		5505
+	}
+	local_supplies = 0.0
+}

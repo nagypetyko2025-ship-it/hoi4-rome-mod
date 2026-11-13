@@ -1,0 +1,20 @@
+state = {
+	id = 312
+	name = "STATE_312"  # Pannonia
+	manpower = 60400
+	state_category = large_town
+	history = {
+		owner = PAN
+		add_core_of = PAN
+		victory_points = { 3923 1 }  # Sopianae
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3897 3905 3909 3923 3930 3960 3962 3970 4014 4015 4077 4099 4110 4128 4181 4191
+	}
+	local_supplies = 0.0
+}

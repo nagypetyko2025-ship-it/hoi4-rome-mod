@@ -1,0 +1,18 @@
+state = {
+	id = 361
+	name = "STATE_361"  # North-Western Mada
+	manpower = 131400
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5362 5457 5504 5511 5555 5565 5571 5587 5703 5708 5719 5850 5852
+	}
+	local_supplies = 0.0
+}

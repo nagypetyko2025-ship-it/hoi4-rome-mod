@@ -1,0 +1,17 @@
+state = {
+	id = 512
+	name = "STATE_512"  # South-Western D'mt
+	manpower = 8900
+	state_category = rural
+	history = {
+		owner = DMT
+		add_core_of = DMT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7537 7585 7603 7659 7687 7785 7801 7808 9139
+	}
+	local_supplies = 0.0
+}

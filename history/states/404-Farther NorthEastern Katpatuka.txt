@@ -1,0 +1,17 @@
+state = {
+	id = 404
+	name = "STATE_404"  # Farther North-Eastern Katpatuka
+	manpower = 18800
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5161 5180 5215 5216 5228 5238 5239 5251 5259 5264 5300 5320 5361 5366
+	}
+	local_supplies = 0.0
+}

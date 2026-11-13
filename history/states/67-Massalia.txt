@@ -1,0 +1,21 @@
+state = {
+	id = 67
+	name = "STATE_67"  # Massalia
+	manpower = 50000
+	state_category = large_town
+	history = {
+		owner = MAS
+		add_core_of = MAS
+		victory_points = { 4489 8 }  # Massalia
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4489 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		4383 4473 4489
+	}
+	local_supplies = 0.0
+}

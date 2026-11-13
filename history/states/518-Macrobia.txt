@@ -1,0 +1,20 @@
+state = {
+	id = 518
+	name = "STATE_518"  # Macrobia
+	manpower = 48200
+	state_category = town
+	history = {
+		owner = MCB
+		add_core_of = MCB
+		victory_points = { 8245 1 }  # Opone
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		7931 7981 7983 7995 8103 8142 8165 8206 8235 8245 8250 8416 9066
+	}
+	local_supplies = 0.0
+}

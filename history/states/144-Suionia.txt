@@ -1,0 +1,20 @@
+state = {
+	id = 144
+	name = "STATE_144"  # Suionia
+	manpower = 38200
+	state_category = town
+	history = {
+		owner = SVI
+		add_core_of = SVI
+		victory_points = { 1258 2 }  # Uppsala
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1164 1174 1220 1223 1257 1258 1259 1268 1274 1275 1312 1329 1353 1372 1387 1435 9106 9107
+	}
+	local_supplies = 0.0
+}

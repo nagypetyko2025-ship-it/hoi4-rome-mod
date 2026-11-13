@@ -1,0 +1,20 @@
+state = {
+	id = 544
+	name = "STATE_544"  # Vettonia
+	manpower = 59500
+	state_category = town
+	history = {
+		owner = VTT
+		add_core_of = VTT
+		victory_points = { 4918 1 }  # Salmantica
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4756 4813 4835 4847 4858 4918 4931 5017 5031
+	}
+	local_supplies = 0.0
+}

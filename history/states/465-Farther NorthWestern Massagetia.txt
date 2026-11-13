@@ -1,0 +1,17 @@
+state = {
+	id = 465
+	name = "STATE_465"  # Farther North-Western Massagetia
+	manpower = 15600
+	state_category = rural
+	history = {
+		owner = MSG
+		add_core_of = MSG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2766 2802 2842 2968 2980 2985 3067 3517 3545 3636
+	}
+	local_supplies = 0.0
+}

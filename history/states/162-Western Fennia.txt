@@ -1,0 +1,17 @@
+state = {
+	id = 162
+	name = "STATE_162"  # Western Fennia
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = FEN
+		add_core_of = FEN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		201 238 273 285 293 302 315 354 378 427 452 505 8520 8534 8549 8550 8563 8574 8590 8591 8592 8593 8594 8595 8596 8597 8598 9071 9072
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 513
+	name = "STATE_513"  # North-Western D'mt
+	manpower = 17400
+	state_category = rural
+	history = {
+		owner = DMT
+		add_core_of = DMT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7167 7172 7187 7205 7216 7222 7238 7241 7257 7260 7270 7286 7298 7299 7302 7307 7311 7315 7317 7336 7404 7448
+	}
+	local_supplies = 0.0
+}

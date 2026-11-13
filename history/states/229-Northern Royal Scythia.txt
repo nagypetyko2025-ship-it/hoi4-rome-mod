@@ -1,0 +1,17 @@
+state = {
+	id = 229
+	name = "STATE_229"  # Northern Royal Scythia
+	manpower = 14400
+	state_category = rural
+	history = {
+		owner = SCY
+		add_core_of = SCY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2510 2529 2530 2567 2617 2629 2630 2652 2657 2661 2687 2690 2707 2792 2804 2811 2817
+	}
+	local_supplies = 0.0
+}

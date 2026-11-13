@@ -1,0 +1,17 @@
+state = {
+	id = 163
+	name = "STATE_163"  # South-Western Fennia
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = FEN
+		add_core_of = FEN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		668 688 692 700 713 720 732 765 766 770 793 9125
+	}
+	local_supplies = 0.0
+}

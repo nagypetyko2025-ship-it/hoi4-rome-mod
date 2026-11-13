@@ -1268,6 +1268,12 @@ def identity_rest(d, labels, n, cls, vid, typ, region_of_vid, reg_files):
 
 
 def main():
+    if "--regenerate" not in sys.argv:
+        print("ERROR: tools/newmap.py rebuilds provinces.bmp from the vanilla map and renumbers every province.")
+        print("       tools/data/core_states_245.json (Italy's states) and the committed map are tied to the")
+        print("       current numbering - regenerating breaks tools/world.py.")
+        print("       (python tools/newmap.py --regenerate  only if you also redo Italy's states)")
+        sys.exit(1)
     OUT.mkdir(parents=True, exist_ok=True)
     CACHE.mkdir(parents=True, exist_ok=True)
     d, vids = load_vanilla()

@@ -24,9 +24,16 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 
 | Hely | Mi van benne |
 |---|---|
-| `tools/data/world_245.py` | **Forrásadat**: Kr. e. 509 népei (45 ország) és államai, népesség, városok, kikötők. Az alapjáték (vanilla) tartományszámaival. |
-| `tools/newmap.py` | Térképgenerátor: kivágja és felnagyítja a vanilla térképet, új, sűrűbb tartományhálót növeszt. Ír: `map/**`, `common/ai_areas/default.txt`, `tools/cache/newmap.*`. |
-| `tools/build.py` | Összeállító: a `world_245.py`-ból államok, országok, zászlók, épületpozíciók, ellátás, szövegek, könyvjelző, leírók. A vanilla tartományszámokat lefordítja az új térkép tartományaira. |
+| `tools/data/world_509bc.py` | **Forrásadat – a világ Kr. e. 509-ben** Itálián kívül: ~170 nép, ~210 régió, városok valódi földrajzi koordinátákkal (hosszúság, szélesség), népesség, kikötők, a járhatatlan vadon. Ezt szerkeszd, ha országot, határt, várost akarsz változtatni. |
+| `tools/world.py` | **A világ generátora (játék nélkül fut)**: a fenti adatból és a kész térképből államokat, országokat, színeket, zászlókat, neveket, szövegeket, könyvjelzőt, ellátó csomópontokat és utakat ír, majd lefuttatja a `positions.py`-t. `--preview MAPPA`: politikai térkép képként. |
+| `tools/geo.py` | Földrajzi koordináta → térképpixel (szigetek és tavak kimért helyére illesztett vetítés, ~5–10 pixel pontos). |
+| `tools/data/core_states_245.json` | Itália, Szicília, Szardínia, Korzika és a pun Afrika kézzel összerakott 66 állama „befagyasztva” (a mostani tartományszámokkal). A `world.py` változatlanul veszi át. |
+| `tools/data/world_245.py` | Itália 44 országának adatai (név, kultúra, szín) – a `world.py` innen veszi őket. Az államlista benne a régi, vanilla tartományszámos forrás (már csak a `build.py --legacy` használja). |
+| `tools/data/names_509bc.py` | Névlisták az új kultúrákhoz (ibér, germán, északi, trák, szkíta, kaukázusi, anatóliai, perzsa, arab, núbiai). |
+| `tools/collect_screenshots.ps1` | A játék saját (F11) képernyőképeit másolja a `docs/screenshots/` mappába. Nem indít játékot, nem mozgat egeret – a víruskereső nem bántja. |
+| `docs/maps/*.jpg` | A `world.py --preview` képei az aktuális világról (így játék nélkül is látszik, mi hol van). |
+| `tools/newmap.py` | **Régi (legacy)** térképgenerátor: a vanilla térképből vágta ki és nagyította fel a mostani térképet. Újrafuttatva minden tartományszám megváltozna, ezért csak `--regenerate` kapcsolóval indul. Kell hozzá a játék. |
+| `tools/build.py` | **Régi (legacy)** összeállító (csak Itália, vanilla tartományszámokból). Csak `--legacy` kapcsolóval indul; az épületpozíció-íróját és az itáliai zászlófestőt a többi eszköz ma is használja. |
 | `tools/mapdata.py` | Vanilla térképadat olvasása (csak olvas). |
 | `tools/render_region.py` | Címkézett tartománytérkép-kép egy régióról (tervezéshez). |
 | `tools/test_launch.ps1` | Automatikus tesztindítás (lásd lent). |
@@ -34,7 +41,6 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `tools/positions.py` | A kész térképből újraírja a `buildings.txt` és az `unitstacks.txt` pozícióit – játék nélkül is fut. |
 | `tools/colormap.py` | A szárazföld színtextúrája: játék nélkül megfesti a terepből, `--vanilla` kapcsolóval a játék sajátjából vágja ki. |
 | `tools/daynight.py` | A játék térkép-shaderének másolata a mi térképünk nappal–éjszaka állandóival (`--off`: éjszaka nélkül). Kell hozzá a játék. |
-| `tools/screenshot.ps1` | Elindítja a játékot, és képernyőképeket ment a `docs/screenshots/` mappába (`-Variants colour`: változatonként). |
 | `tools/bisect_launch.ps1`, `tools/make_variants.py` | Automata felező teszt: egyszerűsített fájlváltozatokkal indítja a játékot, és táblát ír az eredményről. |
 | `tools/data/names_245.py` | Ókori névlisták kultúránként (vezetők, tábornokok) → `common/names/ante_names.txt`. |
 | `tutorial/tutorial.txt` | Üres `tutorial = { }` blokk (kötelező, lásd szabályok). Kézzel írt, nem generált. |
@@ -44,21 +50,30 @@ A `tools/build.py` mindkettőt automatikusan megírja.
 | `CLAUDE.md` | Rövid szabálylista a fejlesztéshez (AI asszisztensnek is). |
 | `docs/design.md` | Terv és fázisok. |
 
-Generált (ne kézzel szerkeszd, hanem a forrást + futtasd újra): `history/states`, `history/countries`,
-`history/units`, `map/*`, `common/defines/zz_ante_regions.lua`, `common/country_tags`, `common/countries`,
-`common/names`, `common/bookmarks`, `gfx/flags`,
-`localisation/english/replace`, `descriptor.mod`.
+A `world.py` írja (ne kézzel szerkeszd, hanem a forrást + futtasd újra): `history/states`,
+`history/countries`, `common/country_tags/00_ante_countries.txt`, `common/countries`, `common/names`,
+`common/bookmarks`, `gfx/flags`, `localisation/english/replace`, `map/supply_nodes.txt`, `map/railways.txt`,
+és a `positions.py`-n át `map/buildings.txt`, `map/unitstacks.txt`.
+A régi `newmap.py` írta (most kézben tartott, bevált állapot): a többi `map/*`, `common/ai_areas/default.txt`,
+`common/defines/zz_ante_regions.lua`.
 
 ## Építés
 
 ```bash
-python tools/newmap.py     # térkép (~3-5 perc), Pillow + numpy kell
-python tools/build.py      # államok, országok, minden más (~10 mp)
-python tools/validate.py   # statikus ellenőrzés (~1 perc), játék nem kell hozzá; 0 hibával kell végeznie
+python tools/world.py                      # a világ: államok, országok, zászlók, nevek, utak, pozíciók (~15 mp)
+python tools/validate.py                   # statikus ellenőrzés (~1 perc); 0 hibával kell végeznie
+python tools/world.py --preview docs/maps  # (nem kötelező) politikai térkép képként, a játék fájljaihoz nem nyúl
 ```
 
-A `validate.py` csak a mod mappáját olvassa (numpy kell, scipy-val gyorsabb), ezért olyan gépen is fut,
-ahol nincs HoI4. A két generátorhoz viszont kell az alapjáték (a vanilla térképből dolgoznak).
+Mindhárom **játék nélkül fut**, csak a mod mappáját olvassa (Python 3.11, numpy, Pillow). A világot a
+`tools/data/world_509bc.py` írja le: egy nép egy `C(...)` sor, egy régiója egy `R(...)` sor valódi
+hosszúsággal–szélességgel. A `world.py` minden szárazföldi tartományt annak a régiónak ad, amelynek a magja
+szárazföldön a leghamarabb odaér (a hegy, sivatag, mocsár lassít, a `power` gyorsít), a régiókat pedig
+államokra vágja úgy, hogy egy állam egy stratégiai régióban maradjon.
+
+A térkép maga (tartományháló, domborzat, folyók, stratégiai régiók) **nem generálódik újra** – az a változat
+van a repóban, amelyik a játékban bizonyítottan betölt és fut. A régi, vanilla-alapú `newmap.py` / `build.py`
+csak külön kapcsolóval indul (lásd a táblázatot), és kell hozzájuk az alapjáték.
 
 Térképméret választása a `ANTE_MAP` környezeti változóval (`tools/newmap.py` eleje):
 
@@ -438,10 +453,55 @@ Röviden: a `daynight.py --off` lefutott (a shader-másolat a `gfx/FX/` mappába
 **az országok még mindig szürkék**. A `tools/screenshot.ps1`-et a **Windows víruskeresője blokkolta**
 („malicious content”), ezért képek nincsenek.
 
+## Nyolcadik kör (2026-11-13) – az egész világ újraépítve Kr. e. 509-re (játékban még NEM tesztelve)
+
+**Miért volt „szürke” minden?** Kép nélkül nem bizonyított, de a legvalószínűbb magyarázat nem színhiba,
+hanem a tartalom: a szárazföld ~90%-a egyetlen, **járhatatlan** helykitöltő ország volt (Terra Incognita).
+A játék a járhatatlan államokra **nem fest országszínt** – ott a terep látszik, a diplomáciai nézetben
+(jobb kattintás) is –, a kezdés pedig január 1., vagyis a terep jó része havas, fakó. Valódi, színes ország
+csak Itáliában, a szigeteken és Tunéziában volt, a térkép töredékén.
+
+**Mi változott:** a térképhez kötődő tartalom teljesen új, egy játék nélkül futó generátorból
+(`tools/world.py`, forrás: `tools/data/world_509bc.py`):
+
+- **214 ország + a vadon** (eddig 44 + Terra Incognita): gall, brit, ír, ibér, germán, balti és finnugor
+  törzsek, a hallstatti fejedelemségek, illírek, trákok, géták, szkíták és szauromaták, a pontuszi és
+  nyugati görög gyarmatvárosok (Massalia, Emporion, Olbia, Pantikapaion, Byzantion, Kyréné…), a hellén
+  poliszok (Athén, Spárta, Korinthosz, Argosz, Thébai, Thesszália, Makedónia…), Kolkhisz, a föníciai
+  városok, Tartésszosz és Gadir, a líbiai törzsek, a garamantok, Kús, D'mt, Sába és a dél-arábiai
+  királyságok, a masszagéták és szakák – és I. Dareiosz **Perzsa Birodalma** Trákiától Egyiptomon át
+  Baktriáig, szatrapiánként felosztva (Parsa, Mada, Babirush, Mudraya, Sparda, Yauna…).
+- **634 állam** (573 játszható, 61 járhatatlan vadon: Szahara, Arab-sivatag, sós sivatagok, a messzi észak).
+  A szárazföld ~74%-a mostantól játszható, színes ország. Itália 66 állama változatlan.
+- **Városok a valódi helyükön**: a győzelmi pontok földrajzi koordinátából kerülnek a tartományokra
+  (`tools/geo.py`), kikötőkkel. Minden ország fővárosa a történelmi székhelye.
+- **Színek**: kultúránként színcsalád (kelták zöld, görögök kék, szkíták narancs, illírek lila, trákok
+  rózsaszín, germánok türkiz, Perzsia arany…), a szomszédok mindig jól elütnek egymástól. A vadon homokszínű.
+- **Zászlók** (procedurális, kultúránként más jelkép), **névlisták** az új kultúrákhoz.
+- **Úthálózat**: minden játszható államban ellátó csomópont, országon belül a fővárosból kiinduló úthálóval
+  (1-es szintű „vasút”), és minden szárazföldi határon át egy összekötő úttal – eddig csak csonkok voltak.
+- **Gazdaság**: a műhelyek száma országonként, a népességgel lassulva nő (Róma 2, Athén 5, Karthágó 14,
+  Perzsia 74 civil), hogy a nagy birodalmak erősek legyenek, de ne nyomjanak agyon mindent.
+- A régi generátorok (`newmap.py`, `build.py`) véletlen futtatás ellen védve; a víruskereső által blokkolt
+  `tools/screenshot.ps1` törölve, helyette `tools/collect_screenshots.ps1` (csak a játék saját F11-képeit másolja).
+
+**Ami szándékosan maradt:** a tartományháló és minden raszter (domborzat, folyók, terep), a stratégiai
+régiók, az átkelők, az időjárás – ez a változat tölt be és fut bizonyítottan a játékban.
+
+**Ismert korlátok:** a tartományháló Görögországban durva (Attika egyetlen tartomány), ezért Megara és
+Aigina kimaradt; a térkép keleti szélén (Indus, Közép-Ázsia) a régi generátor apró, négyzetrácsos
+kitöltő tartományai megmaradtak; a népességek nagyságrendi becslések; seregek továbbra sincsenek
+(`history/units` üres), mindenki békében kezd.
+
+**Teszt (Peti gépén):** indítsd a szokott módon (`tools/test_launch.ps1 -ExtraArgs "-quickstart -start_tag=ROM -crash_data_log"`).
+Ha fut: nyomj **F11**-et teljesen kizoomolva, Itáliára közelítve, és egy országra jobb kattintás után, majd
+`powershell -ExecutionPolicy Bypass -File tools/collect_screenshots.ps1`, és `git add docs/screenshots`,
+commit, push. Ha nem indul: az `error.log` **vége** és az `exception.txt` kell, mint eddig.
+
 ## Tervezett fázisok
 
 0. Alapozás – kész.
-1. Váz: államok, országok, modern tartalom kiürítése – folyamatban (új térkép + indítási hiba).
+1. Váz: államok, országok, modern tartalom kiürítése – a játék fut; a teljes világ (214 ország) kész, játékbeli teszt folyamatban.
 2. Technológiák, egységek (hoplita, manipulus, harci elefánt…), felszerelés, ipar.
 3. Róma és szomszédai teljesen játszhatóan (Kr. e. 509).
 4. A többi nép és fókuszfa (egész Európa: kelták, germánok, szkíták, ibérek, görögök, Perzsia…).

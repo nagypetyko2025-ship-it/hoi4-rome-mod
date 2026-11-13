@@ -1,0 +1,17 @@
+state = {
+	id = 492
+	name = "STATE_492"  # South-Western Emporia
+	manpower = 9700
+	state_category = rural
+	history = {
+		owner = CAR
+		add_core_of = CAR
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6316 6336 6355 6367 6484 6507
+	}
+	local_supplies = 0.0
+}

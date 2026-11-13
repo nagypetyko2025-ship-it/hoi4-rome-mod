@@ -1,0 +1,17 @@
+state = {
+	id = 240
+	name = "STATE_240"  # Eastern Scythian Tauris
+	manpower = 9200
+	state_category = rural
+	history = {
+		owner = SCY
+		add_core_of = SCY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3938 3961 3998 4003 4018 4022 4036 4066 4082 4093 4094 4116
+	}
+	local_supplies = 0.0
+}

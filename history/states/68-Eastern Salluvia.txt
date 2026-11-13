@@ -1,0 +1,17 @@
+state = {
+	id = 68
+	name = "STATE_68"  # Eastern Salluvia
+	manpower = 24000
+	state_category = rural
+	history = {
+		owner = SLY
+		add_core_of = SLY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4147 4174 4175 4275 4286 4293 4308 4319 4320 4337 4355 4356 4357 4384 4387 4416 4424 4429 4430 4449
+	}
+	local_supplies = 0.0
+}

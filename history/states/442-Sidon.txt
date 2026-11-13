@@ -1,0 +1,21 @@
+state = {
+	id = 442
+	name = "STATE_442"  # Sidon
+	manpower = 50000
+	state_category = large_town
+	history = {
+		owner = SDN
+		add_core_of = SDN
+		victory_points = { 6161 8 }  # Sidun
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			6161 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		6161
+	}
+	local_supplies = 0.0
+}

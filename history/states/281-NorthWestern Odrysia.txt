@@ -1,0 +1,17 @@
+state = {
+	id = 281
+	name = "STATE_281"  # North-Western Odrysia
+	manpower = 32300
+	state_category = town
+	history = {
+		owner = ODR
+		add_core_of = ODR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4557 4572 4598 4605 4631 4672 4682 4687 4714
+	}
+	local_supplies = 0.0
+}

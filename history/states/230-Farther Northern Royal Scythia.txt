@@ -1,0 +1,17 @@
+state = {
+	id = 230
+	name = "STATE_230"  # Farther Northern Royal Scythia
+	manpower = 15000
+	state_category = rural
+	history = {
+		owner = SCY
+		add_core_of = SCY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2708 2721 2732 2835 2836 2871 2875 2880 2967 2979 2987
+	}
+	local_supplies = 0.0
+}

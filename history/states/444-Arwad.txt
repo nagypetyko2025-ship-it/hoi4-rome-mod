@@ -1,0 +1,21 @@
+state = {
+	id = 444
+	name = "STATE_444"  # Arwad
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = ARW
+		add_core_of = ARW
+		victory_points = { 6108 4 }  # Arwad
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			6108 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5971 6108 6136
+	}
+	local_supplies = 0.0
+}

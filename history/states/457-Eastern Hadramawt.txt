@@ -1,0 +1,17 @@
+state = {
+	id = 457
+	name = "STATE_457"  # Eastern Hadramawt
+	manpower = 10200
+	state_category = rural
+	history = {
+		owner = HDR
+		add_core_of = HDR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7154 7178 7192 7196
+	}
+	local_supplies = 0.0
+}

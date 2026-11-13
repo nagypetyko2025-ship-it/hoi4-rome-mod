@@ -515,7 +515,12 @@ def check_supply(defs, neigh, prov_state, states):
     dup = [p for p, k in Counter(nodes).items() if k > 1]
     if dup:
         err(f"duplicate supply nodes: {dup}")
-    rails = 0
+    walls = set()
+    for line in (MAP / "adjacencies.csv").read_text(encoding="utf-8").splitlines()[1:]:
+        f = line.split(";")
+        if len(f) > 3 and f[2] == "impassable":
+            walls.add((min(int(f[0]), int(f[1])), max(int(f[0]), int(f[1]))))
+    rails, steps = 0, set()
     for ln, line in enumerate((MAP / "railways.txt").read_text(encoding="utf-8").splitlines(), 1):
         p = [int(x) for x in line.split()]
         if not p:
@@ -529,9 +534,18 @@ def check_supply(defs, neigh, prov_state, states):
         for a in provs:
             if a not in defs or defs[a]["type"] != "land":
                 err(f"railways.txt:{ln}: province {a} is not land")
+            elif states[prov_state[a]]["impassable"]:
+                err(f"railways.txt:{ln}: province {a} is in an impassable state")
+        if len(set(provs)) != len(provs):
+            err(f"railways.txt:{ln}: a province is listed twice")
         for a, b in zip(provs, provs[1:]):
             if b not in neigh[a]:
                 err(f"railways.txt:{ln}: {a} and {b} are not adjacent")
+            if (min(a, b), max(a, b)) in walls:
+                err(f"railways.txt:{ln}: {a} and {b} are separated by an impassable border")
+            if (min(a, b), max(a, b)) in steps:
+                warn(f"railways.txt:{ln}: the step {a}-{b} is already part of another line")
+            steps.add((min(a, b), max(a, b)))
     info(f"{len(nodes)} supply nodes, {rails} railways")
     return nodes
 

@@ -1,0 +1,20 @@
+state = {
+	id = 69
+	name = "STATE_69"  # Salluvia
+	manpower = 56000
+	state_category = town
+	history = {
+		owner = SLY
+		add_core_of = SLY
+		victory_points = { 4351 1 }  # Entremont
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4159 4245 4261 4274 4281 4290 4298 4307 4344 4345 4351 4362
+	}
+	local_supplies = 0.0
+}

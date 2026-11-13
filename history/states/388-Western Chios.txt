@@ -1,0 +1,17 @@
+state = {
+	id = 388
+	name = "STATE_388"  # Western Chios
+	manpower = 10200
+	state_category = rural
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		8858 8859 8860 8861
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 352
+	name = "STATE_352"  # South-Eastern Kyklades
+	manpower = 3600
+	state_category = pastoral
+	history = {
+		owner = NAX
+		add_core_of = NAX
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5822
+	}
+	local_supplies = 0.0
+}

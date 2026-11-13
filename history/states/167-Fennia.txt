@@ -1,0 +1,19 @@
+state = {
+	id = 167
+	name = "STATE_167"  # Fennia
+	manpower = 7700
+	state_category = rural
+	history = {
+		owner = FEN
+		add_core_of = FEN
+		victory_points = { 337 1 }  # Aanaar
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		143 148 151 157 210 218 223 232 239 242 248 317 337 376 467 468 497
+	}
+	local_supplies = 0.0
+}

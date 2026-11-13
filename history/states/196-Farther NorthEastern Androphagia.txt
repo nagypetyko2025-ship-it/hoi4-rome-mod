@@ -1,0 +1,17 @@
+state = {
+	id = 196
+	name = "STATE_196"  # Farther North-Eastern Androphagia
+	manpower = 2900
+	state_category = pastoral
+	history = {
+		owner = APH
+		add_core_of = APH
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1467 1471 1484 1507 1520 1556 1559 1566 1578 1590 1601 1610 1616 1620 1621 1634 1635 1640 1657 1685 1690 1719 1724 1760 1785 1788 1807 1871 1883 1906 1936 1960 9136
+	}
+	local_supplies = 0.0
+}

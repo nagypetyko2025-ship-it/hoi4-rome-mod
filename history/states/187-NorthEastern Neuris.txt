@@ -1,0 +1,17 @@
+state = {
+	id = 187
+	name = "STATE_187"  # North-Eastern Neuris
+	manpower = 5400
+	state_category = rural
+	history = {
+		owner = NEU
+		add_core_of = NEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1882 1965 2037 2041 2046 2048 2058 2158 2161 2177 2188
+	}
+	local_supplies = 0.0
+}

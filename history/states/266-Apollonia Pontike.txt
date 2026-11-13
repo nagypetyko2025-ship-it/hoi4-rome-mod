@@ -1,0 +1,20 @@
+state = {
+	id = 266
+	name = "STATE_266"  # Apollonia Pontike
+	manpower = 25000
+	state_category = town
+	history = {
+		owner = APP
+		add_core_of = APP
+		victory_points = { 4722 3 }  # Apollonia Pontike
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			4722 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4722
+	}
+	local_supplies = 0.0
+}

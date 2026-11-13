@@ -1,0 +1,17 @@
+state = {
+	id = 282
+	name = "STATE_282"  # Farther North-Western Odrysia
+	manpower = 34900
+	state_category = town
+	history = {
+		owner = ODR
+		add_core_of = ODR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4653 4658 4673 4688 4728 4754 4784 4800
+	}
+	local_supplies = 0.0
+}

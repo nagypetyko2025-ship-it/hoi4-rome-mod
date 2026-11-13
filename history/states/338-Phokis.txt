@@ -1,0 +1,20 @@
+state = {
+	id = 338
+	name = "STATE_338"  # Phokis
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = PHK
+		add_core_of = PHK
+		victory_points = { 5496 4 }  # Delphoi
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		5394 5496
+	}
+	local_supplies = 0.0
+}

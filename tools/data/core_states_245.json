@@ -1,0 +1,2166 @@
+{
+ "states": [
+  {
+   "id": 1,
+   "name": "Roma",
+   "owner": "ROM",
+   "pop": 40000,
+   "category": "large_town",
+   "provinces": [
+    4732,
+    4823
+   ],
+   "cores": [
+    "ROM"
+   ],
+   "vps": [
+    [
+     4732,
+     20,
+     "Roma"
+    ]
+   ],
+   "ports": {
+    "4823": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 2,
+   "name": "Latium Vetus",
+   "owner": "LAT",
+   "pop": 70000,
+   "category": "city",
+   "provinces": [
+    4675,
+    4751,
+    4760,
+    4788,
+    4839,
+    4852
+   ],
+   "cores": [
+    "LAT"
+   ],
+   "vps": [
+    [
+     4852,
+     5,
+     "Aricia"
+    ],
+    [
+     4760,
+     3,
+     "Praeneste"
+    ]
+   ],
+   "ports": {
+    "4852": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 3,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 3,
+   "name": "Volscia",
+   "owner": "VOL",
+   "pop": 50000,
+   "category": "town",
+   "provinces": [
+    4818,
+    4840,
+    4859,
+    4876,
+    4888,
+    4903
+   ],
+   "cores": [
+    "VOL"
+   ],
+   "vps": [
+    [
+     4840,
+     2,
+     "Velitrae"
+    ],
+    [
+     4876,
+     2,
+     "Anxur"
+    ]
+   ],
+   "ports": {
+    "4903": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 4,
+   "name": "Aequia",
+   "owner": "AEQ",
+   "pop": 20000,
+   "category": "rural",
+   "provinces": [
+    4662
+   ],
+   "cores": [
+    "AEQ"
+   ],
+   "vps": [
+    [
+     4662,
+     1,
+     "Carsioli"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 5,
+   "name": "Sabina",
+   "owner": "SAB",
+   "pop": 45000,
+   "category": "town",
+   "provinces": [
+    4521,
+    4529,
+    4540,
+    4580,
+    4622
+   ],
+   "cores": [
+    "SAB"
+   ],
+   "vps": [
+    [
+     4529,
+     2,
+     "Cures"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 6,
+   "name": "Marsica",
+   "owner": "MAR",
+   "pop": 35000,
+   "category": "town",
+   "provinces": [
+    4533,
+    4629,
+    4656,
+    4684,
+    4694
+   ],
+   "cores": [
+    "MAR"
+   ],
+   "vps": [
+    [
+     4684,
+     1,
+     "Marruvium"
+    ]
+   ],
+   "ports": {
+    "4533": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 7,
+   "name": "Samnium",
+   "owner": "SAM",
+   "pop": 80000,
+   "category": "large_town",
+   "provinces": [
+    4680,
+    4757,
+    4776,
+    4803,
+    4819,
+    4831
+   ],
+   "cores": [
+    "SAM"
+   ],
+   "vps": [
+    [
+     4757,
+     3,
+     "Bovianum"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 8,
+   "name": "Hirpinia",
+   "owner": "SAM",
+   "pop": 30000,
+   "category": "town",
+   "provinces": [
+    4933,
+    4954,
+    5053
+   ],
+   "cores": [
+    "SAM"
+   ],
+   "vps": [
+    [
+     4933,
+     1,
+     "Maloenton"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 9,
+   "name": "Frentania",
+   "owner": "SAM",
+   "pop": 20000,
+   "category": "rural",
+   "provinces": [
+    4727,
+    4853
+   ],
+   "cores": [
+    "SAM"
+   ],
+   "vps": [],
+   "ports": {
+    "4727": 1
+   },
+   "buildings": {
+    "infrastructure": 1
+   }
+  },
+  {
+   "id": 10,
+   "name": "Picenum",
+   "owner": "PIC",
+   "pop": 50000,
+   "category": "town",
+   "provinces": [
+    4418,
+    4451,
+    4454,
+    4485
+   ],
+   "cores": [
+    "PIC"
+   ],
+   "vps": [
+    [
+     4485,
+     2,
+     "Asculum"
+    ]
+   ],
+   "ports": {
+    "4451": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 11,
+   "name": "Umbria",
+   "owner": "UMB",
+   "pop": 50000,
+   "category": "town",
+   "provinces": [
+    4339,
+    4372,
+    4409,
+    4443
+   ],
+   "cores": [
+    "UMB"
+   ],
+   "vps": [
+    [
+     4443,
+     2,
+     "Iguvium"
+    ]
+   ],
+   "ports": {
+    "4339": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 12,
+   "name": "Veii",
+   "owner": "VEI",
+   "pop": 30000,
+   "category": "large_town",
+   "provinces": [
+    4636,
+    4651
+   ],
+   "cores": [
+    "VEI"
+   ],
+   "vps": [
+    [
+     4651,
+     8,
+     "Veii"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 13,
+   "name": "Caere",
+   "owner": "CAE",
+   "pop": 30000,
+   "category": "large_town",
+   "provinces": [
+    4683,
+    4690,
+    4731
+   ],
+   "cores": [
+    "CAE"
+   ],
+   "vps": [
+    [
+     4690,
+     6,
+     "Caere"
+    ]
+   ],
+   "ports": {
+    "4731": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 14,
+   "name": "Tarquinii",
+   "owner": "TAR",
+   "pop": 40000,
+   "category": "large_town",
+   "provinces": [
+    4579,
+    4601,
+    4635,
+    4650,
+    4678
+   ],
+   "cores": [
+    "TAR"
+   ],
+   "vps": [
+    [
+     4678,
+     6,
+     "Tarquinii"
+    ],
+    [
+     4579,
+     3,
+     "Vulci"
+    ]
+   ],
+   "ports": {
+    "4678": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 15,
+   "name": "Clusium",
+   "owner": "CLU",
+   "pop": 45000,
+   "category": "large_town",
+   "provinces": [
+    4504,
+    4505,
+    4526,
+    4561
+   ],
+   "cores": [
+    "CLU"
+   ],
+   "vps": [
+    [
+     4561,
+     8,
+     "Clusium"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 16,
+   "name": "Perusia",
+   "owner": "CLU",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    4465,
+    4539,
+    4583
+   ],
+   "cores": [
+    "CLU"
+   ],
+   "vps": [
+    [
+     4539,
+     3,
+     "Perusia"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 17,
+   "name": "Volaterrae",
+   "owner": "VLT",
+   "pop": 35000,
+   "category": "large_town",
+   "provinces": [
+    4287,
+    4309,
+    4338,
+    4370,
+    4395,
+    4464,
+    4478
+   ],
+   "cores": [
+    "VLT"
+   ],
+   "vps": [
+    [
+     4395,
+     5,
+     "Volaterrae"
+    ],
+    [
+     4370,
+     2,
+     "Pisae"
+    ]
+   ],
+   "ports": {
+    "4395": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 18,
+   "name": "Vetulonia",
+   "owner": "VLT",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    4525,
+    4558
+   ],
+   "cores": [
+    "VLT"
+   ],
+   "vps": [
+    [
+     4558,
+     3,
+     "Vetulonia"
+    ]
+   ],
+   "ports": {
+    "4558": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 19,
+   "name": "Arretium",
+   "owner": "ARR",
+   "pop": 25000,
+   "category": "town",
+   "provinces": [
+    4435,
+    4446,
+    4460
+   ],
+   "cores": [
+    "ARR"
+   ],
+   "vps": [
+    [
+     4446,
+     5,
+     "Arretium"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 20,
+   "name": "Faesulae",
+   "owner": "ARR",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    4371,
+    4396,
+    4497
+   ],
+   "cores": [
+    "ARR"
+   ],
+   "vps": [
+    [
+     4396,
+     2,
+     "Faesulae"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 21,
+   "name": "Felsina",
+   "owner": "FEL",
+   "pop": 50000,
+   "category": "large_town",
+   "provinces": [
+    4087,
+    4102,
+    4119,
+    4148,
+    4179,
+    4183,
+    4232,
+    4240,
+    4257,
+    4276
+   ],
+   "cores": [
+    "FEL"
+   ],
+   "vps": [
+    [
+     4240,
+     6,
+     "Felsina"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 22,
+   "name": "Spina",
+   "owner": "FEL",
+   "pop": 25000,
+   "category": "town",
+   "provinces": [
+    4137,
+    4144,
+    4198,
+    4246,
+    4258,
+    4265,
+    4282
+   ],
+   "cores": [
+    "FEL"
+   ],
+   "vps": [
+    [
+     4144,
+     4,
+     "Spina"
+    ]
+   ],
+   "ports": {
+    "4137": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 23,
+   "name": "Mantua",
+   "owner": "FEL",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    4040,
+    4088,
+    4120,
+    4125,
+    4149
+   ],
+   "cores": [
+    "FEL"
+   ],
+   "vps": [
+    [
+     4125,
+     2,
+     "Mantua"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 24,
+   "name": "Campania",
+   "owner": "CAP",
+   "pop": 60000,
+   "category": "city",
+   "provinces": [
+    4872,
+    4929,
+    4932,
+    5013
+   ],
+   "cores": [
+    "CAP"
+   ],
+   "vps": [
+    [
+     4929,
+     8,
+     "Capua"
+    ],
+    [
+     5013,
+     2,
+     "Nuceria"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 25,
+   "name": "Kyme",
+   "owner": "CUM",
+   "pop": 25000,
+   "category": "town",
+   "provinces": [
+    4896,
+    4906,
+    5003
+   ],
+   "cores": [
+    "CUM"
+   ],
+   "vps": [
+    [
+     4906,
+     8,
+     "Kyme"
+    ]
+   ],
+   "ports": {
+    "5003": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 26,
+   "name": "Poseidonia",
+   "owner": "POS",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    5067,
+    5080,
+    5108,
+    5142
+   ],
+   "cores": [
+    "POS"
+   ],
+   "vps": [
+    [
+     5108,
+     4,
+     "Poseidonia"
+    ]
+   ],
+   "ports": {
+    "5108": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 27,
+   "name": "Oenotria",
+   "owner": "OEN",
+   "pop": 25000,
+   "category": "rural",
+   "provinces": [
+    5033,
+    5143
+   ],
+   "cores": [
+    "OEN"
+   ],
+   "vps": [
+    [
+     5143,
+     1,
+     "Pandosia"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 28,
+   "name": "Bruttium",
+   "owner": "OEN",
+   "pop": 15000,
+   "category": "rural",
+   "provinces": [
+    5289,
+    5314,
+    5326,
+    5338,
+    5358
+   ],
+   "cores": [
+    "OEN"
+   ],
+   "vps": [],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1
+   }
+  },
+  {
+   "id": 29,
+   "name": "Taras",
+   "owner": "TAS",
+   "pop": 30000,
+   "category": "large_town",
+   "provinces": [
+    4958,
+    5075
+   ],
+   "cores": [
+    "TAS"
+   ],
+   "vps": [
+    [
+     5075,
+     10,
+     "Taras"
+    ]
+   ],
+   "ports": {
+    "5075": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 30,
+   "name": "Metapontion",
+   "owner": "MET",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    5135
+   ],
+   "cores": [
+    "MET"
+   ],
+   "vps": [
+    [
+     5135,
+     4,
+     "Metapontion"
+    ]
+   ],
+   "ports": {
+    "5135": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 31,
+   "name": "Kroton",
+   "owner": "KRO",
+   "pop": 35000,
+   "category": "large_town",
+   "provinces": [
+    5266,
+    5267,
+    5327,
+    5398
+   ],
+   "cores": [
+    "KRO"
+   ],
+   "vps": [
+    [
+     5327,
+     8,
+     "Kroton"
+    ]
+   ],
+   "ports": {
+    "5327": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 32,
+   "name": "Sybaritis",
+   "owner": "KRO",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    5184,
+    5202,
+    5245,
+    5248
+   ],
+   "cores": [
+    "KRO"
+   ],
+   "vps": [
+    [
+     5245,
+     3,
+     "Sybaris"
+    ]
+   ],
+   "ports": {
+    "5202": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 33,
+   "name": "Lokroi",
+   "owner": "LOK",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    5375,
+    5443
+   ],
+   "cores": [
+    "LOK"
+   ],
+   "vps": [
+    [
+     5443,
+     4,
+     "Lokroi"
+    ]
+   ],
+   "ports": {
+    "5443": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 34,
+   "name": "Rhegion",
+   "owner": "RHE",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    5495,
+    5578
+   ],
+   "cores": [
+    "RHE"
+   ],
+   "vps": [
+    [
+     5578,
+     4,
+     "Rhegion"
+    ]
+   ],
+   "ports": {
+    "5578": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 35,
+   "name": "Daunia",
+   "owner": "DAU",
+   "pop": 45000,
+   "category": "town",
+   "provinces": [
+    4777,
+    4865,
+    4866,
+    4914
+   ],
+   "cores": [
+    "DAU"
+   ],
+   "vps": [
+    [
+     4914,
+     2,
+     "Arpi"
+    ]
+   ],
+   "ports": {
+    "4866": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 36,
+   "name": "Peucetia",
+   "owner": "PEU",
+   "pop": 35000,
+   "category": "town",
+   "provinces": [
+    4861,
+    4897,
+    4915,
+    4987
+   ],
+   "cores": [
+    "PEU"
+   ],
+   "vps": [
+    [
+     4915,
+     2,
+     "Caelia"
+    ]
+   ],
+   "ports": {
+    "4915": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 37,
+   "name": "Messapia",
+   "owner": "MES",
+   "pop": 40000,
+   "category": "town",
+   "provinces": [
+    5020,
+    5090
+   ],
+   "cores": [
+    "MES"
+   ],
+   "vps": [
+    [
+     5020,
+     3,
+     "Brentesion"
+    ]
+   ],
+   "ports": {
+    "5020": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 38,
+   "name": "Syrakousai",
+   "owner": "SYR",
+   "pop": 30000,
+   "category": "large_town",
+   "provinces": [
+    5725,
+    5726,
+    5786,
+    5787
+   ],
+   "cores": [
+    "SYR"
+   ],
+   "vps": [
+    [
+     5787,
+     12,
+     "Syrakousai"
+    ]
+   ],
+   "ports": {
+    "5787": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 39,
+   "name": "Gela",
+   "owner": "GEL",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    5693,
+    5742,
+    5743
+   ],
+   "cores": [
+    "GEL"
+   ],
+   "vps": [
+    [
+     5742,
+     6,
+     "Gela"
+    ]
+   ],
+   "ports": {
+    "5742": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 40,
+   "name": "Akragas",
+   "owner": "AKR",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    5621,
+    5643
+   ],
+   "cores": [
+    "AKR"
+   ],
+   "vps": [
+    [
+     5643,
+     6,
+     "Akragas"
+    ]
+   ],
+   "ports": {
+    "5643": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 41,
+   "name": "Zankle",
+   "owner": "ZAN",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    5560,
+    5561,
+    5562,
+    5574,
+    5592
+   ],
+   "cores": [
+    "ZAN"
+   ],
+   "vps": [
+    [
+     5562,
+     5,
+     "Zankle"
+    ]
+   ],
+   "ports": {
+    "5562": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 42,
+   "name": "Himera",
+   "owner": "ZAN",
+   "pop": 10000,
+   "category": "rural",
+   "provinces": [
+    5568,
+    5590,
+    5619
+   ],
+   "cores": [
+    "ZAN"
+   ],
+   "vps": [
+    [
+     5590,
+     3,
+     "Himera"
+    ]
+   ],
+   "ports": {
+    "5590": 1
+   },
+   "buildings": {
+    "infrastructure": 2
+   }
+  },
+  {
+   "id": 43,
+   "name": "Katane",
+   "owner": "KAT",
+   "pop": 20000,
+   "category": "town",
+   "provinces": [
+    5629
+   ],
+   "cores": [
+    "KAT"
+   ],
+   "vps": [
+    [
+     5629,
+     4,
+     "Katane"
+    ]
+   ],
+   "ports": {
+    "5629": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 44,
+   "name": "Sikelia",
+   "owner": "SIC",
+   "pop": 40000,
+   "category": "town",
+   "provinces": [
+    5605,
+    5613,
+    5709
+   ],
+   "cores": [
+    "SIC"
+   ],
+   "vps": [
+    [
+     5709,
+     2,
+     "Henna"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 45,
+   "name": "Elymia",
+   "owner": "ELY",
+   "pop": 20000,
+   "category": "rural",
+   "provinces": [
+    5551,
+    5588,
+    5604,
+    5624,
+    5628
+   ],
+   "cores": [
+    "ELY"
+   ],
+   "vps": [
+    [
+     5588,
+     3,
+     "Segesta"
+    ]
+   ],
+   "ports": {
+    "5588": 1
+   },
+   "buildings": {
+    "infrastructure": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 46,
+   "name": "Panormos",
+   "owner": "CAR",
+   "pop": 30000,
+   "category": "large_town",
+   "provinces": [
+    5573,
+    5598,
+    5612
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     5612,
+     6,
+     "Ziz"
+    ]
+   ],
+   "ports": {
+    "5612": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 47,
+   "name": "Karalis",
+   "owner": "CAR",
+   "pop": 25000,
+   "category": "town",
+   "provinces": [
+    5236,
+    5260,
+    5323,
+    5336,
+    5343,
+    5364,
+    5381
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     5343,
+     4,
+     "Karalis"
+    ]
+   ],
+   "ports": {
+    "5343": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 48,
+   "name": "Tharros",
+   "owner": "CAR",
+   "pop": 15000,
+   "category": "town",
+   "provinces": [
+    5220,
+    5272,
+    5305
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     5272,
+     3,
+     "Tharros"
+    ]
+   ],
+   "ports": {
+    "5272": 1
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1
+   }
+  },
+  {
+   "id": 49,
+   "name": "Malta",
+   "owner": "CAR",
+   "pop": 8000,
+   "category": "rural",
+   "provinces": [
+    5930,
+    8881
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     5930,
+     2,
+     "Melite"
+    ]
+   ],
+   "ports": {
+    "5930": 1
+   },
+   "buildings": {
+    "infrastructure": 2
+   }
+  },
+  {
+   "id": 50,
+   "name": "Nuragic North",
+   "owner": "SAR",
+   "pop": 45000,
+   "category": "town",
+   "provinces": [
+    4928,
+    4938,
+    4942,
+    4957,
+    4986,
+    4995,
+    4999,
+    5044
+   ],
+   "cores": [
+    "SAR"
+   ],
+   "vps": [
+    [
+     4986,
+     1,
+     "Barumini"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 51,
+   "name": "Nuragic Highlands",
+   "owner": "SAR",
+   "pop": 35000,
+   "category": "town",
+   "provinces": [
+    5032,
+    5047,
+    5119,
+    5177,
+    5178
+   ],
+   "cores": [
+    "SAR"
+   ],
+   "vps": [],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 52,
+   "name": "Corsica",
+   "owner": "COR",
+   "pop": 30000,
+   "category": "town",
+   "provinces": [
+    4646,
+    4706,
+    4786
+   ],
+   "cores": [
+    "COR"
+   ],
+   "vps": [
+    [
+     4646,
+     2,
+     "Alalia"
+    ]
+   ],
+   "ports": {
+    "4646": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 53,
+   "name": "Taurinia",
+   "owner": "LIG",
+   "pop": 40000,
+   "category": "town",
+   "provinces": [
+    3815,
+    3828,
+    3850,
+    3853,
+    3861,
+    3889,
+    3892,
+    3907,
+    3912,
+    3955,
+    3956,
+    4032,
+    4038,
+    4056,
+    4069,
+    4086,
+    4098,
+    4124,
+    4141,
+    4143,
+    4156
+   ],
+   "cores": [
+    "LIG"
+   ],
+   "vps": [
+    [
+     4141,
+     2,
+     "Taurasia"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 54,
+   "name": "Liguria",
+   "owner": "LIG",
+   "pop": 50000,
+   "category": "town",
+   "provinces": [
+    4136,
+    4142,
+    4176,
+    4182,
+    4218,
+    4231,
+    4239,
+    4254,
+    4255,
+    4262,
+    4294,
+    4326,
+    4346
+   ],
+   "cores": [
+    "LIG"
+   ],
+   "vps": [
+    [
+     4231,
+     3,
+     "Genua"
+    ]
+   ],
+   "ports": {
+    "4231": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 55,
+   "name": "Insubria",
+   "owner": "INS",
+   "pop": 50000,
+   "category": "town",
+   "provinces": [
+    3756,
+    3784,
+    3837,
+    3842,
+    3862,
+    3877,
+    3922,
+    3944,
+    4000,
+    4026,
+    4039,
+    4051,
+    4057
+   ],
+   "cores": [
+    "INS"
+   ],
+   "vps": [
+    [
+     4000,
+     4,
+     "Mediolanum"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 56,
+   "name": "Raetia",
+   "owner": "RAE",
+   "pop": 40000,
+   "category": "town",
+   "provinces": [
+    3521,
+    3593,
+    3611,
+    3642,
+    3646,
+    3647,
+    3654,
+    3655,
+    3660,
+    3665,
+    3668,
+    3691,
+    3698,
+    3710,
+    3731,
+    3757,
+    3777,
+    3785,
+    3793,
+    3802,
+    3810,
+    3851,
+    3863,
+    3890,
+    3913,
+    3957
+   ],
+   "cores": [
+    "RAE"
+   ],
+   "vps": [
+    [
+     3810,
+     1,
+     "Tridentum"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 57,
+   "name": "Venetia",
+   "owner": "VEN",
+   "pop": 45000,
+   "category": "town",
+   "provinces": [
+    3631,
+    3711,
+    3732,
+    3746,
+    3786,
+    3816,
+    3829,
+    3843,
+    3867,
+    3868,
+    3878,
+    3879,
+    3945,
+    3958,
+    3968,
+    3975,
+    4006,
+    4041
+   ],
+   "cores": [
+    "VEN"
+   ],
+   "vps": [
+    [
+     3958,
+     5,
+     "Ateste"
+    ],
+    [
+     3975,
+     2,
+     "Altinum"
+    ]
+   ],
+   "ports": {
+    "3975": 2
+   },
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 58,
+   "name": "Western Venetia",
+   "owner": "VEN",
+   "pop": 25000,
+   "category": "rural",
+   "provinces": [
+    3949,
+    3992,
+    3993,
+    4033,
+    4062,
+    4073,
+    4108
+   ],
+   "cores": [
+    "VEN"
+   ],
+   "vps": [
+    [
+     3992,
+     2,
+     "Verona"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1
+   }
+  },
+  {
+   "id": 59,
+   "name": "Carthago",
+   "owner": "CAR",
+   "pop": 100000,
+   "category": "large_city",
+   "provinces": [
+    5730,
+    5795,
+    5807,
+    5812,
+    5848
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     5730,
+     25,
+     "Qart-Hadasht"
+    ]
+   ],
+   "ports": {
+    "5730": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 4,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 60,
+   "name": "Utica",
+   "owner": "CAR",
+   "pop": 30000,
+   "category": "large_town",
+   "provinces": [
+    5700,
+    5763,
+    5768,
+    5803,
+    5834,
+    5847,
+    5857,
+    5894,
+    5910,
+    5913
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     5700,
+     5,
+     "Utica"
+    ]
+   ],
+   "ports": {
+    "5700": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 61,
+   "name": "Punic Hinterland",
+   "owner": "CAR",
+   "pop": 60000,
+   "category": "city",
+   "provinces": [
+    5773,
+    5858,
+    5868,
+    5901,
+    5919,
+    5925,
+    5935,
+    5936,
+    5974,
+    5975,
+    5976,
+    5986,
+    5990,
+    5993,
+    5997,
+    6009,
+    6023,
+    6025,
+    6028,
+    6040
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 62,
+   "name": "Byzacium",
+   "owner": "CAR",
+   "pop": 40000,
+   "category": "large_town",
+   "provinces": [
+    5914,
+    5928,
+    5962,
+    6014,
+    6041,
+    6080,
+    9089
+   ],
+   "cores": [
+    "CAR"
+   ],
+   "vps": [
+    [
+     6080,
+     3,
+     "Hadrumetum"
+    ]
+   ],
+   "ports": {
+    "6080": 2
+   },
+   "buildings": {
+    "infrastructure": 2,
+    "industrial_complex": 2,
+    "arms_factory": 1
+   }
+  },
+  {
+   "id": 63,
+   "name": "Libya",
+   "owner": "LIB",
+   "pop": 35000,
+   "category": "town",
+   "provinces": [
+    6084,
+    6087,
+    6132,
+    6149,
+    6197,
+    8894,
+    9142
+   ],
+   "cores": [
+    "LIB"
+   ],
+   "vps": [
+    [
+     6084,
+     1,
+     "Thysdrus"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 64,
+   "name": "Inner Libya",
+   "owner": "LIB",
+   "pop": 25000,
+   "category": "rural",
+   "provinces": [
+    6206,
+    6218,
+    9141
+   ],
+   "cores": [
+    "LIB"
+   ],
+   "vps": [],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1
+   }
+  },
+  {
+   "id": 65,
+   "name": "Massylia",
+   "owner": "MSY",
+   "pop": 50000,
+   "category": "town",
+   "provinces": [
+    5772,
+    5776,
+    5794,
+    5798,
+    5806,
+    5825,
+    5842,
+    5856,
+    5866,
+    5874,
+    5886,
+    5890,
+    5893,
+    5898,
+    5899,
+    5900,
+    5933,
+    5934,
+    5947,
+    5948,
+    5956,
+    6008,
+    6020
+   ],
+   "cores": [
+    "MSY"
+   ],
+   "vps": [
+    [
+     5948,
+     2,
+     "Thugga"
+    ]
+   ],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   },
+   "capital": true
+  },
+  {
+   "id": 66,
+   "name": "Massylian Highlands",
+   "owner": "MSY",
+   "pop": 30000,
+   "category": "town",
+   "provinces": [
+    5983,
+    5992,
+    6003,
+    6018,
+    6021,
+    6027,
+    6048,
+    6072,
+    6073,
+    6097
+   ],
+   "cores": [
+    "MSY"
+   ],
+   "vps": [],
+   "ports": {},
+   "buildings": {
+    "infrastructure": 1,
+    "industrial_complex": 1,
+    "arms_factory": 1
+   }
+  }
+ ],
+ "lakes_in_states": [
+  9093,
+  9098,
+  9099,
+  9100,
+  9102,
+  9103,
+  9104,
+  9105,
+  9106,
+  9107,
+  9108,
+  9109,
+  9110,
+  9111,
+  9112,
+  9113,
+  9114,
+  9115,
+  9116,
+  9117,
+  9118,
+  9119,
+  9120,
+  9121,
+  9122,
+  9123,
+  9124,
+  9125,
+  9126,
+  9127,
+  9128,
+  9129,
+  9130,
+  9131,
+  9132,
+  9133,
+  9134,
+  9135,
+  9136,
+  9137,
+  9138,
+  9139,
+  9140,
+  9141,
+  9142,
+  9143,
+  9144
+ ]
+}

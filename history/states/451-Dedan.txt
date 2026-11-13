@@ -1,0 +1,21 @@
+state = {
+	id = 451
+	name = "STATE_451"  # Dedan
+	manpower = 28700
+	state_category = rural
+	history = {
+		owner = DDN
+		add_core_of = DDN
+		victory_points = { 6742 3 }  # Dedan
+		victory_points = { 6674 3 }  # Tayma
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6674 6712 6725 6742 6792 6800
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,18 @@
+state = {
+	id = 540
+	name = "STATE_540"  # South-Eastern Celtiberia
+	manpower = 53300
+	state_category = town
+	history = {
+		owner = CTB
+		add_core_of = CTB
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4772 4773 4827 4848 4882 4883 4919 4953 4955 4961 4982 5011 5012 5059 5073 5163
+	}
+	local_supplies = 0.0
+}

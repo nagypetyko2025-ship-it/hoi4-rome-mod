@@ -78,7 +78,7 @@ COUNTRIES = {
     "LIB": dict(name="Libyans", adj="Libyan", culture="libyan", gov="tribal", color=(200, 180, 120)),
     "MSY": dict(name="Massylii", adj="Massylian", culture="libyan", gov="tribal", color=(170, 150, 90)),
     # --- placeholder owner of everything outside the playable area (phase 1 only)
-    "WLD": dict(name="Terra Incognita", adj="Unknown", culture="none", gov="tribal", color=(176, 164, 138)),
+    "WLD": dict(name="Terra Incognita", adj="Unknown", culture="none", gov="tribal", color=(204, 180, 126)),
 }
 
 S = []  # (key, name, owner, provinces, population, extras)

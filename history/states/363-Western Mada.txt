@@ -1,0 +1,17 @@
+state = {
+	id = 363
+	name = "STATE_363"  # Western Mada
+	manpower = 61600
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6066 6157 6170
+	}
+	local_supplies = 0.0
+}

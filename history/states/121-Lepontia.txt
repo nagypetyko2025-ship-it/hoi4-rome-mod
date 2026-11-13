@@ -1,0 +1,20 @@
+state = {
+	id = 121
+	name = "STATE_121"  # Lepontia
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = LEP
+		add_core_of = LEP
+		victory_points = { 3806 1 }  # Bilitio
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		3690 3729 3730 3755 3806
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 389
+	name = "STATE_389"  # Chios
+	manpower = 49800
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5490 4 }  # Chios
+		buildings = {
+			infrastructure = 2
+			5490 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5482 5490
+	}
+	local_supplies = 0.0
+}

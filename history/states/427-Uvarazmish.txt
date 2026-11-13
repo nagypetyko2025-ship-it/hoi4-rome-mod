@@ -1,0 +1,19 @@
+state = {
+	id = 427
+	name = "STATE_427"  # Uvarazmish
+	manpower = 120000
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 4830 2 }  # Kath
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4648 4780 4791 4830 4950
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 293
+	name = "STATE_293"  # Western Getica
+	manpower = 13000
+	state_category = rural
+	history = {
+		owner = GTA
+		add_core_of = GTA
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4193 4224 4248 4315 4342 4389 4390 4399 4410 4421 4426 4448 4461 4522
+	}
+	local_supplies = 0.0
+}

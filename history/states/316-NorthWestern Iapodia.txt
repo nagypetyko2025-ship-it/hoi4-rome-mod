@@ -1,0 +1,17 @@
+state = {
+	id = 316
+	name = "STATE_316"  # North-Western Iapodia
+	manpower = 17300
+	state_category = rural
+	history = {
+		owner = IAP
+		add_core_of = IAP
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3852 3864 3865 3870 3880 3893 3908 3928 3984 4034 4065 4074 4126 4127 4190
+	}
+	local_supplies = 0.0
+}

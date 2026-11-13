@@ -1,0 +1,17 @@
+state = {
+	id = 105
+	name = "STATE_105"  # South-Eastern Treveria
+	manpower = 16100
+	state_category = rural
+	history = {
+		owner = TRV
+		add_core_of = TRV
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2982 3057 3076 3124
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 270
+	name = "STATE_270"  # Trapezous
+	manpower = 20000
+	state_category = town
+	history = {
+		owner = SNP
+		add_core_of = SNP
+		victory_points = { 5016 2 }  # Trapezous
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			5016 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4990 5015 5016 5027 5037 5049
+	}
+	local_supplies = 0.0
+}

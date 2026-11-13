@@ -1,0 +1,17 @@
+state = {
+	id = 402
+	name = "STATE_402"  # Northern Katpatuka
+	manpower = 26000
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		4843 4905 4936 4937 4989 5039 5055 5056 5082 5097 5123 5130 5131 5144 5197 5198
+	}
+	local_supplies = 0.0
+}

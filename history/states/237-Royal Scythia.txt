@@ -1,0 +1,20 @@
+state = {
+	id = 237
+	name = "STATE_237"  # Royal Scythia
+	manpower = 124700
+	state_category = large_city
+	history = {
+		owner = SCY
+		add_core_of = SCY
+		victory_points = { 3360 5 }  # Gerrhos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 4
+		}
+	}
+	provinces = {
+		3360 3373 3435 3474 3501 3554 3567 3597 3617 3618 3634 3649 3652 3658 3674 3684 3694 3704 3764 3804
+	}
+	local_supplies = 0.0
+}

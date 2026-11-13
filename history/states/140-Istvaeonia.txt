@@ -1,0 +1,20 @@
+state = {
+	id = 140
+	name = "STATE_140"  # Istvaeonia
+	manpower = 50500
+	state_category = town
+	history = {
+		owner = IST
+		add_core_of = IST
+		victory_points = { 2432 1 }  # Tulifurdum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2432 2433 2456 2482 2486 2491 2501 2517 2518 2535 2540 2581 2606 2607 2626 2655 2660 2677
+	}
+	local_supplies = 0.0
+}

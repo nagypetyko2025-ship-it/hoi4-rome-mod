@@ -1,0 +1,17 @@
+state = {
+	id = 332
+	name = "STATE_332"  # Farther North-Western Epeiros
+	manpower = 19600
+	state_category = town
+	history = {
+		owner = MOL
+		add_core_of = MOL
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5164 5185 5205 5221 5268 5273
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 381
+	name = "STATE_381"  # Patoris
+	manpower = 382300
+	state_category = metropolis
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6784 8 }  # Waset
+		buildings = {
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 4
+		}
+	}
+	provinces = {
+		6676 6699 6707 6716 6726 6737 6763 6773 6776 6781 6784 6795 6798 6803 6820
+	}
+	local_supplies = 0.0
+}

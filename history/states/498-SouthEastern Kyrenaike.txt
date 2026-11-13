@@ -1,0 +1,17 @@
+state = {
+	id = 498
+	name = "STATE_498"  # South-Eastern Kyrenaike
+	manpower = 12100
+	state_category = rural
+	history = {
+		owner = KYR
+		add_core_of = KYR
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6350 6353 6376 6391 6392 6505
+	}
+	local_supplies = 0.0
+}

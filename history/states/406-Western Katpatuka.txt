@@ -1,0 +1,17 @@
+state = {
+	id = 406
+	name = "STATE_406"  # Western Katpatuka
+	manpower = 18400
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5295 5297 5340 5352 5385 5389 5444 5446 5514 5540
+	}
+	local_supplies = 0.0
+}

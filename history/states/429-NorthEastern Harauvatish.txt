@@ -1,0 +1,17 @@
+state = {
+	id = 429
+	name = "STATE_429"  # North-Eastern Harauvatish
+	manpower = 7000
+	state_category = rural
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6189 6223 6240
+	}
+	local_supplies = 0.0
+}

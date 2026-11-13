@@ -1,0 +1,17 @@
+state = {
+	id = 130
+	name = "STATE_130"  # Farther South-Eastern Lugia
+	manpower = 12700
+	state_category = rural
+	history = {
+		owner = LUG
+		add_core_of = LUG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2621 2671 2694 2739 2768 2780 2815 2824 2857 2858 2861 2894 2895 2915 2929 2961 2988
+	}
+	local_supplies = 0.0
+}

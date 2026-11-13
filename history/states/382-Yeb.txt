@@ -1,0 +1,20 @@
+state = {
+	id = 382
+	name = "STATE_382"  # Yeb
+	manpower = 221400
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6882 3 }  # Yeb
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		6790 6794 6812 6813 6826 6832 6835 6839 6850 6855 6859 6862 6872 6882 6895
+	}
+	local_supplies = 0.0
+}

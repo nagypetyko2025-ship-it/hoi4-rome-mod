@@ -1,0 +1,21 @@
+state = {
+	id = 499
+	name = "STATE_499"  # Marmarike
+	manpower = 25300
+	state_category = rural
+	history = {
+		owner = MRM
+		add_core_of = MRM
+		victory_points = { 6464 1 }  # Paraitonion
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			6464 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6459 6464 6506
+	}
+	local_supplies = 0.0
+}

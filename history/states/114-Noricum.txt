@@ -1,0 +1,20 @@
+state = {
+	id = 114
+	name = "STATE_114"  # Noricum
+	manpower = 62500
+	state_category = large_town
+	history = {
+		owner = NRC
+		add_core_of = NRC
+		victory_points = { 3418 4 }  # Hallstatt
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3217 3237 3247 3298 3346 3357 3375 3418 3433 3460 3471 3491 3552 3594 3600 3632
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 138
+	name = "STATE_138"  # Cimbria
+	manpower = 60000
+	state_category = large_town
+	history = {
+		owner = CIM
+		add_core_of = CIM
+		victory_points = { 1770 1 }  # Himmerland
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1652 1706 1743 1766 1770 1800 1818 1873 1874 2011 8697
+	}
+	local_supplies = 0.0
+}

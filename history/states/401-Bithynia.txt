@@ -1,0 +1,20 @@
+state = {
+	id = 401
+	name = "STATE_401"  # Bithynia
+	manpower = 100000
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 4945 2 }  # Astakos
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			4945 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4945 4946 5000 5005 5061 5077 5081 5087 5096 5159
+	}
+	local_supplies = 0.0
+}

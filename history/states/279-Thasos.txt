@@ -1,0 +1,21 @@
+state = {
+	id = 279
+	name = "STATE_279"  # Thasos
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = THS
+		add_core_of = THS
+		victory_points = { 8808 4 }  # Thasos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			8808 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		8808
+	}
+	local_supplies = 0.0
+}

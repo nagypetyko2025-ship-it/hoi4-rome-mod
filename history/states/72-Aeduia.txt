@@ -1,0 +1,20 @@
+state = {
+	id = 72
+	name = "STATE_72"  # Aeduia
+	manpower = 160000
+	state_category = large_city
+	history = {
+		owner = AED
+		add_core_of = AED
+		victory_points = { 3519 3 }  # Bibracte
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3325 3369 3401 3457 3476 3506 3507 3519 3525 3574 3592 3609 3629 3696
+	}
+	local_supplies = 0.0
+}

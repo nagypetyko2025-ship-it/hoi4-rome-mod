@@ -1,0 +1,17 @@
+state = {
+	id = 502
+	name = "STATE_502"  # North-Western Phazania
+	manpower = 15600
+	state_category = rural
+	history = {
+		owner = GAR
+		add_core_of = GAR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6546 6554 6573 6612 6690 6700 6745 6811 6818
+	}
+	local_supplies = 0.0
+}

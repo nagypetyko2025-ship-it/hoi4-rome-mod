@@ -1,0 +1,20 @@
+state = {
+	id = 183
+	name = "STATE_183"  # Neuris
+	manpower = 39900
+	state_category = town
+	history = {
+		owner = NEU
+		add_core_of = NEU
+		victory_points = { 2584 1 }  # Milograd
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		2364 2373 2412 2416 2435 2439 2444 2451 2497 2509 2515 2542 2583 2584 2605 2648 2668 2689 2830 2862
+	}
+	local_supplies = 0.0
+}

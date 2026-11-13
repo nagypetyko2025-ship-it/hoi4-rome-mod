@@ -1,0 +1,21 @@
+state = {
+	id = 264
+	name = "STATE_264"  # Pantikapaion
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = PNT
+		add_core_of = PNT
+		victory_points = { 4114 5 }  # Pantikapaion
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4114 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		4114
+	}
+	local_supplies = 0.0
+}

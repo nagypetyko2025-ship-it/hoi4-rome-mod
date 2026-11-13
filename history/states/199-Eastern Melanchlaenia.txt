@@ -1,0 +1,17 @@
+state = {
+	id = 199
+	name = "STATE_199"  # Eastern Melanchlaenia
+	manpower = 11800
+	state_category = rural
+	history = {
+		owner = MLC
+		add_core_of = MLC
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2430 2453 2494 2524 2537 2646 2679 2682 2683 2699 2769 2776 2818 2833
+	}
+	local_supplies = 0.0
+}

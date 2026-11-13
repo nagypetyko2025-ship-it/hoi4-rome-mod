@@ -1,0 +1,22 @@
+state = {
+	id = 514
+	name = "STATE_514"  # D'mt
+	manpower = 62700
+	state_category = large_town
+	history = {
+		owner = DMT
+		add_core_of = DMT
+		victory_points = { 7454 3 }  # Yeha
+		victory_points = { 7378 2 }  # Adulis
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+			7378 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		7296 7346 7373 7378 7433 7449 7454 7479 7490 7492 7508 7581 7582 7674 9059
+	}
+	local_supplies = 0.0
+}

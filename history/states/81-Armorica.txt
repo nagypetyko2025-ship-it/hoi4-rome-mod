@@ -1,0 +1,21 @@
+state = {
+	id = 81
+	name = "STATE_81"  # Armorica
+	manpower = 82100
+	state_category = large_town
+	history = {
+		owner = VNT
+		add_core_of = VNT
+		victory_points = { 3245 2 }  # Darioritum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+			3245 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		3134 3139 3141 3159 3171 3182 3197 3226 3227 3245 3267 3281
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 174
+	name = "STATE_174"  # Farther North-Eastern Aestia
+	manpower = 5700
+	state_category = rural
+	history = {
+		owner = AES
+		add_core_of = AES
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1493 1512 1530 1589 1614 1632 1637 1642 1662 1671 1691 1701 1705 1709 1740 1789 1797 1833 1844 1870 1884 1885
+	}
+	local_supplies = 0.0
+}

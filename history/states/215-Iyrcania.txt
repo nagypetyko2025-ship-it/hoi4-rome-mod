@@ -1,0 +1,20 @@
+state = {
+	id = 215
+	name = "STATE_215"  # Iyrcania
+	manpower = 20900
+	state_category = rural
+	history = {
+		owner = IYR
+		add_core_of = IYR
+		victory_points = { 1793 1 }  # Itkul
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1775 1779 1792 1793 1853 1878 1886 1887 1889 1928 1933 1934 1955 1962 1975 1976 1977 1997 2017 2024 2087 2130 2199 2306
+	}
+	local_supplies = 0.0
+}

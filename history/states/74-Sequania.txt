@@ -1,0 +1,20 @@
+state = {
+	id = 74
+	name = "STATE_74"  # Sequania
+	manpower = 69900
+	state_category = large_town
+	history = {
+		owner = SEQ
+		add_core_of = SEQ
+		victory_points = { 3532 2 }  # Vesontio
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3403 3482 3530 3531 3532 3546 3560 3561 3604 3645 3653
+	}
+	local_supplies = 0.0
+}

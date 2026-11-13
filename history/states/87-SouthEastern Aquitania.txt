@@ -1,0 +1,17 @@
+state = {
+	id = 87
+	name = "STATE_87"  # South-Eastern Aquitania
+	manpower = 19200
+	state_category = rural
+	history = {
+		owner = AQT
+		add_core_of = AQT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4301 4325 4349 4441 4442 4453 4477 4496 4524 4554 4569 4582
+	}
+	local_supplies = 0.0
+}

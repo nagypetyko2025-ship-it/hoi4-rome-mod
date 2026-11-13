@@ -1,0 +1,19 @@
+state = {
+	id = 405
+	name = "STATE_405"  # Katpatuka
+	manpower = 142600
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5431 4 }  # Mazaka
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5196 5206 5237 5299 5319 5353 5376 5431 5442 5484 5515 5530 5541 5554
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 501
+	name = "STATE_501"  # Ammonion
+	manpower = 15000
+	state_category = rural
+	history = {
+		owner = AMM
+		add_core_of = AMM
+		victory_points = { 6574 3 }  # Sekhet-am
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6574
+	}
+	local_supplies = 0.0
+}

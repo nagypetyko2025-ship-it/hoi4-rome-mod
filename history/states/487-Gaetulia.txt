@@ -1,0 +1,20 @@
+state = {
+	id = 487
+	name = "STATE_487"  # Gaetulia
+	manpower = 31300
+	state_category = town
+	history = {
+		owner = GAE
+		add_core_of = GAE
+		victory_points = { 6205 1 }  # Capsa
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6131 6140 6174 6180 6196 6201 6203 6204 6205 6213 6225 6231 6233 6237 6246 6255 6257 6271
+	}
+	local_supplies = 0.0
+}

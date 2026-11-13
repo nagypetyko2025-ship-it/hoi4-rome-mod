@@ -1,0 +1,17 @@
+state = {
+	id = 109
+	name = "STATE_109"  # Southern Pyrene
+	manpower = 10600
+	state_category = rural
+	history = {
+		owner = HEU
+		add_core_of = HEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3425 3438 3458 3527 3542 3556 3562 3610 3630 3641 3659
+	}
+	local_supplies = 0.0
+}

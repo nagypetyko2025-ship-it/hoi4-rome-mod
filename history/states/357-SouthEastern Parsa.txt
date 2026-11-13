@@ -1,0 +1,18 @@
+state = {
+	id = 357
+	name = "STATE_357"  # South-Eastern Parsa
+	manpower = 141400
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6563 6588 6600 6637 6641 6695 6702 8990 8991 9001 9002 9012
+	}
+	local_supplies = 0.0
+}

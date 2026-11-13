@@ -1,0 +1,18 @@
+state = {
+	id = 331
+	name = "STATE_331"  # North-Western Epeiros
+	manpower = 26600
+	state_category = town
+	history = {
+		owner = MOL
+		add_core_of = MOL
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5086 5091 5152
+	}
+	local_supplies = 0.0
+}

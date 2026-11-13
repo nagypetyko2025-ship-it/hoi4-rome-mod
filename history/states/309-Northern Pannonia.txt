@@ -1,0 +1,17 @@
+state = {
+	id = 309
+	name = "STATE_309"  # Northern Pannonia
+	manpower = 7400
+	state_category = rural
+	history = {
+		owner = PAN
+		add_core_of = PAN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3176 3189 3204 3251 3252 3327 3393 3451
+	}
+	local_supplies = 0.0
+}

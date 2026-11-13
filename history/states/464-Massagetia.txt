@@ -1,0 +1,20 @@
+state = {
+	id = 464
+	name = "STATE_464"  # Massagetia
+	manpower = 68000
+	state_category = large_town
+	history = {
+		owner = MSG
+		add_core_of = MSG
+		victory_points = { 4476 2 }  # Chirik-Rabat
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4279 4476 4483 4576 4577 4588 4595 4623
+	}
+	local_supplies = 0.0
+}

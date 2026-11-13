@@ -1,0 +1,19 @@
+state = {
+	id = 507
+	name = "STATE_507"  # Southern Kush
+	manpower = 60800
+	state_category = city
+	history = {
+		owner = KSH
+		add_core_of = KSH
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		7363 7391 7447 7471 7472 7478 7499 7512 7530 7563 7566 7616 7622 7634 7651 7658 7754 7817
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 76
+	name = "STATE_76"  # Northern Bituriga
+	manpower = 28200
+	state_category = rural
+	history = {
+		owner = BIT
+		add_core_of = BIT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3383 3408 3429 3496
+	}
+	local_supplies = 0.0
+}

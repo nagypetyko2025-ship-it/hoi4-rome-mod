@@ -1,0 +1,20 @@
+state = {
+	id = 71
+	name = "STATE_71"  # Arvernia
+	manpower = 180000
+	state_category = large_city
+	history = {
+		owner = ARV
+		add_core_of = ARV
+		victory_points = { 3903 3 }  # Gergovia
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		3686 3706 3771 3822 3866 3903 3920 3951 3952 4019 4030 4037 4060 4097 4154 4171
+	}
+	local_supplies = 0.0
+}

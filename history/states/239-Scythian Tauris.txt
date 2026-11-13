@@ -1,0 +1,18 @@
+state = {
+	id = 239
+	name = "STATE_239"  # Scythian Tauris
+	manpower = 30800
+	state_category = town
+	history = {
+		owner = SCY
+		add_core_of = SCY
+		victory_points = { 3965 1 }  # Neapolis
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3875 3937 3965 4002 4011 4017 4092
+	}
+	local_supplies = 0.0
+}

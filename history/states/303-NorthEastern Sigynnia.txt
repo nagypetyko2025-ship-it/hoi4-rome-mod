@@ -1,0 +1,17 @@
+state = {
+	id = 303
+	name = "STATE_303"  # North-Eastern Sigynnia
+	manpower = 5500
+	state_category = rural
+	history = {
+		owner = SIG
+		add_core_of = SIG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3077 3080 3087 3168 3190 3244 3263 3314 3315 3405
+	}
+	local_supplies = 0.0
+}

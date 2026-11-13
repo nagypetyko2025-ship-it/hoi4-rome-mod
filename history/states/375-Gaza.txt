@@ -1,0 +1,19 @@
+state = {
+	id = 375
+	name = "STATE_375"  # Gaza
+	manpower = 37700
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6401 3 }  # Gaza
+		buildings = {
+			infrastructure = 2
+			6401 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6401 6434
+	}
+	local_supplies = 0.0
+}

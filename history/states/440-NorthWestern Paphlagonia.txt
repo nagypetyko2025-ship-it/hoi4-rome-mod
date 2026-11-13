@@ -1,0 +1,17 @@
+state = {
+	id = 440
+	name = "STATE_440"  # North-Western Paphlagonia
+	manpower = 23500
+	state_category = town
+	history = {
+		owner = PPH
+		add_core_of = PPH
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		4763 4846 4909 4911 4964 4967 4988
+	}
+	local_supplies = 0.0
+}

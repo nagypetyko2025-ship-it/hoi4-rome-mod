@@ -1,0 +1,17 @@
+state = {
+	id = 97
+	name = "STATE_97"  # Farther North-Eastern Helvetia
+	manpower = 22300
+	state_category = rural
+	history = {
+		owner = HLV
+		add_core_of = HLV
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3416 3465 3477 3483 3484 3488 3533 3534 3540 3541 3547 3571 3745
+	}
+	local_supplies = 0.0
+}

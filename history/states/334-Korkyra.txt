@@ -1,0 +1,21 @@
+state = {
+	id = 334
+	name = "STATE_334"  # Korkyra
+	manpower = 50000
+	state_category = large_town
+	history = {
+		owner = KRK
+		add_core_of = KRK
+		victory_points = { 5213 5 }  # Korkyra
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			5213 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5203 5213
+	}
+	local_supplies = 0.0
+}

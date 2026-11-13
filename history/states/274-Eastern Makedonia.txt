@@ -1,0 +1,18 @@
+state = {
+	id = 274
+	name = "STATE_274"  # Eastern Makedonia
+	manpower = 40900
+	state_category = large_town
+	history = {
+		owner = MKD
+		add_core_of = MKD
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4869 4908 4939 4948 4962 4978 5068 5076 5100 5101 8813
+	}
+	local_supplies = 0.0
+}

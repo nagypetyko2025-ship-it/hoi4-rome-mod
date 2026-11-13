@@ -1,0 +1,20 @@
+state = {
+	id = 358
+	name = "STATE_358"  # Uvja
+	manpower = 500000
+	state_category = metropolis
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6279 18 }  # Susa
+		buildings = {
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 6
+		}
+	}
+	provinces = {
+		6279 6462 6481 6497 6548
+	}
+	local_supplies = 0.0
+}

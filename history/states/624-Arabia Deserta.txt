@@ -1,0 +1,15 @@
+state = {
+	id = 624
+	name = "STATE_624"  # Arabia Deserta
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		7026 7053 7057 7080 7082 7125 7126 7150 7177 9054 9055
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 136
+	name = "STATE_136"  # Teutonia
+	manpower = 59000
+	state_category = town
+	history = {
+		owner = TEU
+		add_core_of = TEU
+		victory_points = { 2150 1 }  # Treva
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1918 1958 2124 2150 2162 2200 2212 2216 2234 8708 8709 8722 8723
+	}
+	local_supplies = 0.0
+}

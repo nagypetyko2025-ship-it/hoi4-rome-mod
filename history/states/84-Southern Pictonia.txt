@@ -1,0 +1,17 @@
+state = {
+	id = 84
+	name = "STATE_84"  # Southern Pictonia
+	manpower = 21600
+	state_category = rural
+	history = {
+		owner = PCT
+		add_core_of = PCT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3591 3637 3695 3709 3809 3813 3848 3902 3906 3925 3948 3980 8739
+	}
+	local_supplies = 0.0
+}

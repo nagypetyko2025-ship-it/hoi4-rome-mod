@@ -1,0 +1,21 @@
+state = {
+	id = 262
+	name = "STATE_262"  # Olbia
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = OLB
+		add_core_of = OLB
+		victory_points = { 3603 4 }  # Olbia
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			3603 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		3603 3616
+	}
+	local_supplies = 0.0
+}

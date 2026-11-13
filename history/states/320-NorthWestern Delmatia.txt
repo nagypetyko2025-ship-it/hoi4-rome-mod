@@ -1,0 +1,17 @@
+state = {
+	id = 320
+	name = "STATE_320"  # North-Western Delmatia
+	manpower = 16300
+	state_category = rural
+	history = {
+		owner = DLM
+		add_core_of = DLM
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4213 4219 4226 4299 4321 4334 4340 4347 4397 8742 8743
+	}
+	local_supplies = 0.0
+}

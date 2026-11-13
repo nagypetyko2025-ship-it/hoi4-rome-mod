@@ -1,0 +1,17 @@
+state = {
+	id = 472
+	name = "STATE_472"  # Southern Sakastan
+	manpower = 1400
+	state_category = pastoral
+	history = {
+		owner = SAK
+		add_core_of = SAK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		8811 8814 8815 8816 8822 8823 8824 8825 8826 8827 8828 8829 8831 8832 8833
+	}
+	local_supplies = 0.0
+}

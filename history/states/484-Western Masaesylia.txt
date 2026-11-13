@@ -1,0 +1,17 @@
+state = {
+	id = 484
+	name = "STATE_484"  # Western Masaesylia
+	manpower = 5500
+	state_category = rural
+	history = {
+		owner = MSS
+		add_core_of = MSS
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6092 6109 6115 6134 6159
+	}
+	local_supplies = 0.0
+}

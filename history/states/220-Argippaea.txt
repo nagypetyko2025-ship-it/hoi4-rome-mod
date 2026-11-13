@@ -1,0 +1,20 @@
+state = {
+	id = 220
+	name = "STATE_220"  # Argippaea
+	manpower = 19600
+	state_category = rural
+	history = {
+		owner = AGP
+		add_core_of = AGP
+		victory_points = { 2480 1 }  # Arkaim
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1825 1917 2021 2134 2146 2206 2271 2293 2325 2341 2455 2480 2586 2623 2672 2691 2734 2767
+	}
+	local_supplies = 0.0
+}

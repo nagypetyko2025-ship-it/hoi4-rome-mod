@@ -1,0 +1,17 @@
+state = {
+	id = 171
+	name = "STATE_171"  # Northern Sitonia
+	manpower = 3900
+	state_category = pastoral
+	history = {
+		owner = FNN
+		add_core_of = FNN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		721 780 782 785 810 816 821 824 832 846 853 864 870 886 892 915 938 947 960 988 8618 9115 9116 9122
+	}
+	local_supplies = 0.0
+}

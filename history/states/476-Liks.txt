@@ -1,0 +1,20 @@
+state = {
+	id = 476
+	name = "STATE_476"  # Liks
+	manpower = 37800
+	state_category = town
+	history = {
+		owner = MAU
+		add_core_of = MAU
+		victory_points = { 5991 2 }  # Liks
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			5991 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5991 6026 6054 6078 6079 6130 6141 6142 6166 6171 6194 6211 6228
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 360
+	name = "STATE_360"  # South-Eastern Mada
+	manpower = 36400
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6082 6104 6168 6177 6245 6373
+	}
+	local_supplies = 0.0
+}

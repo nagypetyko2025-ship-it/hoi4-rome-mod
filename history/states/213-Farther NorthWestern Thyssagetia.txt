@@ -1,0 +1,17 @@
+state = {
+	id = 213
+	name = "STATE_213"  # Farther North-Western Thyssagetia
+	manpower = 2800
+	state_category = pastoral
+	history = {
+		owner = THY
+		add_core_of = THY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1300 1304 1306 1307 1321 1327 1378 1422 1430 1439 1456 1495 1523 1541 1576
+	}
+	local_supplies = 0.0
+}

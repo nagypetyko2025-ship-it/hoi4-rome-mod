@@ -1,0 +1,20 @@
+state = {
+	id = 329
+	name = "STATE_329"  # Taulantia
+	manpower = 49400
+	state_category = town
+	history = {
+		owner = TLN
+		add_core_of = TLN
+		victory_points = { 4966 1 }  # Pelion
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4829 4935 4966 4970 4974 5021 5063
+	}
+	local_supplies = 0.0
+}

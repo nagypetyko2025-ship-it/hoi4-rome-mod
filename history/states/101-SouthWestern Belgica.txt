@@ -1,0 +1,17 @@
+state = {
+	id = 101
+	name = "STATE_101"  # South-Western Belgica
+	manpower = 2800
+	state_category = pastoral
+	history = {
+		owner = BGA
+		add_core_of = BGA
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2996
+	}
+	local_supplies = 0.0
+}

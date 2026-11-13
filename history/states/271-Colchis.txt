@@ -1,0 +1,22 @@
+state = {
+	id = 271
+	name = "STATE_271"  # Colchis
+	manpower = 120000
+	state_category = large_city
+	history = {
+		owner = KOL
+		add_core_of = KOL
+		victory_points = { 4587 3 }  # Aia
+		victory_points = { 4570 2 }  # Phasis
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4570 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4316 4324 4407 4422 4439 4531 4570 4587 4826
+	}
+	local_supplies = 0.0
+}

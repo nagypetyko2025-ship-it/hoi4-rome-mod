@@ -1,0 +1,21 @@
+state = {
+	id = 70
+	name = "STATE_70"  # Elisycia
+	manpower = 60000
+	state_category = large_town
+	history = {
+		owner = ELS
+		add_core_of = ELS
+		victory_points = { 4516 2 }  # Naro
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			4516 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4292 4306 4403 4488 4509 4516 4518 4519 4565 4566 4592 4641
+	}
+	local_supplies = 0.0
+}

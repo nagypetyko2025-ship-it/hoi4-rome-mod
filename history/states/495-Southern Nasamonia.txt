@@ -1,0 +1,17 @@
+state = {
+	id = 495
+	name = "STATE_495"  # Southern Nasamonia
+	manpower = 11800
+	state_category = rural
+	history = {
+		owner = NAS
+		add_core_of = NAS
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6503 6555 6565 6626 6627 6631 6659 6677
+	}
+	local_supplies = 0.0
+}

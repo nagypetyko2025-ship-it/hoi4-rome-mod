@@ -1,0 +1,17 @@
+state = {
+	id = 287
+	name = "STATE_287"  # Southern Triballia
+	manpower = 16200
+	state_category = rural
+	history = {
+		owner = TRB
+		add_core_of = TRB
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4520 4528 4530 4546 4567 4597 4603 4630 4755
+	}
+	local_supplies = 0.0
+}

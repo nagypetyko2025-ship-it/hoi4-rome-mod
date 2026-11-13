@@ -1,0 +1,23 @@
+state = {
+	id = 399
+	name = "STATE_399"  # Daskyleion
+	manpower = 159900
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5136 6 }  # Daskyleion
+		victory_points = { 5192 4 }  # Kyzikos
+		victory_points = { 5195 2 }  # Abydos
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			5192 = { naval_base = 2 }
+			5195 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5136 5192 5195 5223 5254 5275 5292 5307 5308 5332 5348 5365
+	}
+	local_supplies = 0.0
+}

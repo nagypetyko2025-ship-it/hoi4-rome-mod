@@ -1,0 +1,19 @@
+state = {
+	id = 156
+	name = "STATE_156"  # Hordaland
+	manpower = 17300
+	state_category = rural
+	history = {
+		owner = HRD
+		add_core_of = HRD
+		victory_points = { 1145 1 }  # Avaldsnes
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		835 841 849 862 891 898 901 903 910 923 945 963 964 968 971 972 1006 1009 1016 1044 1058 1060 1075 1076 1077 1085 1097 1113 1145 1147 1171 1198 1210 1219 1267 1290 1297 1391 1472 8634 8639 8646 8649 8650 9073
+	}
+	local_supplies = 0.0
+}

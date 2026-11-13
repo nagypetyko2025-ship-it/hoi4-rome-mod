@@ -1,0 +1,17 @@
+state = {
+	id = 126
+	name = "STATE_126"  # Farther South-Western Lugia
+	manpower = 3300
+	state_category = pastoral
+	history = {
+		owner = LUG
+		add_core_of = LUG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2712 2738 2747 2752 2761 2790 2797
+	}
+	local_supplies = 0.0
+}

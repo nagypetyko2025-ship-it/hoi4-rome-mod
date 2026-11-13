@@ -1,0 +1,17 @@
+state = {
+	id = 409
+	name = "STATE_409"  # North-Western Armina
+	manpower = 26700
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		4925 4969 4980 4997 5023 5028 5029 5112 5124 5168
+	}
+	local_supplies = 0.0
+}

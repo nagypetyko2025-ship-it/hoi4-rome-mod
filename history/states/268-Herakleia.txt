@@ -1,0 +1,21 @@
+state = {
+	id = 268
+	name = "STATE_268"  # Herakleia
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = HER
+		add_core_of = HER
+		victory_points = { 4985 3 }  # Herakleia
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4985 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4854 4923 4985 5102
+	}
+	local_supplies = 0.0
+}

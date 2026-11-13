@@ -1,0 +1,18 @@
+state = {
+	id = 104
+	name = "STATE_104"  # Eastern Treveria
+	manpower = 30900
+	state_category = town
+	history = {
+		owner = TRV
+		add_core_of = TRV
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2700 2746 2759 2771 2784 2821 2827 2846 2853 2868 2916 2923 2957 3008 3011
+	}
+	local_supplies = 0.0
+}

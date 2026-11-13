@@ -1,0 +1,17 @@
+state = {
+	id = 398
+	name = "STATE_398"  # Western Daskyleion
+	manpower = 2800
+	state_category = pastoral
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		8819 8820 8821
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 335
+	name = "STATE_335"  # Akarnania
+	manpower = 50000
+	state_category = large_town
+	history = {
+		owner = AKN
+		add_core_of = AKN
+		victory_points = { 5489 1 }  # Stratos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		5360 5393 5489 5513 5521
+	}
+	local_supplies = 0.0
+}

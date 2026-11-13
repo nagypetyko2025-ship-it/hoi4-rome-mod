@@ -1,0 +1,22 @@
+state = {
+	id = 345
+	name = "STATE_345"  # Lakonike
+	manpower = 100000
+	state_category = city
+	history = {
+		owner = LAK
+		add_core_of = LAK
+		victory_points = { 5831 12 }  # Sparte
+		victory_points = { 5754 2 }  # Gytheion
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			5754 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5754 5831 8879 8880
+	}
+	local_supplies = 0.0
+}

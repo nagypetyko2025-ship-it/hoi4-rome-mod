@@ -1,0 +1,17 @@
+state = {
+	id = 82
+	name = "STATE_82"  # Eastern Armorica
+	manpower = 37900
+	state_category = town
+	history = {
+		owner = VNT
+		add_core_of = VNT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3160 3198 3207 3241 3273 3296 3309 3398
+	}
+	local_supplies = 0.0
+}

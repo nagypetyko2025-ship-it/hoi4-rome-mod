@@ -1,0 +1,22 @@
+state = {
+	id = 350
+	name = "STATE_350"  # Krete
+	manpower = 100000
+	state_category = city
+	history = {
+		owner = KRT
+		add_core_of = KRT
+		victory_points = { 6056 5 }  # Knossos
+		victory_points = { 6077 4 }  # Gortyn
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 4
+			6056 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5998 6033 6051 6056 6061 6077
+	}
+	local_supplies = 0.0
+}

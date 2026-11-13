@@ -1,0 +1,20 @@
+state = {
+	id = 103
+	name = "STATE_103"  # Treveria
+	manpower = 53000
+	state_category = town
+	history = {
+		owner = TRV
+		add_core_of = TRV
+		victory_points = { 2974 1 }  # Treverorum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2783 2925 2962 2970 2974
+	}
+	local_supplies = 0.0
+}

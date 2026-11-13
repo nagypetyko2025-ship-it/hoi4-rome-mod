@@ -1,0 +1,17 @@
+state = {
+	id = 368
+	name = "STATE_368"  # Northern Athura
+	manpower = 26700
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5596 5669 5670 5694
+	}
+	local_supplies = 0.0
+}

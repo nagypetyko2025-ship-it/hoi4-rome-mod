@@ -1,0 +1,20 @@
+state = {
+	id = 247
+	name = "STATE_247"  # Aroteria
+	manpower = 69800
+	state_category = large_town
+	history = {
+		owner = ARO
+		add_core_of = ARO
+		victory_points = { 3107 2 }  # Nemirov
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		2934 2935 2948 2978 3013 3026 3028 3037 3039 3047 3107 3148 3169 3205 3257 3293
+	}
+	local_supplies = 0.0
+}

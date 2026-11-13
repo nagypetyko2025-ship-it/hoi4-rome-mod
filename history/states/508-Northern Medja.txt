@@ -1,0 +1,17 @@
+state = {
+	id = 508
+	name = "STATE_508"  # Northern Medja
+	manpower = 2300
+	state_category = pastoral
+	history = {
+		owner = BLM
+		add_core_of = BLM
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6830 6842 6853 6860 6867 6883 6893 6899 6905
+	}
+	local_supplies = 0.0
+}

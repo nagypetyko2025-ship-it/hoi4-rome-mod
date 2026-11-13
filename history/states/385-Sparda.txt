@@ -1,0 +1,20 @@
+state = {
+	id = 385
+	name = "STATE_385"  # Sparda
+	manpower = 382300
+	state_category = metropolis
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5535 15 }  # Sardeis
+		buildings = {
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 4
+		}
+	}
+	provinces = {
+		5347 5424 5434 5452 5501 5523 5535 5593
+	}
+	local_supplies = 0.0
+}

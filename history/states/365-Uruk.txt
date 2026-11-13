@@ -1,0 +1,20 @@
+state = {
+	id = 365
+	name = "STATE_365"  # Uruk
+	manpower = 382300
+	state_category = metropolis
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6425 5 }  # Uruk
+		buildings = {
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 4
+		}
+	}
+	provinces = {
+		6421 6425 6435 6449 6488 6508 6567 8908 8909
+	}
+	local_supplies = 0.0
+}

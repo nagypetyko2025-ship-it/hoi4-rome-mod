@@ -1,0 +1,17 @@
+state = {
+	id = 134
+	name = "STATE_134"  # Farther North-Eastern Suebia
+	manpower = 14400
+	state_category = rural
+	history = {
+		owner = SUE
+		add_core_of = SUE
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2194 2213 2219 2235 2239 2278 2321 2415 2463
+	}
+	local_supplies = 0.0
+}

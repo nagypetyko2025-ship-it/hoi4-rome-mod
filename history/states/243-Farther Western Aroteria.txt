@@ -1,0 +1,17 @@
+state = {
+	id = 243
+	name = "STATE_243"  # Farther Western Aroteria
+	manpower = 4800
+	state_category = pastoral
+	history = {
+		owner = ARO
+		add_core_of = ARO
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2924 3055 3072 3074 3082 3099 3106 3191 3265
+	}
+	local_supplies = 0.0
+}

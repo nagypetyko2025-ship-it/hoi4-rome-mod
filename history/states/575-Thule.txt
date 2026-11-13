@@ -1,0 +1,15 @@
+state = {
+	id = 575
+	name = "STATE_575"  # Thule
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		278 340 382 411 431 446 459 474 514 533 534
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 376
+	name = "STATE_376"  # Gubla
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6150 3 }  # Gubla
+		buildings = {
+			infrastructure = 2
+			6150 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6150
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 209
+	name = "STATE_209"  # North-Western Thyssagetia
+	manpower = 5700
+	state_category = rural
+	history = {
+		owner = THY
+		add_core_of = THY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1188 1193 1265 1319 1339 1356 1363 1368 1444 1468 1526 1560 1573 1596 1696
+	}
+	local_supplies = 0.0
+}

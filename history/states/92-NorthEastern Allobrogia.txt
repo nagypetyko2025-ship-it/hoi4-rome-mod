@@ -1,0 +1,17 @@
+state = {
+	id = 92
+	name = "STATE_92"  # North-Eastern Allobrogia
+	manpower = 10600
+	state_category = rural
+	history = {
+		owner = ABG
+		add_core_of = ABG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3836 3886 3926 3927 3934 3940 3941 3942 3943 3953 3954 3991 3999 4020 4025 4031 4118 4135
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,21 @@
+state = {
+	id = 278
+	name = "STATE_278"  # Chalkidike
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = CHK
+		add_core_of = CHK
+		victory_points = { 8812 4 }  # Poteidaia
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			8812 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		8812
+	}
+	local_supplies = 0.0
+}

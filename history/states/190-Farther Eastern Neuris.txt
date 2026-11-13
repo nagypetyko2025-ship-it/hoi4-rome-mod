@@ -1,0 +1,17 @@
+state = {
+	id = 190
+	name = "STATE_190"  # Farther Eastern Neuris
+	manpower = 3500
+	state_category = pastoral
+	history = {
+		owner = NEU
+		add_core_of = NEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2238 2290 2347 2413 2419 2445 2458 2467 2483 2488 2503 2504 2519 2520
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 194
+	name = "STATE_194"  # North-Eastern Androphagia
+	manpower = 4300
+	state_category = pastoral
+	history = {
+		owner = APH
+		add_core_of = APH
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1270 1296 1350 1358 1395 1406 1426 1434 1455 1483 1505 1506 1515 1516 1522 1532 1540 1577 1581 1582 1583 1619 1623 1629 1633 1648 1656 1661 1668 1670 1733 1741 1763 1778 1787 1813 1836 9137
+	}
+	local_supplies = 0.0
+}

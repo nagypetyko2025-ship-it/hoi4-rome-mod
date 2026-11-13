@@ -1,0 +1,20 @@
+state = {
+	id = 143
+	name = "STATE_143"  # Scandia Minor
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = DNI
+		add_core_of = DNI
+		victory_points = { 1842 1 }  # Lejre
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1842 1843 8704 8705 8710 8711 8712 8713 8714 8715 8716 8717 8718 8719
+	}
+	local_supplies = 0.0
+}

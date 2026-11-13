@@ -1,0 +1,21 @@
+state = {
+	id = 348
+	name = "STATE_348"  # Eleia
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = EIS
+		add_core_of = EIS
+		victory_points = { 5552 4 }  # Olympia
+		victory_points = { 5606 2 }  # Elis
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		5552 5606 8862 8863
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,21 @@
+state = {
+	id = 349
+	name = "STATE_349"  # Achaia
+	manpower = 35000
+	state_category = large_town
+	history = {
+		owner = AKH
+		add_core_of = AKH
+		victory_points = { 5527 2 }  # Aigion
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			5527 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5527 5538
+	}
+	local_supplies = 0.0
+}

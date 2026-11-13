@@ -1,0 +1,17 @@
+state = {
+	id = 241
+	name = "STATE_241"  # Western Aroteria
+	manpower = 6300
+	state_category = rural
+	history = {
+		owner = ARO
+		add_core_of = ARO
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3173 3188 3192 3212 3292 3300 3339 3348 3358 3396
+	}
+	local_supplies = 0.0
+}

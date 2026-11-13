@@ -1,0 +1,17 @@
+state = {
+	id = 506
+	name = "STATE_506"  # Western Kush
+	manpower = 8200
+	state_category = rural
+	history = {
+		owner = KSH
+		add_core_of = KSH
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		7161 7165 7211 7301 7349 7423 7558
+	}
+	local_supplies = 0.0
+}

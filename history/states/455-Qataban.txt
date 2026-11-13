@@ -1,0 +1,20 @@
+state = {
+	id = 455
+	name = "STATE_455"  # Qataban
+	manpower = 100000
+	state_category = large_town
+	history = {
+		owner = QTB
+		add_core_of = QTB
+		victory_points = { 7424 4 }  # Timna
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		7424 7564 7583
+	}
+	local_supplies = 0.0
+}

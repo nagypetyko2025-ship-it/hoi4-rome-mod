@@ -1,0 +1,21 @@
+state = {
+	id = 443
+	name = "STATE_443"  # Tyros
+	manpower = 50000
+	state_category = large_town
+	history = {
+		owner = TYR
+		add_core_of = TYR
+		victory_points = { 6239 8 }  # Sur
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			6239 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		6239 6243
+	}
+	local_supplies = 0.0
+}

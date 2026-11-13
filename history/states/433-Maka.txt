@@ -1,0 +1,19 @@
+state = {
+	id = 433
+	name = "STATE_433"  # Maka
+	manpower = 40700
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6964 2 }  # Maka
+		buildings = {
+			infrastructure = 2
+			6964 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6923 6964 6971 9053
+	}
+	local_supplies = 0.0
+}

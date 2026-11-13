@@ -1,0 +1,17 @@
+state = {
+	id = 211
+	name = "STATE_211"  # Western Thyssagetia
+	manpower = 1400
+	state_category = pastoral
+	history = {
+		owner = THY
+		add_core_of = THY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1480 1534 1622 1638 1663 1676
+	}
+	local_supplies = 0.0
+}

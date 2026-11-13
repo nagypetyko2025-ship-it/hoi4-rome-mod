@@ -1,0 +1,17 @@
+state = {
+	id = 299
+	name = "STATE_299"  # Farther Western Agathyrsia
+	manpower = 14300
+	state_category = rural
+	history = {
+		owner = AGA
+		add_core_of = AGA
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3798 3838 3914 3986 4001 4016 4044 4058 4105 4106 4131 4196 4204
+	}
+	local_supplies = 0.0
+}

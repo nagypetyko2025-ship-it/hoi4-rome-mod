@@ -1,0 +1,17 @@
+state = {
+	id = 204
+	name = "STATE_204"  # North-Western Budinia
+	manpower = 6600
+	state_category = rural
+	history = {
+		owner = BUD
+		add_core_of = BUD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1922 1923 1939 1940 1953 1954 2027 2055 2059 2097 2114 2128 2129 2149 2178 2190 2205 2243 2247 2254 2291 2309 2360
+	}
+	local_supplies = 0.0
+}

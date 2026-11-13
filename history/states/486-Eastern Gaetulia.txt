@@ -1,0 +1,17 @@
+state = {
+	id = 486
+	name = "STATE_486"  # Eastern Gaetulia
+	manpower = 5600
+	state_category = rural
+	history = {
+		owner = GAE
+		add_core_of = GAE
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6055 6068 6070 6086 6096 6101 6111 6116 6118 6119 6123 6133 6147 6160
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,25 @@
+state = {
+	id = 386
+	name = "STATE_386"  # Yauna
+	manpower = 250000
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5644 10 }  # Miletos
+		victory_points = { 5601 6 }  # Ephesos
+		victory_points = { 5461 3 }  # Phokaia
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			5461 = { naval_base = 1 }
+			5601 = { naval_base = 2 }
+			5644 = { naval_base = 3 }
+		}
+	}
+	provinces = {
+		5461 5486 5528 5534 5542 5601 5644
+	}
+	local_supplies = 0.0
+}

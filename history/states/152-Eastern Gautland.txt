@@ -1,0 +1,17 @@
+state = {
+	id = 152
+	name = "STATE_152"  # Eastern Gautland
+	manpower = 2400
+	state_category = pastoral
+	history = {
+		owner = GAU
+		add_core_of = GAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1604 8668 8672 8673 8678 8679 8682 8683 8684 8685 8687 8688 8692
+	}
+	local_supplies = 0.0
+}

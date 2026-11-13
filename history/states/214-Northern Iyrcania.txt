@@ -1,0 +1,17 @@
+state = {
+	id = 214
+	name = "STATE_214"  # Northern Iyrcania
+	manpower = 5300
+	state_category = rural
+	history = {
+		owner = IYR
+		add_core_of = IYR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1222 1253 1282 1323 1328 1369 1385 1429 1459 1485 1510 1549 1587 1602 1618
+	}
+	local_supplies = 0.0
+}

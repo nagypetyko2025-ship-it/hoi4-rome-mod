@@ -1,0 +1,17 @@
+state = {
+	id = 148
+	name = "STATE_148"  # Eastern Suionia
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = SVI
+		add_core_of = SVI
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1211 8640 8642
+	}
+	local_supplies = 0.0
+}

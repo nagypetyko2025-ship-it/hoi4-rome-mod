@@ -1,0 +1,17 @@
+state = {
+	id = 251
+	name = "STATE_251"  # South-Western Sauromatia
+	manpower = 9800
+	state_category = rural
+	history = {
+		owner = SAU
+		add_core_of = SAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3258 3261 3295 3368 3378 3475 3494 3502 3619 3626 3680 3722 3736 3805 3818 3872 3876 3994 4047 4161 4178 4427
+	}
+	local_supplies = 0.0
+}

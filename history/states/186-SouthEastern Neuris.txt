@@ -1,0 +1,17 @@
+state = {
+	id = 186
+	name = "STATE_186"  # South-Eastern Neuris
+	manpower = 2000
+	state_category = pastoral
+	history = {
+		owner = NEU
+		add_core_of = NEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2628 2649 2763 2774 2822 2823
+	}
+	local_supplies = 0.0
+}

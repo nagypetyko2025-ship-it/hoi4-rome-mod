@@ -1,0 +1,17 @@
+state = {
+	id = 560
+	name = "STATE_560"  # South-Western Corieltauvia
+	manpower = 20700
+	state_category = rural
+	history = {
+		owner = CRV
+		add_core_of = CRV
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2218 2241 2242 2261 2279 2280 2342 2362 2369 2381 2411 2429 2466
+	}
+	local_supplies = 0.0
+}

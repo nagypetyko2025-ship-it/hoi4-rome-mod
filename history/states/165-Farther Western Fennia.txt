@@ -1,0 +1,17 @@
+state = {
+	id = 165
+	name = "STATE_165"  # Farther Western Fennia
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = FEN
+		add_core_of = FEN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		213 221 241 253 270 286 296 299 304 312 314 316 320 323 325 346 362 363 366 371 385 388 399 401 413 414 432 454 492 496 520 546 577
+	}
+	local_supplies = 0.0
+}

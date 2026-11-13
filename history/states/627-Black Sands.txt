@@ -1,0 +1,15 @@
+state = {
+	id = 627
+	name = "STATE_627"  # Black Sands
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		4612 4806 5169 5399
+	}
+	local_supplies = 0.0
+}

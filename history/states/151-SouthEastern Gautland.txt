@@ -1,0 +1,17 @@
+state = {
+	id = 151
+	name = "STATE_151"  # South-Eastern Gautland
+	manpower = 10400
+	state_category = rural
+	history = {
+		owner = GAU
+		add_core_of = GAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1503 1544 1599 1647 1675 1698 1712 1715 1717 1739 1742 1746 1753 1771 1803 1823 1859 8699 8700 8701
+	}
+	local_supplies = 0.0
+}

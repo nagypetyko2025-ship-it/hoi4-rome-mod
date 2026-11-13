@@ -1,0 +1,20 @@
+state = {
+	id = 90
+	name = "STATE_90"  # Rutenia
+	manpower = 53700
+	state_category = town
+	history = {
+		owner = RUT
+		add_core_of = RUT
+		victory_points = { 4235 1 }  # Segodunum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4134 4195 4235 4268 4273 4305 4318 4343 4501 4502 4571
+	}
+	local_supplies = 0.0
+}

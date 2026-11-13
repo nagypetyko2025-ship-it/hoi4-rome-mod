@@ -1,0 +1,23 @@
+state = {
+	id = 497
+	name = "STATE_497"  # Kyrenaike
+	manpower = 77900
+	state_category = city
+	history = {
+		owner = KYR
+		add_core_of = KYR
+		victory_points = { 6296 8 }  # Kyrene
+		victory_points = { 6280 4 }  # Barke
+		victory_points = { 6344 3 }  # Euhesperides
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			6344 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6280 6284 6296 6301 6305 6308 6321 6344 6356 6362 6383 6385
+	}
+	local_supplies = 0.0
+}

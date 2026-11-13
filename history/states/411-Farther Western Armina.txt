@@ -1,0 +1,17 @@
+state = {
+	id = 411
+	name = "STATE_411"  # Farther Western Armina
+	manpower = 19200
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5181 5240 5265 5291 5354 5426 5428 5467 5508 5510
+	}
+	local_supplies = 0.0
+}

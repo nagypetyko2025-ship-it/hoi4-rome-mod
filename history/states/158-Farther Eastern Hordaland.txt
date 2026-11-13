@@ -1,0 +1,17 @@
+state = {
+	id = 158
+	name = "STATE_158"  # Farther Eastern Hordaland
+	manpower = 1100
+	state_category = pastoral
+	history = {
+		owner = HRD
+		add_core_of = HRD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		730 753 836 919 1086 1148
+	}
+	local_supplies = 0.0
+}

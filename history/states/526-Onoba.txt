@@ -1,0 +1,20 @@
+state = {
+	id = 526
+	name = "STATE_526"  # Onoba
+	manpower = 57200
+	state_category = town
+	history = {
+		owner = TTS
+		add_core_of = TTS
+		victory_points = { 5622 3 }  # Onoba
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			5622 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5325 5335 5356 5363 5390 5435 5448 5468 5493 5499 5602 5622
+	}
+	local_supplies = 0.0
+}

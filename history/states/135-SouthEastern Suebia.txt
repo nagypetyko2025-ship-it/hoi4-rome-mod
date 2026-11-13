@@ -1,0 +1,17 @@
+state = {
+	id = 135
+	name = "STATE_135"  # South-Eastern Suebia
+	manpower = 15100
+	state_category = rural
+	history = {
+		owner = SUE
+		add_core_of = SUE
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2438 2487 2525 2533 2547 2575 2592 2593 2603 2643 2697 2711 2737 2760
+	}
+	local_supplies = 0.0
+}

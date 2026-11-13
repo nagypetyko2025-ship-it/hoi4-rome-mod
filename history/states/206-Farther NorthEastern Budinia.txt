@@ -1,0 +1,17 @@
+state = {
+	id = 206
+	name = "STATE_206"  # Farther North-Eastern Budinia
+	manpower = 7700
+	state_category = rural
+	history = {
+		owner = BUD
+		add_core_of = BUD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2008 2099 2248 2265 2270 2275 2297 2460
+	}
+	local_supplies = 0.0
+}

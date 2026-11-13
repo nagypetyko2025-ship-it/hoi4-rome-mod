@@ -1,0 +1,20 @@
+state = {
+	id = 321
+	name = "STATE_321"  # Delmatia
+	manpower = 63700
+	state_category = large_town
+	history = {
+		owner = DLM
+		add_core_of = DLM
+		victory_points = { 4412 1 }  # Delminium
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4227 4251 4269 4363 4364 4375 4388 4392 4404 4412 4420 4431 4444 4479 4486 4575 8749 8750 8751 8752 8753
+	}
+	local_supplies = 0.0
+}

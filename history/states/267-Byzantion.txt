@@ -1,0 +1,21 @@
+state = {
+	id = 267
+	name = "STATE_267"  # Byzantion
+	manpower = 40000
+	state_category = large_town
+	history = {
+		owner = BYZ
+		add_core_of = BYZ
+		victory_points = { 4972 6 }  # Byzantion
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4972 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		4972
+	}
+	local_supplies = 0.0
+}

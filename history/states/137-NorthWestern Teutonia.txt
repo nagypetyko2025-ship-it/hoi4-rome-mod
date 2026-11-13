@@ -1,0 +1,17 @@
+state = {
+	id = 137
+	name = "STATE_137"  # North-Western Teutonia
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = TEU
+		add_core_of = TEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		8702 8703 8706 8707 9078
+	}
+	local_supplies = 0.0
+}

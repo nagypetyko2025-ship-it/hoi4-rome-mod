@@ -1,0 +1,19 @@
+state = {
+	id = 373
+	name = "STATE_373"  # Ebir-Nari
+	manpower = 114500
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6209 6 }  # Dimashqu
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6175 6188 6202 6209 6256 6261 6268 6270 6287 6292 6297
+	}
+	local_supplies = 0.0
+}

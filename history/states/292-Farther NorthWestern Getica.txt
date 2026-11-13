@@ -1,0 +1,17 @@
+state = {
+	id = 292
+	name = "STATE_292"  # Farther North-Western Getica
+	manpower = 6800
+	state_category = rural
+	history = {
+		owner = GTA
+		add_core_of = GTA
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3982 4112 4139 4146 4151 4200 4208
+	}
+	local_supplies = 0.0
+}

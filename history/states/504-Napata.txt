@@ -1,0 +1,19 @@
+state = {
+	id = 504
+	name = "STATE_504"  # Napata
+	manpower = 49600
+	state_category = large_town
+	history = {
+		owner = KSH
+		add_core_of = KSH
+		victory_points = { 7134 6 }  # Napata
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6996 7001 7035 7055 7071 7079 7084 7116 7134 7149
+	}
+	local_supplies = 0.0
+}

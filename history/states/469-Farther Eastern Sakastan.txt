@@ -1,0 +1,17 @@
+state = {
+	id = 469
+	name = "STATE_469"  # Farther Eastern Sakastan
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = SAK
+		add_core_of = SAK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		8754 8755 8756 8757 8759 8760 8761 8762 8763 8764 8765 8766 8767 8768 8769 8770
+	}
+	local_supplies = 0.0
+}

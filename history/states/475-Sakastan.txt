@@ -1,0 +1,20 @@
+state = {
+	id = 475
+	name = "STATE_475"  # Sakastan
+	manpower = 63000
+	state_category = large_town
+	history = {
+		owner = SAK
+		add_core_of = SAK
+		victory_points = { 4614 1 }  # Chach
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4228 4267 4400 4440 4515 4614 4638 4715 4856 4863
+	}
+	local_supplies = 0.0
+}

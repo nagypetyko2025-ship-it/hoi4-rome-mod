@@ -1,0 +1,17 @@
+state = {
+	id = 212
+	name = "STATE_212"  # South-Eastern Thyssagetia
+	manpower = 1100
+	state_category = pastoral
+	history = {
+		owner = THY
+		add_core_of = THY
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2140 2144 2145 2182 2228
+	}
+	local_supplies = 0.0
+}

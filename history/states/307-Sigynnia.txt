@@ -1,0 +1,20 @@
+state = {
+	id = 307
+	name = "STATE_307"  # Sigynnia
+	manpower = 48000
+	state_category = town
+	history = {
+		owner = SIG
+		add_core_of = SIG
+		victory_points = { 3606 1 }  # Vekerzug
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3548 3553 3563 3564 3576 3606 3625 3633 3657 3693 3719 3720 3725 3740 3774 3775 3776 3789 3832 3971
+	}
+	local_supplies = 0.0
+}

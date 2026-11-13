@@ -1,0 +1,17 @@
+state = {
+	id = 155
+	name = "STATE_155"  # North-Eastern Hordaland
+	manpower = 3200
+	state_category = pastoral
+	history = {
+		owner = HRD
+		add_core_of = HRD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		635 651 669 736 752 756 806 843 850 857 869 904 906 907 911 936 942 946 958 969 8606 8607 8608 8609 8610 8611 8612 8613 8614 8615 8616 8617
+	}
+	local_supplies = 0.0
+}

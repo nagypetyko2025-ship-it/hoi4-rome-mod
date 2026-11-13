@@ -1,0 +1,17 @@
+state = {
+	id = 157
+	name = "STATE_157"  # South-Eastern Hordaland
+	manpower = 7100
+	state_category = rural
+	history = {
+		owner = HRD
+		add_core_of = HRD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		995 1017 1032 1033 1036 1046 1056 1102 1108 1116 1153 1156 1160 1179 1205 1227 1254 1262 1284 1294 1298 1317 1320 1325 1347 1359 1370 1380 1386 1392 1403 1420 1438 1450 1453 1460 1491
+	}
+	local_supplies = 0.0
+}

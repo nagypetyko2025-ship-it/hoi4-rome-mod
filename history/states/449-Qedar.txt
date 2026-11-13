@@ -1,0 +1,20 @@
+state = {
+	id = 449
+	name = "STATE_449"  # Qedar
+	manpower = 59400
+	state_category = town
+	history = {
+		owner = QDR
+		add_core_of = QDR
+		victory_points = { 6524 3 }  # Adumatu
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		6397 6447 6480 6489 6524 6538 6578 6590
+	}
+	local_supplies = 0.0
+}

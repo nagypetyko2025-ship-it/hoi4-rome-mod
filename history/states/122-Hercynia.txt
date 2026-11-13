@@ -1,0 +1,20 @@
+state = {
+	id = 122
+	name = "STATE_122"  # Hercynia
+	manpower = 53100
+	state_category = town
+	history = {
+		owner = VLK
+		add_core_of = VLK
+		victory_points = { 2803 1 }  # Steinsburg
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2631 2755 2772 2803 2812 2879 2889 2926 2933 2938 2951 2960 2975 3005
+	}
+	local_supplies = 0.0
+}

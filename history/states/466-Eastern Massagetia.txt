@@ -1,0 +1,17 @@
+state = {
+	id = 466
+	name = "STATE_466"  # Eastern Massagetia
+	manpower = 11200
+	state_category = rural
+	history = {
+		owner = MSG
+		add_core_of = MSG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3441 3569 3847 3972 4624 4664 4812 4892
+	}
+	local_supplies = 0.0
+}

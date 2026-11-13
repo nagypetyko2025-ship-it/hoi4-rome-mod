@@ -1,0 +1,20 @@
+state = {
+	id = 258
+	name = "STATE_258"  # Maeotia
+	manpower = 63000
+	state_category = large_town
+	history = {
+		owner = MAE
+		add_core_of = MAE
+		victory_points = { 3835 1 }  # Elizavetinskoe
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3735 3765 3800 3835 3857 3883 3884 3939 3966 4023 4029 4083 4095 4117
+	}
+	local_supplies = 0.0
+}

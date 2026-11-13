@@ -1,0 +1,17 @@
+state = {
+	id = 445
+	name = "STATE_445"  # Northern Qedar
+	manpower = 8800
+	state_category = rural
+	history = {
+		owner = QDR
+		add_core_of = QDR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6145 6269 6347 6436
+	}
+	local_supplies = 0.0
+}

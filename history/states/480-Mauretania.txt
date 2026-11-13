@@ -1,0 +1,21 @@
+state = {
+	id = 480
+	name = "STATE_480"  # Mauretania
+	manpower = 40200
+	state_category = town
+	history = {
+		owner = MAU
+		add_core_of = MAU
+		victory_points = { 5854 3 }  # Tinga
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			5854 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5704 5766 5767 5779 5792 5854 5878
+	}
+	local_supplies = 0.0
+}

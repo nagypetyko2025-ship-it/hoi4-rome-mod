@@ -1,0 +1,17 @@
+state = {
+	id = 290
+	name = "STATE_290"  # North-Eastern Getica
+	manpower = 17400
+	state_category = rural
+	history = {
+		owner = GTA
+		add_core_of = GTA
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3702 3817 3874 3891 3895 3901 3911 3915 3931 3946 3947 3950 3997 4009 4010 4071 4081 4091 4113 4157 4163 4186
+	}
+	local_supplies = 0.0
+}

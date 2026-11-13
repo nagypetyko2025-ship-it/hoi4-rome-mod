@@ -1,0 +1,19 @@
+state = {
+	id = 172
+	name = "STATE_172"  # Sitonia
+	manpower = 17400
+	state_category = rural
+	history = {
+		owner = FNN
+		add_core_of = FNN
+		victory_points = { 948 1 }  # Tavastia
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		948 952 977 980 985 996 1021 1034 1072 1092 1099 1106 1118 1121 1128 1134 1141 1150 1154 1161 1165 1175 1181 1199 1239 1240 8635 8636 8637 8638 8641 8643 8644 8645 9077 9109 9110 9111 9112
+	}
+	local_supplies = 0.0
+}

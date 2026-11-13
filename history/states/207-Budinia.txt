@@ -1,0 +1,20 @@
+state = {
+	id = 207
+	name = "STATE_207"  # Budinia
+	manpower = 42100
+	state_category = town
+	history = {
+		owner = BUD
+		add_core_of = BUD
+		victory_points = { 2317 3 }  # Gelonos
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		2317 2335 2340 2366 2414 2440 2441 2479 2506 2521 2546 2597 2650
+	}
+	local_supplies = 0.0
+}

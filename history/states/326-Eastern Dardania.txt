@@ -1,0 +1,17 @@
+state = {
+	id = 326
+	name = "STATE_326"  # Eastern Dardania
+	manpower = 26200
+	state_category = rural
+	history = {
+		owner = DRD
+		add_core_of = DRD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4498 4506 4691 4701 4713 4717 4748
+	}
+	local_supplies = 0.0
+}

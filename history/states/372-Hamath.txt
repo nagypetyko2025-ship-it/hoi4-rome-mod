@@ -1,0 +1,18 @@
+state = {
+	id = 372
+	name = "STATE_372"  # Hamath
+	manpower = 46500
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6062 2 }  # Hamath
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6062 6069 6075 6098 6103 6106 6155 6165
+	}
+	local_supplies = 0.0
+}

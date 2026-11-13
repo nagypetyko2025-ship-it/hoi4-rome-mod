@@ -1,0 +1,20 @@
+state = {
+	id = 317
+	name = "STATE_317"  # Iapodia
+	manpower = 42700
+	state_category = town
+	history = {
+		owner = IAP
+		add_core_of = IAP
+		victory_points = { 4166 1 }  # Metulum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		3935 3981 4027 4035 4075 4076 4145 4150 4166 4167 4168 4180 4184 4199 4214 4222 4250
+	}
+	local_supplies = 0.0
+}

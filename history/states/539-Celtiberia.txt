@@ -1,0 +1,20 @@
+state = {
+	id = 539
+	name = "STATE_539"  # Celtiberia
+	manpower = 96700
+	state_category = large_town
+	history = {
+		owner = CTB
+		add_core_of = CTB
+		victory_points = { 4700 3 }  # Numantia
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		4517 4551 4615 4625 4644 4655 4699 4700 4703 4721 4749 4750 4771
+	}
+	local_supplies = 0.0
+}

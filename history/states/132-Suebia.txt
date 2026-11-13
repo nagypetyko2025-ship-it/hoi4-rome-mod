@@ -1,0 +1,20 @@
+state = {
+	id = 132
+	name = "STATE_132"  # Suebia
+	manpower = 49600
+	state_category = town
+	history = {
+		owner = SUE
+		add_core_of = SUE
+		victory_points = { 2350 1 }  # Semnonia
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		2301 2312 2344 2350 2370 2396 2402 2437 2514 2548 2553 2554
+	}
+	local_supplies = 0.0
+}

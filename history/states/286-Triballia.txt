@@ -1,0 +1,20 @@
+state = {
+	id = 286
+	name = "STATE_286"  # Triballia
+	manpower = 67900
+	state_category = large_town
+	history = {
+		owner = TRB
+		add_core_of = TRB
+		victory_points = { 4467 1 }  # Oescus
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4310 4360 4369 4406 4425 4437 4467 4480
+	}
+	local_supplies = 0.0
+}

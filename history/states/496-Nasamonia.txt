@@ -1,0 +1,20 @@
+state = {
+	id = 496
+	name = "STATE_496"  # Nasamonia
+	manpower = 28200
+	state_category = rural
+	history = {
+		owner = NAS
+		add_core_of = NAS
+		victory_points = { 6486 1 }  # Augila
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6452 6474 6486 6504 6511 6514 6537
+	}
+	local_supplies = 0.0
+}

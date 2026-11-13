@@ -1,0 +1,18 @@
+state = {
+	id = 99
+	name = "STATE_99"  # North-Eastern Belgica
+	manpower = 56500
+	state_category = town
+	history = {
+		owner = BGA
+		add_core_of = BGA
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2471 2560 2561 2580 2610 2686 2688 2749 2754 2758 2789 2820 2845 2913
+	}
+	local_supplies = 0.0
+}

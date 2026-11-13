@@ -1,0 +1,17 @@
+state = {
+	id = 255
+	name = "STATE_255"  # Farther North-Eastern Sauromatia
+	manpower = 11000
+	state_category = rural
+	history = {
+		owner = SAU
+		add_core_of = SAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2489 2577 2594 2609 2653 2665 2684 2756 2865 2884 2919 2972 2976 3004 3044
+	}
+	local_supplies = 0.0
+}

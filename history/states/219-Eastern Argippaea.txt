@@ -1,0 +1,17 @@
+state = {
+	id = 219
+	name = "STATE_219"  # Eastern Argippaea
+	manpower = 3100
+	state_category = pastoral
+	history = {
+		owner = AGP
+		add_core_of = AGP
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2156 2157 2163 2256 2383 2427 2658
+	}
+	local_supplies = 0.0
+}

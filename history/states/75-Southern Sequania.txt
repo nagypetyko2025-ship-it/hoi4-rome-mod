@@ -1,0 +1,17 @@
+state = {
+	id = 75
+	name = "STATE_75"  # Southern Sequania
+	manpower = 21500
+	state_category = rural
+	history = {
+		owner = SEQ
+		add_core_of = SEQ
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3570 3579 3639 3673 3678 3681 3689 3707 3717 3739 3783 3887
+	}
+	local_supplies = 0.0
+}

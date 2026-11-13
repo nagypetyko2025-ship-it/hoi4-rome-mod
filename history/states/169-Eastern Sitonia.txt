@@ -1,0 +1,17 @@
+state = {
+	id = 169
+	name = "STATE_169"  # Eastern Sitonia
+	manpower = 5400
+	state_category = rural
+	history = {
+		owner = FNN
+		add_core_of = FNN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		697 712 716 722 775 787 789 811 839 842 847 848 871 887 888 924 925 935 943 955 961 978 997 1002 1007 1008 1026 1039 1047 1048 1061 1087 1124 1126 1127 1130 1131 1142 1173 9113 9114 9117 9118 9119 9120 9121 9123 9124 9126
+	}
+	local_supplies = 0.0
+}

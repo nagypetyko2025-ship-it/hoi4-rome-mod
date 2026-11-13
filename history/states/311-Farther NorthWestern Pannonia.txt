@@ -1,0 +1,17 @@
+state = {
+	id = 311
+	name = "STATE_311"  # Farther North-Western Pannonia
+	manpower = 6800
+	state_category = rural
+	history = {
+		owner = PAN
+		add_core_of = PAN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3656 3687 3751 3760 3769 3778 3788 3830 3831 3844 3845 3929
+	}
+	local_supplies = 0.0
+}

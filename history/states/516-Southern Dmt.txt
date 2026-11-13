@@ -1,0 +1,17 @@
+state = {
+	id = 516
+	name = "STATE_516"  # Southern D'mt
+	manpower = 7700
+	state_category = rural
+	history = {
+		owner = DMT
+		add_core_of = DMT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7679 7689 7716 7764 7818 7819 7859 7914 7942 8006
+	}
+	local_supplies = 0.0
+}

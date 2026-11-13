@@ -1,0 +1,17 @@
+state = {
+	id = 500
+	name = "STATE_500"  # Western Marmarike
+	manpower = 4700
+	state_category = pastoral
+	history = {
+		owner = MRM
+		add_core_of = MRM
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6379 6408 6441
+	}
+	local_supplies = 0.0
+}

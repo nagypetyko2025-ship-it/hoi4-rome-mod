@@ -1,0 +1,19 @@
+state = {
+	id = 426
+	name = "STATE_426"  # Suguda
+	manpower = 150000
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5199 5 }  # Marakanda
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5117 5162 5199 5218 5231 5241 5458 5557 5558 5620 5729
+	}
+	local_supplies = 0.0
+}

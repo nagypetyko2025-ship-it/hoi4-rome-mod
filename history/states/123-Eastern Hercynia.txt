@@ -1,0 +1,17 @@
+state = {
+	id = 123
+	name = "STATE_123"  # Eastern Hercynia
+	manpower = 10000
+	state_category = rural
+	history = {
+		owner = VLK
+		add_core_of = VLK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2736 2813 2837 2876 2904 2905 2983
+	}
+	local_supplies = 0.0
+}

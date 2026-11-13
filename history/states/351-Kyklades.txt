@@ -1,0 +1,21 @@
+state = {
+	id = 351
+	name = "STATE_351"  # Kyklades
+	manpower = 46400
+	state_category = large_town
+	history = {
+		owner = NAX
+		add_core_of = NAX
+		victory_points = { 8873 5 }  # Naxos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			8873 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5600 8868 8871 8872 8873 8876 8877
+	}
+	local_supplies = 0.0
+}

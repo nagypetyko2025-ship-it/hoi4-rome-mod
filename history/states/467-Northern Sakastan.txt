@@ -1,0 +1,17 @@
+state = {
+	id = 467
+	name = "STATE_467"  # Northern Sakastan
+	manpower = 11200
+	state_category = rural
+	history = {
+		owner = SAK
+		add_core_of = SAK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2920 2940 3034 3387 3819
+	}
+	local_supplies = 0.0
+}

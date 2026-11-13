@@ -1,0 +1,17 @@
+state = {
+	id = 515
+	name = "STATE_515"  # South-Eastern D'mt
+	manpower = 3300
+	state_category = pastoral
+	history = {
+		owner = DMT
+		add_core_of = DMT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7549 7702 7779
+	}
+	local_supplies = 0.0
+}

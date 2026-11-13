@@ -1,0 +1,21 @@
+state = {
+	id = 353
+	name = "STATE_353"  # Rhodos
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = RHO
+		add_core_of = RHO
+		victory_points = { 5904 5 }  # Lindos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			5904 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5876 5904 8882
+	}
+	local_supplies = 0.0
+}

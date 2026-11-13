@@ -1,0 +1,21 @@
+state = {
+	id = 322
+	name = "STATE_322"  # Ardiaea
+	manpower = 70000
+	state_category = large_town
+	history = {
+		owner = ARD
+		add_core_of = ARD
+		victory_points = { 4527 1 }  # Daorson
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			4527 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4466 4510 4513 4527 4544 4591 4619 4663 8758
+	}
+	local_supplies = 0.0
+}

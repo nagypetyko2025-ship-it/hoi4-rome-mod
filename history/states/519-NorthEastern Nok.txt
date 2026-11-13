@@ -1,0 +1,17 @@
+state = {
+	id = 519
+	name = "STATE_519"  # North-Eastern Nok
+	manpower = 14500
+	state_category = rural
+	history = {
+		owner = NOK
+		add_core_of = NOK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7756 7768 7772 7782 7787 7795 7798 7803 7807 7849 7855 7891 7892 7903 7904 7922 7993 8032
+	}
+	local_supplies = 0.0
+}

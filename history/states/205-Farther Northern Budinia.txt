@@ -1,0 +1,17 @@
+state = {
+	id = 205
+	name = "STATE_205"  # Farther Northern Budinia
+	manpower = 4700
+	state_category = pastoral
+	history = {
+		owner = BUD
+		add_core_of = BUD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1925 1930 1966 1990 2003 2020 2028 2042 2060 2075 2086 2098 2181 2191 2198 2258 2264
+	}
+	local_supplies = 0.0
+}

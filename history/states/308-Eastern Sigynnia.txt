@@ -1,0 +1,17 @@
+state = {
+	id = 308
+	name = "STATE_308"  # Eastern Sigynnia
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = SIG
+		add_core_of = SIG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2952 2953 2989
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 280
+	name = "STATE_280"  # Odrysia
+	manpower = 112800
+	state_category = large_town
+	history = {
+		owner = ODR
+		add_core_of = ODR
+		victory_points = { 4842 3 }  # Uscudama
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		4801 4809 4842 4874 4899
+	}
+	local_supplies = 0.0
+}

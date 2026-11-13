@@ -1,0 +1,20 @@
+state = {
+	id = 333
+	name = "STATE_333"  # Epeiros
+	manpower = 73800
+	state_category = city
+	history = {
+		owner = MOL
+		add_core_of = MOL
+		victory_points = { 5329 3 }  # Dodona
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		5262 5274 5315 5316 5329 5345 5359 5367
+	}
+	local_supplies = 0.0
+}

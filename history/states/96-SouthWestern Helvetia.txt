@@ -1,0 +1,17 @@
+state = {
+	id = 96
+	name = "STATE_96"  # South-Western Helvetia
+	manpower = 2200
+	state_category = pastoral
+	history = {
+		owner = HLV
+		add_core_of = HLV
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3814 3827 3888 3974 4021
+	}
+	local_supplies = 0.0
+}

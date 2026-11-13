@@ -1,0 +1,17 @@
+state = {
+	id = 413
+	name = "STATE_413"  # South-Western Armina
+	manpower = 30800
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5445 5463 5517 5518 5570 5595 5608 5650 5728 5745
+	}
+	local_supplies = 0.0
+}

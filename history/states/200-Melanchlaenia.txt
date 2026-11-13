@@ -1,0 +1,20 @@
+state = {
+	id = 200
+	name = "STATE_200"  # Melanchlaenia
+	manpower = 35900
+	state_category = town
+	history = {
+		owner = MLC
+		add_core_of = MLC
+		victory_points = { 2664 1 }  # Voronezh
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2551 2637 2645 2664 2702 2716 2717 2726 2765 2775 2828 2848
+	}
+	local_supplies = 0.0
+}

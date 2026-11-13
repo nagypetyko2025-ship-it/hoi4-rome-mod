@@ -1,0 +1,19 @@
+state = {
+	id = 412
+	name = "STATE_412"  # Armina
+	manpower = 150800
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5498 5 }  # Tushpa
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5397 5498 5532 5564 9129
+	}
+	local_supplies = 0.0
+}

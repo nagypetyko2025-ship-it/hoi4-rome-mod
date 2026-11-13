@@ -1,0 +1,21 @@
+state = {
+	id = 437
+	name = "STATE_437"  # Hilakku
+	manpower = 98600
+	state_category = city
+	history = {
+		owner = KIL
+		add_core_of = KIL
+		victory_points = { 5813 6 }  # Tarsa
+		buildings = {
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 4
+			5813 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5614 5680 5681 5701 5713 5790 5813
+	}
+	local_supplies = 0.0
+}

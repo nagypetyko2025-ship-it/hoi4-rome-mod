@@ -1,0 +1,21 @@
+state = {
+	id = 342
+	name = "STATE_342"  # Akte
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = EPI
+		add_core_of = EPI
+		victory_points = { 5683 3 }  # Epidauros
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			5683 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		5683
+	}
+	local_supplies = 0.0
+}

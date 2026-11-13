@@ -1,0 +1,17 @@
+state = {
+	id = 198
+	name = "STATE_198"  # Northern Melanchlaenia
+	manpower = 12300
+	state_category = rural
+	history = {
+		owner = MLC
+		add_core_of = MLC
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2227 2303 2304 2305 2338 2357 2359 2386 2388 2420 2452 2468 2475 2493 2498 2505 2511 2587
+	}
+	local_supplies = 0.0
+}

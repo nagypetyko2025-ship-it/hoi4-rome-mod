@@ -1,0 +1,17 @@
+state = {
+	id = 178
+	name = "STATE_178"  # South-Eastern Aestia
+	manpower = 4500
+	state_category = pastoral
+	history = {
+		owner = AES
+		add_core_of = AES
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1901 1902 1959 1971 1972 1985 1995 2030 2065 2091 2092 2094 2118 2125 2126 2138 2148 2237 2296 2376
+	}
+	local_supplies = 0.0
+}

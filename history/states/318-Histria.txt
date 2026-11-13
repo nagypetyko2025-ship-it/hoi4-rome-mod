@@ -1,0 +1,21 @@
+state = {
+	id = 318
+	name = "STATE_318"  # Histria
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = HIS
+		add_core_of = HIS
+		victory_points = { 4121 2 }  # Nesactium
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			4121 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		3869 3904 3959 3976 3996 4007 4052 4063 4070 4109 4121 9086
+	}
+	local_supplies = 0.0
+}

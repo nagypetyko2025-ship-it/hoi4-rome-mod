@@ -1,0 +1,17 @@
+state = {
+	id = 424
+	name = "STATE_424"  # Farther Eastern Bakhtrish
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		8883 8884 8885 8886 8887 8888 8889 8890 8891
+	}
+	local_supplies = 0.0
+}

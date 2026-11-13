@@ -1,0 +1,17 @@
+state = {
+	id = 489
+	name = "STATE_489"  # Western Gaetulia
+	manpower = 3800
+	state_category = pastoral
+	history = {
+		owner = GAE
+		add_core_of = GAE
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6162 6163 6172 6191 6195 6212 6230 6264 6267 6276 6277 6286 6295 6331
+	}
+	local_supplies = 0.0
+}

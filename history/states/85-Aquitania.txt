@@ -1,0 +1,22 @@
+state = {
+	id = 85
+	name = "STATE_85"  # Aquitania
+	manpower = 73900
+	state_category = large_town
+	history = {
+		owner = AQT
+		add_core_of = AQT
+		victory_points = { 4312 1 }  # Elusa
+		victory_points = { 4187 1 }  # Burdigala
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+			4187 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4107 4164 4187 4188 4189 4216 4238 4242 4243 4284 4312
+	}
+	local_supplies = 0.0
+}

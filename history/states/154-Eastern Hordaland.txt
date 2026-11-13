@@ -1,0 +1,17 @@
+state = {
+	id = 154
+	name = "STATE_154"  # Eastern Hordaland
+	manpower = 1200
+	state_category = pastoral
+	history = {
+		owner = HRD
+		add_core_of = HRD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1172 1190 1238 1255 1295 1315 1318 1381 1382 1408 1413
+	}
+	local_supplies = 0.0
+}

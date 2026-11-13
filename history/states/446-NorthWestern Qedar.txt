@@ -1,0 +1,17 @@
+state = {
+	id = 446
+	name = "STATE_446"  # North-Western Qedar
+	manpower = 3800
+	state_category = pastoral
+	history = {
+		owner = QDR
+		add_core_of = QDR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6293 6302 6323 6359 6360 6372
+	}
+	local_supplies = 0.0
+}

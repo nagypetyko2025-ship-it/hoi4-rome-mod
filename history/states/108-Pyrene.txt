@@ -1,0 +1,20 @@
+state = {
+	id = 108
+	name = "STATE_108"  # Pyrene
+	manpower = 79400
+	state_category = large_town
+	history = {
+		owner = HEU
+		add_core_of = HEU
+		victory_points = { 3304 4 }  # Pyrene
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3094 3126 3127 3185 3194 3209 3229 3304 3311 3312 3317 3334 3370 9134
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 224
+	name = "STATE_224"  # Farther North-Eastern Issedonia
+	manpower = 4800
+	state_category = pastoral
+	history = {
+		owner = ISS
+		add_core_of = ISS
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2044 2050 2051 2081 2088 2093 2175 2298 2400
+	}
+	local_supplies = 0.0
+}

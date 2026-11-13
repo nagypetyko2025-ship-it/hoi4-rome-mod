@@ -1,0 +1,17 @@
+state = {
+	id = 218
+	name = "STATE_218"  # North-Eastern Argippaea
+	manpower = 5800
+	state_category = rural
+	history = {
+		owner = AGP
+		add_core_of = AGP
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1745 1782 1794 1801 1821 1826 1827 1828 1839 1845 1866 1911 1912 1932 1947 1956 1981 1987 2064 2100 2115
+	}
+	local_supplies = 0.0
+}

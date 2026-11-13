@@ -1,0 +1,17 @@
+state = {
+	id = 448
+	name = "STATE_448"  # Farther Western Qedar
+	manpower = 9200
+	state_category = rural
+	history = {
+		owner = QDR
+		add_core_of = QDR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6492 6518 6529 6532 6544 6561 6566 6569 6575 6583 6587 6594 6604 6640 6644 6652 6665
+	}
+	local_supplies = 0.0
+}

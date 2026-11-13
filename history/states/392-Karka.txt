@@ -1,0 +1,20 @@
+state = {
+	id = 392
+	name = "STATE_392"  # Karka
+	manpower = 101100
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5711 5 }  # Halikarnassos
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			5711 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5711 5770 5809 8874 8875 8878
+	}
+	local_supplies = 0.0
+}

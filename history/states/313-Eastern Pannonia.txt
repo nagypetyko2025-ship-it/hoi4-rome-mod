@@ -1,0 +1,17 @@
+state = {
+	id = 313
+	name = "STATE_313"  # Eastern Pannonia
+	manpower = 12900
+	state_category = rural
+	history = {
+		owner = PAN
+		add_core_of = PAN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3898 3977 4053 4055 4078 4079 4080 4090 4103 4111 4122 4123 4162 4192 4203 4223 4264 4300 4314
+	}
+	local_supplies = 0.0
+}

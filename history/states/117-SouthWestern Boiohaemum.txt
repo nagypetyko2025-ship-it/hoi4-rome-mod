@@ -1,0 +1,17 @@
+state = {
+	id = 117
+	name = "STATE_117"  # South-Western Boiohaemum
+	manpower = 6700
+	state_category = rural
+	history = {
+		owner = BOI
+		add_core_of = BOI
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2927 3003 3030 3061 3071 3096
+	}
+	local_supplies = 0.0
+}

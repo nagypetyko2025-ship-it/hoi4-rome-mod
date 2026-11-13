@@ -1,0 +1,17 @@
+state = {
+	id = 328
+	name = "STATE_328"  # Northern Taulantia
+	manpower = 20600
+	state_category = rural
+	history = {
+		owner = TLN
+		add_core_of = TLN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4671 4685 4696 4707 4708 4709 4740 4767 4768 4778 4796 4808 4844
+	}
+	local_supplies = 0.0
+}

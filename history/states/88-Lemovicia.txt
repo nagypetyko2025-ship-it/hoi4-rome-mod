@@ -1,0 +1,20 @@
+state = {
+	id = 88
+	name = "STATE_88"  # Lemovicia
+	manpower = 80000
+	state_category = large_town
+	history = {
+		owner = LEM
+		add_core_of = LEM
+		victory_points = { 3821 1 }  # Durotincum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3716 3724 3738 3767 3820 3821 3896 3918 3919 3967 3989 4024 4054
+	}
+	local_supplies = 0.0
+}

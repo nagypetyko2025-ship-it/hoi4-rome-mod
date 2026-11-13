@@ -1,0 +1,17 @@
+state = {
+	id = 567
+	name = "STATE_567"  # Northern Caledonia
+	manpower = 6700
+	state_category = rural
+	history = {
+		owner = CAL
+		add_core_of = CAL
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1366 1401 1407 1427 1464 8647 8648 8651 8652 8653 8654 8655 8656
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 481
+	name = "STATE_481"  # Eastern Masaesylia
+	manpower = 18500
+	state_category = rural
+	history = {
+		owner = MSS
+		add_core_of = MSS
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		5793 5811 5821 5839 5840 5841 5855 5879 5906 5907 5946 5953 5968 5972 5973 5988 6039
+	}
+	local_supplies = 0.0
+}

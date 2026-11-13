@@ -1,0 +1,17 @@
+state = {
+	id = 485
+	name = "STATE_485"  # North-Eastern Gaetulia
+	manpower = 4200
+	state_category = pastoral
+	history = {
+		owner = GAE
+		add_core_of = GAE
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		5735 5750 5781 5814 5815 5824 5829 5845 5851 5865 5923 5929 5941 5958 5961 5969 5982 5985 5989 5995 5996 6001 6002 6017 6022 6031 6060 6064 6065 6071
+	}
+	local_supplies = 0.0
+}

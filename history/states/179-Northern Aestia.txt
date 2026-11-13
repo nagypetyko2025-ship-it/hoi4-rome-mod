@@ -1,0 +1,17 @@
+state = {
+	id = 179
+	name = "STATE_179"  # Northern Aestia
+	manpower = 2600
+	state_category = pastoral
+	history = {
+		owner = AES
+		add_core_of = AES
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1252 1263 1288 1383 1555
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 210
+	name = "STATE_210"  # Thyssagetia
+	manpower = 23300
+	state_category = rural
+	history = {
+		owner = THY
+		add_core_of = THY
+		victory_points = { 1850 1 }  # Ananyino
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1641 1702 1721 1751 1791 1837 1850 1851 1877 1929 1931 1944 1967 1970 2016 2029 2031 2038 2043 2061 2105
+	}
+	local_supplies = 0.0
+}

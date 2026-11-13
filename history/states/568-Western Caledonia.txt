@@ -1,0 +1,17 @@
+state = {
+	id = 568
+	name = "STATE_568"  # Western Caledonia
+	manpower = 2800
+	state_category = pastoral
+	history = {
+		owner = CAL
+		add_core_of = CAL
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1476 1481 1569 8658 8659 8661 8662 8663 8664 8665 8666 8669 8670 8671 8674 8675 8676 8677 8680 8681
+	}
+	local_supplies = 0.0
+}

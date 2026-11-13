@@ -1,0 +1,21 @@
+state = {
+	id = 340
+	name = "STATE_340"  # Euboia
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = EUB
+		add_core_of = EUB
+		victory_points = { 5416 5 }  # Chalkis
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			5416 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5416 8850
+	}
+	local_supplies = 0.0
+}

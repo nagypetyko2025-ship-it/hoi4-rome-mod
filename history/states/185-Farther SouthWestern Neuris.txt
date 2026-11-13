@@ -1,0 +1,17 @@
+state = {
+	id = 185
+	name = "STATE_185"  # Farther South-Western Neuris
+	manpower = 6000
+	state_category = rural
+	history = {
+		owner = NEU
+		add_core_of = NEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2731 2740 2762 2810 2844 2855 2856 2911 2947 2984 3066 3081
+	}
+	local_supplies = 0.0
+}

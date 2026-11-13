@@ -1,0 +1,17 @@
+state = {
+	id = 521
+	name = "STATE_521"  # Farther North-Eastern Nok
+	manpower = 9700
+	state_category = rural
+	history = {
+		owner = NOK
+		add_core_of = NOK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		7828 7867 7905 7925 7974 7988 7994 8033 8043 8106 8123 8149 8203
+	}
+	local_supplies = 0.0
+}

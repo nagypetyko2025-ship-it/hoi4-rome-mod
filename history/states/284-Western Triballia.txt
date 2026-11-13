@@ -1,0 +1,17 @@
+state = {
+	id = 284
+	name = "STATE_284"  # Western Triballia
+	manpower = 18600
+	state_category = rural
+	history = {
+		owner = TRB
+		add_core_of = TRB
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4104 4130 4138 4160 4236 4270 4302 4323 4330 4331 4335 4336 4353 4368 4490
+	}
+	local_supplies = 0.0
+}

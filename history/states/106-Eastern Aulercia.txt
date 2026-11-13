@@ -1,0 +1,17 @@
+state = {
+	id = 106
+	name = "STATE_106"  # Eastern Aulercia
+	manpower = 25100
+	state_category = rural
+	history = {
+		owner = AUL
+		add_core_of = AUL
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2921 2964 2991 3075 3123 3142 3259 3268
+	}
+	local_supplies = 0.0
+}

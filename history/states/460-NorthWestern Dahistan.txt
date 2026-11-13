@@ -1,0 +1,17 @@
+state = {
+	id = 460
+	name = "STATE_460"  # North-Western Dahistan
+	manpower = 10600
+	state_category = rural
+	history = {
+		owner = DAH
+		add_core_of = DAH
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4541 4585 4785 4991 4992 5078 8854 8857
+	}
+	local_supplies = 0.0
+}

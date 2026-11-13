@@ -1,0 +1,17 @@
+state = {
+	id = 310
+	name = "STATE_310"  # North-Western Pannonia
+	manpower = 9400
+	state_category = rural
+	history = {
+		owner = PAN
+		add_core_of = PAN
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3243 3289 3299 3322 3337 3434 3466 3510 3558 3622 3623
+	}
+	local_supplies = 0.0
+}

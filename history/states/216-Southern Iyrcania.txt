@@ -1,0 +1,17 @@
+state = {
+	id = 216
+	name = "STATE_216"  # Southern Iyrcania
+	manpower = 2200
+	state_category = pastoral
+	history = {
+		owner = IYR
+		add_core_of = IYR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2167 2276 2379 2516 2563 2715
+	}
+	local_supplies = 0.0
+}

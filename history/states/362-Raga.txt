@@ -1,0 +1,19 @@
+state = {
+	id = 362
+	name = "STATE_362"  # Raga
+	manpower = 127000
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5860 4 }  # Raga
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		5739 5805 5844 5860 5870 5883 5896 5921 5952
+	}
+	local_supplies = 0.0
+}

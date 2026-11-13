@@ -1,0 +1,17 @@
+state = {
+	id = 403
+	name = "STATE_403"  # North-Eastern Katpatuka
+	manpower = 11600
+	state_category = rural
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		4965 4996 5001 5007 5036 5065 5098 5145
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 416
+	name = "STATE_416"  # Skudra
+	manpower = 99300
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5004 3 }  # Doriskos
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			5004 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4862 4878 4900 4940 4963 4979 5004 5008 5026 5070 8810
+	}
+	local_supplies = 0.0
+}

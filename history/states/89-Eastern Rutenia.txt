@@ -1,0 +1,17 @@
+state = {
+	id = 89
+	name = "STATE_89"  # Eastern Rutenia
+	manpower = 16300
+	state_category = rural
+	history = {
+		owner = RUT
+		add_core_of = RUT
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		4101 4165 4172 4217 4221 4225 4244 4280 4285 4289 4297 4350
+	}
+	local_supplies = 0.0
+}

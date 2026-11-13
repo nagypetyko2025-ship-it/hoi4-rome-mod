@@ -1,0 +1,15 @@
+state = {
+	id = 613
+	name = "STATE_613"  # Aithiopia Interior
+	manpower = 1000
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = WLD
+		buildings = { infrastructure = 0 }
+	}
+	provinces = {
+		7316 7324 7331 7362 7377 7381 7385 7403 7414 7415 7439 7445 7453 7456 7485 7516 7529 7554 7555 7556 7562 7572 7580 7608 7620 7621 7630 7631 7641 7642 7645 7646 7647 7667 7682 7685 7693 7695 7696 7697 7701 7715 7729 7730 7733 7739 7788 7800 7824 7836 7840 7856 7869 7870
+	}
+	local_supplies = 0.0
+}

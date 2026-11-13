@@ -1,0 +1,18 @@
+state = {
+	id = 430
+	name = "STATE_430"  # Harauvatish
+	manpower = 79000
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6374 2 }  # Kapishakanish
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6224 6338 6348 6351 6374 6382 6406 6407 6525
+	}
+	local_supplies = 0.0
+}

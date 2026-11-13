@@ -1,0 +1,17 @@
+state = {
+	id = 477
+	name = "STATE_477"  # Southern Mauretania
+	manpower = 8600
+	state_category = rural
+	history = {
+		owner = MAU
+		add_core_of = MAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6090 6091 6102 6128 6182 6186 6190 6229 6242 6248
+	}
+	local_supplies = 0.0
+}

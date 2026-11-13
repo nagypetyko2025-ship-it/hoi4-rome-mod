@@ -1,0 +1,17 @@
+state = {
+	id = 147
+	name = "STATE_147"  # Farther North-Western Suionia
+	manpower = 8300
+	state_category = rural
+	history = {
+		owner = SVI
+		add_core_of = SVI
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		987 1001 1018 1028 1029 1037 1059 1068 1078 1098 1117 1149 1157 1180 1191
+	}
+	local_supplies = 0.0
+}

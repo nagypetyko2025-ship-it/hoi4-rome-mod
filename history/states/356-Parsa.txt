@@ -1,0 +1,21 @@
+state = {
+	id = 356
+	name = "STATE_356"  # Parsa
+	manpower = 331300
+	state_category = metropolis
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6543 20 }  # Parsa
+		victory_points = { 6549 5 }  # Pasargadai
+		buildings = {
+			infrastructure = 3
+			arms_factory = 1
+			industrial_complex = 4
+		}
+	}
+	provinces = {
+		6542 6543 6549 6559 6595 6661 6723
+	}
+	local_supplies = 0.0
+}

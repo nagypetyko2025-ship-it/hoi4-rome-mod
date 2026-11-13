@@ -1,0 +1,17 @@
+state = {
+	id = 511
+	name = "STATE_511"  # Farther South-Eastern Medja
+	manpower = 4400
+	state_category = pastoral
+	history = {
+		owner = BLM
+		add_core_of = BLM
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		7074 7087 7118 7135 7138 7142 7153 7170
+	}
+	local_supplies = 0.0
+}

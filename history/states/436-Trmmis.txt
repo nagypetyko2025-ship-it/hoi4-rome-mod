@@ -1,0 +1,21 @@
+state = {
+	id = 436
+	name = "STATE_436"  # Trmmis
+	manpower = 70000
+	state_category = city
+	history = {
+		owner = LYK
+		add_core_of = LYK
+		victory_points = { 5863 4 }  # Arnna
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			5863 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5712 5751 5752 5823 5863 5887
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 410
+	name = "STATE_410"  # Western Armina
+	manpower = 28000
+	state_category = town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5038 5083 5111 5132 5170 5217 5225 5252 5285 5301 5311 5324 5349 5369 5396 5419
+	}
+	local_supplies = 0.0
+}

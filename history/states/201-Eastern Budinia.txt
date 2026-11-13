@@ -1,0 +1,17 @@
+state = {
+	id = 201
+	name = "STATE_201"  # Eastern Budinia
+	manpower = 5600
+	state_category = rural
+	history = {
+		owner = BUD
+		add_core_of = BUD
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2015 2023 2057 2080 2102 2367 2391 2406
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,19 @@
+state = {
+	id = 459
+	name = "STATE_459"  # Dilmun
+	manpower = 21900
+	state_category = rural
+	history = {
+		owner = GRH
+		add_core_of = GRH
+		victory_points = { 9022 3 }  # Dilmun
+		buildings = {
+			infrastructure = 1
+			9022 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6804 9022 9026 9029 9030 9033 9040
+	}
+	local_supplies = 0.0
+}

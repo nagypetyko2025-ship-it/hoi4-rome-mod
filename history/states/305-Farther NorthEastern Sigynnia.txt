@@ -1,0 +1,17 @@
+state = {
+	id = 305
+	name = "STATE_305"  # Farther North-Eastern Sigynnia
+	manpower = 7100
+	state_category = rural
+	history = {
+		owner = SIG
+		add_core_of = SIG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3201 3254 3291 3330 3376 3395 3413 3443 3444 3454 3472 3511 3536 3588 3596 3613
+	}
+	local_supplies = 0.0
+}

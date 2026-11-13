@@ -1,0 +1,20 @@
+state = {
+	id = 177
+	name = "STATE_177"  # Aestia
+	manpower = 32200
+	state_category = town
+	history = {
+		owner = AES
+		add_core_of = AES
+		victory_points = { 2004 1 }  # Truso
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		1908 1989 2004 2032 2036 2063 2067 2077 2083 2090 2109 2112 2120 2135 2137 2141 2186 2262
+	}
+	local_supplies = 0.0
+}

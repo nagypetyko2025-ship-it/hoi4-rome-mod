@@ -1,0 +1,21 @@
+state = {
+	id = 330
+	name = "STATE_330"  # Epidamnos
+	manpower = 30000
+	state_category = large_town
+	history = {
+		owner = EPD
+		add_core_of = EPD
+		victory_points = { 4934 4 }  # Epidamnos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			4934 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		4934
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,22 @@
+state = {
+	id = 377
+	name = "STATE_377"  # Mudraya
+	manpower = 1165900
+	state_category = megalopolis
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6531 25 }  # Men-nefer
+		victory_points = { 6440 6 }  # Sais
+		victory_points = { 6446 4 }  # Naukratis
+		buildings = {
+			infrastructure = 3
+			arms_factory = 6
+			industrial_complex = 6
+		}
+	}
+	provinces = {
+		6428 6440 6446 6467 6471 6487 6499 6531 6547
+	}
+	local_supplies = 0.0
+}

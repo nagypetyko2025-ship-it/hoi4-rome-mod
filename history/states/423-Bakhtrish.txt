@@ -1,0 +1,19 @@
+state = {
+	id = 423
+	name = "STATE_423"  # Bakhtrish
+	manpower = 175600
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5917 8 }  # Bakhtri
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		5810 5916 5917 6113 6121 6124 6127 6178
+	}
+	local_supplies = 0.0
+}

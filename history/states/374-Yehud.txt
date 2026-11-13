@@ -1,0 +1,19 @@
+state = {
+	id = 374
+	name = "STATE_374"  # Yehud
+	manpower = 112300
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6334 4 }  # Yerushalem
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6260 6274 6281 6290 6291 6319 6322 6333 6334 6335 6357 6387 9093
+	}
+	local_supplies = 0.0
+}

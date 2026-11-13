@@ -1,0 +1,18 @@
+state = {
+	id = 371
+	name = "STATE_371"  # Halab
+	manpower = 79400
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 5880 3 }  # Halab
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5869 5880 5889 5891 5911 6005
+	}
+	local_supplies = 0.0
+}

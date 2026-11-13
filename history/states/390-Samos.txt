@@ -1,0 +1,19 @@
+state = {
+	id = 390
+	name = "STATE_390"  # Samos
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 8866 5 }  # Samos
+		buildings = {
+			infrastructure = 2
+			8866 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		8864 8865 8866 8869 8870
+	}
+	local_supplies = 0.0
+}

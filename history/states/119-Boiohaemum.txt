@@ -1,0 +1,20 @@
+state = {
+	id = 119
+	name = "STATE_119"  # Boiohaemum
+	manpower = 71000
+	state_category = large_town
+	history = {
+		owner = BOI
+		add_core_of = BOI
+		victory_points = { 2928 2 }  # Zavist
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		2729 2773 2778 2788 2814 2838 2854 2890 2928 2944 2999 3019 3031 3058
+	}
+	local_supplies = 0.0
+}

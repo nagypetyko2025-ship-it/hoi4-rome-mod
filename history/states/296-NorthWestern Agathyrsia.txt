@@ -1,0 +1,17 @@
+state = {
+	id = 296
+	name = "STATE_296"  # North-Western Agathyrsia
+	manpower = 14700
+	state_category = rural
+	history = {
+		owner = AGA
+		add_core_of = AGA
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3264 3275 3338 3347 3385 3423 3427 3455 3478 3512 3577 3582 3614 3644
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,17 @@
+state = {
+	id = 248
+	name = "STATE_248"  # Western Sauromatia
+	manpower = 1700
+	state_category = pastoral
+	history = {
+		owner = SAU
+		add_core_of = SAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3086 3093 3158 3170 3195 3236 3260 3277 3278 3343 3436
+	}
+	local_supplies = 0.0
+}

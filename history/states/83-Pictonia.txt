@@ -1,0 +1,20 @@
+state = {
+	id = 83
+	name = "STATE_83"  # Pictonia
+	manpower = 78400
+	state_category = large_town
+	history = {
+		owner = PCT
+		add_core_of = PCT
+		victory_points = { 3590 1 }  # Lemonum
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3354 3391 3392 3407 3447 3468 3487 3503 3518 3524 3539 3590 3621 3782
+	}
+	local_supplies = 0.0
+}

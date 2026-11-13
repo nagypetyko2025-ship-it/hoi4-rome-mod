@@ -1,0 +1,17 @@
+state = {
+	id = 468
+	name = "STATE_468"  # Eastern Sakastan
+	manpower = 1000
+	state_category = pastoral
+	history = {
+		owner = SAK
+		add_core_of = SAK
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		8746 8747 8748
+	}
+	local_supplies = 0.0
+}

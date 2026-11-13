@@ -1,0 +1,17 @@
+state = {
+	id = 463
+	name = "STATE_463"  # Western Massagetia
+	manpower = 10200
+	state_category = rural
+	history = {
+		owner = MSG
+		add_core_of = MSG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3995 4067 4133 4153 4170 4210 4288 4366 4374 4445 4462 4463 4469 4482 4508 9098
+	}
+	local_supplies = 0.0
+}

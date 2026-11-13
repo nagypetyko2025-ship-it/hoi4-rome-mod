@@ -1,0 +1,19 @@
+state = {
+	id = 420
+	name = "STATE_420"  # Haraiva
+	manpower = 150000
+	state_category = large_city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6076 3 }  # Artakoana
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6076 6088 6129
+	}
+	local_supplies = 0.0
+}

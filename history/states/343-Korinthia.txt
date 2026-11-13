@@ -1,0 +1,21 @@
+state = {
+	id = 343
+	name = "STATE_343"  # Korinthia
+	manpower = 60000
+	state_category = city
+	history = {
+		owner = KRN
+		add_core_of = KRN
+		victory_points = { 5569 8 }  # Korinthos
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			5569 = { naval_base = 2 }
+		}
+	}
+	provinces = {
+		5569
+	}
+	local_supplies = 0.0
+}

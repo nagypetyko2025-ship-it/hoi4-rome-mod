@@ -1,0 +1,21 @@
+state = {
+	id = 458
+	name = "STATE_458"  # Gerrha
+	manpower = 28100
+	state_category = rural
+	history = {
+		owner = GRH
+		add_core_of = GRH
+		victory_points = { 6785 3 }  # Gerrha
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			6785 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		6682 6785 6880 6900
+	}
+	local_supplies = 0.0
+}

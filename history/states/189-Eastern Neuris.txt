@@ -1,0 +1,17 @@
+state = {
+	id = 189
+	name = "STATE_189"  # Eastern Neuris
+	manpower = 4100
+	state_category = pastoral
+	history = {
+		owner = NEU
+		add_core_of = NEU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2203 2253 2324 2328 2377 2403 2404 2417 2418 2472 2502 2528 2576 2614
+	}
+	local_supplies = 0.0
+}

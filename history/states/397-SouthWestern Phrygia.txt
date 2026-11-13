@@ -1,0 +1,17 @@
+state = {
+	id = 397
+	name = "STATE_397"  # South-Western Phrygia
+	manpower = 32900
+	state_category = large_town
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		5453 5466 5483 5492 5525 5529 5583 5584 5585 5630 5655 5656
+	}
+	local_supplies = 0.0
+}

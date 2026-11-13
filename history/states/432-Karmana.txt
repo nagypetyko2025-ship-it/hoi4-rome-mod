@@ -1,0 +1,19 @@
+state = {
+	id = 432
+	name = "STATE_432"  # Karmana
+	manpower = 100000
+	state_category = city
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		victory_points = { 6509 2 }  # Karmana
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6327 6404 6413 6463 6500 6509 6533 6550 6556 6592 6611
+	}
+	local_supplies = 0.0
+}

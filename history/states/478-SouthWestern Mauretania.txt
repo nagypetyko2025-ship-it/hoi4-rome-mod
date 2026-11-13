@@ -1,0 +1,17 @@
+state = {
+	id = 478
+	name = "STATE_478"  # South-Western Mauretania
+	manpower = 24600
+	state_category = rural
+	history = {
+		owner = MAU
+		add_core_of = MAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6179 6216 6232 6235 6247 6251 6252 6263 6282 6285 6294 6299 6300 6303 6317 6325 6339 6346 6384 6396
+	}
+	local_supplies = 0.0
+}

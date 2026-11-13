@@ -1,0 +1,17 @@
+state = {
+	id = 217
+	name = "STATE_217"  # North-Eastern Iyrcania
+	manpower = 1600
+	state_category = pastoral
+	history = {
+		owner = IYR
+		add_core_of = IYR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1431 1496 1527 1533 1639 1710 1752 1815 1817
+	}
+	local_supplies = 0.0
+}

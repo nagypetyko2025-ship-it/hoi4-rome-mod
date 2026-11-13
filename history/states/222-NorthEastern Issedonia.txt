@@ -1,0 +1,17 @@
+state = {
+	id = 222
+	name = "STATE_222"  # North-Eastern Issedonia
+	manpower = 7400
+	state_category = rural
+	history = {
+		owner = ISS
+		add_core_of = ISS
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1348 1373 1500 1594 1681 1687 1711 1755 1765 1786 1860 1872 1890 1893 1978 9079
+	}
+	local_supplies = 0.0
+}

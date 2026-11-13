@@ -1,0 +1,17 @@
+state = {
+	id = 249
+	name = "STATE_249"  # Northern Sauromatia
+	manpower = 2000
+	state_category = pastoral
+	history = {
+		owner = SAU
+		add_core_of = SAU
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2454 2742 2743 2877 2959
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,18 @@
+state = {
+	id = 453
+	name = "STATE_453"  # Southern Dedan
+	manpower = 18300
+	state_category = rural
+	history = {
+		owner = DDN
+		add_core_of = DDN
+		victory_points = { 6873 1 }  # Yathrib
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		6809 6816 6827 6828 6829 6834 6843 6857 6871 6873 6874 6878 6885 6887 6915 6922 6935
+	}
+	local_supplies = 0.0
+}

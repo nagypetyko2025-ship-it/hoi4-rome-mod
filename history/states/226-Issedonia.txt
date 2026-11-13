@@ -1,0 +1,20 @@
+state = {
+	id = 226
+	name = "STATE_226"  # Issedonia
+	manpower = 26100
+	state_category = rural
+	history = {
+		owner = ISS
+		add_core_of = ISS
+		victory_points = { 2727 1 }  # Issedon
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2558 2600 2654 2718 2727 2735 2744 2777 2794 2795 2798 2819 2881 2888 2908
+	}
+	local_supplies = 0.0
+}

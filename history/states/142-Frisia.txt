@@ -1,0 +1,20 @@
+state = {
+	id = 142
+	name = "STATE_142"  # Frisia
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = FRS
+		add_core_of = FRS
+		victory_points = { 2295 1 }  # Ezinge
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		2257 2295 2337 2384 2436 2462 2490 2500 8732 8733 9081 9082 9083 9084 9085 9103
+	}
+	local_supplies = 0.0
+}

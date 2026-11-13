@@ -1,0 +1,21 @@
+state = {
+	id = 341
+	name = "STATE_341"  # Attike
+	manpower = 140000
+	state_category = large_city
+	history = {
+		owner = ATH
+		add_core_of = ATH
+		victory_points = { 5522 15 }  # Athenai
+		buildings = {
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 5
+			5522 = { naval_base = 3 }
+		}
+	}
+	provinces = {
+		5522 5539 8856 8867
+	}
+	local_supplies = 0.0
+}

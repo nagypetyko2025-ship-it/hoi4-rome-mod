@@ -1,0 +1,17 @@
+state = {
+	id = 73
+	name = "STATE_73"  # North-Eastern Sequania
+	manpower = 18600
+	state_category = rural
+	history = {
+		owner = SEQ
+		add_core_of = SEQ
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		3388 3409 3437 3497 3508 3509
+	}
+	local_supplies = 0.0
+}

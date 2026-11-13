@@ -1,0 +1,20 @@
+state = {
+	id = 545
+	name = "STATE_545"  # Vaccaea
+	manpower = 90000
+	state_category = large_town
+	history = {
+		owner = VCC
+		add_core_of = VCC
+		victory_points = { 4643 1 }  # Pallantia
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		4537 4639 4643 4659 4667 4668 4702 4762
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,21 @@
+state = {
+	id = 337
+	name = "STATE_337"  # Thessalia
+	manpower = 160000
+	state_category = large_city
+	history = {
+		owner = THL
+		add_core_of = THL
+		victory_points = { 5346 5 }  # Larisa
+		victory_points = { 5404 2 }  # Pherai
+		buildings = {
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 5
+		}
+	}
+	provinces = {
+		5186 5222 5269 5279 5330 5346 5404
+	}
+	local_supplies = 0.0
+}

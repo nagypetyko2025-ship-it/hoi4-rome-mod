@@ -1,0 +1,20 @@
+state = {
+	id = 505
+	name = "STATE_505"  # Kush
+	manpower = 81400
+	state_category = city
+	history = {
+		owner = KSH
+		add_core_of = KSH
+		victory_points = { 7263 8 }  # Medewi
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		7076 7147 7151 7156 7186 7245 7250 7254 7263 7264 7265 7327
+	}
+	local_supplies = 0.0
+}

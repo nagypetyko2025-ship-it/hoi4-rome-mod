@@ -1,0 +1,17 @@
+state = {
+	id = 128
+	name = "STATE_128"  # South-Eastern Lugia
+	manpower = 12100
+	state_category = rural
+	history = {
+		owner = LUG
+		add_core_of = LUG
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		2287 2371 2382 2422 2426 2457 2470 2478 2534 2536 2541 2556 2574 2608 2627
+	}
+	local_supplies = 0.0
+}

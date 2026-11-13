@@ -1,0 +1,20 @@
+state = {
+	id = 494
+	name = "STATE_494"  # Macae
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = MAK
+		add_core_of = MAK
+		victory_points = { 6370 1 }  # Kinyps
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	provinces = {
+		6370 6371 6439 6454 6485
+	}
+	local_supplies = 0.0
+}

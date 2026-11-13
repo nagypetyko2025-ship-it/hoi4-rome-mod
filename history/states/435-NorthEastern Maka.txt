@@ -1,0 +1,17 @@
+state = {
+	id = 435
+	name = "STATE_435"  # North-Eastern Maka
+	manpower = 13500
+	state_category = rural
+	history = {
+		owner = PRS
+		add_core_of = PRS
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		6691 6720 6736 6744 6757 6758 6801
+	}
+	local_supplies = 0.0
+}

@@ -1,0 +1,20 @@
+state = {
+	id = 93
+	name = "STATE_93"  # Allobrogia
+	manpower = 76800
+	state_category = large_town
+	history = {
+		owner = ABG
+		add_core_of = ABG
+		victory_points = { 4050 2 }  # Vienna
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+		}
+	}
+	provinces = {
+		3990 4013 4049 4050 4061 4068 4085 4155 4173 4197 4211 4212 4229 4230
+	}
+	local_supplies = 0.0
+}

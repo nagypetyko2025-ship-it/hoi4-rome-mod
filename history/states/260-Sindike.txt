@@ -1,0 +1,21 @@
+state = {
+	id = 260
+	name = "STATE_260"  # Sindike
+	manpower = 40000
+	state_category = town
+	history = {
+		owner = SND
+		add_core_of = SND
+		victory_points = { 4140 2 }  # Sindike
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			4140 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		4115 4140
+	}
+	local_supplies = 0.0
+}

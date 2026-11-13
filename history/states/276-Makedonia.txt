@@ -1,0 +1,20 @@
+state = {
+	id = 276
+	name = "STATE_276"  # Makedonia
+	manpower = 94300
+	state_category = city
+	history = {
+		owner = MKD
+		add_core_of = MKD
+		victory_points = { 5106 8 }  # Aigai
+		buildings = {
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 3
+		}
+	}
+	provinces = {
+		4943 5014 5092 5105 5106 5110 5121 5122 5129 5158
+	}
+	local_supplies = 0.0
+}
