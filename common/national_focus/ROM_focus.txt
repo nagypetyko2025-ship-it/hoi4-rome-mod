@@ -640,7 +640,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = VEI } VEI = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = VEI } VEI = { is_subject_of = ROOT } is_in_faction_with = VEI }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = CAE NOT = { has_war_with = CAE } }
@@ -791,7 +791,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } is_in_faction_with = LAT }
+			OR = { NOT = { country_exists = SAM } is_neighbor_of = SAM }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = SAM NOT = { has_war_with = SAM } }
@@ -814,7 +815,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = UMB NOT = { has_war_with = UMB } }
@@ -839,7 +840,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_treaty_with_tarentum }
 		available = {
-			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = TAS NOT = { has_war_with = TAS } }
@@ -864,7 +865,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_tarentum_and_pyrrhus }
 		available = {
-			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = TAS NOT = { has_war_with = TAS } TAS = { is_subject = no is_in_faction = no } } puppet = TAS }
@@ -886,8 +887,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_20 check_variable = { ante_realm_states > 19 } }
-			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
-			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
+			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } is_in_faction_with = LAT }
 		}
 		completion_reward = {
 			add_political_power = 150
@@ -1140,24 +1141,30 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ROM_king_of_the_etruscans
-		icon = GFX_goal_generic_major_war
+		id = ROM_the_twelve_cities
+		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = ROM_stratagem_of_gabii }
 		x = 29
 		y = 3
-		cost = 15
+		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_3 check_variable = { ante_realm_states > 2 } }
 		}
 		completion_reward = {
-			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } }
-				create_wargoal = { type = annex_everything target = CLU }
-			}
 			every_state = { limit = { is_owned_by = VEI } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = CAE } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = TAR } add_claim_by = ROOT }
+			if = { limit = { country_exists = VEI NOT = { has_war_with = VEI } }
+				create_wargoal = { type = annex_everything target = VEI }
+			}
+			if = { limit = { country_exists = CAE NOT = { has_war_with = CAE } }
+				create_wargoal = { type = annex_everything target = CAE }
+			}
+			if = { limit = { country_exists = TAR NOT = { has_war_with = TAR } }
+				create_wargoal = { type = annex_everything target = TAR }
+			}
 			add_war_support = 0.05
 		}
 		ai_will_do = { factor = 2 }
@@ -1203,30 +1210,25 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ROM_the_twelve_cities
-		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = ROM_king_of_the_etruscans }
+		id = ROM_king_of_the_etruscans
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ROM_the_twelve_cities }
 		x = 29
 		y = 4
-		cost = 20
+		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = CLU } CLU = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = CLU } is_neighbor_of = CLU }
 		}
 		completion_reward = {
-			if = { limit = { country_exists = VEI NOT = { has_war_with = VEI } }
-				create_wargoal = { type = annex_everything target = VEI }
+			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } }
+				create_wargoal = { type = annex_everything target = CLU }
 			}
-			if = { limit = { country_exists = CAE NOT = { has_war_with = CAE } }
-				create_wargoal = { type = annex_everything target = CAE }
-			}
-			if = { limit = { country_exists = TAR NOT = { has_war_with = TAR } }
-				create_wargoal = { type = annex_everything target = TAR }
-			}
+			every_state = { limit = { is_owned_by = CLU } add_claim_by = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 2 }
 	}
 
 	focus = {
@@ -1242,7 +1244,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_10 check_variable = { ante_realm_states > 9 } }
-			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } is_in_faction_with = LAT }
 		}
 		completion_reward = {
 			add_ideas = ROM_regnum_spirit

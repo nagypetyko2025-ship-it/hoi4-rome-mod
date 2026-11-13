@@ -194,7 +194,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = SAR } SAR = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = SAR } SAR = { is_subject_of = ROOT } is_in_faction_with = SAR }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = AKR NOT = { has_war_with = AKR } }
@@ -288,8 +288,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = SAR } SAR = { is_subject_of = ROOT } }
-			OR = { NOT = { country_exists = AKR } AKR = { is_subject_of = ROOT } }
+			OR = { NOT = { country_exists = SAR } SAR = { is_subject_of = ROOT } is_in_faction_with = SAR }
+			OR = { NOT = { country_exists = AKR } AKR = { is_subject_of = ROOT } is_in_faction_with = AKR }
 			has_navy_size = { size > 10 }
 		}
 		completion_reward = {

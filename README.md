@@ -718,3 +718,9 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
 - A fókuszok államszám-feltételei most a **bábállamok államait is beszámítják**: `ante_realm_states` változó
   (saját + minden alattvaló ellenőrzött állama), a kezdéskor és hetente számolva
   (`common/on_actions/ante_on_actions.txt`, content.py), saját tooltippel („… the states of its subjects included”).
+- **Elakadás javítva (Clusium):** a királysági ágban a „Lucumo of Etruria” háborús célt adott Clusiumra, mielőtt Róma
+  határos lett volna vele, a következő fókusz pedig Clusium bukását kérte → elakadt a fa. Most előbb „The Twelve
+  Cities” jön (Veii, Caere, Tarquinii – a szomszédok), utána a Lucumo, és csak akkor vehető fel, ha Róma már határos
+  Clusiummal (vagy Clusium nincs többé); a Regnum Italiae már nem függ tőle. Általános szabályok a `TUNE`-ban:
+  `reach(TAG)` = határos vagy nem létezik (a szamnisz háborúknál is), `gone(TAG)` most a szövetséges (frakciótárs)
+  ellenfelet is „legyőzöttnek” veszi (pl. Makedónia–Thesszália), Perzsia koronája a szkíták VAGY Athén legyőzését kéri.

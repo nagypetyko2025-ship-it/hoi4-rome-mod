@@ -287,8 +287,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			OR = { NOT = { country_exists = SCY } SCY = { is_subject_of = ROOT } }
-			OR = { NOT = { country_exists = ATH } ATH = { is_subject_of = ROOT } }
+			OR = {
+			OR = { NOT = { country_exists = SCY } SCY = { is_subject_of = ROOT } is_in_faction_with = SCY }
+			OR = { NOT = { country_exists = ATH } ATH = { is_subject_of = ROOT } is_in_faction_with = ATH }
+			}
 		}
 		completion_reward = {
 			add_political_power = 150

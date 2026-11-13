@@ -269,14 +269,17 @@ def define(focus, build, infra, tech, wargoal):
       "alliance", 29, 1, [["ROM_the_king_remains"]], puppet("LAT") + "\nadd_political_power = 50")
     f("ROM_stratagem_of_gabii", "The Stratagem of Gabii", "Sextus, the king's son, takes Gabii by treachery; Suessa Pometia of the Volsci falls to the king's army.",
       "position_armies", 29, 2, [["ROM_head_of_the_latin_league"]], wargoal("VOL") + "\n" + wargoal("AEQ") + "\narmy_experience = 15")
-    f("ROM_king_of_the_etruscans", "Lucumo of Etruria", "The Tarquins are Etruscans: the twelve cities should have one king - and Porsenna of Clusium is in the way.",
-      "major_war", 29, 3, [["ROM_stratagem_of_gabii"]], wargoal("CLU") + "\n" + claims("VEI", "CAE", "TAR") + "\nadd_war_support = 0.05", ai=2)
+    # the Etruscan cities next door first (Veii borders Rome), Clusium only when Rome reaches it (it lies far
+    # north: a war goal on a country we could not reach locked the tree up to round 16)
+    f("ROM_the_twelve_cities", "The Twelve Cities", "Veii, Caere and Tarquinii, the Etruscan cities nearest Rome, must bow to the Etruscan king of Rome.",
+      "more_territorial_claims", 29, 3, [["ROM_stratagem_of_gabii"]],
+      claims("VEI", "CAE", "TAR") + "\n" + wargoal("VEI") + "\n" + wargoal("CAE") + "\n" + wargoal("TAR") + "\nadd_war_support = 0.05", ai=2)
     f("ROM_royal_army", "The Royal Army", "The king's phalanx, his Celeres and the levies of Latium and Etruria under one command.",
       "army_doctrines", 23, 4, [["ROM_the_celeres"]], "add_ideas = ROM_royal_army_spirit\n" + doctrine("ROM_royal_army"), filters=M)
     f("ROM_royal_roads", "The King's Roads", "Roads radiate from Rome to the subject towns, so that the king's army is everywhere in days.",
       "construct_infrastructure", 26, 4, [["ROM_etruscan_craftsmen"]], infra() + "\n" + infra() + "\nadd_ideas = ROM_roman_roads_spirit", filters=I)
-    f("ROM_the_twelve_cities", "The Twelve Cities", "Veii, Caere, Tarquinii and the rest bow to the king of Rome.",
-      "more_territorial_claims", 29, 4, [["ROM_king_of_the_etruscans"]], wargoal("VEI") + "\n" + wargoal("CAE") + "\n" + wargoal("TAR") + "\n" + cores(1))
+    f("ROM_king_of_the_etruscans", "Lucumo of Etruria", "Now that our borders reach him, Porsenna of Clusium stands between the king of Rome and the crown of all Etruria.",
+      "major_war", 29, 4, [["ROM_the_twelve_cities"]], wargoal("CLU") + "\n" + claims("CLU") + "\n" + cores(1), ai=2)
     f("ROM_regnum_italiae", "Regnum Italiae", "A kingdom, not a city: Latins, Etruscans and Italians under one crown.",
       "national_unity", 26, 5, [["ROM_royal_army"], ["ROM_royal_roads"], ["ROM_the_twelve_cities"]],
       "add_ideas = ROM_regnum_spirit\n" + cores(2) + "\nadd_political_power = 100", ai=3)
@@ -546,7 +549,13 @@ def define(focus, build, infra, tech, wargoal):
     # (fid) -> (cost, available trigger, extra reward lines). cost 10 = 70 days. Big steps need the land to be
     # taken first (gone(TAG): the rival no longer exists or is our subject), and some hurt.
     def gone(*tags):
-        return "\n".join(f"OR = {{ NOT = {{ country_exists = {t} }} {t} = {{ is_subject_of = ROOT }} }}" for t in tags)
+        # beaten = gone, our subject, or our ally in a faction (an ally can never be beaten: no lock)
+        return "\n".join(f"OR = {{ NOT = {{ country_exists = {t} }} {t} = {{ is_subject_of = ROOT }} "
+                         f"is_in_faction_with = {t} }}" for t in tags)
+
+    def reach(t):
+        """a war goal focus only when the target can be reached by land (or is gone)"""
+        return f"OR = {{ NOT = {{ country_exists = {t} }} is_neighbor_of = {t} }}"
 
     def states(n):
         return realm(n)
@@ -571,7 +580,7 @@ def define(focus, build, infra, tech, wargoal):
         "ROM_not_with_gold": (10, "", "add_manpower = -2000"),
         "ROM_servian_wall": (20, "", ""),
         "ROM_latin_war": (15, states(5), ""),
-        "ROM_samnite_wars": (20, gone("LAT"), "add_war_support = -0.05"),
+        "ROM_samnite_wars": (20, gone("LAT") + "\n" + reach("SAM"), "add_war_support = -0.05"),
         "ROM_sentinum": (15, gone("SAM"), ""),
         "ROM_tarentum_and_pyrrhus": (15, gone("SAM"), "add_manpower = -3000"),
         "ROM_treaty_with_tarentum": (15, gone("SAM"), "add_political_power = -100"),
@@ -580,8 +589,8 @@ def define(focus, build, infra, tech, wargoal):
         "ROM_cisalpine_gaul": (20, "", ""),
         # Rome - the King
         "ROM_purge_the_conspirators": (10, "", "add_war_support = -0.05"),
-        "ROM_king_of_the_etruscans": (15, states(3), ""),
-        "ROM_the_twelve_cities": (20, gone("CLU"), ""),
+        "ROM_the_twelve_cities": (20, states(3), ""),
+        "ROM_king_of_the_etruscans": (15, reach("CLU"), ""),
         "ROM_regnum_italiae": (20, states(10) + "\n" + gone("LAT"), ""),
         "ROM_the_samnite_mountains": (20, "", "add_manpower = -2000"),
         "ROM_magna_graecia": (20, "", ""),
@@ -607,7 +616,7 @@ def define(focus, build, infra, tech, wargoal):
         "PRS_phoenician_fleet": (15, "", "add_political_power = -75"),
         "PRS_scythian_campaign": (15, "", "add_war_support = -0.05"),
         "PRS_earth_and_water": (20, "", ""),
-        "PRS_king_of_the_world": (25, gone("SCY") + "\n" + gone("ATH"), ""),
+        "PRS_king_of_the_world": (25, "OR = {\n" + gone("SCY") + "\n" + gone("ATH") + "\n}", ""),
         # Carthage
         "CAR_mercenaries": (10, "", "add_political_power = -50"),
         "CAR_sicily": (20, gone("SAR"), ""),
