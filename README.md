@@ -513,3 +513,7 @@ commit, push. Ha nem indul: az `error.log` **vége** és az `exception.txt` kell
 - **Az alapjáték fájljait soha nem módosítjuk**, csak ezt a mod mappát.
 - Más modok (pl. „Total War Rome 2 in HOI4”) grafikáját nem másoljuk. Saját/procedurális vagy CC0 grafika.
 - Vanilla fájlokat a mod olvashat és módosított másolatként felhasználhat (ez normál modolás).
+
+## Teszt a nyolcadik kör után (2026-11-13) – fut, de a színek még hiányoznak
+
+A játék Rómával elindul és fut. A nevek, határok és városok a helyükön vannak, de országszín-kitöltés sehol nincs, a játszható országokon sem. Részletek: `docs/crash_reports/2026-11-13_round8_test.md`, képek: `docs/screenshots/20261113_*.jpg`.
