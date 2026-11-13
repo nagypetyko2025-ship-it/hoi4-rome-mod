@@ -309,6 +309,8 @@ def check_tree(tree):
             for p in group:
                 assert p in ids, f"{f['id']}: unknown prerequisite {p}"
         assert (f["x"], f["y"]) not in pos, f"{f['id']}: two focuses at {f['x']},{f['y']}"
+        for o in tree:   # a focus box is about two grid units wide: neighbours in a row need x 2 apart
+            assert o is f or o["y"] != f["y"] or abs(o["x"] - f["x"]) >= 2, f"{f['id']} overlaps {o['id']}"
         pos.add((f["x"], f["y"]))
         for idea in re.findall(r"(?:add_ideas|add_idea|remove_idea) = (\w+)", f["reward"]):
             assert idea in IDEAS, f"{f['id']}: unknown idea {idea}"

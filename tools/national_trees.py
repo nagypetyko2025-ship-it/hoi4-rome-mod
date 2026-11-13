@@ -178,17 +178,17 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge.",
       "defence", 14, 1, [["ROM_regifugium"]], "army_experience = 20\nadd_war_support = 0.10")
     f("ROM_lake_regillus", "Battle of Lake Regillus", "The Latins and the exiled Tarquins are beaten; the Dioscuri fought for Rome. What now with Latium?",
-      "major_war", 13, 2, [["ROM_horatius_at_the_bridge"]], "army_experience = 25\nadd_war_support = 0.05")
+      "major_war", 12, 2, [["ROM_horatius_at_the_bridge"]], "army_experience = 25\nadd_war_support = 0.05")
     f("ROM_foedus_cassianum", "Foedus Cassianum", "493 BC: peace and alliance with the Latins - one army against the hill peoples.",
       "alliance", 12, 3, [["ROM_lake_regillus"]], "add_political_power = 100\n" + faction("ante_faction_latin_alliance", "LAT"),
       extra=mx("ROM_latium_by_the_sword"))
     f("ROM_latium_by_the_sword", "Latium by the Sword", "No treaty: the Latin towns will be Rome's subjects, not its equals.",
-      "territory_or_war", 13, 3, [["ROM_lake_regillus"]], wargoal("LAT") + "\n" + claims("LAT") + "\narmy_experience = 15",
+      "territory_or_war", 14, 3, [["ROM_lake_regillus"]], wargoal("LAT") + "\n" + claims("LAT") + "\narmy_experience = 15",
       extra=mx("ROM_foedus_cassianum"))
     f("ROM_aequi_and_volsci", "Against the Aequi and Volsci", "Every summer the hill tribes raid Latium. Every summer Rome marches.",
-      "territory_or_war", 15, 2, [["ROM_horatius_at_the_bridge"]], wargoal("VOL") + "\n" + wargoal("AEQ"))
+      "territory_or_war", 16, 2, [["ROM_horatius_at_the_bridge"]], wargoal("VOL") + "\n" + wargoal("AEQ"))
     f("ROM_coriolanus", "Coriolanus", "The proud hero of Corioli, exiled, leads the Volsci against his own city - and turns back at his mother's word.",
-      "position_armies", 15, 3, [["ROM_aequi_and_volsci"]], "add_war_support = 0.05\narmy_experience = 15\n" + claims("VOL", "AEQ"))
+      "position_armies", 16, 3, [["ROM_aequi_and_volsci"]], "add_war_support = 0.05\narmy_experience = 15\n" + claims("VOL", "AEQ"))
     f("ROM_siege_of_veii", "The Siege of Veii", "Ten years before the walls of the rich Etruscan city across the Tiber.",
       "major_war", 14, 4, [["ROM_foedus_cassianum", "ROM_latium_by_the_sword", "ROM_coriolanus"]], wargoal("VEI") + "\nadd_war_support = 0.05", ai=2)
     f("ROM_southern_etruria", "The Cities of Southern Etruria", "Caere, Tarquinii and Falerii: after Veii the road to Etruria lies open.",

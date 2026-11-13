@@ -712,3 +712,6 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   atomreaktor, …) kikapcsolva (`dlc_allowed = { always = no }`). Ikonok még az alapjátékéi.
 - Pipeline: world → portraits → army → buildings → content → commanders → validate (0 hiba). Játékban még nem
   futott ez a kör.
+- Teszt: `-quickstart -start_tag=ROM -crash_data_log` fut, az error.log-ban nincs hiba a kör fájljairól. A Latium-ág
+  két fókusza (Foedus Cassianum / Latium by the Sword) egymásra csúszott: szétrakva, és a `check_tree` most minden
+  fában hibát ad, ha egy sorban két fókusz 2 egységnél közelebb van.

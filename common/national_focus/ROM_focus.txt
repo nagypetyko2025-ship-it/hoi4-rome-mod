@@ -519,7 +519,7 @@ focus_tree = {
 		id = ROM_lake_regillus
 		icon = GFX_goal_generic_major_war
 		prerequisite = { focus = ROM_horatius_at_the_bridge }
-		x = 13
+		x = 12
 		y = 2
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -554,7 +554,7 @@ focus_tree = {
 		id = ROM_latium_by_the_sword
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = ROM_lake_regillus }
-		x = 13
+		x = 14
 		y = 3
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -574,7 +574,7 @@ focus_tree = {
 		id = ROM_aequi_and_volsci
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = ROM_horatius_at_the_bridge }
-		x = 15
+		x = 16
 		y = 2
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -594,7 +594,7 @@ focus_tree = {
 		id = ROM_coriolanus
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = ROM_aequi_and_volsci }
-		x = 15
+		x = 16
 		y = 3
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
