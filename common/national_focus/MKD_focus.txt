@@ -254,7 +254,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 5
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_6 check_variable = { ante_realm_states > 5 } }
 			OR = { NOT = { country_exists = THL } THL = { is_subject_of = ROOT } }
 		}
 		completion_reward = {

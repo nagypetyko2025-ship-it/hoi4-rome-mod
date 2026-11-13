@@ -715,3 +715,6 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
 - Teszt: `-quickstart -start_tag=ROM -crash_data_log` fut, az error.log-ban nincs hiba a kör fájljairól. A Latium-ág
   két fókusza (Foedus Cassianum / Latium by the Sword) egymásra csúszott: szétrakva, és a `check_tree` most minden
   fában hibát ad, ha egy sorban két fókusz 2 egységnél közelebb van.
+- A fókuszok államszám-feltételei most a **bábállamok államait is beszámítják**: `ante_realm_states` változó
+  (saját + minden alattvaló ellenőrzött állama), a kezdéskor és hetente számolva
+  (`common/on_actions/ante_on_actions.txt`, content.py), saját tooltippel („… the states of its subjects included”).

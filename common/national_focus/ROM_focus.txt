@@ -430,7 +430,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 3
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_4 check_variable = { ante_realm_states > 3 } }
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -489,7 +489,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 4
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_5 check_variable = { ante_realm_states > 4 } }
 		}
 		completion_reward = {
 			add_ideas = ROM_coloniae_spirit
@@ -618,7 +618,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 1
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_2 check_variable = { ante_realm_states > 1 } }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = VEI NOT = { has_war_with = VEI } }
@@ -770,7 +770,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 4
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_5 check_variable = { ante_realm_states > 4 } }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } }
@@ -885,7 +885,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 19
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_20 check_variable = { ante_realm_states > 19 } }
 			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } }
 			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
 		}
@@ -1149,7 +1149,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 2
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_3 check_variable = { ante_realm_states > 2 } }
 		}
 		completion_reward = {
 			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } }
@@ -1241,7 +1241,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 9
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_10 check_variable = { ante_realm_states > 9 } }
 			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } }
 		}
 		completion_reward = {
@@ -1308,7 +1308,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 19
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_20 check_variable = { ante_realm_states > 19 } }
 		}
 		completion_reward = {
 			add_political_power = 150
@@ -1540,7 +1540,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 2
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_3 check_variable = { ante_realm_states > 2 } }
 		}
 		completion_reward = {
 			add_ideas = ROM_ager_publicus_spirit
@@ -1591,7 +1591,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 5
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_6 check_variable = { ante_realm_states > 5 } }
 		}
 		completion_reward = {
 			add_ideas = ROM_juno_moneta_spirit
@@ -1610,7 +1610,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 8
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_9 check_variable = { ante_realm_states > 8 } }
 		}
 		completion_reward = {
 			random_owned_controlled_state = {

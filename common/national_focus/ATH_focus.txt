@@ -308,7 +308,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		available = {
-			num_of_controlled_states > 3
+			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_4 check_variable = { ante_realm_states > 3 } }
 		}
 		completion_reward = {
 			add_ideas = ATH_school_of_hellas_spirit

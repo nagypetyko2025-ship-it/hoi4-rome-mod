@@ -15,6 +15,17 @@ P, I, R, M = "FOCUS_FILTER_POLITICAL", "FOCUS_FILTER_INDUSTRY", "FOCUS_FILTER_RE
 COAST = "available = { any_owned_state = { is_coastal = yes } }"
 
 
+REALM_N = set()   # thresholds used, for the tooltip localisation
+
+
+def realm(n):
+    """at least n states controlled by us AND our subjects (puppets count). The variable ante_realm_states is
+    recomputed at the start and every week (common/on_actions/ante_on_actions.txt, written by content.py)."""
+    REALM_N.add(n)
+    return (f"custom_trigger_tooltip = {{ tooltip = ANTE_REALM_STATES_{n} "
+            f"check_variable = {{ ante_realm_states > {n - 1} }} }}")
+
+
 def faction(name, *members):
     out = [f"if = {{ limit = {{ is_in_faction = no }} create_faction = {name} }}"]
     for t in members:
@@ -323,16 +334,16 @@ def define(focus, build, infra, tech, wargoal):
       "trade", 36, 3, [["ROM_via_salaria", "ROM_salt_pans"]], "add_ideas = ROM_coinage_spirit", filters=I, cost=15)
     f("ROM_ager_publicus", "Ager Publicus", "Conquered land belongs to the Roman people - to be settled, leased or grazed.",
       "construct_civilian", 38, 3, [["ROM_salt_pans", "ROM_tiber_harbour"]], "add_ideas = ROM_ager_publicus_spirit",
-      filters=I, avail="num_of_controlled_states > 2")
+      filters=I, avail=realm(3))
     f("ROM_smiths_of_rome", "Smiths of the Argiletum", "Helmets, spearheads and the iron-shod pilum by the thousand.",
       "construct_mil_factory", 36, 4, [["ROM_aes_signatum"]], build("arms_factory") + "\n" + build("arms_factory"), filters=I, ai=4, cost=15)
     f("ROM_juno_moneta", "The Mint of Juno Moneta", "Silver coins struck in the temple of Juno the Warner on the Capitol.",
       "production", 38, 4, [["ROM_aes_signatum"], ["ROM_ager_publicus"]], "add_ideas = ROM_juno_moneta_spirit",
-      filters=I, cost=15, avail="num_of_controlled_states > 5")
+      filters=I, cost=15, avail=realm(6))
     f("ROM_great_public_works", "Great Public Works", "Temples, basilicas, walls and roads: the censors spend the spoils of war on the city.",
       "construction2", 37, 5, [["ROM_smiths_of_rome"], ["ROM_juno_moneta"]],
       build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + build("arms_factory"),
-      filters=I, ai=3, cost=20, avail="num_of_controlled_states > 8")
+      filters=I, ai=3, cost=20, avail=realm(9))
 
     # ============================================================== ATHENS (ATH)
     f = tree("ATH", "ATH_reforms_of_cleisthenes", "# Athens, from the reforms of Cleisthenes to the school of Hellas (base tree)")
@@ -538,7 +549,7 @@ def define(focus, build, infra, tech, wargoal):
         return "\n".join(f"OR = {{ NOT = {{ country_exists = {t} }} {t} = {{ is_subject_of = ROOT }} }}" for t in tags)
 
     def states(n):
-        return f"num_of_controlled_states > {n - 1}"
+        return realm(n)
 
     TUNE = {
         # Rome - Republic
@@ -637,4 +648,7 @@ def define(focus, build, infra, tech, wargoal):
         "ANTE_BOOKMARK_KYR": "The Greek kingdom of Cyrene, rich in silphium and horses, between Egypt and Carthage.",
         "ANTE_BOOKMARK_THL": "The horse lords of Thessaly: the widest plain and the best cavalry of Greece.",
     })
+    for n in sorted(REALM_N):
+        LOC[f"ANTE_REALM_STATES_{n}"] = (f"Controls at least {n} states, the states of its subjects included "
+                                         f"(now: [?ante_realm_states])")
     return TREES, IDEAS, LOC
