@@ -38,6 +38,7 @@ MOD = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import positions as P  # noqa: E402   (load_map / province_table, and the position writers)
 from geo import to_xy  # noqa: E402
+from data.leaders_509bc import LEADERS  # noqa: E402
 
 D = importlib.import_module("data.world_509bc")
 OLD = importlib.import_module("data.world_245")
@@ -941,6 +942,8 @@ def write_world(M, C, states):
                 "\telection_frequency = 12", f"\telections_allowed = {'yes' if ide == 'democratic' else 'no'}", "}",
                 "set_popularities = {"] + [f"\t{k} = {100 if k == ide else 0}" for k in
                                            ("democratic", "fascism", "communism", "neutrality")] + ["}"]
+        # named leaders (common/characters/ante_leaders.txt, written by tools/content.py)
+        hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag]
         write(f"history/countries/{tag} - {safe_name(c['name'])}.txt", "\n".join(hist) + "\n", bom=True)
     write("common/country_tags/00_ante_countries.txt", "\n".join(tags_txt) + "\n")
     write("common/countries/colors.txt", "\n".join(colors_txt + dyn) + "\n")

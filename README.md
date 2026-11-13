@@ -571,3 +571,29 @@ A játék Rómával elindul és fut. A nevek, határok és városok a helyükön
 ## Teszt a kilencedik kör után (2026-11-13) – AZ ORSZÁGOK SZÍNESEK
 
 Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zászlaja és pártja saját, nincs összeomlás. Részletek: `docs/crash_reports/2026-11-13_round9_test.md`, képek: `docs/screenshots/20261113_1854*.jpg`.
+
+## Tizedik kör (2026-11-13, Claude) – nagyobb általános fókuszfa, saját vezetők, gyorsítás
+
+- **Általános fókuszfa** (`common/national_focus/ante_generic_focus.txt`, 28 fókusz, generálja a `tools/content.py`):
+  három ág + csúcs. *Államvezetés és istenek* (Vének tanácsa, Szokásjog, Az istenek tisztelete, Adó, Követek,
+  Jóslatok = +1 kutatóhely, Írnokok, Játékok és ünnepek, Egy nép), *Föld és munka* (Piacok, Erdőirtás, Kézművesek,
+  Bányák, Utak, Kovácsműhelyek = hadiüzem, Nagy építkezések, Kőváros), *Háború* (Hadfelkelés, Lándzsások
+  kiképzése, Bronz és vas, Lovas nemesek, Erődített dombok, Tengerjárók = hajógyár, csak tengerparti
+  országnak, Felesküdött kíséret, Hódító szándék, A nép hadserege), csúcs: *Felemelkedés*. 9 új nemzeti szellem
+  (`common/ideas/ante_generic_ideas.txt`), csak alapjátékos ikonokkal és módosítókkal.
+- **Saját vezetők** 28 országnak (`tools/data/leaders_509bc.py` → `common/characters/ante_leaders.txt`,
+  tulajdonságok: `common/country_leader/ante_traits.txt`). Valódi személyek: Róma – Lucius Junius Brutus,
+  Karthágó – Hamilcar, Perzsia – I. Dareiosz, Athén – Kleiszthenész, Spárta – I. Kleomenész, Clusium – Lars
+  Porsenna, Latin Liga – Octavius Mamilius, Makedónia – I. Amüntasz, szkíták – Idanthürszosz, Kús – Amaniastabarqo,
+  Küréné – IV. Battosz, szakák – Szkunkha, agathürszoszok – Szpargapeithész, Kroton – Milón, odrüszök – Térész,
+  masszagéták – Tomürisz. A nagy törzseknek, amelyek uralkodóit nem ismerjük név szerint, kitalált (a leírásban
+  jelölt) vezetők. A `world.py` írja a `recruit_character` sorokat. Portrék még nincsenek (az alapjáték általános
+  képei látszanak).
+- **Lassulás:** a mod térképe minden mérőszámban kisebb az alapjátékénál (8041 vs 10155 szárazföldi tartomány,
+  634 vs 1081 állam, 119 vs 304 stratégiai régió), és futás közben sincs hibaáradat a naplóban. Ami több: **~215
+  gépi ország egyszerre** (az alapjáték 1936-ban ~70–90). Ezért a `zz_ante_imperium.lua` ritkábban futtatja azokat
+  az AI-rutinokat, amelyeknek Kr. e. 509-ben nincs dolguk (szerepek, tengeri célok, sablonok, felszerelés, piac,
+  légierő, portyák, kereskedelmi útvonalak). Továbbá: a `-crash_data_log` / `-debug` kapcsoló maga is lassít
+  (sok extra naplózás), sebességet ezek nélkül érdemes nézni.
+- Pipeline: `python tools/world.py` → `python tools/content.py` → `python tools/validate.py` (0 hiba).
+  Betöltési teszt a főmenüig: az új fájlokra nincs hibaüzenet az error.log-ban.

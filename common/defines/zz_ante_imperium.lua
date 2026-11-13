@@ -28,3 +28,17 @@ if NDefines_Graphics and NDefines_Graphics.NGraphics then
 	NDefines_Graphics.NGraphics.COUNTRY_COLOR_SATURATION_MODIFIER = 1.0
 	NDefines_Graphics.NGraphics.COUNTRY_COLOR_BRIGHTNESS_MODIFIER = 0.9
 end
+
+-- Performance: this world has ~215 AI countries at once (the base game ~70-90 in 1936), but no armies,
+-- navies or air forces yet. These AI routines run for every country and have nothing to do in 509 BC,
+-- so run them less often (base game values in brackets). Revisit when units/navies exist.
+NDefines.NAI.AI_UPDATE_ROLES_FREQUENCY_HOURS = 168        -- (48)
+NDefines.NAI.AI_NAVAL_GOALS_UPDATE_FREQUENCY_DAYS = 30    -- (7) every country logs 7 duplicate naval goals
+NDefines.NAI.RESEARCH_DAYS_BETWEEN_WEIGHT_UPDATE = 14     -- (7)
+NDefines.NAI.EQUIPMENT_MARKET_UPDATE_FREQUENCY_DAYS = 30  -- (11)
+NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_TEMPLATE = 30        -- (7)
+NDefines.NAI.DAYS_BETWEEN_CHECK_BEST_EQUIPMENT = 30       -- (7)
+NDefines.NAI.DAYS_BETWEEN_AIR_PRIORITIES_UPDATE = 14      -- (4)
+NDefines.NAI.AIFC_UPDATE_FREQUENCY_DAYS = 10              -- (5)
+NDefines.NAI.RAIDS_CREATE_FREQUENCY_DAYS = 30             -- (7)
+NDefines.NGame.TRADE_ROUTE_RECALCULATE_FREQUENCY_DAYS = 90 -- (45)
