@@ -567,3 +567,7 @@ Simnek is lett HoI4-e (1.19.5), így ezt a kört már **játékban néztük meg*
 ## Teszt a nyolcadik kör után (2026-11-13) – fut, de a színek még hiányoznak
 
 A játék Rómával elindul és fut. A nevek, határok és városok a helyükön vannak, de országszín-kitöltés sehol nincs, a játszható országokon sem. Részletek: `docs/crash_reports/2026-11-13_round8_test.md`, képek: `docs/screenshots/20261113_*.jpg`.
+
+## Teszt a kilencedik kör után (2026-11-13) – AZ ORSZÁGOK SZÍNESEK
+
+Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zászlaja és pártja saját, nincs összeomlás. Részletek: `docs/crash_reports/2026-11-13_round9_test.md`, képek: `docs/screenshots/20261113_1854*.jpg`.
