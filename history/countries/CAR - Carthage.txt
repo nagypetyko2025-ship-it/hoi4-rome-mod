@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 0
 }
 recruit_character = CAR_hamilcar
+add_ideas = ante_culture_punic
 oob = "CAR_245"
+set_naval_oob = "CAR_245_naval"

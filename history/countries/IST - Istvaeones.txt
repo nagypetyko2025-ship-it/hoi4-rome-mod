@@ -15,4 +15,6 @@ set_popularities = {
 	communism = 0
 	neutrality = 100
 }
+add_ideas = ante_culture_germanic
 oob = "IST_245"
+set_naval_oob = "IST_245_naval"

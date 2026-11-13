@@ -113,3 +113,8 @@ See `docs/design.md` for the plan and phases.
   the base game's scripts then log "Invalid subunit" at load - harmless. Ancient units are `ante_*`, active from the
   start (elephants inactive). `common/ai_templates` and `common/ai_equipment` are replace_path'ed (AI uses the OOB templates).
   Ships and aircraft are still vanilla (next step: triremes etc.). Crash-test armies with `-quickstart` (units load at game start, not at the menu).
+- Ships: vanilla naval sub-units emptied too; ancient ships are `ante_penteconter/trireme/quinquereme` with hulls
+  `<key>_hull` (no module slots). Fleets: history/units/<TAG>_245_naval.txt via `set_naval_oob` (always written).
+- Production pictures: the engine shows `GFX_<equipment variant>_medium` (e.g. GFX_ante_arms_equipment_1_medium).
+- Manpower: battalions are 500 men; culture spirits (`ante_culture_<culture>`, Rome `ante_culture_roman`) add
+  conscription. Country trees: `focus_file(tree_id, list, TAG, ...)` in content.py (Rome: `ROM` list).

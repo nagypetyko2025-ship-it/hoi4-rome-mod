@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 0
 }
 recruit_character = ATH_cleisthenes
+add_ideas = ante_culture_greek
 oob = "ATH_245"
+set_naval_oob = "ATH_245_naval"

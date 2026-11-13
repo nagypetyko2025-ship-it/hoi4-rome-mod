@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = CLU_porsenna
+add_ideas = ante_culture_etruscan
 oob = "CLU_245"
+set_naval_oob = "CLU_245_naval"

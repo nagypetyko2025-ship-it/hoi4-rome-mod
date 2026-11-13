@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = FEN_kaleva
+add_ideas = ante_culture_northern
 oob = "FEN_245"
+set_naval_oob = "FEN_245_naval"

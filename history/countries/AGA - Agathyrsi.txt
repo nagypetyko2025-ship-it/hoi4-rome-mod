@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = AGA_spargapeithes
+add_ideas = ante_culture_thracian
 oob = "AGA_245"
+set_naval_oob = "AGA_245_naval"

@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = KYR_battus
+add_ideas = ante_culture_greek
 oob = "KYR_245"
+set_naval_oob = "KYR_245_naval"

@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = LAK_cleomenes
+add_ideas = ante_culture_greek
 oob = "LAK_245"
+set_naval_oob = "LAK_245_naval"

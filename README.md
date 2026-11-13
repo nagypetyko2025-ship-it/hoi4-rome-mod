@@ -627,3 +627,25 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   kusita „Bowmen”; Thesszália, Makedónia lovas, a garamantok és kaledónok szekeres alakulatokkal.
 - Teszt: validate 0 hiba; gyorsindítással Rómával GAME RUNNING (a seregek betöltenek, nincs összeomlás); menüből
   indítva a főmenüig hibátlan.
+
+## Tizenkettedik kör (2026-11-13, Claude) – hajók, gyártási ikonok, manpower, kultúra-szellemek, Róma fája előkészítve
+
+- **Ókori hajók** (`tools/army.py`): Penteconter (ötvenevezős, könnyű „screen”), Trireme (triérész, a sorhajó),
+  Quinquereme (zárolva, a pun háborúk korára). A modern hadihajók (csatahajó, cirkáló, romboló, tengeralattjáró,
+  anyahajó) üres felülírást kaptak. **140 hajó** a kezdésre a tengeri hagyomány szerint: Karthágó, a görög
+  városok és az etruszkok nagyobb, Perzsia 20 hajós (föníciai és ión) flottával, a többi kikötős ország 0–2
+  ötvenevezőssel. Fájl: `history/units/<TAG>_245_naval.txt` (`set_naval_oob`).
+- **Gyártási ikonok**: minden gyártható felszerelésnek és hajónak saját, színes tárgyképe van
+  (`gfx/interface/technologies/*_1.dds`, `GFX_<felszerelés>_1_medium`), plusz hajóikonok a flottanézethez.
+- **Manpower**: az ok a „volunteer only” törvény (a népesség 1,5%-a) volt – Róma 40 000 lakosából ~600 fő, miközben a
+  seregei ~9000-et kötöttek le. Javítás: a zászlóaljak 500 fősek (ókori lépték), és a kultúra-szellemek
+  +4…+15% besorozást adnak (Róma +15%).
+- **Kultúra-szellemek** (nemzeti szellem minden népnek a valós kultúrája szerint, `ante_culture_*`): civilizáltak
+  (görög, latin, etruszk, pun, perzsa, anatóliai) kutatás/rend/gazdaság; „barbárok” (kelta, germán, északi, ibér,
+  trák, szkíta, líbiai) harc/besorozás/szívósság, lassabb kutatás. Latin kultúra csak Róma körül (Róma, Latin Liga).
+  **Róma: „Roman Virtus: We Never Give Up!”** – +40% kapitulációs határ (sokkal több területet kell elveszítenie,
+  hogy kapituláljon), +15% besorozás, háborús támogatottság, morál.
+- **Róma fókuszfája előkészítve**: `common/national_focus/ROM_focus.txt` (11 fókuszos váz: Regifugium, consulok,
+  a plebs kivonulása, néptribunusok, Capitoliumi templom, Sibylla-könyvek, centuriák, Horatius, Regillus-tó,
+  Foedus Cassianum, aequusok és volscusok), terv: `docs/rome_focus_tree.md`.
+- Teszt: validate 0 hiba; gyorsindítással Rómával GAME RUNNING (hajók, flották, szellemek betöltenek).

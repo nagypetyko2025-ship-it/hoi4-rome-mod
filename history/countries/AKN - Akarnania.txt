@@ -15,4 +15,6 @@ set_popularities = {
 	communism = 0
 	neutrality = 0
 }
+add_ideas = ante_culture_greek
 oob = "AKN_245"
+set_naval_oob = "AKN_245_naval"

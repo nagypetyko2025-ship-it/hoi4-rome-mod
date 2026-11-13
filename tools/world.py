@@ -944,9 +944,12 @@ def write_world(M, C, states):
                                            ("democratic", "fascism", "communism", "neutrality")] + ["}"]
         # named leaders (common/characters/ante_leaders.txt, written by tools/content.py)
         hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag]
+        # culture national spirit (common/ideas/ante_generic_ideas.txt, tools/content.py); Rome has its own
+        if c["names"] != "none":
+            hist.append(f"add_ideas = ante_culture_{'roman' if tag == 'ROM' else c['names']}")
         # starting army: history/units/<TAG>_245.txt, written by tools/army.py (the wilds have none)
         if tag != "WLD":
-            hist.append(f'oob = "{tag}_245"')
+            hist += [f'oob = "{tag}_245"', f'set_naval_oob = "{tag}_245_naval"']
         write(f"history/countries/{tag} - {safe_name(c['name'])}.txt", "\n".join(hist) + "\n", bom=True)
     write("common/country_tags/00_ante_countries.txt", "\n".join(tags_txt) + "\n")
     write("common/countries/colors.txt", "\n".join(colors_txt + dyn) + "\n")

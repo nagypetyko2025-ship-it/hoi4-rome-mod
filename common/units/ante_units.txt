@@ -18,7 +18,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 40
 		default_morale = 0.25
@@ -47,7 +47,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 60
 		default_morale = 0.3
@@ -80,7 +80,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 70
 		default_morale = 0.4
@@ -124,7 +124,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 50
 		default_morale = 0.25
@@ -165,7 +165,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 50
 		default_morale = 0.3
@@ -201,7 +201,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 70
 		default_morale = 0.35
@@ -244,7 +244,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 70
 		default_morale = 0.35
@@ -288,7 +288,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 50
 		default_morale = 0.3
@@ -339,7 +339,7 @@ sub_units = {
 		}
 		combat_width = 2
 		max_strength = 25
-		manpower = 1000
+		manpower = 500
 		weight = 0.5
 		max_organisation = 40
 		default_morale = 0.3
@@ -378,7 +378,7 @@ sub_units = {
 		}
 		combat_width = 0
 		max_strength = 2
-		manpower = 300
+		manpower = 150
 		weight = 0.1
 		max_organisation = 20
 		default_morale = 0.3
@@ -414,7 +414,7 @@ sub_units = {
 		}
 		combat_width = 0
 		max_strength = 2
-		manpower = 200
+		manpower = 100
 		weight = 0.1
 		max_organisation = 20
 		default_morale = 0.3
@@ -424,5 +424,47 @@ sub_units = {
 		need = {
 			ante_horse_equipment = 30
 		}
+	}
+	ante_penteconter = {
+		abbreviation = "PEN"
+		sprite = destroyer
+		map_icon_category = ship
+		priority = 3
+		active = yes
+		type = { screen_ship }
+		need = { ante_penteconter_hull = 1 }
+		max_organisation = 30
+		supply_consumption = 0.03
+		critical_parts = { on_fire rudder_jammed }
+		critical_part_damage_chance_mult = 1
+		hit_profile_mult = 1.0
+	}
+	ante_trireme = {
+		abbreviation = "TRI"
+		sprite = light_cruiser
+		map_icon_category = ship
+		priority = 3
+		active = yes
+		type = { capital_ship }
+		need = { ante_trireme_hull = 1 }
+		max_organisation = 40
+		supply_consumption = 0.03
+		critical_parts = { on_fire rudder_jammed }
+		critical_part_damage_chance_mult = 1
+		hit_profile_mult = 1.0
+	}
+	ante_quinquereme = {
+		abbreviation = "QUI"
+		sprite = heavy_cruiser
+		map_icon_category = ship
+		priority = 3
+		active = no
+		type = { capital_ship }
+		need = { ante_quinquereme_hull = 1 }
+		max_organisation = 45
+		supply_consumption = 0.03
+		critical_parts = { on_fire rudder_jammed }
+		critical_part_damage_chance_mult = 1
+		hit_profile_mult = 1.0
 	}
 }

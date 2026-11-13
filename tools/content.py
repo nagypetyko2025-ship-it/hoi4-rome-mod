@@ -63,13 +63,87 @@ IDEAS = {
                         {"stability_factor": 0.10, "political_power_gain": 0.10}),
 }
 
+# ------------------------------------------------------------------ culture spirits (one per people, from the start)
+# key = the culture (name list) of a country in tools/world.py; ROM gets "roman" instead of "latin".
+# Civilised peoples: research, order, wealth. "Barbarian" peoples: warriors, levies, hardiness - and slow learning.
+# conscription is high everywhere: in the ancient world every free man of age was a soldier.
+CULTURES = {
+    "roman": ("Roman Virtus: We Never Give Up!", "generic_morale_bonus",
+              "Kings have been driven out, but the Roman people remain. Rome has lost battles and will lose more; it has never accepted defeat. Its enemies must take far more of its land before the city will even think of surrender.",
+              {"surrender_limit": 0.4, "conscription": 0.15, "war_support_factor": 0.10, "stability_factor": 0.05,
+               "army_morale_factor": 0.10, "research_speed_factor": 0.05}),
+    "latin": ("Latin Culture", "generic_pp_unity_bonus",
+              "The Latin towns share one tongue, one festival on the Alban Mount and the rights of marriage and trade.",
+              {"conscription": 0.12, "stability_factor": 0.05, "political_power_factor": 0.05, "research_speed_factor": 0.05}),
+    "greek": ("Hellenic Culture", "generic_research_bonus",
+              "Poets, philosophers and the citizen in bronze armour: the polis is the measure of all things.",
+              {"research_speed_factor": 0.10, "political_power_factor": 0.05, "army_defence_factor": 0.05, "conscription": 0.10}),
+    "etruscan": ("Etruscan Culture", "generic_economic_increase",
+                 "Rich in metals, temples and painted tombs; the twelve cities trade with the whole sea.",
+                 {"production_speed_buildings_factor": 0.10, "research_speed_factor": 0.05, "conscription": 0.08}),
+    "punic": ("Phoenician Heritage", "generic_navy_bonus",
+              "Merchants and seafarers from Tyre: the sea is their road and silver their weapon.",
+              {"production_speed_dockyard_factor": 0.20, "research_speed_factor": 0.05, "trade_opinion_factor": 0.20,
+               "conscription": 0.05}),
+    "persian": ("Achaemenid Order", "generic_central_management",
+                "Satraps, roads and royal law hold together peoples from the Aegean to the Indus.",
+                {"political_power_factor": 0.15, "stability_factor": 0.10, "production_speed_buildings_factor": 0.05,
+                 "research_speed_factor": 0.05, "conscription": 0.04}),
+    "anatolian": ("Anatolian Culture", "generic_local_self_management",
+                  "Heirs of Phrygia and Lydia, old kingdoms of gold, horses and cities.",
+                  {"production_speed_buildings_factor": 0.05, "research_speed_factor": 0.05, "conscription": 0.08}),
+    "nilotic": ("Kushite Tradition", "generic_infantry_bonus",
+                "The land of the bow: pharaonic temples at Napata and archers famed since the Old Kingdom.",
+                {"army_attack_factor": 0.05, "stability_factor": 0.05, "conscription": 0.08}),
+    "italic": ("Italic Hill Peoples", "generic_mountain_warfare",
+               "Shepherds and warriors of the Apennines, quick to raid the plains below.",
+               {"conscription": 0.14, "army_org_factor": 0.05, "research_speed_factor": -0.05}),
+    "iapygian": ("Iapygian Culture", "generic_local_self_management",
+                 "Messapians, Peucetians and Daunians: half in the world of the Greeks, half in their own.",
+                 {"conscription": 0.12, "stability_factor": 0.03}),
+    "celtic": ("Celtic Warrior Society", "generic_infantry_bonus",
+               "Feasts, feuds and the furious charge: glory is won in battle, and the druids keep the lore unwritten.",
+               {"army_attack_factor": 0.10, "army_morale_factor": 0.05, "conscription": 0.14,
+                "research_speed_factor": -0.15, "stability_factor": -0.05}),
+    "germanic": ("Germanic Tribes", "generic_guerilla_warfare",
+                 "Forest peoples of the North: the assembly of armed men decides war and peace.",
+                 {"army_defence_factor": 0.05, "attrition": -0.10, "conscription": 0.15, "research_speed_factor": -0.20}),
+    "northern": ("Peoples of the Far North", "generic_agrarian_society",
+                 "Hunters, fishers and farmers of the long winters, far from the cities of the South.",
+                 {"attrition": -0.15, "conscription": 0.12, "research_speed_factor": -0.25}),
+    "iberian": ("Iberian Warrior Bands", "generic_guerilla_warfare",
+                "Light, swift and sworn to their chiefs unto death; masters of the ambush in broken country.",
+                {"army_attack_factor": 0.05, "planning_speed": 0.10, "conscription": 0.12, "research_speed_factor": -0.10}),
+    "thracian": ("Thracian Tribes", "generic_morale_bonus",
+                 "The most numerous people after the Indians, says Herodotus - and unconquerable, if only they were united.",
+                 {"army_attack_factor": 0.08, "conscription": 0.14, "research_speed_factor": -0.15, "stability_factor": -0.05}),
+    "scythian": ("Steppe Nomads", "generic_supply_lines",
+                 "Their homes are wagons and their wealth is herds: an enemy finds no town to take and no army to catch.",
+                 {"army_speed_factor": 0.15, "supply_consumption_factor": -0.15, "attrition": -0.10, "conscription": 0.15,
+                  "research_speed_factor": -0.20}),
+    "libyan": ("Desert Tribes", "generic_supply_line",
+               "Herdsmen and raiders who know every well between the sea and the Sahara.",
+               {"attrition": -0.20, "supply_consumption_factor": -0.10, "conscription": 0.10, "research_speed_factor": -0.15}),
+    "arabian": ("Caravan Peoples of Arabia", "generic_supply_line",
+                "Incense, camels and the desert roads: rich from trade, untouchable in the sands.",
+                {"attrition": -0.20, "trade_opinion_factor": 0.20, "conscription": 0.10, "research_speed_factor": -0.05}),
+    "caucasian": ("Mountain Clans of the Caucasus", "generic_mountain_defensive_training",
+                  "Every valley its own lord, every pass a fortress.",
+                  {"army_defence_factor": 0.10, "conscription": 0.12, "research_speed_factor": -0.10}),
+    "island": ("Nuragic Tradition", "generic_fortify_the_borders",
+               "The tower-builders of Sardinia, bronze-casters and warriors of the hills.",
+               {"army_defence_factor": 0.10, "conscription": 0.12, "research_speed_factor": -0.10}),
+}
+for _key, (_name, _pic, _desc, _mods) in CULTURES.items():
+    IDEAS[f"ante_culture_{_key}"] = (_name, _pic, _mods)
+
 # ------------------------------------------------------------------ the tree
 # (id, name, description, icon, x, y, prerequisites [AND of OR-groups], reward, extra lines, ai factor)
 F = []
 
 
-def focus(fid, name, desc, icon, x, y, pre, reward, extra="", ai=1, filters="FOCUS_FILTER_POLITICAL"):
-    F.append(dict(id=fid, name=name, desc=desc, icon=icon, x=x, y=y, pre=pre, reward=reward, extra=extra, ai=ai,
+def focus(fid, name, desc, icon, x, y, pre, reward, extra="", ai=1, filters="FOCUS_FILTER_POLITICAL", tree=None):
+    (F if tree is None else tree).append(dict(id=fid, name=name, desc=desc, icon=icon, x=x, y=y, pre=pre, reward=reward, extra=extra, ai=ai,
                   filters=filters))
 
 
@@ -162,6 +236,47 @@ focus("ante_rise_to_greatness", "Rise to Greatness", "Lawgivers, builders and wa
       "add_political_power = 100\nadd_stability = 0.10\nadd_war_support = 0.10", filters=P, ai=3)
 
 
+# ------------------------------------------------------------------ Rome (ROM) - first draft, see docs/rome_focus_tree.md
+ROM = []
+
+
+def wargoal(tag):
+    return (f"if = {{ limit = {{ country_exists = {tag} NOT = {{ has_war_with = {tag} }} }}\n"
+            f"\tcreate_wargoal = {{ type = annex_everything target = {tag} }}\n}}")
+
+
+focus("ROM_regifugium", "Regifugium", "Tarquinius Superbus and his house are driven from the city. Rome will never again have a king.",
+      "GFX_goal_generic_political_pressure", 6, 0, [], "add_political_power = 50\nadd_stability = 0.05", tree=ROM)
+# --- Res Publica (politics)
+focus("ROM_consuls_and_senate", "Consuls and Senate", "Two magistrates for one year, the fathers of the Senate to advise them.",
+      "GFX_goal_generic_national_unity", 2, 1, [["ROM_regifugium"]], "add_political_power = 75\nadd_stability = 0.05", tree=ROM)
+focus("ROM_secession_of_the_plebs", "Secession of the Plebs", "The plebeians march out to the Sacred Mount: without them there is no army.",
+      "GFX_goal_generic_demand_territory", 1, 2, [["ROM_consuls_and_senate"]], "add_manpower = 2000\nadd_political_power = 50",
+      tree=ROM)
+focus("ROM_tribunes_of_the_plebs", "Tribunes of the Plebs", "Sacrosanct protectors of the common people.",
+      "GFX_goal_generic_improve_relations", 1, 3, [["ROM_secession_of_the_plebs"]], "add_stability = 0.10", tree=ROM)
+# --- the gods of Rome
+focus("ROM_capitoline_temple", "Temple of Jupiter on the Capitol", "The great temple vowed by the kings is dedicated in the first year of the Republic.",
+      "GFX_goal_generic_propaganda", 6, 1, [["ROM_regifugium"]], "add_stability = 0.05\nadd_war_support = 0.05", tree=ROM)
+focus("ROM_sibylline_books", "The Sibylline Books", "The prophetic books, kept by the priests, are consulted in every crisis.",
+      "GFX_goal_generic_scientific_exchange", 5, 2, [["ROM_capitoline_temple"]], "add_research_slot = 1", tree=ROM, ai=3)
+# --- the army of the centuries
+focus("ROM_servian_centuries", "Classes and Centuries", "Every citizen serves according to his property: the hoplite phalanx of Rome.",
+      "GFX_goal_generic_army_doctrines", 7, 2, [["ROM_capitoline_temple"]],
+      "army_experience = 15\nadd_doctrine_cost_reduction = { name = ante_drill_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine }",
+      tree=ROM)
+# --- Latium and the wars of the young Republic
+focus("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge.",
+      "GFX_goal_generic_defence", 10, 1, [["ROM_regifugium"]], "army_experience = 20\nadd_war_support = 0.10", tree=ROM)
+focus("ROM_lake_regillus", "Battle of Lake Regillus", "The Latins and the exiled Tarquins are beaten; the Dioscuri fought for Rome.",
+      "GFX_goal_generic_major_war", 9, 2, [["ROM_horatius_at_the_bridge"]], "army_experience = 25\n" + wargoal("LAT"),
+      tree=ROM)
+focus("ROM_foedus_cassianum", "Foedus Cassianum", "Peace and alliance with the Latins: one army against the hill peoples.",
+      "GFX_goal_generic_alliance", 9, 3, [["ROM_lake_regillus"]], "add_political_power = 100\nadd_stability = 0.05", tree=ROM)
+focus("ROM_aequi_and_volsci", "Against the Aequi and Volsci", "Every summer the hill tribes raid Latium. Every summer Rome marches.",
+      "GFX_goal_generic_territory_or_war", 11, 2, [["ROM_horatius_at_the_bridge"]], wargoal("VOL") + "\n" + wargoal("AEQ"),
+      tree=ROM)
+
 # ------------------------------------------------------------------ writers
 def indent(text, tabs):
     pad = "\t" * tabs
@@ -183,10 +298,10 @@ def write(rel, text, bom=False):
     p.write_text(text, encoding="utf-8-sig" if bom else "utf-8", newline="\n")
 
 
-def check_tree():
-    ids = {f["id"] for f in F}
+def check_tree(tree):
+    ids = {f["id"] for f in tree}
     pos = set()
-    for f in F:
+    for f in tree:
         for group in f["pre"]:
             for p in group:
                 assert p in ids, f"{f['id']}: unknown prerequisite {p}"
@@ -196,12 +311,18 @@ def check_tree():
             assert idea in IDEAS, f"{f['id']}: unknown idea {idea}"
 
 
-def focus_file():
+def focus_file(tree_id="ante_generic_focus", tree=None, tag=None, show="ante_tame_the_land", note=""):
+    """the generic tree (default = yes) or, with tag, a country's own tree"""
+    tree = F if tree is None else tree
+    if tag:
+        country = ["\tcountry = {", "\t\tfactor = 0", f"\t\tmodifier = {{ add = 10 tag = {tag} }}", "\t}", "\tdefault = no"]
+    else:
+        country = ["\tcountry = {", "\t\tfactor = 1", "\t}", "\tdefault = yes"]
     out = ["# Generated by tools/content.py - edit that file, not this one.",
-           "# Generic focus tree for every people without a tree of its own. The engine crashes when no tree exists.",
-           "focus_tree = {", "\tid = ante_generic_focus", "\tcountry = {", "\t\tfactor = 1", "\t}", "\tdefault = yes",
-           "\treset_on_civilwar = no", "", "\tinitial_show_position = {", "\t\tfocus = ante_tame_the_land", "\t}", ""]
-    for f in F:
+           note or "# Generic focus tree for every people without a tree of its own. The engine crashes when no tree exists.",
+           "focus_tree = {", f"\tid = {tree_id}"] + country + [
+           "\treset_on_civilwar = no", "", "\tinitial_show_position = {", f"\t\tfocus = {show}", "\t}", ""]
+    for f in tree:
         out += ["\tfocus = {", f"\t\tid = {f['id']}", f"\t\ticon = {f['icon']}"]
         for group in f["pre"]:
             out.append("\t\tprerequisite = { " + " ".join(f"focus = {p}" for p in group) + " }")
@@ -261,10 +382,12 @@ def traits_file():
 
 def localisation():
     out = ["l_english:"]
-    for f in F:
+    for f in F + ROM:
         out += [f' {f["id"]}:0 "{esc(f["name"])}"', f' {f["id"]}_desc:0 "{esc(f["desc"])}"']
     for key, (name, _, _) in IDEAS.items():
         out.append(f' {key}:0 "{esc(name)}"')
+    for key, (_, _, desc, _) in CULTURES.items():
+        out.append(f' ante_culture_{key}_desc:0 "{esc(desc)}"')
     for key, (name, _) in TRAITS.items():
         out.append(f' {key}:0 "{esc(name)}"')
     bonus_from = {"ante_scribes_bonus": "ante_scribes", "ante_mines_bonus": "ante_mines",
@@ -279,8 +402,12 @@ def localisation():
 
 
 def main():
-    check_tree()
+    check_tree(F)
+    check_tree(ROM)
     write("common/national_focus/ante_generic_focus.txt", focus_file())
+    write("common/national_focus/ROM_focus.txt",
+          focus_file("ROM_focus", ROM, "ROM", "ROM_regifugium",
+                     "# Rome's own focus tree - FIRST DRAFT (skeleton of the branches). Plan: docs/rome_focus_tree.md"))
     write("common/ideas/ante_generic_ideas.txt", ideas_file())
     write("common/characters/ante_leaders.txt", characters_file())
     write("common/country_leader/ante_traits.txt", traits_file())

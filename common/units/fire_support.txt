@@ -1,4 +1,4 @@
-# Ante Imperium (tools/army.py): replaces the base game's fire_support.txt - no modern troops in 509 BC.
+# Ante Imperium (tools/army.py): replaces the base game's fire_support.txt - no modern troops or warships in 509 BC.
 sub_units = {
 
 }

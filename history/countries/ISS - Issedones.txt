@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = ISS_kolaxais
+add_ideas = ante_culture_scythian
 oob = "ISS_245"
+set_naval_oob = "ISS_245_naval"

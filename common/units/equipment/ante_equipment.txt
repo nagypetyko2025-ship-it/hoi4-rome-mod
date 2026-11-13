@@ -221,4 +221,115 @@ equipments = {
 		priority = 10
 		visual_level = 0
 	}
+	ante_penteconter_hull = {
+		year = 1
+		is_archetype = yes
+		is_buildable = no
+		picture = archetype_ante_penteconter_hull
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		priority = 2000
+		active = yes
+		lg_attack = 2
+		lg_armor_piercing = 1
+		armor_value = 0
+		surface_detection = 10
+		surface_visibility = 8
+		naval_speed = 8
+		reliability = 0.7
+		naval_range = 300
+		max_strength = 10
+		build_cost_ic = 60
+		manpower = 60
+		naval_dominance_factor = 5
+		hg_attack = 0
+		hg_armor_piercing = 0
+		torpedo_attack = 0
+		sub_attack = 0
+		anti_air_attack = 0
+		sub_detection = 0
+		fuel_consumption = 0
+		naval_weather_penalty_factor = 1
+		resources = { steel = 1 }
+	}
+	ante_penteconter_hull_1 = {
+		year = 1
+		archetype = ante_penteconter_hull
+		active = yes
+		priority = 2000
+	}
+	ante_trireme_hull = {
+		year = 1
+		is_archetype = yes
+		is_buildable = no
+		picture = archetype_ante_trireme_hull
+		type = capital_ship
+		interface_category = interface_category_capital_ships
+		priority = 2000
+		active = yes
+		lg_attack = 6
+		lg_armor_piercing = 3
+		armor_value = 1
+		surface_detection = 12
+		surface_visibility = 12
+		naval_speed = 9
+		reliability = 0.7
+		naval_range = 400
+		max_strength = 25
+		build_cost_ic = 150
+		manpower = 200
+		naval_dominance_factor = 15
+		hg_attack = 0
+		hg_armor_piercing = 0
+		torpedo_attack = 0
+		sub_attack = 0
+		anti_air_attack = 0
+		sub_detection = 0
+		fuel_consumption = 0
+		naval_weather_penalty_factor = 1
+		resources = { steel = 1 }
+	}
+	ante_trireme_hull_1 = {
+		year = 1
+		archetype = ante_trireme_hull
+		active = yes
+		priority = 2000
+	}
+	ante_quinquereme_hull = {
+		year = 1
+		is_archetype = yes
+		is_buildable = no
+		picture = archetype_ante_quinquereme_hull
+		type = capital_ship
+		interface_category = interface_category_capital_ships
+		priority = 2000
+		active = no
+		lg_attack = 10
+		lg_armor_piercing = 5
+		armor_value = 3
+		surface_detection = 12
+		surface_visibility = 16
+		naval_speed = 7
+		reliability = 0.75
+		naval_range = 400
+		max_strength = 45
+		build_cost_ic = 300
+		manpower = 400
+		naval_dominance_factor = 25
+		hg_attack = 0
+		hg_armor_piercing = 0
+		torpedo_attack = 0
+		sub_attack = 0
+		anti_air_attack = 0
+		sub_detection = 0
+		fuel_consumption = 0
+		naval_weather_penalty_factor = 1
+		resources = { steel = 1 }
+	}
+	ante_quinquereme_hull_1 = {
+		year = 1
+		archetype = ante_quinquereme_hull
+		active = no
+		priority = 2000
+	}
 }

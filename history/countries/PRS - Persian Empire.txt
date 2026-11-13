@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = PRS_darius
+add_ideas = ante_culture_persian
 oob = "PRS_245"
+set_naval_oob = "PRS_245_naval"

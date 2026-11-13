@@ -15,4 +15,6 @@ set_popularities = {
 	communism = 0
 	neutrality = 100
 }
+add_ideas = ante_culture_celtic
 oob = "ARV_245"
+set_naval_oob = "ARV_245_naval"

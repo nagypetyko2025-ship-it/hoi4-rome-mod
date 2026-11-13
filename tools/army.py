@@ -116,13 +116,13 @@ UNITS = {
     # support companies
     "ante_siege_engines": dict(name="Siege Train", abbr="SIE", desc="Engineers with rams, ladders and towers. Indispensable against walls.",
                                group="support", sprite="artillery", cats=["category_support_battalions", "category_divisional_support_battalions", "category_army"],
-                               support=True, need={"ante_siege_equipment": 12}, manpower=300,
+                               support=True, need={"ante_siege_equipment": 12}, manpower=150,
                                stats=dict(max_organisation=20, default_morale=0.3, training_time=120,
                                           supply_consumption=0.04, entrenchment=1),
                                terrain={"fort": (0.3, 0.1), "river": (0.1, 0.1)}),
     "ante_scouts": dict(name="Mounted Scouts", abbr="SCT", desc="Riders who go ahead of the host and find the enemy first.",
                         group="support", sprite="cavalry", cats=["category_support_battalions", "category_divisional_support_battalions", "category_army", "category_recon"],
-                        support=True, need={"ante_horse_equipment": 30}, manpower=200,
+                        support=True, need={"ante_horse_equipment": 30}, manpower=100,
                         stats=dict(max_organisation=20, default_morale=0.3, training_time=90, supply_consumption=0.03,
                                    recon=1), terrain={}),
 }
@@ -154,7 +154,8 @@ def units_file():
         out += ["\t\ttype = { " + ("support" if u.get("support") else "infantry") + " }", f"\t\tgroup = {u['group']}",
                 "\t\tcategories = {"] + [f"\t\t\t{c}" for c in u["cats"]] + ["\t\t}"]
         out += [f"\t\tcombat_width = {0 if u.get('support') else 2}", "\t\tmax_strength = " + ("2" if u.get("support") else "25"),
-                f"\t\tmanpower = {u.get('manpower', 1000)}", "\t\tweight = " + ("0.1" if u.get("support") else "0.5")]
+                f"\t\tmanpower = {u.get('manpower', 500)}",  # ancient units: 500 men a battalion
+                "\t\tweight = " + ("0.1" if u.get("support") else "0.5")]
         out += [f"\t\t{k} = {fmt(v)}" for k, v in u["stats"].items()]
         out += ["\t\tneed = {"] + [f"\t\t\t{k} = {v}" for k, v in u["need"].items()] + ["\t\t}"]
         for terr, (att, mov) in u["terrain"].items():
@@ -163,6 +164,7 @@ def units_file():
                 out.append(f"\t\t\t{'defence' if terr in ('fort', 'river') else 'movement'} = {fmt(mov)}")
             out.append("\t\t}")
         out.append("\t}")
+    out += ships_units()
     out.append("}")
     return "\n".join(out) + "\n"
 
@@ -179,8 +181,59 @@ def equipment_file():
                 f"\t\tbuild_cost_ic = {fmt(cost)}", "\t\tresources = {"] + [f"\t\t\t{r} = {n}" for r, n in res.items()] + ["\t\t}", "\t}"]
         out += [f"\t{key}_1 = {{", "\t\tyear = 1", f"\t\tarchetype = {key}", f"\t\tactive = {'yes' if active else 'no'}",
                 "\t\tpriority = 10", "\t\tvisual_level = 0", "\t}"]
+    for key, s in SHIPS.items():
+        eq = f"{key}_hull"
+        out += [f"\t{eq} = {{", "\t\tyear = 1", "\t\tis_archetype = yes", "\t\tis_buildable = no",
+                f"\t\tpicture = archetype_{eq}", f"\t\ttype = {s['type']}", f"\t\tinterface_category = {s['cat']}",
+                "\t\tpriority = 2000", f"\t\tactive = {'yes' if s['active'] else 'no'}"]
+        out += [f"\t\t{k} = {fmt(v)}" for k, v in s["stats"].items()]
+        out += ["\t\thg_attack = 0", "\t\thg_armor_piercing = 0", "\t\ttorpedo_attack = 0", "\t\tsub_attack = 0",
+                "\t\tanti_air_attack = 0", "\t\tsub_detection = 0", "\t\tfuel_consumption = 0",
+                "\t\tnaval_weather_penalty_factor = 1", "\t\tresources = { steel = 1 }", "\t}",
+                f"\t{eq}_1 = {{", "\t\tyear = 1", f"\t\tarchetype = {eq}", f"\t\tactive = {'yes' if s['active'] else 'no'}",
+                "\t\tpriority = 2000", "\t}"]
     out.append("}")
     return "\n".join(out) + "\n"
+
+
+# ============================================================================ ships
+SHIPS = {
+    "ante_penteconter": dict(name="Penteconter", abbr="PEN", sprite="destroyer", unit_type="screen_ship",
+                             type="screen_ship", cat="interface_category_screen_ships", active=True,
+                             desc="Fifty oars, a bronze ram and a mast: the long ship of pirates, colonists and small cities.",
+                             org=30, stats=dict(lg_attack=2, lg_armor_piercing=1, armor_value=0, surface_detection=10,
+                                                surface_visibility=8, naval_speed=8, reliability=0.7, naval_range=300,
+                                                max_strength=10, build_cost_ic=60, manpower=60,
+                                                naval_dominance_factor=5)),
+    "ante_trireme": dict(name="Trireme", abbr="TRI", sprite="light_cruiser", unit_type="capital_ship",
+                         type="capital_ship", cat="interface_category_capital_ships", active=True,
+                         desc="Three banks of oars and 170 rowers drive the ram into the enemy's side - the new queen of the seas.",
+                         org=40, stats=dict(lg_attack=6, lg_armor_piercing=3, armor_value=1, surface_detection=12,
+                                            surface_visibility=12, naval_speed=9, reliability=0.7, naval_range=400,
+                                            max_strength=25, build_cost_ic=150, manpower=200,
+                                            naval_dominance_factor=15)),
+    "ante_quinquereme": dict(name="Quinquereme", abbr="QUI", sprite="heavy_cruiser", unit_type="capital_ship",
+                             type="capital_ship", cat="interface_category_capital_ships", active=False,
+                             desc="A heavier galley with marines on deck - built by Carthage and Rome in the age of the Punic Wars.",
+                             org=45, stats=dict(lg_attack=10, lg_armor_piercing=5, armor_value=3, surface_detection=12,
+                                                surface_visibility=16, naval_speed=7, reliability=0.75, naval_range=400,
+                                                max_strength=45, build_cost_ic=300, manpower=400,
+                                                naval_dominance_factor=25)),
+}
+VANILLA_NAVAL = ["battleship", "battlecruiser", "carrier", "destroyer", "heavy_cruiser", "light_cruiser", "submarine",
+                 "repair_ships", "support_ships"]
+
+
+def ships_units():
+    out = []
+    for key, s in SHIPS.items():
+        out += [f"\t{key} = {{", f'\t\tabbreviation = "{s["abbr"]}"', f"\t\tsprite = {s['sprite']}",
+                "\t\tmap_icon_category = ship", "\t\tpriority = 3", f"\t\tactive = {'yes' if s['active'] else 'no'}",
+                f"\t\ttype = {{ {s['unit_type']} }}", f"\t\tneed = {{ {key}_hull = 1 }}", f"\t\tmax_organisation = {s['org']}",
+                "\t\tsupply_consumption = 0.03",
+                "\t\tcritical_parts = { on_fire rudder_jammed }", "\t\tcritical_part_damage_chance_mult = 1",
+                "\t\thit_profile_mult = 1.0", "\t}"]
+    return out
 
 
 def vanilla_overrides():
@@ -192,10 +245,10 @@ def vanilla_overrides():
         if not m:
             sys.exit(f"ERROR: {k} not found in the base game's infantry.txt")
         keep.append(m.group(0))
-    for name in VANILLA_LAND:
+    for name in VANILLA_LAND + VANILLA_NAVAL:
         body = "\n".join(keep) if name == "infantry" else ""
         write(f"common/units/{name}.txt", f"# Ante Imperium (tools/army.py): replaces the base game's {name}.txt - "
-                                          f"no modern troops in 509 BC.\nsub_units = {{\n{body}\n}}\n")
+                                          f"no modern troops or warships in 509 BC.\nsub_units = {{\n{body}\n}}\n")
     eq = (g / "common" / "units" / "equipment" / "infantry.txt").read_text(encoding="utf-8-sig")
     eq = re.sub(r"active = yes", "active = no", eq)
     write("common/units/equipment/infantry.txt",
@@ -263,6 +316,18 @@ def silhouette(kind, w, h):
         L([(0.05, 0.72), (0.35, 0.72)], 0.04)
         d.polygon(P([(0.08, 0.2), (0.38, 0.2), (0.4, 0.6), (0.06, 0.6)]), fill=255)
         L([(0.38, 0.55), (0.6, 0.55)], 0.05)
+    elif kind.startswith(("ante_penteconter", "ante_trireme", "ante_quinquereme")):
+        banks = 1 if "penteconter" in kind else 3 if "trireme" in kind else 4
+        # hull: ram at the bow (right), raised stern (left)
+        d.polygon(P([(0.02, 0.35), (0.08, 0.55), (0.82, 0.58), (1.0, 0.66), (0.86, 0.72), (0.12, 0.72),
+                     (0.04, 0.6)]), fill=255)
+        L([(0.03, 0.36), (0.0, 0.18)], 0.05)                              # stern post
+        L([(0.48, 0.55), (0.48, 0.05)], 0.05)                             # mast
+        d.polygon(P([(0.36, 0.1), (0.62, 0.1), (0.6, 0.42), (0.38, 0.42)]), fill=255)  # sail
+        for b in range(banks):                                            # oars
+            for i in range(9):
+                x = 0.16 + i * 0.075 + b * 0.012
+                L([(x, 0.7), (x - 0.06, 0.98 - b * 0.05)], 0.025)
     elif kind in ("ante_siege_engines", "ante_siege_equipment"):
         d.polygon(P([(0.1, 0.95), (0.3, 0.1), (0.7, 0.1), (0.9, 0.95)]), fill=255)   # siege tower
         for y in (0.35, 0.6):
@@ -329,6 +394,36 @@ def nato(w, h, sym):
     return im.resize((w, h), Image.LANCZOS)
 
 
+MATERIAL = {"ante_arms_equipment": (176, 132, 70), "ante_panoply_equipment": (196, 150, 64),
+            "ante_ranged_equipment": (138, 92, 52), "ante_horse_equipment": (126, 76, 44),
+            "ante_chariot_equipment": (150, 104, 58), "ante_siege_equipment": (128, 90, 54),
+            "ante_elephant_equipment": (136, 130, 124)}
+
+
+def product_icon(key):
+    """coloured 'object' picture for the production screen (109 x 30), shaded like the base game's"""
+    wide = key.endswith("_hull")
+    w, h = (100, 28) if wide else (64, 28)
+    mask = silhouette(key, w, h)
+    base = MATERIAL.get(key, (120, 82, 48))
+    grad = Image.linear_gradient("L").resize((w, h))
+    light = Image.new("RGBA", (w, h), tuple(min(255, int(c * 1.35)) for c in base) + (255,))
+    dark = Image.new("RGBA", (w, h), tuple(int(c * 0.6) for c in base) + (255,))
+    body = Image.composite(dark, light, grad)
+    edge = Image.eval(mask, lambda v: 255 if v > 0 else 0).filter(ImageFilter.MaxFilter(3))
+    outline = Image.new("RGBA", (w, h), (30, 22, 14, 255))
+    outline.putalpha(edge)
+    body.putalpha(mask)
+    obj = Image.alpha_composite(outline, body)
+    shadow = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    shadow.putalpha(mask.filter(ImageFilter.GaussianBlur(1.5)).point(lambda v: v // 2))
+    pic = Image.new("RGBA", (109, 30), (0, 0, 0, 0))
+    x = (109 - w) // 2
+    pic.alpha_composite(shadow, (x + 2, 2))
+    pic.alpha_composite(obj, (x, 1))
+    return pic
+
+
 def icons():
     sprites = ["# Generated by tools/army.py - icons of the ancient units and equipment (own art, CC0)", "spriteTypes = {"]
     for key in UNITS:
@@ -345,13 +440,35 @@ def icons():
                             ("small", f"gfx/interface/counters/divisions_small/{key}_icon_small.dds")):
             sprites.append(f'\tspriteType = {{ name = "GFX_unit_{key}_icon_{suffix}" '
                            f'textureFile = "{tex}" noOfFrames = 2 }}')
-    for key in EQUIPMENT:
-        im = glow_icon(silhouette(key, 40, 21), (168, 122, 80), (240, 225, 205))
+    equipment_keys = list(EQUIPMENT) + [f"{k}_hull" for k in SHIPS]
+    for key in equipment_keys:
+        wide = key.endswith("_hull")
+        im = glow_icon(silhouette(key, 70 if wide else 40, 21), (168, 122, 80), (240, 225, 205))
         pic = Image.new("RGBA", (81, 23), (0, 0, 0, 0))
-        pic.alpha_composite(im, (20, 1))
+        pic.alpha_composite(im, (5 if wide else 20, 1))
         pic.save(MOD / "gfx" / "interface" / "archetypes" / f"archetype_{key}.dds")
         sprites.append(f'\tspriteType = {{ name = "GFX_archetype_{key}_medium" '
                        f'texturefile = "gfx/interface/archetypes/archetype_{key}.dds" }}')
+        # production line picture of the model (the engine looks for GFX_<equipment>_medium)
+        product_icon(key).save(MOD / "gfx" / "interface" / "technologies" / f"{key}_1.dds")
+        sprites.append(f'\tspriteType = {{ name = "GFX_{key}_1_medium" '
+                       f'texturefile = "gfx/interface/technologies/{key}_1.dds" }}')
+    # ships: naval combat / fleet icons (86 x 18, two frames) and the small map counter
+    for key in SHIPS:
+        big = Image.new("RGBA", (86, 18), (0, 0, 0, 0))
+        for f, col in ((0, (205, 205, 200)), (1, (240, 220, 140))):
+            big.alpha_composite(glow_icon(silhouette(key, 40, 16), col, (255, 255, 255)), (f * 43 + 1, 1))
+        small = glow_icon(silhouette(key, 28, 11), (235, 235, 235), (255, 255, 255))
+        sm = Image.new("RGBA", (30, 12), (0, 0, 0, 0))
+        sm.alpha_composite(small, (1, 0))
+        big.save(MOD / "gfx" / "interface" / "counters" / "divisions_large" / f"{key}_ship.dds")
+        sm.save(MOD / "gfx" / "interface" / "counters" / "divisions_small" / f"{key}_ship_small.dds")
+        sprites += [f'\tspriteType = {{ name = "GFX_unit_{key}_icon_medium" '
+                    f'texturefile = "gfx/interface/counters/divisions_large/{key}_ship.dds" noOfFrames = 2 }}',
+                    f'\tspriteType = {{ name = "GFX_unit_{key}_icon_medium_white" '
+                    f'texturefile = "gfx/interface/counters/divisions_small/{key}_ship_small.dds" }}',
+                    f'\tspriteType = {{ name = "GFX_unit_{key}_icon_medium_black" '
+                    f'texturefile = "gfx/interface/counters/divisions_small/{key}_ship_small.dds" }}']
     sprites.append("}")
     write("interface/ante_units.gfx", "\n".join(sprites) + "\n")
 
@@ -413,7 +530,7 @@ def ordinal(n):
 def armies():
     import world
     C = world.countries()
-    states = {}
+    states, ports = {}, {}
     for fp in (MOD / "history" / "states").glob("*.txt"):
         t = fp.read_text(encoding="utf-8-sig")
         owner = re.search(r"owner = (\w+)", t).group(1)
@@ -423,7 +540,9 @@ def armies():
         prov = int(vp.group(1)) if vp else int(re.search(r"provinces = \{\s*(\d+)", t).group(1))
         states.setdefault(owner, []).append((int(vp.group(2)) if vp else 0,
                                              int(re.search(r"manpower = (\d+)", t).group(1)), prov))
-    total = 0
+        for pp, lvl in re.findall(r"(\d+) = \{ naval_base = (\d+) \}", t):
+            ports.setdefault(owner, []).append((int(lvl), int(vp.group(2)) if vp else 0, int(pp)))
+    total = nships = 0
     for tag, c in C.items():
         if tag == "WLD" or tag not in states:
             continue
@@ -452,7 +571,54 @@ def armies():
         out.append("}")
         write(f"history/units/{tag}_245.txt", "\n".join(out) + "\n")
         total += n
-    return total
+        nships += fleet(tag, c, mp, ports.get(tag))
+    return total, nships
+
+
+# naval tradition: ships per sqrt(manpower / 20000), share of triremes (new in the late 6th century)
+NAVAL = {"punic": (3.0, 0.5), "greek": (1.2, 0.3), "etruscan": (1.2, 0.2), "latin": (0.6, 0.0), "island": (0.6, 0.0),
+         "iberian": (0.4, 0.0), "italic": (0.3, 0.0), "iapygian": (0.4, 0.0), "arabian": (0.3, 0.0),
+         "celtic": (0.3, 0.0), "northern": (0.3, 0.0), "germanic": (0.3, 0.0), "libyan": (0.2, 0.0)}
+FIXED_FLEET = {"PRS": (20, 0.6)}  # the Phoenician and Ionian squadrons of the King
+
+
+def roman(n):
+    out = ""
+    for v, r in ((10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")):
+        while n >= v:
+            out += r
+            n -= v
+    return out
+
+
+def fleet(tag, c, mp, port_list):
+    """history/units/<TAG>_245_naval.txt - always written (empty without ports) so the history line never breaks"""
+    lines = [f"# Generated by tools/army.py - fleet of {c['name']} in 509 BC", "units = {"]
+    n, tri = 0, 0.0
+    if port_list:
+        w, tri = NAVAL.get(c["names"], (0.2, 0.0))
+        n = int(round(w * math.sqrt(mp / 20000)))
+        if n == 0 and w >= 0.5:
+            n = 1
+        if tag in FIXED_FLEET:
+            n, tri = FIXED_FLEET[tag]
+        n = min(n, 30)
+    if n:
+        base = sorted(port_list, reverse=True)[0][2]
+        n_tri = int(round(n * tri))
+        lines += ["\tfleet = {", f'\t\tname = "{c["adj"]} Fleet"', f"\t\tnaval_base = {base}",
+                  "\t\ttask_force = {", f'\t\t\tname = "{c["adj"]} Squadron"', f"\t\t\tlocation = {base}"]
+        count = {}
+        for i in range(n):
+            key = "ante_trireme" if i < n_tri else "ante_penteconter"
+            count[key] = count.get(key, 0) + 1
+            nm = f'{c["adj"]} {SHIPS[key]["name"]} {roman(count[key])}'
+            lines.append(f'\t\t\tship = {{ name = "{nm}" definition = {key} start_experience_factor = 0.2 '
+                         f'equipment = {{ {key}_hull_1 = {{ amount = 1 owner = {tag} }} }} }}')
+        lines += ["\t\t}", "\t}"]
+    lines.append("}")
+    write(f"history/units/{tag}_245_naval.txt", "\n".join(lines) + "\n")
+    return n
 
 
 def localisation():
@@ -462,20 +628,24 @@ def localisation():
     for key, (name, short, desc, *_r) in EQUIPMENT.items():
         out += [f' {key}:0 "{name}"', f' {key}_desc:0 "{desc}"', f' {key}_1:0 "{name}"',
                 f' {key}_1_short:0 "{short}"', f' {key}_1_desc:0 "{desc}"']
+    for key, sh in SHIPS.items():
+        out += [f' {key}:0 "{sh["name"]}"', f' {key}_desc:0 "{sh["desc"]}"', f' {key}_hull:0 "{sh["name"]}"',
+                f' {key}_hull_desc:0 "{sh["desc"]}"', f' {key}_hull_1:0 "{sh["name"]}"',
+                f' {key}_hull_1_short:0 "{sh["name"]}"', f' {key}_hull_1_desc:0 "{sh["desc"]}"']
     write("localisation/english/ante_army_l_english.yml", "\n".join(out) + "\n", bom=True)
 
 
 def main():
-    for sub in ("counters/divisions_large", "counters/divisions_small", "archetypes"):
+    for sub in ("counters/divisions_large", "counters/divisions_small", "archetypes", "technologies"):
         (MOD / "gfx" / "interface" / sub).mkdir(parents=True, exist_ok=True)
     vanilla_overrides()
     write("common/units/ante_units.txt", units_file())
     write("common/units/equipment/ante_equipment.txt", equipment_file())
     icons()
     localisation()
-    n = armies()
-    print(f"written: {len(UNITS)} unit types, {len(EQUIPMENT)} equipment types, {len(VANILLA_LAND)} base-game unit "
-          f"files emptied, {n} divisions at the start")
+    n, ships = armies()
+    print(f"written: {len(UNITS)} unit types, {len(SHIPS)} ship types, {len(EQUIPMENT) + len(SHIPS)} equipment types, "
+          f"{len(VANILLA_LAND) + len(VANILLA_NAVAL)} base-game unit files emptied, {n} divisions and {ships} ships")
 
 
 if __name__ == "__main__":

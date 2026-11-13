@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = PAN_pinnes
+add_ideas = ante_culture_iapygian
 oob = "PAN_245"
+set_naval_oob = "PAN_245_naval"

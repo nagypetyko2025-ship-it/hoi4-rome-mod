@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = KSH_amaniastabarqo
+add_ideas = ante_culture_nilotic
 oob = "KSH_245"
+set_naval_oob = "KSH_245_naval"

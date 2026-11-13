@@ -16,4 +16,6 @@ set_popularities = {
 	neutrality = 100
 }
 recruit_character = GTA_zalmodegikos
+add_ideas = ante_culture_thracian
 oob = "GTA_245"
+set_naval_oob = "GTA_245_naval"
