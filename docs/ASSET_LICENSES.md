@@ -8,3 +8,4 @@ dress of each people. Own work, released under CC0.
 
 ## Flags (`gfx/flags/`)
 Painted procedurally by `tools/world.py` / `tools/build.py`. Own work, CC0.
+- Tech icons (`gfx/interface/technologies/ante_*.dds`): own procedural art (tools/tech.py), CC0.

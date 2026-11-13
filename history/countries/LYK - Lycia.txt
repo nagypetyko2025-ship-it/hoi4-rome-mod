@@ -15,6 +15,20 @@ set_popularities = {
 	communism = 0
 	neutrality = 100
 }
+set_technology = {
+	ante_bronze_weapons = 1
+	ante_bronze_armour = 1
+	ante_simple_bows = 1
+	ante_pack_animals = 1
+	ante_riding = 1
+	ante_chariotry = 1
+	ante_rams_and_ladders = 1
+	ante_seafaring = 1
+	ante_bronze_casting = 1
+	ante_writing = 1
+	ante_masonry = 1
+	popup = no
+}
 add_ideas = ante_culture_anatolian
 oob = "LYK_245"
 set_naval_oob = "LYK_245_naval"

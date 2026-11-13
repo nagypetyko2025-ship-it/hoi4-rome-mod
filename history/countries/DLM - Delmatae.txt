@@ -15,6 +15,18 @@ set_popularities = {
 	communism = 100
 	neutrality = 0
 }
+set_technology = {
+	ante_bronze_weapons = 1
+	ante_bronze_armour = 1
+	ante_simple_bows = 1
+	ante_pack_animals = 1
+	ante_riding = 1
+	ante_chariotry = 1
+	ante_rams_and_ladders = 1
+	ante_seafaring = 1
+	ante_bronze_casting = 1
+	popup = no
+}
 add_ideas = ante_culture_iapygian
 oob = "DLM_245"
 set_naval_oob = "DLM_245_naval"

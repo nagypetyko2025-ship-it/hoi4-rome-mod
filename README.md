@@ -724,3 +724,23 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   Clusiummal (vagy Clusium nincs többé); a Regnum Italiae már nem függ tőle. Általános szabályok a `TUNE`-ban:
   `reach(TAG)` = határos vagy nem létezik (a szamnisz háborúknál is), `gone(TAG)` most a szövetséges (frakciótárs)
   ellenfelet is „legyőzöttnek” veszi (pl. Makedónia–Thesszália), Perzsia koronája a szkíták VAGY Athén legyőzését kéri.
+
+## Tizenhetedik kör (2026-11-13, Claude) – ókori technológiafa, AUC évszámok
+- **Az alapjáték technológiái eltávolítva** (`replace_path="common/technologies"`), helyettük **66 ókori technológia**
+  (`tools/data/tech_tree.py` → `tools/tech.py`), 7 oldalon, az alapjáték felületét használva, ókori névvel:
+  Arms and Armour, Auxiliaries and Supply, Horse and Chariot, Siege Craft, Seafaring, Learning, Crafts and Building.
+  A légierő oldalai és a DLC-s duplikátumok (NSB páncélos, MtG haditengerészet) elrejtve – mindenki ugyanazt látja.
+- **Évszámok AUC-ban:** a technológiaképernyő évfeliratai 245–485 AUC (Kr. e. 509–269), oldalanként egyenletesen;
+  a technológiák `start_year`-je ugyanez, így a felirat, a sor és az „idő előtti” büntetés egyezik.
+  `zz_ante_imperium.lua`: 1 kutatási pont = 365 nap, évenkénti előrekutatási büntetés 8% (a sorok 20–40 évre vannak).
+- **Új felszerelés-változatok** (army.py `VARIANTS`): vasfegyverek, kovácsolt acél; linothorax, láncing és scutum;
+  összetett íj, ólom parittyagolyó; tenyésztett harci lovak, szarvas nyereg; kaszás harci kocsi; ostromtorony,
+  torziós gépek. A harci elefántot és a quinqueremét technológia nyitja.
+- Egyéb technológiák: zárt/nyitott rend, manipulusok, rövid kard, ellátóoszlopok, katonai utak, felderítők, kémek,
+  megerősített tábor, tábori orvosok, lovasíjászat, nehézlovasság, földsánc, kőfal, poliorkétika, kos, diekplous,
+  hajószínek, tengerészgyalogság, világítótornyok, írás, iskolák, filozófia, Akadémia, Múszeion, geometria,
+  csillagászat, mechanika, orvoslás, retorika, írott jog, vasolvasztás, fújtatós kemence, állami műhelyek,
+  mészhabarcs, opus caementicium, öntözés, vasekevas, mélybányászat, vízimalom, pénzverés.
+- Kezdő technológiák (history, world.py): mindenkinek a bronzkori alapok; a városias népeknek az írás és a
+  kőművesség is. Ikonok: saját rajz (tech.py, CC0).
+- Validate 0 hiba. Játékban még NEM futott.

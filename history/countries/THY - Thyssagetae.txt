@@ -15,6 +15,18 @@ set_popularities = {
 	communism = 100
 	neutrality = 0
 }
+set_technology = {
+	ante_bronze_weapons = 1
+	ante_bronze_armour = 1
+	ante_simple_bows = 1
+	ante_pack_animals = 1
+	ante_riding = 1
+	ante_chariotry = 1
+	ante_rams_and_ladders = 1
+	ante_seafaring = 1
+	ante_bronze_casting = 1
+	popup = no
+}
 recruit_character = THY_arpoxais
 add_ideas = ante_culture_northern
 oob = "THY_245"

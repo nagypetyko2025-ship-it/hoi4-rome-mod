@@ -39,6 +39,7 @@ sys.path.insert(0, str(TOOLS))
 import positions as P  # noqa: E402   (load_map / province_table, and the position writers)
 from geo import to_xy  # noqa: E402
 from data.leaders_509bc import LEADERS, LATER  # noqa: E402
+import data.tech_tree as TT  # noqa: E402
 
 D = importlib.import_module("data.world_509bc")
 OLD = importlib.import_module("data.world_245")
@@ -942,6 +943,10 @@ def write_world(M, C, states):
                 "\telection_frequency = 12", f"\telections_allowed = {'yes' if ide == 'democratic' else 'no'}", "}",
                 "set_popularities = {"] + [f"\t{k} = {100 if k == ide else 0}" for k in
                                            ("democratic", "fascism", "communism", "neutrality")] + ["}"]
+        # starting techs (tools/data/tech_tree.py, tools/tech.py)
+        if tag != "WLD":
+            techs = TT.START + (TT.START_CIVILISED if c["names"] in TT.CIVILISED or tag == "ROM" else [])
+            hist += ["set_technology = {"] + [f"\t{t} = 1" for t in techs] + ["\tpopup = no", "}"]
         # named leaders (common/characters/ante_leaders.txt, written by tools/content.py)
         hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag]
         # culture national spirit (common/ideas/ante_generic_ideas.txt, tools/content.py); Rome has its own

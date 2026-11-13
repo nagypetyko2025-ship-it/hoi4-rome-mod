@@ -42,3 +42,8 @@ NDefines.NAI.DAYS_BETWEEN_AIR_PRIORITIES_UPDATE = 14      -- (4)
 NDefines.NAI.AIFC_UPDATE_FREQUENCY_DAYS = 10              -- (5)
 NDefines.NAI.RAIDS_CREATE_FREQUENCY_DAYS = 30             -- (7)
 NDefines.NGame.TRADE_ROUTE_RECALCULATE_FREQUENCY_DAYS = 90 -- (45)
+
+-- Ancient tech tree (tools/tech.py): rows lie 20-40 AUC years apart instead of 1-2 years, and the game runs for
+-- centuries. One tech point = one year of research (vanilla 110 days); each year ahead adds 8% (vanilla 200%).
+NDefines.NTechnology.BASE_TECH_COST = 365                 -- (110)
+NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 0.08 -- (2)

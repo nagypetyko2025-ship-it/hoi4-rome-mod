@@ -61,6 +61,18 @@ EQUIPMENT = {
                                                  maximum_speed=4, reliability=0.7), 4.0, {}, False),
 }
 
+# better models, unlocked by the tech tree (tools/tech.py): archetype -> [(level, name, short, stat factor)]
+VARIANTS = {
+    "ante_arms_equipment": [(2, "Iron Weapons", "Iron", 1.15), (3, "Forged Steel", "Steel", 1.30)],
+    "ante_panoply_equipment": [(2, "Linothorax Panoply", "Linothorax", 1.15), (3, "Mail and Scutum", "Mail", 1.30)],
+    "ante_ranged_equipment": [(2, "Composite Bows", "Comp. bows", 1.15), (3, "Lead Sling Shot", "Lead shot", 1.30)],
+    "ante_horse_equipment": [(2, "Bred Warhorses", "Warhorses", 1.15), (3, "Horned Saddles", "Saddles", 1.30)],
+    "ante_chariot_equipment": [(2, "Scythed Chariots", "Scythed", 1.20)],
+    "ante_siege_equipment": [(2, "Siege Towers", "Towers", 1.15), (3, "Torsion Engines", "Torsion", 1.35)],
+}
+SCALED = ("defense", "breakthrough", "soft_attack", "hard_attack", "ap_attack")
+
+
 # ============================================================================ battalions
 # key: dict(name, desc, group, sprite, cats, need, extra stats, terrain, abbr, active, width, cav, support)
 FRONT = ["category_front_line", "category_army"]
@@ -181,6 +193,12 @@ def equipment_file():
                 f"\t\tbuild_cost_ic = {fmt(cost)}", "\t\tresources = {"] + [f"\t\t\t{r} = {n}" for r, n in res.items()] + ["\t\t}", "\t}"]
         out += [f"\t{key}_1 = {{", "\t\tyear = 1", f"\t\tarchetype = {key}", f"\t\tactive = {'yes' if active else 'no'}",
                 "\t\tpriority = 10", "\t\tvisual_level = 0", "\t}"]
+        for lvl, vname, vshort, fac in VARIANTS.get(key, []):
+            out += [f"\t{key}_{lvl} = {{", f"\t\tyear = {lvl}", f"\t\tarchetype = {key}", f"\t\tparent = {key}_{lvl - 1}",
+                    "\t\tactive = no", "\t\tpriority = 10", f"\t\tvisual_level = {lvl - 1}"]
+            out += [f"\t\t{k} = {fmt(round(v * fac, 2) if k in SCALED else v)}" for k, v in st.items()]
+            out += [f"\t\tbuild_cost_ic = {fmt(round(cost * (1 + (fac - 1) * 0.6), 2))}", "\t\tresources = {"] + \
+                   [f"\t\t\t{r} = {n}" for r, n in res.items()] + ["\t\t}", "\t}"]
     for key, s in SHIPS.items():
         eq = f"{key}_hull"
         out += [f"\t{eq} = {{", "\t\tyear = 1", "\t\tis_archetype = yes", "\t\tis_buildable = no",
@@ -453,6 +471,9 @@ def icons():
         product_icon(key).save(MOD / "gfx" / "interface" / "technologies" / f"{key}_1.dds")
         sprites.append(f'\tspriteType = {{ name = "GFX_{key}_1_medium" '
                        f'texturefile = "gfx/interface/technologies/{key}_1.dds" }}')
+        for lvl, *_v in VARIANTS.get(key, []):   # the better models show the same object
+            sprites.append(f'\tspriteType = {{ name = "GFX_{key}_{lvl}_medium" '
+                           f'texturefile = "gfx/interface/technologies/{key}_1.dds" }}')
     # ships: naval combat / fleet icons (86 x 18, two frames) and the small map counter
     for key in SHIPS:
         big = Image.new("RGBA", (86, 18), (0, 0, 0, 0))
@@ -628,6 +649,9 @@ def localisation():
     for key, (name, short, desc, *_r) in EQUIPMENT.items():
         out += [f' {key}:0 "{name}"', f' {key}_desc:0 "{desc}"', f' {key}_1:0 "{name}"',
                 f' {key}_1_short:0 "{short}"', f' {key}_1_desc:0 "{desc}"']
+        for lvl, vname, vshort, fac in VARIANTS.get(key, []):
+            out += [f' {key}_{lvl}:0 "{vname}"', f' {key}_{lvl}_short:0 "{vshort}"',
+                    f' {key}_{lvl}_desc:0 "{desc} Better made: +{round((fac - 1) * 100)}% fighting strength."']
     for key, sh in SHIPS.items():
         out += [f' {key}:0 "{sh["name"]}"', f' {key}_desc:0 "{sh["desc"]}"', f' {key}_hull:0 "{sh["name"]}"',
                 f' {key}_hull_desc:0 "{sh["desc"]}"', f' {key}_hull_1:0 "{sh["name"]}"',
