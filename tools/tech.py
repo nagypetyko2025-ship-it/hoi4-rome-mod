@@ -129,7 +129,9 @@ def gui_labels(gui):
     return out
 
 
-FIRST, LAST = 245, 485   # AUC of the top and the bottom labelled row of every page
+FIRST, LAST = 245, 365   # AUC of the first and the last labelled row of every page (round 17: 485 = far too slow)
+DESIGN_LAST = 485        # the years in tech_tree.py run 245..485 and are squeezed into FIRST..LAST
+WIDE = {"armour_folder", "artillery_folder", "industry_folder", "electronics_folder"}  # time runs down: boxes side by side need 3 slots
 STEP = {"naval_folder": 3}  # rows used: multiples of this from the top row (big ship boxes need more room)
 
 
@@ -148,6 +150,7 @@ def auc_of(y, scale):
 def place(folder, auc, rows, labels):
     y0, y1 = scale = page_scale(folder, rows, labels)
     step = STEP.get(folder, 2)
+    auc = FIRST + (auc - FIRST) * (LAST - FIRST) / (DESIGN_LAST - FIRST)
     cands = list(range(y0, y1 + 1, step))
     y = min(cands, key=lambda c: (abs(auc_of(c, scale) - auc), c))
     return y, auc_of(y, scale)
@@ -314,6 +317,7 @@ def main():
     icon_dir.mkdir(parents=True, exist_ok=True)
     for key, name, desc, folder, x, auc, pre, eff, icon, cost in TECHS:
         y, year = place(folder, auc, rows, labels)
+        x = x * 3 // 2 if folder in WIDE else x
         assert (folder, x, y) not in used, f"{key}: two techs at {folder} {x},{y}"
         used.add((folder, x, y))
         placed[key] = year

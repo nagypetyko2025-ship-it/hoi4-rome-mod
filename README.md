@@ -744,3 +744,8 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
 - Kezdő technológiák (history, world.py): mindenkinek a bronzkori alapok; a városias népeknek az írás és a
   kőművesség is. Ikonok: saját rajz (tech.py, CC0).
 - Validate 0 hiba. Játékban még NEM futott.
+- **Javítás a játékbeli teszt után:** a technológiák nem látszottak („Found no grid box for tech”): minden fa
+  gyökerének kell egy `<gyökér>_tree` rácsdoboz az oldal felületén – a tech.py most egy alapjátékbeli doboz helyére
+  másolja őket (`ANCHOR`). A függőleges oldalakon (ló, ostrom, tudás, mesterség) a nagy dobozok 3 rácsegységre
+  kerültek (egymásba lógtak). **Egyensúly:** a fa 245–365 AUC közé sűrítve (a 40 éves sorközök miatt az elején alig
+  lehetett kutatni), 1 kutatási pont = 180 nap, évenkénti előrekutatási büntetés 5%.
