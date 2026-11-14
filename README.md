@@ -1011,3 +1011,11 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   báb népek, pl. Gadir és az elümoszok nem kellenek) → új név és zászló (Tanit jele), magok, és **„The Leader of the
   Western Mediterranean Sea!”** (+15% stabilitás, +0,25 PP/nap, kereskedelem, hajógyártás, tengeri harc, gyárak).
 - `tools/formables.py` (a world.py után fut, mert az törli a zászlómappát).
+
+## Harmincnegyedik kör (2026-11-14, Claude) – Karthágó: a Tirrén-tenger és Türosz
+- **A Tirrén-tenger (8 fókusz):** Pyrgi aranya, Alalia (Korzika), szövetség Etruriával ↔ etruszk piacok, kümei
+  tengeri csata, Massalia ellen, korzikai fa, a Tirrén-tenger urai. Karthágó így Itáliában is jelen van, a római
+  kérdés mérőjét is mozgatja.
+- **Türosz és a Nagy Király (6 fókusz):** az anyaváros, perzsa barátság (megnemtámadási szerződés) ↔ nincs úr
+  keleten, Himera és Szalamisz ↔ Türosz eleste, Türosz örököse (a föníciai városok a pun ligába).
+- Formálható államok: a döntések kiemelik a térképen a szükséges államokat (`highlight_states`).

@@ -72,6 +72,19 @@ lehet fókuszfeltételt építeni.
 - Mindháromnál választás: betartani ↔ megszegni (háborús támogatottság, Róma véleménye)
 - → „Messana kérdése” → első pun háború (a 264-es kezdés)
 
+### 9. A Tirrén-tenger: Alalia, az etruszkok, Massalia (34. kör, x 42–46)
+- Pyrgi aranya (etruszk barátság) → az alaliai tengeri ütközet (háborús cél: Korzika)
+- Választás: szövetség Etruriával (Caere és Tarquinii a pun ligába; Róma véleménye −10) ↔ etruszk piacok (gyár, út)
+- A szövetség után: kümei tengeri csata (háborús cél: Kyme; Róma −10)
+- Massalia ellen (Korzika után) és korzikai fa (hajógyár, mag) → a Tirrén-tenger urai (szellem)
+
+### 10. Türosz és a Nagy Király (34. kör, x 48–52) – a keleti súlypont
+- Türosz, az anyaváros → választás: a Nagy Király követei (barátság, megnemtámadási szerződés Perzsiával) ↔
+  nincs úr keleten
+- Himera és Szalamisz (háborús cél: Szürakúszai; ha Perzsia épp háborúzik, a „két front” szellem)
+  ↔ ha Türosz elesik (Kr. e. 332, menekültek: népesség, emberanyag)
+- Türosz örököse: Türosz, Szidón, Arwad a pun ligába (ha szabadok), kereskedelmi szellem
+
 ## Döntések (saját kategória: „Res Punica”)
 - Zsoldosok fogadása (típusonként: hadosztályt ad, a bér-mérőt növeli)
 - Melqart tizede Türoszba; ajándék a tanácsnak (gyanú csökken); ezüstkonvoj Ibériából

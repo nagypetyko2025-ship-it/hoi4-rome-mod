@@ -990,6 +990,70 @@ ideas = {
 				war_support_factor = 0.05
 			}
 		}
+		CAR_etruscan_friends_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.1
+				political_power_gain = 0.05
+			}
+		}
+		CAR_tyrrhenian_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				naval_speed_factor = 0.05
+				navy_max_range_factor = 0.1
+				trade_opinion_factor = 0.1
+			}
+		}
+		CAR_persian_friendship_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				trade_opinion_factor = 0.1
+			}
+		}
+		CAR_no_master_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				war_support_factor = 0.05
+			}
+		}
+		CAR_two_fronts_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		CAR_tyrian_refugees_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.1
+				industrial_capacity_factory = 0.03
+			}
+		}
+		CAR_heir_of_tyre_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.15
+				political_power_gain = 0.1
+			}
+		}
 		SEN_druids_spirit = {
 			picture = generic_pp_unity_bonus
 			allowed = { always = no }

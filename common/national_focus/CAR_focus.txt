@@ -1357,4 +1357,302 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 	}
 
+	focus = {
+		id = CAR_gold_of_pyrgi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = CAR_house_of_mago focus = CAR_hundred_and_four }
+		x = 44
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_gold_of_pyrgi"
+			add_ideas = CAR_etruscan_friends_spirit
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_battle_of_alalia
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = CAR_gold_of_pyrgi }
+		x = 44
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_battle_of_alalia"
+			if = { limit = { country_exists = COR NOT = { has_war_with = COR } }
+				create_wargoal = { type = annex_everything target = COR }
+			}
+			every_state = { limit = { is_owned_by = COR } add_claim_by = ROOT }
+			navy_experience = 15
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_etruscan_alliance
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = CAR_battle_of_alalia }
+		x = 43
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAR_etruscan_markets }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_etruscan_alliance"
+			if = { limit = { is_in_faction = no } create_faction = ante_faction_punic_league }
+			if = { limit = { is_faction_leader = yes country_exists = CAE NOT = { has_war_with = CAE } CAE = { is_in_faction = no is_subject = no } } add_to_faction = CAE }
+			if = { limit = { is_faction_leader = yes country_exists = TAR NOT = { has_war_with = TAR } TAR = { is_in_faction = no is_subject = no } } add_to_faction = TAR }
+			custom_effect_tooltip = CAR_TT_ROME_M10
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -10 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_etruscan_markets
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CAR_battle_of_alalia }
+		x = 45
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAR_etruscan_alliance }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_etruscan_markets"
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			add_political_power = 25
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_sea_fight_at_kyme
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = CAR_etruscan_alliance }
+		x = 42
+		y = 4
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_sea_fight_at_kyme"
+			if = { limit = { country_exists = CUM NOT = { has_war_with = CUM } }
+				create_wargoal = { type = annex_everything target = CUM }
+			}
+			every_state = { limit = { is_owned_by = CUM } add_claim_by = ROOT }
+			navy_experience = 10
+			custom_effect_tooltip = CAR_TT_ROME_M10
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -10 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+			add_manpower = -1000
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_against_massalia
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CAR_etruscan_alliance focus = CAR_etruscan_markets }
+		x = 44
+		y = 4
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = COR } COR = { is_subject_of = ROOT } is_in_faction_with = COR }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_against_massalia"
+			if = { limit = { country_exists = MAS NOT = { has_war_with = MAS } }
+				create_wargoal = { type = annex_everything target = MAS }
+			}
+			every_state = { limit = { is_owned_by = MAS } add_claim_by = ROOT }
+			add_war_support = 0.05
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_corsican_timber
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CAR_etruscan_alliance focus = CAR_etruscan_markets }
+		x = 46
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		available = { any_owned_state = { is_coastal = yes } }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_corsican_timber"
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+					is_coastal = yes
+					free_building_slots = { building = dockyard size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = dockyard level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_tyrrhenian_sea
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = CAR_against_massalia }
+		prerequisite = { focus = CAR_corsican_timber }
+		x = 44
+		y = 5
+		cost = 20
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		available = {
+			OR = { NOT = { country_exists = COR } COR = { is_subject_of = ROOT } is_in_faction_with = COR }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_tyrrhenian_sea"
+			add_ideas = CAR_tyrrhenian_spirit
+			navy_experience = 15
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_mother_city
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = CAR_house_of_mago focus = CAR_hundred_and_four }
+		x = 50
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_mother_city"
+			add_political_power = 50
+			add_tech_bonus = { name = CAR_mother_city bonus = 0.5 uses = 1 category = industry }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_friend_of_the_great_king
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = CAR_mother_city }
+		x = 49
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAR_no_master_in_the_east }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_friend_of_the_great_king"
+			add_ideas = CAR_persian_friendship_spirit
+			set_country_flag = CAR_persian_friend
+			if = { limit = { country_exists = PRS NOT = { has_war_with = PRS } }
+				diplomatic_relation = { country = PRS relation = non_aggression_pact active = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_no_master_in_the_east
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CAR_mother_city }
+		x = 51
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAR_friend_of_the_great_king }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_no_master_in_the_east"
+			add_ideas = CAR_no_master_spirit
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_two_fronts
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = CAR_friend_of_the_great_king }
+		x = 49
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_two_fronts"
+			if = { limit = { country_exists = SYR NOT = { has_war_with = SYR } }
+				create_wargoal = { type = annex_everything target = SYR }
+			}
+			add_war_support = 0.05
+			if = { limit = { country_exists = PRS PRS = { has_war = yes } }
+				add_ideas = CAR_two_fronts_spirit
+			}
+			else = { army_experience = 15 }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_when_tyre_falls
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = CAR_no_master_in_the_east }
+		x = 51
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_when_tyre_falls"
+			add_ideas = CAR_tyrian_refugees_spirit
+			add_manpower = 3000
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_heir_of_tyre
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = CAR_two_fronts focus = CAR_when_tyre_falls }
+		x = 50
+		y = 4
+		cost = 20
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_heir_of_tyre"
+			add_ideas = CAR_heir_of_tyre_spirit
+			if = { limit = { is_in_faction = no } create_faction = ante_faction_punic_league }
+			if = { limit = { is_faction_leader = yes country_exists = TYR NOT = { has_war_with = TYR } TYR = { is_in_faction = no is_subject = no } } add_to_faction = TYR }
+			if = { limit = { is_faction_leader = yes country_exists = SDN NOT = { has_war_with = SDN } SDN = { is_in_faction = no is_subject = no } } add_to_faction = SDN }
+			if = { limit = { is_faction_leader = yes country_exists = ARW NOT = { has_war_with = ARW } ARW = { is_in_faction = no is_subject = no } } add_to_faction = ARW }
+		}
+		ai_will_do = { factor = 2 }
+	}
+
 }

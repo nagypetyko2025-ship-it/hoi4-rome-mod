@@ -566,7 +566,8 @@ def define(focus, build, infra, tech, wargoal):
     # ============================================================== CARTHAGE (CAR) - plan: docs/carthage_focus_tree.md
     # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).
     # Shared branches hang from either root: gods (8..10), fleet (12..14), trade and colonies (16..21),
-    # Africa (22..26), Sicily (28..32), army (34..36), Rome (38..40). Every branch has a pair of exclusive choices.
+    # Africa (22..26), Sicily (28..32), army (34..36), Rome (38..40), the Tyrrhenian Sea (42..46), Tyre and Persia
+    # (48..52). Every branch has a pair of exclusive choices.
     f = tree("CAR", "CAR_house_of_mago", "# Carthage, 509-264 BC - plan: docs/carthage_focus_tree.md\n"
              "# Roots: the House of Mago (dynasty) or the Hundred and Four (oligarchy); seven shared branches.")
     ROOTS = [["CAR_house_of_mago", "CAR_hundred_and_four"]]
@@ -785,6 +786,59 @@ def define(focus, build, infra, tech, wargoal):
       "alliance", 39, 4, [["CAR_second_treaty"]], "navy_experience = 20\nadd_political_power = 50\n" + CS.relation(15))
     f("CAR_question_of_messana", "The Question of Messana", "Who holds the strait holds Sicily. Rome is no longer a friend.",
       "major_war", 39, 5, [["CAR_against_pyrrhus"]], claims("ZAN") + "\nadd_war_support = 0.10\narmy_experience = 15\n" + CS.relation(-25), cost=15)
+    # --- the Tyrrhenian Sea: Alalia, the Etruscans, Massalia (x 42..46) - round 34, Italy as a second front
+    idea("CAR_etruscan_friends_spirit", "Friends of the Etruscans", "economic_increase", trade_opinion_factor=0.10,
+         political_power_gain=0.05)
+    idea("CAR_tyrrhenian_spirit", "Lords of the Tyrrhenian Sea", "navy_bonus", naval_speed_factor=0.05,
+         navy_max_range_factor=0.10, trade_opinion_factor=0.10)
+    f("CAR_gold_of_pyrgi", "The Gold of Pyrgi", "In the harbour of Caere, a king of the Etruscans dedicates a temple to Astarte - in Punic and in Etruscan, on sheets of gold.",
+      "trade", 44, 1, ROOTS, "add_ideas = CAR_etruscan_friends_spirit\nadd_political_power = 50")
+    f("CAR_battle_of_alalia", "The Sea Fight off Alalia", "540 BC: Punic and Etruscan ships against the Phocaeans of Alalia. The Greeks win - and leave Corsica.",
+      "occupy_states_coastal", 44, 2, [["CAR_gold_of_pyrgi"]], wargoal("COR") + "\n" + claims("COR") + "\nnavy_experience = 15")
+    f("CAR_etruscan_alliance", "Alliance with Etruria", "Caere and Tarquinii join the Punic League. Rome watches its northern neighbours with Punic friends.",
+      "alliance", 43, 3, [["CAR_battle_of_alalia"]], faction("ante_faction_punic_league", "CAE", "TAR") + "\n" + CS.relation(-10),
+      extra=mx("CAR_etruscan_markets"))
+    f("CAR_etruscan_markets", "The Etruscan Markets", "Bronze, iron from Elba and fine painted cups: trade, not treaties.",
+      "construct_civ_factory", 45, 3, [["CAR_battle_of_alalia"]], build("industrial_complex") + "\n" + infra() + "\nadd_political_power = 25",
+      extra=mx("CAR_etruscan_alliance"), filters=I)
+    f("CAR_sea_fight_at_kyme", "The Sea Fight at Kyme", "474 BC: Hieron of Syracuse breaks the Etruscan fleet before Kyme. Carthage could have been there.",
+      "major_war", 42, 4, [["CAR_etruscan_alliance"]], wargoal("CUM") + "\n" + claims("CUM") + "\nnavy_experience = 10\n" + CS.relation(-10))
+    f("CAR_against_massalia", "Against Massalia", "The Phocaeans of Massalia sell to the Gauls and sail to Iberia: the last rival of Punic trade in the West.",
+      "territory_or_war", 44, 4, [["CAR_etruscan_alliance", "CAR_etruscan_markets"]], wargoal("MAS") + "\n" + claims("MAS") + "\nadd_war_support = 0.05")
+    f("CAR_corsican_timber", "Corsican Timber", "Pine and fir from the mountains of Corsica: the keels of the Punic fleet.",
+      "construct_naval_dockyard", 46, 4, [["CAR_etruscan_alliance", "CAR_etruscan_markets"]],
+      build("dockyard", "is_coastal = yes") + "\n" + cores(1), extra=COAST, filters=I)
+    f("CAR_tyrrhenian_sea", "Lords of the Tyrrhenian Sea", "From Corsica to Kyme, the sea west of Italy is Punic water.",
+      "navy_doctrines_tactics", 44, 5, [["CAR_against_massalia"], ["CAR_corsican_timber"]],
+      "add_ideas = CAR_tyrrhenian_spirit\nnavy_experience = 15\nadd_political_power = 50")
+    # --- Tyre and the Great King (x 48..52) - the eastern centre of gravity: the Phoenicians, Persia, the Greeks
+    idea("CAR_persian_friendship_spirit", "Friend of the Great King", "research_bonus", research_speed_factor=0.05,
+         trade_opinion_factor=0.10)
+    idea("CAR_no_master_spirit", "No Master in the East", "political_support", political_power_gain=0.10, war_support_factor=0.05)
+    idea("CAR_two_fronts_spirit", "Two Fronts against the Greeks", "morale_bonus", army_attack_factor=0.05, war_support_factor=0.05)
+    idea("CAR_tyrian_refugees_spirit", "The Refugees of Tyre", "agrarian_society", monthly_population=0.10,
+         industrial_capacity_factory=0.03)
+    idea("CAR_heir_of_tyre_spirit", "Heir of Tyre", "economic_increase", trade_opinion_factor=0.15, political_power_gain=0.10)
+    f("CAR_mother_city", "Tyre, the Mother City", "Ships still sail east every year: to Tyre, Sidon and Arwad, where the Phoenicians began.",
+      "improve_relations", 50, 1, ROOTS, "add_political_power = 50\n"
+      "add_tech_bonus = { name = CAR_mother_city bonus = 0.5 uses = 1 category = industry }", filters=R)
+    f("CAR_friend_of_the_great_king", "Envoys of the Great King", "Darius sends envoys to Carthage. The Phoenician fleet already serves Persia; why not its daughter?",
+      "alliance", 49, 2, [["CAR_mother_city"]], "add_ideas = CAR_persian_friendship_spirit\nset_country_flag = CAR_persian_friend\n"
+      "if = { limit = { country_exists = PRS NOT = { has_war_with = PRS } }\n"
+      "\tdiplomatic_relation = { country = PRS relation = non_aggression_pact active = yes }\n}",
+      extra=mx("CAR_no_master_in_the_east"))
+    f("CAR_no_master_in_the_east", "No Master in the East", "Tyre bows to the Great King. Carthage bows to nobody.",
+      "political_pressure", 51, 2, [["CAR_mother_city"]], "add_ideas = CAR_no_master_spirit\nadd_political_power = 50",
+      extra=mx("CAR_friend_of_the_great_king"))
+    f("CAR_two_fronts", "Himera and Salamis", "480 BC: Xerxes attacks Greece, Hamilcar attacks Sicily - on the same day, the Greeks say.",
+      "major_war", 49, 3, [["CAR_friend_of_the_great_king"]], wargoal("SYR") + "\nadd_war_support = 0.05\n"
+      "if = { limit = { country_exists = PRS PRS = { has_war = yes } }\n\tadd_ideas = CAR_two_fronts_spirit\n}\n"
+      "else = { army_experience = 15 }")
+    f("CAR_when_tyre_falls", "When Tyre Falls", "332 BC: Alexander besieges Tyre for seven months. Carthage sends no ships - but takes in the Tyrians' wives and children.",
+      "national_unity", 51, 3, [["CAR_no_master_in_the_east"]], "add_ideas = CAR_tyrian_refugees_spirit\nadd_manpower = 3000")
+    f("CAR_heir_of_tyre", "Heir of Tyre", "The mother city is a Persian - or a Macedonian - harbour. The Phoenician world looks to Carthage now.",
+      "major_alliance", 50, 4, [["CAR_two_fronts", "CAR_when_tyre_falls"]],
+      "add_ideas = CAR_heir_of_tyre_spirit\n" + faction("ante_faction_punic_league", "TYR", "SDN", "ARW"), cost=20, ai=2)
 
     # ============================================================== THE SENONES (SEN) - a Gallic people on the move
     f = tree("SEN", "SEN_assembly_of_warriors", "# The Senones: from the Yonne to the Adriatic - and to Rome (base tree)")
@@ -929,6 +983,10 @@ def define(focus, build, infra, tech, wargoal):
         "CAR_selinus_and_acragas": (15, "", "add_manpower = -2000"),
         "CAR_war_with_syracuse": (20, "", ""),
         "CAR_queen_of_the_sea": (25, "has_navy_size = { size > 10 }", ""),
+        # round 34: the Tyrrhenian Sea waits for Corsica; Massalia is the bigger war
+        "CAR_against_massalia": (15, gone("COR"), ""),
+        "CAR_tyrrhenian_sea": (20, gone("COR"), ""),
+        "CAR_sea_fight_at_kyme": (15, "", "add_manpower = -1000"),
         # the Senones: the migration needs the passes open (the Insubres as friends, or gone)
         "SEN_great_migration": (15, "OR = {\n\tis_in_faction_with = INS\n\tNOT = { country_exists = INS }\n\tINS = { is_subject_of = ROOT }\n}", ""),
         "SEN_vae_victis": (15, "", ""),
