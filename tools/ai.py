@@ -11,6 +11,8 @@ own should look like or how many it wants. Writes:
   common/on_actions/ante_ai_on_actions.txt   ambition: once a month an AI country at peace, with an army, may set its
                                              eyes on a clearly weaker neighbour (a war goal; the AI then decides when
                                              to march - as it does with the war goals of the focus trees)
+Rome (round 36, Peti: "it is Rome we are talking about"): its own strategies - a bigger army, every Italian neighbour
+a target to conquer - and a hungrier monthly ambition (any neighbour not clearly stronger, one month in four).
 """
 from pathlib import Path
 
@@ -153,7 +155,7 @@ on_actions = {
 					97 = { }
 				}
 			}
-		}
+%%ROME%%		}
 	}
 }
 """
@@ -178,11 +180,63 @@ def wargoals():
     return n
 
 
+# the peoples of Italy (tools/formables.py PENINSULA + the Po valley), the nearest first
+ITALY = ("LAT VEI VOL AEQ SAB CAE TAR CLU MAR SAM VLT ARR UMB PIC CAP CUM POS TAS MET KRO LOK RHE OEN DAU PEU MES "
+         "FEL INS VEN").split()
+
+
+def rome_strategy():
+    out = ["", "# Rome (round 36): the AI's Rome is Rome - an army, and every Italian neighbour a target",
+           "ante_rome_army = {", "	enable = { tag = ROM }", "	abort_when_not_enabled = yes",
+           "	ai_strategy = { type = force_build_armies value = 300 }",
+           "	ai_strategy = { type = ai_wanted_divisions_factor value = 100 }",
+           "	ai_strategy = { type = building_target id = arms_factory value = 4 }", "}"]
+    for t in ITALY:
+        out += [f"ante_rome_conquers_{t} = {{",
+                f"	enable = {{ tag = ROM country_exists = {t} is_neighbor_of = {t} NOT = {{ is_in_faction_with = {t} }} "
+                f"NOT = {{ {t} = {{ is_subject_of = ROM }} }} }}",
+                "	abort_when_not_enabled = yes",
+                f"	ai_strategy = {{ type = conquer id = {t} value = 100 }}",
+                f"	ai_strategy = {{ type = prepare_for_war id = {t} value = 100 }}",
+                f"	ai_strategy = {{ type = declare_war id = {t} value = 100 }}", "}"]
+    return "\n".join(out) + "\n"
+
+
+ROME_AMBITION = """			# Rome (round 36): any neighbour that is not clearly stronger, one month in four
+			if = {
+				limit = {
+					tag = ROM
+					is_ai = yes
+					has_war = no
+					num_divisions > 1
+				}
+				random_list = {
+					25 = {
+						random_neighbor_country = {
+							limit = {
+								is_subject = no
+								NOT = { tag = WLD }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_war_with = ROOT }
+								ROOT = { strength_ratio = { tag = PREV ratio > 0.7 } }
+							}
+							ROOT = {
+								create_wargoal = { type = annex_everything target = PREV }
+								log = "ANTE|[GetDateText]|ambition|[ROOT.GetTag]|[PREV.GetTag]"
+							}
+						}
+					}
+					75 = { }
+				}
+			}
+"""
+
+
 def main():
     print(f"wargoals: {wargoals()} types closed against Terra Incognita")
     for rel, text in (("common/ai_templates/ante_templates.txt", TEMPLATES),
-                      ("common/ai_strategy/ante_default.txt", STRATEGY),
-                      ("common/on_actions/ante_ai_on_actions.txt", ON_ACTIONS)):
+                      ("common/ai_strategy/ante_default.txt", STRATEGY + rome_strategy()),
+                      ("common/on_actions/ante_ai_on_actions.txt", ON_ACTIONS.replace("%%ROME%%", ROME_AMBITION))):
         p = MOD / rel
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(text, encoding="utf-8", newline="\n")

@@ -1023,3 +1023,9 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Harmincötödik kör (2026-11-14, Claude) – szállító lovak, utak
 - A vonatok helyett **Transport Horses** (málhás lovak, saját rajz a gyártási és a logisztikai képeken).
 - A vasút neve **Highways** (kövezett utak a raktárak között), saját ikonnal (kövezett út mérföldkővel) - eddig ugyanaz a kerék volt, mint az utaké.
+
+## Harminchatodik kör (2026-11-14, Claude) – agresszívabb római AI
+- A napló szerint az AI Rómája két évig csatornát és sólepárlót épített, 1 állammal és 2 hadosztállyal.
+- Most az AI előbb a háborús, hódító fókuszokat választja (súly 12), aztán a katonaiakat (5), és csak utána a gazdaságot.
+- Saját stratégia (`tools/ai.py`): több sereg, minden itáliai szomszéd hódítási célpont (conquer, prepare_for_war, declare_war).
+- Havi római becsvágy: békében, negyedévente egyszer háborús célt tűz ki egy nem sokkal erősebb szomszéd ellen.

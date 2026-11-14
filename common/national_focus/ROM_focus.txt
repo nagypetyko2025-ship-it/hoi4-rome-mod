@@ -69,7 +69,7 @@ focus_tree = {
 			add_manpower = 2000
 			add_political_power = 50
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -90,7 +90,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M20
 			hidden_effect = { add_to_variable = { ROM_discord = -20 } ROM_discord_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -150,7 +150,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M10
 			hidden_effect = { add_to_variable = { ROM_discord = -10 } ROM_discord_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -392,7 +392,7 @@ focus_tree = {
 			army_experience = 15
 			add_doctrine_cost_reduction = { name = ROM_servian_centuries cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -412,7 +412,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M8
 			hidden_effect = { add_to_variable = { ROM_discord = -8 } ROM_discord_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -429,7 +429,7 @@ focus_tree = {
 			add_tech_bonus = { name = ROM_camillus_reforms bonus = 0.5 uses = 1 category = infantry_weapons }
 			army_experience = 20
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -450,7 +450,7 @@ focus_tree = {
 			add_ideas = ROM_manipular_legion_spirit
 			add_doctrine_cost_reduction = { name = ROM_manipular_legion cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
-		ai_will_do = { factor = 3 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -471,7 +471,7 @@ focus_tree = {
 			add_ideas = ROM_citizen_phalanx_spirit
 			add_doctrine_cost_reduction = { name = ROM_citizen_phalanx cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -555,7 +555,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M10
 			hidden_effect = { add_to_variable = { ROM_discord = -10 } ROM_discord_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -574,7 +574,7 @@ focus_tree = {
 			if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }
 			if = { limit = { NOT = { has_country_flag = ROM_porsenna_done } } country_event = { id = ante_rome.2 } }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -602,7 +602,7 @@ focus_tree = {
 				LAT = { declare_war_on = { target = ROM type = annex_everything } }
 			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -646,7 +646,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = LAT } add_claim_by = ROOT }
 			army_experience = 15
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -667,7 +667,7 @@ focus_tree = {
 				create_wargoal = { type = annex_everything target = AEQ }
 			}
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -686,7 +686,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = VOL } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = AEQ } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -709,7 +709,7 @@ focus_tree = {
 			add_war_support = 0.05
 			add_political_power = -50
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -735,7 +735,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = CAE } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = TAR } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -753,7 +753,7 @@ focus_tree = {
 			add_war_support = 0.05
 			add_stability = -0.10
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -801,7 +801,7 @@ focus_tree = {
 			}
 			add_manpower = -2000
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -867,7 +867,7 @@ focus_tree = {
 			}
 			every_state = { limit = { is_owned_by = LAT } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -892,7 +892,7 @@ focus_tree = {
 			army_experience = 25
 			add_war_support = -0.05
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -917,7 +917,7 @@ focus_tree = {
 			}
 			add_war_support = 0.05
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -943,7 +943,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = KRO } add_claim_by = ROOT }
 			add_manpower = -3000
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -965,7 +965,7 @@ focus_tree = {
 			add_political_power = 50
 			add_political_power = -100
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1020,7 +1020,7 @@ focus_tree = {
 			}
 			navy_experience = 25
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1056,7 +1056,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = SEN } add_claim_by = ROOT }
 			army_experience = 20
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1086,7 +1086,7 @@ focus_tree = {
 			}
 			add_political_power = -50
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1117,7 +1117,7 @@ focus_tree = {
 			}
 			add_political_power = -100
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1141,7 +1141,7 @@ focus_tree = {
 			}
 			add_war_support = 0.05
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1165,7 +1165,7 @@ focus_tree = {
 			}
 			add_political_power = -50
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1209,7 +1209,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = KRO } add_claim_by = ROOT }
 			add_manpower = -2000
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1318,7 +1318,7 @@ focus_tree = {
 			add_ideas = ROM_celeres_spirit
 			army_experience = 15
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -1411,7 +1411,7 @@ focus_tree = {
 			}
 			add_political_power = 50
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1436,7 +1436,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M5
 			hidden_effect = { add_to_variable = { ROM_hatred = -5 } ROM_hatred_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1469,7 +1469,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
 			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1487,7 +1487,7 @@ focus_tree = {
 			add_ideas = ROM_royal_army_spirit
 			add_doctrine_cost_reduction = { name = ROM_royal_army cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -1537,7 +1537,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
 			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1562,7 +1562,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = MAR } add_claim_by = ROOT }
 			army_experience = 10
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1591,7 +1591,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = VLT } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = ARR } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1646,7 +1646,7 @@ focus_tree = {
 			army_experience = 25
 			add_manpower = -2000
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1675,7 +1675,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = CUM } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = POS } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1704,7 +1704,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = UMB } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = PIC } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1732,7 +1732,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = PEU } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = MES } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1768,7 +1768,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = RHE } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = KRO } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 2 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1799,7 +1799,7 @@ focus_tree = {
 			}
 			navy_experience = 25
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1835,7 +1835,7 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = LIG } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = SEN } add_claim_by = ROOT }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 12 }
 	}
 
 	focus = {
@@ -1881,7 +1881,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
 			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {
@@ -1923,7 +1923,7 @@ focus_tree = {
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M12
 			hidden_effect = { add_to_variable = { ROM_hatred = -12 } ROM_hatred_update = yes }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 5 }
 	}
 
 	focus = {

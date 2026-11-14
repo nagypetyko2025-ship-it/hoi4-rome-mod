@@ -30,6 +30,33 @@ on_actions = {
 					97 = { }
 				}
 			}
+			# Rome (round 36): any neighbour that is not clearly stronger, one month in four
+			if = {
+				limit = {
+					tag = ROM
+					is_ai = yes
+					has_war = no
+					num_divisions > 1
+				}
+				random_list = {
+					25 = {
+						random_neighbor_country = {
+							limit = {
+								is_subject = no
+								NOT = { tag = WLD }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_war_with = ROOT }
+								ROOT = { strength_ratio = { tag = PREV ratio > 0.7 } }
+							}
+							ROOT = {
+								create_wargoal = { type = annex_everything target = PREV }
+								log = "ANTE|[GetDateText]|ambition|[ROOT.GetTag]|[PREV.GetTag]"
+							}
+						}
+					}
+					75 = { }
+				}
+			}
 		}
 	}
 }

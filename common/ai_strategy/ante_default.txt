@@ -43,3 +43,215 @@ ante_sea_powers = {
 	abort_when_not_enabled = yes
 	ai_strategy = { type = dockyard_to_military_factory_ratio value = 0.3 }
 }
+
+# Rome (round 36): the AI's Rome is Rome - an army, and every Italian neighbour a target
+ante_rome_army = {
+	enable = { tag = ROM }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = force_build_armies value = 300 }
+	ai_strategy = { type = ai_wanted_divisions_factor value = 100 }
+	ai_strategy = { type = building_target id = arms_factory value = 4 }
+}
+ante_rome_conquers_LAT = {
+	enable = { tag = ROM country_exists = LAT is_neighbor_of = LAT NOT = { is_in_faction_with = LAT } NOT = { LAT = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = LAT value = 100 }
+	ai_strategy = { type = prepare_for_war id = LAT value = 100 }
+	ai_strategy = { type = declare_war id = LAT value = 100 }
+}
+ante_rome_conquers_VEI = {
+	enable = { tag = ROM country_exists = VEI is_neighbor_of = VEI NOT = { is_in_faction_with = VEI } NOT = { VEI = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = VEI value = 100 }
+	ai_strategy = { type = prepare_for_war id = VEI value = 100 }
+	ai_strategy = { type = declare_war id = VEI value = 100 }
+}
+ante_rome_conquers_VOL = {
+	enable = { tag = ROM country_exists = VOL is_neighbor_of = VOL NOT = { is_in_faction_with = VOL } NOT = { VOL = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = VOL value = 100 }
+	ai_strategy = { type = prepare_for_war id = VOL value = 100 }
+	ai_strategy = { type = declare_war id = VOL value = 100 }
+}
+ante_rome_conquers_AEQ = {
+	enable = { tag = ROM country_exists = AEQ is_neighbor_of = AEQ NOT = { is_in_faction_with = AEQ } NOT = { AEQ = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = AEQ value = 100 }
+	ai_strategy = { type = prepare_for_war id = AEQ value = 100 }
+	ai_strategy = { type = declare_war id = AEQ value = 100 }
+}
+ante_rome_conquers_SAB = {
+	enable = { tag = ROM country_exists = SAB is_neighbor_of = SAB NOT = { is_in_faction_with = SAB } NOT = { SAB = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = SAB value = 100 }
+	ai_strategy = { type = prepare_for_war id = SAB value = 100 }
+	ai_strategy = { type = declare_war id = SAB value = 100 }
+}
+ante_rome_conquers_CAE = {
+	enable = { tag = ROM country_exists = CAE is_neighbor_of = CAE NOT = { is_in_faction_with = CAE } NOT = { CAE = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CAE value = 100 }
+	ai_strategy = { type = prepare_for_war id = CAE value = 100 }
+	ai_strategy = { type = declare_war id = CAE value = 100 }
+}
+ante_rome_conquers_TAR = {
+	enable = { tag = ROM country_exists = TAR is_neighbor_of = TAR NOT = { is_in_faction_with = TAR } NOT = { TAR = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = TAR value = 100 }
+	ai_strategy = { type = prepare_for_war id = TAR value = 100 }
+	ai_strategy = { type = declare_war id = TAR value = 100 }
+}
+ante_rome_conquers_CLU = {
+	enable = { tag = ROM country_exists = CLU is_neighbor_of = CLU NOT = { is_in_faction_with = CLU } NOT = { CLU = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CLU value = 100 }
+	ai_strategy = { type = prepare_for_war id = CLU value = 100 }
+	ai_strategy = { type = declare_war id = CLU value = 100 }
+}
+ante_rome_conquers_MAR = {
+	enable = { tag = ROM country_exists = MAR is_neighbor_of = MAR NOT = { is_in_faction_with = MAR } NOT = { MAR = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = MAR value = 100 }
+	ai_strategy = { type = prepare_for_war id = MAR value = 100 }
+	ai_strategy = { type = declare_war id = MAR value = 100 }
+}
+ante_rome_conquers_SAM = {
+	enable = { tag = ROM country_exists = SAM is_neighbor_of = SAM NOT = { is_in_faction_with = SAM } NOT = { SAM = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = SAM value = 100 }
+	ai_strategy = { type = prepare_for_war id = SAM value = 100 }
+	ai_strategy = { type = declare_war id = SAM value = 100 }
+}
+ante_rome_conquers_VLT = {
+	enable = { tag = ROM country_exists = VLT is_neighbor_of = VLT NOT = { is_in_faction_with = VLT } NOT = { VLT = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = VLT value = 100 }
+	ai_strategy = { type = prepare_for_war id = VLT value = 100 }
+	ai_strategy = { type = declare_war id = VLT value = 100 }
+}
+ante_rome_conquers_ARR = {
+	enable = { tag = ROM country_exists = ARR is_neighbor_of = ARR NOT = { is_in_faction_with = ARR } NOT = { ARR = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = ARR value = 100 }
+	ai_strategy = { type = prepare_for_war id = ARR value = 100 }
+	ai_strategy = { type = declare_war id = ARR value = 100 }
+}
+ante_rome_conquers_UMB = {
+	enable = { tag = ROM country_exists = UMB is_neighbor_of = UMB NOT = { is_in_faction_with = UMB } NOT = { UMB = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = UMB value = 100 }
+	ai_strategy = { type = prepare_for_war id = UMB value = 100 }
+	ai_strategy = { type = declare_war id = UMB value = 100 }
+}
+ante_rome_conquers_PIC = {
+	enable = { tag = ROM country_exists = PIC is_neighbor_of = PIC NOT = { is_in_faction_with = PIC } NOT = { PIC = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = PIC value = 100 }
+	ai_strategy = { type = prepare_for_war id = PIC value = 100 }
+	ai_strategy = { type = declare_war id = PIC value = 100 }
+}
+ante_rome_conquers_CAP = {
+	enable = { tag = ROM country_exists = CAP is_neighbor_of = CAP NOT = { is_in_faction_with = CAP } NOT = { CAP = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CAP value = 100 }
+	ai_strategy = { type = prepare_for_war id = CAP value = 100 }
+	ai_strategy = { type = declare_war id = CAP value = 100 }
+}
+ante_rome_conquers_CUM = {
+	enable = { tag = ROM country_exists = CUM is_neighbor_of = CUM NOT = { is_in_faction_with = CUM } NOT = { CUM = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CUM value = 100 }
+	ai_strategy = { type = prepare_for_war id = CUM value = 100 }
+	ai_strategy = { type = declare_war id = CUM value = 100 }
+}
+ante_rome_conquers_POS = {
+	enable = { tag = ROM country_exists = POS is_neighbor_of = POS NOT = { is_in_faction_with = POS } NOT = { POS = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = POS value = 100 }
+	ai_strategy = { type = prepare_for_war id = POS value = 100 }
+	ai_strategy = { type = declare_war id = POS value = 100 }
+}
+ante_rome_conquers_TAS = {
+	enable = { tag = ROM country_exists = TAS is_neighbor_of = TAS NOT = { is_in_faction_with = TAS } NOT = { TAS = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = TAS value = 100 }
+	ai_strategy = { type = prepare_for_war id = TAS value = 100 }
+	ai_strategy = { type = declare_war id = TAS value = 100 }
+}
+ante_rome_conquers_MET = {
+	enable = { tag = ROM country_exists = MET is_neighbor_of = MET NOT = { is_in_faction_with = MET } NOT = { MET = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = MET value = 100 }
+	ai_strategy = { type = prepare_for_war id = MET value = 100 }
+	ai_strategy = { type = declare_war id = MET value = 100 }
+}
+ante_rome_conquers_KRO = {
+	enable = { tag = ROM country_exists = KRO is_neighbor_of = KRO NOT = { is_in_faction_with = KRO } NOT = { KRO = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = KRO value = 100 }
+	ai_strategy = { type = prepare_for_war id = KRO value = 100 }
+	ai_strategy = { type = declare_war id = KRO value = 100 }
+}
+ante_rome_conquers_LOK = {
+	enable = { tag = ROM country_exists = LOK is_neighbor_of = LOK NOT = { is_in_faction_with = LOK } NOT = { LOK = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = LOK value = 100 }
+	ai_strategy = { type = prepare_for_war id = LOK value = 100 }
+	ai_strategy = { type = declare_war id = LOK value = 100 }
+}
+ante_rome_conquers_RHE = {
+	enable = { tag = ROM country_exists = RHE is_neighbor_of = RHE NOT = { is_in_faction_with = RHE } NOT = { RHE = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = RHE value = 100 }
+	ai_strategy = { type = prepare_for_war id = RHE value = 100 }
+	ai_strategy = { type = declare_war id = RHE value = 100 }
+}
+ante_rome_conquers_OEN = {
+	enable = { tag = ROM country_exists = OEN is_neighbor_of = OEN NOT = { is_in_faction_with = OEN } NOT = { OEN = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = OEN value = 100 }
+	ai_strategy = { type = prepare_for_war id = OEN value = 100 }
+	ai_strategy = { type = declare_war id = OEN value = 100 }
+}
+ante_rome_conquers_DAU = {
+	enable = { tag = ROM country_exists = DAU is_neighbor_of = DAU NOT = { is_in_faction_with = DAU } NOT = { DAU = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = DAU value = 100 }
+	ai_strategy = { type = prepare_for_war id = DAU value = 100 }
+	ai_strategy = { type = declare_war id = DAU value = 100 }
+}
+ante_rome_conquers_PEU = {
+	enable = { tag = ROM country_exists = PEU is_neighbor_of = PEU NOT = { is_in_faction_with = PEU } NOT = { PEU = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = PEU value = 100 }
+	ai_strategy = { type = prepare_for_war id = PEU value = 100 }
+	ai_strategy = { type = declare_war id = PEU value = 100 }
+}
+ante_rome_conquers_MES = {
+	enable = { tag = ROM country_exists = MES is_neighbor_of = MES NOT = { is_in_faction_with = MES } NOT = { MES = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = MES value = 100 }
+	ai_strategy = { type = prepare_for_war id = MES value = 100 }
+	ai_strategy = { type = declare_war id = MES value = 100 }
+}
+ante_rome_conquers_FEL = {
+	enable = { tag = ROM country_exists = FEL is_neighbor_of = FEL NOT = { is_in_faction_with = FEL } NOT = { FEL = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = FEL value = 100 }
+	ai_strategy = { type = prepare_for_war id = FEL value = 100 }
+	ai_strategy = { type = declare_war id = FEL value = 100 }
+}
+ante_rome_conquers_INS = {
+	enable = { tag = ROM country_exists = INS is_neighbor_of = INS NOT = { is_in_faction_with = INS } NOT = { INS = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = INS value = 100 }
+	ai_strategy = { type = prepare_for_war id = INS value = 100 }
+	ai_strategy = { type = declare_war id = INS value = 100 }
+}
+ante_rome_conquers_VEN = {
+	enable = { tag = ROM country_exists = VEN is_neighbor_of = VEN NOT = { is_in_faction_with = VEN } NOT = { VEN = { is_subject_of = ROM } } }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = VEN value = 100 }
+	ai_strategy = { type = prepare_for_war id = VEN value = 100 }
+	ai_strategy = { type = declare_war id = VEN value = 100 }
+}

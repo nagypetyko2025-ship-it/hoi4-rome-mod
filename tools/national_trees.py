@@ -1021,6 +1021,15 @@ def define(focus, build, infra, tech, wargoal):
         else:
             fo["extra"] = (fo["extra"] + "\n" if fo["extra"] else "") + "available = { " + gate + " }"
 
+    # the AI's Rome is Rome (round 36, Peti): war, conquest and army first, the economy when nothing else is open.
+    # The session log showed the AI king building sewers and salt pans for two years with one state and two divisions.
+    for fo in rom.values():
+        r = fo["reward"]
+        if any(k in r for k in ("create_wargoal", "add_claim_by", "puppet = ", "annex_country", "add_state_core")):
+            fo["ai"] = max(fo["ai"], 12)
+        elif fo.get("filters") == M or "army_experience" in r or "add_manpower" in r or "doctrine" in r:
+            fo["ai"] = max(fo["ai"], 5)
+
     # Carthage: after the council's coup (carthage_story.COUP) the House of Mago's own focuses close the same way
     car = {fo["id"]: fo for fo in TREES["CAR"]["focuses"]}
     mago = {"CAR_house_of_mago"}
