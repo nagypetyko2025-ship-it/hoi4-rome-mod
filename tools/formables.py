@@ -19,6 +19,8 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+import victory   # the victory screen of Carthage (round 42)
+
 MOD = Path(__file__).resolve().parent.parent
 
 PENINSULA = "ROM LAT VOL AEQ SAB MAR SAM PIC UMB VEI CAE TAR CLU VLT ARR CAP CUM POS TAS MET KRO LOK RHE OEN DAU PEU MES".split()
@@ -164,6 +166,7 @@ def main():
 				add_core_of = ROOT
 			}}
 			add_ideas = CAR_western_sea_spirit
+			{victory.FIRE['CAR']}
 		}}
 		ai_will_do = {{ base = 100 }}
 	}}

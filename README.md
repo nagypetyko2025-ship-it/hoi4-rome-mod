@@ -1058,3 +1058,13 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   - **Integrálás:** csak ha a lázongás 20 alatt van; végleg megszünteti a lázongást és a lázadás lehetőségét.
   - **Szabadon engedés:** hűséges, legalacsonyabb autonómiájú báb lesz belőle.
 - A nagy célnál a hűséges báb kezén lévő Egyiptom vagy Babilon is a királyénak számít.
+
+## Negyvenkettedik kör (2026-11-14, Claude) – győzelmi képernyők
+- Ha Róma, Karthágó vagy Perzsia eléri a célját, egy hírablak ugrik fel diadalmas képpel, rövid szöveggel és két
+  gombbal: **We won!** és **We continue!**. Csak emberi játékosnak jelenik meg, egyszer.
+  - **Róma:** egész Itália ÉS Szicília ÉS a Pó-völgy kell hozzá (heti ellenőrzés). Az Italia-döntéshez továbbra is
+    elég az egyik.
+  - **Karthágó:** a The Punic Empire döntés.
+  - **Perzsia:** a King of the Four Corners of the World döntés.
+- Képek: Vernet: Aemilius Paulus diadalmenete (CC0, Met); Turner: Dido Karthágót építi (közkincs); Perszepolisz,
+  Apadana (CC0, Met). Lásd docs/ASSET_LICENSES.md.

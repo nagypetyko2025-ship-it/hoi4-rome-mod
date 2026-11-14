@@ -265,6 +265,63 @@ on_actions = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					original_tag = ROM
+					is_ai = no
+					NOT = { has_country_flag = ante_victory_shown }
+					controls_state = 1
+					controls_state = 2
+					controls_state = 3
+					controls_state = 4
+					controls_state = 5
+					controls_state = 6
+					controls_state = 7
+					controls_state = 8
+					controls_state = 9
+					controls_state = 10
+					controls_state = 11
+					controls_state = 12
+					controls_state = 13
+					controls_state = 14
+					controls_state = 15
+					controls_state = 16
+					controls_state = 17
+					controls_state = 18
+					controls_state = 19
+					controls_state = 20
+					controls_state = 21
+					controls_state = 22
+					controls_state = 23
+					controls_state = 24
+					controls_state = 25
+					controls_state = 26
+					controls_state = 27
+					controls_state = 28
+					controls_state = 29
+					controls_state = 30
+					controls_state = 31
+					controls_state = 32
+					controls_state = 33
+					controls_state = 34
+					controls_state = 35
+					controls_state = 36
+					controls_state = 37
+					controls_state = 38
+					controls_state = 39
+					controls_state = 40
+					controls_state = 41
+					controls_state = 42
+					controls_state = 43
+					controls_state = 44
+					controls_state = 45
+					controls_state = 55
+					controls_state = 57
+					controls_state = 58
+				}
+				set_country_flag = ante_victory_shown
+				news_event = { id = ante_victory.1 }
+			}
 		}
 	}
 }

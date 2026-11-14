@@ -385,6 +385,7 @@ PRS_satrapies_category = {
 				limit = { OR = { state = 274 state = 275 state = 276 state = 337 state = 339 state = 340 state = 341 state = 343 state = 344 state = 345 state = 346 } }
 				add_core_of = ROOT
 			}
+			if = { limit = { is_ai = no NOT = { has_country_flag = ante_victory_shown } } set_country_flag = ante_victory_shown news_event = { id = ante_victory.3 days = 1 } }
 		}
 		ai_will_do = {
 			base = 100

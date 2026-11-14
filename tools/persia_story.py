@@ -31,6 +31,7 @@ import re
 from pathlib import Path
 
 MOD = Path(__file__).resolve().parent.parent
+import victory  # noqa: E402   the victory screen (round 42)
 LOC = {}
 IDEAS = {}
 
@@ -408,7 +409,7 @@ def goal_decision():
              50, drift_flag("PRS_four_corners", "The unrest of every satrapy grows §G0.10 slower§! every week, for good.")
              + "\nadd_ideas = PRS_four_corners_spirit\n" + unrest_all(-40)
              + "\nevery_owned_state = {\n\tlimit = { OR = { " + " ".join(f"state = {s}" for s in greek)
-             + " } }\n\tadd_core_of = ROOT\n}",
+             + " } }\n\tadd_core_of = ROOT\n}\n" + victory.FIRE["PRS"],
              "base = 100",
              extra="highlight_states = {\n\thighlight_state_targets = {\n"
                    + "\n".join(f"\t\tstate = {s}" for s in greek) + "\n\t}\n}\non_map_mode = decision_view_only\n"

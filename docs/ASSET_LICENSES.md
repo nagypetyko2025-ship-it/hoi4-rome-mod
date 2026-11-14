@@ -10,3 +10,11 @@ dress of each people. Own work, released under CC0.
 Painted procedurally by `tools/world.py` / `tools/build.py`. Own work, CC0.
 - Tech icons (`gfx/interface/technologies/ante_*.dds`): own procedural art (tools/tech.py), CC0.
 - `gfx/interface/technologies/train_equipment_1-3.dds`, `gfx/interface/archetypes/archetype_train.dds` (transport horses) and the highway icon in the building icon strip: own procedural art (tools/convoy.py, tools/tech.py), CC0.
+- Victory screens (`gfx/event_pictures/ante_victory_*.dds`, sources in `tools/data/victory/`, cropped by tools/victory.py):
+  - Rome: Carle Vernet, *The Triumph of Aemilius Paulus* (1789), The Metropolitan Museum of Art - **CC0**
+    (https://commons.wikimedia.org/wiki/File:The_Triumph_of_Aemilius_Paulus_MET_DT11657.jpg)
+  - Carthage: J. M. W. Turner, *Dido building Carthage* (1815), National Gallery, London - **public domain** (PD-Art:
+    a faithful photograph of a two-dimensional work whose author died in 1851)
+    (https://commons.wikimedia.org/wiki/File:Dido_building_Carthage_-_JMW_Turner.jpg)
+  - Persia: Apadana Hall, eastern stairway, Persepolis (19th-century photograph), The Metropolitan Museum of Art - **CC0**
+    (https://commons.wikimedia.org/wiki/File:(16)_-Apadana_Hall_Eastern_Stairway,_Persepolis,_Fars-_MET_DP203044.jpg)
