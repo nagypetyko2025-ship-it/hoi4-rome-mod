@@ -1019,3 +1019,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - **Türosz és a Nagy Király (6 fókusz):** az anyaváros, perzsa barátság (megnemtámadási szerződés) ↔ nincs úr
   keleten, Himera és Szalamisz ↔ Türosz eleste, Türosz örököse (a föníciai városok a pun ligába).
 - Formálható államok: a döntések kiemelik a térképen a szükséges államokat (`highlight_states`).
+
+## Harmincötödik kör (2026-11-14, Claude) – szállító lovak, utak
+- A vonatok helyett **Transport Horses** (málhás lovak, saját rajz a gyártási és a logisztikai képeken).
+- A vasút neve **Highways** (kövezett utak a raktárak között), saját ikonnal (kövezett út mérföldkővel) - eddig ugyanaz a kerék volt, mint az utaké.

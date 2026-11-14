@@ -7,6 +7,8 @@ redraws it, at the base game's own paths:
   gfx/interface/technologies/convoy.dds           (256 x 42, two ships)        production picture
   gfx/interface/topbar/topbar_convoys.dds         (28 x 18, a ship on waves)   top bar
   localisation/english/replace/ante_convoy_l_english.yml
+Also the engine's trains (round 35): transport horses at gfx/interface/technologies/train_equipment_1-3.dds
+(146 x 54) and gfx/interface/archetypes/archetype_train.dds (122 x 45).
 Run AFTER tools/world.py (it wipes localisation/english/replace).
 """
 from pathlib import Path
@@ -76,8 +78,50 @@ def two_ships(w, h, base):
     return out
 
 
+def horse_mask(w, h):
+    """a pack horse seen from the side, facing right, with a pack saddle and two panniers (round 35: the engine's
+    trains are the army's transport horses)"""
+    im = Image.new("L", (w * S, h * S), 0)
+    d = ImageDraw.Draw(im)
+    fx, fy = w * S / 100, h * S / 80
+
+    def P(*pts):
+        return [(x * fx, y * fy) for x, y in pts]
+    d.ellipse(P((20, 30), (78, 56)), 255)                                        # body
+    d.polygon(P((64, 42), (70, 30), (82, 12), (91, 14), (84, 42)), 255)           # neck
+    d.polygon(P((82, 10), (89, 6), (100, 22), (96, 28), (86, 22)), 255)           # head
+    d.polygon(P((84, 11), (86, 2), (89, 9)), 255)                                 # ear
+    for x0 in (26, 36, 60, 70):                                                   # legs and hooves
+        d.rectangle(P((x0, 48), (x0 + 6, 76)), 255)
+        d.rectangle(P((x0 - 1, 74), (x0 + 7, 79)), 255)
+    d.polygon(P((22, 36), (12, 42), (8, 64), (15, 62), (20, 46)), 255)            # tail
+    d.rounded_rectangle(P((32, 18), (66, 34)), int(4 * fx), 255)                  # the load on the pack saddle
+    d.line(P((32, 34), (66, 34)), 0, int(1.6 * fy))
+    d.ellipse(P((34, 30), (52, 52)), 0)                                           # a pannier hanging on the flank
+    d.ellipse(P((35.5, 31.5), (50.5, 50.5)), 255)
+    return im.resize((w, h), Image.LANCZOS)
+
+
+def horses(w, h, base):
+    """a string of pack horses, the ones behind smaller and darker"""
+    out = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    big = (int(h * 1.25), h)
+    small = (int(h * 0.85 * 1.25), int(h * 0.85))
+    n = max(2, min(3, w // big[0]))
+    for i in range(n - 1, -1, -1):          # back to front
+        size = small if i % 2 else big
+        x = int(i * (w - big[0]) / max(1, n - 1))
+        col = tuple(int(c * (0.8 if i % 2 else 1.0)) for c in base)
+        out.alpha_composite(shaded(horse_mask(*size), col), (x, h - size[1]))
+    return out
+
+
 def main():
     gi = MOD / "gfx" / "interface"
+    # the engine's trains: transport horses (names in tools/data/tech_tree.py EQUIPMENT_NAMES)
+    for i in (1, 2, 3):
+        horses(146, 54, (132, 88, 52)).save(gi / "technologies" / f"train_equipment_{i}.dds")
+    horses(122, 45, (188, 150, 98)).save(gi / "archetypes" / "archetype_train.dds")
     for sub in ("archetypes", "technologies", "topbar"):
         (gi / sub).mkdir(parents=True, exist_ok=True)
     two_ships(144, 29, (188, 150, 98)).save(gi / "archetypes" / "archetype_convoy.dds")

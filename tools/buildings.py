@@ -30,6 +30,9 @@ NAMES = {   # key: (name, plural, description)
                    "here overseas. The larger the harbour, the more ships it can serve."),
     "infrastructure": ("Roads", "Roads",
                        "Tracks, causeways, bridges and fords. Better roads carry more grain and move armies faster."),
+    "rail_way": ("Highways", "Highways",
+                 "Levelled, drained and paved roads between the supply depots: grain wagons and pack horses travel them "
+                 "day and night to the armies far from the capital."),
     "bunker": ("Fortifications", "Fortifications",
                "Ramparts, ditches and walls: every level makes an attacker pay $VALUE|+%0$ more in battle."),
     "coastal_bunker": ("Sea Walls", "Sea Walls",
@@ -133,7 +136,7 @@ buildings = {{
 
 # ---------------------------------------------------------------- the building icons, ancient (own art)
 STRIP_GLYPHS = {1: "anvil", 2: "sword", 3: "wheel", 4: "ship", 6: "tower", 7: "wall", 8: "wall", 10: "wheat",
-                15: "tent", 16: "wheel", 23: "wall", 25: "ship", 26: "wall", 30: "coin", 31: "anvil"}
+                15: "tent", 16: "road", 23: "wall", 25: "ship", 26: "wall", 30: "coin", 31: "anvil"}
 
 
 def write_icon_strip():

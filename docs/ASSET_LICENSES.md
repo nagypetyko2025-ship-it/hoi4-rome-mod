@@ -9,3 +9,4 @@ dress of each people. Own work, released under CC0.
 ## Flags (`gfx/flags/`)
 Painted procedurally by `tools/world.py` / `tools/build.py`. Own work, CC0.
 - Tech icons (`gfx/interface/technologies/ante_*.dds`): own procedural art (tools/tech.py), CC0.
+- `gfx/interface/technologies/train_equipment_1-3.dds`, `gfx/interface/archetypes/archetype_train.dds` (transport horses) and the highway icon in the building icon strip: own procedural art (tools/convoy.py, tools/tech.py), CC0.

@@ -360,6 +360,17 @@ def glyph(kind, w=61, h=54):
     elif kind == "pick":
         d.line(P((16, 48), (40, 14)), 255, 3 * S)
         d.chord(P((14, 4), (58, 34)), 200, 340, 255)
+    elif kind == "road":   # a paved road running into the distance, a milestone beside it (the highways, round 35)
+        d.polygon(P((6, 52), (34, 52), (27, 6), (21, 6)), 255)
+        for y0, y1 in ((44, 52), (33, 41), (24, 30), (16, 21), (10, 14)):   # gaps between the rows of paving stones
+            t = (y0 - 6) / 46
+            xl, xr = 21 - 15 * t, 27 + 7 * t
+            d.line(P((xl, y0), (xr, y0)), 0, max(1, int(S * 0.9)))
+        d.line(P((20, 52), (24, 6)), 0, max(1, int(S * 0.8)))
+        d.rounded_rectangle(P((42, 22), (52, 50)), 4 * S, 255)                # the milestone
+        d.rectangle(P((39, 48), (55, 52)), 255)
+        d.line(P((44, 32), (50, 32)), 0, S)
+        d.line(P((44, 37), (50, 37)), 0, S)
     else:
         raise KeyError(kind)
     return im.resize((w, h), Image.LANCZOS)
@@ -388,7 +399,7 @@ GLYPH_COLOUR = {"scroll": (205, 180, 130), "column": (200, 196, 186), "wheel": (
                 "anvil": (120, 120, 126), "wall": (176, 160, 130), "ship": (140, 96, 56), "horse": (126, 76, 44),
                 "eye": (190, 170, 140), "star": (220, 190, 90), "cup": (196, 150, 64), "laurel": (110, 150, 70),
                 "helmet": (196, 150, 64), "catapult": (150, 104, 58), "sword": (170, 170, 176), "tent": (190, 170, 130), "tower": (190, 180, 160),
-                "wheat": (214, 180, 90), "pick": (130, 120, 110)}
+                "wheat": (214, 180, 90), "pick": (130, 120, 110), "road": (176, 160, 130)}
 
 
 # ---------------------------------------------------------------- the tech screen (a copy of the game's gui)

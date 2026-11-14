@@ -51,7 +51,7 @@ TECHS = [
      INF, 6, 425, ["ante_open_order"], units(FOOT, max_organisation=5, breakthrough=0.10), "helmet", 2),
     # ------------------------------------------------------------------ logistics and auxiliaries
     ("ante_pack_animals", "Pack Animals and Carts", "Mules, donkeys and ox-carts carry the grain behind the army.",
-     SUP, 0, 245, [], "enable_equipments = { train_equipment_1 }", "wheel", 1),
+     SUP, 0, 245, [], "enable_equipments = { train_equipment_1 }", "horse", 1),
     ("ante_supply_wagons", "Supply Trains", "Organised columns of wagons and depots along the line of march.",
      SUP, 0, 335, ["ante_pack_animals"], "attrition = -0.05\nsupply_consumption_factor = -0.05", "wheel", 1.5),
     ("ante_military_roads", "Military Roads", "Straight, paved, drained: the army marches a day's journey further.",
@@ -192,8 +192,8 @@ LANES = {
 TABS = {INF: "helmet", SUP: "wheel", ARM: "horse", ART: "catapult", NAV: "ship", LRN: "scroll", IND: "anvil"}
 # base-game equipment that the ancient tree still uses: its name shown in the tech box
 EQUIPMENT_NAMES = {   # key: (name, description)
-    "train_equipment": ("Baggage Train", "Mules, donkeys and ox-carts carry the grain from the depots to the army."),
-    "train_equipment_1": ("Mules and Carts", "Pack animals and heavy ox-carts: slow, but they carry what the army eats."),
+    "train_equipment": ("Transport Horses", "Strings of pack horses carry the grain along the highways from the depots to the army."),
+    "train_equipment_1": ("Transport Horses", "Sturdy pack horses with panniers and saddle bags: they carry what the army eats."),
 }
 
 # researched at the start by everybody / by the peoples with cities and writing (world.py, culture "names" key)
