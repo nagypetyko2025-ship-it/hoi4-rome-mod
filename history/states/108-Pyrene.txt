@@ -3,6 +3,10 @@ state = {
 	name = "STATE_108"  # Pyrene
 	manpower = 79400
 	state_category = large_town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = HEU
 		add_core_of = HEU

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_532"  # Emporion
 	manpower = 15000
 	state_category = town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = EMP
 		add_core_of = EMP

@@ -3,6 +3,10 @@ state = {
 	name = "STATE_261"  # Tauris
 	manpower = 30000
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = TVR
 		add_core_of = TVR

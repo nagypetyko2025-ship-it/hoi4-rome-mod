@@ -3,6 +3,9 @@ state = {
 	name = "STATE_158"  # Farther Eastern Hordaland
 	manpower = 1100
 	state_category = pastoral
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = HRD
 		add_core_of = HRD

@@ -3,6 +3,11 @@ state = {
 	name = "STATE_306"  # Farther North-Western Sigynnia
 	manpower = 8700
 	state_category = rural
+	resources = {
+		chromium = 3
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = SIG
 		add_core_of = SIG

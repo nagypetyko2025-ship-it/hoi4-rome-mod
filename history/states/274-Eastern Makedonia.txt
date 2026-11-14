@@ -3,6 +3,12 @@ state = {
 	name = "STATE_274"  # Eastern Makedonia
 	manpower = 40900
 	state_category = large_town
+	resources = {
+		coal = 1
+		oil = 4
+		rubber = 5
+		steel = 7
+	}
 	history = {
 		owner = MKD
 		add_core_of = MKD

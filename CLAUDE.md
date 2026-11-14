@@ -91,6 +91,14 @@
 - Testing in the game on Sim's machine (2026-11-14): the game ignores SendKeys - only hardware scan codes reach it
   (keybd_event with the scan code). Entering the tech tree needs a mouse click on a research slot (ask Sim; mouse
   scripts are blocked by Windows Defender and must not be worked around). Pages: keys 1-7 once the tree is open.
+- Resources (tools/resources.py, round 21): the base game's 7 resource KEYS stay (engine defines and base-game
+  scripts use them) with ancient meanings: steel = iron, aluminium = copper, tungsten = tin, rubber = timber,
+  chromium = horses, oil = pitch, coal = grain (the engine's energy resource). Names in
+  localisation/english/replace/ante_resources_l_english.yml, icons replace gfx/interface/(missing_)resources_strip.dds.
+  State amounts come from DEPOSITS (lon/lat of real ancient sources) + terrain, written by world.py into history/states.
+  The game adds infrastructure bonuses on top, so the map shows more than the files.
+- Tech timeline: tools/tech.py FIRST..LAST (245..280 AUC since round 21) and BASE_TECH_COST in common/defines go together:
+  the whole tree should take about as many years to research as it spans.
 - Rome's story systems (tools/rome_story.py, round 19): two 0-100 meters (`ROM_discord` for the Republic,
   `ROM_hatred` for the Kingdom) drive dynamic modifiers through scripted effects (`ROM_*_update`); events
   `ante_rome.*`, decisions in category `ROM_res_romana`. Rome starts with ONE state: `start_civil_war` then does

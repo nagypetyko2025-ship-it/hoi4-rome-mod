@@ -3,6 +3,11 @@ state = {
 	name = "STATE_497"  # Kyrenaike
 	manpower = 77900
 	state_category = city
+	resources = {
+		chromium = 4
+		coal = 3
+		rubber = 1
+	}
 	history = {
 		owner = KYR
 		add_core_of = KYR

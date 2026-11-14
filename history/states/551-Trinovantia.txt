@@ -3,6 +3,9 @@ state = {
 	name = "STATE_551"  # Trinovantia
 	manpower = 70000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = TRN
 		add_core_of = TRN

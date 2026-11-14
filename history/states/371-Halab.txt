@@ -3,6 +3,9 @@ state = {
 	name = "STATE_371"  # Halab
 	manpower = 79400
 	state_category = city
+	resources = {
+		coal = 4
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

@@ -3,6 +3,11 @@ state = {
 	name = "STATE_88"  # Lemovicia
 	manpower = 80000
 	state_category = large_town
+	resources = {
+		coal = 1
+		rubber = 1
+		steel = 7
+	}
 	history = {
 		owner = LEM
 		add_core_of = LEM

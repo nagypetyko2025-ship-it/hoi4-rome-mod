@@ -3,6 +3,10 @@ state = {
 	name = "STATE_377"  # Mudraya
 	manpower = 1165900
 	state_category = megalopolis
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

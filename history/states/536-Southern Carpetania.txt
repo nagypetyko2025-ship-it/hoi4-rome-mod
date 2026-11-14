@@ -3,6 +3,10 @@ state = {
 	name = "STATE_536"  # Southern Carpetania
 	manpower = 30400
 	state_category = town
+	resources = {
+		chromium = 3
+		coal = 1
+	}
 	history = {
 		owner = CRP
 		add_core_of = CRP

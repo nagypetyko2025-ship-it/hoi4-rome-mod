@@ -3,6 +3,11 @@ state = {
 	name = "STATE_215"  # Iyrcania
 	manpower = 20900
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 2
+		rubber = 2
+	}
 	history = {
 		owner = IYR
 		add_core_of = IYR

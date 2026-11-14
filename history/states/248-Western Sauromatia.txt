@@ -3,6 +3,10 @@ state = {
 	name = "STATE_248"  # Western Sauromatia
 	manpower = 1700
 	state_category = pastoral
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = SAU
 		add_core_of = SAU

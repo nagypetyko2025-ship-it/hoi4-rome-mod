@@ -3,6 +3,10 @@ state = {
 	name = "STATE_553"  # Corieltauvia
 	manpower = 39300
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = CRV
 		add_core_of = CRV

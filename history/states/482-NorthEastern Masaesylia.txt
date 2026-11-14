@@ -3,6 +3,10 @@ state = {
 	name = "STATE_482"  # North-Eastern Masaesylia
 	manpower = 29300
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = MSS
 		add_core_of = MSS

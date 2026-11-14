@@ -130,7 +130,12 @@ def gui_labels(gui):
     return out
 
 
-FIRST, LAST = 245, 365   # AUC of the first and the last labelled row of every page (round 17: 485 = far too slow)
+# AUC of the first and the last labelled row of every page. Round 17: 485 = far too slow. Round 18: 365 still left
+# 15-100 years between a tech and the next one while a tech took 6-15 months (BASE_TECH_COST 180): players ran out
+# of time and paid the ahead-of-time penalty everywhere. Round 21: 280, with BASE_TECH_COST 270 (common/defines) -
+# 66 techs at 2-3 research slots take about 30-40 years, the length of the tree.
+FIRST, LAST = 245, 280
+YEAR_ROUND = 1           # years on the labels and start_year are rounded to this (was 5: rows a few years apart merged)
 DESIGN_LAST = 485        # the years in tech_tree.py run 245..485 and are squeezed into FIRST..LAST
 WIDE = {"armour_folder", "artillery_folder", "industry_folder", "electronics_folder"}  # time runs down: boxes side by side need 3 slots
 STEP = {"naval_folder": 3}  # rows used: multiples of this from the top row (big ship boxes need more room)
@@ -219,7 +224,7 @@ def page_scale(folder, rows, labels):
 
 def auc_of(y, scale):
     y0, y1 = scale
-    return int(round((FIRST + (y - y0) * (LAST - FIRST) / (y1 - y0)) / 5) * 5)
+    return int(round((FIRST + (y - y0) * (LAST - FIRST) / (y1 - y0)) / YEAR_ROUND) * YEAR_ROUND)
 
 
 def place(folder, auc, rows, labels):

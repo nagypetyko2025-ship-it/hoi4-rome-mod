@@ -3,6 +3,9 @@ state = {
 	name = "STATE_325"  # Dardania
 	manpower = 73800
 	state_category = large_town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = DRD
 		add_core_of = DRD

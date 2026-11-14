@@ -3,6 +3,9 @@ state = {
 	name = "STATE_83"  # Pictonia
 	manpower = 78400
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = PCT
 		add_core_of = PCT

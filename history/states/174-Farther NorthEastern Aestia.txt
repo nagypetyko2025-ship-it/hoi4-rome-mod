@@ -3,6 +3,10 @@ state = {
 	name = "STATE_174"  # Farther North-Eastern Aestia
 	manpower = 5700
 	state_category = rural
+	resources = {
+		chromium = 1
+		rubber = 2
+	}
 	history = {
 		owner = AES
 		add_core_of = AES

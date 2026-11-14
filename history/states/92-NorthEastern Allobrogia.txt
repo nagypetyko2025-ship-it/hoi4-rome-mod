@@ -3,6 +3,10 @@ state = {
 	name = "STATE_92"  # North-Eastern Allobrogia
 	manpower = 10600
 	state_category = rural
+	resources = {
+		chromium = 1
+		rubber = 1
+	}
 	history = {
 		owner = ABG
 		add_core_of = ABG

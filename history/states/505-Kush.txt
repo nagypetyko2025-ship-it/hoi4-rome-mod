@@ -3,6 +3,11 @@ state = {
 	name = "STATE_505"  # Kush
 	manpower = 81400
 	state_category = city
+	resources = {
+		chromium = 1
+		coal = 1
+		steel = 14
+	}
 	history = {
 		owner = KSH
 		add_core_of = KSH

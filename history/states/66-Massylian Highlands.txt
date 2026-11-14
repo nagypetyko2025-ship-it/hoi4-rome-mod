@@ -3,6 +3,9 @@ state = {
 	name = "STATE_66"  # Massylian Highlands
 	manpower = 30000
 	state_category = town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = MSY
 		add_core_of = MSY

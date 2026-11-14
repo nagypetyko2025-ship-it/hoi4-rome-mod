@@ -3,6 +3,9 @@ state = {
 	name = "STATE_115"  # South-Eastern Noricum
 	manpower = 10600
 	state_category = rural
+	resources = {
+		steel = 16
+	}
 	history = {
 		owner = NRC
 		add_core_of = NRC

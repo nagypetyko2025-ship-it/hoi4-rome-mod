@@ -3,6 +3,9 @@ state = {
 	name = "STATE_4"  # Aequia
 	manpower = 20000
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = AEQ
 		add_core_of = AEQ

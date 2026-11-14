@@ -3,6 +3,9 @@ state = {
 	name = "STATE_527"  # South-Western Edetania
 	manpower = 21500
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = EDT
 		add_core_of = EDT

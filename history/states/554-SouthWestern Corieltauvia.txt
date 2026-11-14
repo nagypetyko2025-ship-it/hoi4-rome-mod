@@ -3,6 +3,9 @@ state = {
 	name = "STATE_554"  # South-Western Corieltauvia
 	manpower = 20700
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = CRV
 		add_core_of = CRV

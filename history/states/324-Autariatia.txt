@@ -3,6 +3,9 @@ state = {
 	name = "STATE_324"  # Autariatia
 	manpower = 89300
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = AUT
 		add_core_of = AUT

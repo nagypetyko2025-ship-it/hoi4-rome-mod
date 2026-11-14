@@ -3,6 +3,10 @@ state = {
 	name = "STATE_436"  # Trmmis
 	manpower = 70000
 	state_category = city
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = LYK
 		add_core_of = LYK

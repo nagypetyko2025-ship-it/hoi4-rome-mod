@@ -3,6 +3,9 @@ state = {
 	name = "STATE_545"  # Cantabria
 	manpower = 60000
 	state_category = large_town
+	resources = {
+		steel = 14
+	}
 	history = {
 		owner = CNB
 		add_core_of = CNB

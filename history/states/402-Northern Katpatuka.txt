@@ -3,6 +3,10 @@ state = {
 	name = "STATE_402"  # Northern Katpatuka
 	manpower = 26000
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 3
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

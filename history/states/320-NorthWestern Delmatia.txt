@@ -3,6 +3,9 @@ state = {
 	name = "STATE_320"  # North-Western Delmatia
 	manpower = 16300
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = DLM
 		add_core_of = DLM

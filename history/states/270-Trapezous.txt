@@ -3,6 +3,9 @@ state = {
 	name = "STATE_270"  # Trapezous
 	manpower = 20000
 	state_category = town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = SNP
 		add_core_of = SNP

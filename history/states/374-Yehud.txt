@@ -3,6 +3,10 @@ state = {
 	name = "STATE_374"  # Yehud
 	manpower = 112300
 	state_category = city
+	resources = {
+		coal = 3
+		oil = 3
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

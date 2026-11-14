@@ -3,6 +3,11 @@ state = {
 	name = "STATE_520"  # Onoba
 	manpower = 57200
 	state_category = town
+	resources = {
+		aluminium = 12
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = TTS
 		add_core_of = TTS

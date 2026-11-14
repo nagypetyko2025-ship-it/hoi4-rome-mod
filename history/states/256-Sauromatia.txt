@@ -3,6 +3,11 @@ state = {
 	name = "STATE_256"  # Sauromatia
 	manpower = 62600
 	state_category = large_town
+	resources = {
+		chromium = 1
+		coal = 2
+		rubber = 1
+	}
 	history = {
 		owner = SAU
 		add_core_of = SAU

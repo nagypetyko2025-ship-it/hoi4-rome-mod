@@ -3,6 +3,10 @@ state = {
 	name = "STATE_437"  # Hilakku
 	manpower = 98600
 	state_category = city
+	resources = {
+		steel = 7
+		tungsten = 3
+	}
 	history = {
 		owner = KIL
 		add_core_of = KIL

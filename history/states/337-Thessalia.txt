@@ -3,6 +3,10 @@ state = {
 	name = "STATE_337"  # Thessalia
 	manpower = 160000
 	state_category = large_city
+	resources = {
+		chromium = 7
+		coal = 2
+	}
 	history = {
 		owner = THL
 		add_core_of = THL

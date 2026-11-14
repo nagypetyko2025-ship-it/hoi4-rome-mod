@@ -3,6 +3,9 @@ state = {
 	name = "STATE_27"  # Oenotria
 	manpower = 25000
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = OEN
 		add_core_of = OEN

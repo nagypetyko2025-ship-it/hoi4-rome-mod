@@ -3,6 +3,11 @@ state = {
 	name = "STATE_76"  # Northern Bituriga
 	manpower = 28200
 	state_category = rural
+	resources = {
+		chromium = 3
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = BIT
 		add_core_of = BIT

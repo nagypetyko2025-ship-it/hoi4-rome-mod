@@ -3,6 +3,9 @@ state = {
 	name = "STATE_544"  # Asturia
 	manpower = 80000
 	state_category = large_town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = ASR
 		add_core_of = ASR

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_475"  # Sakastan
 	manpower = 63000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = SAK
 		add_core_of = SAK

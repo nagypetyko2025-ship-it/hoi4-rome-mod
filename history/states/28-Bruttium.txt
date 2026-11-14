@@ -3,6 +3,10 @@ state = {
 	name = "STATE_28"  # Bruttium
 	manpower = 15000
 	state_category = rural
+	resources = {
+		oil = 6
+		rubber = 3
+	}
 	history = {
 		owner = OEN
 		add_core_of = OEN

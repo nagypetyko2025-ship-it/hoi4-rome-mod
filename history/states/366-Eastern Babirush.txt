@@ -3,6 +3,9 @@ state = {
 	name = "STATE_366"  # Eastern Babirush
 	manpower = 59000
 	state_category = large_town
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

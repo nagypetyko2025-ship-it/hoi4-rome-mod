@@ -3,6 +3,9 @@ state = {
 	name = "STATE_333"  # Epeiros
 	manpower = 73800
 	state_category = city
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = MOL
 		add_core_of = MOL

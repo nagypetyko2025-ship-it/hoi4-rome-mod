@@ -3,6 +3,11 @@ state = {
 	name = "STATE_82"  # Eastern Armorica
 	manpower = 37900
 	state_category = town
+	resources = {
+		chromium = 1
+		coal = 1
+		steel = 4
+	}
 	history = {
 		owner = VNT
 		add_core_of = VNT

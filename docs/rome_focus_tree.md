@@ -105,3 +105,11 @@ aktuális állást mutatja.
 - Kipróbálva: a mérők hetente frissülnek, a szellem értékei követik őket; az 1, 2, 10, 42, 43, 44, 45-ös esemény
   lefut; a forradalom után Róma demokratikus, a Regifugium kész, a viszály 55-ről indul. Az error.log-ban nincs hiba
   a saját fájlokból.
+
+### Átnézés, 21. kör (Peti 20. köre után)
+- Géppel ellenőrizve: nincs átfedés, az előfeltételek feljebb vannak, a kizárások kölcsönösek; mindkét ág eléri a 30
+  itáliai népet. A köztársaság szerződéses fókuszai (Civitas sine Suffragio, a negyvenéves fegyverszünetek, Capua
+  önátadása, az apuliai szövetségesek) és a királyság Latin Ligája most `submit()`-ot használnak: szerződés, ha
+  köthető, különben háborús cél – eddig ilyenkor semmit sem adtak.
+- Egyensúly, nyitott kérdés Petinek: a szerződések olcsók (pl. Clusium + Volaterrae + Arretium, 6 állam 100 PP-ért), és
+  a bábállamok beleszámítanak az Italia 20 államába – a köztársaság így könnyebben ér célba, mint a király.

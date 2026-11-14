@@ -3,6 +3,10 @@ state = {
 	name = "STATE_239"  # Scythian Tauris
 	manpower = 30800
 	state_category = town
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = SCY
 		add_core_of = SCY

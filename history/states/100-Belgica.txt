@@ -3,6 +3,10 @@ state = {
 	name = "STATE_100"  # Belgica
 	manpower = 100700
 	state_category = large_town
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = BGA
 		add_core_of = BGA

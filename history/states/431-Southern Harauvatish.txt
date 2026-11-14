@@ -3,6 +3,9 @@ state = {
 	name = "STATE_431"  # Southern Harauvatish
 	manpower = 14100
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

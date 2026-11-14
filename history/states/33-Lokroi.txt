@@ -3,6 +3,9 @@ state = {
 	name = "STATE_33"  # Lokroi
 	manpower = 15000
 	state_category = town
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = LOK
 		add_core_of = LOK

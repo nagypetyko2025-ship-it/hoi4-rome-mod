@@ -3,6 +3,9 @@ state = {
 	name = "STATE_84"  # Southern Pictonia
 	manpower = 21600
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = PCT
 		add_core_of = PCT

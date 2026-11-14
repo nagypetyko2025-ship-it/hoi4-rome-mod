@@ -3,6 +3,10 @@ state = {
 	name = "STATE_25"  # Kyme
 	manpower = 25000
 	state_category = town
+	resources = {
+		chromium = 2
+		coal = 4
+	}
 	history = {
 		owner = CUM
 		add_core_of = CUM

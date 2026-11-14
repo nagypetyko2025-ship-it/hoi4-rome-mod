@@ -3,6 +3,12 @@ state = {
 	name = "STATE_364"  # Babirush
 	manpower = 1058700
 	state_category = megalopolis
+	resources = {
+		chromium = 1
+		coal = 10
+		oil = 6
+		rubber = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

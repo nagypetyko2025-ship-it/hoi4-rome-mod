@@ -3,6 +3,10 @@ state = {
 	name = "STATE_230"  # Farther Northern Royal Scythia
 	manpower = 15000
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 2
+	}
 	history = {
 		owner = SCY
 		add_core_of = SCY

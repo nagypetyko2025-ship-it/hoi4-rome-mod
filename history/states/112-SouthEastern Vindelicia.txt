@@ -3,6 +3,9 @@ state = {
 	name = "STATE_112"  # South-Eastern Vindelicia
 	manpower = 4400
 	state_category = pastoral
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = VIN
 		add_core_of = VIN

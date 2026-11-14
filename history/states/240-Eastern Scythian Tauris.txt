@@ -3,6 +3,10 @@ state = {
 	name = "STATE_240"  # Eastern Scythian Tauris
 	manpower = 9200
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 4
+	}
 	history = {
 		owner = SCY
 		add_core_of = SCY

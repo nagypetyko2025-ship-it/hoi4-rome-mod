@@ -3,6 +3,11 @@ state = {
 	name = "STATE_199"  # Eastern Melanchlaenia
 	manpower = 11800
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 2
+		rubber = 2
+	}
 	history = {
 		owner = MLC
 		add_core_of = MLC

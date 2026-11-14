@@ -3,6 +3,10 @@ state = {
 	name = "STATE_281"  # North-Western Odrysia
 	manpower = 32300
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = ODR
 		add_core_of = ODR

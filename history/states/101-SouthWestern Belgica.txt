@@ -3,6 +3,10 @@ state = {
 	name = "STATE_101"  # South-Western Belgica
 	manpower = 2800
 	state_category = pastoral
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = BGA
 		add_core_of = BGA

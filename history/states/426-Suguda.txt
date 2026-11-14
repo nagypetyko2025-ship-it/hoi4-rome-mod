@@ -3,6 +3,11 @@ state = {
 	name = "STATE_426"  # Suguda
 	manpower = 150000
 	state_category = large_city
+	resources = {
+		coal = 1
+		rubber = 1
+		tungsten = 4
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

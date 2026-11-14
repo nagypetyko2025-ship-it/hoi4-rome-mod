@@ -3,6 +3,10 @@ state = {
 	name = "STATE_207"  # Budinia
 	manpower = 42100
 	state_category = town
+	resources = {
+		chromium = 1
+		coal = 2
+	}
 	history = {
 		owner = BUD
 		add_core_of = BUD

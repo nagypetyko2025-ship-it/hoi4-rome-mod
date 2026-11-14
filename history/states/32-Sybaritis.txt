@@ -3,6 +3,9 @@ state = {
 	name = "STATE_32"  # Sybaritis
 	manpower = 15000
 	state_category = town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = KRO
 		add_core_of = KRO

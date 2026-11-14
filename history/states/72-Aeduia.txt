@@ -3,6 +3,9 @@ state = {
 	name = "STATE_72"  # Aeduia
 	manpower = 160000
 	state_category = large_city
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = AED
 		add_core_of = AED

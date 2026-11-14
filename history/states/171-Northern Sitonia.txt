@@ -3,6 +3,11 @@ state = {
 	name = "STATE_171"  # Northern Sitonia
 	manpower = 3900
 	state_category = pastoral
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 2
+	}
 	history = {
 		owner = FNN
 		add_core_of = FNN

@@ -3,6 +3,11 @@ state = {
 	name = "STATE_339"  # Boiotia
 	manpower = 90000
 	state_category = city
+	resources = {
+		aluminium = 4
+		rubber = 1
+		steel = 4
+	}
 	history = {
 		owner = THB
 		add_core_of = THB

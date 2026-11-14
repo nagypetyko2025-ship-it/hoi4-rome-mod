@@ -3,6 +3,9 @@ state = {
 	name = "STATE_54"  # Liguria
 	manpower = 50000
 	state_category = town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = LIG
 		add_core_of = LIG

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_153"  # South-Western Gautland
 	manpower = 1000
 	state_category = pastoral
+	resources = {
+		steel = 5
+	}
 	history = {
 		owner = GAU
 		add_core_of = GAU

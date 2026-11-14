@@ -3,6 +3,9 @@ state = {
 	name = "STATE_287"  # Southern Triballia
 	manpower = 16200
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = TRB
 		add_core_of = TRB

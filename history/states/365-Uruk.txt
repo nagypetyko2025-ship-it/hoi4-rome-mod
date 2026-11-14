@@ -3,6 +3,10 @@ state = {
 	name = "STATE_365"  # Uruk
 	manpower = 382300
 	state_category = metropolis
+	resources = {
+		chromium = 1
+		coal = 5
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

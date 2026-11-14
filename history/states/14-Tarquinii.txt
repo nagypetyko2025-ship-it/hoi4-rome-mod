@@ -3,6 +3,9 @@ state = {
 	name = "STATE_14"  # Tarquinii
 	manpower = 40000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = TAR
 		add_core_of = TAR

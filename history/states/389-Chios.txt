@@ -3,6 +3,9 @@ state = {
 	name = "STATE_389"  # Chios
 	manpower = 49800
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

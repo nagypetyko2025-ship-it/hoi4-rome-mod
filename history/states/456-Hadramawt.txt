@@ -3,6 +3,9 @@ state = {
 	name = "STATE_456"  # Hadramawt
 	manpower = 89800
 	state_category = large_town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = HDR
 		add_core_of = HDR

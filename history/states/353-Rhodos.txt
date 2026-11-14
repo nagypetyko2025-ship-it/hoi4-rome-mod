@@ -3,6 +3,9 @@ state = {
 	name = "STATE_353"  # Rhodos
 	manpower = 60000
 	state_category = city
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = RHO
 		add_core_of = RHO

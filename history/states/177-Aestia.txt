@@ -3,6 +3,10 @@ state = {
 	name = "STATE_177"  # Aestia
 	manpower = 32200
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = AES
 		add_core_of = AES

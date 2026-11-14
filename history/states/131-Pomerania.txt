@@ -3,6 +3,10 @@ state = {
 	name = "STATE_131"  # Pomerania
 	manpower = 60000
 	state_category = large_town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = PMR
 		add_core_of = PMR

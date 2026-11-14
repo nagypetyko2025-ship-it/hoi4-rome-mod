@@ -3,6 +3,9 @@ state = {
 	name = "STATE_559"  # Votadinia
 	manpower = 35800
 	state_category = town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = VTD
 		add_core_of = VTD

@@ -3,6 +3,10 @@ state = {
 	name = "STATE_123"  # Eastern Hercynia
 	manpower = 10000
 	state_category = rural
+	resources = {
+		chromium = 1
+		rubber = 1
+	}
 	history = {
 		owner = VLK
 		add_core_of = VLK

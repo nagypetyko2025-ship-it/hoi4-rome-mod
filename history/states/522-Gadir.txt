@@ -3,6 +3,9 @@ state = {
 	name = "STATE_522"  # Gadir
 	manpower = 40000
 	state_category = large_town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = GDR
 		add_core_of = GDR

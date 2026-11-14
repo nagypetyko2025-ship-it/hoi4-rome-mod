@@ -3,6 +3,12 @@ state = {
 	name = "STATE_141"  # South-Western Istvaeonia
 	manpower = 7400
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 1
+		steel = 9
+	}
 	history = {
 		owner = IST
 		add_core_of = IST

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_211"  # Western Thyssagetia
 	manpower = 1400
 	state_category = pastoral
+	resources = {
+		rubber = 2
+	}
 	history = {
 		owner = THY
 		add_core_of = THY

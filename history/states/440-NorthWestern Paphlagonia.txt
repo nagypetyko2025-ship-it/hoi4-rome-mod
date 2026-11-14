@@ -3,6 +3,10 @@ state = {
 	name = "STATE_440"  # North-Western Paphlagonia
 	manpower = 23500
 	state_category = town
+	resources = {
+		oil = 2
+		rubber = 1
+	}
 	history = {
 		owner = PPH
 		add_core_of = PPH

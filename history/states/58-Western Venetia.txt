@@ -3,6 +3,9 @@ state = {
 	name = "STATE_58"  # Western Venetia
 	manpower = 25000
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = VEN
 		add_core_of = VEN

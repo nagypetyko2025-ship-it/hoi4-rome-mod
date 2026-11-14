@@ -3,6 +3,12 @@ state = {
 	name = "STATE_18"  # Vetulonia
 	manpower = 15000
 	state_category = town
+	resources = {
+		aluminium = 6
+		rubber = 1
+		steel = 19
+		tungsten = 2
+	}
 	history = {
 		owner = VLT
 		add_core_of = VLT

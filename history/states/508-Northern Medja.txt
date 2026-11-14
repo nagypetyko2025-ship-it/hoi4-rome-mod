@@ -3,6 +3,9 @@ state = {
 	name = "STATE_508"  # Northern Medja
 	manpower = 2300
 	state_category = pastoral
+	resources = {
+		tungsten = 2
+	}
 	history = {
 		owner = BLM
 		add_core_of = BLM

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_106"  # Eastern Aulercia
 	manpower = 25100
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = AUL
 		add_core_of = AUL

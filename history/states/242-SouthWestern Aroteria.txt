@@ -3,6 +3,11 @@ state = {
 	name = "STATE_242"  # South-Western Aroteria
 	manpower = 6700
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = ARO
 		add_core_of = ARO

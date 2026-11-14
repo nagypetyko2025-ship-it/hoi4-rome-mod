@@ -3,6 +3,9 @@ state = {
 	name = "STATE_276"  # Makedonia
 	manpower = 94300
 	state_category = city
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = MKD
 		add_core_of = MKD

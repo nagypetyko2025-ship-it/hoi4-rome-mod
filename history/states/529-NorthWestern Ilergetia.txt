@@ -3,6 +3,9 @@ state = {
 	name = "STATE_529"  # North-Western Ilergetia
 	manpower = 24200
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = ILR
 		add_core_of = ILR

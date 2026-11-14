@@ -3,6 +3,11 @@ state = {
 	name = "STATE_114"  # Noricum
 	manpower = 62500
 	state_category = large_town
+	resources = {
+		aluminium = 4
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = NRC
 		add_core_of = NRC

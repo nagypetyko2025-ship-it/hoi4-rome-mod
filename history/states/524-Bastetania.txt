@@ -3,6 +3,9 @@ state = {
 	name = "STATE_524"  # Bastetania
 	manpower = 90000
 	state_category = large_town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = BST
 		add_core_of = BST

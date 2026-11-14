@@ -3,6 +3,10 @@ state = {
 	name = "STATE_486"  # Eastern Gaetulia
 	manpower = 5600
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = GAE
 		add_core_of = GAE

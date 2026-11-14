@@ -38,6 +38,7 @@ MOD = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import positions as P  # noqa: E402   (load_map / province_table, and the position writers)
 from geo import to_xy  # noqa: E402
+import resources as R  # noqa: E402  ancient resources (round 21)
 from data.leaders_509bc import LEADERS, LATER  # noqa: E402
 import data.tech_tree as TT  # noqa: E402
 
@@ -871,6 +872,7 @@ def state_text(s):
         lines += ["\tstate_category = wasteland", "\timpassable = yes"]
     else:
         lines.append(f"\tstate_category = {s['category']}")
+        lines += R.state_block(s.get("resources"))           # iron, copper, tin, timber, horses, pitch, grain
     lines += ["\thistory = {", f"\t\towner = {s['owner']}"]
     if s["waste"]:
         lines.append("\t\tbuildings = { infrastructure = 0 }")
@@ -917,6 +919,10 @@ def write_world(M, C, states):
         fail("common/countries/colors.txt lost the colours of the dynamic tags D01.. - restore it from git")
     for fp in (MOD / "common" / "countries").glob("ante_*.txt"):
         fp.unlink()
+    # --- resources (tools/resources.py): amounts per state, icons and names
+    for line in R.assign(M, states):
+        print("resources:", line)
+    R.write_files()
     # --- states
     for s in states:
         write(f"history/states/{s['id']}-{safe_name(s['name'])}.txt", state_text(s))

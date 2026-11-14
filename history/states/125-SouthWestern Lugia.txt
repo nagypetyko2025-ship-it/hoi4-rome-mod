@@ -3,6 +3,11 @@ state = {
 	name = "STATE_125"  # South-Western Lugia
 	manpower = 11700
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 2
+	}
 	history = {
 		owner = LUG
 		add_core_of = LUG

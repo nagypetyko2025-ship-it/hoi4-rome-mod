@@ -3,6 +3,10 @@ state = {
 	name = "STATE_21"  # Felsina
 	manpower = 50000
 	state_category = large_town
+	resources = {
+		coal = 3
+		rubber = 1
+	}
 	history = {
 		owner = FEL
 		add_core_of = FEL

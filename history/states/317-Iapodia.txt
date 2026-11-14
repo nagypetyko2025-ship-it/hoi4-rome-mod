@@ -3,6 +3,9 @@ state = {
 	name = "STATE_317"  # Iapodia
 	manpower = 42700
 	state_category = town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = IAP
 		add_core_of = IAP

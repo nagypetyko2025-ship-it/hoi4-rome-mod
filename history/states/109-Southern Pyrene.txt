@@ -3,6 +3,9 @@ state = {
 	name = "STATE_109"  # Southern Pyrene
 	manpower = 10600
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = HEU
 		add_core_of = HEU

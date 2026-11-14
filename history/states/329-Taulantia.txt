@@ -3,6 +3,10 @@ state = {
 	name = "STATE_329"  # Taulantia
 	manpower = 49400
 	state_category = town
+	resources = {
+		oil = 2
+		rubber = 1
+	}
 	history = {
 		owner = TLN
 		add_core_of = TLN

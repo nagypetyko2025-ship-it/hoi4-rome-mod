@@ -3,6 +3,9 @@ state = {
 	name = "STATE_338"  # Phokis
 	manpower = 40000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = PHK
 		add_core_of = PHK

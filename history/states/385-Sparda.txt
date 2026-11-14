@@ -3,6 +3,10 @@ state = {
 	name = "STATE_385"  # Sparda
 	manpower = 382300
 	state_category = metropolis
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

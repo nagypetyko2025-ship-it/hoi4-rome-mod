@@ -3,6 +3,9 @@ state = {
 	name = "STATE_89"  # Eastern Rutenia
 	manpower = 16300
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = RUT
 		add_core_of = RUT

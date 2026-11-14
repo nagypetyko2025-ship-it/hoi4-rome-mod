@@ -3,6 +3,10 @@ state = {
 	name = "STATE_288"  # Northern Getica
 	manpower = 3000
 	state_category = pastoral
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = GTA
 		add_core_of = GTA

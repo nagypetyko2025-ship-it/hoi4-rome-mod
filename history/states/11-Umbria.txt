@@ -3,6 +3,9 @@ state = {
 	name = "STATE_11"  # Umbria
 	manpower = 50000
 	state_category = town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = UMB
 		add_core_of = UMB

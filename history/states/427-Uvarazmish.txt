@@ -3,6 +3,10 @@ state = {
 	name = "STATE_427"  # Uvarazmish
 	manpower = 120000
 	state_category = large_city
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

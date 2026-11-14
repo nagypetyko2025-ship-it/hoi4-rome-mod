@@ -3,6 +3,9 @@ state = {
 	name = "STATE_97"  # Farther North-Eastern Helvetia
 	manpower = 22300
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = HLV
 		add_core_of = HLV

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_146"  # Northern Suionia
 	manpower = 5400
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = SVI
 		add_core_of = SVI

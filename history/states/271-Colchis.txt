@@ -3,6 +3,12 @@ state = {
 	name = "STATE_271"  # Colchis
 	manpower = 120000
 	state_category = large_city
+	resources = {
+		chromium = 1
+		coal = 1
+		oil = 3
+		rubber = 1
+	}
 	history = {
 		owner = KOL
 		add_core_of = KOL

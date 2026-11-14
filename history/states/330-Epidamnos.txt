@@ -3,6 +3,9 @@ state = {
 	name = "STATE_330"  # Epidamnos
 	manpower = 30000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = EPD
 		add_core_of = EPD

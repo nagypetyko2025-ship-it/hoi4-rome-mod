@@ -3,6 +3,10 @@ state = {
 	name = "STATE_118"  # South-Eastern Boiohaemum
 	manpower = 8300
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = BOI
 		add_core_of = BOI

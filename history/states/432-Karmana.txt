@@ -3,6 +3,11 @@ state = {
 	name = "STATE_432"  # Karmana
 	manpower = 100000
 	state_category = city
+	resources = {
+		chromium = 1
+		rubber = 1
+		steel = 7
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

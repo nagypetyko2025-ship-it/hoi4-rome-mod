@@ -3,6 +3,9 @@ state = {
 	name = "STATE_521"  # Tartessis
 	manpower = 91000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = TTS
 		add_core_of = TTS

@@ -3,6 +3,11 @@ state = {
 	name = "STATE_190"  # Farther Eastern Neuris
 	manpower = 3500
 	state_category = pastoral
+	resources = {
+		coal = 1
+		rubber = 1
+		steel = 5
+	}
 	history = {
 		owner = NEU
 		add_core_of = NEU

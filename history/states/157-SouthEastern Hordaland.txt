@@ -3,6 +3,11 @@ state = {
 	name = "STATE_157"  # South-Eastern Hordaland
 	manpower = 7100
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 3
+	}
 	history = {
 		owner = HRD
 		add_core_of = HRD

@@ -3,6 +3,10 @@ state = {
 	name = "STATE_172"  # Sitonia
 	manpower = 17400
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = FNN
 		add_core_of = FNN

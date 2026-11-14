@@ -3,6 +3,9 @@ state = {
 	name = "STATE_491"  # Emporia
 	manpower = 50300
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = CAR
 		add_core_of = CAR

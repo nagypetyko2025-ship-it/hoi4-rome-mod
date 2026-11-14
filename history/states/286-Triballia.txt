@@ -3,6 +3,9 @@ state = {
 	name = "STATE_286"  # Triballia
 	manpower = 67900
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = TRB
 		add_core_of = TRB

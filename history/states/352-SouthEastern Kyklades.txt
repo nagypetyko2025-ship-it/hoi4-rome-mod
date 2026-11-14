@@ -3,6 +3,9 @@ state = {
 	name = "STATE_352"  # South-Eastern Kyklades
 	manpower = 3600
 	state_category = pastoral
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = NAX
 		add_core_of = NAX

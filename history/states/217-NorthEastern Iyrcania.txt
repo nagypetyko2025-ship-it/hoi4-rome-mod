@@ -3,6 +3,9 @@ state = {
 	name = "STATE_217"  # North-Eastern Iyrcania
 	manpower = 1600
 	state_category = pastoral
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = IYR
 		add_core_of = IYR

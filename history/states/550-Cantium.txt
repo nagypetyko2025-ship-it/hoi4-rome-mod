@@ -3,6 +3,10 @@ state = {
 	name = "STATE_550"  # Cantium
 	manpower = 60000
 	state_category = large_town
+	resources = {
+		coal = 1
+		steel = 7
+	}
 	history = {
 		owner = CNI
 		add_core_of = CNI

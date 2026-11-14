@@ -3,6 +3,10 @@ state = {
 	name = "STATE_464"  # Massagetia
 	manpower = 68000
 	state_category = large_town
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = MSG
 		add_core_of = MSG

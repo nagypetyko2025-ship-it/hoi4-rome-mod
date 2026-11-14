@@ -3,6 +3,10 @@ state = {
 	name = "STATE_167"  # Fennia
 	manpower = 7700
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 3
+	}
 	history = {
 		owner = FEN
 		add_core_of = FEN

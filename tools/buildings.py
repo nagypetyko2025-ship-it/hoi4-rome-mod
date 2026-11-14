@@ -46,6 +46,12 @@ def find_game():
     p = MOD.parent.parent
     if (p / "common" / "buildings" / "00_buildings.txt").exists():
         return p
+    try:
+        from mapdata import GAME  # finds the game on any drive (HOI4_DIR overrides), like tools/army.py
+        if (Path(GAME) / "common" / "buildings" / "00_buildings.txt").exists():
+            return Path(GAME)
+    except Exception:
+        pass
     sys.exit("game folder not found (the mod must lie in <game>/mod/)")
 
 

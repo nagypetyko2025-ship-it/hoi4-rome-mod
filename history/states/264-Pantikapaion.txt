@@ -3,6 +3,9 @@ state = {
 	name = "STATE_264"  # Pantikapaion
 	manpower = 40000
 	state_category = large_town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = PNT
 		add_core_of = PNT

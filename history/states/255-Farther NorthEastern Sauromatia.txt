@@ -3,6 +3,10 @@ state = {
 	name = "STATE_255"  # Farther North-Eastern Sauromatia
 	manpower = 11000
 	state_category = rural
+	resources = {
+		chromium = 2
+		coal = 2
+	}
 	history = {
 		owner = SAU
 		add_core_of = SAU

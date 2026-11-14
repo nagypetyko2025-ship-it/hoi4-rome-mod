@@ -3,6 +3,11 @@ state = {
 	name = "STATE_168"  # Farther South-Eastern Fennia
 	manpower = 1200
 	state_category = pastoral
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 4
+	}
 	history = {
 		owner = FEN
 		add_core_of = FEN

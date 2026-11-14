@@ -3,6 +3,9 @@ state = {
 	name = "STATE_542"  # Southern Lusitania
 	manpower = 13500
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = LUS
 		add_core_of = LUS

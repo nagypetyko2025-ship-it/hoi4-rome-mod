@@ -3,6 +3,10 @@ state = {
 	name = "STATE_105"  # South-Eastern Treveria
 	manpower = 16100
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = TRV
 		add_core_of = TRV

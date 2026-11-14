@@ -3,6 +3,9 @@ state = {
 	name = "STATE_517"  # Eastern Macrobia
 	manpower = 1800
 	state_category = pastoral
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = MCB
 		add_core_of = MCB

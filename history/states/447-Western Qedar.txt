@@ -3,6 +3,9 @@ state = {
 	name = "STATE_447"  # Western Qedar
 	manpower = 6000
 	state_category = rural
+	resources = {
+		aluminium = 8
+	}
 	history = {
 		owner = QDR
 		add_core_of = QDR

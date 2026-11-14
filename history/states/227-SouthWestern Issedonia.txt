@@ -3,6 +3,10 @@ state = {
 	name = "STATE_227"  # South-Western Issedonia
 	manpower = 2300
 	state_category = pastoral
+	resources = {
+		chromium = 2
+		coal = 1
+	}
 	history = {
 		owner = ISS
 		add_core_of = ISS

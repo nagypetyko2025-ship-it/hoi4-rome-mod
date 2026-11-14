@@ -3,6 +3,12 @@ state = {
 	name = "STATE_85"  # Aquitania
 	manpower = 73900
 	state_category = large_town
+	resources = {
+		chromium = 1
+		coal = 1
+		oil = 3
+		rubber = 1
+	}
 	history = {
 		owner = AQT
 		add_core_of = AQT

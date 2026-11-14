@@ -3,6 +3,9 @@ state = {
 	name = "STATE_391"  # North-Eastern Karka
 	manpower = 48900
 	state_category = large_town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

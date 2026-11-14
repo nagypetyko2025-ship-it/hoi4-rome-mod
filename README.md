@@ -805,3 +805,33 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - A hated-king és a gazdasági ág 4 oszloppal jobbra került (hely a királyság hódításainak). Új háborús fókusz csak
   szomszédra vehető fel, ahol a következő lépés a legyőzést kéri (`reach`), így nincs újabb zsákutca.
 - Validate 0 hiba; a fókuszfa ellenőrzése: mindkét ág eléri mind a 30 itáliai népet. Játékban még nem futott.
+
+## Huszonegyedik kör (2026-11-14, Claude) – Peti fájának átnézése, sűrűbb technológiafa, ókori nyersanyagok
+- **Peti 20. körének átnézése** (géppel ellenőrizve, `ROM_focus.txt`): nincs két fókusz egy helyen, minden előfeltétel
+  feljebb van, a kizárások kölcsönösek, a forradalmi zár (`ROM_revolution`) mind a 6 új királyi fókuszon rajta van, és
+  mindkét ág eléri mind a 30 itáliai népet (a köztársaság Szicíliát csak igényként – ez a 264-es kezdés). A Regnum
+  Italiae 9 állama Clusium nélkül megvan (a 9 nép mind egyállamos), a King of Italy 20 állama elérhető.
+  **Hiba, javítva:** a köztársaság 9 népet (szabinok, marsusok, Clusium, Volaterrae, Arretium, Capua, Küme, dauniusok,
+  peucetiusok) csak szerződéssel (bábállam) kaphatott meg. Ha a nép épp háborúban állt Rómával (Porsenna Clusiuma!),
+  más alattvalója vagy frakciótag volt, a fókusz csendben semmit sem adott. Most `submit()`: ha a szerződés nem
+  köthető, háborús cél jön helyette. Ugyanez a királyság Latin Ligájánál (a Regnum Italiae a latinok legyőzését kéri,
+  ott ez zsákutca lett volna).
+- **Technológiafa időben sűrűbb:** a sorok 245–365 helyett **245–280 AUC** között vannak, az évszámok egyesével
+  kerekítve. Egy technológia és a rá épülő között átlagosan 12 év van (5–29), korábban 38 (15–100), miközben egy kutatás
+  fél év volt – a játékos hamar „kifutott az időből”. A kutatás hosszabb lett (`BASE_TECH_COST` 180 → 270 nap), az
+  előrehozás évente 10% (eddig 5%): a 66 technológia 2–3 kutatóhellyel 30–40 év, nagyjából a fa hossza.
+- **Ókori nyersanyagok** (`tools/resources.py`, a world.py hívja): a motor és az alapjáték 7 nyersanyagkulcsa marad,
+  de ókori nevet, saját ikont és saját lelőhelyeket kap: vas (steel), réz (aluminium), ón (tungsten), fa (rubber),
+  ló (chromium), szurok (oil), gabona (coal – a motor energiaforrása: a műhelyek munkásait eteti).
+  - Elosztás: valódi ókori lelőhelyek (Elba és Populonia, Noricum, a khalübszök, Ciprus, Tartésszosz, Belerion ónja, a
+    Lebanon cédrusai, a Sila szuroktermelése, a Nílus, Babilónia és Szkítia gabonája, Thesszália és Média lovai…)
+    a legközelebbi államhoz kerülnek, a terep pedig hozzáad: erdő → fa, síkság (a sztyeppén háromszorosan) → ló és
+    gabona. 567 államból 433 kap valamit. Itáliában Volaterrae lett a vasbánya (Elba), Rómának nincs semmije: a vasat
+    az etruszkoktól kell vennie vagy elvennie.
+  - Felszerelés: lándzsa és pajzs = vas; hoplita-fegyverzet = réz + ón (bronz); íj és parittya = fa; ló és szerszám =
+    2 ló; harci kocsi = ló + fa; ostromgépek = 2 fa + vas; hajók = fa + szurok (a quinquereme orrához réz is).
+    Eddig minden felszerelés acélt kért, és sehol sem volt egy egység sem: mindenki hiánnyal gyártott.
+- Játékban ellenőrizve (1.19.5, Rómával): a nyersanyag-térkép (F8) a saját ikonokat és mennyiségeket mutatja, a
+  tooltip a saját nevet („Grain available in …”); az error.log-ban nincs hiba a nyersanyagokból, a technológiákból
+  vagy a fókuszfából. Nem néztem meg: a technológiafa képét (kattintás kell) és a fókuszfa képét.
+- Mellékjavítás: a `tools/buildings.py` most a többi eszközhöz hasonlóan bármelyik meghajtón megtalálja a játékot.

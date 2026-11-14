@@ -1035,7 +1035,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = { limit = { country_exists = SAB NOT = { has_war_with = SAB } SAB = { is_subject = no is_in_faction = no } } puppet = SAB }
+			else_if = { limit = { country_exists = SAB NOT = { has_war_with = SAB } NOT = { SAB = { is_subject_of = ROOT } } NOT = { is_in_faction_with = SAB } }
+				create_wargoal = { type = annex_everything target = SAB }
+			}
 			if = { limit = { country_exists = MAR NOT = { has_war_with = MAR } MAR = { is_subject = no is_in_faction = no } } puppet = MAR }
+			else_if = { limit = { country_exists = MAR NOT = { has_war_with = MAR } NOT = { MAR = { is_subject_of = ROOT } } NOT = { is_in_faction_with = MAR } }
+				create_wargoal = { type = annex_everything target = MAR }
+			}
 			add_political_power = -50
 		}
 		ai_will_do = { factor = 1 }
@@ -1055,8 +1061,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } CLU = { is_subject = no is_in_faction = no } } puppet = CLU }
+			else_if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } NOT = { CLU = { is_subject_of = ROOT } } NOT = { is_in_faction_with = CLU } }
+				create_wargoal = { type = annex_everything target = CLU }
+			}
 			if = { limit = { country_exists = VLT NOT = { has_war_with = VLT } VLT = { is_subject = no is_in_faction = no } } puppet = VLT }
+			else_if = { limit = { country_exists = VLT NOT = { has_war_with = VLT } NOT = { VLT = { is_subject_of = ROOT } } NOT = { is_in_faction_with = VLT } }
+				create_wargoal = { type = annex_everything target = VLT }
+			}
 			if = { limit = { country_exists = ARR NOT = { has_war_with = ARR } ARR = { is_subject = no is_in_faction = no } } puppet = ARR }
+			else_if = { limit = { country_exists = ARR NOT = { has_war_with = ARR } NOT = { ARR = { is_subject_of = ROOT } } NOT = { is_in_faction_with = ARR } }
+				create_wargoal = { type = annex_everything target = ARR }
+			}
 			add_political_power = -100
 		}
 		ai_will_do = { factor = 1 }
@@ -1073,7 +1088,13 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			if = { limit = { country_exists = CAP NOT = { has_war_with = CAP } CAP = { is_subject = no is_in_faction = no } } puppet = CAP }
+			else_if = { limit = { country_exists = CAP NOT = { has_war_with = CAP } NOT = { CAP = { is_subject_of = ROOT } } NOT = { is_in_faction_with = CAP } }
+				create_wargoal = { type = annex_everything target = CAP }
+			}
 			if = { limit = { country_exists = CUM NOT = { has_war_with = CUM } CUM = { is_subject = no is_in_faction = no } } puppet = CUM }
+			else_if = { limit = { country_exists = CUM NOT = { has_war_with = CUM } NOT = { CUM = { is_subject_of = ROOT } } NOT = { is_in_faction_with = CUM } }
+				create_wargoal = { type = annex_everything target = CUM }
+			}
 			add_war_support = 0.05
 		}
 		ai_will_do = { factor = 1 }
@@ -1090,7 +1111,13 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			if = { limit = { country_exists = DAU NOT = { has_war_with = DAU } DAU = { is_subject = no is_in_faction = no } } puppet = DAU }
+			else_if = { limit = { country_exists = DAU NOT = { has_war_with = DAU } NOT = { DAU = { is_subject_of = ROOT } } NOT = { is_in_faction_with = DAU } }
+				create_wargoal = { type = annex_everything target = DAU }
+			}
 			if = { limit = { country_exists = PEU NOT = { has_war_with = PEU } PEU = { is_subject = no is_in_faction = no } } puppet = PEU }
+			else_if = { limit = { country_exists = PEU NOT = { has_war_with = PEU } NOT = { PEU = { is_subject_of = ROOT } } NOT = { is_in_faction_with = PEU } }
+				create_wargoal = { type = annex_everything target = PEU }
+			}
 			add_political_power = -50
 		}
 		ai_will_do = { factor = 1 }
@@ -1324,6 +1351,9 @@ focus_tree = {
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } LAT = { is_subject = no is_in_faction = no } } puppet = LAT }
+			else_if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } NOT = { LAT = { is_subject_of = ROOT } } NOT = { is_in_faction_with = LAT } }
+				create_wargoal = { type = annex_everything target = LAT }
+			}
 			add_political_power = 50
 		}
 		ai_will_do = { factor = 1 }

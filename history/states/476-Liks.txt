@@ -3,6 +3,9 @@ state = {
 	name = "STATE_476"  # Liks
 	manpower = 37800
 	state_category = town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = MAU
 		add_core_of = MAU

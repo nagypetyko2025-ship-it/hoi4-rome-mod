@@ -3,6 +3,11 @@ state = {
 	name = "STATE_359"  # Mada
 	manpower = 243600
 	state_category = large_city
+	resources = {
+		chromium = 7
+		rubber = 1
+		tungsten = 2
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

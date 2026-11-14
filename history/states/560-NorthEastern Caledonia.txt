@@ -3,6 +3,9 @@ state = {
 	name = "STATE_560"  # North-Eastern Caledonia
 	manpower = 2100
 	state_category = pastoral
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = CAL
 		add_core_of = CAL

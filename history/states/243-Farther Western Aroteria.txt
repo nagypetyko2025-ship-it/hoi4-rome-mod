@@ -3,6 +3,10 @@ state = {
 	name = "STATE_243"  # Farther Western Aroteria
 	manpower = 4800
 	state_category = pastoral
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = ARO
 		add_core_of = ARO

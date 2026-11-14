@@ -3,6 +3,9 @@ state = {
 	name = "STATE_42"  # Himera
 	manpower = 10000
 	state_category = rural
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = ZAN
 		add_core_of = ZAN

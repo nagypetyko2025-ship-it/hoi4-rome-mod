@@ -3,6 +3,10 @@ state = {
 	name = "STATE_394"  # Northern Phrygia
 	manpower = 48600
 	state_category = large_town
+	resources = {
+		chromium = 1
+		rubber = 3
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

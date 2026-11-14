@@ -3,6 +3,10 @@ state = {
 	name = "STATE_485"  # North-Eastern Gaetulia
 	manpower = 4200
 	state_category = pastoral
+	resources = {
+		chromium = 6
+		rubber = 1
+	}
 	history = {
 		owner = GAE
 		add_core_of = GAE

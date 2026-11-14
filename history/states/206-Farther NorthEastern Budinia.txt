@@ -3,6 +3,11 @@ state = {
 	name = "STATE_206"  # Farther North-Eastern Budinia
 	manpower = 7700
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = BUD
 		add_core_of = BUD

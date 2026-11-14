@@ -3,6 +3,9 @@ state = {
 	name = "STATE_309"  # Northern Pannonia
 	manpower = 7400
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = PAN
 		add_core_of = PAN

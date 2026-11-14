@@ -92,7 +92,8 @@ equipments = {
 		lend_lease_cost = 1
 		build_cost_ic = 0.9
 		resources = {
-			steel = 2
+			aluminium = 1
+			tungsten = 1
 		}
 	}
 	ante_panoply_equipment_1 = {
@@ -118,7 +119,8 @@ equipments = {
 		reliability = 0.9
 		build_cost_ic = 0.98
 		resources = {
-			steel = 2
+			aluminium = 1
+			tungsten = 1
 		}
 	}
 	ante_panoply_equipment_3 = {
@@ -137,7 +139,8 @@ equipments = {
 		reliability = 0.9
 		build_cost_ic = 1.06
 		resources = {
-			steel = 2
+			aluminium = 1
+			tungsten = 1
 		}
 	}
 	ante_ranged_equipment = {
@@ -162,6 +165,7 @@ equipments = {
 		lend_lease_cost = 1
 		build_cost_ic = 0.35
 		resources = {
+			rubber = 1
 		}
 	}
 	ante_ranged_equipment_1 = {
@@ -187,6 +191,7 @@ equipments = {
 		reliability = 0.9
 		build_cost_ic = 0.38
 		resources = {
+			rubber = 1
 		}
 	}
 	ante_ranged_equipment_3 = {
@@ -205,6 +210,7 @@ equipments = {
 		reliability = 0.9
 		build_cost_ic = 0.41
 		resources = {
+			rubber = 1
 		}
 	}
 	ante_horse_equipment = {
@@ -229,6 +235,7 @@ equipments = {
 		lend_lease_cost = 1
 		build_cost_ic = 0.8
 		resources = {
+			chromium = 2
 		}
 	}
 	ante_horse_equipment_1 = {
@@ -254,6 +261,7 @@ equipments = {
 		reliability = 0.85
 		build_cost_ic = 0.87
 		resources = {
+			chromium = 2
 		}
 	}
 	ante_horse_equipment_3 = {
@@ -272,6 +280,7 @@ equipments = {
 		reliability = 0.85
 		build_cost_ic = 0.94
 		resources = {
+			chromium = 2
 		}
 	}
 	ante_chariot_equipment = {
@@ -296,7 +305,8 @@ equipments = {
 		lend_lease_cost = 1
 		build_cost_ic = 1.6
 		resources = {
-			steel = 1
+			chromium = 1
+			rubber = 1
 		}
 	}
 	ante_chariot_equipment_1 = {
@@ -322,7 +332,8 @@ equipments = {
 		reliability = 0.75
 		build_cost_ic = 1.79
 		resources = {
-			steel = 1
+			chromium = 1
+			rubber = 1
 		}
 	}
 	ante_siege_equipment = {
@@ -347,6 +358,7 @@ equipments = {
 		lend_lease_cost = 1
 		build_cost_ic = 2.5
 		resources = {
+			rubber = 2
 			steel = 1
 		}
 	}
@@ -373,6 +385,7 @@ equipments = {
 		reliability = 0.8
 		build_cost_ic = 2.72
 		resources = {
+			rubber = 2
 			steel = 1
 		}
 	}
@@ -392,6 +405,7 @@ equipments = {
 		reliability = 0.8
 		build_cost_ic = 3.02
 		resources = {
+			rubber = 2
 			steel = 1
 		}
 	}
@@ -455,7 +469,7 @@ equipments = {
 		sub_detection = 0
 		fuel_consumption = 0
 		naval_weather_penalty_factor = 1
-		resources = { steel = 1 }
+		resources = { rubber = 1 oil = 1 }
 	}
 	ante_penteconter_hull_1 = {
 		year = 1
@@ -492,7 +506,7 @@ equipments = {
 		sub_detection = 0
 		fuel_consumption = 0
 		naval_weather_penalty_factor = 1
-		resources = { steel = 1 }
+		resources = { rubber = 2 oil = 1 }
 	}
 	ante_trireme_hull_1 = {
 		year = 1
@@ -529,7 +543,7 @@ equipments = {
 		sub_detection = 0
 		fuel_consumption = 0
 		naval_weather_penalty_factor = 1
-		resources = { steel = 1 }
+		resources = { rubber = 3 oil = 1 aluminium = 1 }
 	}
 	ante_quinquereme_hull_1 = {
 		year = 1

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_173"  # North-Eastern Aestia
 	manpower = 4500
 	state_category = pastoral
+	resources = {
+		rubber = 2
+	}
 	history = {
 		owner = AES
 		add_core_of = AES

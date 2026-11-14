@@ -3,6 +3,10 @@ state = {
 	name = "STATE_87"  # South-Eastern Aquitania
 	manpower = 19200
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = AQT
 		add_core_of = AQT

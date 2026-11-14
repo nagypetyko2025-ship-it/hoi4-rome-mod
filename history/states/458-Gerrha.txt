@@ -3,6 +3,9 @@ state = {
 	name = "STATE_458"  # Gerrha
 	manpower = 28100
 	state_category = rural
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = GRH
 		add_core_of = GRH

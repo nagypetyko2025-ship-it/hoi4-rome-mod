@@ -3,6 +3,9 @@ state = {
 	name = "STATE_61"  # Punic Hinterland
 	manpower = 60000
 	state_category = city
+	resources = {
+		coal = 5
+	}
 	history = {
 		owner = CAR
 		add_core_of = CAR

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_501"  # Ammonion
 	manpower = 15000
 	state_category = rural
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = AMM
 		add_core_of = AMM

@@ -3,6 +3,9 @@ state = {
 	name = "STATE_355"  # Northern Parsa
 	manpower = 27400
 	state_category = town
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

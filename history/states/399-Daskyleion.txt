@@ -3,6 +3,11 @@ state = {
 	name = "STATE_399"  # Daskyleion
 	manpower = 159900
 	state_category = large_city
+	resources = {
+		coal = 1
+		oil = 3
+		rubber = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

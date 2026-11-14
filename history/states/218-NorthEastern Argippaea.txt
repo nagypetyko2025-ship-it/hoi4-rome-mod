@@ -3,6 +3,11 @@ state = {
 	name = "STATE_218"  # North-Eastern Argippaea
 	manpower = 5800
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 2
+		rubber = 2
+	}
 	history = {
 		owner = AGP
 		add_core_of = AGP

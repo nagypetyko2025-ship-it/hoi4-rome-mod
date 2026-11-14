@@ -3,6 +3,10 @@ state = {
 	name = "STATE_354"  # Kypros
 	manpower = 100000
 	state_category = city
+	resources = {
+		aluminium = 15
+		rubber = 2
+	}
 	history = {
 		owner = KYP
 		add_core_of = KYP

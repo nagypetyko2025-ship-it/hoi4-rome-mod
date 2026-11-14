@@ -3,6 +3,9 @@ state = {
 	name = "STATE_537"  # Western Vettonia
 	manpower = 20500
 	state_category = rural
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = VTT
 		add_core_of = VTT

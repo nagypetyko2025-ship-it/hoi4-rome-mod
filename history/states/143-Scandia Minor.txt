@@ -3,6 +3,9 @@ state = {
 	name = "STATE_143"  # Scandia Minor
 	manpower = 40000
 	state_category = town
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = DNI
 		add_core_of = DNI

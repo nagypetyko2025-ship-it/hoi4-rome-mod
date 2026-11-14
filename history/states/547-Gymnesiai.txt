@@ -3,6 +3,9 @@ state = {
 	name = "STATE_547"  # Gymnesiai
 	manpower = 20000
 	state_category = rural
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = BAL
 		add_core_of = BAL

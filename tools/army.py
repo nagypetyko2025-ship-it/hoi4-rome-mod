@@ -36,26 +36,28 @@ def write(rel, text, bom=False):
 
 
 # ============================================================================ equipment
-# key: (name, short, desc, type, stats, cost, resources, active)
+# key: (name, short, desc, type, stats, cost, resources, active). Resources are the base game's keys with ancient
+# meanings (tools/resources.py): steel = iron, aluminium = copper, tungsten = tin, rubber = timber, chromium = horses,
+# oil = pitch, coal = grain.
 EQUIPMENT = {
     "ante_arms_equipment": ("Spears and Shields", "Spears", "Spear, shield, a knife or an axe: the arms of every free warrior.",
                             "infantry", dict(defense=20, breakthrough=2, soft_attack=3, hard_attack=0.2, ap_attack=0.5,
                                              maximum_speed=4, reliability=0.9), 0.4, {"steel": 1}, True),
     "ante_panoply_equipment": ("Hoplite Panoply", "Panoply", "Bronze helmet, cuirass, greaves, the great round shield and the thrusting spear.",
                                "infantry", dict(defense=32, breakthrough=4, soft_attack=4, hard_attack=0.4, ap_attack=1,
-                                                maximum_speed=4, reliability=0.9), 0.9, {"steel": 2}, True),
+                                                maximum_speed=4, reliability=0.9), 0.9, {"aluminium": 1, "tungsten": 1}, True),
     "ante_ranged_equipment": ("Bows and Slings", "Missiles", "Bows, slings and bundles of javelins.",
                               "infantry", dict(defense=8, breakthrough=1, soft_attack=6, hard_attack=0.1, ap_attack=0.2,
-                                               maximum_speed=4, reliability=0.9), 0.35, {}, True),
+                                               maximum_speed=4, reliability=0.9), 0.35, {"rubber": 1}, True),
     "ante_horse_equipment": ("Horses and Tack", "Horses", "Riding horses, bridles and saddle cloths - stirrups are a thousand years away.",
                              "infantry", dict(defense=4, breakthrough=4, soft_attack=3, hard_attack=0.1, ap_attack=0.2,
-                                              maximum_speed=6, reliability=0.85), 0.8, {}, True),
+                                              maximum_speed=6, reliability=0.85), 0.8, {"chromium": 2}, True),
     "ante_chariot_equipment": ("War Chariots", "Chariots", "Two-wheeled cars of wood and wicker, drawn by small horses.",
                                "infantry", dict(defense=6, breakthrough=8, soft_attack=6, hard_attack=0.3, ap_attack=0.5,
-                                                maximum_speed=6, reliability=0.75), 1.6, {"steel": 1}, True),
+                                                maximum_speed=6, reliability=0.75), 1.6, {"chromium": 1, "rubber": 1}, True),
     "ante_siege_equipment": ("Siege Engines", "Siege", "Rams, ladders, mantlets and siege towers.",
                              "artillery", dict(defense=4, breakthrough=1, soft_attack=8, hard_attack=0.5, ap_attack=2,
-                                               maximum_speed=3, reliability=0.8), 2.5, {"steel": 1}, True),
+                                               maximum_speed=3, reliability=0.8), 2.5, {"rubber": 2, "steel": 1}, True),
     "ante_elephant_equipment": ("War Elephants", "Elephants", "Trained elephants with their drivers - not yet seen in the Mediterranean.",
                                 "infantry", dict(defense=14, breakthrough=16, soft_attack=12, hard_attack=1, ap_attack=2,
                                                  maximum_speed=4, reliability=0.7), 4.0, {}, False),
@@ -207,7 +209,8 @@ def equipment_file():
         out += [f"\t\t{k} = {fmt(v)}" for k, v in s["stats"].items()]
         out += ["\t\thg_attack = 0", "\t\thg_armor_piercing = 0", "\t\ttorpedo_attack = 0", "\t\tsub_attack = 0",
                 "\t\tanti_air_attack = 0", "\t\tsub_detection = 0", "\t\tfuel_consumption = 0",
-                "\t\tnaval_weather_penalty_factor = 1", "\t\tresources = { steel = 1 }", "\t}",
+                "\t\tnaval_weather_penalty_factor = 1",
+                "\t\tresources = { " + " ".join(f"{r} = {n}" for r, n in s["res"].items()) + " }", "\t}",
                 f"\t{eq}_1 = {{", "\t\tyear = 1", f"\t\tarchetype = {eq}", f"\t\tactive = {'yes' if s['active'] else 'no'}",
                 "\t\tpriority = 2000", "\t}"]
     out.append("}")
@@ -222,21 +225,21 @@ SHIPS = {
                              org=30, stats=dict(lg_attack=2, lg_armor_piercing=1, armor_value=0, surface_detection=10,
                                                 surface_visibility=8, naval_speed=8, reliability=0.7, naval_range=300,
                                                 max_strength=10, build_cost_ic=60, manpower=60,
-                                                naval_dominance_factor=5)),
+                                                naval_dominance_factor=5), res={"rubber": 1, "oil": 1}),
     "ante_trireme": dict(name="Trireme", abbr="TRI", sprite="light_cruiser", unit_type="capital_ship",
                          type="capital_ship", cat="interface_category_capital_ships", active=True,
                          desc="Three banks of oars and 170 rowers drive the ram into the enemy's side - the new queen of the seas.",
                          org=40, stats=dict(lg_attack=6, lg_armor_piercing=3, armor_value=1, surface_detection=12,
                                             surface_visibility=12, naval_speed=9, reliability=0.7, naval_range=400,
                                             max_strength=25, build_cost_ic=150, manpower=200,
-                                            naval_dominance_factor=15)),
+                                            naval_dominance_factor=15), res={"rubber": 2, "oil": 1}),
     "ante_quinquereme": dict(name="Quinquereme", abbr="QUI", sprite="heavy_cruiser", unit_type="capital_ship",
                              type="capital_ship", cat="interface_category_capital_ships", active=False,
                              desc="A heavier galley with marines on deck - built by Carthage and Rome in the age of the Punic Wars.",
                              org=45, stats=dict(lg_attack=10, lg_armor_piercing=5, armor_value=3, surface_detection=12,
                                                 surface_visibility=16, naval_speed=7, reliability=0.75, naval_range=400,
                                                 max_strength=45, build_cost_ic=300, manpower=400,
-                                                naval_dominance_factor=25)),
+                                                naval_dominance_factor=25), res={"rubber": 3, "oil": 1, "aluminium": 1}),
 }
 VANILLA_NAVAL = ["battleship", "battlecruiser", "carrier", "destroyer", "heavy_cruiser", "light_cruiser", "submarine",
                  "repair_ships", "support_ships"]

@@ -3,6 +3,10 @@ state = {
 	name = "STATE_192"  # Eastern Androphagia
 	manpower = 4100
 	state_category = pastoral
+	resources = {
+		coal = 2
+		rubber = 2
+	}
 	history = {
 		owner = APH
 		add_core_of = APH

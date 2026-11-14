@@ -3,6 +3,9 @@ state = {
 	name = "STATE_358"  # Uvja
 	manpower = 500000
 	state_category = metropolis
+	resources = {
+		oil = 3
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

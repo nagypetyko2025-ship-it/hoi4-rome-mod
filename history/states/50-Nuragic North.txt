@@ -3,6 +3,9 @@ state = {
 	name = "STATE_50"  # Nuragic North
 	manpower = 45000
 	state_category = town
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = SAR
 		add_core_of = SAR

@@ -3,6 +3,11 @@ state = {
 	name = "STATE_63"  # Libya
 	manpower = 35000
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 1
+		steel = 3
+	}
 	history = {
 		owner = LIB
 		add_core_of = LIB

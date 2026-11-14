@@ -42,6 +42,20 @@ def puppet(*tags):
                      f"{t} = {{ is_subject = no is_in_faction = no }} }} puppet = {t} }}" for t in tags)
 
 
+def submit(*tags):
+    """a treaty if it can be made (the people becomes our subject), war if it cannot (round 21): Peti's republican
+    treaty focuses gave nothing at all when the target was at war with us (Porsenna's Clusium!), already somebody's
+    subject or in a faction - and the republic had no other way to those peoples"""
+    out = []
+    for t in tags:
+        out.append(f"if = {{ limit = {{ country_exists = {t} NOT = {{ has_war_with = {t} }} "
+                   f"{t} = {{ is_subject = no is_in_faction = no }} }} puppet = {t} }}\n"
+                   f"else_if = {{ limit = {{ country_exists = {t} NOT = {{ has_war_with = {t} }} "
+                   f"NOT = {{ {t} = {{ is_subject_of = ROOT }} }} NOT = {{ is_in_faction_with = {t} }} }}\n"
+                   f"\tcreate_wargoal = {{ type = annex_everything target = {t} }}\n}}")
+    return "\n".join(out)
+
+
 def claims(*tags):
     return "\n".join(f"every_state = {{ limit = {{ is_owned_by = {t} }} add_claim_by = ROOT }}" for t in tags)
 
@@ -257,13 +271,13 @@ def define(focus, build, infra, tech, wargoal):
 
     # --- Italy for the Republic: what the kingdom conquers, the Republic wins by treaty, surrender or war
     f("ROM_civitas_sine_suffragio", "Civitas sine Suffragio", "The Sabines and the Marsi become Romans - citizens without the vote, soldiers with the duty to serve.",
-      "improve_relations", 16, 4, [["ROM_coriolanus"]], puppet("SAB", "MAR") + "\nadd_political_power = -50")
+      "improve_relations", 16, 4, [["ROM_coriolanus"]], submit("SAB", "MAR") + "\nadd_political_power = -50")
     f("ROM_etruscan_truces", "The Forty-Year Truces", "After Veii the northern Etruscan cities buy peace from Rome - and end as its allies.",
-      "alliance", 12, 6, [["ROM_southern_etruria"]], puppet("CLU", "VLT", "ARR") + "\nadd_political_power = -100")
+      "alliance", 12, 6, [["ROM_southern_etruria"]], submit("CLU", "VLT", "ARR") + "\nadd_political_power = -100")
     f("ROM_deditio_of_capua", "The Surrender of Capua", "343 BC: beset by the Samnites, Capua gives itself and all it has into the hands of the Roman people.",
-      "alliance", 11, 8, [["ROM_latin_war"]], puppet("CAP", "CUM") + "\nadd_war_support = 0.05")
+      "alliance", 11, 8, [["ROM_latin_war"]], submit("CAP", "CUM") + "\nadd_war_support = 0.05")
     f("ROM_apulian_allies", "The Apulian Allies", "Teanum Apulum and the Daunians stand with Rome against the Samnites, from behind.",
-      "alliance", 9, 10, [["ROM_samnite_wars"]], puppet("DAU", "PEU") + "\nadd_political_power = -50")
+      "alliance", 9, 10, [["ROM_samnite_wars"]], submit("DAU", "PEU") + "\nadd_political_power = -50")
     f("ROM_lucania_and_bruttium", "Lucania and Bruttium", "The forests of the south and the Greek towns of the coast: the last of Italy to bow.",
       "territory_or_war", 11, 10, [["ROM_tarentum_and_pyrrhus", "ROM_treaty_with_tarentum"]],
       wargoal("OEN") + "\n" + wargoal("MES") + "\n" + wargoal("MET") + "\n" + wargoal("LOK") + "\n" + wargoal("RHE") + "\n" +
@@ -294,7 +308,7 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_etruscan_craftsmen", "Etruscan Craftsmen", "Builders, smiths and painters from Etruria work for the Etruscan king of Rome.",
       "construct_civ_factory", 26, 3, [["ROM_books_of_the_sibyl"]], "add_ideas = ROM_etruscan_crafts_spirit\n" + build("arms_factory"), filters=I)
     f("ROM_head_of_the_latin_league", "Head of the Latin League", "The kings of Rome lead the festival on the Alban Mount: the Latins follow Rome - or else.",
-      "alliance", 29, 1, [["ROM_the_king_remains"]], puppet("LAT") + "\nadd_political_power = 50")
+      "alliance", 29, 1, [["ROM_the_king_remains"]], submit("LAT") + "\nadd_political_power = 50")
     f("ROM_stratagem_of_gabii", "The Stratagem of Gabii", "Sextus, the king's son, takes Gabii by treachery; Suessa Pometia of the Volsci falls to the king's army.",
       "position_armies", 29, 2, [["ROM_head_of_the_latin_league"]], wargoal("VOL") + "\n" + wargoal("AEQ") + "\narmy_experience = 15\n" + hate(-5))
     # the Etruscan cities next door first (Veii borders Rome), Clusium only when Rome reaches it (it lies far

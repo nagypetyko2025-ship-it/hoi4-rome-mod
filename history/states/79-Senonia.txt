@@ -3,6 +3,10 @@ state = {
 	name = "STATE_79"  # Senonia
 	manpower = 110000
 	state_category = large_town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = SEN
 		add_core_of = SEN

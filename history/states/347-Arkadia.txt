@@ -3,6 +3,9 @@ state = {
 	name = "STATE_347"  # Arkadia
 	manpower = 60000
 	state_category = city
+	resources = {
+		rubber = 1
+	}
 	history = {
 		owner = ARK
 		add_core_of = ARK

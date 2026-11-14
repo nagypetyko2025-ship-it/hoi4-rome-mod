@@ -3,6 +3,10 @@ state = {
 	name = "STATE_187"  # North-Eastern Neuris
 	manpower = 5400
 	state_category = rural
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = NEU
 		add_core_of = NEU

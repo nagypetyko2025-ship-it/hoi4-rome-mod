@@ -3,6 +3,10 @@ state = {
 	name = "STATE_465"  # Farther North-Western Massagetia
 	manpower = 15600
 	state_category = rural
+	resources = {
+		chromium = 1
+		coal = 1
+	}
 	history = {
 		owner = MSG
 		add_core_of = MSG

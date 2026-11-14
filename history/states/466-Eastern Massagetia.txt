@@ -3,6 +3,9 @@ state = {
 	name = "STATE_466"  # Eastern Massagetia
 	manpower = 11200
 	state_category = rural
+	resources = {
+		chromium = 1
+	}
 	history = {
 		owner = MSG
 		add_core_of = MSG
