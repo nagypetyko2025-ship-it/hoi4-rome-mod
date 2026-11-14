@@ -999,3 +999,15 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
     hajó és kikötő); addig Róma a szellemtől szenved (háborús támogatottság fel, stabilitás le). −50 fölött elmúlik.
   - **+100: Róma szövetséget ajánl** (Róma eseménye, majd Karthágóé): elfogadva egy frakcióba kerülnek – a nagyobb
     birodalom vezeti; ha a másiknak már volt frakciója, annak tagjai átjönnek, a régi frakció feloszlik.
+
+## Harmincharmadik kör (2026-11-14, Claude) – Itália egyesítése, a pun birodalom (formálható államok)
+- **Róma: „Italia”** (döntés a Latin Culture kategóriában): ha Róma tartja az egész itáliai félszigetet (34 állam,
+  Etruriától és Picenumtól a szorosig) ÉS vagy egész Szicíliát (8) vagy a Pó-völgyet (6) → új név és zászló
+  (köztársaság: **Italia**, királyság: **Regnum Italiae**, koronás zászlóval), a szükséges államok ingyen magok,
+  és az **„Italy United!”** szellem (+15% stabilitás, +0,25 PP/nap, +10% háborús támogatottság, besorozás,
+  építés, gyárak).
+- **Karthágó: „The Punic Empire”** (döntés a The Punic World kategóriában): ha Karthágó tartja mindazt, amit a
+  fókuszfája célba vesz – Líbia, Numídia, Szardínia, Szicília görög városai, Tartessos (30 állam; a szövetséges és
+  báb népek, pl. Gadir és az elümoszok nem kellenek) → új név és zászló (Tanit jele), magok, és **„The Leader of the
+  Western Mediterranean Sea!”** (+15% stabilitás, +0,25 PP/nap, kereskedelem, hajógyártás, tengeri harc, gyárak).
+- `tools/formables.py` (a world.py után fut, mert az törli a zászlómappát).
