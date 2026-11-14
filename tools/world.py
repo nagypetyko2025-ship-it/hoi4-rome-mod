@@ -918,6 +918,10 @@ def write_world(M, C, states):
             harbour_levels[s["owner"]] = harbour_levels.get(s["owner"], 0) + sum(s["ports"].values())
             if s["owner"] == "ROM" and s["ports"] and "dockyard" not in s["buildings"]:
                 s["buildings"]["dockyard"] = 1
+            # Carthage, the mistress of the western sea, builds ships from day one: two slipways in the city
+            # (round 37, Peti)
+            if s["owner"] == "CAR" and s.get("capital") and s["ports"]:
+                s["buildings"]["dockyard"] = max(2, s["buildings"].get("dockyard", 0))
     # --- wipe what this tool owns
     for rel in ("history/states", "history/countries", "gfx/flags", "localisation/english/replace", "common/bookmarks"):
         if (MOD / rel).is_dir():

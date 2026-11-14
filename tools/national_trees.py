@@ -567,7 +567,7 @@ def define(focus, build, infra, tech, wargoal):
     # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).
     # Shared branches hang from either root: gods (8..10), fleet (12..14), trade and colonies (16..21),
     # Africa (22..26), Sicily (28..32), army (34..36), Rome (38..40), the Tyrrhenian Sea (42..46), Tyre and Persia
-    # (48..52). Every branch has a pair of exclusive choices.
+    # (48..52), industry (54..58). Every branch has a pair of exclusive choices.
     f = tree("CAR", "CAR_house_of_mago", "# Carthage, 509-264 BC - plan: docs/carthage_focus_tree.md\n"
              "# Roots: the House of Mago (dynasty) or the Hundred and Four (oligarchy); seven shared branches.")
     ROOTS = [["CAR_house_of_mago", "CAR_hundred_and_four"]]
@@ -839,6 +839,38 @@ def define(focus, build, infra, tech, wargoal):
     f("CAR_heir_of_tyre", "Heir of Tyre", "The mother city is a Persian - or a Macedonian - harbour. The Phoenician world looks to Carthage now.",
       "major_alliance", 50, 4, [["CAR_two_fronts", "CAR_when_tyre_falls"]],
       "add_ideas = CAR_heir_of_tyre_spirit\n" + faction("ante_faction_punic_league", "TYR", "SDN", "ARW"), cost=20, ai=2)
+    # --- industry: the workshops, fields and slipways of the city (x 54..58) - round 37, Peti
+    idea("CAR_books_of_mago_spirit", "The Books of Mago", "agrarian_society", monthly_population=0.05,
+         production_speed_buildings_factor=0.05, research_speed_factor=0.03)
+    idea("CAR_artisans_spirit", "The Potters' Quarter", "economic_increase", industrial_capacity_factory=0.05,
+         consumer_goods_factor=-0.03)
+    idea("CAR_ships_by_numbers_spirit", "Ships by Numbers", "navy_bonus", production_speed_dockyard_factor=0.15,
+         industrial_capacity_dockyard=0.10)
+    idea("CAR_workshop_of_the_west_spirit", "The Workshop of the West", "economic_increase",
+         industrial_capacity_factory=0.10, production_speed_buildings_factor=0.10, production_factory_max_efficiency_factor=0.05)
+    f("CAR_workshops_of_the_city", "The Workshops of Qart-Hadasht", "Purple vats, potters' kilns, smithies and rope walks: the New City works day and night.",
+      "construct_civ_factory", 56, 1, ROOTS, build("industrial_complex") + "\n" + build("industrial_complex"), filters=I, ai=3)
+    f("CAR_books_of_mago", "The Books of Mago", "Twenty-eight books on farming, so good that Rome will translate them by order of the Senate.",
+      "construct_civilian", 55, 2, [["CAR_workshops_of_the_city"]], "add_ideas = CAR_books_of_mago_spirit\n" + build("ante_farm") + "\n" + build("ante_farm"),
+      extra=mx("CAR_potters_quarter"), filters=I)
+    f("CAR_potters_quarter", "The Potters' Quarter", "Amphorae by the hundred thousand for oil, wine and fish sauce - and cheap pots for every house of the West.",
+      "construct_civ_factory", 57, 2, [["CAR_workshops_of_the_city"]], "add_ideas = CAR_artisans_spirit\n" + build("industrial_complex"),
+      extra=mx("CAR_books_of_mago"), filters=I)
+    f("CAR_foundries", "Bronze and Iron Foundries", "Copper from Iberia, tin from the ocean, iron from Elba: the smiths of Carthage arm the mercenaries of half the world.",
+      "production", 56, 3, [["CAR_books_of_mago", "CAR_potters_quarter"]], build("arms_factory") + "\n" + build("arms_factory"), filters=I)
+    f("CAR_state_granaries", "Granaries of the Bagradas", "The grain of the Libyan plains is stored, counted and shipped from the city's own granaries.",
+      "construct_civilian", 55, 4, [["CAR_foundries"]], build("ante_farm") + "\n" + infra() + "\n" + infra(), filters=I)
+    f("CAR_slipways", "Slipways of the Cothon", "Around the round harbour, a hundred and twenty ship sheds under one roof.",
+      "construct_naval_dockyard", 57, 4, [["CAR_foundries"]], build("dockyard", "is_coastal = yes") + "\n" + build("dockyard", "is_coastal = yes"),
+      extra=COAST, filters=I)
+    f("CAR_ships_by_numbers", "Ships by Numbers", "Every plank marked with a Punic letter: a war fleet built in weeks, not years.",
+      "build_navy", 57, 5, [["CAR_slipways"]], "add_ideas = CAR_ships_by_numbers_spirit\n"
+      "add_tech_bonus = { name = CAR_ships_by_numbers bonus = 1 uses = 1 category = naval_equipment }", filters=I)
+    f("CAR_roads_of_libya", "Roads of Libya", "Paved roads from the city to the Bagradas and Byzacium: the grain wagons never stop.",
+      "construct_infrastructure", 55, 5, [["CAR_state_granaries"]], infra() + "\n" + infra() + "\n" + build("industrial_complex"), filters=I)
+    f("CAR_workshop_of_the_west", "The Workshop of the West", "What the West wears, eats from and fights with, Carthage makes and ships.",
+      "construct_mil_factory", 56, 6, [["CAR_roads_of_libya"], ["CAR_ships_by_numbers"]],
+      "add_ideas = CAR_workshop_of_the_west_spirit\n" + build("industrial_complex") + "\n" + build("arms_factory"), cost=20, filters=I, ai=3)
 
     # ============================================================== THE SENONES (SEN) - a Gallic people on the move
     f = tree("SEN", "SEN_assembly_of_warriors", "# The Senones: from the Yonne to the Adriatic - and to Rome (base tree)")

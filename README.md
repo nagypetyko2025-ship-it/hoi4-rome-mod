@@ -1029,3 +1029,11 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - Most az AI előbb a háborús, hódító fókuszokat választja (súly 12), aztán a katonaiakat (5), és csak utána a gazdaságot.
 - Saját stratégia (`tools/ai.py`): több sereg, minden itáliai szomszéd hódítási célpont (conquer, prepare_for_war, declare_war).
 - Havi római becsvágy: békében, negyedévente egyszer háborús célt tűz ki egy nem sokkal erősebb szomszéd ellen.
+
+## Harminchetedik kör (2026-11-14, Claude) – Karthágó ipara és hajógyára
+- Karthágó a fővárosban **2 hajógyárral** kezd: az első naptól tud hajót építeni.
+- Új **ipari ág** (9 fókusz): Qart-Hadasht műhelyei, Mago könyvei ↔ a fazekasnegyed, öntödék, a Bagradas magtárai,
+  a Kóthón sólyapályái, utak Líbiában, hajók számozva, a Nyugat műhelye.
+- Az agresszív római AI első próbája (Karthágó játékos): Róma 245 márciusában bekebelezte Caerét, 246 végére Veii is
+  megadta magát, 247-től a Latin Liga ellen harcolt, 248-ban a szenonok is rátámadtak; az emberanyaga elfogyott,
+  250 júliusában a Latin Liga bekebelezte.

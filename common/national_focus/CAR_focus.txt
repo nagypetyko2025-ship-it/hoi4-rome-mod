@@ -1655,4 +1655,281 @@ focus_tree = {
 		ai_will_do = { factor = 2 }
 	}
 
+	focus = {
+		id = CAR_workshops_of_the_city
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CAR_house_of_mago focus = CAR_hundred_and_four }
+		x = 56
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_workshops_of_the_city"
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = CAR_books_of_mago
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CAR_workshops_of_the_city }
+		x = 55
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAR_potters_quarter }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_books_of_mago"
+			add_ideas = CAR_books_of_mago_spirit
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = ante_farm size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = ante_farm level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = ante_farm size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = ante_farm level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_potters_quarter
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CAR_workshops_of_the_city }
+		x = 57
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAR_books_of_mago }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_potters_quarter"
+			add_ideas = CAR_artisans_spirit
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_foundries
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = CAR_books_of_mago focus = CAR_potters_quarter }
+		x = 56
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_foundries"
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_state_granaries
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CAR_foundries }
+		x = 55
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_state_granaries"
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = ante_farm size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = ante_farm level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_slipways
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CAR_foundries }
+		x = 57
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		available = { any_owned_state = { is_coastal = yes } }
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_slipways"
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+					is_coastal = yes
+					free_building_slots = { building = dockyard size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = dockyard level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+					is_coastal = yes
+					free_building_slots = { building = dockyard size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = dockyard level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_ships_by_numbers
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = CAR_slipways }
+		x = 57
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_ships_by_numbers"
+			add_ideas = CAR_ships_by_numbers_spirit
+			add_tech_bonus = { name = CAR_ships_by_numbers bonus = 1 uses = 1 category = naval_equipment }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_roads_of_libya
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CAR_state_granaries }
+		x = 55
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_roads_of_libya"
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = { impassable = no }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = CAR_workshop_of_the_west
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CAR_roads_of_libya }
+		prerequisite = { focus = CAR_ships_by_numbers }
+		x = 56
+		y = 6
+		cost = 20
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_workshop_of_the_west"
+			add_ideas = CAR_workshop_of_the_west_spirit
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					impassable = no
+		
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { factor = 3 }
+	}
+
 }

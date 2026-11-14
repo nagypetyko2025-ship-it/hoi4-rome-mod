@@ -1054,6 +1054,44 @@ ideas = {
 				political_power_gain = 0.1
 			}
 		}
+		CAR_books_of_mago_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.05
+				production_speed_buildings_factor = 0.05
+				research_speed_factor = 0.03
+			}
+		}
+		CAR_artisans_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.05
+				consumer_goods_factor = -0.03
+			}
+		}
+		CAR_ships_by_numbers_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				industrial_capacity_dockyard = 0.1
+			}
+		}
+		CAR_workshop_of_the_west_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_speed_buildings_factor = 0.1
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
 		SEN_druids_spirit = {
 			picture = generic_pp_unity_bonus
 			allowed = { always = no }

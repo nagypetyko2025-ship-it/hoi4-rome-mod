@@ -85,6 +85,13 @@ lehet fókuszfeltételt építeni.
   ↔ ha Türosz elesik (Kr. e. 332, menekültek: népesség, emberanyag)
 - Türosz örököse: Türosz, Szidón, Arwad a pun ligába (ha szabadok), kereskedelmi szellem
 
+### 11. Ipar: a város műhelyei (37. kör, x 54–58)
+- Qart-Hadasht műhelyei (2 műhely) → választás: Mago könyvei (2 farm, szellem) ↔ a fazekasnegyed (műhely, szellem)
+- Bronz- és vasöntödék (2 fegyverkovács) → a Bagradas magtárai (farm, utak) és a Kóthón sólyapályái (2 hajógyár)
+- Utak Líbiában (utak, műhely) és hajók számozva (hajógyártás +15%, hajó-tech kedvezmény)
+- A Nyugat műhelye: záró szellem (+10% gyári teljesítmény, gyorsabb építés), műhely és fegyverkovács
+- Karthágó a városban 2 hajógyárral kezd (`tools/world.py`).
+
 ## Döntések (saját kategória: „Res Punica”)
 - Zsoldosok fogadása (típusonként: hadosztályt ad, a bér-mérőt növeli)
 - Melqart tizede Türoszba; ajándék a tanácsnak (gyanú csökken); ezüstkonvoj Ibériából
