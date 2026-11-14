@@ -696,7 +696,28 @@ def main():
         lines = fix_templates(lines)
     write("interface/countrytechtreeview.gui", "\n".join(lines))
     write_tabs(g)
-    print(f"written: {len(TECHS)} techs on {len(FOLDERS)} pages, year labels in AUC")
+    n_doc = quiet_doctrines(g, {t[0] for t in TECHS})
+    print(f"written: {len(TECHS)} techs on {len(FOLDERS)} pages, year labels in AUC; {n_doc} doctrine files quietened")
+
+
+def quiet_doctrines(g, ours):
+    """The base game's doctrine files ask has_tech for techs that no longer exist (marines, paratroopers ...).
+    The game checks them all the time and wrote 228,000 'has_tech: Invalid tech' lines into error.log in one hour of
+    play (round 26, tools/watch.py). Copies of those files where such a condition is 'always = no' instead."""
+    n = 0
+    base = g / "common" / "doctrines"
+    for fp in base.rglob("*.txt"):
+        text = fp.read_text(encoding="utf-8-sig", errors="replace")
+        new = re.sub(r"has_tech\s*=\s*(\w+)", lambda m: m.group(0) if m.group(1) in ours else "always = no", text)
+        out = MOD / "common" / "doctrines" / fp.relative_to(base)
+        if new != text:
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text("# Ante Imperium (tools/tech.py): the game's file, has_tech of removed techs -> always = no\n"
+                           + new, encoding="utf-8", newline="\n")
+            n += 1
+        elif out.exists():
+            out.unlink()
+    return n
 
 
 if __name__ == "__main__":

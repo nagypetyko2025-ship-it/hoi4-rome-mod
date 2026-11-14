@@ -905,3 +905,21 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   The Agronomy of Mago → 8 gabona/farm.
 - **Ókori épületikonok:** a 31 kockás ikonsáv saját rajz (üllő, kard, kerék, hajó, világítótorony, fal, gabonakéve,
   sátor…); a farm a kikapcsolt szintetikus finomító kockáját kapta.
+
+## Huszonhetedik kör (2026-11-14, Claude) – AI, a naplózó első tanulságai
+- **A naplózó jelentései** (docs/session_logs): hiba a mi fájljainkban: 0, összeomlás: nincs. Viszont:
+  - az **AI 15 év alatt egyetlen új hadosztályt sem toborzott** (Karthágó 5 → 5, Perzsia 23 → 23, tízszeres manpower
+    mellett), és **nem költötte a politikai erejét** (mindegyik ~1200-on állt);
+  - az alapjáték egyik doktrínafájlja (különleges erők) egy óra alatt **228 000 hibasort** írt (nem létező techek).
+- **Új AI** (`tools/ai.py`, egyszerű, de játszik):
+  - AI-sablonok (`common/ai_templates/ante_templates.txt`): gyalogság (lándzsások + parittyások → hopliták íjászokkal,
+    ha van linothorax), lovasság (lovasok + lovasíjászok);
+  - stratégiák mindenkinek: 75/25 gyalogos-lovas arány, seregépítés, farmépítés, a politikai erő költése tanácsadókra
+    és döntésekre; a nagyhatalmaknak több hadosztály és fegyverkovács, a tengeri népeknek hajógyár;
+  - **hódítási vágy** (on_actions): havonta 3% eséllyel egy békés, legalább 3 hadosztályos, stabil AI ország háborús
+    célt kap egy nála másfélszer gyengébb szomszédja ellen – a háborút az AI maga indítja, ha kész rá
+    (naplóban: `ambition`).
+- **Doktrínák elnémítva:** a tech.py az alapjáték doktrínafájljaiban a nem létező technológiák feltételeit
+  „always = no”-ra cseréli (4 fájl, saját másolat).
+- **Naplózó:** a figyelő leáll, ha a játék újraindul (ne fusson több egymásba írva); a befejezett fókuszokból csak
+  a fókuszfás országokét és a játékosét sorolja fel; a háborús támogatottság változója javítva (`has_war_support`).

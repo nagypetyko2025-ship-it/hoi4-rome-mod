@@ -31,6 +31,7 @@ OUT = MOD / "docs" / "session_logs"
 PATH_RE = re.compile(r"((?:common|events|history|interface|gfx|localisation|map|portraits|music|sound|tutorial)"
                      r"/[\w/.\- ]+?\.(?:txt|gui|gfx|yml|csv|lua|dds|tga|png|asset|bmp|fxh))")
 STAMP_RE = re.compile(r"^\[(\d\d:\d\d:\d\d)\]\[([^\]]*)\]:\s*")
+WATCH_TAGS = {"ROM", "ATH", "LAK", "MKD", "PRS", "CAR"}   # the countries with a focus tree of their own
 OURS_RE = re.compile(r"\bante_|\bANTE_|\bROM_|_cmd_|\bante\b")
 
 
@@ -200,7 +201,13 @@ class Session:
                 L += [f"- {e[0]}: {' '.join(e[2:])}" for e in st[-60:]]
         else:
             L += ["none (no ANTE| lines in game.log yet - was a game started?)"]
-        L += ["", "## Focuses completed", ""] + ([f"- {d}: {' '.join(r)}" for d, *r in self.focus_done] or ["none"])
+        # all countries complete focuses: list those of the player and of the countries with their own tree, count the rest
+        mine = [f for f in self.focus_done if f[1:2] and (f[1] in WATCH_TAGS or f[1] == self.player)]
+        rest = Counter(f[1] for f in self.focus_done if f not in mine and f[1:2])
+        L += ["", "## Focuses completed", ""] + ([f"- {d}: {' '.join(r)}" for d, *r in mine] or ["none"])
+        if rest:
+            L += ["", f"Other countries: {sum(rest.values())} focuses - most: " +
+                  ", ".join(f"{t} {n}" for t, n in rest.most_common(15))]
         L += ["", "## Monthly figures (last of each country)", ""]
         last = OrderedDict()
         for r in self.months:
@@ -263,6 +270,11 @@ def main():
         if time.time() - last_write > 60:
             s.write()
             last_write = time.time()
+        if err.restarts or game.restarts:
+            # the game was started again (its logs began anew): this session is over - start a new watcher for the
+            # next one (round 26: three watchers kept running and wrote overlapping reports)
+            print("the game was restarted - closing this session's report", flush=True)
+            break
         if game_running():
             gone_since = None
         else:
