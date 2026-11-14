@@ -226,8 +226,8 @@ ROM_latin_culture = {
 			FROM = { add_core_of = ROOT }
 		}
 		ai_will_do = {
-			base = 1
-			modifier = { add = 4 has_political_power > 300 }
+			base = 5
+			modifier = { add = 25 has_political_power > 260 }   # round 38: cores are soldiers for the AI's Rome
 		}
 	}
 }

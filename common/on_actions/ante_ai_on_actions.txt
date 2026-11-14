@@ -37,6 +37,7 @@ on_actions = {
 					is_ai = yes
 					has_war = no
 					num_divisions > 1
+					has_manpower > 1500   # round 38: no new war without men to fight it
 				}
 				random_list = {
 					25 = {

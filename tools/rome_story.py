@@ -520,7 +520,8 @@ def integrate_decision():
         "\t\t\t\tNOT = { is_core_of = ROOT }", "\t\t\t}", "\t\t}",
         "\t\ton_map_mode = map_and_decisions_view", "\t\tcost = 250",
         "\t\tcomplete_effect = {", "\t\t\tFROM = { add_core_of = ROOT }", "\t\t}",
-        "\t\tai_will_do = {", "\t\t\tbase = 1", "\t\t\tmodifier = { add = 4 has_political_power > 300 }", "\t\t}", "\t}"])
+        "\t\tai_will_do = {", "\t\t\tbase = 5",
+        "\t\t\tmodifier = { add = 25 has_political_power > 260 }   # round 38: cores are soldiers for the AI's Rome", "\t\t}", "\t}"])
 
 
 LOC["ROM_TT_PORSENNA_WITHDRAWS"] = ("Clusium does not border Rome: no war. Porsenna's host camps before the walls; a young "

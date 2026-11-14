@@ -1037,3 +1037,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - Az agresszív római AI első próbája (Karthágó játékos): Róma 245 márciusában bekebelezte Caerét, 246 végére Veii is
   megadta magát, 247-től a Latin Liga ellen harcolt, 248-ban a szenonok is rátámadtak; az emberanyaga elfogyott,
   250 júliusában a Latin Liga bekebelezte.
+
+## Harmincnyolcadik kör (2026-11-14, Claude) – az AI-Róma okosabban háborúzik
+- Csak békében és legalább 1500 fő emberanyaggal kezd új háborút (stratégia és havi becsvágy), háború alatt és kevés emberrel nem nyit új frontot (avoid_starting_wars).
+- Az AI szívesen használja a latin magterület-döntést (250 PP): a meghódított államok magterületként katonát is adnak.

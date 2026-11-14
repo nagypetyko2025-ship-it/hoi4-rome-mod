@@ -190,7 +190,13 @@ def rome_strategy():
            "ante_rome_army = {", "	enable = { tag = ROM }", "	abort_when_not_enabled = yes",
            "	ai_strategy = { type = force_build_armies value = 300 }",
            "	ai_strategy = { type = ai_wanted_divisions_factor value = 100 }",
-           "	ai_strategy = { type = building_target id = arms_factory value = 4 }", "}"]
+           "	ai_strategy = { type = building_target id = arms_factory value = 4 }", "}",
+           # round 38: the first aggressive Rome fought Caere, Veii, the Latins and the Senones at once with 2-3
+           # divisions and 10 men of manpower, and was annexed in 250. One war at a time, and only with men to spare.
+           "ante_rome_one_war_at_a_time = {",
+           "	enable = { tag = ROM OR = { has_war = yes NOT = { has_manpower > 1500 } } }",
+           "	abort_when_not_enabled = yes",
+           "	ai_strategy = { type = avoid_starting_wars value = 1000 }", "}"]
     for t in ITALY:
         out += [f"ante_rome_conquers_{t} = {{",
                 f"	enable = {{ tag = ROM country_exists = {t} is_neighbor_of = {t} NOT = {{ is_in_faction_with = {t} }} "
@@ -198,6 +204,12 @@ def rome_strategy():
                 "	abort_when_not_enabled = yes",
                 f"	ai_strategy = {{ type = conquer id = {t} value = 100 }}",
                 f"	ai_strategy = {{ type = prepare_for_war id = {t} value = 100 }}",
+                "}",
+                # declare only at peace, with men to spare
+                f"ante_rome_marches_on_{t} = {{",
+                f"	enable = {{ tag = ROM has_war = no has_manpower > 1500 country_exists = {t} is_neighbor_of = {t} "
+                f"NOT = {{ is_in_faction_with = {t} }} NOT = {{ {t} = {{ is_subject_of = ROM }} }} }}",
+                "	abort_when_not_enabled = yes",
                 f"	ai_strategy = {{ type = declare_war id = {t} value = 100 }}", "}"]
     return "\n".join(out) + "\n"
 
@@ -209,6 +221,7 @@ ROME_AMBITION = """			# Rome (round 36): any neighbour that is not clearly stron
 					is_ai = yes
 					has_war = no
 					num_divisions > 1
+					has_manpower > 1500   # round 38: no new war without men to fight it
 				}
 				random_list = {
 					25 = {
