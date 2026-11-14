@@ -53,6 +53,13 @@ def states_of(tags):
     return sorted(out)
 
 
+def highlight(ids):
+    """the base game's formables: hovering the decision lights up the states it needs on the map"""
+    body = "\n".join(f"\t\t\t\tstate = {i}" for i in ids)
+    return (f"\t\thighlight_states = {{\n\t\t\thighlight_state_targets = {{\n{body}\n\t\t\t}}\n\t\t}}\n"
+            "\t\ton_map_mode = decision_view_only\n")
+
+
 def controls(ids):
     return "\n".join(f"\tcontrols_state = {i}" for i in ids)
 
@@ -101,7 +108,7 @@ def main():
     rome = f"""ROM_latin_culture = {{
 	ROM_form_italia = {{
 		icon = GFX_decision_generic_formable_nations
-		allowed = {{ original_tag = ROM }}
+{highlight(rome_needed)}		allowed = {{ original_tag = ROM }}
 		visible = {{ NOT = {{ has_country_flag = ROM_italy_formed }} }}
 		available = {{
 			custom_trigger_tooltip = {{
@@ -139,7 +146,7 @@ def main():
     carthage = f"""CAR_punic_world = {{
 	CAR_form_punic_empire = {{
 		icon = GFX_decision_generic_formable_nations
-		allowed = {{ original_tag = CAR }}
+{highlight(pun)}		allowed = {{ original_tag = CAR }}
 		visible = {{ NOT = {{ has_country_flag = CAR_empire_formed }} }}
 		available = {{
 			custom_trigger_tooltip = {{
