@@ -242,6 +242,34 @@ guiTypes = {
 
 
 			gridboxtype = {
+				name = "ante_bronze_weapons_tree"
+				position = { x = 140 y = 210 }
+				#size = { width = 420 height = 500 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
+			gridboxtype = {
+				name = "ante_bronze_armour_tree"
+				position = { x = 140 y = 210 }
+				#size = { width = 420 height = 500 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
+			gridboxtype = {
+				name = "ante_simple_bows_tree"
+				position = { x = 140 y = 210 }
+				#size = { width = 420 height = 500 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
+			gridboxtype = {
+				name = "ante_close_order_tree"
+				position = { x = 140 y = 210 }
+				#size = { width = 420 height = 500 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
+			gridboxtype = {
 				name = "support_weapons_tree"
 				position = { x = 140 y = 210 }
 				#size = { width = 420 height = 500 }
@@ -517,6 +545,24 @@ guiTypes = {
 				}
 			}
 
+			gridboxtype = {
+				name = "ante_pack_animals_tree"
+				position = { x = 100 y = 160 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
+			gridboxtype = {
+				name = "ante_scouting_tree"
+				position = { x = 100 y = 160 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
+			gridboxtype = {
+				name = "ante_field_camps_tree"
+				position = { x = 100 y = 160 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
 			gridboxtype = {
 				name = "tech_support_tree"
 				position = { x = 100 y = 160 }
@@ -827,6 +873,20 @@ guiTypes = {
 			}
 
 
+			gridboxtype = {
+				name = "ante_riding_tree"
+				position = { x = 10% y = 172 }
+				size = { width = 80% height = 80% }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
+				name = "ante_chariotry_tree"
+				position = { x = 10% y = 172 }
+				size = { width = 80% height = 80% }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
 			gridboxtype = {
 				name = "gwtank_tree"
 				position = { x = 10% y = 172 }
@@ -1502,6 +1562,13 @@ guiTypes = {
 			}
 
 			gridboxtype = {
+				name = "ante_rams_and_ladders_tree"
+				position = { x = 300 y = 172 }
+				size = { width = 80% height = 80% }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
 				name = "gw_artillery_tree"
 				position = { x = 300 y = 172 }
 				size = { width = 80% height = 80% }
@@ -1702,6 +1769,13 @@ guiTypes = {
 				}
 			}
 
+			gridboxtype = {
+				name = "ante_seafaring_tree"
+				position = { x = 150 y = 60}
+				size = { width = 100 height = 140 }
+				slotsize = { width = 70 height = 70 }
+				format = "LEFT"
+			}
 			gridboxtype = {
 				name = "early_destroyer_tree"
 				position = { x = 150 y = 60}
@@ -3279,6 +3353,34 @@ guiTypes = {
 				}
 
 			gridboxtype = {
+				name = "ante_bronze_casting_tree"
+				position = { x = 0 y = 172 }
+				size = { width = 520 height = 800 }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
+				name = "ante_masonry_tree"
+				position = { x = 0 y = 172 }
+				size = { width = 520 height = 800 }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
+				name = "ante_irrigation_tree"
+				position = { x = 0 y = 172 }
+				size = { width = 520 height = 800 }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
+				name = "ante_coinage_tree"
+				position = { x = 0 y = 172 }
+				size = { width = 520 height = 800 }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
 				name = "basic_machine_tools_tree"
 				position = { x = 0 y = 172 }
 				size = { width = 520 height = 800 }
@@ -3694,6 +3796,13 @@ guiTypes = {
 					Orientation = "UPPER_LEFT"
 				}
 
+			gridboxtype = {
+				name = "ante_writing_tree"
+				position = { x=0 y=172 }
+				size = { width = 680 height = 800 }
+				slotsize = { width=60 height= 60 }
+				format = "UP"
+			}
 			gridboxtype = {
 				name = "electronic_mechanical_engineering_tree"
 				position = { x=0 y=172 }

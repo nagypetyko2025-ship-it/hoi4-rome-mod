@@ -289,6 +289,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = ante_horse_archery
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = ante_war_elephants_tech
 			research_cost_coeff = 1
 		}
@@ -397,6 +401,10 @@ technologies = {
 	ante_rams_and_ladders = {
 		path = {
 			leads_to_tech = ante_siege_towers
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = ante_earthworks
 			research_cost_coeff = 1
 		}
 		research_cost = 1
@@ -719,10 +727,6 @@ technologies = {
 	}
 	ante_mechanics = {
 		production_factory_max_efficiency_factor = 0.05
-		path = {
-			leads_to_tech = ante_water_mills
-			research_cost_coeff = 1
-		}
 		research_cost = 2
 		start_year = 465
 		folder = {
@@ -808,10 +812,6 @@ technologies = {
 		local_resources_factor = 0.10
 		path = {
 			leads_to_tech = ante_bellows_furnace
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = ante_heavy_plough
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5

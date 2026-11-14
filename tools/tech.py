@@ -37,6 +37,10 @@ FOLDERS = {   # page: (name, description)
     "electronics_folder": ("Learning", "Writing, philosophy, mathematics, astronomy and medicine."),
     "industry_folder": ("Crafts and Building", "Metalwork, building, farming and mining."),
 }
+ANCHOR = {   # page -> the base-game grid box whose place our tree roots take (see main)
+    "infantry_folder": "support_weapons_tree", "support_folder": "tech_support_tree", "armour_folder": "gwtank_tree",
+    "artillery_folder": "gw_artillery_tree", "naval_folder": "early_destroyer_tree",
+    "industry_folder": "basic_machine_tools_tree", "electronics_folder": "electronic_mechanical_engineering_tree"}
 HIDDEN = ["nsb_armour_folder", "mtgnavalfolder", "mtgnavalsupportfolder", "air_techs_folder", "bba_air_techs_folder"]
 CATEGORY = {"infantry_folder": "infantry_weapons", "support_folder": "infantry_tech", "armour_folder": "armor",
             "artillery_folder": "artillery", "naval_folder": "naval_equipment", "electronics_folder": "electronics",
@@ -375,6 +379,27 @@ def main():
         if m and cur in FOLDERS and int(m.group(2)) in rows.get(cur, {}):
             scale = page_scale(cur, rows, labels)
             lines[i] = line[:m.start()] + f"{m.group(1)}{auc_of(rows[cur][int(m.group(2))], scale)}{m.group(3)}" + line[m.end():]
+    # every tree root needs a grid box named <root>_tree on its page ("Found no grid box for tech ...", round 17):
+    # one per root, all at the place (and with the size and direction) of one base-game box of that page, so all
+    # our techs of a page share one origin and their rows match the year labels
+    roots = {}
+    for key, name, desc, folder, *_r in TECHS:
+        if not [t for t in TECHS if t[0] == key][0][6]:
+            roots.setdefault(folder, []).append(key)
+    for folder, anchor in ANCHOR.items():
+        start = next(i for i, l in enumerate(lines) if re.search(rf'^\t\t\tname = "{folder}"', l))
+        at = next(i for i in range(start, len(lines)) if re.search(rf'name\s*=\s*"{anchor}"', lines[i]))
+        top = max(i for i in range(start, at) if re.search(r"gridbox[tT]ype\s*=", lines[i]))
+        depth, end = 0, top
+        for end in range(top, len(lines)):
+            depth += lines[end].count("{") - lines[end].count("}")
+            if depth == 0 and end > top:
+                break
+        block = lines[top:end + 1]
+        new = []
+        for r in roots.get(folder, []):
+            new += [re.sub(rf'"{anchor}"', f'"{r}_tree"', l) for l in block]
+        lines[top:top] = new
     write("interface/countrytechtreeview.gui", "\n".join(lines))
     print(f"written: {len(TECHS)} techs on {len(FOLDERS)} pages, year labels in AUC")
 
