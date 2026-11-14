@@ -641,6 +641,8 @@
  ROM_res_romana_desc:0 "[Root.GetROMResRomana]"
  ROM_res_romana_state_rep:0 "The Struggle of the Orders stands at §Y[?ROM_discord|0]§! of 100. War raises it every week, peace lowers it. At §R80§! the plebs leave the city."
  ROM_res_romana_state_king:0 "The Hatred of the King stands at §Y[?ROM_hatred|0]§! of 100. Above §R50§! conspiracies hatch, at §R100§! Rome rises. Below §G30§! a loyal Rome is within reach."
+ ROM_latin_culture:0 "Latin Culture"
+ ROM_latin_culture_desc:0 "The land of Italy that Rome holds - by war or by treaty - can become Roman land: colonists, roads, the Latin tongue and Roman law. Every state costs 250 political power."
  ROM_TT_DISCORD_ABOVE_55:0 "Struggle of the Orders is at least 55 (now: [?ROM_discord|Y0])"
  ROM_TT_ROM_DISCORD_M20:0 "Struggle of the Orders: §G-20§!"
  ROM_TT_DISCORD_BELOW_30:0 "Struggle of the Orders is at most 30 (now: [?ROM_discord|Y0])"

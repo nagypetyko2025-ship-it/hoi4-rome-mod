@@ -205,7 +205,9 @@ ROM_res_romana = {
 			base = 5
 		}
 	}
+}
 
+ROM_latin_culture = {
 	ROM_integrate_italy = {
 		icon = GFX_decision_generic_construction
 		allowed = { original_tag = ROM }

@@ -5,3 +5,10 @@ ROM_res_romana = {
 	visible = { OR = { has_country_flag = ROM_republic has_country_flag = ROM_kingdom } }
 	priority = 100
 }
+
+# round 23 (Peti): making conquered Italian land Roman is a category of its own, open from the first day
+ROM_latin_culture = {
+	icon = generic_formable_nations
+	allowed = { original_tag = ROM }
+	priority = 90
+}
