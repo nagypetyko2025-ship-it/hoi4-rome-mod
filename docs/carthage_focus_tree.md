@@ -1,6 +1,6 @@
 # Karthágó fókuszfája – terv (2026-11-14)
 
-Állapot (30. kör): **a fa kész – 60 fókusz, két út a gyökérnél, kizáró párok minden ágban** (`tools/national_trees.py`,
+Állapot (30. kör): **a fa kész – 65 fókusz, két út a gyökérnél, kizáró párok minden ágban** (`tools/national_trees.py`,
 CARTHAGE szakasz; feltételek a `TUNE`-ban). Még hátra van: a két mérő (a tanács gyanúja / a zsoldosok bére), a „Res
 Punica” döntések (zsoldosfogadás) és az események (`events/CAR_events.txt`) – a következő körben.
 

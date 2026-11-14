@@ -948,7 +948,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   számítanak „a mi hibáinknak” (`BASE_COPIES`).
 
 ## Harmincadik kör (2026-11-14, Claude) – Karthágó fája, a szenonok, a választóképernyő
-- **Karthágó teljes fókuszfája** (60 fókusz, `docs/carthage_focus_tree.md`): két út a gyökérnél – **The House of
+- **Karthágó teljes fókuszfája** (65 fókusz, `docs/carthage_focus_tree.md`): két út a gyökérnél – **The House of
   Mago** (dinasztia: Mago reformjai, örökös suffes, „kard” ↔ „alku a tanáccsal”, katonai monarchia) vagy **The
   Hundred and Four** (oligarchia: suffetek, a Száznégyek bírósága, földbirtokos ↔ tengeri párt, népgyűlés,
   kereskedőköztársaság); hét közös ág: istenek (Melqart tizede ↔ Karthágó istenei, Tanit körzete, Démétér és Koré),
@@ -959,7 +959,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   Messana), sereg (zsoldos ↔ polgárhadsereg, Szent Csapat, elefántok, Xanthipposz), Róma (a szerződések
   betartása ↔ Punica fides, a második szerződés, Pürrhosz ellen, Messana kérdése). A mérők, döntések és
   események a következő körben jönnek.
-- **A szenonok saját fája** (17 fókusz): harcosok gyűlése; druidák, szent ligetek, íratlan tudás; a bajnok része,
+- **A szenonok saját fája** (16 fókusz): harcosok gyűlése; druidák, szent ligetek, íratlan tudás; a bajnok része,
   hosszú kardok, rohamharcosok; erődök, só és vas, „túl sok száj”; testvérek az Alpokon túl (frakció az
   inszuberekkel és a boiusokkal) → **a nagy vándorlás** (csak ha a hágók nyitva: inszuberek szövetségesek vagy
   eltűntek) → az ager Gallicus, zsoldoskardok, Clusium előtt → **Vae victis** (háborús cél Róma ellen).
