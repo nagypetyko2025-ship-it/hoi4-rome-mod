@@ -252,7 +252,22 @@ def define(focus, build, infra, tech, wargoal):
       claims("ZAN", "SYR") + "\n" + build("dockyard", "is_coastal = yes") + "\nnavy_experience = 25", extra=COAST + "\n" + mx("ROM_cisalpine_gaul"))
     f("ROM_cisalpine_gaul", "Gallia Cisalpina", "Avenge the Allia for ever: the plain of the Po, from the Senones to the Insubres, becomes Roman land.",
       "more_territorial_claims", 14, 11, [["ROM_italia"]],
-      wargoal("INS") + "\n" + claims("INS", "FEL", "VEN") + "\narmy_experience = 20", extra=mx("ROM_towards_sicily"))
+      wargoal("INS") + "\n" + wargoal("SEN") + "\n" + wargoal("LIG") + "\n" + wargoal("FEL") + "\n" + wargoal("VEN") + "\n" + claims("INS", "FEL", "VEN", "LIG", "SEN") +
+      "\narmy_experience = 20", extra=mx("ROM_towards_sicily"))
+
+    # --- Italy for the Republic: what the kingdom conquers, the Republic wins by treaty, surrender or war
+    f("ROM_civitas_sine_suffragio", "Civitas sine Suffragio", "The Sabines and the Marsi become Romans - citizens without the vote, soldiers with the duty to serve.",
+      "improve_relations", 16, 4, [["ROM_coriolanus"]], puppet("SAB", "MAR") + "\nadd_political_power = -50")
+    f("ROM_etruscan_truces", "The Forty-Year Truces", "After Veii the northern Etruscan cities buy peace from Rome - and end as its allies.",
+      "alliance", 12, 6, [["ROM_southern_etruria"]], puppet("CLU", "VLT", "ARR") + "\nadd_political_power = -100")
+    f("ROM_deditio_of_capua", "The Surrender of Capua", "343 BC: beset by the Samnites, Capua gives itself and all it has into the hands of the Roman people.",
+      "alliance", 11, 8, [["ROM_latin_war"]], puppet("CAP", "CUM") + "\nadd_war_support = 0.05")
+    f("ROM_apulian_allies", "The Apulian Allies", "Teanum Apulum and the Daunians stand with Rome against the Samnites, from behind.",
+      "alliance", 9, 10, [["ROM_samnite_wars"]], puppet("DAU", "PEU") + "\nadd_political_power = -50")
+    f("ROM_lucania_and_bruttium", "Lucania and Bruttium", "The forests of the south and the Greek towns of the coast: the last of Italy to bow.",
+      "territory_or_war", 11, 10, [["ROM_tarentum_and_pyrrhus", "ROM_treaty_with_tarentum"]],
+      wargoal("OEN") + "\n" + wargoal("MES") + "\n" + wargoal("MET") + "\n" + wargoal("LOK") + "\n" + wargoal("RHE") + "\n" +
+      wargoal("POS") + "\n" + wargoal("KRO") + "\n" + claims("OEN", "MES", "MET", "LOK", "RHE", "POS", "KRO"), ai=2)
 
     # --- 7. the King Remains (right side): Tarquinius crushes the conspiracy of Brutus and Collatinus
     f("ROM_the_king_remains", "The King Remains", "The conspiracy of Brutus and Collatinus is betrayed. Tarquinius Superbus stays on the throne, and Rome stays a kingdom - a kingdom whose people hate their king. Keep the hatred down, or Rome will rise.",
@@ -293,65 +308,84 @@ def define(focus, build, infra, tech, wargoal):
       "construct_infrastructure", 26, 4, [["ROM_etruscan_craftsmen"]], infra() + "\n" + infra() + "\nadd_ideas = ROM_roman_roads_spirit", filters=I)
     f("ROM_king_of_the_etruscans", "Lucumo of Etruria", "Now that our borders reach him, Porsenna of Clusium stands between the king of Rome and the crown of all Etruria.",
       "major_war", 29, 4, [["ROM_the_twelve_cities"]], wargoal("CLU") + "\n" + claims("CLU") + "\n" + cores(1) + "\n" + hate(-10), ai=2)
+    f("ROM_sabine_wars", "War with the Sabines", "As Tarquinius Priscus did before him, the king marches up the Anio against the Sabines and the Marsi.",
+      "territory_or_war", 31, 3, [["ROM_stratagem_of_gabii"]], wargoal("SAB") + "\n" + wargoal("MAR") + "\n" + claims("SAB", "MAR") + "\narmy_experience = 10", ai=2)
+    f("ROM_northern_etruria", "Northern Etruria", "Volaterrae on its rock and Arretium of the bronze-smiths: the rest of the twelve cities.",
+      "more_territorial_claims", 29, 5, [["ROM_king_of_the_etruscans"]], wargoal("VLT") + "\n" + wargoal("ARR") + "\n" + claims("VLT", "ARR"), ai=2)
     f("ROM_regnum_italiae", "Regnum Italiae", "A kingdom, not a city: Latins, Etruscans and Italians under one crown.",
       "national_unity", 26, 5, [["ROM_royal_army"], ["ROM_royal_roads"], ["ROM_the_twelve_cities"]],
       "add_ideas = ROM_regnum_spirit\n" + cores(2) + "\nadd_political_power = 100\n" + hate(-10), ai=3)
     f("ROM_the_samnite_mountains", "The Samnite Mountains", "The hill peoples of the south have never had a master.",
-      "major_war", 24, 6, [["ROM_regnum_italiae"]], wargoal("SAM") + "\n" + claims("SAM", "CAP") + "\narmy_experience = 25", ai=2)
+      "major_war", 24, 6, [["ROM_regnum_italiae"]], wargoal("SAM") + "\n" + wargoal("CAP") + "\n" + claims("SAM", "CAP") + "\narmy_experience = 25", ai=2)
     f("ROM_magna_graecia", "Magna Graecia", "Kyme, Taras, Kroton: the rich Greek cities of the south will pay tribute to the king.",
-      "occupy_states_coastal", 28, 6, [["ROM_regnum_italiae"]], wargoal("CUM") + "\n" + wargoal("TAS") + "\n" + claims("TAS", "KRO", "CUM"))
+      "occupy_states_coastal", 28, 6, [["ROM_regnum_italiae"]], wargoal("CUM") + "\n" + wargoal("POS") + "\n" + wargoal("TAS") + "\n" + claims("TAS", "KRO", "CUM", "POS"))
+    f("ROM_umbria_and_picenum", "Umbria and Picenum", "The hill towns of Umbria and the Picentes by the Adriatic: the king's road to the other sea.",
+      "territory_or_war", 31, 6, [["ROM_regnum_italiae"]], wargoal("UMB") + "\n" + wargoal("PIC") + "\n" + claims("UMB", "PIC"), ai=2)
+    f("ROM_apulia", "The Plains of Apulia", "Horses, wool and grain: Daunians, Peucetians and Messapians will pay the king's tribute.",
+      "occupy_start_war", 22, 7, [["ROM_the_samnite_mountains"]], wargoal("DAU") + "\n" + wargoal("PEU") + "\n" + wargoal("MES") + "\n" + claims("DAU", "PEU", "MES"), ai=2)
+    f("ROM_bruttium", "The Forests of Bruttium", "Oenotrians in the hills, Greeks on the coast, down to the Strait of Rhegion.",
+      "occupy_states_coastal", 28, 7, [["ROM_magna_graecia"]],
+      wargoal("OEN") + "\n" + wargoal("MET") + "\n" + wargoal("LOK") + "\n" + wargoal("RHE") + "\n" + wargoal("KRO") + "\n" + claims("OEN", "MET", "LOK", "RHE", "KRO"), ai=2)
+    f("ROM_across_the_strait", "Across the Strait", "Zankle and Syracuse look across the water at the new king of Italy.",
+      "occupy_states_coastal", 24, 9, [["ROM_king_of_italy"]],
+      wargoal("ZAN") + "\n" + claims("ZAN", "SYR") + "\n" + build("dockyard", "is_coastal = yes") + "\nnavy_experience = 25",
+      extra=COAST + "\n" + mx("ROM_kingdom_of_the_po"))
+    f("ROM_kingdom_of_the_po", "Kingdom of the Po", "Etruscan Felsina, the Veneti, the Ligurians and the Gauls of the plain: the north joins the kingdom.",
+      "more_territorial_claims", 28, 9, [["ROM_king_of_italy"]],
+      wargoal("FEL") + "\n" + wargoal("SEN") + "\n" + wargoal("INS") + "\n" + wargoal("LIG") + "\n" + wargoal("VEN") + "\n" + claims("FEL", "VEN", "INS", "LIG", "SEN"),
+      extra=mx("ROM_across_the_strait"))
     f("ROM_king_of_italy", "King of Italy", "From the Alps to the Strait one king, one army, one law. The Republic is a dream nobody remembers.",
-      "national_unity", 26, 7, [["ROM_the_samnite_mountains"], ["ROM_magna_graecia"]],
+      "national_unity", 26, 8, [["ROM_the_samnite_mountains"], ["ROM_magna_graecia"]],
       "add_political_power = 150\nadd_stability = 0.10\nadd_war_support = 0.10\n" + cores(3) + "\nadd_research_slot = 1", ai=3)
 
-    # --- 8. the hated king (only after The King Remains, x 31..33): every step lowers ROM_hatred; the
+    # --- 8. the hated king (only after The King Remains, x 35..37): every step lowers ROM_hatred; the
     #     last one needs it below 30. Crushing the riots is quick but leaves blood in the Forum (more plots).
     idea("ROM_loyal_subjects_spirit", "Loyal Subjects of the King", "pp_unity_bonus", stability_factor=0.05, conscription=0.01)
     f("ROM_royal_amnesty", "Amnesty for the Exiles", "Families fled to Veii, Gabii and Cumae. The king's heralds promise: come home, and nothing will be done to you.",
-      "improve_relations", 31, 1, [["ROM_the_king_remains"]], "add_political_power = -50\nadd_manpower = 1000\n" + hate(-10))
+      "improve_relations", 35, 1, [["ROM_the_king_remains"]], "add_political_power = -50\nadd_manpower = 1000\n" + hate(-10))
     f("ROM_grain_from_cumae", "Grain from Cumae", "Empty fields, empty granaries: the king buys grain from the Greeks so the city does not starve. Aristodemus of Cumae sells - to friends.",
-      "trade", 33, 1, [["ROM_the_king_remains"]], "add_stability = 0.05\nadd_political_power = -25\n" + hate(-8), filters=I,
+      "trade", 37, 1, [["ROM_the_king_remains"]], "add_stability = 0.05\nadd_political_power = -25\n" + hate(-8), filters=I,
       avail="NOT = { has_war_with = CUM }")
     f("ROM_call_back_the_settlers", "Call Back the Settlers", "Land and tax freedom for every family that returns to Rome.",
-      "construct_civilian", 31, 2, [["ROM_royal_amnesty"], ["ROM_grain_from_cumae"]], "add_manpower = 1500\n" + hate(-12), cost=15)
+      "construct_civilian", 35, 2, [["ROM_royal_amnesty"], ["ROM_grain_from_cumae"]], "add_manpower = 1500\n" + hate(-12), cost=15)
     f("ROM_crush_the_riots", "Crush the Riots", "The Celeres clear the Forum. Order is restored at once - and remembered: the plots will come thicker.",
-      "defence", 31, 3, [["ROM_call_back_the_settlers"]],
+      "defence", 35, 3, [["ROM_call_back_the_settlers"]],
       "add_war_support = -0.05\nset_country_flag = ROM_blood_in_the_forum\n" + hate(-20),
       extra=mx("ROM_hear_the_people"))
     f("ROM_hear_the_people", "Hear the People", "The king sits in judgement in the Forum himself and hears every complaint - at a price to his pride and his treasury. The anger fades slowly, week by week.",
-      "improve_relations", 33, 3, [["ROM_call_back_the_settlers"]],
+      "improve_relations", 37, 3, [["ROM_call_back_the_settlers"]],
       "add_political_power = -75\nadd_stability = 0.05\nset_country_flag = ROM_king_listens\n" + hate(-15),
       extra=mx("ROM_crush_the_riots"), cost=15)
     f("ROM_a_loyal_rome", "A Loyal Rome", "A generation grows up that knows no other ruler. The hatred fades into habit, and habit into loyalty.",
-      "national_unity", 32, 4, [["ROM_crush_the_riots", "ROM_hear_the_people"]],
+      "national_unity", 36, 4, [["ROM_crush_the_riots", "ROM_hear_the_people"]],
       "add_ideas = ROM_loyal_subjects_spirit\nadd_stability = 0.05\n" + RS.END_HATRED, cost=20, avail=RS.hatred_below(30))
 
-    # --- 9. the economy of Rome (both roads, x 35..39)
+    # --- 9. the economy of Rome (both roads, x 39..43)
     idea("ROM_coinage_spirit", "Aes Signatum", "economic_increase", production_speed_buildings_factor=0.10, political_power_gain=0.05)
     idea("ROM_ager_publicus_spirit", "Ager Publicus", "agrarian_society", monthly_population=0.10, conscription=0.01)
     idea("ROM_juno_moneta_spirit", "The Mint of Juno Moneta", "economic_increase",
          production_speed_buildings_factor=0.10, production_factory_max_efficiency_factor=0.05)
     root = [["ROM_regifugium", "ROM_the_king_remains"]]
     f("ROM_forum_boarium", "Forum Boarium", "The cattle market by the Tiber ford, where Latins, Etruscans and Greeks trade.",
-      "construct_civ_factory", 37, 1, root, build("industrial_complex"), filters=I, ai=4)
+      "construct_civ_factory", 41, 1, root, build("industrial_complex"), filters=I, ai=4)
     f("ROM_via_salaria", "Via Salaria", "The salt road: from the pans at the mouth of the Tiber up into the Sabine hills.",
-      "construct_infrastructure", 35, 2, [["ROM_forum_boarium"]], infra() + "\n" + infra(), filters=I, ai=2)
+      "construct_infrastructure", 39, 2, [["ROM_forum_boarium"]], infra() + "\n" + infra(), filters=I, ai=2)
     f("ROM_salt_pans", "The Salt Pans", "Whoever holds the salt of the Tiber mouth holds the trade of central Italy.",
-      "production", 37, 2, [["ROM_forum_boarium"]], build("industrial_complex"), filters=I, ai=3)
+      "production", 41, 2, [["ROM_forum_boarium"]], build("industrial_complex"), filters=I, ai=3)
     f("ROM_tiber_harbour", "Harbour on the Tiber", "Wharves below the Aventine and a port at the river mouth.",
-      "construct_naval_dockyard", 39, 2, [["ROM_forum_boarium"]], build("dockyard", "is_coastal = yes"), extra=COAST, filters=I)
+      "construct_naval_dockyard", 43, 2, [["ROM_forum_boarium"]], build("dockyard", "is_coastal = yes"), extra=COAST, filters=I)
     f("ROM_aes_signatum", "Aes Signatum", "Bronze bars stamped by the state: the first money of Rome.",
-      "trade", 36, 3, [["ROM_via_salaria", "ROM_salt_pans"]], "add_ideas = ROM_coinage_spirit", filters=I, cost=15)
+      "trade", 40, 3, [["ROM_via_salaria", "ROM_salt_pans"]], "add_ideas = ROM_coinage_spirit", filters=I, cost=15)
     f("ROM_ager_publicus", "Ager Publicus", "Conquered land belongs to the Roman people - to be settled, leased or grazed.",
-      "construct_civilian", 38, 3, [["ROM_salt_pans", "ROM_tiber_harbour"]], "add_ideas = ROM_ager_publicus_spirit",
+      "construct_civilian", 42, 3, [["ROM_salt_pans", "ROM_tiber_harbour"]], "add_ideas = ROM_ager_publicus_spirit",
       filters=I, avail=realm(3))
     f("ROM_smiths_of_rome", "Smiths of the Argiletum", "Helmets, spearheads and the iron-shod pilum by the thousand.",
-      "construct_mil_factory", 36, 4, [["ROM_aes_signatum"]], build("arms_factory") + "\n" + build("arms_factory"), filters=I, ai=4, cost=15)
+      "construct_mil_factory", 40, 4, [["ROM_aes_signatum"]], build("arms_factory") + "\n" + build("arms_factory"), filters=I, ai=4, cost=15)
     f("ROM_juno_moneta", "The Mint of Juno Moneta", "Silver coins struck in the temple of Juno the Warner on the Capitol.",
-      "production", 38, 4, [["ROM_aes_signatum"], ["ROM_ager_publicus"]], "add_ideas = ROM_juno_moneta_spirit",
+      "production", 42, 4, [["ROM_aes_signatum"], ["ROM_ager_publicus"]], "add_ideas = ROM_juno_moneta_spirit",
       filters=I, cost=15, avail=realm(6))
     f("ROM_great_public_works", "Great Public Works", "Temples, basilicas, walls and roads: the censors spend the spoils of war on the city.",
-      "construction2", 37, 5, [["ROM_smiths_of_rome"], ["ROM_juno_moneta"]],
+      "construction2", 41, 5, [["ROM_smiths_of_rome"], ["ROM_juno_moneta"]],
       build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + build("arms_factory"),
       filters=I, ai=3, cost=20, avail=realm(9))
 
@@ -597,8 +631,21 @@ def define(focus, build, infra, tech, wargoal):
         "ROM_purge_the_conspirators": (10, "", "add_war_support = -0.05"),
         "ROM_the_twelve_cities": (20, states(3), ""),
         "ROM_king_of_the_etruscans": (15, reach("CLU"), ""),
-        "ROM_regnum_italiae": (20, states(10) + "\n" + gone("LAT"), ""),
-        "ROM_the_samnite_mountains": (20, "", "add_manpower = -2000"),
+        # 9: Rome, Latium, Volsci, Aequi, Veii, Caere, Tarquinii, Sabines, Marsi - all neighbours, Clusium not needed
+        "ROM_regnum_italiae": (20, states(9) + "\n" + gone("LAT"), ""),
+        "ROM_the_samnite_mountains": (20, reach("SAM"), "add_manpower = -2000"),
+        "ROM_sabine_wars": (15, "", ""),
+        "ROM_northern_etruria": (15, "OR = {\n" + reach("VLT") + "\n" + reach("ARR") + "\n}", ""),
+        "ROM_umbria_and_picenum": (15, "OR = {\n" + reach("UMB") + "\n" + reach("PIC") + "\n}", ""),
+        "ROM_apulia": (15, "", ""),
+        "ROM_bruttium": (20, "", ""),
+        "ROM_across_the_strait": (20, "", ""),
+        "ROM_kingdom_of_the_po": (20, "", ""),
+        "ROM_civitas_sine_suffragio": (15, "OR = {\n" + reach("SAB") + "\n" + reach("MAR") + "\n}", ""),
+        "ROM_etruscan_truces": (15, gone("VEI"), ""),
+        "ROM_deditio_of_capua": (10, "", ""),
+        "ROM_apulian_allies": (15, "", ""),
+        "ROM_lucania_and_bruttium": (20, "", "add_manpower = -2000"),
         "ROM_magna_graecia": (20, "", ""),
         "ROM_king_of_italy": (25, states(20), ""),
         # Athens

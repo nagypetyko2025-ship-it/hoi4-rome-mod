@@ -788,3 +788,20 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - Tanulságok: Róma kezdetben **egyetlen állam**, és egy államnál a `start_civil_war` semmit sem csinál; a
   `complete_national_focus` viszont a kizáró fókuszt is teljesíti. A triggernév `num_of_controlled_states`
   (a `num_owned_controlled_states` csak változóként létezik).
+
+## Huszadik kör (2026-11-14, Claude) – egész Itália mindkét útról, a Regnum Italiae elakadás javítva
+- **Elakadás:** a királyság a Regnum Italiae előtt csak 9 államot szerezhetett (a feltétel 10 volt). Most a feltétel
+  9 állam + a latinok legyőzése, és új fókusz: **War with the Sabines** (szabinok, marsusok) – így Clusium nélkül is
+  megvan (Róma, Latium, volscusok, aequusok, Veii, Caere, Tarquinii, szabinok, marsusok).
+- **Minden itáliai nép (30) mindkét ágból elérhető, de másképp:**
+  - Királyság (háborúk): Northern Etruria (Volaterrae, Arretium), Umbria and Picenum, The Plains of Apulia,
+    The Forests of Bruttium; a Samnite Mountains Capuát, Magna Graecia Poszeidóniát is célba veszi; Itália királya
+    után választás: **Across the Strait** (Zankle, Szürakuszai) ↔ **Kingdom of the Po** (Felsina, venetek, ligurok,
+    insuberek, szenonok).
+  - Köztársaság (szerződés, önátadás, majd háború): **Civitas sine Suffragio** (szabinok, marsusok bábállam),
+    **The Forty-Year Truces** (Clusium, Volaterrae, Arretium bábállam, Veii után), **The Surrender of Capua**
+    (Capua, Küme), **The Apulian Allies** (dauniusok, peucetiusok), **Lucania and Bruttium** (háború Pyrrhus után);
+    a Gallia Cisalpina most a ligurokra, szenonokra, Felsinára és a venetekre is háborús célt ad.
+- A hated-king és a gazdasági ág 4 oszloppal jobbra került (hely a királyság hódításainak). Új háborús fókusz csak
+  szomszédra vehető fel, ahol a következő lépés a legyőzést kéri (`reach`), így nincs újabb zsákutca.
+- Validate 0 hiba; a fókuszfa ellenőrzése: mindkét ág eléri mind a 30 itáliai népet. Játékban még nem futott.
