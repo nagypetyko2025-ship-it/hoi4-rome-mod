@@ -209,10 +209,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 257
+		start_year = 254
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 6 }
+			position = { x = 0 y = 4 }
 		}
 		categories = { infantry_tech }
 		ai_will_do = { factor = 1 }
@@ -221,10 +221,10 @@ technologies = {
 		army_speed_factor = 0.05
 		attrition = -0.05
 		research_cost = 2
-		start_year = 272
+		start_year = 263
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 14 }
+			position = { x = 0 y = 12 }
 		}
 		categories = { infantry_tech }
 		ai_will_do = { factor = 1 }
@@ -236,10 +236,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1
-		start_year = 253
+		start_year = 251
 		folder = {
 			name = support_folder
-			position = { x = 2 y = 4 }
+			position = { x = 2 y = 2 }
 		}
 		categories = { infantry_tech }
 		ai_will_do = { factor = 1 }
@@ -247,10 +247,10 @@ technologies = {
 	ante_spies = {
 		planning_speed = 0.10
 		research_cost = 1.5
-		start_year = 261
+		start_year = 257
 		folder = {
 			name = support_folder
-			position = { x = 2 y = 8 }
+			position = { x = 2 y = 6 }
 		}
 		categories = { infantry_tech }
 		ai_will_do = { factor = 1 }
@@ -263,10 +263,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 253
+		start_year = 251
 		folder = {
 			name = support_folder
-			position = { x = 4 y = 4 }
+			position = { x = 4 y = 2 }
 		}
 		categories = { infantry_tech }
 		ai_will_do = { factor = 1 }
@@ -275,10 +275,10 @@ technologies = {
 		land_reinforce_rate = 0.03
 		attrition = -0.05
 		research_cost = 1.5
-		start_year = 268
+		start_year = 259
 		folder = {
 			name = support_folder
-			position = { x = 4 y = 12 }
+			position = { x = 4 y = 8 }
 		}
 		categories = { infantry_tech }
 		ai_will_do = { factor = 1 }
@@ -423,7 +423,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 254
+		start_year = 256
 		folder = {
 			name = artillery_folder
 			position = { x = 0 y = 5 }
@@ -442,10 +442,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 2
-		start_year = 268
+		start_year = 265
 		folder = {
 			name = artillery_folder
-			position = { x = 0 y = 11 }
+			position = { x = 0 y = 9 }
 		}
 		categories = { artillery }
 		ai_will_do = { factor = 2 }
@@ -468,7 +468,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1
-		start_year = 250
+		start_year = 252
 		folder = {
 			name = artillery_folder
 			position = { x = 3 y = 3 }
@@ -483,10 +483,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 264
+		start_year = 260
 		folder = {
 			name = artillery_folder
-			position = { x = 3 y = 9 }
+			position = { x = 3 y = 7 }
 		}
 		categories = { artillery }
 		ai_will_do = { factor = 1 }
@@ -531,7 +531,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 251
+		start_year = 248
 		folder = {
 			name = naval_folder
 			position = { x = 0 y = 4 }
@@ -547,7 +547,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 257
+		start_year = 251
 		folder = {
 			name = naval_folder
 			position = { x = 0 y = 7 }
@@ -559,7 +559,7 @@ technologies = {
 		enable_equipments = { ante_quinquereme_hull_1 }
 		enable_subunits = { ante_quinquereme }
 		research_cost = 2.5
-		start_year = 274
+		start_year = 260
 		folder = {
 			name = naval_folder
 			position = { x = 0 y = 16 }
@@ -574,7 +574,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1
-		start_year = 251
+		start_year = 248
 		folder = {
 			name = naval_folder
 			position = { x = 2 y = 4 }
@@ -590,7 +590,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 257
+		start_year = 251
 		folder = {
 			name = naval_folder
 			position = { x = 2 y = 7 }
@@ -602,7 +602,7 @@ technologies = {
 		navy_max_range_factor = 0.15
 		naval_speed_factor = 0.05
 		research_cost = 1.5
-		start_year = 274
+		start_year = 260
 		folder = {
 			name = naval_folder
 			position = { x = 2 y = 16 }
@@ -644,10 +644,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 255
+		start_year = 253
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 6 }
+			position = { x = 0 y = 8 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -663,7 +663,7 @@ technologies = {
 		start_year = 261
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 10 }
+			position = { x = 0 y = 12 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -675,10 +675,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 2
-		start_year = 270
+		start_year = 272
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 16 }
+			position = { x = 0 y = 18 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -701,10 +701,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 255
+		start_year = 257
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 6 }
+			position = { x = 4 y = 10 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -717,10 +717,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 267
+		start_year = 268
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 14 }
+			position = { x = 4 y = 16 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -728,7 +728,7 @@ technologies = {
 	ante_mechanics = {
 		production_factory_max_efficiency_factor = 0.05
 		research_cost = 2
-		start_year = 277
+		start_year = 276
 		folder = {
 			name = electronics_folder
 			position = { x = 4 y = 20 }
@@ -743,10 +743,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 258
+		start_year = 257
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 8 }
+			position = { x = 8 y = 10 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -755,7 +755,7 @@ technologies = {
 		attrition = -0.05
 		monthly_population = 0.05
 		research_cost = 2
-		start_year = 270
+		start_year = 268
 		folder = {
 			name = electronics_folder
 			position = { x = 8 y = 16 }
@@ -770,10 +770,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1
-		start_year = 251
+		start_year = 253
 		folder = {
 			name = electronics_folder
-			position = { x = 12 y = 4 }
+			position = { x = 12 y = 8 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -784,7 +784,7 @@ technologies = {
 		start_year = 261
 		folder = {
 			name = electronics_folder
-			position = { x = 12 y = 10 }
+			position = { x = 12 y = 12 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -815,10 +815,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 252
+		start_year = 251
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 2 }
+			position = { x = 0 y = 4 }
 		}
 		categories = { industry construction_tech }
 		ai_will_do = { factor = 1 }
@@ -830,7 +830,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 2
-		start_year = 266
+		start_year = 257
 		folder = {
 			name = industry_folder
 			position = { x = 0 y = 6 }
@@ -841,7 +841,7 @@ technologies = {
 	ante_state_workshops = {
 		industrial_capacity_factory = 0.05
 		research_cost = 2
-		start_year = 273
+		start_year = 263
 		folder = {
 			name = industry_folder
 			position = { x = 0 y = 8 }
@@ -870,7 +870,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 259
+		start_year = 251
 		folder = {
 			name = industry_folder
 			position = { x = 3 y = 4 }
@@ -882,7 +882,7 @@ technologies = {
 		production_speed_buildings_factor = 0.10
 		production_speed_infrastructure_factor = 0.10
 		research_cost = 2
-		start_year = 273
+		start_year = 263
 		folder = {
 			name = industry_folder
 			position = { x = 3 y = 8 }
@@ -898,7 +898,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 252
+		start_year = 248
 		folder = {
 			name = industry_folder
 			position = { x = 6 y = 2 }
@@ -910,7 +910,7 @@ technologies = {
 		monthly_population = 0.05
 		industrial_capacity_factory = 0.05
 		research_cost = 1.5
-		start_year = 266
+		start_year = 257
 		folder = {
 			name = industry_folder
 			position = { x = 6 y = 6 }
@@ -925,7 +925,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 259
+		start_year = 251
 		folder = {
 			name = industry_folder
 			position = { x = 9 y = 4 }
@@ -936,7 +936,7 @@ technologies = {
 	ante_water_mills = {
 		industrial_capacity_factory = 0.05
 		research_cost = 2
-		start_year = 280
+		start_year = 269
 		folder = {
 			name = industry_folder
 			position = { x = 9 y = 10 }
@@ -948,10 +948,10 @@ technologies = {
 		production_speed_buildings_factor = 0.05
 		political_power_gain = 0.05
 		research_cost = 1
-		start_year = 252
+		start_year = 251
 		folder = {
 			name = industry_folder
-			position = { x = 12 y = 2 }
+			position = { x = 12 y = 4 }
 		}
 		categories = { industry construction_tech }
 		ai_will_do = { factor = 1 }

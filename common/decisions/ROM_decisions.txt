@@ -176,4 +176,56 @@ ROM_res_romana = {
 			modifier = { add = 3 check_variable = { ROM_hatred < 45 } }
 		}
 	}
+
+	ROM_absorb_the_latins = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = ROM }
+		visible = {
+			country_exists = LAT
+		}
+		available = {
+			OR = {
+				LAT = { is_subject_of = ROOT }
+				is_in_faction_with = LAT
+			}
+			NOT = { has_war_with = LAT }
+		}
+		cost = 150
+		days_remove = 90
+		complete_effect = {
+			add_political_power = 0
+		}
+		remove_effect = {
+			if = { limit = { country_exists = LAT OR = { LAT = { is_subject_of = ROOT } is_in_faction_with = LAT } }
+				annex_country = { target = LAT transfer_troops = yes }
+				add_stability = 0.03
+			}
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	ROM_integrate_italy = {
+		icon = GFX_decision_generic_construction
+		allowed = { original_tag = ROM }
+		state_target = yes
+		targets = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 53 54 55 56 57 58 }
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 250
+		complete_effect = {
+			FROM = { add_core_of = ROOT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 4 has_political_power > 300 }
+		}
+	}
 }

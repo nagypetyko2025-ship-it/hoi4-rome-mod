@@ -47,5 +47,7 @@ NDefines.NGame.TRADE_ROUTE_RECALCULATE_FREQUENCY_DAYS = 90 -- (45)
 -- and the next while one tech took half a year). One tech point = 270 days of research (vanilla 110): the 66 techs
 -- take 30-40 years at 2-3 research slots, about the length of the tree. Each year ahead adds 10% (vanilla 200%):
 -- a row early (~3 years) costs a third more, ten years early double.
-NDefines.NTechnology.BASE_TECH_COST = 270                 -- (110)
+-- Round 22 (Peti: "still very slow, not dynamic"): at most 6 years between year labels (tools/tech.py MAX_GAP) and
+-- 150 days per tech point: an average tech takes ~7 months, the tree about 20 years at 2-3 slots.
+NDefines.NTechnology.BASE_TECH_COST = 150                 -- (110)
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 0.10 -- (2)

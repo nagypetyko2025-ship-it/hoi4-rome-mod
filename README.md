@@ -847,3 +847,12 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   adatokkal), percenként frissül. Szétválogatja: hibák a MI fájljainkban (betöltéskor / játék közben), az alapjáték
   sorai, amelyek a mi tartalmunkat említik, és az alapjáték saját zaja. A személyes elérési utakat és a Windows
   felhasználónevet kiveszi (a repó nyilvános). `--once`: a mostani naplókból azonnal jelentést ír.
+
+## Huszonkettedik kör (2026-11-14, Claude) – Latin Liga békés beolvasztása, itáliai magok, gyorsabb kutatás
+- **The Latins Become Romans** (Res Romana döntés, mindkét úton): ha a Latin Liga Róma alattvalója (királyság:
+  Head of the Latin League) vagy frakciótársa (köztársaság: Foedus Cassianum), 150 PP-ért 90 nap alatt békésen
+  beolvad (annex, csapatokkal együtt). Nem lehet háborúban állni vele.
+- **Make <állam> Roman** (államra célzott döntés a térképen): minden itáliai állam (a kezdéskor itáliai népeké, 43),
+  amely Rómáé és Róma ellenőrzi, de nem magja, 250 PP-ért Róma magja lesz – hódítás és békekötés után is.
+- **Technológia:** két szomszédos évfelirat között legfeljebb 6 év (`MAX_GAP` a tech.py-ban; a kevés feliratú
+  oldalak ezért korábban érnek véget, pl. a hajózás 245–263), és 1 kutatási pont 270 helyett 150 nap.

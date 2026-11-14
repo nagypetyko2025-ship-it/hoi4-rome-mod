@@ -215,22 +215,37 @@ def tech_icon(folder, icon, eff):
     return fit(pic.crop(pic.getbbox()), w, h)
 
 
+MAX_GAP = 6   # years between two neighbouring year labels of a page, at most (research must keep moving)
+
+
 def page_scale(folder, rows, labels):
-    """(y of the top label, y of the bottom label): AUC grows linearly with y in between"""
-    ys = [rows[folder][yr] for yr in labels.get(folder, set()) if yr in rows.get(folder, {})]
+    """the rows of the page's year labels, top to bottom: label i is year FIRST + i * step, step = the even share of
+    FIRST..LAST but never more than MAX_GAP years (a page with few labels ends earlier than LAST)"""
+    ys = sorted({rows[folder][yr] for yr in labels.get(folder, set()) if yr in rows.get(folder, {})})
     assert len(ys) >= 2, f"no rows on {folder}"
-    return min(ys), max(ys)
+    return ys
 
 
 def auc_of(y, scale):
-    y0, y1 = scale
-    return int(round((FIRST + (y - y0) * (LAST - FIRST) / (y1 - y0)) / YEAR_ROUND) * YEAR_ROUND)
+    ys = scale
+    step = min(MAX_GAP, (LAST - FIRST) / (len(ys) - 1))
+    pts = [(yy, FIRST + i * step) for i, yy in enumerate(ys)]
+    if y <= ys[0]:
+        a, b = pts[0], pts[1]
+    elif y >= ys[-1]:
+        a, b = pts[-2], pts[-1]
+    else:
+        a, b = next((p, q) for p, q in zip(pts, pts[1:]) if p[0] <= y <= q[0])
+    year = a[1] + (b[1] - a[1]) * (y - a[0]) / (b[0] - a[0])
+    return int(round(year / YEAR_ROUND) * YEAR_ROUND)
 
 
 def place(folder, auc, rows, labels):
-    y0, y1 = scale = page_scale(folder, rows, labels)
+    scale = page_scale(folder, rows, labels)
+    y0, y1 = scale[0], scale[-1]
     step = STEP.get(folder, 2)
-    auc = FIRST + (auc - FIRST) * (LAST - FIRST) / (DESIGN_LAST - FIRST)
+    page_last = auc_of(y1, scale)   # the page's own last year (earlier than LAST when MAX_GAP shortens it)
+    auc = FIRST + (auc - FIRST) * (page_last - FIRST) / (DESIGN_LAST - FIRST)
     cands = list(range(y0, y1 + 1, step))
     y = min(cands, key=lambda c: (abs(auc_of(c, scale) - auc), c))
     return y, auc_of(y, scale)
