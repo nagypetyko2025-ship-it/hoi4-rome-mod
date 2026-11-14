@@ -34,3 +34,9 @@ oob = "FEL_245"
 set_naval_oob = "FEL_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = FEL_cmd_g0_tarchun_murina
+# --- counsellors and war council (tools/government.py)
+recruit_character = FEL_adv_g1
+recruit_character = FEL_adv_g2
+recruit_character = FEL_adv_g3
+recruit_character = FEL_adv_g4
+recruit_character = FEL_adv_g5

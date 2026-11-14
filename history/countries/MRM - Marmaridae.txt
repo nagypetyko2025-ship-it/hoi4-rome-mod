@@ -32,3 +32,8 @@ oob = "MRM_245"
 set_naval_oob = "MRM_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = MRM_cmd_g0_micipsa_masaesylian
+# --- counsellors and war council (tools/government.py)
+recruit_character = MRM_adv_g1
+recruit_character = MRM_adv_g2
+recruit_character = MRM_adv_g3
+recruit_character = MRM_adv_g4

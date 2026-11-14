@@ -32,3 +32,8 @@ oob = "IST_245"
 set_naval_oob = "IST_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = IST_cmd_g0_segimer
+# --- counsellors and war council (tools/government.py)
+recruit_character = IST_adv_g1
+recruit_character = IST_adv_g2
+recruit_character = IST_adv_g3
+recruit_character = IST_adv_g4

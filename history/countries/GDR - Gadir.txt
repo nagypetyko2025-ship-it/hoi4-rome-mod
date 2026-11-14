@@ -35,3 +35,9 @@ set_naval_oob = "GDR_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = GDR_cmd_g0_baalyaton_baalhanno
 recruit_character = GDR_cmd_g1_bodmelqart_bin
+# --- counsellors and war council (tools/government.py)
+recruit_character = GDR_adv_g1
+recruit_character = GDR_adv_g2
+recruit_character = GDR_adv_g3
+recruit_character = GDR_adv_g4
+recruit_character = GDR_adv_g5

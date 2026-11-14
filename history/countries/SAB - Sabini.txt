@@ -32,3 +32,8 @@ oob = "SAB_245"
 set_naval_oob = "SAB_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = SAB_cmd_g0_niumsis_numisius
+# --- counsellors and war council (tools/government.py)
+recruit_character = SAB_adv_g1
+recruit_character = SAB_adv_g2
+recruit_character = SAB_adv_g3
+recruit_character = SAB_adv_g4

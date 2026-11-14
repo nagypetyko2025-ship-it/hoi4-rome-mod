@@ -35,3 +35,9 @@ set_naval_oob = "TYR_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = TYR_cmd_g0_hannibal_bin
 recruit_character = TYR_cmd_g1_shafat_milkyaton
+# --- counsellors and war council (tools/government.py)
+recruit_character = TYR_adv_g1
+recruit_character = TYR_adv_g2
+recruit_character = TYR_adv_g3
+recruit_character = TYR_adv_g4
+recruit_character = TYR_adv_g5

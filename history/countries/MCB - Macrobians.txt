@@ -34,3 +34,8 @@ oob = "MCB_245"
 set_naval_oob = "MCB_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = MCB_cmd_g0_anlamani
+# --- counsellors and war council (tools/government.py)
+recruit_character = MCB_adv_g1
+recruit_character = MCB_adv_g2
+recruit_character = MCB_adv_g3
+recruit_character = MCB_adv_g4

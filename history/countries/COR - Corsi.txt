@@ -32,3 +32,8 @@ oob = "COR_245"
 set_naval_oob = "COR_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = COR_cmd_g0_urseti_of
+# --- counsellors and war council (tools/government.py)
+recruit_character = COR_adv_g1
+recruit_character = COR_adv_g2
+recruit_character = COR_adv_g3
+recruit_character = COR_adv_g4

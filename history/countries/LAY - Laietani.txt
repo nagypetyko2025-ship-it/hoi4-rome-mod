@@ -32,3 +32,8 @@ oob = "LAY_245"
 set_naval_oob = "LAY_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = LAY_cmd_g0_indibil_balkeatin
+# --- counsellors and war council (tools/government.py)
+recruit_character = LAY_adv_g1
+recruit_character = LAY_adv_g2
+recruit_character = LAY_adv_g3
+recruit_character = LAY_adv_g4

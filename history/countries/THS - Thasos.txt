@@ -34,3 +34,8 @@ oob = "THS_245"
 set_naval_oob = "THS_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = THS_cmd_g0_leontios_epikratous
+# --- counsellors and war council (tools/government.py)
+recruit_character = THS_adv_g1
+recruit_character = THS_adv_g2
+recruit_character = THS_adv_g3
+recruit_character = THS_adv_g4

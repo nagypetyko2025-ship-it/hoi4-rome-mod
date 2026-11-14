@@ -32,3 +32,8 @@ oob = "TLN_245"
 set_naval_oob = "TLN_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = TLN_cmd_g0_artorres_brentesinos
+# --- counsellors and war council (tools/government.py)
+recruit_character = TLN_adv_g1
+recruit_character = TLN_adv_g2
+recruit_character = TLN_adv_g3
+recruit_character = TLN_adv_g4

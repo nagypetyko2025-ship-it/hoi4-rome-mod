@@ -34,3 +34,8 @@ oob = "RHE_245"
 set_naval_oob = "RHE_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = RHE_cmd_g0_mikythos_archedamou
+# --- counsellors and war council (tools/government.py)
+recruit_character = RHE_adv_g1
+recruit_character = RHE_adv_g2
+recruit_character = RHE_adv_g3
+recruit_character = RHE_adv_g4

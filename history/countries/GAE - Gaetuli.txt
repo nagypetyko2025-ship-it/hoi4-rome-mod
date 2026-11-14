@@ -33,3 +33,8 @@ oob = "GAE_245"
 set_naval_oob = "GAE_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = GAE_cmd_g0_oxyntas_gaetuli
+# --- counsellors and war council (tools/government.py)
+recruit_character = GAE_adv_g1
+recruit_character = GAE_adv_g2
+recruit_character = GAE_adv_g3
+recruit_character = GAE_adv_g4

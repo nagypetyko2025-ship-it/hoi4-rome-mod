@@ -32,3 +32,8 @@ oob = "LEM_245"
 set_naval_oob = "LEM_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = LEM_cmd_g0_cincibilus_magalios
+# --- counsellors and war council (tools/government.py)
+recruit_character = LEM_adv_g1
+recruit_character = LEM_adv_g2
+recruit_character = LEM_adv_g3
+recruit_character = LEM_adv_g4

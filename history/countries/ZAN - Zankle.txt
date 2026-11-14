@@ -34,3 +34,8 @@ oob = "ZAN_245"
 set_naval_oob = "ZAN_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = ZAN_cmd_g0_kleandros_lysiou
+# --- counsellors and war council (tools/government.py)
+recruit_character = ZAN_adv_g1
+recruit_character = ZAN_adv_g2
+recruit_character = ZAN_adv_g3
+recruit_character = ZAN_adv_g4

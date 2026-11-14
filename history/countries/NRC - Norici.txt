@@ -32,3 +32,8 @@ oob = "NRC_245"
 set_naval_oob = "NRC_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = NRC_cmd_g0_tanotalos_magalios
+# --- counsellors and war council (tools/government.py)
+recruit_character = NRC_adv_g1
+recruit_character = NRC_adv_g2
+recruit_character = NRC_adv_g3
+recruit_character = NRC_adv_g4

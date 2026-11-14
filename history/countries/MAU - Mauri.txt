@@ -32,3 +32,8 @@ oob = "MAU_245"
 set_naval_oob = "MAU_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = MAU_cmd_g0_mastanabal_of
+# --- counsellors and war council (tools/government.py)
+recruit_character = MAU_adv_g1
+recruit_character = MAU_adv_g2
+recruit_character = MAU_adv_g3
+recruit_character = MAU_adv_g4

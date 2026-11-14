@@ -32,3 +32,8 @@ oob = "BES_245"
 set_naval_oob = "BES_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = BES_cmd_g0_aulupor_odrysos
+# --- counsellors and war council (tools/government.py)
+recruit_character = BES_adv_g1
+recruit_character = BES_adv_g2
+recruit_character = BES_adv_g3
+recruit_character = BES_adv_g4

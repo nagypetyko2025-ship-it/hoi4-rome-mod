@@ -38,3 +38,10 @@ recruit_character = LAK_cmd_demaratus
 recruit_character = LAK_cmd_dorieus
 recruit_character = LAK_cmd_leonidas
 recruit_character = LAK_cmd_eurybiades
+# --- counsellors and war council (tools/government.py)
+recruit_character = LAK_adv_gorgo
+recruit_character = LAK_adv_g1
+recruit_character = LAK_adv_g2
+recruit_character = LAK_adv_g3
+recruit_character = LAK_adv_g4
+recruit_character = LAK_adv_g5

@@ -32,3 +32,8 @@ oob = "PEU_245"
 set_naval_oob = "PEU_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = PEU_cmd_g0_graivas_rudinos
+# --- counsellors and war council (tools/government.py)
+recruit_character = PEU_adv_g1
+recruit_character = PEU_adv_g2
+recruit_character = PEU_adv_g3
+recruit_character = PEU_adv_g4

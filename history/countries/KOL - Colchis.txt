@@ -32,3 +32,8 @@ oob = "KOL_245"
 set_naval_oob = "KOL_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = KOL_cmd_g0_arshak_mtskheteli
+# --- counsellors and war council (tools/government.py)
+recruit_character = KOL_adv_g1
+recruit_character = KOL_adv_g2
+recruit_character = KOL_adv_g3
+recruit_character = KOL_adv_g4

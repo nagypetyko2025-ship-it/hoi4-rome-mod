@@ -32,3 +32,8 @@ oob = "ULT_245"
 set_naval_oob = "ULT_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = ULT_cmd_g0_elitovius_koisios
+# --- counsellors and war council (tools/government.py)
+recruit_character = ULT_adv_g1
+recruit_character = ULT_adv_g2
+recruit_character = ULT_adv_g3
+recruit_character = ULT_adv_g4

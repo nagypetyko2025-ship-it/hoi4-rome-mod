@@ -32,3 +32,8 @@ oob = "KYN_245"
 set_naval_oob = "KYN_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = KYN_cmd_g0_besadin
+# --- counsellors and war council (tools/government.py)
+recruit_character = KYN_adv_g1
+recruit_character = KYN_adv_g2
+recruit_character = KYN_adv_g3
+recruit_character = KYN_adv_g4

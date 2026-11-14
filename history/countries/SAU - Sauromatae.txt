@@ -33,3 +33,8 @@ oob = "SAU_245"
 set_naval_oob = "SAU_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = SAU_cmd_g0_agaros_alazon
+# --- counsellors and war council (tools/government.py)
+recruit_character = SAU_adv_g1
+recruit_character = SAU_adv_g2
+recruit_character = SAU_adv_g3
+recruit_character = SAU_adv_g4

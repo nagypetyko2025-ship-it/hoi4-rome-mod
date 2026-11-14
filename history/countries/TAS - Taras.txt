@@ -34,3 +34,8 @@ oob = "TAS_245"
 set_naval_oob = "TAS_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = TAS_cmd_g0_theron_timonos
+# --- counsellors and war council (tools/government.py)
+recruit_character = TAS_adv_g1
+recruit_character = TAS_adv_g2
+recruit_character = TAS_adv_g3
+recruit_character = TAS_adv_g4

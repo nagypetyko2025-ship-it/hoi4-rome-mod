@@ -39,3 +39,10 @@ recruit_character = CAR_cmd_malchus
 recruit_character = CAR_cmd_himilco
 recruit_character = CAR_cmd_hanno
 recruit_character = CAR_cmd_g4_baalyaton
+# --- counsellors and war council (tools/government.py)
+recruit_character = CAR_adv_g1
+recruit_character = CAR_adv_g2
+recruit_character = CAR_adv_g3
+recruit_character = CAR_adv_g4
+recruit_character = CAR_adv_g5
+recruit_character = CAR_adv_g6

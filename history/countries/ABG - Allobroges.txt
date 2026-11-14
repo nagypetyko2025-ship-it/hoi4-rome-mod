@@ -32,3 +32,8 @@ oob = "ABG_245"
 set_naval_oob = "ABG_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = ABG_cmd_g0_lingonus
+# --- counsellors and war council (tools/government.py)
+recruit_character = ABG_adv_g1
+recruit_character = ABG_adv_g2
+recruit_character = ABG_adv_g3
+recruit_character = ABG_adv_g4

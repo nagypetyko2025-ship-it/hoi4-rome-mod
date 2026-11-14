@@ -32,3 +32,8 @@ oob = "AMM_245"
 set_naval_oob = "AMM_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = AMM_cmd_g0_baga
+# --- counsellors and war council (tools/government.py)
+recruit_character = AMM_adv_g1
+recruit_character = AMM_adv_g2
+recruit_character = AMM_adv_g3
+recruit_character = AMM_adv_g4

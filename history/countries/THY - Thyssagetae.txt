@@ -33,3 +33,8 @@ oob = "THY_245"
 set_naval_oob = "THY_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = THY_cmd_g0_gediminas
+# --- counsellors and war council (tools/government.py)
+recruit_character = THY_adv_g1
+recruit_character = THY_adv_g2
+recruit_character = THY_adv_g3
+recruit_character = THY_adv_g4

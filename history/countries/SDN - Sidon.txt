@@ -35,3 +35,9 @@ set_naval_oob = "SDN_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = SDN_cmd_g0_synalos_bin
 recruit_character = SDN_cmd_g1_abdeshmun_bin
+# --- counsellors and war council (tools/government.py)
+recruit_character = SDN_adv_g1
+recruit_character = SDN_adv_g2
+recruit_character = SDN_adv_g3
+recruit_character = SDN_adv_g4
+recruit_character = SDN_adv_g5

@@ -40,3 +40,10 @@ recruit_character = ROM_cmd_larcius
 recruit_character = ROM_cmd_postumius
 recruit_character = ROM_cmd_cocles
 recruit_character = ROM_cmd_scaevola
+# --- counsellors and war council (tools/government.py)
+recruit_character = ROM_adv_menenius
+recruit_character = ROM_adv_pulvillus
+recruit_character = ROM_adv_cassius
+recruit_character = ROM_adv_appius
+recruit_character = ROM_adv_cominius
+recruit_character = ROM_adv_coriolanus

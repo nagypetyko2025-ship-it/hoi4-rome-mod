@@ -32,3 +32,8 @@ oob = "DAH_245"
 set_naval_oob = "DAH_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = DAH_cmd_g0_protothyes_traspies
+# --- counsellors and war council (tools/government.py)
+recruit_character = DAH_adv_g1
+recruit_character = DAH_adv_g2
+recruit_character = DAH_adv_g3
+recruit_character = DAH_adv_g4

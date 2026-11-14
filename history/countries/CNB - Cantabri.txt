@@ -32,3 +32,8 @@ oob = "CNB_245"
 set_naval_oob = "CNB_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = CNB_cmd_g0_catumandus_asouios
+# --- counsellors and war council (tools/government.py)
+recruit_character = CNB_adv_g1
+recruit_character = CNB_adv_g2
+recruit_character = CNB_adv_g3
+recruit_character = CNB_adv_g4

@@ -42,3 +42,14 @@ recruit_character = PRS_cmd_hydarnes
 recruit_character = PRS_cmd_daurises
 recruit_character = PRS_cmd_datis
 recruit_character = PRS_cmd_megabates
+# --- counsellors and war council (tools/government.py)
+recruit_character = PRS_adv_democedes
+recruit_character = PRS_adv_hecataeus
+recruit_character = PRS_adv_parnakka
+recruit_character = PRS_adv_hippias
+recruit_character = PRS_adv_heraclitus
+recruit_character = PRS_adv_histiaeus
+recruit_character = PRS_adv_gobryas
+recruit_character = PRS_adv_scylax
+recruit_character = PRS_adv_aspathines
+recruit_character = PRS_adv_g1

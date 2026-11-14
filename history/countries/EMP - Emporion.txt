@@ -34,3 +34,8 @@ oob = "EMP_245"
 set_naval_oob = "EMP_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = EMP_cmd_g0_aristodemos
+# --- counsellors and war council (tools/government.py)
+recruit_character = EMP_adv_g1
+recruit_character = EMP_adv_g2
+recruit_character = EMP_adv_g3
+recruit_character = EMP_adv_g4

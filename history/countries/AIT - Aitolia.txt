@@ -34,3 +34,8 @@ oob = "AIT_245"
 set_naval_oob = "AIT_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = AIT_cmd_g0_aristodemos_molossou
+# --- counsellors and war council (tools/government.py)
+recruit_character = AIT_adv_g1
+recruit_character = AIT_adv_g2
+recruit_character = AIT_adv_g3
+recruit_character = AIT_adv_g4

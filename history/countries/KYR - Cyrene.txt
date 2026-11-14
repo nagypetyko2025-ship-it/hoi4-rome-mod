@@ -35,3 +35,9 @@ oob = "KYR_245"
 set_naval_oob = "KYR_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = KYR_cmd_g0_polyzalos_sosistratou
+# --- counsellors and war council (tools/government.py)
+recruit_character = KYR_adv_g1
+recruit_character = KYR_adv_g2
+recruit_character = KYR_adv_g3
+recruit_character = KYR_adv_g4
+recruit_character = KYR_adv_g5

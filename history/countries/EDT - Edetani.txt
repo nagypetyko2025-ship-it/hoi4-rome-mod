@@ -32,3 +32,8 @@ oob = "EDT_245"
 set_naval_oob = "EDT_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = EDT_cmd_g0_arbiskar_tibaste
+# --- counsellors and war council (tools/government.py)
+recruit_character = EDT_adv_g1
+recruit_character = EDT_adv_g2
+recruit_character = EDT_adv_g3
+recruit_character = EDT_adv_g4

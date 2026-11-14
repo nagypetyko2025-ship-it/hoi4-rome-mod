@@ -32,3 +32,8 @@ oob = "SIC_245"
 set_naval_oob = "SIC_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = SIC_cmd_g0_papius_egnatius
+# --- counsellors and war council (tools/government.py)
+recruit_character = SIC_adv_g1
+recruit_character = SIC_adv_g2
+recruit_character = SIC_adv_g3
+recruit_character = SIC_adv_g4

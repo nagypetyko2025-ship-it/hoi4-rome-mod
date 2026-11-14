@@ -38,3 +38,10 @@ recruit_character = ATH_cmd_miltiades
 recruit_character = ATH_cmd_callimachus
 recruit_character = ATH_cmd_aristides
 recruit_character = ATH_cmd_themistocles
+# --- counsellors and war council (tools/government.py)
+recruit_character = ATH_adv_isagoras
+recruit_character = ATH_adv_xanthippus
+recruit_character = ATH_adv_phrynichus
+recruit_character = ATH_adv_antenor
+recruit_character = ATH_adv_g1
+recruit_character = ATH_adv_g2

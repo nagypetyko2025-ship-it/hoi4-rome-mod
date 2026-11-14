@@ -34,3 +34,8 @@ oob = "BLM_245"
 set_naval_oob = "BLM_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = BLM_cmd_g0_shabaka
+# --- counsellors and war council (tools/government.py)
+recruit_character = BLM_adv_g1
+recruit_character = BLM_adv_g2
+recruit_character = BLM_adv_g3
+recruit_character = BLM_adv_g4

@@ -34,3 +34,8 @@ oob = "POS_245"
 set_naval_oob = "POS_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = POS_cmd_g0_antiphemos
+# --- counsellors and war council (tools/government.py)
+recruit_character = POS_adv_xenophanes
+recruit_character = POS_adv_g1
+recruit_character = POS_adv_g2
+recruit_character = POS_adv_g3

@@ -33,3 +33,8 @@ oob = "NEU_245"
 set_naval_oob = "NEU_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = NEU_cmd_g0_skomantas
+# --- counsellors and war council (tools/government.py)
+recruit_character = NEU_adv_g1
+recruit_character = NEU_adv_g2
+recruit_character = NEU_adv_g3
+recruit_character = NEU_adv_g4

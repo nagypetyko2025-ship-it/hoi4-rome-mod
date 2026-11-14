@@ -36,3 +36,9 @@ set_naval_oob = "MKD_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = MKD_cmd_alexander
 recruit_character = MKD_cmd_g1_philistos
+# --- counsellors and war council (tools/government.py)
+recruit_character = MKD_adv_g1
+recruit_character = MKD_adv_g2
+recruit_character = MKD_adv_g3
+recruit_character = MKD_adv_g4
+recruit_character = MKD_adv_g5

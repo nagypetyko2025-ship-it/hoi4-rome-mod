@@ -34,3 +34,8 @@ oob = "CAP_245"
 set_naval_oob = "CAP_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = CAP_cmd_g0_thefarie_tarchna
+# --- counsellors and war council (tools/government.py)
+recruit_character = CAP_adv_g1
+recruit_character = CAP_adv_g2
+recruit_character = CAP_adv_g3
+recruit_character = CAP_adv_g4

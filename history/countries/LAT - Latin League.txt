@@ -35,3 +35,8 @@ oob = "LAT_245"
 set_naval_oob = "LAT_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = LAT_cmd_sextus
+# --- counsellors and war council (tools/government.py)
+recruit_character = LAT_adv_turnus
+recruit_character = LAT_adv_g1
+recruit_character = LAT_adv_g2
+recruit_character = LAT_adv_g3

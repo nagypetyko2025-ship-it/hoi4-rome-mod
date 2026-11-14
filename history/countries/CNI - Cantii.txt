@@ -32,3 +32,8 @@ oob = "CNI_245"
 set_naval_oob = "CNI_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = CNI_cmd_g0_congonnetiacus_kituios
+# --- counsellors and war council (tools/government.py)
+recruit_character = CNI_adv_g1
+recruit_character = CNI_adv_g2
+recruit_character = CNI_adv_g3
+recruit_character = CNI_adv_g4

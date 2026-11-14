@@ -32,3 +32,8 @@ oob = "AEQ_245"
 set_naval_oob = "AEQ_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = AEQ_cmd_g0_minatus
+# --- counsellors and war council (tools/government.py)
+recruit_character = AEQ_adv_g1
+recruit_character = AEQ_adv_g2
+recruit_character = AEQ_adv_g3
+recruit_character = AEQ_adv_g4

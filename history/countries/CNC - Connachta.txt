@@ -32,3 +32,8 @@ oob = "CNC_245"
 set_naval_oob = "CNC_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = CNC_cmd_g0_vertamocorus
+# --- counsellors and war council (tools/government.py)
+recruit_character = CNC_adv_g1
+recruit_character = CNC_adv_g2
+recruit_character = CNC_adv_g3
+recruit_character = CNC_adv_g4

@@ -32,3 +32,8 @@ oob = "BST_245"
 set_naval_oob = "BST_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = BST_cmd_g0_belagasikaur
+# --- counsellors and war council (tools/government.py)
+recruit_character = BST_adv_g1
+recruit_character = BST_adv_g2
+recruit_character = BST_adv_g3
+recruit_character = BST_adv_g4

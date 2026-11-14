@@ -32,3 +32,8 @@ oob = "QDR_245"
 set_naval_oob = "QDR_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = QDR_cmd_g0_yithaamar_khalil
+# --- counsellors and war council (tools/government.py)
+recruit_character = QDR_adv_g1
+recruit_character = QDR_adv_g2
+recruit_character = QDR_adv_g3
+recruit_character = QDR_adv_g4

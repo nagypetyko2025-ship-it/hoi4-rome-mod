@@ -865,3 +865,21 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   jön (nem csak a híres lelőhelyekből), Iránban visszafogva; új lelőhelyek Galliában, Britanniában, Germaniában,
   Itáliában (Bruttium, Temesa rézbányája), Hispániában, Makedóniában, Numídiában. Vas 27 → 207 államban,
   réz 18 → 103, szurok 14 → 65, ón 11 → 32; Perzsia részesedése a fémekből 23% → 20% (`TERRAIN` a resources.py-ban).
+
+## Huszonharmadik kör (2026-11-14, Claude) – tanácsadók, haditanács, ókori politikai képernyő
+- **Minden népnek tanácsadók** (`tools/government.py`, adatok: `tools/data/advisors_509bc.py`): 3 tanácsos
+  (politikai tanácsadó), hadsereg-főparancsnok (ha van hadserege), navarkhosz (ha van flottája), haditanácstagok
+  (nagy hadseregnél): 644 tanácsos, 213 főparancsnok, 26 navarkhosz, 8 haditanácstag. Saját, kis festett portrék.
+- **Valós személyek a valódi tevékenységükkel:** Menenius Agrippa (szónok), Horatius Pulvillus (főpap),
+  Spurius Cassius (földosztó), Appius Claudius (a klánok öregje), Isagoras (a kevesek vezére), Phrynichos (költő),
+  Antenor (szobrász-építő), Gorgo (titkok őrzője), Démokédész (orvos), Hekataiosz (földrajztudós), Parnakka
+  (kincstárnok), Hippiasz (száműzött türannosz), Hérakleitosz (filozófus), Szkülax (felfedező navarkhosz),
+  Püthagorasz és Alkmaión (Krotón), Xenophanész (Poszeidónia/Elea), Vulca (Veii), Turnus Herdonius (Latium),
+  Arisztodémosz (Küme), Gelón (Gela), és mások. A kitalált tanácsosok a nép saját névlistájából kapnak nevet;
+  a városias népeknek törvényhozó, kereskedő, filozófus, építő, a törzseknek öregek, papok (keltáknál druidák), jósok.
+- **A politikai képernyő ókori:** Laws & Councils, Crafts & Learning, War Council; Counsellor, Chief of the Army,
+  Navarch, Shipwrights, Armourers, Merchant House…; a 26 törvény ókori neve és leírása (pl. Levy of the Citizens,
+  Peace and Harvest, Customs at the Gates); saját ikonok a törvényekre, a helyekre és a szakaszokra (ugyanazokon az
+  elérési utakon, mint az alapjátékéi).
+- **Latin Culture** döntéskategória: a „Make <állam> Roman” itt van, a kezdettől elérhető.
+- Pipeline: … content.py, commanders.py, **government.py** (a commanders után: mindkettő a history-hoz ír), validate.py.

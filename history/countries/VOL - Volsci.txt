@@ -32,3 +32,8 @@ oob = "VOL_245"
 set_naval_oob = "VOL_245_naval"
 # --- commanders (tools/commanders.py)
 recruit_character = VOL_cmd_g0_maras_herennius
+# --- counsellors and war council (tools/government.py)
+recruit_character = VOL_adv_g1
+recruit_character = VOL_adv_g2
+recruit_character = VOL_adv_g3
+recruit_character = VOL_adv_g4
