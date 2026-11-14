@@ -3,6 +3,9 @@ state = {
 	name = "STATE_326"  # Eastern Dardania
 	manpower = 26200
 	state_category = rural
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = DRD
 		add_core_of = DRD

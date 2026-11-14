@@ -4,7 +4,10 @@ state = {
 	manpower = 79000
 	state_category = city
 	resources = {
+		aluminium = 1
+		oil = 1
 		rubber = 1
+		steel = 2
 	}
 	history = {
 		owner = PRS

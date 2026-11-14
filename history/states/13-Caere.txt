@@ -5,6 +5,7 @@ state = {
 	state_category = large_town
 	resources = {
 		coal = 1
+		steel = 3
 	}
 	history = {
 		owner = CAE

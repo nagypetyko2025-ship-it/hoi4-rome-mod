@@ -4,7 +4,8 @@ state = {
 	manpower = 9200
 	state_category = rural
 	resources = {
-		aluminium = 4
+		aluminium = 5
+		steel = 1
 	}
 	history = {
 		owner = QDR

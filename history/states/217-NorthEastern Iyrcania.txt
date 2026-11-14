@@ -4,7 +4,11 @@ state = {
 	manpower = 1600
 	state_category = pastoral
 	resources = {
+		aluminium = 1
+		oil = 1
 		rubber = 1
+		steel = 1
+		tungsten = 1
 	}
 	history = {
 		owner = IYR

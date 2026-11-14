@@ -4,7 +4,9 @@ state = {
 	manpower = 20000
 	state_category = rural
 	resources = {
+		oil = 1
 		rubber = 1
+		steel = 1
 	}
 	history = {
 		owner = AEQ

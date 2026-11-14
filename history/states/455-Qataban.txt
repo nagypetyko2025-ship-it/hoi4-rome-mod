@@ -3,6 +3,10 @@ state = {
 	name = "STATE_455"  # Qataban
 	manpower = 100000
 	state_category = large_town
+	resources = {
+		aluminium = 1
+		steel = 1
+	}
 	history = {
 		owner = QTB
 		add_core_of = QTB

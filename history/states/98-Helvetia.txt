@@ -3,6 +3,10 @@ state = {
 	name = "STATE_98"  # Helvetia
 	manpower = 73200
 	state_category = large_town
+	resources = {
+		aluminium = 1
+		steel = 1
+	}
 	history = {
 		owner = HLV
 		add_core_of = HLV

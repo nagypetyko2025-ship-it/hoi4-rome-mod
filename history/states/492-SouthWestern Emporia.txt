@@ -3,6 +3,9 @@ state = {
 	name = "STATE_492"  # South-Western Emporia
 	manpower = 9700
 	state_category = rural
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = CAR
 		add_core_of = CAR

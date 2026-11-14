@@ -3,6 +3,9 @@ state = {
 	name = "STATE_2"  # Latium Vetus
 	manpower = 70000
 	state_category = city
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = LAT
 		add_core_of = LAT

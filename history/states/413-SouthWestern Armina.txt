@@ -8,6 +8,7 @@ state = {
 		chromium = 1
 		coal = 4
 		rubber = 1
+		tungsten = 1
 	}
 	history = {
 		owner = PRS

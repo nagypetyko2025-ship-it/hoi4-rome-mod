@@ -3,6 +3,11 @@ state = {
 	name = "STATE_512"  # South-Western D'mt
 	manpower = 8900
 	state_category = rural
+	resources = {
+		aluminium = 1
+		oil = 1
+		steel = 1
+	}
 	history = {
 		owner = DMT
 		add_core_of = DMT

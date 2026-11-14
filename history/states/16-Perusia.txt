@@ -3,6 +3,9 @@ state = {
 	name = "STATE_16"  # Perusia
 	manpower = 20000
 	state_category = town
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = CLU
 		add_core_of = CLU

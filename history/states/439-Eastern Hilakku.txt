@@ -3,6 +3,9 @@ state = {
 	name = "STATE_439"  # Eastern Hilakku
 	manpower = 6400
 	state_category = rural
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = KIL
 		add_core_of = KIL

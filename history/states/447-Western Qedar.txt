@@ -5,6 +5,7 @@ state = {
 	state_category = rural
 	resources = {
 		aluminium = 8
+		steel = 1
 	}
 	history = {
 		owner = QDR

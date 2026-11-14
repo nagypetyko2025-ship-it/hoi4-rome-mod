@@ -3,6 +3,9 @@ state = {
 	name = "STATE_369"  # North-Eastern Ebir-Nari
 	manpower = 23300
 	state_category = town
+	resources = {
+		aluminium = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

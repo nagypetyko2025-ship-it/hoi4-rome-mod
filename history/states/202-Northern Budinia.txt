@@ -6,6 +6,7 @@ state = {
 	resources = {
 		chromium = 1
 		rubber = 2
+		steel = 1
 	}
 	history = {
 		owner = BUD

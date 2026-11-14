@@ -3,6 +3,9 @@ state = {
 	name = "STATE_531"  # Laietania
 	manpower = 60000
 	state_category = large_town
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = LAY
 		add_core_of = LAY

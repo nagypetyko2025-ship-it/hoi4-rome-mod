@@ -7,6 +7,8 @@ state = {
 		chromium = 1
 		coal = 1
 		rubber = 2
+		steel = 1
+		tungsten = 1
 	}
 	history = {
 		owner = LUG

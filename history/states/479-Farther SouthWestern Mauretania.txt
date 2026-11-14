@@ -3,6 +3,10 @@ state = {
 	name = "STATE_479"  # Farther South-Western Mauretania
 	manpower = 8800
 	state_category = rural
+	resources = {
+		steel = 1
+		tungsten = 1
+	}
 	history = {
 		owner = MAU
 		add_core_of = MAU

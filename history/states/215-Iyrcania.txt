@@ -6,7 +6,9 @@ state = {
 	resources = {
 		chromium = 1
 		coal = 2
+		oil = 1
 		rubber = 2
+		steel = 1
 	}
 	history = {
 		owner = IYR

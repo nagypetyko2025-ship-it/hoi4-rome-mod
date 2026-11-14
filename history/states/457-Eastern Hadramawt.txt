@@ -3,6 +3,9 @@ state = {
 	name = "STATE_457"  # Eastern Hadramawt
 	manpower = 10200
 	state_category = rural
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = HDR
 		add_core_of = HDR

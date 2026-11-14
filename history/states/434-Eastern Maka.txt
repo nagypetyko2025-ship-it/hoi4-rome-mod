@@ -3,6 +3,9 @@ state = {
 	name = "STATE_434"  # Eastern Maka
 	manpower = 5900
 	state_category = rural
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

@@ -5,6 +5,7 @@ state = {
 	state_category = town
 	resources = {
 		coal = 1
+		tungsten = 1
 	}
 	history = {
 		owner = CAR

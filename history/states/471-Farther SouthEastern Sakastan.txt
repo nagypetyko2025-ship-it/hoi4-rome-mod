@@ -3,6 +3,9 @@ state = {
 	name = "STATE_471"  # Farther South-Eastern Sakastan
 	manpower = 1000
 	state_category = pastoral
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = SAK
 		add_core_of = SAK

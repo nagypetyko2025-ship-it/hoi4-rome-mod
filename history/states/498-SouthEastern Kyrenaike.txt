@@ -3,6 +3,9 @@ state = {
 	name = "STATE_498"  # South-Eastern Kyrenaike
 	manpower = 12100
 	state_category = rural
+	resources = {
+		aluminium = 1
+	}
 	history = {
 		owner = KYR
 		add_core_of = KYR

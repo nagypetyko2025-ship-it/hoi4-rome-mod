@@ -6,7 +6,7 @@ state = {
 	resources = {
 		chromium = 1
 		coal = 1
-		steel = 9
+		steel = 10
 	}
 	history = {
 		owner = AGA

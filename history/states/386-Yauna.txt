@@ -3,6 +3,9 @@ state = {
 	name = "STATE_386"  # Yauna
 	manpower = 250000
 	state_category = large_city
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

@@ -4,6 +4,7 @@ state = {
 	manpower = 1100
 	state_category = pastoral
 	resources = {
+		aluminium = 1
 		rubber = 1
 	}
 	history = {

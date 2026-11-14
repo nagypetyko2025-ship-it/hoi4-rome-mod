@@ -64,6 +64,10 @@ DEPOSITS = {
         (33.75, 16.9, 6, "Meroe"), (57.0, 30.3, 3, "Carmania"), (68.0, 36.5, 3, "Bactria"),
         (24.5, 41.8, 2, "the Rhodope"), (-1.5, 47.3, 2, "Armorica"), (30.0, 52.0, 2, "the Neuri"),
         (11.5, 57.5, 2, "Scandia"), (9.2, 33.9, 1, "the Djerid"), (-8.0, 40.5, 2, "Lusitania"),
+        (6.2, 48.7, 3, "Lorraine"), (-2.6, 51.8, 2, "the Forest of Dean"), (10.6, 51.8, 2, "the Harz"),
+        (10.2, 45.7, 2, "the Alpine valleys of the Cenomani"), (-1.8, 41.8, 3, "Moncayo"), (22.0, 41.0, 2, "Macedonia"),
+        (16.1, 39.1, 1, "Bruttium"), (12.5, 42.4, 1, "the Sabine hills"), (5.5, 44.5, 2, "the Allobroges"),
+        (-4.0, 56.5, 1, "Caledonia"), (2.0, 36.5, 1, "the Atlas of the Mauri"),
     ],
     "aluminium": [
         (33.0, 35.0, 10, "Cyprus"), (-6.6, 37.7, 8, "Tartessos"), (35.4, 30.6, 5, "Faynan and Timna"),
@@ -72,11 +76,14 @@ DEPOSITS = {
         (13.1, 47.4, 3, "the Eastern Alps"), (-3.85, 53.3, 2, "the Great Orme"), (25.7, 42.4, 2, "Thrace"),
         (53.7, 33.3, 4, "Anarak"), (33.6, 26.0, 2, "the Eastern Desert"), (33.7, 28.9, 3, "the Sinai"),
         (22.2, 44.4, 3, "Moesia"), (-8.0, 37.9, 2, "Lusitania"), (60.5, 36.0, 2, "Parthia"),
+        (16.1, 39.1, 3, "Temesa in Bruttium"), (-0.5, 42.6, 2, "the Pyrenees"), (11.0, 46.5, 2, "the Raetian Alps"),
+        (24.0, 41.4, 2, "the Rhodope"), (-1.0, 37.6, 2, "Carthago Nova"), (7.0, 36.8, 1, "Numidia"),
     ],
     "tungsten": [
         (-5.2, 50.3, 9, "Belerion"), (-8.0, 42.5, 7, "the Cassiterides of Gallaecia"), (-3.3, 47.9, 3, "Armorica"),
         (13.0, 50.5, 4, "the Ore Mountains"), (10.6, 43.05, 2, "Campiglia in Etruria"), (34.6, 37.5, 2, "Kestel"),
         (19.5, 44.6, 1, "Mount Cer"), (34.0, 25.0, 1, "the Eastern Desert"), (66.5, 35.0, 4, "Bactria"),
+        (-2.0, 47.3, 2, "the Loire mouth"), (-6.8, 41.5, 2, "the Durius valley"), (8.8, 39.5, 1, "Sardinia"),
         (67.5, 39.5, 3, "Sogdiana"), (49.0, 33.5, 1, "Media"),
     ],
     "oil": [
@@ -116,6 +123,13 @@ TERRAIN = {
     "rubber": ({"forest": 1.0, "jungle": 0.6, "hills": 0.25, "mountain": 0.12}, 300, []),
     "chromium": ({"plains": 1.0, "hills": 0.2, "desert": 0.08}, 170, [(STEPPE, 3.0), (IRAN, 1.6)]),
     "coal": ({"plains": 1.0, "urban": 1.5, "hills": 0.3, "marsh": 0.2}, 320, [(NORTH, 0.25)]),
+    # round 22 (Peti: "too few resources, and what there is sits in Persia"): every hill country digs a little
+    # iron and copper, every pine forest boils some pitch - on top of the famous sources above. Iran's huge states
+    # get less of it, so the new metal goes to Europe, Anatolia and Africa.
+    "steel": ({"mountain": 1.0, "hills": 0.6, "forest": 0.15}, 75, [(IRAN, 0.4), (NORTH, 0.6)]),
+    "aluminium": ({"mountain": 1.0, "hills": 0.4}, 55, [(IRAN, 0.4), (NORTH, 0.4)]),
+    "oil": ({"forest": 0.7, "mountain": 0.3, "hills": 0.15}, 60, [(IRAN, 0.4)]),
+    "tungsten": ({"mountain": 0.4, "hills": 0.1}, 18, [(IRAN, 0.4)]),
 }
 SCALE = {"steel": 2.4, "aluminium": 1.5, "tungsten": 1.2, "oil": 1.0, "rubber": 1.0, "chromium": 1.0, "coal": 1.0}
 CAP = 24          # no state gets more than this of one resource

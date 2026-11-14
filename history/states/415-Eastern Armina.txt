@@ -3,6 +3,10 @@ state = {
 	name = "STATE_415"  # Eastern Armina
 	manpower = 9900
 	state_category = rural
+	resources = {
+		aluminium = 1
+		steel = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS

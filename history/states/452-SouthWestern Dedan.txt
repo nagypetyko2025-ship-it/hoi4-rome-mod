@@ -3,6 +3,10 @@ state = {
 	name = "STATE_452"  # South-Western Dedan
 	manpower = 13000
 	state_category = rural
+	resources = {
+		aluminium = 1
+		steel = 1
+	}
 	history = {
 		owner = DDN
 		add_core_of = DDN

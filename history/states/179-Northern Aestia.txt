@@ -5,6 +5,7 @@ state = {
 	state_category = pastoral
 	resources = {
 		rubber = 2
+		steel = 1
 	}
 	history = {
 		owner = AES

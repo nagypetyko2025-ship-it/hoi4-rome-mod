@@ -6,6 +6,7 @@ state = {
 	resources = {
 		coal = 1
 		rubber = 3
+		steel = 1
 	}
 	history = {
 		owner = FNN

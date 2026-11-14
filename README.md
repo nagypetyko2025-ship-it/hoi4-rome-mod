@@ -861,3 +861,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - **Utak 10 szinten:** a felső határ 5 helyett 10 (buildings.py), egy szint hatása feleakkora (nyersanyag 7,5%,
   ellátás 0,15, mozgás −2,5% hiányzó szintenként – `zz_ante_imperium.lua`), a kezdő szintek duplázva (world.py
   `INFRA_SCALE`), így a térkép ugyanolyan jó, csak finomabb lépésekben épül.
+- **Több nyersanyag, szélesebben:** a vas, a réz, az ón és a szurok mostantól a hegyekből, dombokból és erdőkből is
+  jön (nem csak a híres lelőhelyekből), Iránban visszafogva; új lelőhelyek Galliában, Britanniában, Germaniában,
+  Itáliában (Bruttium, Temesa rézbányája), Hispániában, Makedóniában, Numídiában. Vas 27 → 207 államban,
+  réz 18 → 103, szurok 14 → 65, ón 11 → 32; Perzsia részesedése a fémekből 23% → 20% (`TERRAIN` a resources.py-ban).

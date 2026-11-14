@@ -3,6 +3,9 @@ state = {
 	name = "STATE_75"  # Southern Sequania
 	manpower = 21500
 	state_category = rural
+	resources = {
+		oil = 1
+	}
 	history = {
 		owner = SEQ
 		add_core_of = SEQ

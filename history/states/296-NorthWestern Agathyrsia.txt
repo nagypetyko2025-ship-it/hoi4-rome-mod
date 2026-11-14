@@ -3,6 +3,10 @@ state = {
 	name = "STATE_296"  # North-Western Agathyrsia
 	manpower = 14700
 	state_category = rural
+	resources = {
+		oil = 1
+		steel = 1
+	}
 	history = {
 		owner = AGA
 		add_core_of = AGA

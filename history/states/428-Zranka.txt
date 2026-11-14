@@ -3,6 +3,9 @@ state = {
 	name = "STATE_428"  # Zranka
 	manpower = 80000
 	state_category = city
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = PRS
 		add_core_of = PRS
