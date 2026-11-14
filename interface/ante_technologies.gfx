@@ -66,4 +66,5 @@ spriteTypes = {
 	spriteType = { name = "GFX_ante_mining_medium" texturefile = "gfx/interface/technologies/ante_mining.dds" }
 	spriteType = { name = "GFX_ante_water_mills_medium" texturefile = "gfx/interface/technologies/ante_water_mills.dds" }
 	spriteType = { name = "GFX_ante_coinage_medium" texturefile = "gfx/interface/technologies/ante_coinage.dds" }
+	spriteType = { name = "GFX_ante_blank" texturefile = "gfx/interface/technologies/ante_blank.dds" }
 }

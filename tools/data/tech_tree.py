@@ -162,6 +162,25 @@ TECHS = [
      IND, 8, 305, [], "production_speed_buildings_factor = 0.05\npolitical_power_gain = 0.05", "coin", 1),
 ]
 
+# the headings of the lanes on every page (lane = the x of the techs above): they replace the base game's
+# "WEAPONS & EQUIPMENT", "LIGHT", "ANTI-AIR", "DESTROYERS" ... captions (tools/tech.py)
+LANES = {
+    INF: {0: "Blades", 2: "Armour", 4: "Bows and Slings", 6: "Drill and Order of Battle"},
+    SUP: {0: "Baggage and Roads", 2: "Scouts and Spies", 4: "Camp and Surgeon"},
+    ARM: {0: "Horses", 2: "Chariots", 4: "Riders", 6: "Elephants"},
+    ART: {0: "Engines", 2: "Walls"},
+    NAV: {0: "Oared Warships", 2: "Harbours"},
+    LRN: {0: "Letters", 2: "Natural Philosophy", 4: "Medicine", 6: "Law and Oratory"},
+    IND: {0: "Metalwork", 2: "Building", 4: "Farming", 6: "Mining", 8: "Coin"},
+}
+# glyph on the page tabs (tools/tech.py draws them over the game's tab frames)
+TABS = {INF: "helmet", SUP: "wheel", ARM: "horse", ART: "catapult", NAV: "ship", LRN: "scroll", IND: "anvil"}
+# base-game equipment that the ancient tree still uses: its name shown in the tech box
+EQUIPMENT_NAMES = {   # key: (name, description)
+    "train_equipment": ("Baggage Train", "Mules, donkeys and ox-carts carry the grain from the depots to the army."),
+    "train_equipment_1": ("Mules and Carts", "Pack animals and heavy ox-carts: slow, but they carry what the army eats."),
+}
+
 # researched at the start by everybody / by the peoples with cities and writing (world.py, culture "names" key)
 START = ["ante_bronze_weapons", "ante_bronze_armour", "ante_simple_bows", "ante_pack_animals", "ante_riding",
          "ante_chariotry", "ante_rams_and_ladders", "ante_seafaring", "ante_bronze_casting"]

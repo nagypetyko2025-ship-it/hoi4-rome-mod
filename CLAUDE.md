@@ -83,6 +83,14 @@
   names for every country.
 - STATUS 2026-11-13 (round 9): verified IN THE GAME (1.19.5): the world of 509 BC shows in full colour when the game
   is started through the menu or with `-Continue`; day/night fixed; `docs/screenshots/20261113_round9_*.jpg`.
+- Tech screen (tools/tech.py writes a copy of the game's interface/countrytechtreeview.gui): never DELETE elements of
+  that file - the game looks some up by name and then does not open the research screen at all; blank them (empty
+  sprite `GFX_ante_blank`, empty text, position -9000). A tech that enables equipment gets the big box (icon centred),
+  every other one the small 72x72 box (icon's corner at 3,3: icons must be 64x64). A grid box with a size lays its
+  tree out from its MIDDLE. Lane headings, tab glyphs and icon sizes: `LANES`, `TABS` in tools/data/tech_tree.py.
+- Testing in the game on Sim's machine (2026-11-14): the game ignores SendKeys - only hardware scan codes reach it
+  (keybd_event with the scan code). Entering the tech tree needs a mouse click on a research slot (ask Sim; mouse
+  scripts are blocked by Windows Defender and must not be worked around). Pages: keys 1-7 once the tree is open.
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after

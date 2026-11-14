@@ -749,3 +749,21 @@ Menüből indítva (gyorsindítás nélkül) minden ország színes, Róma zász
   másolja őket (`ANCHOR`). A függőleges oldalakon (ló, ostrom, tudás, mesterség) a nagy dobozok 3 rácsegységre
   kerültek (egymásba lógtak). **Egyensúly:** a fa 245–365 AUC közé sűrítve (a 40 éves sorközök miatt az elején alig
   lehetett kutatni), 1 kutatási pont = 180 nap, évenkénti előrekutatási büntetés 5%.
+
+## Tizennyolcadik kör (2026-11-14, Claude) – a technológiafa finomítása, játékban ellenőrizve
+Képek: `docs/screenshots/20261114_techtree_*.jpg` (Sim gépén, 1.19.5).
+- **Ókori kategóriacímek** a sávok fölött a modern „WEAPONS & EQUIPMENT”, „MOBILE INFANTRY”, „LIGHT”, „ANTI-AIR”,
+  „DESTROYERS”, „SYNTHETIC OIL” … helyett: Blades, Armour, Bows and Slings, Drill and Order of Battle; Baggage and Roads,
+  Scouts and Spies, Camp and Surgeon; Horses, Chariots, Riders, Elephants; Engines, Walls; Oared Warships, Harbours;
+  Letters, Natural Philosophy, Medicine, Law and Oratory; Metalwork, Building, Farming, Mining, Coin
+  (`LANES` a `tools/data/tech_tree.py`-ban). A „Civilian Train” felszerelés neve „Mules and Carts”.
+- **Kikerült, ami nem odaillő:** a háttérfotók (katonák, rádiós, tankok, ágyú, tengeralattjáró, gyár), a támogatás oldal
+  üres „Trains” keretei, a Tudomány oldal második (az alapjáték csodafegyver-fájához tartozó) évszám-oszlopa, és a
+  lapfülek modern ikonjai – helyettük sisak, kerék, ló, katapult, gálya, tekercs, üllő (`TABS`, a játék keretére festve).
+  A rejtett oldalak lapfülei utáni rés is eltűnt.
+- **Ikonok középen, semmi nem lóg ki:** a kis dobozban (72×72) a játék a bal felső sarokhoz (3,3) igazítja az ikont, a
+  nagyban középre. Eddig minden ikon 109×30-as vagy 61×54-es volt; most a kis dobozokba 64×64-es, a nagyokba
+  oldalanként méretezett kép kerül (`tech_icon` a `tools/tech.py`-ban).
+- Tanulság: a felület elemeit **nem szabad törölni** (a játék név szerint keresi őket, és törlés után meg sem nyitja a
+  kutatási képernyőt) – a tech.py üres képre, üres feliratra cseréli vagy a képernyőn kívülre tolja őket. Egy méretezett
+  rácsdoboz a fáját a saját **közepéhez** igazítja (ezért áll a ló- és ostromfa a képernyő közepén).

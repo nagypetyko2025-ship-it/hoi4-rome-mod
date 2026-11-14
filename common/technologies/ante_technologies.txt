@@ -704,7 +704,7 @@ technologies = {
 		start_year = 280
 		folder = {
 			name = electronics_folder
-			position = { x = 3 y = 6 }
+			position = { x = 4 y = 6 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -720,7 +720,7 @@ technologies = {
 		start_year = 320
 		folder = {
 			name = electronics_folder
-			position = { x = 3 y = 14 }
+			position = { x = 4 y = 14 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -731,7 +731,7 @@ technologies = {
 		start_year = 345
 		folder = {
 			name = electronics_folder
-			position = { x = 3 y = 18 }
+			position = { x = 4 y = 18 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -746,7 +746,7 @@ technologies = {
 		start_year = 290
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 8 }
+			position = { x = 8 y = 8 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -758,7 +758,7 @@ technologies = {
 		start_year = 330
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 16 }
+			position = { x = 8 y = 16 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -773,7 +773,7 @@ technologies = {
 		start_year = 265
 		folder = {
 			name = electronics_folder
-			position = { x = 9 y = 4 }
+			position = { x = 12 y = 4 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }
@@ -784,7 +784,7 @@ technologies = {
 		start_year = 300
 		folder = {
 			name = electronics_folder
-			position = { x = 9 y = 10 }
+			position = { x = 12 y = 10 }
 		}
 		categories = { electronics }
 		ai_will_do = { factor = 1 }

@@ -62,7 +62,7 @@ guiTypes = {
 
 				iconType = {
 					name ="infantry_techtree_bg"
-					spriteType = "GFX_infantry_techtree_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=0 y=0 }
 					alwaystransparent = yes
 				}
@@ -73,7 +73,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "INFANTRY_TITLE_WEAPONS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -86,7 +86,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "INFANTRY_TITLE_SPECIAL"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -99,7 +99,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "INFANTRY_TITLE_MOTORISED"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -241,6 +241,56 @@ guiTypes = {
 			}
 
 
+			containerWindowType = {
+				name = "ante_infantry_folder_lanes"
+				position = { x = 140 y = 210 }
+				size = { width = 0 height = 0 }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = 0 y = -67 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INFANTRY_FOLDER_0"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 0 y = 73 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INFANTRY_FOLDER_2"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+				instantTextBoxType = {
+					name = "ante_lane_4"
+					position = { x = 0 y = 213 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INFANTRY_FOLDER_4"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+				instantTextBoxType = {
+					name = "ante_lane_6"
+					position = { x = 0 y = 353 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INFANTRY_FOLDER_6"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+			}
 			gridboxtype = {
 				name = "ante_bronze_weapons_tree"
 				position = { x = 140 y = 210 }
@@ -369,7 +419,7 @@ guiTypes = {
 
 				iconType = {
 					name ="infantry_techtree_bg"
-					spriteType = "GFX_support_techtree_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=0 y=0 }
 					alwaystransparent = yes
 				}
@@ -512,7 +562,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "SUPPORT_TITLE_TRAINS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -523,7 +573,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "tiled_research_bg"
-				position = { x=150 y=720 }
+				position = { x = -9000 y = -9000 }
 				size = { width = 1340 height = 550 }
 				clipping = no
 
@@ -535,7 +585,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "tiled_research_bg_2"
-				position = { x=160 y=1075 }
+				position = { x = -9000 y = -9000 }
 				size = { width = 1320 height = 190 }
 				clipping = no
 
@@ -545,6 +595,45 @@ guiTypes = {
 				}
 			}
 
+			containerWindowType = {
+				name = "ante_support_folder_lanes"
+				position = { x = 100 y = 160 }
+				size = { width = 0 height = 0 }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = 0 y = -67 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_SUPPORT_FOLDER_0"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 0 y = 73 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_SUPPORT_FOLDER_2"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+				instantTextBoxType = {
+					name = "ante_lane_4"
+					position = { x = 0 y = 213 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_SUPPORT_FOLDER_4"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+			}
 			gridboxtype = {
 				name = "ante_pack_animals_tree"
 				position = { x = 100 y = 160 }
@@ -622,7 +711,7 @@ guiTypes = {
 
 				iconType = {
 					name ="armortech_bg"
-					spriteType = "GFX_armortech_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=0 y=0 }
 					alwaystransparent = yes
 				}
@@ -826,7 +915,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_HEAVY"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -839,7 +928,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_MEDIUM"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -852,7 +941,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_LIGHT"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -864,7 +953,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_AMPH"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -873,6 +962,56 @@ guiTypes = {
 			}
 
 
+			containerWindowType = {
+				name = "ante_armour_folder_lanes"
+				position = { x = 10% y = 172 }
+				size = { width = 80% height = 80% }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = -100 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ARMOUR_FOLDER_0"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 110 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ARMOUR_FOLDER_2"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_4"
+					position = { x = 320 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ARMOUR_FOLDER_4"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_6"
+					position = { x = 530 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ARMOUR_FOLDER_6"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+			}
 			gridboxtype = {
 				name = "ante_riding_tree"
 				position = { x = 10% y = 172 }
@@ -1247,7 +1386,7 @@ guiTypes = {
 
 				iconType = {
 					name = "artillery_techtree_bg"
-					spriteType = "GFX_artillery_techtree_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=0 y=0 }
 					alwaystransparent = yes
 				}
@@ -1265,7 +1404,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERY_TITLE_ROCKET"
+						text = ""
 						maxWidth = 210
 						maxHeight = 22
 						format = center
@@ -1278,7 +1417,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERY_TITLE_AT"
+						text = ""
 						maxWidth = 290
 						maxHeight = 62
 						format = center
@@ -1291,7 +1430,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERY_TITLE"
+						text = ""
 						maxWidth = 400
 						maxHeight = 62
 						format = center
@@ -1304,7 +1443,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERT_TITLE_AA"
+						text = ""
 						maxWidth = 200
 						maxHeight = 62
 						format = center
@@ -1561,6 +1700,34 @@ guiTypes = {
 				}
 			}
 
+			containerWindowType = {
+				name = "ante_artillery_folder_lanes"
+				position = { x = 300 y = 172 }
+				size = { width = 80% height = 80% }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = -100 y = 32 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ARTILLERY_FOLDER_0"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 110 y = 32 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ARTILLERY_FOLDER_2"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+			}
 			gridboxtype = {
 				name = "ante_rams_and_ladders_tree"
 				position = { x = 300 y = 172 }
@@ -1601,7 +1768,7 @@ guiTypes = {
 
 			iconType = {
 				name ="naval_techtree_bg"
-				spriteType = "GFX_naval_techtree_bg"
+				spriteType = "GFX_ante_blank"
 				position = { x=0 y=0 }
 			}
 
@@ -1663,7 +1830,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_DESTROYERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1677,7 +1844,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CRUISERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1691,7 +1858,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_BATTLECRUISERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1705,7 +1872,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_BATTLESHIPS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1719,7 +1886,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CARRIERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1733,7 +1900,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_SUBMARINES"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1747,7 +1914,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_TRANSPORTS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1769,6 +1936,34 @@ guiTypes = {
 				}
 			}
 
+			containerWindowType = {
+				name = "ante_naval_folder_lanes"
+				position = { x = 150 y = 60}
+				size = { width = 100 height = 140 }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = 0 y = 13 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_NAVAL_FOLDER_0"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 0 y = 153 }
+					orientation = upper_left
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_NAVAL_FOLDER_2"
+					maxWidth = 500
+					maxHeight = 26
+					format = left
+				}
+			}
 			gridboxtype = {
 				name = "ante_seafaring_tree"
 				position = { x = 150 y = 60}
@@ -3094,7 +3289,7 @@ guiTypes = {
 
 				iconType = {
 					name ="GFX_industry_techtree_bg"
-					spriteType = "GFX_industry_techtree_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=0 y=0 }
 				}
 
@@ -3306,7 +3501,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -3319,7 +3514,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE_PRODUCTION"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -3332,7 +3527,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE_OIL"
+					text = ""
 					maxWidth = 150
 					maxHeight = 62
 					format = center
@@ -3345,13 +3540,74 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE_CONSTRUCTION"
+					text = ""
 					maxWidth = 250
 					maxHeight = 62
 					format = center
 					Orientation = "UPPER_LEFT"
 				}
 
+			containerWindowType = {
+				name = "ante_industry_folder_lanes"
+				position = { x = 0 y = 172 }
+				size = { width = 520 height = 800 }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = -100 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INDUSTRY_FOLDER_0"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 110 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INDUSTRY_FOLDER_2"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_4"
+					position = { x = 320 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INDUSTRY_FOLDER_4"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_6"
+					position = { x = 530 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INDUSTRY_FOLDER_6"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_8"
+					position = { x = 740 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INDUSTRY_FOLDER_8"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+			}
 			gridboxtype = {
 				name = "ante_bronze_casting_tree"
 				position = { x = 0 y = 172 }
@@ -3446,13 +3702,13 @@ guiTypes = {
 
 				iconType = {
 					name ="engineering_techtree_bg"
-					spriteType = "GFX_engineering_techtree_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=0 y=0 }
 				}
 
 				iconType = {
 					name ="wonderweapons_bg"
-					spriteType = "GFX_wonderweapons_bg"
+					spriteType = "GFX_ante_blank"
 					position = { x=915 y=0 }
 					alwaystransparent = yes
 				}
@@ -3461,7 +3717,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "wonderweapon_year"
-				position = { x=950 y=40 }
+				position = { x = -9000 y = -9000 }
 				size = { width = 130 height = 100% }
 				orientation = upper_left
 
@@ -3753,7 +4009,7 @@ guiTypes = {
 					position = { x = 190 y = 100 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_ELECTRONIC_SUBTITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 122
 					format = center
@@ -3765,7 +4021,7 @@ guiTypes = {
 					position = { x = 670 y = 100 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_FORTIFICATION_SUBTITLE"
+					text = ""
 					maxWidth = 250
 					maxHeight = 122
 					format = center
@@ -3777,7 +4033,7 @@ guiTypes = {
 					position = { x = 1200 y = 230 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_EXP_ROCKETS_SUBTITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 122
 					format = center
@@ -3789,13 +4045,63 @@ guiTypes = {
 					position = { x = 1000 y = 100 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_ATOMIC_RESEARCH_SUBTITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 122
 					format = center
 					Orientation = "UPPER_LEFT"
 				}
 
+			containerWindowType = {
+				name = "ante_electronics_folder_lanes"
+				position = { x=0 y=172 }
+				size = { width = 680 height = 800 }
+				clipping = no
+				instantTextBoxType = {
+					name = "ante_lane_0"
+					position = { x = -100 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ELECTRONICS_FOLDER_0"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_2"
+					position = { x = 140 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ELECTRONICS_FOLDER_2"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_4"
+					position = { x = 380 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ELECTRONICS_FOLDER_4"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+				instantTextBoxType = {
+					name = "ante_lane_6"
+					position = { x = 620 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_ELECTRONICS_FOLDER_6"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
+			}
 			gridboxtype = {
 				name = "ante_writing_tree"
 				position = { x=0 y=172 }
@@ -3959,7 +4265,7 @@ guiTypes = {
 				clicksound = ui_research_tab_air
 			}
 			buttonType = {
-				position = { x = 645 y = 0 }
+				position = { x = 467 y = 0 }
 				name = "electronics_folder_tab"
 				quadTextureSprite = "GFX_techtree_engineering_tab"
 				frame = 1
@@ -3969,13 +4275,13 @@ guiTypes = {
 			iconType = {
 				name = "highlight_engineering_folder"
 				spriteType = "GFX_tutorial_research_folder_icon_glow"
-				position = { x=645 y=0}
+				position = { x = 467 y=0}
 				hide = yes
 				alwaystransparent = yes
 			}
 
 			buttonType = {
-				position = { x = 734 y = 0 }
+				position = { x = 556 y = 0 }
 				name = "industry_folder_tab"
 				quadTextureSprite = "GFX_industry_folder_tab"
 				frame = 1
@@ -3985,7 +4291,7 @@ guiTypes = {
 			iconType = {
 				name = "highlight_industry_folder"
 				spriteType = "GFX_tutorial_research_folder_icon_glow"
-				position = { x=734 y=0}
+				position = { x = 556 y=0}
 				hide = yes
 				alwaystransparent = yes
 			}
@@ -4697,8 +5003,8 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "techtree_armour_folder_small_item"
-		position = { x=0 y=0 }
-		size = { width = 72 height = 72 }
+		position = { x=-55 y=0 }
+		size = { width = 183 height = 84 }
 		clipping = no
 
 		background = {
@@ -4713,7 +5019,8 @@ guiTypes = {
 
 		iconType = {
 			name = "Icon"
-			position = { x=3 y=3 }
+			position = { x=74 y=50 }
+			centerposition = yes
 			spriteType = "GFX_technology_medium"
 			alwaystransparent = yes
 		}
