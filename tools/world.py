@@ -953,7 +953,7 @@ def write_world(M, C, states):
         colors_txt += [f"{tag} = {{", f"\tcolor = rgb {{ {r} {g} {b} }}",
                        f"\tcolor_ui = rgb {{ {ui[0]} {ui[1]} {ui[2]} }}", "}"]
         ide = GOV_IDEOLOGY[c["gov"]]
-        hist = [f"capital = {capital[tag]}", "set_research_slots = 2", "set_stability = 0.6", "set_war_support = 0.3",
+        hist = [f"capital = {capital[tag]}", f"set_research_slots = {0 if tag == 'WLD' else 2}", "set_stability = 0.6", "set_war_support = 0.3",
                 "", "set_politics = {", f"\truling_party = {ide}", '\tlast_election = "240.1.1"',
                 "\telection_frequency = 12", f"\telections_allowed = {'yes' if ide == 'democratic' else 'no'}", "}",
                 "set_popularities = {"] + [f"\t{k} = {100 if k == ide else 0}" for k in

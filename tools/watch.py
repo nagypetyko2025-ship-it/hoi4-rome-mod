@@ -31,6 +31,8 @@ OUT = MOD / "docs" / "session_logs"
 PATH_RE = re.compile(r"((?:common|events|history|interface|gfx|localisation|map|portraits|music|sound|tutorial)"
                      r"/[\w/.\- ]+?\.(?:txt|gui|gfx|yml|csv|lua|dds|tga|png|asset|bmp|fxh))")
 STAMP_RE = re.compile(r"^\[(\d\d:\d\d:\d\d)\]\[([^\]]*)\]:\s*")
+BASE_COPIES = ("common/doctrines/", "common/wargoals/", "common/buildings/00_buildings.txt",
+               "common/technology_tags/", "interface/countrytechtreeview.gui")
 WATCH_TAGS = {"ROM", "ATH", "LAK", "MKD", "PRS", "CAR"}   # the countries with a focus tree of their own
 OURS_RE = re.compile(r"\bante_|\bANTE_|\bROM_|_cmd_|\bante\b")
 
@@ -113,7 +115,8 @@ class Session:
         msg = line[m.end():] if m else line
         phase = "load" if (not gdate or gdate == "no_game_date") else "play"
         paths = PATH_RE.findall(msg)
-        ours = any((MOD / p).exists() for p in paths)
+        # copies of base-game files (tools/tech.py, ai.py, buildings.py) keep the base game's own complaints: not ours
+        ours = any((MOD / p).exists() and not p.startswith(BASE_COPIES) for p in paths)
         key = re.sub(r"\d+", "#", msg)[:300]
         if ours:
             bucket = self.mod_errors

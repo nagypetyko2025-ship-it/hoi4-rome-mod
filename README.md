@@ -935,3 +935,14 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   békés, megnyugtatott Róma nem jutott tovább).
 - **Evocatio:** háborúban, vagy Veii ostroma után.
 - Egy már futó mentésben a Clusiummal kitört háború megmarad; új játékban már nem fordul elő.
+
+## Huszonkilencedik kör (2026-11-14, Claude) – az AI működik; Terra Incognita üres föld
+- **Az új AI a játékban** (`docs/session_logs/20261114_1643_session.md`, 245.1 → 246.7, másfél év): toboroz és költ.
+  Hadosztályok: Karthágó 5 → 17, Perzsia 23 → 62, Spárta 5 → 10, Athén 3 → 7, Makedónia 4 → 9; a politikai erő
+  nem halmozódik; 15 „ambition” és 16 háború. Három „ambition” viszont a Terra Incognitát vette célba (0 hadosztály
+  = a leggyengébb szomszéd) – javítva.
+- **Terra Incognita (WLD) üres föld:** senki nem igazolhat ellene háborús célt (a játék 9 háborús céltípusa,
+  `common/wargoals/00_invasion.txt`, ai.py), így megtámadni sem lehet; minden AI figyelmen kívül hagyja; ő maga nem
+  kezd háborút, nem épít sereget, nem kutat (0 kutatóhely); kimarad a hódítási vágyból.
+- **Naplózó:** az alapjátékból másolt fájlok (doktrínák, háborús célok, épületek, tech-felület) régi panaszai nem
+  számítanak „a mi hibáinknak” (`BASE_COPIES`).
