@@ -895,3 +895,13 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   domborzati nyersanyagban, és új lelőhelyek: Campiglia vasa, Monte Amiata réze, az Appenninek erdői és szurka,
   Latium, Etrúria, Apulia, a Pó-delta, Catana síkja és a Campidano gabonája, a Maremma, Samnium és a venetek lovai.
   Az itáliai népek 43 államában 106 → 207 egység.
+
+## Huszonhatodik kör (2026-11-14, Claude) – farm, ókori épületikonok, Szicília és a Pó együtt
+- **Róma fája:** Szicília felé és a Pó-vidék (köztársaság: Towards Sicily / Gallia Cisalpina; királyság:
+  Across the Strait / Kingdom of the Po) már nem zárják ki egymást – mindkettő felvehető.
+- **Új épület: Farm** (`ante_farm`, buildings.py → common/buildings/ante_farm.txt): 4 gabonát termel (a motor
+  „coal” nyersanyaga), államonként legfeljebb 4, közös épülethelyen. Négy földműves technológia +1-et ad
+  farmonként (`modify_building_resources`): Irrigation, The Iron Ploughshare, és új: Fallow and Rotation,
+  The Agronomy of Mago → 8 gabona/farm.
+- **Ókori épületikonok:** a 31 kockás ikonsáv saját rajz (üllő, kard, kerék, hajó, világítótorony, fal, gabonakéve,
+  sátor…); a farm a kikapcsolt szintetikus finomító kockáját kapta.

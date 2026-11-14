@@ -263,11 +263,11 @@ def define(focus, build, infra, tech, wargoal):
       "add_political_power = 150\nadd_stability = 0.10\nadd_war_support = 0.10\n" + cores(3), ai=3)
     f("ROM_towards_sicily", "Towards Sicily", "264 BC: the Mamertines of Messana call for help. Across the Strait waits Carthage.",
       "occupy_states_coastal", 12, 11, [["ROM_italia"]],
-      claims("ZAN", "SYR") + "\n" + build("dockyard", "is_coastal = yes") + "\nnavy_experience = 25", extra=COAST + "\n" + mx("ROM_cisalpine_gaul"))
+      claims("ZAN", "SYR") + "\n" + build("dockyard", "is_coastal = yes") + "\nnavy_experience = 25", extra=COAST)
     f("ROM_cisalpine_gaul", "Gallia Cisalpina", "Avenge the Allia for ever: the plain of the Po, from the Senones to the Insubres, becomes Roman land.",
       "more_territorial_claims", 14, 11, [["ROM_italia"]],
       wargoal("INS") + "\n" + wargoal("SEN") + "\n" + wargoal("LIG") + "\n" + wargoal("FEL") + "\n" + wargoal("VEN") + "\n" + claims("INS", "FEL", "VEN", "LIG", "SEN") +
-      "\narmy_experience = 20", extra=mx("ROM_towards_sicily"))
+      "\narmy_experience = 20")
 
     # --- Italy for the Republic: what the kingdom conquers, the Republic wins by treaty, surrender or war
     f("ROM_civitas_sine_suffragio", "Civitas sine Suffragio", "The Sabines and the Marsi become Romans - citizens without the vote, soldiers with the duty to serve.",
@@ -343,11 +343,11 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_across_the_strait", "Across the Strait", "Zankle and Syracuse look across the water at the new king of Italy.",
       "occupy_states_coastal", 24, 9, [["ROM_king_of_italy"]],
       wargoal("ZAN") + "\n" + claims("ZAN", "SYR") + "\n" + build("dockyard", "is_coastal = yes") + "\nnavy_experience = 25",
-      extra=COAST + "\n" + mx("ROM_kingdom_of_the_po"))
+      extra=COAST)
     f("ROM_kingdom_of_the_po", "Kingdom of the Po", "Etruscan Felsina, the Veneti, the Ligurians and the Gauls of the plain: the north joins the kingdom.",
       "more_territorial_claims", 28, 9, [["ROM_king_of_italy"]],
       wargoal("FEL") + "\n" + wargoal("SEN") + "\n" + wargoal("INS") + "\n" + wargoal("LIG") + "\n" + wargoal("VEN") + "\n" + claims("FEL", "VEN", "INS", "LIG", "SEN"),
-      extra=mx("ROM_across_the_strait"))
+      )
     f("ROM_king_of_italy", "King of Italy", "From the Alps to the Strait one king, one army, one law. The Republic is a dream nobody remembers.",
       "national_unity", 26, 8, [["ROM_the_samnite_mountains"], ["ROM_magna_graecia"]],
       "add_political_power = 150\nadd_stability = 0.10\nadd_war_support = 0.10\n" + cores(3) + "\nadd_research_slot = 1", ai=3)

@@ -63,6 +63,8 @@ spriteTypes = {
 	spriteType = { name = "GFX_ante_opus_caementicium_medium" texturefile = "gfx/interface/technologies/ante_opus_caementicium.dds" }
 	spriteType = { name = "GFX_ante_irrigation_medium" texturefile = "gfx/interface/technologies/ante_irrigation.dds" }
 	spriteType = { name = "GFX_ante_heavy_plough_medium" texturefile = "gfx/interface/technologies/ante_heavy_plough.dds" }
+	spriteType = { name = "GFX_ante_crop_rotation_medium" texturefile = "gfx/interface/technologies/ante_crop_rotation.dds" }
+	spriteType = { name = "GFX_ante_agronomy_medium" texturefile = "gfx/interface/technologies/ante_agronomy.dds" }
 	spriteType = { name = "GFX_ante_mining_medium" texturefile = "gfx/interface/technologies/ante_mining.dds" }
 	spriteType = { name = "GFX_ante_water_mills_medium" texturefile = "gfx/interface/technologies/ante_water_mills.dds" }
 	spriteType = { name = "GFX_ante_coinage_medium" texturefile = "gfx/interface/technologies/ante_coinage.dds" }

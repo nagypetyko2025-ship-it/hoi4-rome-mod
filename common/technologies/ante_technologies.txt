@@ -893,6 +893,7 @@ technologies = {
 	ante_irrigation = {
 		monthly_population = 0.05
 		global_building_slots_factor = 0.10
+		on_research_complete = { modify_building_resources = { building = ante_farm resource = coal amount = 1 } }
 		path = {
 			leads_to_tech = ante_heavy_plough
 			research_cost_coeff = 1
@@ -909,11 +910,43 @@ technologies = {
 	ante_heavy_plough = {
 		monthly_population = 0.05
 		industrial_capacity_factory = 0.05
+		on_research_complete = { modify_building_resources = { building = ante_farm resource = coal amount = 1 } }
+		path = {
+			leads_to_tech = ante_crop_rotation
+			research_cost_coeff = 1
+		}
 		research_cost = 1.5
 		start_year = 257
 		folder = {
 			name = industry_folder
 			position = { x = 6 y = 6 }
+		}
+		categories = { industry construction_tech }
+		ai_will_do = { factor = 1 }
+	}
+	ante_crop_rotation = {
+		on_research_complete = { modify_building_resources = { building = ante_farm resource = coal amount = 1 } }
+		path = {
+			leads_to_tech = ante_agronomy
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 263
+		folder = {
+			name = industry_folder
+			position = { x = 6 y = 8 }
+		}
+		categories = { industry construction_tech }
+		ai_will_do = { factor = 1 }
+	}
+	ante_agronomy = {
+		on_research_complete = { modify_building_resources = { building = ante_farm resource = coal amount = 1 } }
+		monthly_population = 0.05
+		research_cost = 2
+		start_year = 269
+		folder = {
+			name = industry_folder
+			position = { x = 6 y = 10 }
 		}
 		categories = { industry construction_tech }
 		ai_will_do = { factor = 1 }

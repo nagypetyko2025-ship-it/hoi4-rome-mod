@@ -13,6 +13,10 @@ INF, SUP, ARM, ART, NAV, LRN, IND = ("infantry_folder", "support_folder", "armou
 FOOT = ("ante_levy", "ante_spearmen", "ante_hoplites", "ante_skirmishers", "ante_archers")
 
 
+# every farming tech: one more grain from every farm (tools/buildings.py: 4 per farm, with all four techs 8)
+FARM = "on_research_complete = { modify_building_resources = { building = ante_farm resource = coal amount = 1 } }"
+
+
 def units(keys, **stats):
     return "\n".join(f"{k} = {{ " + " ".join(f"{s} = {v}" for s, v in stats.items()) + " }" for k in keys)
 
@@ -151,9 +155,13 @@ TECHS = [
     ("ante_opus_caementicium", "Opus Caementicium", "Volcanic ash, lime and rubble: a stone that is poured.",
      IND, 2, 455, ["ante_lime_mortar"], "production_speed_buildings_factor = 0.10\nproduction_speed_infrastructure_factor = 0.10", "wall", 2),
     ("ante_irrigation", "Irrigation", "Canals, dams and water-lifting wheels make the dry land green.",
-     IND, 4, 290, [], "monthly_population = 0.05\nglobal_building_slots_factor = 0.10", "wheat", 1.5),
+     IND, 4, 290, [], "monthly_population = 0.05\nglobal_building_slots_factor = 0.10\n" + FARM, "wheat", 1.5),
     ("ante_heavy_plough", "The Iron Ploughshare", "Iron shares turn the heavy soils of the river valleys.",
-     IND, 4, 380, ["ante_irrigation"], "monthly_population = 0.05\nindustrial_capacity_factory = 0.05", "wheat", 1.5),
+     IND, 4, 380, ["ante_irrigation"], "monthly_population = 0.05\nindustrial_capacity_factory = 0.05\n" + FARM, "wheat", 1.5),
+    ("ante_crop_rotation", "Fallow and Rotation", "Wheat, then beans, then a year of rest: the field feeds the next harvest.",
+     IND, 4, 425, ["ante_heavy_plough"], FARM, "wheat", 1.5),
+    ("ante_agronomy", "The Agronomy of Mago", "Twenty-eight books on farming by Mago of Carthage - the Senate of Rome "
+     "had them translated into Latin.", IND, 4, 485, ["ante_crop_rotation"], FARM + "\nmonthly_population = 0.05", "wheat", 2),
     ("ante_mining", "Deep Mining", "Shafts and galleries follow the vein deep into the mountain.",
      IND, 6, 335, ["ante_bronze_casting"], "local_resources_factor = 0.10", "pick", 1.5),
     ("ante_water_mills", "Water Mills", "The river grinds the grain: hands are free for other work.",

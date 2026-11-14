@@ -1010,7 +1010,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = { any_owned_state = { is_coastal = yes } }
-		mutually_exclusive = { focus = ROM_cisalpine_gaul }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_towards_sicily"
 			every_state = { limit = { is_owned_by = ZAN } add_claim_by = ROOT }
@@ -1038,7 +1037,6 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		mutually_exclusive = { focus = ROM_towards_sicily }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_cisalpine_gaul"
 			if = { limit = { country_exists = INS NOT = { has_war_with = INS } }
@@ -1788,7 +1786,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } any_owned_state = { is_coastal = yes } }
-		mutually_exclusive = { focus = ROM_kingdom_of_the_po }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_across_the_strait"
 			if = { limit = { country_exists = ZAN NOT = { has_war_with = ZAN } }
@@ -1819,7 +1816,6 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		mutually_exclusive = { focus = ROM_across_the_strait }
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_kingdom_of_the_po"
