@@ -91,4 +91,4 @@ Agathoklész Afrikában, Bomilkar puccsa (Kr. e. 308), Pürrhosz Szicíliában, 
 - Ikonok: egyelőre az alapjáték fókuszikonjai; saját ókori fókuszikonok később.
 
 ## Becsült méret
-~55–65 fókusz (Róma: 0 a két úttal), 2 mérő, ~10 döntés, ~12 esemény, saját nemzeti szellemek.
+~55–65 fókusz (Róma: 93 a két úttal), 2 mérő, ~10 döntés, ~12 esemény, saját nemzeti szellemek.
