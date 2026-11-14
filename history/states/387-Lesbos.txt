@@ -6,6 +6,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = ION
 		victory_points = { 5306 4 }  # Mytilene
 		buildings = {
 			infrastructure = 4

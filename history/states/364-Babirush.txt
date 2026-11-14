@@ -13,6 +13,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = BBL
 		victory_points = { 6324 28 }  # Babilu
 		victory_points = { 6151 3 }  # Sippar
 		buildings = {

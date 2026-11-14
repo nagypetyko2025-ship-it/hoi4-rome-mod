@@ -10,6 +10,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = LYD
 		victory_points = { 4945 2 }  # Astakos
 		buildings = {
 			infrastructure = 4

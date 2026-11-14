@@ -11,6 +11,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = KMT
 		victory_points = { 6458 3 }  # Pelusion
 		buildings = {
 			infrastructure = 4

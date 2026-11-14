@@ -6,6 +6,13 @@ Checks the generated map and history files against the engine rules that make
 Hearts of Iron IV crash or refuse to load (see README, "Motorszabalyok").
 Exit code 1 when an ERROR is found.
 """
+try:   # satrapies that may break away own nothing at the start (tools/data/world_509bc.py, round 40)
+    import sys as _sys
+    _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
+    from data.world_509bc import RELEASABLE
+except Exception:
+    RELEASABLE = {}
+
 import re
 import struct
 import sys
@@ -723,6 +730,9 @@ def check_countries(states):
         cap = int(m.group(1))
         if cap not in states:
             err(f"{fp.name}: capital state {cap} does not exist")
+        elif tag in RELEASABLE:      # a satrapy that may break away (round 40): its capital is a core, not its own
+            if tag not in states[cap].get("cores", [tag]):
+                err(f"{fp.name}: capital state {cap} of the releasable {tag} is not its core")
         elif states[cap]["owner"] != tag:
             err(f"{fp.name}: capital state {cap} is owned by {states[cap]['owner']}")
         elif not states[cap]["vps"] and not states[cap]["impassable"]:
@@ -734,7 +744,7 @@ def check_countries(states):
         if t not in hist:
             err(f"country {t} has no history file")
         owned = [s for s in states.values() if s["owner"] == t]
-        if not owned:
+        if not owned and t not in RELEASABLE:
             err(f"country {t} owns no state")
         for size in ("", "medium/", "small/"):
             if not (MOD / "gfx" / "flags" / f"{size}{t}.tga").exists():

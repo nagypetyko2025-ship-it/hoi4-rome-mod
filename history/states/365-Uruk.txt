@@ -10,6 +10,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = BBL
 		victory_points = { 6425 5 }  # Uruk
 		buildings = {
 			infrastructure = 6

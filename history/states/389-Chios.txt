@@ -9,6 +9,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = ION
 		victory_points = { 5490 4 }  # Chios
 		buildings = {
 			infrastructure = 4

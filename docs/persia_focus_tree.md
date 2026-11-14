@@ -1,0 +1,108 @@
+# Perzsia – a szatrapiák birodalma (40. kör)
+
+Peti kérése: Perzsia élete ne legyen túl könnyű, a mérete legyen kisebb hátrány. Néhány ország (Anatólia, Egyiptom stb.)
+ki akar válni, ezt döntésekkel kell kezelnie. Ha nem figyel és a feszültség túl magasra megy, az ország szétesik egy 3-4
+oldalú polgárháborúba, és néhány ország függetlenedik. Perzsiának is legyen egy elérendő célja, mint Rómának vagy
+Karthágónak.
+
+## A szatrapiák lázongása (`tools/persia_story.py`)
+
+Öt nyugtalan szatrapia, mindegyiknek saját mérője van (0–100). Az elszakadó országok (`tools/data/world_509bc.py`,
+`RELEASABLE`) a játék elején nem birtokolnak földet, de magterületük van a régióikban:
+
+| Szatrapia | Ország | Régiók | Kezdő érték |
+|---|---|---|---|
+| Egyiptom | KMT Egypt | Mudraya, Patoris | 30 |
+| Babilon | BBL Babylon | Babirush, Athura | 25 |
+| Iónia | ION Ionian League | Yauna, Lesbos, Chios, Samos, Karka | 40 (tíz évre a nagy felkeléstől) |
+| Lüdia és Phrügia | LYD Lydia | Sparda, Phrygia, Daskyleion, Bithynia, Pamphylia, Katpatuka | 15 |
+| Baktria | BKT Bactria | Bakhtrish, Suguda, Margush, Uvarazmish | 20 |
+
+### Heti emelkedés
+- **Alapból +0,18** (kb. 9 pont évente): ez a birodalom mérete.
+- **Gyorsítja:**
+  - háború: +0,12;
+  - 50% alatti stabilitás: +0,12;
+  - 100-nál több állam: +0,08.
+- **Lassítják a fókuszok** (minden szatrapiára):
+  - szatrapia-rendszer: −0,03;
+  - a király szemei: −0,05;
+  - királyi út: −0,02;
+  - a király törvénye: −0,03;
+  - minden nép istenei: −0,04;
+  - a nagy cél: −0,10.
+  - Ellenkező irányba hat a „szatrapák saját hadserege”: +0,03.
+- **Regionális fókuszok** (csak az adott szatrapiára):
+  - fáraó: Egyiptom −0,10;
+  - Marduk keze: Babilon −0,10, Marduk szobrának beolvasztása viszont +0,08;
+  - demokrácia az ión városoknak: Iónia −0,10, zsarnokok kinevezése viszont +0,05;
+  - szardeiszi nemesek: Lüdia −0,08;
+  - baktriai herceg: Baktria −0,10.
+
+### Nemzeti szellem
+A „Unrest of the Satrapies” szellem az átlagos lázongást követi:
+- 0-nál +3% stabilitás és +0,05 politikai erő;
+- 100-nál −17% stabilitás és −0,25 politikai erő.
+
+### Döntések („The Satrapies” kategória)
+Szatrapiánként három döntés:
+
+| Döntés | Ár | Hatás | Újra elérhető |
+|---|---|---|---|
+| A király szeme | 50 PP | −15 | 90 nap múlva |
+| Helyőrség | 25 PP és 3000 fő | −20 | 180 nap múlva |
+| Az istenek és nemesek tisztelete | 100 PP | −30 | 365 nap múlva |
+
+Az AI 45, 60, illetve 75 fölött használja őket.
+
+### Küszöbök
+- **60:** egy esemény figyelmeztet, választható megoldásokkal (sereg küldése, arany a nemeseknek, vagy a szatrapára bízza).
+- **100:** a szatrapia fellázad.
+  - Felszabadul a magterületein, és saját sereget kap (4–6 hadosztály, felszerelés, emberanyag).
+  - Hadat üzen Perzsiának.
+  - Perzsia leverheti, vagy elengedheti: fehér béke, de a többi szatrapia lázongása +10.
+- **Ha egyszerre három szatrapia áll 70 fölött, a birodalom szétesik:**
+  - minden 70 fölötti szatrapia fellázad;
+  - Médiában és északon (Mada, Raga, Armina, Varkana, Parthava) egy trónkövetelő polgárháborút indít („Median Pretender”, saját zászló: szárnyas napkorong);
+  - így négy- vagy többoldalú háború lesz belőle;
+  - tíz évig nem történhet meg újra.
+
+## A cél: „King of the Four Corners of the World” (döntés)
+- **Feltételek:**
+  - egész Hellász a király vagy alattvalói kezén van: Athén, Spárta, Théba, Korinthosz, Argosz, Euboia, Thesszália és Makedónia, összesen 11 állam;
+  - Egyiptom és Babilon még a királyé.
+- **Jutalom:**
+  - nagy szellem (+15% stabilitás, +0,30 PP, +10% háborús támogatottság, +10% gyár, besorozás);
+  - minden lázongás −40, és tartósan 0,10-zel lassabban nő;
+  - magterület a görög államokon.
+- A döntés a térképen kiemeli a szükséges államokat.
+
+## A fókuszfa (55 fókusz, egy gyökér, nyolc ág)
+1. **A szatrapiák** (x 0–4):
+   - szatrapia-rendszer;
+   - választás: a király szemei ↔ a szatrapák saját hadserege;
+   - fix adó, a király törvénye;
+   - választás: a hét ház ↔ királyi vérből való szatrapák.
+2. **A kincstár** (x 7–11): dareikosz, királyi út, Perszepolisz, kanátok, paradicsomkertek, Szúsza palotája, a király kincstárai.
+3. **Az istenek** (x 12–14):
+   - Ahura Mazda;
+   - választás: igazság a hazugság ellen ↔ minden nép istenei;
+   - Behisztun (+1 kutatási hely), a mágusok.
+4. **A sereg** (x 16–18):
+   - Halhatatlanok;
+   - választás: perzsa lovasság ↔ minden nép hadereje;
+   - királyi helyőrségek, kaszás harci szekerek, görög zsoldosok, Xerxész serege.
+5. **A Nyugat és Hellász** (x 21–25):
+   - szardeiszi nemesek, föníciai flotta;
+   - választás: zsarnokok ↔ demokrácia az ión városoknak;
+   - Thrákia és Makedónia;
+   - az Iszteren túl (szkíták), föld és víz;
+   - választás: Datisz és Artaphernész ↔ híd a Hellészpontoszon;
+   - föld és víz egész Hellásztól.
+6. **Egyiptom** (x 28–31): fáraó, Hibisz temploma, a Nílus-csatorna, a kataraktákon túl (Kús), Kürené és Barka.
+7. **Babilon** (x 33–35):
+   - Babilon királya;
+   - választás: Marduk keze ↔ Marduk szobrának beolvasztása;
+   - Babilon csatornái.
+8. **A felső szatrapiák** (x 37–39): baktriai herceg, Hindus aranya, Kürosz megbosszulása (masszageták), a felső szatrapiák.
+9. **Zárás:** a népek királya (Xerxész serege, a hét ház / királyi vér és a kincstár után).

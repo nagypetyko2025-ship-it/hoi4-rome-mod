@@ -10,6 +10,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = KMT
 		victory_points = { 6531 25 }  # Men-nefer
 		victory_points = { 6440 6 }  # Sais
 		victory_points = { 6446 4 }  # Naukratis

@@ -725,6 +725,113 @@ ideas = {
 				war_support_factor = 0.05
 			}
 		}
+		PRS_satrap_levies_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.03
+				army_org_factor = -0.03
+			}
+		}
+		PRS_data_spirit = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.08
+				political_power_gain = 0.05
+			}
+		}
+		PRS_seven_houses_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.02
+			}
+		}
+		PRS_royal_blood_spirit = {
+			picture = generic_central_management
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.07
+			}
+		}
+		PRS_treasury_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.08
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		PRS_magi_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.07
+			}
+		}
+		PRS_spara_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.05
+				army_attack_factor = 0.05
+			}
+		}
+		PRS_levy_of_nations_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.05
+				army_org_factor = -0.05
+			}
+		}
+		PRS_greek_mercenaries_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.08
+				army_attack_factor = 0.03
+			}
+		}
+		PRS_army_of_xerxes_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.08
+				war_support_factor = 0.1
+				supply_consumption_factor = -0.1
+			}
+		}
+		PRS_hellas_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				political_power_gain = 0.1
+			}
+		}
+		PRS_upper_satrapies_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.05
+				conscription = 0.01
+			}
+		}
 		CAR_magonid_rule_spirit = {
 			picture = generic_central_management
 			allowed = { always = no }
@@ -1391,6 +1498,18 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				political_power_gain = 0.05
+			}
+		}
+		PRS_four_corners_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.3
+				war_support_factor = 0.1
+				industrial_capacity_factory = 0.1
+				conscription = 0.02
 			}
 		}
 	}

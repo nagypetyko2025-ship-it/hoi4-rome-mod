@@ -9,6 +9,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = ION
 		victory_points = { 5644 10 }  # Miletos
 		victory_points = { 5601 6 }  # Ephesos
 		victory_points = { 5461 3 }  # Phokaia

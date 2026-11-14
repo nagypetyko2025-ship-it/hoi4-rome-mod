@@ -489,3 +489,23 @@ WILD("Makran", (61.5, 27.2), (64.5, 27.0), (66.5, 27.5), (63.0, 29.0), (66.5, 25
 # the first 7 are the "major" slots of the selection screen, the rest are listed after "---"
 BOOKMARK_COUNTRIES = ["ROM", "CAR", "PRS", "ATH", "LAK", "MKD", "SEN"]
 BOOKMARK_MINORS = ["SYR", "CLU", "LAT", "SCY", "MSG", "KSH", "KYR", "THL"]
+
+# ---------------------------------------------------------------------------------------------------------------
+# Satrapies that can break away from the Persian Empire (round 40, Peti): countries WITHOUT land at the start, with
+# cores on the states of their regions (tools/world.py). tools/persia_story.py releases them when their unrest
+# reaches 100, or when the empire breaks. (tag, name, adjective, culture, government, colour, regions, capital region)
+RELEASABLE = {}
+
+
+def X(tag, name, adj, culture, gov, color, regions, capital):
+    assert tag not in PEOPLES and tag not in RELEASABLE, tag
+    assert culture in CULTURES, culture
+    RELEASABLE[tag] = dict(name=name, adj=adj, culture=culture, gov=gov, color=color, regions=regions, capital=capital)
+
+
+X("KMT", "Egypt", "Egyptian", "nilotic", "monarchy", (196, 160, 76), ["Mudraya", "Patoris"], "Mudraya")
+X("BBL", "Babylon", "Babylonian", "persian", "monarchy", (96, 70, 150), ["Babirush", "Athura"], "Babirush")
+X("ION", "Ionian League", "Ionian", "greek", "republic", (84, 150, 210), ["Yauna", "Lesbos", "Chios", "Samos", "Karka"], "Yauna")
+X("LYD", "Lydia", "Lydian", "anatolian", "monarchy", (176, 84, 60),
+  ["Sparda", "Phrygia", "Daskyleion", "Bithynia", "Pamphylia", "Katpatuka"], "Sparda")
+X("BKT", "Bactria", "Bactrian", "persian", "monarchy", (120, 150, 80), ["Bakhtrish", "Suguda", "Margush", "Uvarazmish"], "Bakhtrish")

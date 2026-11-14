@@ -1045,3 +1045,10 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Harminckilencedik kör (2026-11-14, Claude) – a szenátus vezeti Rómát; az AI néha megtartja a királyt
 - Róma kezdő vezetője **a szenátus** (bónusz és malus nélkül, saját kép: a kúria SPQR-rel). A Regifugium Brutust, a The King Remains Tarquiniust teszi vezetővé, a szenátus ekkor visszavonul; ha a király útján kitör a felkelés, Brutus veszi át.
 - Az AI a két gyökérfókusz közül kb. négy játékból egyszer a királyt tartja meg (súly 6 : 2).
+
+## Negyvenedik kör (2026-11-14, Claude) – Perzsia: a szatrapiák birodalma
+- **Öt nyugtalan szatrapia** (Egyiptom, Babilon, Iónia, Lüdia és Phrügia, Baktria), mindegyiknek saját lázongás-mérője van (0–100). A birodalom mérete miatt hetente nő; háború, alacsony stabilitás és 100-nál több állam gyorsítja, a fókuszok lassítják.
+- **Döntések** szatrapiánként: a király szeme, helyőrség, az istenek és nemesek tisztelete. 60-nál figyelmeztetés, 100-nál felkelés: a szatrapia saját sereggel függetlenedik (KMT, BBL, ION, LYD, BKT – új, alvó országok magterülettel; `tools/data/world_509bc.py` RELEASABLE). Ha egyszerre három áll 70 fölött, **a birodalom szétesik**: felkelések és egy médiai trónkövetelő polgárháborúja.
+- **Cél:** a „King of the Four Corners of the World” döntés (egész Hellász + Egyiptom és Babilon).
+- **Új fókuszfa** (55 fókusz, nyolc ág). Terv: `docs/persia_focus_tree.md`.
+- Az alvó országokat a world.py és a validate.py is ismeri (magterület és főváros, föld nélkül).

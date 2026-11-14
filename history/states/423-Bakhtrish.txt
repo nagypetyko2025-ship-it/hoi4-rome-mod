@@ -12,6 +12,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = BKT
 		victory_points = { 5917 8 }  # Bakhtri
 		buildings = {
 			infrastructure = 4

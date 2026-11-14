@@ -1374,6 +1374,42 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	BBL_adv_g1 = {
+		name = BBL_adv_g1
+		portraits = { civilian = { small = "GFX_ante_adv_greek_3" } army = { small = "GFX_ante_adv_greek_3" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = BBL_adv_g1
+			allowed = { original_tag = BBL }
+			traits = { ante_adv_philosopher }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BBL_adv_g2 = {
+		name = BBL_adv_g2
+		portraits = { civilian = { small = "GFX_ante_adv_greek_5" } army = { small = "GFX_ante_adv_greek_5" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = BBL_adv_g2
+			allowed = { original_tag = BBL }
+			traits = { ante_adv_lawgiver }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BBL_adv_g3 = {
+		name = BBL_adv_g3
+		portraits = { civilian = { small = "GFX_ante_adv_greek_2" } army = { small = "GFX_ante_adv_greek_2" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = BBL_adv_g3
+			allowed = { original_tag = BBL }
+			traits = { ante_adv_poet }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
 	BES_adv_g1 = {
 		name = BES_adv_g1
 		portraits = { civilian = { small = "GFX_ante_adv_thracian_5" } army = { small = "GFX_ante_adv_thracian_5" } }
@@ -1518,6 +1554,42 @@ characters = {
 			allowed = { original_tag = BIT }
 			traits = { ante_staff_defender }
 			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BKT_adv_g1 = {
+		name = BKT_adv_g1
+		portraits = { civilian = { small = "GFX_ante_adv_greek_1" } army = { small = "GFX_ante_adv_greek_1" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = BKT_adv_g1
+			allowed = { original_tag = BKT }
+			traits = { ante_adv_architect }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BKT_adv_g2 = {
+		name = BKT_adv_g2
+		portraits = { civilian = { small = "GFX_ante_adv_greek_2" } army = { small = "GFX_ante_adv_greek_2" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = BKT_adv_g2
+			allowed = { original_tag = BKT }
+			traits = { ante_adv_orator }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BKT_adv_g3 = {
+		name = BKT_adv_g3
+		portraits = { civilian = { small = "GFX_ante_adv_greek_5" } army = { small = "GFX_ante_adv_greek_5" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = BKT_adv_g3
+			allowed = { original_tag = BKT }
+			traits = { ante_adv_poet }
+			cost = 150
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -4699,6 +4771,42 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	ION_adv_g1 = {
+		name = ION_adv_g1
+		portraits = { civilian = { small = "GFX_ante_adv_greek_1" } army = { small = "GFX_ante_adv_greek_1" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = ION_adv_g1
+			allowed = { original_tag = ION }
+			traits = { ante_adv_physician }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ION_adv_g2 = {
+		name = ION_adv_g2
+		portraits = { civilian = { small = "GFX_ante_adv_greek_2" } army = { small = "GFX_ante_adv_greek_2" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = ION_adv_g2
+			allowed = { original_tag = ION }
+			traits = { ante_adv_poet }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ION_adv_g3 = {
+		name = ION_adv_g3
+		portraits = { civilian = { small = "GFX_ante_adv_greek_5" } army = { small = "GFX_ante_adv_greek_5" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = ION_adv_g3
+			allowed = { original_tag = ION }
+			traits = { ante_adv_philosopher }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
 	ISS_adv_g1 = {
 		name = ISS_adv_g1
 		portraits = { civilian = { small = "GFX_ante_adv_scythian_2" } army = { small = "GFX_ante_adv_scythian_2" } }
@@ -5039,6 +5147,42 @@ characters = {
 			allowed = { original_tag = KIL }
 			traits = { ante_staff_master_of_horse }
 			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KMT_adv_g1 = {
+		name = KMT_adv_g1
+		portraits = { civilian = { small = "GFX_ante_adv_greek_0" } army = { small = "GFX_ante_adv_greek_0" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = KMT_adv_g1
+			allowed = { original_tag = KMT }
+			traits = { ante_adv_high_priest }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KMT_adv_g2 = {
+		name = KMT_adv_g2
+		portraits = { civilian = { small = "GFX_ante_adv_greek_3" } army = { small = "GFX_ante_adv_greek_3" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = KMT_adv_g2
+			allowed = { original_tag = KMT }
+			traits = { ante_adv_physician }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KMT_adv_g3 = {
+		name = KMT_adv_g3
+		portraits = { civilian = { small = "GFX_ante_adv_greek_3" } army = { small = "GFX_ante_adv_greek_3" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = KMT_adv_g3
+			allowed = { original_tag = KMT }
+			traits = { ante_adv_merchant }
+			cost = 150
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -6221,6 +6365,42 @@ characters = {
 			allowed = { original_tag = LUS }
 			traits = { ante_staff_drillmaster }
 			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	LYD_adv_g1 = {
+		name = LYD_adv_g1
+		portraits = { civilian = { small = "GFX_ante_adv_greek_5" } army = { small = "GFX_ante_adv_greek_5" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = LYD_adv_g1
+			allowed = { original_tag = LYD }
+			traits = { ante_adv_lawgiver }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	LYD_adv_g2 = {
+		name = LYD_adv_g2
+		portraits = { civilian = { small = "GFX_ante_adv_greek_0" } army = { small = "GFX_ante_adv_greek_0" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = LYD_adv_g2
+			allowed = { original_tag = LYD }
+			traits = { ante_adv_treasurer }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	LYD_adv_g3 = {
+		name = LYD_adv_g3
+		portraits = { civilian = { small = "GFX_ante_adv_greek_4" } army = { small = "GFX_ante_adv_greek_4" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = LYD_adv_g3
+			allowed = { original_tag = LYD }
+			traits = { ante_adv_merchant }
+			cost = 150
 			ai_will_do = { factor = 1 }
 		}
 	}

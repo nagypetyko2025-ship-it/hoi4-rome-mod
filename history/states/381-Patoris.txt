@@ -11,6 +11,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = KMT
 		victory_points = { 6784 8 }  # Waset
 		buildings = {
 			infrastructure = 6

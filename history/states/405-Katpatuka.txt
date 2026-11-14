@@ -11,6 +11,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = LYD
 		victory_points = { 5431 4 }  # Mazaka
 		buildings = {
 			infrastructure = 4

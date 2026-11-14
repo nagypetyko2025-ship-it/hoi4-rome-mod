@@ -6,6 +6,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = ION
 		victory_points = { 8866 5 }  # Samos
 		buildings = {
 			infrastructure = 4

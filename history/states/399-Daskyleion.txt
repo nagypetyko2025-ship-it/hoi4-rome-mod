@@ -11,6 +11,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = LYD
 		victory_points = { 5136 6 }  # Daskyleion
 		victory_points = { 5192 4 }  # Kyzikos
 		victory_points = { 5195 2 }  # Abydos

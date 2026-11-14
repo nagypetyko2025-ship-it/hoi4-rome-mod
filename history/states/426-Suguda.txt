@@ -13,6 +13,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = BKT
 		victory_points = { 5199 5 }  # Marakanda
 		buildings = {
 			infrastructure = 4

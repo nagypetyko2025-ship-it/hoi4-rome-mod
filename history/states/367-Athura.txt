@@ -11,6 +11,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = BBL
 		victory_points = { 5738 6 }  # Arbela
 		buildings = {
 			infrastructure = 6

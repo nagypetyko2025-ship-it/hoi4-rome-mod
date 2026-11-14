@@ -12,6 +12,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = BKT
 		buildings = {
 			infrastructure = 4
 			industrial_complex = 1

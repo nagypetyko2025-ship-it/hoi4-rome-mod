@@ -856,6 +856,26 @@ ULT = {
 	color = rgb { 40 224 66 }
 	color_ui = rgb { 50 255 82 }
 }
+KMT = {
+	color = rgb { 196 160 76 }
+	color_ui = rgb { 245 200 95 }
+}
+BBL = {
+	color = rgb { 96 70 150 }
+	color_ui = rgb { 120 87 187 }
+}
+ION = {
+	color = rgb { 84 150 210 }
+	color_ui = rgb { 105 187 255 }
+}
+LYD = {
+	color = rgb { 176 84 60 }
+	color_ui = rgb { 220 105 75 }
+}
+BKT = {
+	color = rgb { 120 150 80 }
+	color_ui = rgb { 150 187 100 }
+}
 D01 = {
 	color = rgb { 122 179 97 }
 	color_ui = rgb { 159 233 126 }

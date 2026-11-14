@@ -1,0 +1,36 @@
+﻿capital = 364
+set_research_slots = 2
+set_stability = 0.6
+set_war_support = 0.3
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "240.1.1"
+	election_frequency = 12
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 0
+	fascism = 0
+	communism = 0
+	neutrality = 100
+}
+set_technology = {
+	ante_bronze_weapons = 1
+	ante_bronze_armour = 1
+	ante_simple_bows = 1
+	ante_pack_animals = 1
+	ante_riding = 1
+	ante_chariotry = 1
+	ante_rams_and_ladders = 1
+	ante_seafaring = 1
+	ante_bronze_casting = 1
+	ante_writing = 1
+	ante_masonry = 1
+	popup = no
+}
+add_ideas = ante_culture_persian
+# --- counsellors and war council (tools/government.py)
+recruit_character = BBL_adv_g1
+recruit_character = BBL_adv_g2
+recruit_character = BBL_adv_g3

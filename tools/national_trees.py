@@ -13,6 +13,7 @@ Rome's plan: docs/rome_focus_tree.md. Dates in the texts are BC (the game counts
 
 import rome_story as RS   # Rome's meters, events and decisions (tools/rome_story.py)
 import carthage_story as CS   # Carthage's meters, events and decisions (tools/carthage_story.py)
+import persia_story as PS   # Persia's satrapies (tools/persia_story.py)
 
 P, I, R, M = "FOCUS_FILTER_POLITICAL", "FOCUS_FILTER_INDUSTRY", "FOCUS_FILTER_RESEARCH", "FOCUS_FILTER_MANPOWER"
 COAST = "available = { any_owned_state = { is_coastal = yes } }"
@@ -524,44 +525,184 @@ def define(focus, build, infra, tech, wargoal):
     f("MKD_hegemon_of_the_greeks", "Hegemon of the Greeks", "Athens and Thebes must learn who leads Greece now.",
       "major_war", 4, 6, [["MKD_hammer_and_anvil"]], wargoal("THB") + "\n" + wargoal("ATH") + "\nadd_war_support = 0.10")
 
-    # ============================================================== PERSIA (PRS)
-    f = tree("PRS", "PRS_king_of_kings", "# The Persian Empire of Darius I (base tree)")
+    # ============================================================== PERSIA (PRS) - plan: docs/persia_focus_tree.md (round 40)
+    # One root, eight branches: the satrapies (x 0..4), the treasury (7..11), the gods (12..14), the army (16..18),
+    # the West and Hellas (21..25), Egypt (28..31), Babylon (33..35), the upper satrapies (37..39). The unrest of the
+    # satrapies (tools/persia_story.py) is the thread: most branches calm it, some buy power with it.
+    f = tree("PRS", "PRS_king_of_kings", "# The Persian Empire of Darius I, 509-264 BC - plan: docs/persia_focus_tree.md\n"
+             "# The unrest of five satrapies (persia_story.py) runs through the tree; the goal is a decision: "
+             "King of the Four Corners of the World.")
+    ROOT = [["PRS_king_of_kings"]]
     idea("PRS_satrapies_spirit", "The Satrapies", "central_management", political_power_gain=0.15, stability_factor=0.05)
     idea("PRS_royal_road_spirit", "The Royal Road", "supply_line", supply_consumption_factor=-0.10, army_speed_factor=0.05)
     idea("PRS_immortals_spirit", "The Ten Thousand Immortals", "morale_bonus", army_attack_factor=0.05, army_org_factor=0.10)
     idea("PRS_qanats_spirit", "Qanats", "agrarian_society", monthly_population=0.15, stability_factor=0.03)
     idea("PRS_asha_spirit", "Truth against the Lie", "pp_unity_bonus", stability_factor=0.10, war_support_factor=0.05)
-    f("PRS_king_of_kings", "King of Kings", "Darius has crushed the rebel kings. From the Indus to the Aegean, one king rules.",
-      "political_pressure", 5, 0, [], "add_political_power = 75\nadd_stability = 0.05")
-    f("PRS_satrapies", "The Satrapies", "Twenty provinces, each with a satrap, a fixed tribute - and the King's Eyes and Ears watching.",
-      "political_pressure", 3, 1, [["PRS_king_of_kings"]], "add_ideas = PRS_satrapies_spirit")
-    f("PRS_royal_road", "The Royal Road", "From Sardis to Susa in seven days: neither snow nor rain stays the royal couriers.",
-      "construct_infrastructure", 5, 1, [["PRS_king_of_kings"]], "add_ideas = PRS_royal_road_spirit\n" + infra() + "\n" + infra(), filters=I)
-    f("PRS_immortals", "The Immortals", "Ten thousand picked spearmen; when one falls, another takes his place.",
-      "special_forces", 7, 1, [["PRS_king_of_kings"]], "add_ideas = PRS_immortals_spirit\narmy_experience = 15", filters=M, ai=3)
+    idea("PRS_satrap_levies_spirit", "The Satraps' Levies", "manpower_bonus", conscription=0.03, army_org_factor=-0.03)
+    idea("PRS_data_spirit", "The Law of the King", "constitutional_guarantees", stability_factor=0.08,
+         political_power_gain=0.05)
+    idea("PRS_seven_houses_spirit", "The Seven Houses", "political_support", political_power_gain=0.15, stability_factor=-0.02)
+    idea("PRS_royal_blood_spirit", "Satraps of the Royal Blood", "central_management", stability_factor=0.07)
+    idea("PRS_treasury_spirit", "The Treasuries of the King", "economic_increase", industrial_capacity_factory=0.08,
+         production_speed_buildings_factor=0.10)
+    idea("PRS_magi_spirit", "The Magi", "research_bonus", research_speed_factor=0.07)
+    idea("PRS_spara_spirit", "The Persian Horse", "morale_bonus", army_speed_factor=0.05, army_attack_factor=0.05)
+    idea("PRS_levy_of_nations_spirit", "The Levy of All Nations", "manpower_bonus", conscription=0.05,
+         army_org_factor=-0.05)
+    idea("PRS_greek_mercenaries_spirit", "Greek Mercenaries", "infantry_bonus", army_defence_factor=0.08,
+         army_attack_factor=0.03)
+    idea("PRS_army_of_xerxes_spirit", "The Army of Xerxes", "morale_bonus", army_org_factor=0.08, war_support_factor=0.10,
+         supply_consumption_factor=-0.10)
+    idea("PRS_hellas_spirit", "Earth and Water from All Hellas", "pp_unity_bonus", war_support_factor=0.10,
+         political_power_gain=0.10)
+    idea("PRS_upper_satrapies_spirit", "The Upper Satrapies", "morale_bonus", army_speed_factor=0.05, conscription=0.01)
+    f("PRS_king_of_kings", "King of Kings", "Darius has crushed the rebel kings. From the Indus to the Aegean, one king rules - and twenty peoples wait to see if he can hold them.",
+      "political_pressure", 19, 0, [], "add_political_power = 75\nadd_stability = 0.05\n" + PS.unrest_all(-5))
+    # --- 1. the satrapies (x 0..4): the administration that holds the empire together
+    f("PRS_satrapies", "The Satrapies", "Twenty provinces, each with a satrap, a fixed tribute and a royal secretary who reports to the King.",
+      "political_pressure", 3, 1, ROOT, "add_ideas = PRS_satrapies_spirit\n" + PS.unrest_all(-5) + "\n"
+      + PS.drift_flag("PRS_satrap_system", "The unrest of every satrapy grows §G0.03 slower§! every week."))
+    f("PRS_kings_eyes", "The King's Eyes and Ears", "Inspectors who travel unannounced, informers in every palace: no satrap knows who is watching.",
+      "intelligence_exchange", 2, 2, [["PRS_satrapies"]], PS.unrest_all(-10) + "\n"
+      + PS.drift_flag("PRS_kings_eyes", "The unrest of every satrapy grows §G0.05 slower§! every week."),
+      extra=mx("PRS_satrap_armies"))
+    f("PRS_satrap_armies", "The Satraps Keep Armies", "Let every satrap raise and pay his own troops: more soldiers for the King - and for the satraps.",
+      "allies_build_infantry", 4, 2, [["PRS_satrapies"]], "add_ideas = PRS_satrap_levies_spirit\nadd_manpower = 10000\n"
+      + PS.drift_flag("PRS_satrap_armies", "The unrest of every satrapy grows §R0.03 faster§! every week."),
+      extra=mx("PRS_kings_eyes"), filters=M)
+    f("PRS_fixed_tribute", "The Fixed Tribute", "Every satrapy pays a fixed sum in silver: Babylon a thousand talents, Egypt seven hundred - no more, no less.",
+      "trade", 3, 3, [["PRS_kings_eyes", "PRS_satrap_armies"]], "add_political_power = 100\n" + build("industrial_complex") + "\n"
+      + PS.unrest_all(-5), filters=I)
+    f("PRS_law_of_the_king", "The Law of the King", "The data of the King: one law above the laws of the peoples, judges who know it, and the King's seal.",
+      "national_unity", 3, 4, [["PRS_fixed_tribute"]], "add_ideas = PRS_data_spirit\n"
+      + PS.drift_flag("PRS_law_of_the_king", "The unrest of every satrapy grows §G0.03 slower§! every week."), cost=15)
+    f("PRS_seven_houses", "The Seven Houses", "The six nobles who helped Darius to the throne and their families: the King's first servants, and his rivals.",
+      "political_pressure", 2, 5, [["PRS_law_of_the_king"]], "add_ideas = PRS_seven_houses_spirit",
+      extra=mx("PRS_royal_blood"))
+    f("PRS_royal_blood", "Satraps of the Royal Blood", "Brothers, sons and sons-in-law of the King govern the great satrapies. A family business.",
+      "national_unity", 4, 5, [["PRS_law_of_the_king"]], "add_ideas = PRS_royal_blood_spirit\n" + PS.unrest_all(-10),
+      extra=mx("PRS_seven_houses"))
+    # --- 2. the treasury (x 7..11)
     f("PRS_daric", "The Daric", "Gold coins with the archer king: the money of an empire.",
-      "trade", 2, 2, [["PRS_satrapies"]], build("industrial_complex") + "\nadd_political_power = 50", filters=I, ai=3)
-    f("PRS_persepolis", "Persepolis", "A new royal city on a terrace in the mountains of Persis.",
-      "construction2", 4, 2, [["PRS_satrapies", "PRS_royal_road"]], build("industrial_complex") + "\n" + build("industrial_complex"),
-      filters=I, ai=3)
+      "trade", 8, 1, ROOT, build("industrial_complex") + "\nadd_political_power = 50", filters=I, ai=3)
+    f("PRS_royal_road", "The Royal Road", "From Sardis to Susa in ninety days on foot, seven for the royal couriers: neither snow nor rain stays them.",
+      "construct_infrastructure", 10, 1, ROOT, "add_ideas = PRS_royal_road_spirit\n" + infra() + "\n" + infra() + "\n"
+      + PS.drift_flag("PRS_royal_road_built", "The unrest of every satrapy grows §G0.02 slower§! every week."), filters=I)
+    f("PRS_persepolis", "Persepolis", "A new royal city on a terrace in the mountains of Persis, where every people of the empire brings its gifts.",
+      "construction2", 8, 2, [["PRS_daric"]], build("industrial_complex") + "\n" + build("industrial_complex"), filters=I, ai=3)
     f("PRS_qanats", "The Qanats", "Underground channels carry the water of the mountains to the fields of the plateau.",
-      "construction", 6, 2, [["PRS_royal_road"]], "add_ideas = PRS_qanats_spirit", filters=I)
-    f("PRS_phoenician_fleet", "The Phoenician Fleet", "Sidon, Tyre and Arwad sail for the Great King.",
-      "build_navy", 8, 2, [["PRS_immortals"]], puppet("SDN", "TYR", "ARW") + "\nnavy_experience = 20", ai=2)
+      "construction", 10, 2, [["PRS_royal_road"]], "add_ideas = PRS_qanats_spirit\n" + build("ante_farm"), filters=I)
+    f("PRS_paradises", "The Paradises", "Walled gardens and hunting parks around every palace: orchards, game and fields for the King's table.",
+      "construct_civilian", 9, 3, [["PRS_persepolis", "PRS_qanats"]], build("ante_farm") + "\n" + build("ante_farm"), filters=I)
+    f("PRS_palace_of_susa", "The Palace of Susa", "Cedar from Lebanon, gold from Sardis, ivory from Kush: every land works on the King's palace.",
+      "production", 9, 4, [["PRS_paradises"]], build("industrial_complex") + "\n" + build("arms_factory"), filters=I)
+    f("PRS_treasury", "The Treasuries of the King", "Silver ingots stored by the thousand talents in Susa and Persepolis.",
+      "construct_mil_factory", 9, 5, [["PRS_palace_of_susa"]], "add_ideas = PRS_treasury_spirit", cost=15, filters=I)
+    # --- 3. the gods (x 12..14)
+    f("PRS_ahura_mazda", "By the Favour of Ahura Mazda", "The Wise Lord gave Darius the kingdom; the Lie made the rebel kings.",
+      "propaganda", 13, 1, ROOT, "add_political_power = 50\nadd_stability = 0.03")
+    f("PRS_truth_against_the_lie", "Truth against the Lie", "Rebellion is the Lie. The King fights it everywhere, and the Truth is the King's.",
+      "propaganda", 12, 2, [["PRS_ahura_mazda"]], "add_ideas = PRS_asha_spirit\n" + PS.unrest_all(5),
+      extra=mx("PRS_gods_of_every_people"))
+    f("PRS_gods_of_every_people", "The Gods of Every People", "Cyrus restored the gods of Babylon and the temple of Jerusalem. The King honours every god of his peoples.",
+      "improve_relations", 14, 2, [["PRS_ahura_mazda"]], PS.unrest_all(-10) + "\nadd_stability = 0.05\n"
+      + PS.drift_flag("PRS_gods_of_every_people", "The unrest of every satrapy grows §G0.04 slower§! every week."),
+      extra=mx("PRS_truth_against_the_lie"))
     f("PRS_behistun", "The Inscription of Behistun", "On the cliff, in three languages: what Darius did, by the favour of Ahura Mazda.",
-      "propaganda", 3, 3, [["PRS_daric"], ["PRS_persepolis"]], "add_ideas = PRS_asha_spirit")
-    f("PRS_nile_canal", "The Canal of the Nile", "Ships sail from the Nile to the Red Sea, as Darius ordered.",
-      "construct_naval_dockyard", 5, 3, [["PRS_persepolis", "PRS_qanats"]], build("dockyard", "is_coastal = yes") + "\n" + infra(),
-      extra=COAST, filters=I)
-    f("PRS_ionia", "Ionia Pacified", "The Ionian cities rose; they will learn obedience - and keep their own laws, under satraps.",
-      "occupy_states_ongoing_war", 7, 3, [["PRS_phoenician_fleet", "PRS_qanats"]], cores(2) + "\nadd_stability = 0.05")
+      "scientific_exchange", 13, 3, [["PRS_truth_against_the_lie", "PRS_gods_of_every_people"]], "add_research_slot = 1",
+      filters=R, ai=3)
+    f("PRS_magi", "The Magi", "The priestly tribe of the Medes keeps the fire, the calendar and the knowledge of the stars.",
+      "research", 13, 4, [["PRS_behistun"]], "add_ideas = PRS_magi_spirit", filters=R)
+    # --- 4. the army (x 16..18)
+    f("PRS_immortals", "The Immortals", "Ten thousand picked spearmen; when one falls, another takes his place.",
+      "special_forces", 17, 1, ROOT, "add_ideas = PRS_immortals_spirit\narmy_experience = 15", filters=M, ai=3)
+    f("PRS_spara", "The Persian Horse", "The nobles of Persis and Media ride from boyhood: lance, bow and the truth.",
+      "cavalry", 16, 2, [["PRS_immortals"]], "add_ideas = PRS_spara_spirit\n"
+      "add_tech_bonus = { name = PRS_spara bonus = 1 uses = 1 category = armor }", extra=mx("PRS_levy_of_nations"), filters=M)
+    f("PRS_levy_of_nations", "The Levy of All Nations", "Ethiopians in leopard skins, Indians with cane bows, Assyrians with clubs: every people sends its men.",
+      "allies_build_infantry", 18, 2, [["PRS_immortals"]], "add_ideas = PRS_levy_of_nations_spirit\nadd_manpower = 20000\n"
+      + PS.unrest_all(5), extra=mx("PRS_spara"), filters=M)
+    f("PRS_kings_garrisons", "The King's Garrisons", "Persian commanders in the citadels of Sardis, Memphis and Babylon answer to the King, not the satrap.",
+      "fortify_city", 17, 3, [["PRS_spara", "PRS_levy_of_nations"]], PS.unrest_all(-10) + "\narmy_experience = 10", filters=M)
+    f("PRS_chariots", "Scythed Chariots", "Blades on the wheels and axles: a terror for close-packed infantry.",
+      "armor", 16, 4, [["PRS_kings_garrisons"]], "add_tech_bonus = { name = PRS_chariots bonus = 1 uses = 1 category = armor }",
+      filters=R)
+    f("PRS_greek_mercenaries", "Greek Mercenaries", "Hoplites from every city of Hellas fight for the King's gold - against other Greeks.",
+      "infantry", 18, 4, [["PRS_kings_garrisons"]], "add_ideas = PRS_greek_mercenaries_spirit\nadd_manpower = 3000", filters=M)
+    f("PRS_army_of_xerxes", "The Army of Xerxes", "The greatest army the world has seen: they drank rivers dry on the march.",
+      "major_war", 17, 5, [["PRS_chariots", "PRS_greek_mercenaries"]], "add_ideas = PRS_army_of_xerxes_spirit\narmy_experience = 30",
+      filters=M, ai=3)
+    # --- 5. the West and Hellas (x 21..25)
+    f("PRS_nobles_of_sardis", "The Nobles of Sardis", "Lydians and Phrygians in the satrap's council at Sardis: the old kingdom of Croesus keeps its pride.",
+      "improve_relations", 21, 1, ROOT, PS.unrest("lydia", -15) + "\n"
+      + PS.drift_flag("PRS_lydian_nobles", "The unrest of Lydia and Phrygia grows §G0.08 slower§! every week."))
+    f("PRS_phoenician_fleet", "The Phoenician Fleet", "Sidon, Tyre and Arwad sail for the Great King.",
+      "build_navy", 24, 1, ROOT, puppet("SDN", "TYR", "ARW") + "\nnavy_experience = 20", ai=2)
+    f("PRS_ionian_tyrants", "Tyrants for Ionia", "A loyal tyrant in every Greek city: he owes the King everything, and his people hate him.",
+      "political_pressure", 23, 2, [["PRS_phoenician_fleet"]], "add_political_power = 100\n" + PS.unrest("ionia", 10) + "\n"
+      + PS.drift_flag("PRS_ionian_tyrants", "The unrest of Ionia grows §R0.05 faster§! every week."),
+      extra=mx("PRS_ionian_democracies"))
+    f("PRS_ionian_democracies", "Democracy for the Ionians", "Mardonius deposes the tyrants: let the Greeks govern themselves - and pay their tribute.",
+      "improve_relations", 25, 2, [["PRS_phoenician_fleet"]], PS.unrest("ionia", -20) + "\n"
+      + PS.drift_flag("PRS_ionian_democracies", "The unrest of Ionia grows §G0.10 slower§! every week."),
+      extra=mx("PRS_ionian_tyrants"))
+    f("PRS_thrace", "Thrace and Macedon", "Across the Hellespont: the Thracian coast and the king of Macedon give earth and water.",
+      "territory_or_war", 24, 3, [["PRS_ionian_tyrants", "PRS_ionian_democracies"]], submit("MKD") + "\n" + cores(1))
     f("PRS_scythian_campaign", "Beyond the Ister", "The Scythians withdrew before the King's army once. Next time they will not escape.",
-      "territory_or_war", 9, 3, [["PRS_phoenician_fleet"]], wargoal("SCY") + "\n" + claims("SCY"))
+      "territory_or_war", 22, 4, [["PRS_thrace"]], wargoal("SCY") + "\n" + claims("SCY"))
     f("PRS_earth_and_water", "Earth and Water", "Envoys go to every Greek city: give earth and water, or face the King.",
-      "major_war", 7, 4, [["PRS_ionia"]], wargoal("ATH") + "\n" + wargoal("EUB") + "\n" + claims("ATH", "EUB"), ai=2)
-    f("PRS_king_of_the_world", "King of the Lands", "Darius, the Great King, King of Kings, King of the lands of all peoples.",
-      "national_unity", 5, 5, [["PRS_behistun"], ["PRS_nile_canal"], ["PRS_earth_and_water", "PRS_scythian_campaign"]],
-      "add_political_power = 150\nadd_stability = 0.10\nadd_research_slot = 1", ai=3)
+      "major_war", 24, 4, [["PRS_thrace"]], wargoal("ATH") + "\n" + wargoal("EUB") + "\n" + claims("ATH", "EUB"), ai=2)
+    f("PRS_datis_and_artaphernes", "Datis and Artaphernes", "A fleet across the Aegean: Naxos, Eretria - and the bay of Marathon.",
+      "amphibious_assault", 23, 5, [["PRS_earth_and_water"]], "navy_experience = 20\n" + wargoal("ATH") + "\n" + wargoal("EUB"),
+      extra=mx("PRS_bridge_the_hellespont"))
+    f("PRS_bridge_the_hellespont", "Bridge the Hellespont", "Ships lashed together from Asia to Europe; a canal through the Athos peninsula. The army walks to Greece.",
+      "construct_infrastructure", 25, 5, [["PRS_earth_and_water"]], "army_experience = 20\n" + infra() + "\n"
+      + wargoal("LAK") + "\n" + wargoal("THB"), extra=mx("PRS_datis_and_artaphernes"))
+    f("PRS_hellas", "Earth and Water from All Hellas", "Athens, Sparta, Thebes, Corinth, Argos: every Greek city will bow - or burn like Sardis did.",
+      "major_war", 24, 6, [["PRS_datis_and_artaphernes", "PRS_bridge_the_hellespont"]], "add_ideas = PRS_hellas_spirit\n"
+      + claims(*PS.GREECE), cost=15)
+    # --- 6. Egypt (x 28..31)
+    f("PRS_pharaoh", "Pharaoh of Egypt", "Darius takes the throne names of a pharaoh, builds temples and orders the old laws of Egypt written down.",
+      "national_unity", 29, 1, ROOT, PS.unrest("egypt", -20) + "\n"
+      + PS.drift_flag("PRS_pharaoh", "The unrest of Egypt grows §G0.10 slower§! every week."))
+    f("PRS_temple_of_hibis", "The Temple of Hibis", "In the oasis of Kharga, a temple for Amun-Ra built in the King's name.",
+      "construction", 28, 2, [["PRS_pharaoh"]], PS.unrest("egypt", -10) + "\nadd_stability = 0.03")
+    f("PRS_nile_canal", "The Canal of the Nile", "Ships sail from the Nile to the Red Sea, as Darius ordered.",
+      "construct_naval_dockyard", 30, 2, [["PRS_pharaoh"]], build("dockyard", "is_coastal = yes") + "\n" + infra(),
+      extra=COAST, filters=I)
+    f("PRS_kush", "Beyond the Cataracts", "Cambyses marched into the desert towards Kush and lost his army. The King will find a better road.",
+      "territory_or_war", 29, 3, [["PRS_temple_of_hibis", "PRS_nile_canal"]], wargoal("KSH") + "\n" + claims("KSH"))
+    f("PRS_cyrene", "Cyrene and Barca", "The Greek cities of Libya sent gifts to Cambyses. Now they will send tribute.",
+      "occupy_states_coastal", 31, 3, [["PRS_nile_canal"]], submit("KYR"))
+    # --- 7. Babylon (x 33..35)
+    f("PRS_king_of_babylon", "King of Babylon", "At the New Year festival the King of Persia takes the hands of Marduk: King of Babylon, King of the Lands.",
+      "improve_relations", 34, 1, ROOT, PS.unrest("babylon", -15) + "\nadd_political_power = 25")
+    f("PRS_hands_of_marduk", "The Hands of Marduk", "The King honours the god of Babylon every year, and Babylon stays the second city of the empire.",
+      "propaganda", 33, 2, [["PRS_king_of_babylon"]], PS.unrest("babylon", -15) + "\n"
+      + PS.drift_flag("PRS_marduk_honoured", "The unrest of Babylon grows §G0.10 slower§! every week."),
+      extra=mx("PRS_melt_marduk"))
+    f("PRS_melt_marduk", "Melt the Statue of Marduk", "Xerxes carries away the golden statue of the god: Babylon is a satrapy like any other.",
+      "political_pressure", 35, 2, [["PRS_king_of_babylon"]], "add_political_power = 150\n" + build("industrial_complex") + "\n"
+      + PS.unrest("babylon", 20) + "\n" + PS.drift_flag("PRS_marduk_melted", "The unrest of Babylon grows §R0.08 faster§! every week."),
+      extra=mx("PRS_hands_of_marduk"))
+    f("PRS_canals_of_babylon", "The Canals of Babylon", "Dig and clean the great canals between the Euphrates and the Tigris: the granary of the empire.",
+      "construct_civilian", 34, 3, [["PRS_hands_of_marduk", "PRS_melt_marduk"]], build("ante_farm") + "\n" + build("ante_farm") + "\n"
+      + infra(), filters=I)
+    # --- 8. the upper satrapies (x 37..39)
+    f("PRS_bactrian_prince", "A Prince for Bactria", "A son of the King governs Bactria: the most dangerous satrapy gets the most trusted satrap.",
+      "national_unity", 38, 1, ROOT, PS.unrest("bactria", -15) + "\n"
+      + PS.drift_flag("PRS_bactrian_prince", "The unrest of Bactria grows §G0.10 slower§! every week."))
+    f("PRS_gold_of_hindush", "The Gold of Hindush", "The Indians pay the largest tribute of all: three hundred and sixty talents of gold dust.",
+      "trade", 37, 2, [["PRS_bactrian_prince"]], "add_political_power = 100\n" + build("industrial_complex"), filters=I)
+    f("PRS_massagetae", "Avenge Cyrus", "Queen Tomyris of the Massagetae killed Cyrus the Great. The King has not forgotten.",
+      "territory_or_war", 39, 2, [["PRS_bactrian_prince"]], wargoal("MSG") + "\n" + claims("MSG"))
+    f("PRS_upper_satrapies", "The Upper Satrapies", "Horse archers of Bactria and Sogdiana guard the steppe frontier for the King.",
+      "cavalry", 38, 3, [["PRS_gold_of_hindush", "PRS_massagetae"]], "add_ideas = PRS_upper_satrapies_spirit\n" + PS.unrest("bactria", -10),
+      filters=M)
+    # --- the end of the road
+    f("PRS_king_of_the_world", "King of the Lands", "Darius, the Great King, King of Kings, King of the lands of all peoples. (The goal: the decision King of the Four Corners of the World.)",
+      "national_unity", 17, 7, [["PRS_army_of_xerxes"], ["PRS_seven_houses", "PRS_royal_blood"], ["PRS_treasury"]],
+      "add_political_power = 150\nadd_stability = 0.10\n" + PS.unrest_all(-15), cost=20, ai=3)
 
     # ============================================================== CARTHAGE (CAR) - plan: docs/carthage_focus_tree.md
     # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).
@@ -1000,7 +1141,14 @@ def define(focus, build, infra, tech, wargoal):
         "PRS_phoenician_fleet": (15, "", "add_political_power = -75"),
         "PRS_scythian_campaign": (15, "", "add_war_support = -0.05"),
         "PRS_earth_and_water": (20, "", ""),
-        "PRS_king_of_the_world": (25, "OR = {\n" + gone("SCY") + "\n" + gone("ATH") + "\n}", ""),
+        # the King of the Lands no longer waits for a conquest (round 40): the goal is the decision "King of the
+        # Four Corners of the World" (tools/persia_story.py)
+        "PRS_king_of_the_world": (25, "", ""),
+        "PRS_law_of_the_king": (15, "has_stability > 0.4", ""),
+        "PRS_army_of_xerxes": (20, "has_army_experience > 30", "add_manpower = -5000"),
+        "PRS_hellas": (15, gone("ATH"), ""),
+        "PRS_kush": (15, reach("KSH"), ""),
+        "PRS_massagetae": (15, reach("MSG"), ""),
         # Carthage
         # Carthage (round 30): big steps take time; war goals overseas are fine (Carthage has the fleet), but the
         # land wars in Africa need a common border, and no focus waits for a conquest it may never make
