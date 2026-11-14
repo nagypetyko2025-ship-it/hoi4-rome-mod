@@ -137,7 +137,7 @@ def define(focus, build, infra, tech, wargoal):
 
     f("ROM_regifugium", "Regifugium", "Tarquinius Superbus and his house are driven from the city. Rome will never again have a king - but the exiled king has friends in Etruria, and patricians and plebeians now fight over the Republic.",
       "political_pressure", 8, 0, [], "add_political_power = 50\n" + RS.START_REPUBLIC,
-      extra=mx("ROM_the_king_remains"), ai=5)
+      extra=mx("ROM_the_king_remains"), ai=6)
     # --- 1. Res Publica: every step moves the Struggle of the Orders (ROM_discord)
     f("ROM_consuls_and_senate", "Consuls and Senate", "Two magistrates for one year, the fathers of the Senate to advise them.",
       "national_unity", 2, 1, [["ROM_regifugium"]], "add_political_power = 75\nadd_stability = 0.05")
@@ -296,7 +296,7 @@ def define(focus, build, infra, tech, wargoal):
       "set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }\n"
       "promote_character = ROM_tarquinius\n"
       "add_ideas = ROM_rex_tarquinius_spirit\nadd_political_power = 50\n" + RS.START_KINGDOM,
-      extra=mx("ROM_regifugium"), ai=1)
+      extra=mx("ROM_regifugium"), ai=2)
     f("ROM_purge_the_conspirators", "Purge the Conspirators", "The sons of Brutus, the Vitellii, the Aquilii: every house that plotted pays with blood or exile.",
       "political_pressure", 23, 1, [["ROM_the_king_remains"]], "add_political_power = 100\nadd_stability = -0.03\n" + hate(5))
     f("ROM_tyranny_of_superbus", "Tyranny of Superbus", "The king rules without the Senate, judges without counsel and takes what he likes. Fear is enough.",

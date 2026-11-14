@@ -1034,6 +1034,8 @@
  CAR_puns_first_desc:0 "Punic settlers, Punic gods and Punic law: the land of Africa, the islands and the coasts of Iberia that Carthage holds - by war or by treaty - becomes the land of Carthage."
  CAR_punic_world:0 "The Punic World"
  CAR_punic_world_desc:0 "Africa, Sardinia, western Sicily, the Balearic islands and the south of Iberia: the world of the Phoenicians of the West. Every state costs 250 political power."
+ ROM_senate:0 "The Senate"
+ ROM_senate_desc:0 "The fathers of the great houses. While the fate of the kingship hangs in the balance, the Senate holds the city together."
  ROM_brutus:0 "Lucius Junius Brutus"
  ROM_brutus_desc:0 "Drove out Tarquinius Superbus, the last king, and became one of the first two consuls of the Republic."
  CAR_hamilcar:0 "Hamilcar"

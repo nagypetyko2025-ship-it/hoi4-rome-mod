@@ -341,6 +341,7 @@ country_event = {
 			set_politics = { ruling_party = democratic elections_allowed = yes }
 			set_popularities = { democratic = 85 fascism = 0 communism = 0 neutrality = 15 }
 			retire_character = ROM_tarquinius
+			if = { limit = { has_character = ROM_brutus } promote_character = ROM_brutus }
 			add_stability = -0.10
 			complete_national_focus = ROM_regifugium
 			set_variable = { ROM_discord = 55 }
@@ -419,6 +420,7 @@ country_event = {
 			set_politics = { ruling_party = democratic elections_allowed = yes }
 			set_popularities = { democratic = 85 fascism = 0 communism = 0 neutrality = 15 }
 			retire_character = ROM_tarquinius
+			if = { limit = { has_character = ROM_brutus } promote_character = ROM_brutus }
 			add_stability = -0.10
 			complete_national_focus = ROM_regifugium
 			set_variable = { ROM_discord = 55 }

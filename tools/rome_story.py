@@ -78,6 +78,8 @@ def hatred_below(n):
 
 # start of each road (focus rewards in national_trees.py)
 START_REPUBLIC = """set_country_flag = ROM_republic
+if = { limit = { has_character = ROM_brutus } promote_character = ROM_brutus }
+if = { limit = { has_character = ROM_senate } retire_character = ROM_senate }
 set_variable = { ROM_discord = 40 }
 ROM_discord_update = yes
 add_dynamic_modifier = { modifier = ROM_struggle_of_the_orders }
@@ -85,6 +87,7 @@ custom_effect_tooltip = ROM_TT_START_REPUBLIC
 country_event = { id = ante_rome.1 days = 25 }
 country_event = { id = ante_rome.10 days = 300 }"""
 START_KINGDOM = """set_country_flag = ROM_kingdom
+if = { limit = { has_character = ROM_senate } retire_character = ROM_senate }
 set_variable = { ROM_hatred = 70 }
 ROM_hatred_update = yes
 add_dynamic_modifier = { modifier = ROM_hatred_of_the_king }
@@ -110,6 +113,7 @@ if = { limit = { has_idea = ROM_good_king_spirit } remove_ideas = ROM_good_king_
 set_politics = { ruling_party = democratic elections_allowed = yes }
 set_popularities = { democratic = 85 fascism = 0 communism = 0 neutrality = 15 }
 retire_character = ROM_tarquinius
+if = { limit = { has_character = ROM_brutus } promote_character = ROM_brutus }
 add_stability = -0.10
 complete_national_focus = ROM_regifugium
 set_variable = { ROM_discord = 55 }

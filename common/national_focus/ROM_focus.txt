@@ -28,6 +28,8 @@ focus_tree = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_regifugium"
 			add_political_power = 50
 			set_country_flag = ROM_republic
+			if = { limit = { has_character = ROM_brutus } promote_character = ROM_brutus }
+			if = { limit = { has_character = ROM_senate } retire_character = ROM_senate }
 			set_variable = { ROM_discord = 40 }
 			ROM_discord_update = yes
 			add_dynamic_modifier = { modifier = ROM_struggle_of_the_orders }
@@ -35,7 +37,7 @@ focus_tree = {
 			country_event = { id = ante_rome.1 days = 25 }
 			country_event = { id = ante_rome.10 days = 300 }
 		}
-		ai_will_do = { factor = 5 }
+		ai_will_do = { factor = 6 }
 	}
 
 	focus = {
@@ -1229,6 +1231,7 @@ focus_tree = {
 			add_ideas = ROM_rex_tarquinius_spirit
 			add_political_power = 50
 			set_country_flag = ROM_kingdom
+			if = { limit = { has_character = ROM_senate } retire_character = ROM_senate }
 			set_variable = { ROM_hatred = 70 }
 			ROM_hatred_update = yes
 			add_dynamic_modifier = { modifier = ROM_hatred_of_the_king }
@@ -1236,7 +1239,7 @@ focus_tree = {
 			country_event = { id = ante_rome.42 days = 60 }
 			country_event = { id = ante_rome.44 days = 200 }
 		}
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 2 }
 	}
 
 	focus = {

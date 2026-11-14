@@ -10,6 +10,10 @@
 
 LEADERS = [
     # --- attested rulers
+    # Rome is led by the Senate until the first focus decides: Regifugium promotes Brutus, The King Remains
+    # Tarquinius (round 39, Peti: "Brutus cannot lead a Rome that still has its king"). No trait - no bonus, no malus.
+    ("ROM", "senate", "The Senate", None, False, True,
+     "The fathers of the great houses. While the fate of the kingship hangs in the balance, the Senate holds the city together."),
     ("ROM", "brutus", "Lucius Junius Brutus", "ante_liberator", False, True,
      "Drove out Tarquinius Superbus, the last king, and became one of the first two consuls of the Republic."),
     ("CAR", "hamilcar", "Hamilcar", "ante_merchant_prince", False, True,
@@ -94,3 +98,5 @@ TRAITS = {
 # leaders of a party that does not rule at the start (recruited in history like everybody, so a focus can
 # promote_character them); value = their sub-ideology (overrides the one taken from the ruling party)
 LATER = {"ROM_tarquinius": "despotism"}
+# the leader in power at the start where it is not the first one recruited
+START_LEADER = {"ROM": "ROM_senate"}

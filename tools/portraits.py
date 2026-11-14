@@ -328,12 +328,55 @@ def seed_of(text):
     return int(hashlib.md5(text.encode()).hexdigest()[:8], 16)
 
 
+def senate():
+    """the Curia: a temple front with columns, and S P Q R over the steps"""
+    from PIL import Image, ImageDraw
+    im = Image.new("RGBA", (W * S, H * S), (92, 30, 36, 255))
+    d = ImageDraw.Draw(im)
+    for y in range(H * S):               # a darker floor of the frame
+        if y > H * S * 0.78:
+            d.line([(0, y), (W * S, y)], fill=(70, 22, 28, 255))
+    stone, shade = (222, 210, 186, 255), (150, 136, 112, 255)
+    x0, x1 = 22 * S, (W - 22) * S
+    d.polygon([(x0 - 6 * S, 78 * S), (W * S // 2, 42 * S), (x1 + 6 * S, 78 * S)], fill=stone)      # pediment
+    d.polygon([(x0 + 8 * S, 72 * S), (W * S // 2, 52 * S), (x1 - 8 * S, 72 * S)], fill=shade)
+    d.rectangle((x0 - 6 * S, 78 * S, x1 + 6 * S, 88 * S), fill=stone)                              # architrave
+    n = 6
+    for i in range(n):                                                                           # columns
+        cx = x0 + (x1 - x0) * i // (n - 1)
+        d.rectangle((cx - 5 * S, 90 * S, cx + 5 * S, 152 * S), fill=stone)
+        d.line([(cx, 92 * S), (cx, 150 * S)], fill=shade, width=S)
+        d.rectangle((cx - 7 * S, 88 * S, cx + 7 * S, 92 * S), fill=stone)
+    for k in range(3):                                                                           # steps
+        d.rectangle((x0 - (10 + 6 * k) * S, (152 + 8 * k) * S, x1 + (10 + 6 * k) * S, (160 + 8 * k) * S), fill=stone)
+        d.line([(x0 - (10 + 6 * k) * S, (160 + 8 * k) * S), (x1 + (10 + 6 * k) * S, (160 + 8 * k) * S)], fill=shade, width=S)
+    gold = (226, 182, 72, 255)                                                                   # S P Q R
+    letters = {"S": [(0, 0, 4, 1), (0, 0, 1, 3), (0, 2, 4, 3), (3, 2, 4, 5), (0, 4, 4, 5)],
+               "P": [(0, 0, 1, 5), (0, 0, 4, 1), (3, 0, 4, 3), (0, 2, 4, 3)],
+               "Q": [(0, 0, 4, 1), (0, 0, 1, 5), (3, 0, 4, 5), (0, 4, 4, 5), (3, 4, 5, 6)],
+               "R": [(0, 0, 1, 5), (0, 0, 4, 1), (3, 0, 4, 3), (0, 2, 4, 3), (2, 3, 3, 4), (3, 4, 4, 5)]}
+    u = 3 * S
+    total = 4 * 4 * u + 3 * 3 * u
+    lx = (W * S - total) // 2
+    for ch in "SPQR":
+        for a_, b_, c_, e_ in letters[ch]:
+            d.rectangle((lx + a_ * u, 14 * S + b_ * u, lx + c_ * u - 1, 14 * S + e_ * u - 1), fill=gold)
+        lx += 7 * u
+    return im.resize((W, H))
+
+
+EMBLEMS = {"ROM_senate": senate}
+
+
 def main():
     out = MOD / "gfx" / "leaders" / "ante"
     (out / "generic").mkdir(parents=True, exist_ok=True)
     named = []
     for tag, key, name, trait, female, attested, desc in LEADERS:
-        im = portrait(LEADER_STYLE.get(f"{tag}_{key}", TAG_STYLE[tag]), female, seed_of(f"{tag}_{key}"))
+        if f"{tag}_{key}" in EMBLEMS:   # a body, not a person (Rome's Senate, round 39)
+            im = EMBLEMS[f"{tag}_{key}"]()
+        else:
+            im = portrait(LEADER_STYLE.get(f"{tag}_{key}", TAG_STYLE[tag]), female, seed_of(f"{tag}_{key}"))
         im.save(out / f"{tag}_{key}.dds")
         named.append(im)
     # generic portraits: a few per people, for every leader and general the game makes up itself

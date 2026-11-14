@@ -1041,3 +1041,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Harmincnyolcadik kör (2026-11-14, Claude) – az AI-Róma okosabban háborúzik
 - Csak békében és legalább 1500 fő emberanyaggal kezd új háborút (stratégia és havi becsvágy), háború alatt és kevés emberrel nem nyit új frontot (avoid_starting_wars).
 - Az AI szívesen használja a latin magterület-döntést (250 PP): a meghódított államok magterületként katonát is adnak.
+
+## Harminckilencedik kör (2026-11-14, Claude) – a szenátus vezeti Rómát; az AI néha megtartja a királyt
+- Róma kezdő vezetője **a szenátus** (bónusz és malus nélkül, saját kép: a kúria SPQR-rel). A Regifugium Brutust, a The King Remains Tarquiniust teszi vezetővé, a szenátus ekkor visszavonul; ha a király útján kitör a felkelés, Brutus veszi át.
+- Az AI a két gyökérfókusz közül kb. négy játékból egyszer a királyt tartja meg (súly 6 : 2).

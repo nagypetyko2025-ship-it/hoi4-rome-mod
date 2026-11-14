@@ -39,7 +39,7 @@ sys.path.insert(0, str(TOOLS))
 import positions as P  # noqa: E402   (load_map / province_table, and the position writers)
 from geo import to_xy  # noqa: E402
 import resources as R  # noqa: E402  ancient resources (round 21)
-from data.leaders_509bc import LEADERS, LATER  # noqa: E402
+from data.leaders_509bc import LEADERS, LATER, START_LEADER  # noqa: E402
 import data.tech_tree as TT  # noqa: E402
 
 D = importlib.import_module("data.world_509bc")
@@ -968,6 +968,8 @@ def write_world(M, C, states):
             hist += ["set_technology = {"] + [f"\t{t} = 1" for t in techs] + ["\tpopup = no", "}"]
         # named leaders (common/characters/ante_leaders.txt, written by tools/content.py)
         hist += [f"recruit_character = {tag}_{key}" for t, key, *_ in LEADERS if t == tag]
+        if tag in START_LEADER:
+            hist.append(f"promote_character = {START_LEADER[tag]}")
         # culture national spirit (common/ideas/ante_generic_ideas.txt, tools/content.py); Rome has its own
         if c["names"] != "none":
             hist.append(f"add_ideas = ante_culture_{'roman' if tag == 'ROM' else c['names']}")
