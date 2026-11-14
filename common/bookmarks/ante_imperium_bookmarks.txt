@@ -44,14 +44,21 @@ bookmarks = {
 			ideas = { ante_culture_greek }
 			focuses = { }
 		}
-		"SYR" = {
-			history = "ANTE_BOOKMARK_SYR"
-			ideology = democratic
-			ideas = { ante_culture_greek }
+		"SEN" = {
+			history = "ANTE_BOOKMARK_SEN"
+			ideology = communism
+			ideas = { ante_culture_celtic }
 			focuses = { }
 		}
 		"---" = {
 			history = "ANTE_BOOKMARK_REPUBLIC_DESC"
+		}
+		"SYR" = {
+			minor = yes
+			history = "ANTE_BOOKMARK_SYR"
+			ideology = democratic
+			ideas = { ante_culture_greek }
+			focuses = { }
 		}
 		"CLU" = {
 			minor = yes

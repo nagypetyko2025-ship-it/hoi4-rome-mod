@@ -3,7 +3,7 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				limit = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR } }
+				limit = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR tag = SEN } }
 				set_variable = { ante_realm_states = num_controlled_states }
 				every_subject_country = {
 					PREV = { add_to_variable = { ante_realm_states = PREV.num_controlled_states } }
@@ -13,7 +13,7 @@ on_actions = {
 	}
 	on_weekly = {
 		effect = {
-			if = { limit = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR } }
+			if = { limit = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR tag = SEN } }
 				set_variable = { ante_realm_states = num_controlled_states }
 				every_subject_country = {
 					PREV = { add_to_variable = { ante_realm_states = PREV.num_controlled_states } }

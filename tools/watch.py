@@ -33,7 +33,7 @@ PATH_RE = re.compile(r"((?:common|events|history|interface|gfx|localisation|map|
 STAMP_RE = re.compile(r"^\[(\d\d:\d\d:\d\d)\]\[([^\]]*)\]:\s*")
 BASE_COPIES = ("common/doctrines/", "common/wargoals/", "common/buildings/00_buildings.txt",
                "common/technology_tags/", "interface/countrytechtreeview.gui")
-WATCH_TAGS = {"ROM", "ATH", "LAK", "MKD", "PRS", "CAR"}   # the countries with a focus tree of their own
+WATCH_TAGS = {"ROM", "ATH", "LAK", "MKD", "PRS", "CAR", "SEN"}   # the countries with a focus tree of their own
 OURS_RE = re.compile(r"\bante_|\bANTE_|\bROM_|_cmd_|\bante\b")
 
 

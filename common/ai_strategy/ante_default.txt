@@ -29,7 +29,7 @@ ante_terra_incognita = {
 
 ante_great_power_army = {
 	enable = {
-		OR = { tag = ROM tag = CAR tag = PRS tag = ATH tag = LAK tag = MKD }
+		OR = { tag = ROM tag = CAR tag = PRS tag = ATH tag = LAK tag = MKD tag = SEN }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = { type = ai_wanted_divisions_factor value = 50 }

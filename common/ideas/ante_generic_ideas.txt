@@ -725,6 +725,117 @@ ideas = {
 				war_support_factor = 0.05
 			}
 		}
+		CAR_magonid_rule_spirit = {
+			picture = generic_central_management
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				army_org_factor = 0.05
+				stability_factor = -0.03
+			}
+		}
+		CAR_military_monarchy_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.08
+				war_support_factor = 0.1
+				political_power_gain = 0.1
+			}
+		}
+		CAR_council_rule_spirit = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.08
+				political_power_gain = 0.05
+			}
+		}
+		CAR_court_of_104_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.07
+				army_morale_factor = -0.03
+			}
+		}
+		CAR_landed_party_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.1
+				conscription = 0.02
+			}
+		}
+		CAR_sea_party_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.25
+				production_speed_dockyard_factor = 0.1
+			}
+		}
+		CAR_merchant_republic_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.1
+				stability_factor = 0.05
+			}
+		}
+		CAR_tanit_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.03
+			}
+		}
+		CAR_melqart_tithe_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+				trade_opinion_factor = 0.15
+			}
+		}
+		CAR_own_gods_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		CAR_precinct_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				surrender_limit = 0.1
+			}
+		}
+		CAR_demeter_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				stability_factor = 0.03
+			}
+		}
 		CAR_merchant_princes_spirit = {
 			picture = generic_economic_increase
 			allowed = { always = no }
@@ -745,14 +856,40 @@ ideas = {
 				naval_speed_factor = 0.05
 			}
 		}
-		CAR_mercenaries_spirit = {
-			picture = generic_manpower_bonus
+		CAR_ramming_spirit = {
+			picture = generic_navy_bonus
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				conscription = 0.04
-				army_attack_factor = 0.05
-				stability_factor = -0.03
+				naval_speed_factor = 0.1
+				naval_damage_factor = 0.05
+			}
+		}
+		CAR_marines_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				naval_damage_factor = 0.1
+				navy_org_factor = 0.05
+			}
+		}
+		CAR_mare_clausum_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.2
+				trade_opinion_factor = 0.1
+			}
+		}
+		CAR_phoenician_league_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.15
+				political_power_gain = 0.05
 			}
 		}
 		CAR_libyan_levies_spirit = {
@@ -763,6 +900,61 @@ ideas = {
 				conscription = 0.03
 			}
 		}
+		CAR_libyphoenicians_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.1
+				stability_factor = 0.03
+			}
+		}
+		CAR_numidian_horse_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.05
+				army_attack_factor = 0.03
+			}
+		}
+		CAR_caravans_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.1
+				industrial_capacity_factory = 0.03
+			}
+		}
+		CAR_lessons_of_himera_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+			}
+		}
+		CAR_mercenaries_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.04
+				army_attack_factor = 0.05
+				stability_factor = -0.03
+			}
+		}
+		CAR_citizen_army_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.08
+				army_org_factor = 0.05
+				conscription = 0.01
+			}
+		}
 		CAR_sacred_band_spirit = {
 			picture = generic_morale_bonus
 			allowed = { always = no }
@@ -770,6 +962,88 @@ ideas = {
 			modifier = {
 				army_org_factor = 0.1
 				army_morale_factor = 0.1
+			}
+		}
+		CAR_elephants_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.07
+			}
+		}
+		CAR_faithful_ally_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				opinion_gain_monthly_factor = 0.2
+			}
+		}
+		CAR_punic_faith_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				justify_war_goal_time = -0.25
+				war_support_factor = 0.05
+			}
+		}
+		SEN_druids_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.07
+				research_speed_factor = 0.03
+			}
+		}
+		SEN_sacred_groves_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.07
+				stability_factor = 0.03
+			}
+		}
+		SEN_champions_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.08
+				army_morale_factor = 0.05
+			}
+		}
+		SEN_naked_warriors_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = -0.03
+			}
+		}
+		SEN_on_the_move_spirit = {
+			picture = generic_supply_line
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.1
+				attrition = -0.1
+				supply_consumption_factor = -0.1
+				conscription = 0.03
+			}
+		}
+		SEN_swords_for_hire_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				experience_gain_army_factor = 0.1
 			}
 		}
 		ROM_porsenna_terms_spirit = {

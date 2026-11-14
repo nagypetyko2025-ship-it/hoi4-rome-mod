@@ -487,5 +487,5 @@ WILD("Black Sands", (60.0, 39.3), (62.5, 39.8), (58.5, 41.8), (63.0, 42.0), (64.
 WILD("Makran", (61.5, 27.2), (64.5, 27.0), (66.5, 27.5), (63.0, 29.0), (66.5, 25.6))
 
 # the first 7 are the "major" slots of the selection screen, the rest are listed after "---"
-BOOKMARK_COUNTRIES = ["ROM", "CAR", "PRS", "ATH", "LAK", "MKD", "SYR"]
-BOOKMARK_MINORS = ["CLU", "LAT", "SCY", "MSG", "KSH", "KYR", "THL"]
+BOOKMARK_COUNTRIES = ["ROM", "CAR", "PRS", "ATH", "LAK", "MKD", "SEN"]
+BOOKMARK_MINORS = ["SYR", "CLU", "LAT", "SCY", "MSG", "KSH", "KYR", "THL"]

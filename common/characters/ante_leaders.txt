@@ -150,6 +150,16 @@ characters = {
 			id = -1
 		}
 	}
+	SEN_brennos = {
+		name = SEN_brennos
+		portraits = { civilian = { large = "gfx/leaders/ante/SEN_brennos.dds" } }
+		country_leader = {
+			ideology = marxism
+			traits = { ante_war_leader }
+			expire = "999.1.1.1"
+			id = -1
+		}
+	}
 	SYR_gamoroi = {
 		name = SYR_gamoroi
 		portraits = { civilian = { large = "gfx/leaders/ante/SYR_gamoroi.dds" } }

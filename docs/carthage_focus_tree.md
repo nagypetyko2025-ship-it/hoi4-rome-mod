@@ -1,8 +1,8 @@
 # Karthágó fókuszfája – terv (2026-11-14)
 
-Állapot: **alapfa van** (15 fókusz a `tools/national_trees.py`-ban: Magonidák, kóthón, római szerződés, Szardínia,
-Szicília, Hanno útja, ibériai ezüst, Szent Csapat). Ezt bontjuk ki Róma mintájára: két út a gyökérnél, kizáró
-döntéspárok minden ágban, saját mérőszám, események és döntések.
+Állapot (30. kör): **a fa kész – 60 fókusz, két út a gyökérnél, kizáró párok minden ágban** (`tools/national_trees.py`,
+CARTHAGE szakasz; feltételek a `TUNE`-ban). Még hátra van: a két mérő (a tanács gyanúja / a zsoldosok bére), a „Res
+Punica” döntések (zsoldosfogadás) és az események (`events/CAR_events.txt`) – a következő körben.
 
 Időkeret: Kr. e. 509 (245 AUC, az első római–karthágói szerződés éve) → Kr. e. 264 (490 AUC, Messana, az első pun
 háború – a második kezdés). Karthágó Róma fő ellenfele: a két fa a végén ugyanoda fut (Szicília).

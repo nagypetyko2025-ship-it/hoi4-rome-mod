@@ -52,14 +52,14 @@ on_actions = {
 	}
 	on_state_control_changed = {
 		effect = {
-			if = { limit = { OR = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR is_ai = no } FROM = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR is_ai = no } } } }
+			if = { limit = { OR = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR tag = SEN is_ai = no } FROM = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR tag = SEN is_ai = no } } } }
 				log = "ANTE|[GetDateText]|state|[ROOT.GetTag]|[FROM.GetTag]|[FROM.FROM.GetName]"
 			}
 		}
 	}
 	on_monthly = {
 		effect = {
-			if = { limit = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR is_ai = no } }
+			if = { limit = { OR = { tag = ROM tag = ATH tag = LAK tag = MKD tag = PRS tag = CAR tag = SEN is_ai = no } }
 				log = "ANTE|[GetDateText]|month|[ROOT.GetTag]|states=[?num_controlled_states]|pp=[?political_power|0]|stab=[?stability|%0]|ws=[?has_war_support|%0]|mp=[?manpower|0]|div=[?num_divisions]|fac=[?num_of_factories]|realm=[?ante_realm_states]"
 				if = { limit = { tag = ROM } log = "ANTE|[GetDateText]|rome|[ROOT.GetTag]|discord=[?ROM_discord|0]|hatred=[?ROM_hatred|0]" }
 			}

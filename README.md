@@ -946,3 +946,22 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   kezd háborút, nem épít sereget, nem kutat (0 kutatóhely); kimarad a hódítási vágyból.
 - **Naplózó:** az alapjátékból másolt fájlok (doktrínák, háborús célok, épületek, tech-felület) régi panaszai nem
   számítanak „a mi hibáinknak” (`BASE_COPIES`).
+
+## Harmincadik kör (2026-11-14, Claude) – Karthágó fája, a szenonok, a választóképernyő
+- **Karthágó teljes fókuszfája** (60 fókusz, `docs/carthage_focus_tree.md`): két út a gyökérnél – **The House of
+  Mago** (dinasztia: Mago reformjai, örökös suffes, „kard” ↔ „alku a tanáccsal”, katonai monarchia) vagy **The
+  Hundred and Four** (oligarchia: suffetek, a Száznégyek bírósága, földbirtokos ↔ tengeri párt, népgyűlés,
+  kereskedőköztársaság); hét közös ág: istenek (Melqart tizede ↔ Karthágó istenei, Tanit körzete, Démétér és Koré),
+  flotta (kóthón, kos ↔ tengerészgyalogság, Mare Clausum, quinqueremék), kereskedelem és gyarmatok (bíbor, Gadir és
+  Ebusus, Málta, föníciai városok ↔ közvetlen uralom, Szardínia, Hannón és Himilkón útja, ibériai ezüst és bányák),
+  Afrika (a líbiai adó vége, numida szövetség ↔ hódítás, libüphoinikaiak, karavánok, a Philainosz-oltárok),
+  Szicília (elümoszi szövetség, Himera, bosszú ↔ Gelón békéje, Szelinusz és Akragasz, Agathoklész, Szürakuszai,
+  Messana), sereg (zsoldos ↔ polgárhadsereg, Szent Csapat, elefántok, Xanthipposz), Róma (a szerződések
+  betartása ↔ Punica fides, a második szerződés, Pürrhosz ellen, Messana kérdése). A mérők, döntések és
+  események a következő körben jönnek.
+- **A szenonok saját fája** (17 fókusz): harcosok gyűlése; druidák, szent ligetek, íratlan tudás; a bajnok része,
+  hosszú kardok, rohamharcosok; erődök, só és vas, „túl sok száj”; testvérek az Alpokon túl (frakció az
+  inszuberekkel és a boiusokkal) → **a nagy vándorlás** (csak ha a hágók nyitva: inszuberek szövetségesek vagy
+  eltűntek) → az ager Gallicus, zsoldoskardok, Clusium előtt → **Vae victis** (háborús cél Róma ellen).
+  Vezető: Brennos, az Idősebb (kitalált: a 390-es Brennus őse), kelta portréval.
+- **Választóképernyő:** a szenonok a 7 nagy között (Szürakuszai helyén), Szürakuszai a kisebbek között.

@@ -18,7 +18,7 @@ from pathlib import Path
 MOD = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-TREE_TAGS = ["ROM", "ATH", "LAK", "MKD", "PRS", "CAR"]
+TREE_TAGS = ["ROM", "ATH", "LAK", "MKD", "PRS", "CAR", "SEN"]
 WATCHED = "OR = { " + " ".join(f"tag = {t}" for t in TREE_TAGS) + " is_ai = no }"
 D = "[GetDateText]"
 

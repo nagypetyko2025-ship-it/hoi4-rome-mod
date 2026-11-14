@@ -40,6 +40,8 @@ LEADERS = [
      "Milo of Croton, six times Olympic victor, who led the army that destroyed Sybaris in 510 BC."),
     ("ROM", "tarquinius", "Lucius Tarquinius Superbus", "ante_king_of_kings", False, True,
      "The seventh and last king of Rome, builder of the great temple and the sewers - and a tyrant. Leads the (non-ruling) royalists at the start; the focus 'The King Remains' puts him in power."),
+    ("SEN", "brennos", "Brennos the Elder", "ante_war_leader", False, False,
+     "Invented: no chief of the Senones is known before the Brennus who sacked Rome in 390 BC - this is his forefather."),
     ("SYR", "gamoroi", "Kallikrates of the Gamoroi", "ante_merchant_prince", False, False,
      "Invented: the landowning Gamoroi, heirs of the Corinthian settlers, ruled Syracuse before the tyrants; no single ruler of 509 BC is known."),
     ("THL", "thorax", "Thorax of Larisa", "ante_horse_lord", False, True,

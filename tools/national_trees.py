@@ -562,48 +562,270 @@ def define(focus, build, infra, tech, wargoal):
       "national_unity", 5, 5, [["PRS_behistun"], ["PRS_nile_canal"], ["PRS_earth_and_water", "PRS_scythian_campaign"]],
       "add_political_power = 150\nadd_stability = 0.10\nadd_research_slot = 1", ai=3)
 
-    # ============================================================== CARTHAGE (CAR)
-    f = tree("CAR", "CAR_magonid_dynasty", "# Carthage under the Magonids (base tree)")
+    # ============================================================== CARTHAGE (CAR) - plan: docs/carthage_focus_tree.md
+    # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).
+    # Shared branches hang from either root: gods (8..10), fleet (12..14), trade and colonies (16..21),
+    # Africa (22..26), Sicily (28..32), army (34..36), Rome (38..40). Every branch has a pair of exclusive choices.
+    f = tree("CAR", "CAR_house_of_mago", "# Carthage, 509-264 BC - plan: docs/carthage_focus_tree.md\n"
+             "# Roots: the House of Mago (dynasty) or the Hundred and Four (oligarchy); seven shared branches.")
+    ROOTS = [["CAR_house_of_mago", "CAR_hundred_and_four"]]
+    idea("CAR_magonid_rule_spirit", "The Rule of the Magonids", "central_management",
+         political_power_gain=0.10, army_org_factor=0.05, stability_factor=-0.03)
+    idea("CAR_military_monarchy_spirit", "Military Monarchy", "morale_bonus",
+         army_attack_factor=0.08, war_support_factor=0.10, political_power_gain=0.10)
+    idea("CAR_council_rule_spirit", "The Council of Elders", "constitutional_guarantees",
+         stability_factor=0.08, political_power_gain=0.05)
+    idea("CAR_court_of_104_spirit", "The Court of the Hundred and Four", "political_support",
+         stability_factor=0.07, army_morale_factor=-0.03)
+    idea("CAR_landed_party_spirit", "The Landed Party", "agrarian_society", monthly_population=0.10, conscription=0.02)
+    idea("CAR_sea_party_spirit", "The Party of the Sea", "navy_bonus",
+         trade_opinion_factor=0.25, production_speed_dockyard_factor=0.10)
+    idea("CAR_merchant_republic_spirit", "The Merchant Republic", "economic_increase",
+         industrial_capacity_factory=0.05, production_speed_buildings_factor=0.10, stability_factor=0.05)
+    idea("CAR_tanit_spirit", "Tanit, Face of Baal", "pp_unity_bonus", stability_factor=0.05, war_support_factor=0.03)
+    idea("CAR_melqart_tithe_spirit", "Tithe to Melqart of Tyre", "political_support", political_power_gain=0.05,
+         trade_opinion_factor=0.15)
+    idea("CAR_own_gods_spirit", "The Gods of Carthage", "pp_unity_bonus", stability_factor=0.05, war_support_factor=0.05)
+    idea("CAR_precinct_spirit", "The Precinct of Tanit", "morale_bonus", war_support_factor=0.10, surrender_limit=0.10)
+    idea("CAR_demeter_spirit", "Demeter and Kore", "research_bonus", research_speed_factor=0.05, stability_factor=0.03)
     idea("CAR_merchant_princes_spirit", "Merchant Princes", "economic_increase",
          trade_opinion_factor=0.20, production_speed_buildings_factor=0.10, political_power_gain=0.05)
     idea("CAR_mistress_of_the_sea_spirit", "Mistress of the Sea", "navy_bonus",
          production_speed_dockyard_factor=0.15, naval_damage_factor=0.10, naval_speed_factor=0.05)
-    idea("CAR_mercenaries_spirit", "Mercenary Armies", "manpower_bonus", conscription=0.04, army_attack_factor=0.05, stability_factor=-0.03)
+    idea("CAR_ramming_spirit", "Masters of the Ram", "navy_bonus", naval_speed_factor=0.10, naval_damage_factor=0.05)
+    idea("CAR_marines_spirit", "Soldiers on Deck", "navy_bonus", naval_damage_factor=0.10, navy_org_factor=0.05)
+    idea("CAR_mare_clausum_spirit", "Mare Clausum", "navy_bonus", navy_max_range_factor=0.20, trade_opinion_factor=0.10)
+    idea("CAR_phoenician_league_spirit", "The Phoenician Cities", "economic_increase", trade_opinion_factor=0.15,
+         political_power_gain=0.05)
     idea("CAR_libyan_levies_spirit", "Libyan Levies", "manpower_bonus", conscription=0.03)
+    idea("CAR_libyphoenicians_spirit", "The Libyphoenicians", "agrarian_society", monthly_population=0.10, stability_factor=0.03)
+    idea("CAR_numidian_horse_spirit", "Numidian Horsemen", "morale_bonus", army_speed_factor=0.05, army_attack_factor=0.03)
+    idea("CAR_caravans_spirit", "The Desert Caravans", "economic_increase", trade_opinion_factor=0.10,
+         industrial_capacity_factory=0.03)
+    idea("CAR_lessons_of_himera_spirit", "The Lessons of Himera", "fortify_the_borders", army_defence_factor=0.10)
+    idea("CAR_mercenaries_spirit", "Mercenary Armies", "manpower_bonus", conscription=0.04, army_attack_factor=0.05,
+         stability_factor=-0.03)
+    idea("CAR_citizen_army_spirit", "The Citizen Army", "infantry_bonus", army_defence_factor=0.08, army_org_factor=0.05,
+         conscription=0.01)
     idea("CAR_sacred_band_spirit", "The Sacred Band", "morale_bonus", army_org_factor=0.10, army_morale_factor=0.10)
-    f("CAR_magonid_dynasty", "The House of Mago", "Mago and his sons have made Carthage a power by land and sea.",
-      "political_pressure", 5, 0, [], "add_political_power = 75\nadd_stability = 0.05")
-    f("CAR_suffetes", "Suffetes and Council", "Two judges elected each year, a council of elders, and the court of the Hundred and Four.",
-      "national_unity", 3, 1, [["CAR_magonid_dynasty"]], "add_political_power = 100")
+    idea("CAR_elephants_spirit", "War Elephants", "morale_bonus", army_attack_factor=0.07)
+    idea("CAR_faithful_ally_spirit", "Faithful to the Treaties", "political_support", stability_factor=0.05,
+         opinion_gain_monthly_factor=0.20)
+    idea("CAR_punic_faith_spirit", "Punica Fides", "political_support", justify_war_goal_time=-0.25,
+         war_support_factor=0.05)
+
+    # --- the two roads
+    f("CAR_house_of_mago", "The House of Mago", "Mago and his sons command the armies and the city. Carthage is ruled by one family - as long as it wins.",
+      "political_pressure", 1, 0, [], "add_ideas = CAR_magonid_rule_spirit\nadd_political_power = 50\narmy_experience = 10",
+      extra=mx("CAR_hundred_and_four"), ai=5)
+    f("CAR_hundred_and_four", "The Hundred and Four", "The great merchant houses will not be ruled by generals: a court of a hundred and four judges watches every commander.",
+      "national_unity", 5, 0, [], "add_ideas = CAR_council_rule_spirit\nadd_political_power = 50",
+      extra=mx("CAR_house_of_mago"), ai=3)
+    # dynasty (x 0..2)
+    f("CAR_reforms_of_mago", "The Reforms of Mago", "Mago turned the citizen levy into a professional army of paid soldiers.",
+      "army_doctrines", 1, 1, [["CAR_house_of_mago"]], "army_experience = 20\n" + doctrine("CAR_reforms_of_mago"), filters=M)
+    f("CAR_suffete_for_life", "Suffete for Life", "The Magonid holds the highest office year after year: a king in all but name.",
+      "political_pressure", 1, 2, [["CAR_reforms_of_mago"]], "add_political_power = 100\nadd_stability = -0.03")
+    f("CAR_heirs_of_hamilcar", "Rule by the Sword", "The sons of Hamilcar lead the armies and the council obeys. Victories pay for everything.",
+      "major_war", 0, 3, [["CAR_suffete_for_life"]], "add_war_support = 0.10\narmy_experience = 15",
+      extra=mx("CAR_bargain_with_the_council"))
+    f("CAR_bargain_with_the_council", "Bargain with the Council", "Seats, contracts and marriages for the great houses: the dynasty buys peace at home.",
+      "improve_relations", 2, 3, [["CAR_suffete_for_life"]], "add_stability = 0.08\nadd_political_power = -50",
+      extra=mx("CAR_heirs_of_hamilcar"))
+    f("CAR_military_monarchy", "A Military Monarchy", "The Magonids rule Carthage the way they rule an army.",
+      "national_unity", 1, 4, [["CAR_heirs_of_hamilcar", "CAR_bargain_with_the_council"]],
+      swap("CAR_magonid_rule_spirit", "CAR_military_monarchy_spirit"), cost=15, ai=3)
+    # oligarchy (x 4..6)
+    f("CAR_suffetes", "Suffetes and Council", "Two judges elected each year, a council of elders, and the assembly of the citizens.",
+      "national_unity", 5, 1, [["CAR_hundred_and_four"]], "add_political_power = 100")
+    f("CAR_court_of_104", "The Court of the Hundred and Four", "Every general returns to face the judges. The defeated are crucified.",
+      "political_pressure", 5, 2, [["CAR_suffetes"]], "add_ideas = CAR_court_of_104_spirit")
+    f("CAR_party_of_hanno", "The Landed Party", "The great estates of the hinterland: Africa first, the sea second.",
+      "construct_civilian", 4, 3, [["CAR_court_of_104"]], "add_ideas = CAR_landed_party_spirit\n" + build("ante_farm"),
+      extra=mx("CAR_party_of_the_sea"), filters=I)
+    f("CAR_party_of_the_sea", "The Party of the Sea", "The shipowners and the merchants of the harbour: the sea is Carthage's field.",
+      "trade", 6, 3, [["CAR_court_of_104"]], "add_ideas = CAR_sea_party_spirit\n" + build("dockyard", "is_coastal = yes"),
+      extra=COAST + "\n" + mx("CAR_party_of_hanno"), filters=I)
+    f("CAR_assembly_of_the_people", "The Assembly of the People", "When the suffetes and the elders disagree, the citizens decide.",
+      "improve_relations", 5, 4, [["CAR_party_of_hanno", "CAR_party_of_the_sea"]], "add_stability = 0.05\nadd_manpower = 2000")
+    f("CAR_merchant_republic", "The Merchant Republic", "Aristotle praises it: the best-governed city of the barbarians.",
+      "national_unity", 5, 5, [["CAR_assembly_of_the_people"]],
+      swap("CAR_council_rule_spirit", "CAR_merchant_republic_spirit"), cost=15, ai=3)
+    # --- the gods (x 8..10)
+    f("CAR_tanit_and_baal", "Tanit and Baal Hammon", "The Lady of Carthage and her lord are honoured in every house.",
+      "propaganda", 9, 1, ROOTS, "add_ideas = CAR_tanit_spirit")
+    f("CAR_tithe_to_melqart", "Tithe to Melqart", "Every year an embassy brings a tenth to the temple of Melqart in Tyre: the mother city is not forgotten.",
+      "improve_relations", 8, 2, [["CAR_tanit_and_baal"]], "add_ideas = CAR_melqart_tithe_spirit",
+      extra=mx("CAR_gods_of_carthage"))
+    f("CAR_gods_of_carthage", "The Gods of Carthage", "Carthage is a mother city itself now; its tithes stay at home.",
+      "propaganda", 10, 2, [["CAR_tanit_and_baal"]], "add_ideas = CAR_own_gods_spirit\nadd_political_power = 50",
+      extra=mx("CAR_tithe_to_melqart"))
+    f("CAR_the_precinct", "The Precinct of Tanit", "In the darkest hour the city gives the gods what it holds dearest.",
+      "national_unity", 9, 3, [["CAR_tithe_to_melqart", "CAR_gods_of_carthage"]], "add_ideas = CAR_precinct_spirit")
+    f("CAR_demeter_and_kore", "Demeter and Kore", "396 BC: after the plague, the city brings the Greek goddesses to Carthage to calm their anger.",
+      "scientific_exchange", 9, 4, [["CAR_the_precinct"]], "add_ideas = CAR_demeter_spirit", filters=R)
+    # --- the fleet (x 12..14)
     f("CAR_cothon", "The Cothon", "A harbour within the walls, where the war fleet lies hidden from every eye.",
-      "construct_naval_dockyard", 5, 1, [["CAR_magonid_dynasty"]], build("dockyard", "is_coastal = yes") + "\nnavy_experience = 10",
+      "construct_naval_dockyard", 13, 1, ROOTS, build("dockyard", "is_coastal = yes") + "\nnavy_experience = 10",
       extra=COAST, filters=I, ai=3)
-    f("CAR_libyan_levies", "Libyan Levies", "The Libyan farmers of the hinterland owe tribute - and soldiers.",
-      "allies_build_infantry", 7, 1, [["CAR_magonid_dynasty"]], "add_ideas = CAR_libyan_levies_spirit\nadd_manpower = 2000", filters=M)
-    f("CAR_treaty_with_rome", "Treaty with Rome", "509 BC: Rome and Carthage swear friendship. Romans keep away from Africa, Carthaginians from Latium.",
-      "improve_relations", 2, 2, [["CAR_suffetes"]], "add_political_power = 100\nadd_stability = 0.05")
-    f("CAR_merchant_princes", "Merchant Princes", "Purple, silver, tin and wine: the trade of the western sea passes through Carthage.",
-      "trade", 4, 2, [["CAR_suffetes", "CAR_cothon"]], "add_ideas = CAR_merchant_princes_spirit\n" + build("industrial_complex"), filters=I, ai=3)
-    f("CAR_war_fleet", "The War Fleet", "Quinqueremes and triremes enough to close the straits to every rival.",
-      "build_navy", 6, 2, [["CAR_cothon"]], "add_ideas = CAR_mistress_of_the_sea_spirit\n" + build("dockyard", "is_coastal = yes"),
+    f("CAR_war_fleet", "The War Fleet", "Triremes and more triremes: enough to close the straits to every rival.",
+      "build_navy", 13, 2, [["CAR_cothon"]], "add_ideas = CAR_mistress_of_the_sea_spirit\n" + build("dockyard", "is_coastal = yes"),
       extra=COAST, filters=I, ai=3)
-    f("CAR_mercenaries", "Mercenary Armies", "Iberians, Gauls, Balearic slingers: silver buys the best soldiers of the West.",
-      "position_armies", 8, 2, [["CAR_libyan_levies"]], "add_ideas = CAR_mercenaries_spirit", filters=M)
-    f("CAR_sardinia", "Sardinia", "Malchus failed in Sardinia; the sons of Mago will not.",
-      "occupy_states_coastal", 3, 3, [["CAR_treaty_with_rome", "CAR_merchant_princes"]], wargoal("SAR") + "\n" + claims("SAR"))
-    f("CAR_sicily", "The Sicilian War", "The Greeks of Sicily push against the Punic west of the island. Drive them back.",
-      "major_war", 6, 3, [["CAR_war_fleet"]], wargoal("AKR") + "\n" + wargoal("GEL") + "\n" + claims("AKR"), ai=2)
-    f("CAR_masters_of_libya", "Masters of Libya", "No more tribute to the Libyans for the land of the city: the hinterland becomes Carthage's.",
-      "territory_or_war", 8, 3, [["CAR_mercenaries"]], wargoal("LIB") + "\n" + claims("LIB"))
-    f("CAR_periplus_of_hanno", "The Voyage of Hanno", "Sixty ships sail through the Pillars of Herakles and down the coast of Libya, to found cities and explore.",
-      "scientific_exchange", 2, 4, [["CAR_sardinia"]], "add_research_slot = 1\nnavy_experience = 15", filters=R, ai=3)
-    f("CAR_iberia", "The Silver of Iberia", "Tartessos falls silent; the mines of the south belong to the Phoenicians of Gadir - and Carthage.",
-      "more_territorial_claims", 5, 4, [["CAR_sardinia", "CAR_sicily"]], faction("ante_faction_punic_league", "GDR") + "\n" + wargoal("TTS"))
-    f("CAR_sacred_band", "The Sacred Band", "Two and a half thousand citizens of the best families: the heart of the army.",
-      "special_forces", 8, 4, [["CAR_masters_of_libya"]], "add_ideas = CAR_sacred_band_spirit\n" + doctrine("CAR_sacred_band"), filters=M)
+    f("CAR_ramming_tactics", "Masters of the Ram", "Light, fast ships and crews that turn on an oar: the diekplous is a Punic art.",
+      "navy_doctrines_tactics", 12, 3, [["CAR_war_fleet"]], "add_ideas = CAR_ramming_spirit\nnavy_experience = 15",
+      extra=mx("CAR_marines_on_deck"))
+    f("CAR_marines_on_deck", "Soldiers on Deck", "Heavy ships full of soldiers: the sea battle is fought like a land battle.",
+      "amphibious_assault", 14, 3, [["CAR_war_fleet"]], "add_ideas = CAR_marines_spirit\nnavy_experience = 15",
+      extra=mx("CAR_ramming_tactics"))
+    f("CAR_mare_clausum", "Mare Clausum", "Beyond the Fair Promontory no foreign ship may sail, and any that does is sunk.",
+      "navy_doctrines_tactics", 13, 4, [["CAR_ramming_tactics", "CAR_marines_on_deck"]], "add_ideas = CAR_mare_clausum_spirit")
+    f("CAR_quinqueremes", "Quinqueremes", "Bigger ships with five men to each column of oars - Carthage builds them first in the West.",
+      "build_navy", 13, 5, [["CAR_mare_clausum"]],
+      "add_tech_bonus = { name = CAR_quinqueremes bonus = 1 uses = 1 category = naval_equipment }\n" + build("dockyard", "is_coastal = yes"),
+      extra=COAST, filters=R)
     f("CAR_queen_of_the_sea", "Queen of the Western Sea", "From the Pillars of Herakles to Sicily, no ship sails without the leave of Carthage.",
-      "major_alliance", 5, 5, [["CAR_periplus_of_hanno", "CAR_iberia"], ["CAR_sacred_band", "CAR_sicily"]],
-      "add_political_power = 150\nadd_stability = 0.10\nnavy_experience = 25", ai=3)
+      "major_alliance", 13, 6, [["CAR_quinqueremes"]], "add_political_power = 150\nadd_stability = 0.10\nnavy_experience = 25", ai=3)
+    # --- trade and colonies (x 16..21)
+    f("CAR_merchant_princes", "Merchant Princes", "Purple, silver, tin and wine: the trade of the western sea passes through Carthage.",
+      "trade", 18, 1, ROOTS, "add_ideas = CAR_merchant_princes_spirit\n" + build("industrial_complex"), filters=I, ai=3)
+    f("CAR_purple_dye", "Tyrian Purple", "Mountains of crushed murex shells: the dye of kings is made in Punic workshops.",
+      "construct_civ_factory", 16, 2, [["CAR_merchant_princes"]], build("industrial_complex") + "\n" + build("industrial_complex"), filters=I)
+    f("CAR_gadir_and_ebusus", "Gadir and Ebusus", "The old Phoenician harbours beyond the straits and on the islands look to Carthage.",
+      "improve_relations", 18, 2, [["CAR_merchant_princes"]], "add_political_power = 50\n" + infra())
+    f("CAR_island_stations", "Malta and the Island Stations", "Harbours every day's sailing apart: Malta, Gaulos, Cossyra.",
+      "occupy_states_coastal", 20, 2, [["CAR_merchant_princes"]], infra() + "\nnavy_experience = 10",
+      extra=COAST)
+    f("CAR_phoenician_league", "The Phoenician Cities", "Gadir and the other Phoenician cities of the West are partners, not subjects.",
+      "alliance", 17, 3, [["CAR_gadir_and_ebusus"]], "add_ideas = CAR_phoenician_league_spirit\n" + faction("ante_faction_punic_league", "GDR"),
+      extra=mx("CAR_direct_rule"))
+    f("CAR_direct_rule", "Direct Rule", "Gadir will take its governors from Carthage.",
+      "territory_or_war", 19, 3, [["CAR_gadir_and_ebusus"]], puppet("GDR") + "\nadd_political_power = -50",
+      extra=mx("CAR_phoenician_league"))
+    f("CAR_sardinia", "Sardinia", "Malchus failed in Sardinia; Carthage will not fail again.",
+      "occupy_states_coastal", 21, 3, [["CAR_island_stations"]], wargoal("SAR") + "\n" + claims("SAR"))
+    f("CAR_periplus_of_hanno", "The Voyage of Hanno", "Sixty ships sail through the Pillars of Herakles and down the coast of Africa, to found cities and explore.",
+      "scientific_exchange", 16, 4, [["CAR_purple_dye"], ["CAR_phoenician_league", "CAR_direct_rule"]],
+      "add_research_slot = 1\nnavy_experience = 15", filters=R, ai=3)
+    f("CAR_voyage_of_himilco", "The Voyage of Himilco", "North along the ocean coast to the Tin Islands: the secret route of the tin.",
+      "scientific_exchange", 18, 4, [["CAR_phoenician_league", "CAR_direct_rule"]],
+      "add_tech_bonus = { name = CAR_voyage_of_himilco bonus = 1 uses = 1 category = industry }\nnavy_experience = 10", filters=R)
+    f("CAR_iberia", "The Silver of Iberia", "Tartessos falls silent; the mines of the south belong to the Phoenicians - and to Carthage.",
+      "more_territorial_claims", 20, 4, [["CAR_phoenician_league", "CAR_direct_rule"]], wargoal("TTS") + "\n" + claims("TTS"))
+    f("CAR_iberian_mines", "The Iberian Mines", "Silver from the Sierra Morena pays for fleets and armies.",
+      "production", 19, 5, [["CAR_iberia"]], build("arms_factory") + "\n" + build("industrial_complex") + "\nadd_political_power = 50", filters=I)
+    # --- Africa (x 22..26)
+    f("CAR_libyan_levies", "Libyan Levies", "The Libyan farmers of the hinterland owe soldiers as well as grain.",
+      "allies_build_infantry", 24, 1, ROOTS, "add_ideas = CAR_libyan_levies_spirit\nadd_manpower = 2000", filters=M)
+    f("CAR_masters_of_libya", "End the Tribute", "Carthage still pays rent to the Libyans for the land of the city. No longer.",
+      "territory_or_war", 24, 2, [["CAR_libyan_levies"]], wargoal("LIB") + "\n" + claims("LIB"))
+    f("CAR_libyan_lands", "The Libyan Lands", "Estates, villages and granaries across the Bagradas valley.",
+      "construct_civilian", 24, 3, [["CAR_masters_of_libya"]], cores(1) + "\n" + build("ante_farm"), filters=I)
+    f("CAR_numidian_alliance", "Friends of the Numidians", "Marriages and gifts bind the Numidian chiefs: their horsemen ride for Carthage.",
+      "alliance", 22, 4, [["CAR_libyan_lands"]], "add_ideas = CAR_numidian_horse_spirit\n" + faction("ante_faction_punic_league", "MSY", "MSS"),
+      extra=mx("CAR_conquer_numidia"))
+    f("CAR_conquer_numidia", "Conquer Numidia", "The plains of the Massylii and Masaesyli will be Punic estates.",
+      "territory_or_war", 26, 4, [["CAR_libyan_lands"]], wargoal("MSY") + "\n" + wargoal("MSS") + "\n" + claims("MSY", "MSS"),
+      extra=mx("CAR_numidian_alliance"))
+    f("CAR_libyphoenicians", "The Libyphoenicians", "Punic towns along the coast of Libya, Phoenician by speech and African by blood.",
+      "construct_civilian", 24, 5, [["CAR_libyan_lands"]], "add_ideas = CAR_libyphoenicians_spirit")
+    f("CAR_saharan_caravans", "The Desert Caravans", "Salt south, gold and ivory north: the Garamantes know the wells of the Sahara.",
+      "trade", 22, 6, [["CAR_libyphoenicians"]], "add_ideas = CAR_caravans_spirit")
+    f("CAR_altars_of_philaeni", "The Altars of the Philaeni", "Where two Punic brothers ran to meet the runners of Cyrene: the border of the empire - or its next goal.",
+      "more_territorial_claims", 26, 6, [["CAR_libyphoenicians"]], claims("KYR") + "\n" + wargoal("KYR") + "\nadd_war_support = 0.05")
+    # --- Sicily (x 28..32)
+    f("CAR_elymian_alliance", "The Elymian Alliance", "Segesta and Eryx fear the Greeks more than they fear Carthage.",
+      "alliance", 30, 1, ROOTS, faction("ante_faction_punic_league", "ELY") + "\nadd_political_power = 25")
+    f("CAR_sicily", "The Sicilian War", "The Greeks push against the Punic west of the island. Drive them back.",
+      "major_war", 30, 2, [["CAR_elymian_alliance"]], wargoal("AKR") + "\n" + wargoal("GEL") + "\n" + claims("AKR", "GEL"), ai=2)
+    f("CAR_himera", "Himera", "480 BC: Gelon of Syracuse destroys the army of Hamilcar before Himera. What does Carthage learn from it?",
+      "defence", 30, 3, [["CAR_sicily"]], "add_ideas = CAR_lessons_of_himera_spirit\nadd_manpower = -2000\narmy_experience = 25")
+    f("CAR_avenge_himera", "Avenge Himera", "Seventy years later Hannibal, grandson of Hamilcar, razes Himera to the ground.",
+      "major_war", 29, 4, [["CAR_himera"]], wargoal("SYR") + "\nadd_war_support = 0.10", extra=mx("CAR_peace_of_gelon"))
+    f("CAR_peace_of_gelon", "The Peace of Gelon", "Pay the indemnity, build Gelon his temples - and wait. Carthage can wait.",
+      "improve_relations", 31, 4, [["CAR_himera"]], "add_political_power = -100\nadd_stability = 0.10\n" + build("industrial_complex"),
+      extra=mx("CAR_avenge_himera"))
+    f("CAR_selinus_and_acragas", "Selinus and Acragas", "409-406 BC: the great Greek cities of the south coast fall to Punic armies.",
+      "territory_or_war", 30, 5, [["CAR_avenge_himera", "CAR_peace_of_gelon"]], wargoal("AKR") + "\n" + wargoal("KAT") + "\n" + claims("AKR", "KAT"), ai=2)
+    f("CAR_agathocles", "Agathocles in Africa", "310 BC: the tyrant of Syracuse lands in Africa and burns his ships. The walls of Carthage must hold.",
+      "fortify_city", 28, 6, [["CAR_selinus_and_acragas"]], "army_experience = 20\nadd_war_support = 0.05\n" + build("arms_factory"), filters=M)
+    f("CAR_war_with_syracuse", "War with Syracuse", "Dionysius, Timoleon, Agathocles: the tyrants of Syracuse are the enemy of a hundred years.",
+      "major_war", 32, 6, [["CAR_selinus_and_acragas"]], wargoal("SYR") + "\n" + claims("SYR"), ai=2)
+    f("CAR_messana", "Messana", "264 BC: the Mamertines of Messana open their gates to a Punic garrison. Across the strait stands Rome.",
+      "occupy_states_coastal", 30, 7, [["CAR_agathocles"], ["CAR_war_with_syracuse"]], wargoal("ZAN") + "\n" + claims("ZAN") + "\nadd_war_support = 0.05")
+    # --- the army (x 34..36)
+    f("CAR_mercenaries", "Silver Buys Soldiers", "Iberians, Gauls, Balearic slingers: silver buys the best soldiers of the West.",
+      "position_armies", 35, 1, ROOTS, "add_manpower = 3000\narmy_experience = 10", filters=M)
+    f("CAR_mercenary_army", "A Mercenary Army", "Let the citizens trade: foreigners will fight for pay.",
+      "position_armies", 34, 2, [["CAR_mercenaries"]], "add_ideas = CAR_mercenaries_spirit", extra=mx("CAR_citizen_army"), filters=M)
+    f("CAR_citizen_army", "A Citizen Army", "Carthaginians and Libyans under Punic officers: slower to raise, but loyal.",
+      "allies_build_infantry", 36, 2, [["CAR_mercenaries"]], "add_ideas = CAR_citizen_army_spirit", extra=mx("CAR_mercenary_army"), filters=M)
+    f("CAR_sacred_band", "The Sacred Band", "Two and a half thousand citizens of the best families: the heart of the army.",
+      "special_forces", 35, 3, [["CAR_mercenary_army", "CAR_citizen_army"]], "add_ideas = CAR_sacred_band_spirit\n" + doctrine("CAR_sacred_band"), filters=M)
+    f("CAR_war_elephants", "War Elephants", "Forest elephants from the Atlas, trained in the stables under the walls of Carthage.",
+      "cavalry", 35, 4, [["CAR_sacred_band"]],
+      "add_ideas = CAR_elephants_spirit\nadd_tech_bonus = { name = CAR_war_elephants bonus = 1 uses = 1 category = armor }", filters=M)
+    f("CAR_xanthippus", "The Reforms of Xanthippus", "A Spartan shows the generals of Carthage how to use cavalry and elephants on open ground.",
+      "army_doctrines", 35, 5, [["CAR_war_elephants"]], doctrine("CAR_xanthippus") + "\narmy_experience = 25", filters=M)
+    # --- Rome (x 38..40)
+    f("CAR_treaty_with_rome", "Treaty with Rome", "509 BC: Rome and Carthage swear friendship. Romans keep away from Africa, Carthaginians from Latium.",
+      "improve_relations", 39, 1, ROOTS, "add_political_power = 75")
+    f("CAR_honour_the_treaties", "Honour the Treaties", "A treaty sworn before the gods is kept. Carthage's word is good.",
+      "improve_relations", 38, 2, [["CAR_treaty_with_rome"]], "add_ideas = CAR_faithful_ally_spirit",
+      extra=mx("CAR_break_the_treaties"))
+    f("CAR_break_the_treaties", "Punica Fides", "Treaties are kept while they are useful. The Romans will call it 'Punic faith'.",
+      "political_pressure", 40, 2, [["CAR_treaty_with_rome"]], "add_ideas = CAR_punic_faith_spirit",
+      extra=mx("CAR_honour_the_treaties"))
+    f("CAR_second_treaty", "The Second Treaty", "348 BC: the sea is divided again - Sardinia and Libya closed to Rome, Latium to Carthage.",
+      "improve_relations", 39, 3, [["CAR_honour_the_treaties", "CAR_break_the_treaties"]], "add_political_power = 100", cost=15)
+    f("CAR_against_pyrrhus", "Against Pyrrhus", "279 BC: Mago brings a fleet of 120 ships to Ostia. Rome and Carthage against the King of Epirus.",
+      "alliance", 39, 4, [["CAR_second_treaty"]], "navy_experience = 20\nadd_political_power = 50")
+    f("CAR_question_of_messana", "The Question of Messana", "Who holds the strait holds Sicily. Rome is no longer a friend.",
+      "major_war", 39, 5, [["CAR_against_pyrrhus"]], claims("ZAN") + "\nadd_war_support = 0.10\narmy_experience = 15", cost=15)
+
+    # ============================================================== THE SENONES (SEN) - a Gallic people on the move
+    f = tree("SEN", "SEN_assembly_of_warriors", "# The Senones: from the Yonne to the Adriatic - and to Rome (base tree)")
+    idea("SEN_druids_spirit", "The Druids", "pp_unity_bonus", stability_factor=0.07, research_speed_factor=0.03)
+    idea("SEN_sacred_groves_spirit", "Sacred Groves", "pp_unity_bonus", war_support_factor=0.07, stability_factor=0.03)
+    idea("SEN_champions_spirit", "The Champion's Portion", "morale_bonus", army_attack_factor=0.08, army_morale_factor=0.05)
+    idea("SEN_naked_warriors_spirit", "Warriors of the Charge", "infantry_bonus", army_attack_factor=0.10, army_defence_factor=-0.03)
+    idea("SEN_on_the_move_spirit", "A People on the Move", "supply_line", army_speed_factor=0.10, attrition=-0.10,
+         supply_consumption_factor=-0.10, conscription=0.03)
+    idea("SEN_swords_for_hire_spirit", "Swords for Hire", "manpower_bonus", political_power_gain=0.10, experience_gain_army_factor=0.10)
+    f("SEN_assembly_of_warriors", "The Assembly of Warriors", "The armed men of the Senones meet at Agedincum. Whoever speaks for war will be heard.",
+      "political_pressure", 4, 0, [], "add_political_power = 50\nadd_war_support = 0.05")
+    f("SEN_druids", "The Druids", "Judges, priests and keepers of the unwritten lore: their word stops battles.",
+      "propaganda", 2, 1, [["SEN_assembly_of_warriors"]], "add_ideas = SEN_druids_spirit")
+    f("SEN_sacred_groves", "Sacred Groves", "Heads of enemies and spoils of war hang in the oak groves of the gods.",
+      "national_unity", 2, 2, [["SEN_druids"]], "add_ideas = SEN_sacred_groves_spirit")
+    f("SEN_unwritten_lore", "The Unwritten Lore", "Twenty years of learning by heart: the druids carry the knowledge of the Celts.",
+      "scientific_exchange", 2, 3, [["SEN_sacred_groves"]], "add_research_slot = 1", filters=R, ai=3)
+    f("SEN_champions", "The Champion's Portion", "The best cut of the feast goes to the bravest - and the brave fight for it.",
+      "special_forces", 4, 1, [["SEN_assembly_of_warriors"]], "add_ideas = SEN_champions_spirit\narmy_experience = 15", filters=M)
+    f("SEN_long_swords", "The Long Swords", "Long iron slashing swords from the smiths of the oppida.",
+      "small_arms", 4, 2, [["SEN_champions"]], tech("infantry_weapons", "SEN_long_swords") + "\n" + build("arms_factory"), filters=R)
+    f("SEN_warriors_of_the_charge", "Warriors of the Charge", "Tall men with long hair, painted and shouting: the first charge of the Gauls breaks armies.",
+      "army_doctrines", 4, 3, [["SEN_long_swords"]], "add_ideas = SEN_naked_warriors_spirit\n" + doctrine("SEN_warriors_of_the_charge"), filters=M)
+    f("SEN_hillforts", "Hillforts of the Senones", "Ramparts of timber and stone on the hills above the Yonne.",
+      "fortify_city", 6, 1, [["SEN_assembly_of_warriors"]], build("industrial_complex") + "\n" + infra(), filters=I)
+    f("SEN_salt_and_iron", "Salt and Iron", "Traders from Massalia buy iron and salt and sell wine - the wine the Gauls cannot resist.",
+      "trade", 6, 2, [["SEN_hillforts"]], build("industrial_complex") + "\nadd_political_power = 50", filters=I)
+    f("SEN_too_many_mouths", "Too Many Mouths", "The land of the Senones cannot feed its sons. The young men look south, to the vine and the sun.",
+      "demand_territory", 6, 3, [["SEN_salt_and_iron"]], "add_manpower = 3000\nadd_war_support = 0.10")
+    f("SEN_brothers_beyond_the_alps", "Brothers beyond the Alps", "The Insubres and the Boii crossed the mountains before us. They will open the passes.",
+      "alliance", 5, 4, [["SEN_warriors_of_the_charge"], ["SEN_too_many_mouths"]],
+      faction("ante_faction_cisalpine_gauls", "INS", "BOI") + "\nadd_political_power = 50")
+    f("SEN_great_migration", "The Great Migration", "Wagons, herds, women and children: the whole people crosses the Alps.",
+      "position_armies", 5, 5, [["SEN_brothers_beyond_the_alps"]],
+      "add_ideas = SEN_on_the_move_spirit\nadd_manpower = 5000\narmy_experience = 20\n" + claims("FEL", "UMB", "PIC") + "\n" + wargoal("FEL"),
+      cost=15, filters=M)
+    f("SEN_ager_gallicus", "The Ager Gallicus", "The coast of the Adriatic between the Rubicon and the Aesis becomes the land of the Senones.",
+      "more_territorial_claims", 4, 6, [["SEN_great_migration"]], wargoal("UMB") + "\n" + wargoal("PIC") + "\n" + cores(1))
+    f("SEN_swords_for_hire", "Swords for Hire", "Gallic warriors serve Syracuse, Carthage and every king who pays in gold.",
+      "position_armies", 6, 6, [["SEN_great_migration"]], "add_ideas = SEN_swords_for_hire_spirit", filters=M)
+    f("SEN_clusium", "Before Clusium", "391 BC: the Senones demand land from Clusium - and Roman envoys fight on Clusium's side.",
+      "major_war", 4, 7, [["SEN_ager_gallicus"]], wargoal("CLU") + "\n" + claims("CLU") + "\nadd_war_support = 0.05")
+    f("SEN_vae_victis", "Vae Victis", "390 BC: the Allia, the burning of Rome, a thousand pounds of gold - and a sword thrown on the scales.",
+      "major_war", 5, 8, [["SEN_clusium"], ["SEN_swords_for_hire"]], wargoal("ROM") + "\nadd_war_support = 0.10\narmy_experience = 30", cost=15, ai=2)
 
     # ============================================================== harder focuses: conditions, time, drawbacks
     # (fid) -> (cost, available trigger, extra reward lines). cost 10 = 70 days. Big steps need the land to be
@@ -690,10 +912,22 @@ def define(focus, build, infra, tech, wargoal):
         "PRS_earth_and_water": (20, "", ""),
         "PRS_king_of_the_world": (25, "OR = {\n" + gone("SCY") + "\n" + gone("ATH") + "\n}", ""),
         # Carthage
-        "CAR_mercenaries": (10, "", "add_political_power = -50"),
-        "CAR_sicily": (20, gone("SAR"), ""),
+        # Carthage (round 30): big steps take time; war goals overseas are fine (Carthage has the fleet), but the
+        # land wars in Africa need a common border, and no focus waits for a conquest it may never make
+        "CAR_mercenary_army": (10, "", "add_political_power = -50"),
+        "CAR_military_monarchy": (15, "has_stability > 0.4", ""),
+        "CAR_merchant_republic": (15, "has_stability > 0.5", ""),
+        "CAR_sicily": (15, "", ""),
         "CAR_iberia": (15, "", ""),
-        "CAR_queen_of_the_sea": (25, gone("SAR", "AKR") + "\nhas_navy_size = { size > 10 }", ""),
+        "CAR_conquer_numidia": (15, "OR = {\n" + reach("MSY") + "\n" + reach("MSS") + "\n}", ""),
+        "CAR_altars_of_philaeni": (15, reach("KYR"), ""),
+        "CAR_masters_of_libya": (10, reach("LIB"), ""),
+        "CAR_selinus_and_acragas": (15, "", "add_manpower = -2000"),
+        "CAR_war_with_syracuse": (20, "", ""),
+        "CAR_queen_of_the_sea": (25, "has_navy_size = { size > 10 }", ""),
+        # the Senones: the migration needs the passes open (the Insubres as friends, or gone)
+        "SEN_great_migration": (15, "OR = {\n\tis_in_faction_with = INS\n\tNOT = { country_exists = INS }\n\tINS = { is_subject_of = ROOT }\n}", ""),
+        "SEN_vae_victis": (15, "", ""),
     }
     allf = {fo["id"]: fo for t in TREES.values() for fo in t["focuses"]}
     for fid, (cost, avail, more) in TUNE.items():
@@ -739,6 +973,8 @@ def define(focus, build, infra, tech, wargoal):
         "ANTE_BOOKMARK_ATH": "Cleisthenes has given power to the people. Athens is small, restless - and about to discover silver, the sea and the hatred of the Great King.",
         "ANTE_BOOKMARK_LAK": "King Cleomenes leads the finest soldiers of Greece. Sparta rules the Peloponnese, but the helots and Argos are never far from revolt.",
         "ANTE_BOOKMARK_MKD": "Amyntas I has given earth and water to Persia. A half-Greek kingdom of horsemen and highlanders waits for its time.",
+        "ANTE_BOOKMARK_SEN": "Gauls of the upper Seine: too many warriors, too little land. Beyond the Alps lie the vine, the sun - and a small city called Rome.",
+        "ante_faction_cisalpine_gauls": "The Gauls of the Passes",
         "ANTE_BOOKMARK_SYR": "The richest city of Sicily, founded by Corinth. Tyrants and Carthage will decide its fate.",
         "ANTE_BOOKMARK_CLU": "Lars Porsenna of Clusium, the greatest king of Etruria, marches on Rome.",
         "ANTE_BOOKMARK_LAT": "Thirty Latin towns, one festival, one army: the League will not bow to Rome.",

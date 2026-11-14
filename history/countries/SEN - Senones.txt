@@ -27,6 +27,7 @@ set_technology = {
 	ante_bronze_casting = 1
 	popup = no
 }
+recruit_character = SEN_brennos
 add_ideas = ante_culture_celtic
 oob = "SEN_245"
 set_naval_oob = "SEN_245_naval"
