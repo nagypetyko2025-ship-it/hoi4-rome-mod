@@ -3,6 +3,9 @@ state = {
 	name = "STATE_9"  # Frentania
 	manpower = 20000
 	state_category = rural
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = SAM
 		add_core_of = SAM

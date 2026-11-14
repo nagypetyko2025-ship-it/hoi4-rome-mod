@@ -3,6 +3,11 @@ state = {
 	name = "STATE_17"  # Volaterrae
 	manpower = 35000
 	state_category = large_town
+	resources = {
+		aluminium = 1
+		coal = 1
+		steel = 1
+	}
 	history = {
 		owner = VLT
 		add_core_of = VLT

@@ -3,6 +3,10 @@ state = {
 	name = "STATE_20"  # Faesulae
 	manpower = 20000
 	state_category = town
+	resources = {
+		coal = 1
+		rubber = 1
+	}
 	history = {
 		owner = ARR
 		add_core_of = ARR

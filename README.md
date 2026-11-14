@@ -891,3 +891,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   vitorlával) az alapjáték helyén: típuskép, gyártási kép, felső sáv ikonja (`tools/convoy.py`).
 - **Róma kap 1 hajógyárat** (Ostia, Róma tengerparti állama).
 - Pipeline: a convoy.py a world.py után fut (a replace lokalizációs mappába ír).
+- **Több nyersanyag Itáliában** (round 25): Itália (félsziget, Pó-síkság, Szicília) 3,5-szeres súllyal számít minden
+  domborzati nyersanyagban, és új lelőhelyek: Campiglia vasa, Monte Amiata réze, az Appenninek erdői és szurka,
+  Latium, Etrúria, Apulia, a Pó-delta, Catana síkja és a Campidano gabonája, a Maremma, Samnium és a venetek lovai.
+  Az itáliai népek 43 államában 106 → 207 egység.

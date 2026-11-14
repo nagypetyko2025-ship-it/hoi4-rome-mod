@@ -7,7 +7,7 @@ state = {
 		chromium = 1
 		coal = 1
 		oil = 1
-		rubber = 4
+		rubber = 3
 	}
 	history = {
 		owner = FEN

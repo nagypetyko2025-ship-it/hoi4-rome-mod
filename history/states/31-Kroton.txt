@@ -3,6 +3,9 @@ state = {
 	name = "STATE_31"  # Kroton
 	manpower = 35000
 	state_category = large_town
+	resources = {
+		steel = 1
+	}
 	history = {
 		owner = KRO
 		add_core_of = KRO

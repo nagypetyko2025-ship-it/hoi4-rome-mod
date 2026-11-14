@@ -3,6 +3,9 @@ state = {
 	name = "STATE_30"  # Metapontion
 	manpower = 15000
 	state_category = town
+	resources = {
+		coal = 1
+	}
 	history = {
 		owner = MET
 		add_core_of = MET

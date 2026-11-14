@@ -3,6 +3,10 @@ state = {
 	name = "STATE_24"  # Campania
 	manpower = 60000
 	state_category = city
+	resources = {
+		chromium = 2
+		steel = 5
+	}
 	history = {
 		owner = CAP
 		add_core_of = CAP

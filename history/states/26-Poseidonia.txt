@@ -3,6 +3,10 @@ state = {
 	name = "STATE_26"  # Poseidonia
 	manpower = 15000
 	state_category = town
+	resources = {
+		aluminium = 2
+		oil = 1
+	}
 	history = {
 		owner = POS
 		add_core_of = POS

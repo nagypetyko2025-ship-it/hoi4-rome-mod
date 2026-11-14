@@ -68,6 +68,7 @@ DEPOSITS = {
         (10.2, 45.7, 2, "the Alpine valleys of the Cenomani"), (-1.8, 41.8, 3, "Moncayo"), (22.0, 41.0, 2, "Macedonia"),
         (16.1, 39.1, 1, "Bruttium"), (12.5, 42.4, 1, "the Sabine hills"), (5.5, 44.5, 2, "the Allobroges"),
         (-4.0, 56.5, 1, "Caledonia"), (2.0, 36.5, 1, "the Atlas of the Mauri"),
+        (10.6, 43.05, 3, "Campiglia in Etruria"), (13.6, 41.7, 2, "the Volscian hills"), (14.8, 41.2, 2, "Samnium"), (7.7, 45.3, 2, "the Salassi"),
     ],
     "aluminium": [
         (33.0, 35.0, 10, "Cyprus"), (-6.6, 37.7, 8, "Tartessos"), (35.4, 30.6, 5, "Faynan and Timna"),
@@ -78,6 +79,7 @@ DEPOSITS = {
         (22.2, 44.4, 3, "Moesia"), (-8.0, 37.9, 2, "Lusitania"), (60.5, 36.0, 2, "Parthia"),
         (16.1, 39.1, 3, "Temesa in Bruttium"), (-0.5, 42.6, 2, "the Pyrenees"), (11.0, 46.5, 2, "the Raetian Alps"),
         (24.0, 41.4, 2, "the Rhodope"), (-1.0, 37.6, 2, "Carthago Nova"), (7.0, 36.8, 1, "Numidia"),
+        (11.6, 42.9, 3, "Monte Amiata"), (10.4, 45.9, 2, "the Camonni"), (15.4, 40.5, 1, "Lucania"),
     ],
     "tungsten": [
         (-5.2, 50.3, 9, "Belerion"), (-8.0, 42.5, 7, "the Cassiterides of Gallaecia"), (-3.3, 47.9, 3, "Armorica"),
@@ -85,6 +87,7 @@ DEPOSITS = {
         (19.5, 44.6, 1, "Mount Cer"), (34.0, 25.0, 1, "the Eastern Desert"), (66.5, 35.0, 4, "Bactria"),
         (-2.0, 47.3, 2, "the Loire mouth"), (-6.8, 41.5, 2, "the Durius valley"), (8.8, 39.5, 1, "Sardinia"),
         (67.5, 39.5, 3, "Sogdiana"), (49.0, 33.5, 1, "Media"),
+        (10.9, 43.2, 1, "the Colline Metallifere"),
     ],
     "oil": [
         (16.5, 39.3, 6, "the Sila forest"), (22.6, 40.9, 4, "Macedonia"), (26.9, 39.8, 3, "Mount Ida"),
@@ -92,11 +95,13 @@ DEPOSITS = {
         (35.5, 31.4, 3, "the Dead Sea"), (20.8, 37.75, 1, "Zakynthos"), (19.6, 40.6, 2, "the Nymphaeum of Apollonia"),
         (49.3, 32.0, 3, "Susiana"), (36.0, 34.2, 2, "the Lebanon"), (9.1, 42.1, 2, "Corsica"),
         (49.9, 40.4, 2, "the fire springs of the Caspian"), (34.0, 41.6, 2, "Paphlagonia"),
+        (13.5, 42.3, 2, "the pines of the Apennines"), (8.8, 44.4, 2, "Liguria"),
     ],
     "rubber": [
         (35.9, 34.2, 6, "the cedars of Lebanon"), (22.6, 40.9, 4, "Macedonia"), (16.5, 39.3, 3, "the Sila"),
         (9.1, 42.1, 2, "Corsica"), (36.5, 41.2, 3, "Pontus"), (32.3, 41.3, 2, "Bithynia"), (33.0, 35.2, 2, "Cyprus"),
         (36.8, 37.0, 2, "the Amanus"),
+        (13.5, 42.5, 4, "the Apennine forests"), (11.0, 43.3, 3, "the Ciminian forest"), (8.9, 44.4, 2, "Liguria"), (15.6, 39.3, 3, "Bruttium"),
     ],
     "chromium": [
         (22.3, 39.6, 6, "Thessaly"), (48.0, 34.5, 7, "the Nisaean plain"), (35.5, 38.7, 6, "Cappadocia"),
@@ -104,6 +109,7 @@ DEPOSITS = {
         (21.8, 32.7, 4, "Cyrenaica"), (26.0, 42.2, 3, "Thrace"), (60.0, 38.0, 4, "Parthia"), (64.0, 37.5, 3, "Margiana"),
         (45.0, 24.5, 2, "Arabia"), (3.0, 47.0, 3, "Gaul"), (19.5, 47.0, 3, "the Pannonian plain"),
         (40.0, 40.0, 4, "Armenia"),
+        (11.4, 42.6, 2, "the Maremma"), (14.6, 41.4, 2, "Samnium"), (12.4, 45.5, 3, "the Veneti"), (13.7, 42.7, 1, "Picenum"),
     ],
     "coal": [
         (31.2, 30.8, 10, "the Nile Delta"), (31.0, 27.5, 6, "Middle Egypt"), (32.7, 25.7, 4, "Upper Egypt"),
@@ -112,6 +118,7 @@ DEPOSITS = {
         (10.5, 45.0, 3, "the Po plain"), (22.3, 39.6, 2, "Thessaly"), (36.5, 35.8, 3, "the Orontes"),
         (35.4, 32.6, 2, "the Jezreel valley"), (36.0, 45.2, 3, "the Bosporan plain"), (27.5, 44.0, 2, "the Danube"),
         (21.8, 32.8, 2, "Cyrenaica"), (39.0, 36.8, 2, "Harran"),
+        (12.5, 41.85, 3, "Latium"), (11.6, 42.8, 3, "Etruria"), (16.0, 41.3, 3, "Apulia"), (12.0, 44.4, 3, "the Po delta"), (15.3, 37.5, 2, "the plain of Catana"), (8.8, 39.9, 2, "the Campidano"),
     ],
 }
 
@@ -119,17 +126,22 @@ DEPOSITS = {
 STEPPE = [(26.5, 44.0), (27.0, 49.5), (45.0, 52.0), (66.0, 52.0), (66.0, 41.5), (52.0, 41.0), (40.0, 44.0)]
 IRAN = [(44.0, 30.0), (44.0, 39.0), (62.0, 39.0), (66.0, 36.0), (62.0, 29.0)]
 NORTH = [(-15.0, 54.0), (-15.0, 70.0), (70.0, 70.0), (70.0, 54.0)]          # beyond the grain lands
+# Italy (the peninsula, the Po plain and Sicily) - round 25, Peti: "too few resources in Italy". The game is about
+# Italy, so its land counts 3.5 times in every terrain pool (the world totals stay, the rest of the map gives a little).
+ITALY = [(7.0, 44.0), (7.5, 46.5), (13.9, 46.6), (13.8, 45.5), (12.3, 44.3), (14.2, 42.4), (16.2, 41.9),
+         (18.7, 40.3), (18.3, 39.8), (16.6, 38.4), (15.9, 37.7), (15.7, 36.6), (12.3, 37.6), (12.4, 38.3),
+         (15.6, 38.3), (15.6, 39.6), (13.8, 41.0), (12.2, 41.5), (11.0, 42.4), (10.0, 43.9), (8.5, 44.2)]
 TERRAIN = {
-    "rubber": ({"forest": 1.0, "jungle": 0.6, "hills": 0.25, "mountain": 0.12}, 300, []),
-    "chromium": ({"plains": 1.0, "hills": 0.2, "desert": 0.08}, 170, [(STEPPE, 3.0), (IRAN, 1.6)]),
-    "coal": ({"plains": 1.0, "urban": 1.5, "hills": 0.3, "marsh": 0.2}, 320, [(NORTH, 0.25)]),
+    "rubber": ({"forest": 1.0, "jungle": 0.6, "hills": 0.25, "mountain": 0.12}, 300, [(ITALY, 3.5)]),
+    "chromium": ({"plains": 1.0, "hills": 0.2, "desert": 0.08}, 170, [(STEPPE, 3.0), (IRAN, 1.6), (ITALY, 3.5)]),
+    "coal": ({"plains": 1.0, "urban": 1.5, "hills": 0.3, "marsh": 0.2}, 320, [(NORTH, 0.25), (ITALY, 3.5)]),
     # round 22 (Peti: "too few resources, and what there is sits in Persia"): every hill country digs a little
     # iron and copper, every pine forest boils some pitch - on top of the famous sources above. Iran's huge states
     # get less of it, so the new metal goes to Europe, Anatolia and Africa.
-    "steel": ({"mountain": 1.0, "hills": 0.6, "forest": 0.15}, 75, [(IRAN, 0.4), (NORTH, 0.6)]),
-    "aluminium": ({"mountain": 1.0, "hills": 0.4}, 55, [(IRAN, 0.4), (NORTH, 0.4)]),
-    "oil": ({"forest": 0.7, "mountain": 0.3, "hills": 0.15}, 60, [(IRAN, 0.4)]),
-    "tungsten": ({"mountain": 0.4, "hills": 0.1}, 18, [(IRAN, 0.4)]),
+    "steel": ({"mountain": 1.0, "hills": 0.6, "forest": 0.15}, 75, [(IRAN, 0.4), (NORTH, 0.6), (ITALY, 3.5)]),
+    "aluminium": ({"mountain": 1.0, "hills": 0.4}, 55, [(IRAN, 0.4), (NORTH, 0.4), (ITALY, 3.5)]),
+    "oil": ({"forest": 0.7, "mountain": 0.3, "hills": 0.15}, 60, [(IRAN, 0.4), (ITALY, 3.5)]),
+    "tungsten": ({"mountain": 0.4, "hills": 0.1}, 18, [(IRAN, 0.4), (ITALY, 3.5)]),
 }
 SCALE = {"steel": 2.4, "aluminium": 1.5, "tungsten": 1.2, "oil": 1.0, "rubber": 1.0, "chromium": 1.0, "coal": 1.0}
 CAP = 24          # no state gets more than this of one resource
