@@ -181,15 +181,15 @@ on_actions = {
 				if = { limit = { has_country_flag = PRS_gods_of_every_people } add_to_variable = { PRS_drift = -0.04 } }
 				if = { limit = { has_country_flag = PRS_satrap_armies } add_to_variable = { PRS_drift = 0.03 } }
 				if = { limit = { has_country_flag = PRS_four_corners } add_to_variable = { PRS_drift = -0.1 } }
-				if = { limit = { NOT = { country_exists = KMT } } add_to_variable = { PRS_unrest_egypt = PRS_drift } if = { limit = { has_country_flag = PRS_pharaoh } add_to_variable = { PRS_unrest_egypt = -0.1 } } }
+				if = { limit = { NOT = { country_exists = KMT } NOT = { has_country_flag = PRS_integrated_egypt } } add_to_variable = { PRS_unrest_egypt = PRS_drift } if = { limit = { has_country_flag = PRS_pharaoh } add_to_variable = { PRS_unrest_egypt = -0.1 } } }
 				else = { set_variable = { PRS_unrest_egypt = 0 } }
-				if = { limit = { NOT = { country_exists = BBL } } add_to_variable = { PRS_unrest_babylon = PRS_drift } if = { limit = { has_country_flag = PRS_marduk_honoured } add_to_variable = { PRS_unrest_babylon = -0.1 } } if = { limit = { has_country_flag = PRS_marduk_melted } add_to_variable = { PRS_unrest_babylon = 0.08 } } }
+				if = { limit = { NOT = { country_exists = BBL } NOT = { has_country_flag = PRS_integrated_babylon } } add_to_variable = { PRS_unrest_babylon = PRS_drift } if = { limit = { has_country_flag = PRS_marduk_honoured } add_to_variable = { PRS_unrest_babylon = -0.1 } } if = { limit = { has_country_flag = PRS_marduk_melted } add_to_variable = { PRS_unrest_babylon = 0.08 } } }
 				else = { set_variable = { PRS_unrest_babylon = 0 } }
-				if = { limit = { NOT = { country_exists = ION } } add_to_variable = { PRS_unrest_ionia = PRS_drift } if = { limit = { has_country_flag = PRS_ionian_democracies } add_to_variable = { PRS_unrest_ionia = -0.1 } } if = { limit = { has_country_flag = PRS_ionian_tyrants } add_to_variable = { PRS_unrest_ionia = 0.05 } } }
+				if = { limit = { NOT = { country_exists = ION } NOT = { has_country_flag = PRS_integrated_ionia } } add_to_variable = { PRS_unrest_ionia = PRS_drift } if = { limit = { has_country_flag = PRS_ionian_democracies } add_to_variable = { PRS_unrest_ionia = -0.1 } } if = { limit = { has_country_flag = PRS_ionian_tyrants } add_to_variable = { PRS_unrest_ionia = 0.05 } } }
 				else = { set_variable = { PRS_unrest_ionia = 0 } }
-				if = { limit = { NOT = { country_exists = LYD } } add_to_variable = { PRS_unrest_lydia = PRS_drift } if = { limit = { has_country_flag = PRS_lydian_nobles } add_to_variable = { PRS_unrest_lydia = -0.08 } } }
+				if = { limit = { NOT = { country_exists = LYD } NOT = { has_country_flag = PRS_integrated_lydia } } add_to_variable = { PRS_unrest_lydia = PRS_drift } if = { limit = { has_country_flag = PRS_lydian_nobles } add_to_variable = { PRS_unrest_lydia = -0.08 } } }
 				else = { set_variable = { PRS_unrest_lydia = 0 } }
-				if = { limit = { NOT = { country_exists = BKT } } add_to_variable = { PRS_unrest_bactria = PRS_drift } if = { limit = { has_country_flag = PRS_bactrian_prince } add_to_variable = { PRS_unrest_bactria = -0.1 } } }
+				if = { limit = { NOT = { country_exists = BKT } NOT = { has_country_flag = PRS_integrated_bactria } } add_to_variable = { PRS_unrest_bactria = PRS_drift } if = { limit = { has_country_flag = PRS_bactrian_prince } add_to_variable = { PRS_unrest_bactria = -0.1 } } }
 				else = { set_variable = { PRS_unrest_bactria = 0 } }
 				PRS_unrest_update = yes
 				set_variable = { PRS_hot = 0 }

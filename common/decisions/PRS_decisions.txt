@@ -6,6 +6,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = KMT }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_egypt }
 		}
 		cost = 50
 		days_re_enable = 90
@@ -25,6 +26,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = KMT }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_egypt }
 		}
 		available = {
 			has_manpower > 3000
@@ -48,6 +50,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = KMT }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_egypt }
 		}
 		cost = 100
 		days_re_enable = 365
@@ -67,6 +70,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = BBL }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_babylon }
 		}
 		cost = 50
 		days_re_enable = 90
@@ -86,6 +90,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = BBL }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_babylon }
 		}
 		available = {
 			has_manpower > 3000
@@ -109,6 +114,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = BBL }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_babylon }
 		}
 		cost = 100
 		days_re_enable = 365
@@ -128,6 +134,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = ION }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_ionia }
 		}
 		cost = 50
 		days_re_enable = 90
@@ -147,6 +154,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = ION }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_ionia }
 		}
 		available = {
 			has_manpower > 3000
@@ -170,6 +178,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = ION }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_ionia }
 		}
 		cost = 100
 		days_re_enable = 365
@@ -189,6 +198,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = LYD }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_lydia }
 		}
 		cost = 50
 		days_re_enable = 90
@@ -208,6 +218,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = LYD }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_lydia }
 		}
 		available = {
 			has_manpower > 3000
@@ -231,6 +242,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = LYD }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_lydia }
 		}
 		cost = 100
 		days_re_enable = 365
@@ -250,6 +262,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = BKT }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_bactria }
 		}
 		cost = 50
 		days_re_enable = 90
@@ -269,6 +282,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = BKT }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_bactria }
 		}
 		available = {
 			has_manpower > 3000
@@ -292,6 +306,7 @@ PRS_satrapies_category = {
 		visible = {
 			NOT = { country_exists = BKT }
 			has_country_flag = PRS_unrest_started
+			NOT = { has_country_flag = PRS_integrated_bactria }
 		}
 		cost = 100
 		days_re_enable = 365
@@ -328,18 +343,18 @@ PRS_satrapies_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = PRS_TT_EGYPT_BABYLON_HELD
-				controls_state = 377
-				controls_state = 378
-				controls_state = 379
-				controls_state = 380
-				controls_state = 381
-				controls_state = 382
-				controls_state = 383
-				controls_state = 364
-				controls_state = 365
-				controls_state = 366
-				controls_state = 367
-				controls_state = 368
+				377 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				378 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				379 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				380 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				381 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				382 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				383 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				364 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				365 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				366 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				367 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				368 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
 			}
 		}
 		highlight_states = {

@@ -13,7 +13,7 @@ focus_tree = {
 	initial_show_position = {
 		focus = PRS_king_of_kings
 	}
-	continuous_focus_position = { x = 50 y = 1240 }
+	continuous_focus_position = { x = 50 y = 1370 }
 
 	focus = {
 		id = PRS_king_of_kings
@@ -1119,6 +1119,321 @@ focus_tree = {
 			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -15 } add_to_variable = { PRS_unrest_babylon = -15 } add_to_variable = { PRS_unrest_ionia = -15 } add_to_variable = { PRS_unrest_lydia = -15 } add_to_variable = { PRS_unrest_bactria = -15 } PRS_unrest_update = yes }
 		}
 		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = PRS_integrate_egypt
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 8
+		y = 8
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_free_egypt }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_EGYPT_BELOW_20 check_variable = { PRS_unrest_egypt < 20 } }
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_EGYPT NOT = { country_exists = KMT } any_owned_state = { is_core_of = KMT } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_egypt"
+			set_country_flag = PRS_integrated_egypt
+			custom_effect_tooltip = PRS_TT_INTEGRATED_EGYPT
+			hidden_effect = {
+				set_variable = { PRS_unrest_egypt = 0 }
+				PRS_unrest_update = yes
+				every_state = {
+					limit = { is_core_of = KMT }
+					remove_core_of = KMT
+					if = { limit = { is_owned_by = ROOT } add_core_of = ROOT }
+				}
+			}
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = PRS_free_egypt
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 10
+		y = 8
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_integrate_egypt }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_EGYPT NOT = { country_exists = KMT } any_owned_state = { is_core_of = KMT } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_free_egypt"
+			set_country_flag = PRS_freed_egypt
+			custom_effect_tooltip = PRS_TT_FREED_EGYPT
+			hidden_effect = {
+				release_puppet = KMT
+				if = { limit = { country_exists = KMT } set_autonomy = { target = KMT autonomy_state = autonomy_integrated_puppet } }
+				set_variable = { PRS_unrest_egypt = 0 }
+				PRS_unrest_update = yes
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = PRS_TT_UNREST_ALL_M5
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -5 } add_to_variable = { PRS_unrest_babylon = -5 } add_to_variable = { PRS_unrest_ionia = -5 } add_to_variable = { PRS_unrest_lydia = -5 } add_to_variable = { PRS_unrest_bactria = -5 } PRS_unrest_update = yes }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = PRS_integrate_babylon
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 12
+		y = 8
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_free_babylon }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_BABYLON_BELOW_20 check_variable = { PRS_unrest_babylon < 20 } }
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BABYLON NOT = { country_exists = BBL } any_owned_state = { is_core_of = BBL } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_babylon"
+			set_country_flag = PRS_integrated_babylon
+			custom_effect_tooltip = PRS_TT_INTEGRATED_BABYLON
+			hidden_effect = {
+				set_variable = { PRS_unrest_babylon = 0 }
+				PRS_unrest_update = yes
+				every_state = {
+					limit = { is_core_of = BBL }
+					remove_core_of = BBL
+					if = { limit = { is_owned_by = ROOT } add_core_of = ROOT }
+				}
+			}
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = PRS_free_babylon
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 14
+		y = 8
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_integrate_babylon }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BABYLON NOT = { country_exists = BBL } any_owned_state = { is_core_of = BBL } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_free_babylon"
+			set_country_flag = PRS_freed_babylon
+			custom_effect_tooltip = PRS_TT_FREED_BABYLON
+			hidden_effect = {
+				release_puppet = BBL
+				if = { limit = { country_exists = BBL } set_autonomy = { target = BBL autonomy_state = autonomy_integrated_puppet } }
+				set_variable = { PRS_unrest_babylon = 0 }
+				PRS_unrest_update = yes
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = PRS_TT_UNREST_ALL_M5
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -5 } add_to_variable = { PRS_unrest_babylon = -5 } add_to_variable = { PRS_unrest_ionia = -5 } add_to_variable = { PRS_unrest_lydia = -5 } add_to_variable = { PRS_unrest_bactria = -5 } PRS_unrest_update = yes }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = PRS_integrate_ionia
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 16
+		y = 8
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_free_ionia }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_IONIA_BELOW_20 check_variable = { PRS_unrest_ionia < 20 } }
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_IONIA NOT = { country_exists = ION } any_owned_state = { is_core_of = ION } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_ionia"
+			set_country_flag = PRS_integrated_ionia
+			custom_effect_tooltip = PRS_TT_INTEGRATED_IONIA
+			hidden_effect = {
+				set_variable = { PRS_unrest_ionia = 0 }
+				PRS_unrest_update = yes
+				every_state = {
+					limit = { is_core_of = ION }
+					remove_core_of = ION
+					if = { limit = { is_owned_by = ROOT } add_core_of = ROOT }
+				}
+			}
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = PRS_free_ionia
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 18
+		y = 8
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_integrate_ionia }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_IONIA NOT = { country_exists = ION } any_owned_state = { is_core_of = ION } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_free_ionia"
+			set_country_flag = PRS_freed_ionia
+			custom_effect_tooltip = PRS_TT_FREED_IONIA
+			hidden_effect = {
+				release_puppet = ION
+				if = { limit = { country_exists = ION } set_autonomy = { target = ION autonomy_state = autonomy_integrated_puppet } }
+				set_variable = { PRS_unrest_ionia = 0 }
+				PRS_unrest_update = yes
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = PRS_TT_UNREST_ALL_M5
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -5 } add_to_variable = { PRS_unrest_babylon = -5 } add_to_variable = { PRS_unrest_ionia = -5 } add_to_variable = { PRS_unrest_lydia = -5 } add_to_variable = { PRS_unrest_bactria = -5 } PRS_unrest_update = yes }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = PRS_integrate_lydia
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 20
+		y = 8
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_free_lydia }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_LYDIA_BELOW_20 check_variable = { PRS_unrest_lydia < 20 } }
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_LYDIA NOT = { country_exists = LYD } any_owned_state = { is_core_of = LYD } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_lydia"
+			set_country_flag = PRS_integrated_lydia
+			custom_effect_tooltip = PRS_TT_INTEGRATED_LYDIA
+			hidden_effect = {
+				set_variable = { PRS_unrest_lydia = 0 }
+				PRS_unrest_update = yes
+				every_state = {
+					limit = { is_core_of = LYD }
+					remove_core_of = LYD
+					if = { limit = { is_owned_by = ROOT } add_core_of = ROOT }
+				}
+			}
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = PRS_free_lydia
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 22
+		y = 8
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_integrate_lydia }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_LYDIA NOT = { country_exists = LYD } any_owned_state = { is_core_of = LYD } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_free_lydia"
+			set_country_flag = PRS_freed_lydia
+			custom_effect_tooltip = PRS_TT_FREED_LYDIA
+			hidden_effect = {
+				release_puppet = LYD
+				if = { limit = { country_exists = LYD } set_autonomy = { target = LYD autonomy_state = autonomy_integrated_puppet } }
+				set_variable = { PRS_unrest_lydia = 0 }
+				PRS_unrest_update = yes
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = PRS_TT_UNREST_ALL_M5
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -5 } add_to_variable = { PRS_unrest_babylon = -5 } add_to_variable = { PRS_unrest_ionia = -5 } add_to_variable = { PRS_unrest_lydia = -5 } add_to_variable = { PRS_unrest_bactria = -5 } PRS_unrest_update = yes }
+		}
+		ai_will_do = { factor = 1 }
+	}
+
+	focus = {
+		id = PRS_integrate_bactria
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 24
+		y = 8
+		cost = 15
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_free_bactria }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_BACTRIA_BELOW_20 check_variable = { PRS_unrest_bactria < 20 } }
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BACTRIA NOT = { country_exists = BKT } any_owned_state = { is_core_of = BKT } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_bactria"
+			set_country_flag = PRS_integrated_bactria
+			custom_effect_tooltip = PRS_TT_INTEGRATED_BACTRIA
+			hidden_effect = {
+				set_variable = { PRS_unrest_bactria = 0 }
+				PRS_unrest_update = yes
+				every_state = {
+					limit = { is_core_of = BKT }
+					remove_core_of = BKT
+					if = { limit = { is_owned_by = ROOT } add_core_of = ROOT }
+				}
+			}
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = { factor = 3 }
+	}
+
+	focus = {
+		id = PRS_free_bactria
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = PRS_king_of_the_world }
+		x = 26
+		y = 8
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRS_integrate_bactria }
+		available = {
+			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BACTRIA NOT = { country_exists = BKT } any_owned_state = { is_core_of = BKT } }
+		}
+		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_free_bactria"
+			set_country_flag = PRS_freed_bactria
+			custom_effect_tooltip = PRS_TT_FREED_BACTRIA
+			hidden_effect = {
+				release_puppet = BKT
+				if = { limit = { country_exists = BKT } set_autonomy = { target = BKT autonomy_state = autonomy_integrated_puppet } }
+				set_variable = { PRS_unrest_bactria = 0 }
+				PRS_unrest_update = yes
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = PRS_TT_UNREST_ALL_M5
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -5 } add_to_variable = { PRS_unrest_babylon = -5 } add_to_variable = { PRS_unrest_ionia = -5 } add_to_variable = { PRS_unrest_lydia = -5 } add_to_variable = { PRS_unrest_bactria = -5 } PRS_unrest_update = yes }
+		}
+		ai_will_do = { factor = 1 }
 	}
 
 }

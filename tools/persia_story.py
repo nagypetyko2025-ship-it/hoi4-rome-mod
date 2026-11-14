@@ -68,6 +68,54 @@ def unrest_all(n):
     return f"custom_effect_tooltip = {tt}\nhidden_effect = {{ {body} PRS_unrest_update = yes }}"
 
 
+def unrest_below(key, n):
+    """a trigger: one satrapy's unrest is below n"""
+    name = dict((k, nm) for k, _, nm, _ in SATRAPIES)[key]
+    LOC[f"PRS_TT_UNREST_{key.upper()}_BELOW_{n}"] = f"Unrest in {name} is below {n} (now: [?PRS_unrest_{key}|Y0])"
+    return (f"custom_trigger_tooltip = {{ tooltip = PRS_TT_UNREST_{key.upper()}_BELOW_{n} "
+            f"check_variable = {{ PRS_unrest_{key} < {n} }} }}")
+
+
+# ------------------------------------------------------------------ the end of the road for a satrapy (round 41, Peti)
+# A focus pair for each satrapy at the end of the tree: integrate it for good (only when its unrest is below 20), or
+# set it free as a loyal puppet of the lowest autonomy. Either way its unrest is gone for good.
+def tag_of(key):
+    return dict((k, t) for k, t, _, _ in SATRAPIES)[key]
+
+
+def can_settle(key):
+    """the satrapy has not broken away, and the King still holds its land"""
+    tag = tag_of(key)
+    name = dict((k, nm) for k, _, nm, _ in SATRAPIES)[key]
+    LOC[f"PRS_TT_SETTLE_{key.upper()}"] = f"{name} has not broken away, and the King holds its land"
+    return (f"custom_trigger_tooltip = {{ tooltip = PRS_TT_SETTLE_{key.upper()} NOT = {{ country_exists = {tag} }} "
+            f"any_owned_state = {{ is_core_of = {tag} }} }}")
+
+
+def integrate(key):
+    tag = tag_of(key)
+    name = dict((k, nm) for k, _, nm, _ in SATRAPIES)[key]
+    LOC[f"PRS_TT_INTEGRATED_{key.upper()}"] = (f"§G{name} becomes part of the empire for good:§! its unrest is gone, it "
+                                               f"can never rise again, and its states are the King's own cores.")
+    return (f"set_country_flag = PRS_integrated_{key}\ncustom_effect_tooltip = PRS_TT_INTEGRATED_{key.upper()}\n"
+            f"hidden_effect = {{\n\tset_variable = {{ PRS_unrest_{key} = 0 }}\n\tPRS_unrest_update = yes\n"
+            f"\tevery_state = {{\n\t\tlimit = {{ is_core_of = {tag} }}\n\t\tremove_core_of = {tag}\n"
+            f"\t\tif = {{ limit = {{ is_owned_by = ROOT }} add_core_of = ROOT }}\n\t}}\n}}\n"
+            f"add_stability = 0.03\nadd_political_power = 50")
+
+
+def set_free(key):
+    tag = tag_of(key)
+    name = dict((k, nm) for k, _, nm, _ in SATRAPIES)[key]
+    LOC[f"PRS_TT_FREED_{key.upper()}"] = (f"§Y{name}§! is released as a loyal subject of the lowest autonomy "
+                                          f"(integrated puppet): no more unrest, no more risings.")
+    return (f"set_country_flag = PRS_freed_{key}\ncustom_effect_tooltip = PRS_TT_FREED_{key.upper()}\n"
+            f"hidden_effect = {{\n\trelease_puppet = {tag}\n"
+            f"\tif = {{ limit = {{ country_exists = {tag} }} set_autonomy = {{ target = {tag} autonomy_state = autonomy_integrated_puppet }} }}\n"
+            f"\tset_variable = {{ PRS_unrest_{key} = 0 }}\n\tPRS_unrest_update = yes\n}}\n"
+            f"add_stability = 0.05\n" + unrest_all(-5))
+
+
 def drift_flag(flag, text):
     """a focus that lowers the weekly drift for good (the flag is read by WEEKLY)"""
     LOC[f"PRS_TT_DRIFT_{flag.upper()}"] = text
@@ -254,7 +302,7 @@ def weekly():
     for k, tag, _, _ in SATRAPIES:
         reg = " ".join(f"if = {{ limit = {{ has_country_flag = {f} }} add_to_variable = {{ PRS_unrest_{k} = {v} }} }}"
                        for f, (kk, v) in REGION_FLAGS.items() if kk == k)
-        per.append(f"\tif = {{ limit = {{ NOT = {{ country_exists = {tag} }} }} "
+        per.append(f"\tif = {{ limit = {{ NOT = {{ country_exists = {tag} }} NOT = {{ has_country_flag = PRS_integrated_{k} }} }} "
                    f"add_to_variable = {{ PRS_unrest_{k} = PRS_drift }} {reg} }}\n"
                    f"\telse = {{ set_variable = {{ PRS_unrest_{k} = 0 }} }}")
     hot = ["\tset_variable = { PRS_hot = 0 }"] + [
@@ -318,7 +366,8 @@ def decision(key, name, desc, icon, visible, available, cost, effect, ai, days_r
 
 
 for k, tag, name, _ in SATRAPIES:
-    vis = f"NOT = {{ country_exists = {tag} }}\nhas_country_flag = PRS_unrest_started"
+    vis = (f"NOT = {{ country_exists = {tag} }}\nhas_country_flag = PRS_unrest_started\n"
+           f"NOT = {{ has_country_flag = PRS_integrated_{k} }}")
     decision(f"PRS_kings_eye_{k}", f"The King's Eye in {name}",
              f"An inspector of the King, with an escort and the power to dismiss officials, travels to {name}. "
              f"(Unrest now: [?PRS_unrest_{k}|0].)", "GFX_decision_generic_political_discourse", vis, "", 50,
@@ -344,11 +393,12 @@ idea("PRS_four_corners_spirit", "King of the Four Corners of the World", "pp_uni
 def goal_decision():
     greek = greek_states()
     held = "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in greek)
-    egypt = "\n".join(f"controls_state = {s}" for s in core_states("KMT"))
-    babylon = "\n".join(f"controls_state = {s}" for s in core_states("BBL"))
+    # a loyal puppet (the focus that sets a satrapy free) still counts as the King's (round 41)
+    egypt = "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in core_states("KMT"))
+    babylon = "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in core_states("BBL"))
     LOC["PRS_TT_HELLAS_HELD"] = (f"All of Hellas ({len(greek)} states: Athens, Sparta, Thebes, Corinth, Argos, Euboea, "
                                  "Thessaly, Macedon) is held by the King or his subjects")
-    LOC["PRS_TT_EGYPT_BABYLON_HELD"] = "Egypt and Babylon are still the King's"
+    LOC["PRS_TT_EGYPT_BABYLON_HELD"] = "Egypt and Babylon are still the King's (or his loyal subjects')"
     decision("PRS_four_corners", "King of the Four Corners of the World",
              "I am Darius, the Great King, King of Kings, King of the lands of all peoples, King of this great earth "
              "far and wide. Hellas has given earth and water; from Egypt to Bactria every land obeys.",

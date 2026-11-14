@@ -106,3 +106,8 @@ Az AI 45, 60, illetve 75 fölött használja őket.
    - Babilon csatornái.
 8. **A felső szatrapiák** (x 37–39): baktriai herceg, Hindus aranya, Kürosz megbosszulása (masszageták), a felső szatrapiák.
 9. **Zárás:** a népek királya (Xerxész serege, a hét ház / királyi vér és a kincstár után).
+10. **A szatrapiák rendezése** (41. kör, a fa legalja, a népek királya után). Szatrapiánként egy kizáró pár:
+    - **integrálás:** csak ha a lázongás 20 alatt van, és a szatrapia nem szakadt el. A lázongás végleg megszűnik,
+      soha többé nem lázadhat fel, az elszakadó ország magterületei törlődnek;
+    - **vagy szabadon engedés** hűséges, legalacsonyabb autonómiájú bábként (integrated puppet). Ebben az esetben sincs
+      többé lázongás, és a nagy célhoz a báb területe is a királyénak számít.

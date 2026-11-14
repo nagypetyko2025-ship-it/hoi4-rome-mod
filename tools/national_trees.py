@@ -703,6 +703,25 @@ def define(focus, build, infra, tech, wargoal):
     f("PRS_king_of_the_world", "King of the Lands", "Darius, the Great King, King of Kings, King of the lands of all peoples. (The goal: the decision King of the Four Corners of the World.)",
       "national_unity", 17, 7, [["PRS_army_of_xerxes"], ["PRS_seven_houses", "PRS_royal_blood"], ["PRS_treasury"]],
       "add_political_power = 150\nadd_stability = 0.10\n" + PS.unrest_all(-15), cost=20, ai=3)
+    # --- the end of the tree (round 41, Peti): settle every satrapy for good - integrate it (only when its unrest is
+    # below 20) OR set it free as a loyal puppet of the lowest autonomy. One exclusive pair per satrapy.
+    SETTLE = [("egypt", "Egypt, a Satrapy for Ever", "The Nile valley is the King's land: Persian judges, Persian garrisons, Egyptian gods.",
+               "A Loyal Pharaoh", "Egypt crowns a pharaoh of its own blood - who rules by the King's leave, pays the King's tribute and sends the King's ships."),
+              ("babylon", "Babylon, the King's City", "The second capital of the empire: the King winters in Babylon, and Babylon forgets it ever had kings of its own.",
+               "A Client King in Babylon", "A son of Babylon sits on the throne of Nebuchadnezzar again - under the eyes of the Great King."),
+              ("ionia", "Ionia under the King's Law", "The Greek cities of Asia keep their temples and their assemblies, but their law is the King's.",
+               "The Free Cities of the King", "The Ionian League governs itself, sails its own ships - and every one of them in the King's fleet."),
+              ("lydia", "Lydia and Phrygia, Persian Land", "Persian nobles hold the estates of Lydia and Phrygia; Sardis is a Persian city now.",
+               "The Kingdom of Croesus Restored", "A Lydian king in Sardis again: rich, proud - and the King's most loyal friend."),
+              ("bactria", "Bactria, the King's Marches", "The upper satrapies are part of the King's own realm: the steppe frontier is guarded by Persians.",
+               "A Vassal of the Steppe", "A Bactrian king guards the Oxus for the Great King, with his own horsemen and the King's gold.")]
+    for i, (k, iname, idesc, fname, fdesc) in enumerate(SETTLE):
+        x = 8 + 4 * i
+        f(f"PRS_integrate_{k}", iname, idesc + " (Needs the unrest of the satrapy below 20.)", "national_unity", x, 8,
+          [["PRS_king_of_the_world"]], PS.integrate(k), extra=mx(f"PRS_free_{k}"), cost=15, ai=3,
+          avail=PS.unrest_below(k, 20) + "\n" + PS.can_settle(k))
+        f(f"PRS_free_{k}", fname, fdesc, "alliance", x + 2, 8, [["PRS_king_of_the_world"]], PS.set_free(k),
+          extra=mx(f"PRS_integrate_{k}"), cost=10, ai=1, avail=PS.can_settle(k))
 
     # ============================================================== CARTHAGE (CAR) - plan: docs/carthage_focus_tree.md
     # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).

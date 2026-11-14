@@ -1052,3 +1052,9 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - **Cél:** a „King of the Four Corners of the World” döntés (egész Hellász + Egyiptom és Babilon).
 - **Új fókuszfa** (55 fókusz, nyolc ág). Terv: `docs/persia_focus_tree.md`.
 - Az alvó országokat a world.py és a validate.py is ismeri (magterület és főváros, föld nélkül).
+
+## Negyvenegyedik kör (2026-11-14, Claude) – a szatrapiák rendezése
+- A perzsa fa legalján, a „King of the Lands” után szatrapiánként egy kizáró fókuszpár jön.
+  - **Integrálás:** csak ha a lázongás 20 alatt van; végleg megszünteti a lázongást és a lázadás lehetőségét.
+  - **Szabadon engedés:** hűséges, legalacsonyabb autonómiájú báb lesz belőle.
+- A nagy célnál a hűséges báb kezén lévő Egyiptom vagy Babilon is a királyénak számít.
