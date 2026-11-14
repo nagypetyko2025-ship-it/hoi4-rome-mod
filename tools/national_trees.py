@@ -141,8 +141,9 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_consuls_and_senate", "Consuls and Senate", "Two magistrates for one year, the fathers of the Senate to advise them.",
       "national_unity", 2, 1, [["ROM_regifugium"]], "add_political_power = 75\nadd_stability = 0.05")
     f("ROM_secession_of_the_plebs", "The Plebs Organise", "The plebeians hold their own assemblies and elect their own leaders. Either they have already marched out to the Sacred Mount - or the discord is so deep that they soon will.",
-      "demand_territory", 2, 2, [["ROM_consuls_and_senate"]], "add_manpower = 2000\nadd_political_power = 50",
-      avail="OR = {\n\thas_country_flag = ROM_seceded\n\t" + RS.discord_above(55).replace("\n", " ") + "\n}")
+      "demand_territory", 2, 2, [["ROM_consuls_and_senate"]], "add_manpower = 2000\nadd_political_power = 50")
+    # (round 27, Peti: it used to need the Struggle of the Orders at 55 or more - but only war raises it and the
+    #  decisions lower it, so a peaceful Rome that had calmed the plebs could never go on)
     f("ROM_tribunes_of_the_plebs", "Tribunes of the Plebs", "Give way: sacrosanct protectors of the common people, with the power to say: veto. The plebs will be quieter for ever after - and the fathers weaker.",
       "improve_relations", 1, 3, [["ROM_secession_of_the_plebs"]],
       "add_stability = 0.10\nadd_manpower = 2000\nset_country_flag = ROM_tribunes\n" + disc(-20),
@@ -206,16 +207,20 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_coloniae", "Latin Colonies", "Settlers of Rome and Latium hold the conquered land: every colony a garrison, every colonist a soldier.",
       "construct_civilian", 10, 6, [["ROM_via_appia"], ["ROM_aqua_appia"]], "add_ideas = ROM_coloniae_spirit\n" + cores(2) + "\n" + disc(-10), filters=M)
     # --- 4. Latium and Etruria
-    f("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge until it falls behind him. (Comes after Porsenna has made his move - at war with Clusium or after his peace.)",
+    # round 27 (Peti): the focus no longer waits for Porsenna's war (that was a lock when the event had not come yet) -
+    # it brings him: if he has not made his move, he makes it now
+    f("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge until it falls behind him. If Porsenna has not come yet, he comes now.",
       "defence", 14, 1, [["ROM_regifugium"]], "army_experience = 20\nadd_war_support = 0.10\n"
-      "if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }",
-      avail="OR = {\n\thas_war_with = CLU\n\thas_country_flag = ROM_porsenna_done\n}")
+      "if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }\n"
+      "if = { limit = { NOT = { has_country_flag = ROM_porsenna_done } } country_event = { id = ante_rome.2 } }")
     f("ROM_lake_regillus", "Battle of Lake Regillus", "The Thirty Latin towns take up arms for the exiled Tarquins. THE LATIN LEAGUE WILL DECLARE WAR - but the Dioscuri ride with Rome for half a year. Choose the moment.",
       "major_war", 12, 2, [["ROM_horatius_at_the_bridge"]],
       "army_experience = 25\nadd_war_support = 0.05\nadd_timed_idea = { idea = ROM_dioscuri_spirit days = 180 }\n"
       "if = { limit = { country_exists = LAT LAT = { is_subject = no } NOT = { has_war_with = LAT is_in_faction_with = LAT } }\n"
       "\tLAT = { declare_war_on = { target = ROM type = annex_everything } }\n}",
-      avail="has_country_flag = ROM_porsenna_done\nNOT = { has_war_with = CLU }")
+      # Porsenna must have made his move; while his war is young (a year) Rome cannot fight the Latins too. After that
+      # the focus opens even if the war with Clusium drags on (a war Rome cannot end was a lock - round 27)
+      avail="has_country_flag = ROM_porsenna_done\nOR = {\n\tNOT = { has_war_with = CLU }\n\tNOT = { has_country_flag = ROM_porsenna_war }\n}")
     f("ROM_foedus_cassianum", "Foedus Cassianum", "493 BC: peace and alliance with the Latins - one army against the hill peoples.",
       "alliance", 12, 3, [["ROM_lake_regillus"]], "add_political_power = 100\n" + faction("ante_faction_latin_alliance", "LAT")
       + "\ncountry_event = { id = ante_rome.25 days = 365 }",
@@ -622,7 +627,7 @@ def define(focus, build, infra, tech, wargoal):
         "ROM_licinian_sextian_laws": (15, "has_stability > 0.3", ""),
         "ROM_lex_hortensia": (20, "", ""),
         "ROM_the_nobilitas": (20, "has_political_power > 100", "add_political_power = -100"),
-        "ROM_evocatio": (10, "has_war = yes", ""),
+        "ROM_evocatio": (10, "OR = {\n\thas_war = yes\n\thas_completed_focus = ROM_siege_of_veii\n}", ""),
         "ROM_manipular_legion": (15, "has_army_experience > 20", ""),
         "ROM_citizen_phalanx": (15, "has_army_experience > 20", ""),
         "ROM_via_appia": (15, states(4), ""),

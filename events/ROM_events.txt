@@ -42,7 +42,14 @@ country_event = {
 		set_country_flag = { flag = ROM_porsenna_war days = 365 value = 1 }
 		add_timed_idea = { idea = ROM_defend_the_city_spirit days = 365 }
 		add_war_support = 0.05
-		CLU = { declare_war_on = { target = ROM type = puppet_wargoal_focus } }
+		if = { limit = { CLU = { is_neighbor_of = ROM } }
+			CLU = { declare_war_on = { target = ROM type = puppet_wargoal_focus } }
+		}
+		else = {
+			custom_effect_tooltip = ROM_TT_PORSENNA_WITHDRAWS
+			clr_country_flag = ROM_porsenna_war
+			army_experience = 10
+		}
 	}
 	option = {
 		name = ante_rome.2.b

@@ -64,12 +64,6 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
-			OR = {
-				has_country_flag = ROM_seceded
-				custom_trigger_tooltip = { tooltip = ROM_TT_DISCORD_ABOVE_55 check_variable = { ROM_discord > 54.99 } }
-			}
-		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_secession_of_the_plebs"
 			add_manpower = 2000
@@ -338,7 +332,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			has_war = yes
+			OR = {
+				has_war = yes
+				has_completed_focus = ROM_siege_of_veii
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_evocatio"
@@ -570,17 +567,12 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
-			OR = {
-				has_war_with = CLU
-				has_country_flag = ROM_porsenna_done
-			}
-		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_horatius_at_the_bridge"
 			army_experience = 20
 			add_war_support = 0.10
 			if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }
+			if = { limit = { NOT = { has_country_flag = ROM_porsenna_done } } country_event = { id = ante_rome.2 } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -596,7 +588,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = {
 			has_country_flag = ROM_porsenna_done
-			NOT = { has_war_with = CLU }
+			OR = {
+				NOT = { has_war_with = CLU }
+				NOT = { has_country_flag = ROM_porsenna_war }
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_lake_regillus"

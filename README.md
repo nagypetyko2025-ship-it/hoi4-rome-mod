@@ -923,3 +923,15 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   „always = no”-ra cseréli (4 fájl, saját másolat).
 - **Naplózó:** a figyelő leáll, ha a játék újraindul (ne fusson több egymásba írva); a befejezett fókuszokból csak
   a fókuszfás országokét és a játékosét sorolja fel; a háborús támogatottság változója javítva (`has_war_support`).
+
+## Huszonnyolcadik kör (2026-11-14, Claude) – a köztársasági ág zsákutcái
+- **Horatius at the Bridge** már nem vár Porsenna háborújára (az esemény a Regifugium után csak 6–8 hónappal jött,
+  addig elakadt az ág): mindig felvehető, és ha Porsenna még nem lépett, a fókusz indítja az eseményt.
+- **Porsenna csak szomszédként üzen hadat:** ha Clusium nem határos Rómával, a „mindenki a falakra” válasz nem
+  hoz háborút (Mucius Scaevola – Porsenna békét köt és hazamegy). A régi, megvívhatatlan és lezárhatatlan háború
+  zsákutca volt.
+- **Lake Regillus** a Porsenna-háború után egy évvel akkor is felvehető, ha a háború Clusiummal még tart.
+- **The Plebs Organise** nem kér többé 55-ös viszályt (a viszályt csak a háború növeli, a döntések csökkentik:
+  békés, megnyugtatott Róma nem jutott tovább).
+- **Evocatio:** háborúban, vagy Veii ostroma után.
+- Egy már futó mentésben a Clusiummal kitört háború megmarad; új játékban már nem fordul elő.

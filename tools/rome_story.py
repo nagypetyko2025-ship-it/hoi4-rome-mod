@@ -298,7 +298,13 @@ event(2, "Porsenna Marches on Rome",
       [("Every man to the walls!",
         "set_country_flag = ROM_porsenna_done\nset_country_flag = { flag = ROM_porsenna_war days = 365 value = 1 }\n"
         "add_timed_idea = { idea = ROM_defend_the_city_spirit days = 365 }\n"
-        "add_war_support = 0.05\nCLU = { declare_war_on = { target = ROM type = puppet_wargoal_focus } }",
+        "add_war_support = 0.05\n"
+        # round 27 (Peti): Clusium declared war without a common border - a war nobody could fight or end.
+        # Now only a neighbour marches; otherwise Porsenna's threat ends without a war (Mucius Scaevola).
+        "if = { limit = { CLU = { is_neighbor_of = ROM } }\n"
+        "\tCLU = { declare_war_on = { target = ROM type = puppet_wargoal_focus } }\n"
+        "}\nelse = {\n\tcustom_effect_tooltip = ROM_TT_PORSENNA_WITHDRAWS\n\tclr_country_flag = ROM_porsenna_war\n"
+        "\tarmy_experience = 10\n}",
         60, CLU_FREE),
        ("Accept his terms. Rome must survive to fight another day.",
         "set_country_flag = ROM_porsenna_done\nset_country_flag = ROM_porsenna_peace\n"
@@ -517,6 +523,9 @@ def integrate_decision():
         "\t\tai_will_do = {", "\t\t\tbase = 1", "\t\t\tmodifier = { add = 4 has_political_power > 300 }", "\t\t}", "\t}"])
 
 
+LOC["ROM_TT_PORSENNA_WITHDRAWS"] = ("Clusium does not border Rome: no war. Porsenna's host camps before the walls; a young "
+                                    "Roman, Mucius Scaevola, burns his own hand in the king's fire - and Porsenna, "
+                                    "impressed, makes peace and goes home.")
 LOC["ROM_res_romana"] = "Res Romana"
 LOC["ROM_res_romana_desc"] = "[Root.GetROMResRomana]"
 LOC["ROM_res_romana_state_rep"] = ("The Struggle of the Orders stands at §Y[?ROM_discord|0]§! of 100. War raises it every "
