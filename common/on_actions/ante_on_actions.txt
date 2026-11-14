@@ -123,6 +123,41 @@ on_actions = {
 					}
 				}
 			}
+			if = {
+				limit = { original_tag = CAR NOT = { has_country_flag = CAR_roman_question } country_exists = ROM
+					ROM = { check_variable = { ante_realm_states > 7 } } }
+				country_event = { id = ante_carthage.40 }
+			}
+			if = {
+				limit = { original_tag = CAR has_country_flag = CAR_roman_question NOT = { has_country_flag = CAR_rome_allied }
+					country_exists = ROM }
+				if = { limit = { has_war_with = ROM } add_to_variable = { CAR_rome_relation = -1 } }
+				else_if = { limit = { check_variable = { CAR_rome_relation > 0.5 } } add_to_variable = { CAR_rome_relation = -0.1 } }
+				else_if = { limit = { check_variable = { CAR_rome_relation < -0.5 } } add_to_variable = { CAR_rome_relation = 0.1 } }
+				if = { limit = { has_idea = CAR_faithful_ally_spirit } add_to_variable = { CAR_rome_relation = 0.05 } }
+				if = { limit = { has_idea = CAR_punic_faith_spirit } add_to_variable = { CAR_rome_relation = -0.05 } }
+				clamp_variable = { var = CAR_rome_relation min = -100 max = 100 }
+				if = {
+					limit = { check_variable = { CAR_rome_relation < -99.9 } NOT = { has_country_flag = CAR_delenda } }
+					set_country_flag = CAR_delenda
+					country_event = { id = ante_carthage.43 }
+				}
+				if = {
+					limit = { check_variable = { CAR_rome_relation > 99.9 } NOT = { has_country_flag = CAR_alliance_offered } }
+					set_country_flag = { flag = CAR_alliance_offered days = 730 value = 1 }
+					ROM = { country_event = { id = ante_carthage.41 } }
+				}
+				if = {
+					limit = { has_country_flag = CAR_delenda NOT = { has_war_with = ROM } NOT = { has_country_flag = CAR_delenda_cooldown }
+						check_variable = { CAR_rome_relation < -79.9 } ROM = { OR = { is_neighbor_of = CAR AND = { has_navy_size = { size > 4 } any_owned_state = { is_coastal = yes } } } } }
+					set_country_flag = { flag = CAR_delenda_cooldown days = 1095 value = 1 }
+					ROM = { declare_war_on = { target = CAR type = annex_everything } }
+				}
+				if = { limit = { has_country_flag = CAR_delenda check_variable = { CAR_rome_relation > -50 } }
+					clr_country_flag = CAR_delenda
+					ROM = { if = { limit = { has_idea = CAR_delenda_spirit } remove_ideas = CAR_delenda_spirit } }
+				}
+			}
 		}
 	}
 }

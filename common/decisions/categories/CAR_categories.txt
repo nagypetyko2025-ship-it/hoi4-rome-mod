@@ -5,3 +5,16 @@ CAR_res_punica = {
 	visible = { OR = { has_country_flag = CAR_dynasty has_country_flag = CAR_council } }
 	priority = 100
 }
+
+CAR_roman_question = {
+	icon = generic_foreign_policy
+	allowed = { original_tag = CAR }
+	visible = { has_country_flag = CAR_roman_question NOT = { has_country_flag = CAR_rome_allied } country_exists = ROM }
+	priority = 95
+}
+
+CAR_punic_world = {
+	icon = generic_formable_nations
+	allowed = { original_tag = CAR }
+	priority = 90
+}

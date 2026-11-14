@@ -93,3 +93,10 @@ Agathoklész Afrikában, Bomilkar puccsa (Kr. e. 308), Pürrhosz Szicíliában, 
 
 ## Becsült méret
 ~55–65 fókusz (Róma: 93 a két úttal), 2 mérő, ~10 döntés, ~12 esemény, saját nemzeti szellemek.
+
+## Kész (32. kör): „Puns First!” és a római kérdés
+- „Puns First!”: pun magok államonként 250 PP-ért (kategória: The Punic World).
+- A római kérdés: mérő −100..+100 (`CAR_rome_relation`), nyitás: Róma 8+ állam; döntések (3 ártó, 3 segítő);
+  −100: Róma hadat üzen, ha eléri Karthágót; +100: szövetség, frakcióegyesítés (a nagyobb vezet).
+  Kód: `tools/carthage_story.py` (QUESTION_WEEKLY, ALLIANCE, events 40–43).
+

@@ -774,17 +774,17 @@ def define(focus, build, infra, tech, wargoal):
     f("CAR_treaty_with_rome", "Treaty with Rome", "509 BC: Rome and Carthage swear friendship. Romans keep away from Africa, Carthaginians from Latium.",
       "improve_relations", 39, 1, ROOTS, "add_political_power = 75")
     f("CAR_honour_the_treaties", "Honour the Treaties", "A treaty sworn before the gods is kept. Carthage's word is good.",
-      "improve_relations", 38, 2, [["CAR_treaty_with_rome"]], "add_ideas = CAR_faithful_ally_spirit",
+      "improve_relations", 38, 2, [["CAR_treaty_with_rome"]], "add_ideas = CAR_faithful_ally_spirit\n" + CS.relation(15),
       extra=mx("CAR_break_the_treaties"))
     f("CAR_break_the_treaties", "Punica Fides", "Treaties are kept while they are useful. The Romans will call it 'Punic faith'.",
-      "political_pressure", 40, 2, [["CAR_treaty_with_rome"]], "add_ideas = CAR_punic_faith_spirit",
+      "political_pressure", 40, 2, [["CAR_treaty_with_rome"]], "add_ideas = CAR_punic_faith_spirit\n" + CS.relation(-15),
       extra=mx("CAR_honour_the_treaties"))
     f("CAR_second_treaty", "The Second Treaty", "348 BC: the sea is divided again - Sardinia and Libya closed to Rome, Latium to Carthage.",
-      "improve_relations", 39, 3, [["CAR_honour_the_treaties", "CAR_break_the_treaties"]], "add_political_power = 100", cost=15)
+      "improve_relations", 39, 3, [["CAR_honour_the_treaties", "CAR_break_the_treaties"]], "add_political_power = 100\n" + CS.relation(10), cost=15)
     f("CAR_against_pyrrhus", "Against Pyrrhus", "279 BC: Mago brings a fleet of 120 ships to Ostia. Rome and Carthage against the King of Epirus.",
-      "alliance", 39, 4, [["CAR_second_treaty"]], "navy_experience = 20\nadd_political_power = 50")
+      "alliance", 39, 4, [["CAR_second_treaty"]], "navy_experience = 20\nadd_political_power = 50\n" + CS.relation(15))
     f("CAR_question_of_messana", "The Question of Messana", "Who holds the strait holds Sicily. Rome is no longer a friend.",
-      "major_war", 39, 5, [["CAR_against_pyrrhus"]], claims("ZAN") + "\nadd_war_support = 0.10\narmy_experience = 15", cost=15)
+      "major_war", 39, 5, [["CAR_against_pyrrhus"]], claims("ZAN") + "\nadd_war_support = 0.10\narmy_experience = 15\n" + CS.relation(-25), cost=15)
 
     # ============================================================== THE SENONES (SEN) - a Gallic people on the move
     f = tree("SEN", "SEN_assembly_of_warriors", "# The Senones: from the Yonne to the Adriatic - and to Rome (base tree)")

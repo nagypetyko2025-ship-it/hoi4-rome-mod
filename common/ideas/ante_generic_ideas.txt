@@ -1229,5 +1229,67 @@ ideas = {
 				army_core_defence_factor = 0.1
 			}
 		}
+		CAR_delenda_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				stability_factor = -0.05
+			}
+		}
+		CAR_pirates_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.1
+				stability_factor = -0.03
+			}
+		}
+		CAR_ports_closed_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.05
+				trade_opinion_factor = -0.25
+			}
+		}
+		CAR_enemies_gold_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.05
+				political_power_gain = -0.1
+			}
+		}
+		CAR_punic_grain_spirit = {
+			picture = generic_agrarian_society
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = 0.05
+			}
+		}
+		CAR_punic_fleet_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				naval_damage_factor = 0.1
+				army_attack_factor = 0.03
+			}
+		}
+		CAR_roman_gold_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+			}
+		}
 	}
 }

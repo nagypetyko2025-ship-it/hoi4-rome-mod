@@ -1275,6 +1275,8 @@ focus_tree = {
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_honour_the_treaties"
 			add_ideas = CAR_faithful_ally_spirit
+			custom_effect_tooltip = CAR_TT_ROME_P15
+			hidden_effect = { add_to_variable = { CAR_rome_relation = 15 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1292,6 +1294,8 @@ focus_tree = {
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_break_the_treaties"
 			add_ideas = CAR_punic_faith_spirit
+			custom_effect_tooltip = CAR_TT_ROME_M15
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -15 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1308,6 +1312,8 @@ focus_tree = {
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_second_treaty"
 			add_political_power = 100
+			custom_effect_tooltip = CAR_TT_ROME_P10
+			hidden_effect = { add_to_variable = { CAR_rome_relation = 10 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1325,6 +1331,8 @@ focus_tree = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_against_pyrrhus"
 			navy_experience = 20
 			add_political_power = 50
+			custom_effect_tooltip = CAR_TT_ROME_P15
+			hidden_effect = { add_to_variable = { CAR_rome_relation = 15 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1343,6 +1351,8 @@ focus_tree = {
 			every_state = { limit = { is_owned_by = ZAN } add_claim_by = ROOT }
 			add_war_support = 0.10
 			army_experience = 15
+			custom_effect_tooltip = CAR_TT_ROME_M25
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -25 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
 		}
 		ai_will_do = { factor = 1 }
 	}

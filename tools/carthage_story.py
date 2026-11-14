@@ -441,6 +441,232 @@ defined_text = {
 """
 
 
+# ------------------------------------------------------------------ "Puns First!" - Punic cores (round 32, Peti)
+PUNIC = ["CAR", "GDR", "LIB", "MSY", "MSS", "MAU", "ELY", "SAR", "BAL", "TTS", "BST"]   # the Punic world at the start
+
+
+def punic_states():
+    import re
+    out = []
+    for fp in (MOD / "history" / "states").glob("*.txt"):
+        t = fp.read_text(encoding="utf-8-sig")
+        m, o = re.search(r"\bid\s*=\s*(\d+)", t), re.search(r"\bowner\s*=\s*(\w+)", t)
+        if m and o and o.group(1) in PUNIC:
+            out.append(int(m.group(1)))
+    return sorted(out)
+
+
+def punic_cores_decision():
+    LOC["CAR_puns_first"] = "Puns First! [FROM.GetName]"
+    LOC["CAR_puns_first_desc"] = ("Punic settlers, Punic gods and Punic law: the land of Africa, the islands and the coasts "
+                                  "of Iberia that Carthage holds - by war or by treaty - becomes the land of Carthage.")
+    LOC["CAR_punic_world"] = "The Punic World"
+    LOC["CAR_punic_world_desc"] = ("Africa, Sardinia, western Sicily, the Balearic islands and the south of Iberia: the "
+                                   "world of the Phoenicians of the West. Every state costs 250 political power.")
+    targets = " ".join(map(str, punic_states()))
+    return "\n".join([
+        "\tCAR_puns_first = {", "\t\ticon = GFX_decision_generic_construction", "\t\tallowed = { original_tag = CAR }",
+        "\t\tstate_target = yes", f"\t\ttargets = {{ {targets} }}",
+        "\t\ttarget_trigger = {", "\t\t\tFROM = {", "\t\t\t\tis_owned_by = ROOT", "\t\t\t\tis_controlled_by = ROOT",
+        "\t\t\t\tNOT = { is_core_of = ROOT }", "\t\t\t}", "\t\t}",
+        "\t\ton_map_mode = map_and_decisions_view", "\t\tcost = 250",
+        "\t\tcomplete_effect = {", "\t\t\tFROM = { add_core_of = ROOT }", "\t\t}",
+        "\t\tai_will_do = {", "\t\t\tbase = 1", "\t\t\tmodifier = { add = 4 has_political_power > 300 }", "\t\t}", "\t}"])
+
+
+# ------------------------------------------------------------------ the Roman Question (round 32, Peti's idea)
+# CAR_rome_relation: -100 (Rome hates Carthage) .. +100 (Rome loves Carthage). It opens when Rome becomes a power
+# (8+ states with its subjects): "a power has appeared in the chaos of the Italian boot". Carthage spends political
+# power to move it: hostile acts hurt Rome and make it hate Carthage, friendly ones help Rome and win it over.
+#   -100: Carthago delenda est - Rome will attack, but only when it can reach Carthage (a common border, or a
+#         fleet and a harbour): a war nobody could fight was the Porsenna lock of round 27.
+#   +100: Rome offers an alliance; accepted, both stand in one faction (the bigger realm leads; an existing faction
+#         of the other is folded into it).
+# Every week it drifts a little towards 0 (old grudges and old favours fade); a war between them sinks it fast.
+def relation(n):
+    sign = "+" if n > 0 else ""
+    key = f"CAR_TT_ROME_{'P' if n > 0 else 'M'}{abs(n)}"
+    LOC[key] = f"Rome's feelings towards Carthage: {'§G' if n > 0 else '§R'}{sign}{n}§!"
+    return (f"custom_effect_tooltip = {key}\n"
+            f"hidden_effect = {{ add_to_variable = {{ CAR_rome_relation = {n} }} "
+            f"clamp_variable = {{ var = CAR_rome_relation min = -100 max = 100 }} }}")
+
+
+QUESTION = "has_country_flag = CAR_roman_question\nNOT = { has_country_flag = CAR_rome_allied }\ncountry_exists = ROM"
+ROME_CAN_REACH = ("ROM = { OR = { is_neighbor_of = CAR AND = { has_navy_size = { size > 4 } "
+                  "any_owned_state = { is_coastal = yes } } } }")
+
+# the alliance: L = the leader (bigger realm), J = the one who joins; L's faction (or a new one) takes J and, if J
+# led a faction of its own, all of J's allies
+def _alliance(L, J):
+    home = f"OR = {{ tag = {L} is_in_faction_with = {L} }}"
+    return f"""{L} = {{
+	if = {{ limit = {{ is_in_faction = no }} create_faction = ante_faction_rome_and_carthage }}
+}}
+{J} = {{
+	if = {{
+		limit = {{ is_faction_leader = yes NOT = {{ is_in_faction_with = {L} }} }}
+		every_country = {{
+			limit = {{ is_in_faction_with = {J} NOT = {{ tag = {J} }} }}
+			{J} = {{ remove_from_faction = PREV }}
+			every_country = {{ limit = {{ is_faction_leader = yes {home} }} add_to_faction = PREV }}
+		}}
+		dismantle_faction = yes
+	}}
+	if = {{ limit = {{ is_in_faction = yes NOT = {{ is_in_faction_with = {L} }} }} leave_faction = yes }}
+}}
+every_country = {{
+	limit = {{ is_faction_leader = yes {home} NOT = {{ is_in_faction_with = {J} }} }}
+	add_to_faction = {J}
+}}"""
+
+
+ALLIANCE = f"""set_country_flag = CAR_rome_allied
+if = {{
+	limit = {{ check_variable = {{ ante_realm_states > ROM.ante_realm_states }} }}
+{_ind(_alliance("CAR", "ROM"), 1)}
+}}
+else = {{
+{_ind(_alliance("ROM", "CAR"), 1)}
+}}"""
+LOC["ante_faction_rome_and_carthage"] = "Rome and Carthage"
+LOC["CAR_TT_ALLIANCE"] = ("§GRome and Carthage stand together:§! the bigger of the two leads one faction; if the other "
+                          "already led a faction, its allies come along.")
+LOC["CAR_TT_DELENDA"] = ("§RCarthago delenda est.§! Rome will declare war as soon as it can reach Carthage - across a "
+                         "common border, or with a fleet of five ships and a harbour.")
+
+QUESTION_WEEKLY = f"""if = {{
+	limit = {{ original_tag = CAR NOT = {{ has_country_flag = CAR_roman_question }} country_exists = ROM
+		ROM = {{ check_variable = {{ ante_realm_states > 7 }} }} }}
+	country_event = {{ id = ante_carthage.40 }}
+}}
+if = {{
+	limit = {{ original_tag = CAR has_country_flag = CAR_roman_question NOT = {{ has_country_flag = CAR_rome_allied }}
+		country_exists = ROM }}
+	if = {{ limit = {{ has_war_with = ROM }} add_to_variable = {{ CAR_rome_relation = -1 }} }}
+	else_if = {{ limit = {{ check_variable = {{ CAR_rome_relation > 0.5 }} }} add_to_variable = {{ CAR_rome_relation = -0.1 }} }}
+	else_if = {{ limit = {{ check_variable = {{ CAR_rome_relation < -0.5 }} }} add_to_variable = {{ CAR_rome_relation = 0.1 }} }}
+	if = {{ limit = {{ has_idea = CAR_faithful_ally_spirit }} add_to_variable = {{ CAR_rome_relation = 0.05 }} }}
+	if = {{ limit = {{ has_idea = CAR_punic_faith_spirit }} add_to_variable = {{ CAR_rome_relation = -0.05 }} }}
+	clamp_variable = {{ var = CAR_rome_relation min = -100 max = 100 }}
+	if = {{
+		limit = {{ check_variable = {{ CAR_rome_relation < -99.9 }} NOT = {{ has_country_flag = CAR_delenda }} }}
+		set_country_flag = CAR_delenda
+		country_event = {{ id = ante_carthage.43 }}
+	}}
+	if = {{
+		limit = {{ check_variable = {{ CAR_rome_relation > 99.9 }} NOT = {{ has_country_flag = CAR_alliance_offered }} }}
+		set_country_flag = {{ flag = CAR_alliance_offered days = 730 value = 1 }}
+		ROM = {{ country_event = {{ id = ante_carthage.41 }} }}
+	}}
+	if = {{
+		limit = {{ has_country_flag = CAR_delenda NOT = {{ has_war_with = ROM }} NOT = {{ has_country_flag = CAR_delenda_cooldown }}
+			check_variable = {{ CAR_rome_relation < -79.9 }} {ROME_CAN_REACH} }}
+		set_country_flag = {{ flag = CAR_delenda_cooldown days = 1095 value = 1 }}
+		ROM = {{ declare_war_on = {{ target = CAR type = annex_everything }} }}
+	}}
+	if = {{ limit = {{ has_country_flag = CAR_delenda check_variable = {{ CAR_rome_relation > -50 }} }}
+		clr_country_flag = CAR_delenda
+		ROM = {{ if = {{ limit = {{ has_idea = CAR_delenda_spirit }} remove_ideas = CAR_delenda_spirit }} }}
+	}}
+}}"""
+
+idea("CAR_delenda_spirit", "Carthago Delenda Est", "morale_bonus", war_support_factor=0.10, stability_factor=-0.05)
+idea("CAR_pirates_spirit", "Punic Pirates on the Coast", "disjointed_gov", production_speed_buildings_factor=-0.10,
+     stability_factor=-0.03)
+idea("CAR_ports_closed_spirit", "The Punic Harbours Are Closed", "disjointed_gov", industrial_capacity_factory=-0.05,
+     trade_opinion_factor=-0.25)
+idea("CAR_enemies_gold_spirit", "Punic Gold among Our Enemies", "disjointed_gov", war_support_factor=-0.05,
+     political_power_gain=-0.10)
+idea("CAR_punic_grain_spirit", "Punic Grain", "agrarian_society", stability_factor=0.05, monthly_population=0.05)
+idea("CAR_punic_fleet_spirit", "A Punic Fleet for Rome", "navy_bonus", naval_damage_factor=0.10, army_attack_factor=0.03)
+idea("CAR_roman_gold_spirit", "Roman Gratitude", "economic_increase", political_power_gain=0.05)
+
+event(40, "The Roman Question",
+      "In the chaos of the Italian boot a power has appeared that, unlike all the others, may become great. Rome now "
+      "holds much of central Italy. What will Carthage do?",
+      "senate",
+      [("We shall watch Rome closely.", "set_country_flag = CAR_roman_question\nadd_to_variable = { CAR_rome_relation = 20 }\n"
+        "clamp_variable = { var = CAR_rome_relation min = -100 max = 100 }\ncustom_effect_tooltip = CAR_TT_QUESTION_OPENS", 100, "")])
+LOC["CAR_TT_QUESTION_OPENS"] = ("The decisions of §YThe Roman Question§! open. Rome's feelings towards Carthage start at "
+                                "§Y+20§! (the treaty of 509 BC) plus whatever the treaties did since. At §R-100§! Rome "
+                                "wants war, at §G+100§! it offers an alliance.")
+event(41, "An Alliance with Carthage?",
+      "Carthage has been a good friend: grain in famine, ships in war, treaties kept. Some senators propose what no "
+      "Roman has proposed before - a true alliance with the Punic city.",
+      "senate",
+      [("Offer Carthage our hand.", "CAR = { country_event = { id = ante_carthage.42 days = 3 } }", 90, ""),
+       ("Rome needs no allies.", "CAR = { " + "add_to_variable = { CAR_rome_relation = -30 } }", 10, "")])
+event(42, "Rome Offers an Alliance",
+      "The envoys of Rome stand before the council: one faction, one war, one peace - Rome and Carthage together.",
+      "vote",
+      [("Accept: together we rule the western sea.", "custom_effect_tooltip = CAR_TT_ALLIANCE\nhidden_effect = {\n"
+        + _ind(ALLIANCE, 1) + "\n}", 80, ""),
+       ("Decline politely.", "set_variable = { CAR_rome_relation = 60 }", 20, "")])
+event(43, "Carthago Delenda Est",
+      "In the Roman senate one old man ends every speech the same way: Carthage must be destroyed. The Romans listen.",
+      "fire",
+      [("Let them come.", "ROM = { add_ideas = CAR_delenda_spirit }\ncustom_effect_tooltip = CAR_TT_DELENDA", 100, "")])
+
+# decisions: what Carthage does about Rome (their own category)
+_N0 = len(DECISIONS)
+HOSTILE_AI = "base = 1\nmodifier = { add = 2 check_variable = { ante_realm_states > ROM.ante_realm_states } }"
+FRIENDLY_AI = "base = 1\nmodifier = { add = 3 check_variable = { ante_realm_states < ROM.ante_realm_states } }"
+decision("CAR_rq_pirates", "Tyrrhenian Pirates",
+         "Punic captains are told to look the other way when Roman ships are plundered. Rome suffers - and remembers.",
+         "GFX_decision_generic_naval", QUESTION, "NOT = { has_war_with = ROM }", 50,
+         "navy_experience = 10\nROM = { add_timed_idea = { idea = CAR_pirates_spirit days = 180 } }\n" + relation(-15),
+         HOSTILE_AI, days_re_enable=180)
+decision("CAR_rq_enemies_gold", "Gold for Rome's Enemies",
+         "Silver for the Etruscans, the Samnites, the Gauls - for anyone who fights Rome.",
+         "GFX_decision_generic_trade", QUESTION, "NOT = { has_war_with = ROM }", 75,
+         "every_country = { limit = { has_war_with = ROM } add_manpower = 2000 add_political_power = 25 }\n"
+         "ROM = { add_timed_idea = { idea = CAR_enemies_gold_spirit days = 270 } }\n" + relation(-20),
+         HOSTILE_AI, days_re_enable=270)
+decision("CAR_rq_close_ports", "Close the Harbours to Rome",
+         "No Roman merchant may land in Africa, Sardinia or Sicily. The treaties allowed it; Carthage forbids it.",
+         "GFX_decision_generic_trade", QUESTION, "NOT = { has_war_with = ROM }", 50,
+         "add_political_power = 25\nROM = { add_timed_idea = { idea = CAR_ports_closed_spirit days = 365 } }\n" + relation(-15),
+         HOSTILE_AI, days_re_enable=365)
+decision("CAR_rq_grain", "Grain for Rome",
+         "Famine in Rome: Punic ships bring the grain of Africa - cheap, and with friendly words.",
+         "GFX_decision_generic_civil_support", QUESTION, "NOT = { has_war_with = ROM }", 50,
+         "ROM = { add_timed_idea = { idea = CAR_punic_grain_spirit days = 180 } }\n" + relation(15),
+         FRIENDLY_AI, days_re_enable=180)
+decision("CAR_rq_renew_treaty", "Renew the Treaty",
+         "Envoys swear again by the gods of both cities: friendship, and the old limits on the sea.",
+         "GFX_decision_generic_political_discourse", QUESTION, "NOT = { has_war_with = ROM }", 100,
+         "ROM = { add_timed_idea = { idea = CAR_roman_gold_spirit days = 365 } add_political_power = 25 }\n"
+         "add_stability = 0.03\n" + relation(25), FRIENDLY_AI, days_re_enable=365)
+decision("CAR_rq_fleet", "A Fleet for Rome's Wars",
+         "Rome is at war and has no fleet worth the name. A Punic admiral brings a hundred and twenty ships to Ostia.",
+         "GFX_decision_generic_naval", QUESTION, "NOT = { has_war_with = ROM }\nROM = { has_war = yes }", 75,
+         "navy_experience = 15\nROM = { add_timed_idea = { idea = CAR_punic_fleet_spirit days = 270 } }\n" + relation(20),
+         FRIENDLY_AI, days_re_enable=365)
+LOC["CAR_roman_question"] = "The Roman Question"
+LOC["CAR_roman_question_desc"] = ("In the chaos of the Italian boot a power has appeared that may become great. What will "
+                                  "Carthage do? Rome's feelings towards Carthage: §Y[?CAR_rome_relation|+0]§! "
+                                  "(from §R-100§!, war, to §G+100§!, alliance). They fade towards 0 by themselves.")
+
+ROMAN_DECISIONS = DECISIONS[_N0:]
+del DECISIONS[_N0:]
+WEEKLY = WEEKLY + "\n" + QUESTION_WEEKLY
+CATEGORY += """
+CAR_roman_question = {
+	icon = generic_foreign_policy
+	allowed = { original_tag = CAR }
+	visible = { has_country_flag = CAR_roman_question NOT = { has_country_flag = CAR_rome_allied } country_exists = ROM }
+	priority = 95
+}
+
+CAR_punic_world = {
+	icon = generic_formable_nations
+	allowed = { original_tag = CAR }
+	priority = 90
+}
+"""
+
+
 def write_all():
     def write(rel, text):
         p = MOD / rel
@@ -453,6 +679,7 @@ def write_all():
     write("events/CAR_events.txt", "# Generated by tools/carthage_story.py\nadd_namespace = ante_carthage\n\n"
           + "\n\n".join(EVENTS) + "\n")
     write("common/decisions/CAR_decisions.txt", "# Generated by tools/carthage_story.py\nCAR_res_punica = {\n"
-          + "\n\n".join(DECISIONS) + "\n}\n")
+          + "\n\n".join(DECISIONS) + "\n}\n\nCAR_roman_question = {\n" + "\n\n".join(ROMAN_DECISIONS)
+          + "\n}\n\nCAR_punic_world = {\n" + punic_cores_decision() + "\n}\n")
     write("common/decisions/categories/CAR_categories.txt", CATEGORY)
-    return len(EVENTS), len(DECISIONS)
+    return len(EVENTS), len(DECISIONS) + len(ROMAN_DECISIONS) + 1

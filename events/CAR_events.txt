@@ -286,3 +286,115 @@ country_event = {
 		add_stability = 0.03
 	}
 }
+
+country_event = {
+	id = ante_carthage.40
+	title = ante_carthage.40.t
+	desc = ante_carthage.40.d
+	picture = GFX_ante_event_senate
+	is_triggered_only = yes
+	option = {
+		name = ante_carthage.40.a
+		ai_chance = { factor = 100 }
+		set_country_flag = CAR_roman_question
+		add_to_variable = { CAR_rome_relation = 20 }
+		clamp_variable = { var = CAR_rome_relation min = -100 max = 100 }
+		custom_effect_tooltip = CAR_TT_QUESTION_OPENS
+	}
+}
+
+country_event = {
+	id = ante_carthage.41
+	title = ante_carthage.41.t
+	desc = ante_carthage.41.d
+	picture = GFX_ante_event_senate
+	is_triggered_only = yes
+	option = {
+		name = ante_carthage.41.a
+		ai_chance = { factor = 90 }
+		CAR = { country_event = { id = ante_carthage.42 days = 3 } }
+	}
+	option = {
+		name = ante_carthage.41.b
+		ai_chance = { factor = 10 }
+		CAR = { add_to_variable = { CAR_rome_relation = -30 } }
+	}
+}
+
+country_event = {
+	id = ante_carthage.42
+	title = ante_carthage.42.t
+	desc = ante_carthage.42.d
+	picture = GFX_ante_event_vote
+	is_triggered_only = yes
+	option = {
+		name = ante_carthage.42.a
+		ai_chance = { factor = 80 }
+		custom_effect_tooltip = CAR_TT_ALLIANCE
+		hidden_effect = {
+			set_country_flag = CAR_rome_allied
+			if = {
+				limit = { check_variable = { ante_realm_states > ROM.ante_realm_states } }
+				CAR = {
+					if = { limit = { is_in_faction = no } create_faction = ante_faction_rome_and_carthage }
+				}
+				ROM = {
+					if = {
+						limit = { is_faction_leader = yes NOT = { is_in_faction_with = CAR } }
+						every_country = {
+							limit = { is_in_faction_with = ROM NOT = { tag = ROM } }
+							ROM = { remove_from_faction = PREV }
+							every_country = { limit = { is_faction_leader = yes OR = { tag = CAR is_in_faction_with = CAR } } add_to_faction = PREV }
+						}
+						dismantle_faction = yes
+					}
+					if = { limit = { is_in_faction = yes NOT = { is_in_faction_with = CAR } } leave_faction = yes }
+				}
+				every_country = {
+					limit = { is_faction_leader = yes OR = { tag = CAR is_in_faction_with = CAR } NOT = { is_in_faction_with = ROM } }
+					add_to_faction = ROM
+				}
+			}
+			else = {
+				ROM = {
+					if = { limit = { is_in_faction = no } create_faction = ante_faction_rome_and_carthage }
+				}
+				CAR = {
+					if = {
+						limit = { is_faction_leader = yes NOT = { is_in_faction_with = ROM } }
+						every_country = {
+							limit = { is_in_faction_with = CAR NOT = { tag = CAR } }
+							CAR = { remove_from_faction = PREV }
+							every_country = { limit = { is_faction_leader = yes OR = { tag = ROM is_in_faction_with = ROM } } add_to_faction = PREV }
+						}
+						dismantle_faction = yes
+					}
+					if = { limit = { is_in_faction = yes NOT = { is_in_faction_with = ROM } } leave_faction = yes }
+				}
+				every_country = {
+					limit = { is_faction_leader = yes OR = { tag = ROM is_in_faction_with = ROM } NOT = { is_in_faction_with = CAR } }
+					add_to_faction = CAR
+				}
+			}
+		}
+	}
+	option = {
+		name = ante_carthage.42.b
+		ai_chance = { factor = 20 }
+		set_variable = { CAR_rome_relation = 60 }
+	}
+}
+
+country_event = {
+	id = ante_carthage.43
+	title = ante_carthage.43.t
+	desc = ante_carthage.43.d
+	picture = GFX_ante_event_fire
+	is_triggered_only = yes
+	option = {
+		name = ante_carthage.43.a
+		ai_chance = { factor = 100 }
+		ROM = { add_ideas = CAR_delenda_spirit }
+		custom_effect_tooltip = CAR_TT_DELENDA
+	}
+}

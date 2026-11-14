@@ -982,3 +982,20 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - **Melyik út mi:** a dinasztia fókuszai és döntései „Mago: …”, az oligarchiáéi „Council: …” nevet kaptak; a közös
   fókuszok, döntések leírása megmondja, melyik úton mit adnak; a „Res Punica” kategória szövege az aktuális utat és
   mérőt mutatja.
+
+## Harminckettedik kör (2026-11-14, Claude) – „Puns First!” és a római kérdés
+- **Puns First!** (külön kategória: „The Punic World”, a kezdettől): a pun világ minden állama (Afrika partja,
+  Szardínia, Nyugat-Szicília, a Baleárok, Dél-Hispánia – a kezdéskor ezeké: CAR, GDR, LIB, MSY, MSS, MAU, ELY,
+  SAR, BAL, TTS, BST), amely Karthágóé és Karthágó tartja, 250 PP-ért karthágói mag lesz.
+- **A római kérdés** (Peti ötlete): egy mérő −100 (Róma gyűlöli Karthágót) és +100 (szereti) között.
+  - Akkor nyílik meg (esemény: „The Roman Question”), amikor Rómának a bábállamaival együtt legalább 8 állama van;
+    +20-ról indul (az i. e. 509-es szerződés) plusz amit a fókuszfa szerződései már hoztak.
+  - Döntések – ártanak Rómának, de Róma meggyűlöli Karthágót: tirrén kalózok, arany Róma ellenségeinek, a kikötők
+    lezárása; segítenek Rómának, Róma megszereti: gabona Rómának, a szerződés megújítása, flotta Róma háborúihoz.
+    Az AI a nála nagyobb Rómával barátkozik, a kisebbet bosszantja.
+  - A fókuszfa is mozgatja: a szerződések betartása +15 / Punica fides −15, második szerződés +10, Pürrhosz ellen
+    +15, Messana kérdése −25. Hetente lassan 0 felé halványul; ha háborúznak, gyorsan zuhan.
+  - **−100: „Carthago delenda est”** – Róma hadat üzen, de csak ha eléri Karthágót (közös határ, vagy legalább 5
+    hajó és kikötő); addig Róma a szellemtől szenved (háborús támogatottság fel, stabilitás le). −50 fölött elmúlik.
+  - **+100: Róma szövetséget ajánl** (Róma eseménye, majd Karthágóé): elfogadva egy frakcióba kerülnek – a nagyobb
+    birodalom vezeti; ha a másiknak már volt frakciója, annak tagjai átjönnek, a régi frakció feloszlik.

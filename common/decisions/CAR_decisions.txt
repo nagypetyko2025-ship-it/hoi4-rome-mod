@@ -231,3 +231,180 @@ CAR_res_punica = {
 		}
 	}
 }
+
+CAR_roman_question = {
+	CAR_rq_pirates = {
+		icon = GFX_decision_generic_naval
+		allowed = { original_tag = CAR }
+		visible = {
+			has_country_flag = CAR_roman_question
+			NOT = { has_country_flag = CAR_rome_allied }
+			country_exists = ROM
+		}
+		available = {
+			NOT = { has_war_with = ROM }
+		}
+		cost = 50
+		days_re_enable = 180
+		complete_effect = {
+			navy_experience = 10
+			ROM = { add_timed_idea = { idea = CAR_pirates_spirit days = 180 } }
+			custom_effect_tooltip = CAR_TT_ROME_M15
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -15 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 2 check_variable = { ante_realm_states > ROM.ante_realm_states } }
+		}
+	}
+
+	CAR_rq_enemies_gold = {
+		icon = GFX_decision_generic_trade
+		allowed = { original_tag = CAR }
+		visible = {
+			has_country_flag = CAR_roman_question
+			NOT = { has_country_flag = CAR_rome_allied }
+			country_exists = ROM
+		}
+		available = {
+			NOT = { has_war_with = ROM }
+		}
+		cost = 75
+		days_re_enable = 270
+		complete_effect = {
+			every_country = { limit = { has_war_with = ROM } add_manpower = 2000 add_political_power = 25 }
+			ROM = { add_timed_idea = { idea = CAR_enemies_gold_spirit days = 270 } }
+			custom_effect_tooltip = CAR_TT_ROME_M20
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -20 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 2 check_variable = { ante_realm_states > ROM.ante_realm_states } }
+		}
+	}
+
+	CAR_rq_close_ports = {
+		icon = GFX_decision_generic_trade
+		allowed = { original_tag = CAR }
+		visible = {
+			has_country_flag = CAR_roman_question
+			NOT = { has_country_flag = CAR_rome_allied }
+			country_exists = ROM
+		}
+		available = {
+			NOT = { has_war_with = ROM }
+		}
+		cost = 50
+		days_re_enable = 365
+		complete_effect = {
+			add_political_power = 25
+			ROM = { add_timed_idea = { idea = CAR_ports_closed_spirit days = 365 } }
+			custom_effect_tooltip = CAR_TT_ROME_M15
+			hidden_effect = { add_to_variable = { CAR_rome_relation = -15 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 2 check_variable = { ante_realm_states > ROM.ante_realm_states } }
+		}
+	}
+
+	CAR_rq_grain = {
+		icon = GFX_decision_generic_civil_support
+		allowed = { original_tag = CAR }
+		visible = {
+			has_country_flag = CAR_roman_question
+			NOT = { has_country_flag = CAR_rome_allied }
+			country_exists = ROM
+		}
+		available = {
+			NOT = { has_war_with = ROM }
+		}
+		cost = 50
+		days_re_enable = 180
+		complete_effect = {
+			ROM = { add_timed_idea = { idea = CAR_punic_grain_spirit days = 180 } }
+			custom_effect_tooltip = CAR_TT_ROME_P15
+			hidden_effect = { add_to_variable = { CAR_rome_relation = 15 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 3 check_variable = { ante_realm_states < ROM.ante_realm_states } }
+		}
+	}
+
+	CAR_rq_renew_treaty = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = { original_tag = CAR }
+		visible = {
+			has_country_flag = CAR_roman_question
+			NOT = { has_country_flag = CAR_rome_allied }
+			country_exists = ROM
+		}
+		available = {
+			NOT = { has_war_with = ROM }
+		}
+		cost = 100
+		days_re_enable = 365
+		complete_effect = {
+			ROM = { add_timed_idea = { idea = CAR_roman_gold_spirit days = 365 } add_political_power = 25 }
+			add_stability = 0.03
+			custom_effect_tooltip = CAR_TT_ROME_P25
+			hidden_effect = { add_to_variable = { CAR_rome_relation = 25 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 3 check_variable = { ante_realm_states < ROM.ante_realm_states } }
+		}
+	}
+
+	CAR_rq_fleet = {
+		icon = GFX_decision_generic_naval
+		allowed = { original_tag = CAR }
+		visible = {
+			has_country_flag = CAR_roman_question
+			NOT = { has_country_flag = CAR_rome_allied }
+			country_exists = ROM
+		}
+		available = {
+			NOT = { has_war_with = ROM }
+			ROM = { has_war = yes }
+		}
+		cost = 75
+		days_re_enable = 365
+		complete_effect = {
+			navy_experience = 15
+			ROM = { add_timed_idea = { idea = CAR_punic_fleet_spirit days = 270 } }
+			custom_effect_tooltip = CAR_TT_ROME_P20
+			hidden_effect = { add_to_variable = { CAR_rome_relation = 20 } clamp_variable = { var = CAR_rome_relation min = -100 max = 100 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 3 check_variable = { ante_realm_states < ROM.ante_realm_states } }
+		}
+	}
+}
+
+CAR_punic_world = {
+	CAR_puns_first = {
+		icon = GFX_decision_generic_construction
+		allowed = { original_tag = CAR }
+		state_target = yes
+		targets = { 45 46 47 48 49 50 51 59 60 61 62 63 64 65 66 476 477 478 479 480 481 482 483 484 491 492 493 519 520 521 522 524 547 }
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 250
+		complete_effect = {
+			FROM = { add_core_of = ROOT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = { add = 4 has_political_power > 300 }
+		}
+	}
+}
