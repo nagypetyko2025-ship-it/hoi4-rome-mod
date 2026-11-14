@@ -835,3 +835,15 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   tooltip a saját nevet („Grain available in …”); az error.log-ban nincs hiba a nyersanyagokból, a technológiákból
   vagy a fókuszfából. Nem néztem meg: a technológiafa képét (kattintás kell) és a fókuszfa képét.
 - Mellékjavítás: a `tools/buildings.py` most a többi eszközhöz hasonlóan bármelyik meghajtón megtalálja a játékot.
+
+## Naplózó (2026-11-14, Claude) – minden játékmenet rögzítése
+- **Játékon belül** (`tools/eventlog.py` → `common/on_actions/ante_eventlog_on_actions.txt`, és a content.py minden
+  fókusz jutalmába): `ANTE|dátum|fajta|...` sorok a game.log-ba – háború, béke, kapituláció, annexió, bábállam,
+  frakció, kormányváltás, partraszállás, államok gazdát cserélnek (a fókuszfás országok és a játékos), minden
+  befejezett fókusz, és havonta a fókuszfás országok + a játékos adatai (államok, PP, stabilitás, háborús
+  támogatottság, manpower, hadosztályok, gyárak, Róma viszály/gyűlölet).
+- **Figyelő** (`python tools/watch.py`): megvárja a játékot, követi az error.log-ot és a game.log-ot, amíg fut,
+  a végén megnézi, volt-e összeomlás. Jelentés: `docs/session_logs/<dátum_idő>_session.md` (+ `_events.csv` a havi
+  adatokkal), percenként frissül. Szétválogatja: hibák a MI fájljainkban (betöltéskor / játék közben), az alapjáték
+  sorai, amelyek a mi tartalmunkat említik, és az alapjáték saját zaja. A személyes elérési utakat és a Windows
+  felhasználónevet kiveszi (a repó nyilvános). `--once`: a mostani naplókból azonnal jelentést ír.

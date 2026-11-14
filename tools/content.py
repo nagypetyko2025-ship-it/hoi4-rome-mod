@@ -339,7 +339,10 @@ def focus_file(tree_id="ante_generic_focus", tree=None, tag=None, show="ante_tam
                 f"\t\tsearch_filters = {{ {f['filters']} }}", "\t\tavailable_if_capitulated = yes"]
         if f["extra"]:
             out.append(indent(f["extra"], 2))
-        out += ["\t\tcompletion_reward = {", indent(f["reward"], 3), "\t\t}",
+        out += ["\t\tcompletion_reward = {",
+                # event log for tools/watch.py (game.log, see tools/eventlog.py)
+                f'\t\t\tlog = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|{f["id"]}"',
+                indent(f["reward"], 3), "\t\t}",
                 f"\t\tai_will_do = {{ factor = {f['ai']} }}", "\t}", ""]
     out.append("}")
     return "\n".join(out) + "\n"

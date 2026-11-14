@@ -23,6 +23,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_argead_house"
 			add_political_power = 50
 			add_stability = 0.05
 		}
@@ -39,6 +40,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_earth_and_water"
 			add_political_power = 100
 			add_stability = 0.05
 			add_war_support = -0.05
@@ -56,6 +58,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_philhellene"
 			add_ideas = MKD_philhellene_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -71,6 +74,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_hetairoi"
 			add_ideas = MKD_hetairoi_spirit
 			army_experience = 10
 		}
@@ -87,6 +91,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_upper_macedonia"
 			if = { limit = { country_exists = PAE NOT = { has_war_with = PAE } }
 				create_wargoal = { type = annex_everything target = PAE }
 			}
@@ -105,6 +110,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_timber_and_silver"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -129,6 +135,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_mines_of_pangaion"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -161,6 +168,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_pezhetairoi"
 			add_ideas = MKD_pezhetairoi_spirit
 			add_manpower = 2000
 		}
@@ -180,6 +188,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = PAE } PAE = { is_subject_of = ROOT } is_in_faction_with = PAE }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_chalkidike"
 			if = { limit = { country_exists = CHK NOT = { has_war_with = CHK } }
 				create_wargoal = { type = annex_everything target = CHK }
 			}
@@ -199,6 +208,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_sarissa"
 			add_ideas = MKD_sarissa_spirit
 			add_tech_bonus = { name = MKD_sarissa bonus = 0.5 uses = 1 category = infantry_weapons }
 		}
@@ -218,6 +228,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = CHK } CHK = { is_subject_of = ROOT } is_in_faction_with = CHK }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_thessalian_alliance"
 			if = { limit = { is_in_faction = no } create_faction = ante_faction_macedonian_alliance }
 			if = { limit = { is_faction_leader = yes country_exists = THL NOT = { has_war_with = THL } THL = { is_in_faction = no is_subject = no } } add_to_faction = THL }
 		}
@@ -238,6 +249,7 @@ focus_tree = {
 			has_army_experience > 30
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_hammer_and_anvil"
 			add_doctrine_cost_reduction = { name = MKD_hammer_and_anvil cost_reduction = 0.5 uses = 1 category = land_doctrine }
 			army_experience = 30
 		}
@@ -258,6 +270,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = THL } THL = { is_subject_of = ROOT } is_in_faction_with = THL }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|MKD_hegemon_of_the_greeks"
 			if = { limit = { country_exists = THB NOT = { has_war_with = THB } }
 				create_wargoal = { type = annex_everything target = THB }
 			}

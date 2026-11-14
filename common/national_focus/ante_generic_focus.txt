@@ -22,6 +22,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_council_of_elders"
 			add_political_power = 50
 		}
 		ai_will_do = { factor = 1 }
@@ -37,6 +38,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_codify_customs"
 			add_stability = 0.05
 		}
 		ai_will_do = { factor = 1 }
@@ -52,6 +54,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_honour_the_gods"
 			add_ideas = ante_favour_of_the_gods
 		}
 		ai_will_do = { factor = 1 }
@@ -67,6 +70,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_tribute"
 			add_ideas = ante_tribute_collectors
 		}
 		ai_will_do = { factor = 1 }
@@ -82,6 +86,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_envoys"
 			add_political_power = 75
 			add_stability = 0.03
 		}
@@ -98,6 +103,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_oracles"
 			add_research_slot = 1
 		}
 		ai_will_do = { factor = 3 }
@@ -114,6 +120,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_scribes"
 			add_tech_bonus = { name = ante_scribes_bonus bonus = 0.5 uses = 1 category = industry }
 			add_political_power = 50
 		}
@@ -130,6 +137,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_festivals"
 			add_stability = 0.05
 			add_war_support = 0.05
 		}
@@ -147,6 +155,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_one_people"
 			add_ideas = ante_one_people_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -161,6 +170,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_tame_the_land"
 			random_owned_controlled_state = {
 				limit = { impassable = no }
 				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
@@ -180,6 +190,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_markets"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -203,6 +214,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_clear_forests"
 			random_owned_controlled_state = {
 				limit = { impassable = no }
 				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
@@ -222,6 +234,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_craftsmen"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -245,6 +258,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_mines"
 			add_ideas = ante_working_mines
 			add_tech_bonus = { name = ante_mines_bonus bonus = 0.5 uses = 1 category = industry }
 		}
@@ -261,6 +275,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_roads"
 			random_owned_controlled_state = {
 				limit = { impassable = no }
 				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
@@ -284,6 +299,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_smithies"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -307,6 +323,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_great_works"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -332,6 +349,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_city_of_stone"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -363,6 +381,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_warrior_levy"
 			army_experience = 15
 			add_manpower = 2000
 		}
@@ -379,6 +398,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_drill"
 			army_experience = 15
 			add_doctrine_cost_reduction = { name = ante_drill_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
@@ -395,6 +415,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_bronze_and_iron"
 			add_tech_bonus = { name = ante_weapons_bonus bonus = 0.5 uses = 1 category = infantry_weapons }
 		}
 		ai_will_do = { factor = 2 }
@@ -410,6 +431,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_horsemen"
 			add_ideas = ante_mounted_nobles
 		}
 		ai_will_do = { factor = 2 }
@@ -425,6 +447,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_hillforts"
 			add_ideas = ante_hillforts_spirit
 		}
 		ai_will_do = { factor = 2 }
@@ -441,6 +464,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { any_owned_state = { is_coastal = yes } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_seafarers"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -465,6 +489,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_war_bands"
 			add_ideas = ante_war_bands_spirit
 		}
 		ai_will_do = { factor = 2 }
@@ -480,6 +505,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_ambition"
 			add_ideas = ante_ambition_of_conquest
 			add_war_support = 0.05
 		}
@@ -497,6 +523,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_host_of_the_people"
 			army_experience = 25
 			add_manpower = 5000
 			add_war_support = 0.05
@@ -516,6 +543,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ante_rise_to_greatness"
 			add_political_power = 100
 			add_stability = 0.10
 			add_war_support = 0.10

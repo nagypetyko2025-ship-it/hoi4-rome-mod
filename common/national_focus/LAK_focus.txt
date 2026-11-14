@@ -23,6 +23,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_lycurgan_order"
 			add_political_power = 50
 			add_war_support = 0.05
 		}
@@ -39,6 +40,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_agoge"
 			add_ideas = LAK_agoge_spirit
 			army_experience = 15
 		}
@@ -55,6 +57,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_spartiates"
 			add_ideas = LAK_spartiates_spirit
 			add_doctrine_cost_reduction = { name = LAK_spartiates cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
@@ -71,6 +74,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_two_kings"
 			add_political_power = 75
 			add_stability = 0.05
 		}
@@ -87,6 +91,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_ephors"
 			add_political_power = 100
 		}
 		ai_will_do = { factor = 1 }
@@ -102,6 +107,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_helots"
 			add_ideas = LAK_helot_labour_spirit
 			random_owned_controlled_state = {
 				limit = {
@@ -127,6 +133,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_krypteia"
 			add_ideas = LAK_krypteia_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -142,6 +149,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_war_with_argos"
 			if = { limit = { country_exists = AGS NOT = { has_war_with = AGS } }
 				create_wargoal = { type = annex_everything target = AGS }
 			}
@@ -164,6 +172,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = AGS } AGS = { is_subject_of = ROOT } is_in_faction_with = AGS }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_peloponnesian_league"
 			if = { limit = { is_in_faction = no } create_faction = ante_faction_peloponnesian_league }
 			if = { limit = { is_faction_leader = yes country_exists = KRN NOT = { has_war_with = KRN } KRN = { is_in_faction = no is_subject = no } } add_to_faction = KRN }
 			if = { limit = { is_faction_leader = yes country_exists = ARK NOT = { has_war_with = ARK } ARK = { is_in_faction = no is_subject = no } } add_to_faction = ARK }
@@ -184,6 +193,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_messenia"
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			add_manpower = 1500
 		}
@@ -200,6 +210,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_thermopylae"
 			add_ideas = LAK_molon_labe_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -215,6 +226,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_against_athens"
 			if = { limit = { country_exists = ATH NOT = { has_war_with = ATH } }
 				create_wargoal = { type = annex_everything target = ATH }
 			}
@@ -239,6 +251,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = ATH } ATH = { is_subject_of = ROOT } is_in_faction_with = ATH }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_hegemon_of_hellas"
 			add_political_power = 100
 			add_stability = 0.10
 			army_experience = 25

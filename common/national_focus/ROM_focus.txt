@@ -25,6 +25,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_the_king_remains }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_regifugium"
 			add_political_power = 50
 			set_country_flag = ROM_republic
 			set_variable = { ROM_discord = 40 }
@@ -47,6 +48,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_consuls_and_senate"
 			add_political_power = 75
 			add_stability = 0.05
 		}
@@ -69,6 +71,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_secession_of_the_plebs"
 			add_manpower = 2000
 			add_political_power = 50
 		}
@@ -86,6 +89,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_rule_of_the_fathers }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_tribunes_of_the_plebs"
 			add_stability = 0.10
 			add_manpower = 2000
 			set_country_flag = ROM_tribunes
@@ -106,6 +110,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_tribunes_of_the_plebs }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_rule_of_the_fathers"
 			add_ideas = ROM_rule_of_the_fathers_spirit
 			add_political_power = 100
 			set_country_flag = ROM_fathers_rule
@@ -126,6 +131,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_twelve_tables"
 			add_ideas = ROM_twelve_tables_spirit
 			add_political_power = 50
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M15
@@ -144,6 +150,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_lex_canuleia"
 			add_stability = 0.05
 			add_manpower = 3000
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M10
@@ -162,6 +169,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_censors"
 			add_ideas = ROM_censors_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -181,6 +189,7 @@ focus_tree = {
 			has_stability > 0.3
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_licinian_sextian_laws"
 			add_political_power = 100
 			add_stability = 0.05
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M15
@@ -203,6 +212,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ROM_TT_DISCORD_BELOW_30 check_variable = { ROM_discord < 30.01 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_lex_hortensia"
 			swap_ideas = { remove_idea = ROM_twelve_tables_spirit add_idea = ROM_concordia_ordinum_spirit }
 			set_country_flag = ROM_concord
 			remove_dynamic_modifier = { modifier = ROM_struggle_of_the_orders }
@@ -225,6 +235,7 @@ focus_tree = {
 			has_political_power > 100
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_the_nobilitas"
 			swap_ideas = { remove_idea = ROM_twelve_tables_spirit add_idea = ROM_nobilitas_spirit }
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_P5
 			hidden_effect = { add_to_variable = { ROM_discord = 5 } ROM_discord_update = yes }
@@ -243,6 +254,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_capitoline_temple"
 			add_stability = 0.05
 			add_war_support = 0.05
 		}
@@ -259,6 +271,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_sibylline_books"
 			add_research_slot = 1
 		}
 		ai_will_do = { factor = 3 }
@@ -274,6 +287,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_pontifex_maximus"
 			add_political_power = 100
 		}
 		ai_will_do = { factor = 1 }
@@ -289,6 +303,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_vestal_virgins"
 			add_ideas = ROM_pax_deorum_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -304,6 +319,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_ludi_romani"
 			add_ideas = ROM_ludi_romani_spirit
 			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M5
 			hidden_effect = { add_to_variable = { ROM_discord = -5 } ROM_discord_update = yes }
@@ -325,6 +341,7 @@ focus_tree = {
 			has_war = yes
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_evocatio"
 			add_ideas = ROM_evocatio_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -341,6 +358,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_mos_maiorum }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_greek_gods"
 			add_ideas = ROM_greek_gods_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -357,6 +375,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_greek_gods }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_mos_maiorum"
 			add_ideas = ROM_mos_maiorum_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -372,6 +391,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_servian_centuries"
 			army_experience = 15
 			add_doctrine_cost_reduction = { name = ROM_servian_centuries cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
@@ -388,6 +408,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_stipendium"
 			add_ideas = ROM_stipendium_spirit
 			add_manpower = 2000
 			add_political_power = -25
@@ -407,6 +428,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_camillus_reforms"
 			add_tech_bonus = { name = ROM_camillus_reforms bonus = 0.5 uses = 1 category = infantry_weapons }
 			army_experience = 20
 		}
@@ -427,6 +449,7 @@ focus_tree = {
 			has_army_experience > 20
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_manipular_legion"
 			add_ideas = ROM_manipular_legion_spirit
 			add_doctrine_cost_reduction = { name = ROM_manipular_legion cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
@@ -447,6 +470,7 @@ focus_tree = {
 			has_army_experience > 20
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_citizen_phalanx"
 			add_ideas = ROM_citizen_phalanx_spirit
 			add_doctrine_cost_reduction = { name = ROM_citizen_phalanx cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
@@ -466,6 +490,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_4 check_variable = { ante_realm_states > 3 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_via_appia"
 			random_owned_controlled_state = {
 				limit = { impassable = no }
 				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
@@ -489,6 +514,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_aqua_appia"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -525,6 +551,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_5 check_variable = { ante_realm_states > 4 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_coloniae"
 			add_ideas = ROM_coloniae_spirit
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
@@ -550,6 +577,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_horatius_at_the_bridge"
 			army_experience = 20
 			add_war_support = 0.10
 			if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }
@@ -571,6 +599,7 @@ focus_tree = {
 			NOT = { has_war_with = CLU }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_lake_regillus"
 			army_experience = 25
 			add_war_support = 0.05
 			add_timed_idea = { idea = ROM_dioscuri_spirit days = 180 }
@@ -595,6 +624,7 @@ focus_tree = {
 			NOT = { has_war_with = LAT }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_foedus_cassianum"
 			add_political_power = 100
 			if = { limit = { is_in_faction = no } create_faction = ante_faction_latin_alliance }
 			if = { limit = { is_faction_leader = yes country_exists = LAT NOT = { has_war_with = LAT } LAT = { is_in_faction = no is_subject = no } } add_to_faction = LAT }
@@ -614,6 +644,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_foedus_cassianum }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_latium_by_the_sword"
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } }
 				create_wargoal = { type = annex_everything target = LAT }
 			}
@@ -633,6 +664,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_aequi_and_volsci"
 			if = { limit = { country_exists = VOL NOT = { has_war_with = VOL } }
 				create_wargoal = { type = annex_everything target = VOL }
 			}
@@ -653,6 +685,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_coriolanus"
 			add_war_support = 0.05
 			army_experience = 15
 			every_state = { limit = { is_owned_by = VOL } add_claim_by = ROOT }
@@ -674,6 +707,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_2 check_variable = { ante_realm_states > 1 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_siege_of_veii"
 			if = { limit = { country_exists = VEI NOT = { has_war_with = VEI } }
 				create_wargoal = { type = annex_everything target = VEI }
 			}
@@ -696,6 +730,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = VEI } VEI = { is_subject_of = ROOT } is_in_faction_with = VEI }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_southern_etruria"
 			if = { limit = { country_exists = CAE NOT = { has_war_with = CAE } }
 				create_wargoal = { type = annex_everything target = CAE }
 			}
@@ -718,6 +753,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_battle_of_the_allia"
 			add_manpower = 3000
 			add_war_support = 0.05
 			add_stability = -0.10
@@ -736,6 +772,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_not_with_gold }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_pay_the_gold"
 			add_political_power = -50
 			add_stability = 0.05
 			random_owned_controlled_state = {
@@ -762,6 +799,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_pay_the_gold }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_not_with_gold"
 			add_ideas = ROM_vae_victis_spirit
 			if = { limit = { country_exists = SEN NOT = { has_war_with = SEN } }
 				create_wargoal = { type = annex_everything target = SEN }
@@ -781,6 +819,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_servian_wall"
 			add_ideas = ROM_servian_wall_spirit
 			random_owned_controlled_state = {
 				limit = {
@@ -806,6 +845,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_second_founder"
 			add_stability = 0.10
 			add_political_power = 100
 		}
@@ -826,6 +866,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_5 check_variable = { ante_realm_states > 4 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_latin_war"
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } }
 				create_wargoal = { type = annex_everything target = LAT }
 			}
@@ -848,6 +889,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = SAM } is_neighbor_of = SAM }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_samnite_wars"
 			if = { limit = { country_exists = SAM NOT = { has_war_with = SAM } }
 				create_wargoal = { type = annex_everything target = SAM }
 			}
@@ -871,6 +913,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_sentinum"
 			if = { limit = { country_exists = UMB NOT = { has_war_with = UMB } }
 				create_wargoal = { type = annex_everything target = UMB }
 			}
@@ -896,6 +939,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_tarentum_and_pyrrhus"
 			if = { limit = { country_exists = TAS NOT = { has_war_with = TAS } }
 				create_wargoal = { type = annex_everything target = TAS }
 			}
@@ -921,6 +965,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = SAM } SAM = { is_subject_of = ROOT } is_in_faction_with = SAM }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_treaty_with_tarentum"
 			if = { limit = { country_exists = TAS NOT = { has_war_with = TAS } TAS = { is_subject = no is_in_faction = no } } puppet = TAS }
 			add_political_power = 50
 			add_political_power = -100
@@ -944,6 +989,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } is_in_faction_with = LAT }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_italia"
 			add_political_power = 150
 			add_stability = 0.10
 			add_war_support = 0.10
@@ -966,6 +1012,7 @@ focus_tree = {
 		available = { any_owned_state = { is_coastal = yes } }
 		mutually_exclusive = { focus = ROM_cisalpine_gaul }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_towards_sicily"
 			every_state = { limit = { is_owned_by = ZAN } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = SYR } add_claim_by = ROOT }
 			random_owned_controlled_state = {
@@ -993,6 +1040,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_towards_sicily }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_cisalpine_gaul"
 			if = { limit = { country_exists = INS NOT = { has_war_with = INS } }
 				create_wargoal = { type = annex_everything target = INS }
 			}
@@ -1034,6 +1082,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_civitas_sine_suffragio"
 			if = { limit = { country_exists = SAB NOT = { has_war_with = SAB } SAB = { is_subject = no is_in_faction = no } } puppet = SAB }
 			else_if = { limit = { country_exists = SAB NOT = { has_war_with = SAB } NOT = { SAB = { is_subject_of = ROOT } } NOT = { is_in_faction_with = SAB } }
 				create_wargoal = { type = annex_everything target = SAB }
@@ -1060,6 +1109,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = VEI } VEI = { is_subject_of = ROOT } is_in_faction_with = VEI }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_etruscan_truces"
 			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } CLU = { is_subject = no is_in_faction = no } } puppet = CLU }
 			else_if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } NOT = { CLU = { is_subject_of = ROOT } } NOT = { is_in_faction_with = CLU } }
 				create_wargoal = { type = annex_everything target = CLU }
@@ -1087,6 +1137,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_deditio_of_capua"
 			if = { limit = { country_exists = CAP NOT = { has_war_with = CAP } CAP = { is_subject = no is_in_faction = no } } puppet = CAP }
 			else_if = { limit = { country_exists = CAP NOT = { has_war_with = CAP } NOT = { CAP = { is_subject_of = ROOT } } NOT = { is_in_faction_with = CAP } }
 				create_wargoal = { type = annex_everything target = CAP }
@@ -1110,6 +1161,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_apulian_allies"
 			if = { limit = { country_exists = DAU NOT = { has_war_with = DAU } DAU = { is_subject = no is_in_faction = no } } puppet = DAU }
 			else_if = { limit = { country_exists = DAU NOT = { has_war_with = DAU } NOT = { DAU = { is_subject_of = ROOT } } NOT = { is_in_faction_with = DAU } }
 				create_wargoal = { type = annex_everything target = DAU }
@@ -1133,6 +1185,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_lucania_and_bruttium"
 			if = { limit = { country_exists = OEN NOT = { has_war_with = OEN } }
 				create_wargoal = { type = annex_everything target = OEN }
 			}
@@ -1176,6 +1229,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_regifugium }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_the_king_remains"
 			set_politics = { ruling_party = neutrality elections_allowed = no }
 			set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }
 			promote_character = ROM_tarquinius
@@ -1203,6 +1257,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_purge_the_conspirators"
 			add_political_power = 100
 			add_stability = -0.03
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_P5
@@ -1224,6 +1279,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_a_king_for_the_people }
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_tyranny_of_superbus"
 			swap_ideas = { remove_idea = ROM_rex_tarquinius_spirit add_idea = ROM_tyranny_spirit }
 			set_country_flag = ROM_tyranny
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_P5
@@ -1244,6 +1300,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_tyranny_of_superbus }
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_a_king_for_the_people"
 			swap_ideas = { remove_idea = ROM_rex_tarquinius_spirit add_idea = ROM_good_king_spirit }
 			add_stability = 0.05
 			set_country_flag = ROM_good_king
@@ -1264,6 +1321,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_the_celeres"
 			add_ideas = ROM_celeres_spirit
 			army_experience = 15
 		}
@@ -1281,6 +1339,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_cloaca_maxima"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -1309,6 +1368,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_books_of_the_sibyl"
 			add_research_slot = 1
 		}
 		ai_will_do = { factor = 3 }
@@ -1325,6 +1385,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_etruscan_craftsmen"
 			add_ideas = ROM_etruscan_crafts_spirit
 			random_owned_controlled_state = {
 				limit = {
@@ -1350,6 +1411,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_head_of_the_latin_league"
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } LAT = { is_subject = no is_in_faction = no } } puppet = LAT }
 			else_if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } NOT = { LAT = { is_subject_of = ROOT } } NOT = { is_in_faction_with = LAT } }
 				create_wargoal = { type = annex_everything target = LAT }
@@ -1370,6 +1432,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_stratagem_of_gabii"
 			if = { limit = { country_exists = VOL NOT = { has_war_with = VOL } }
 				create_wargoal = { type = annex_everything target = VOL }
 			}
@@ -1396,6 +1459,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_3 check_variable = { ante_realm_states > 2 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_the_twelve_cities"
 			every_state = { limit = { is_owned_by = VEI } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = CAE } add_claim_by = ROOT }
 			every_state = { limit = { is_owned_by = TAR } add_claim_by = ROOT }
@@ -1426,6 +1490,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_royal_army"
 			add_ideas = ROM_royal_army_spirit
 			add_doctrine_cost_reduction = { name = ROM_royal_army cost_reduction = 0.5 uses = 1 category = land_doctrine }
 		}
@@ -1443,6 +1508,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_royal_roads"
 			random_owned_controlled_state = {
 				limit = { impassable = no }
 				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
@@ -1469,6 +1535,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = CLU } is_neighbor_of = CLU }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_king_of_the_etruscans"
 			if = { limit = { country_exists = CLU NOT = { has_war_with = CLU } }
 				create_wargoal = { type = annex_everything target = CLU }
 			}
@@ -1491,6 +1558,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_sabine_wars"
 			if = { limit = { country_exists = SAB NOT = { has_war_with = SAB } }
 				create_wargoal = { type = annex_everything target = SAB }
 			}
@@ -1520,6 +1588,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_northern_etruria"
 			if = { limit = { country_exists = VLT NOT = { has_war_with = VLT } }
 				create_wargoal = { type = annex_everything target = VLT }
 			}
@@ -1548,6 +1617,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } is_in_faction_with = LAT }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_regnum_italiae"
 			add_ideas = ROM_regnum_spirit
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
@@ -1571,6 +1641,7 @@ focus_tree = {
 			OR = { NOT = { country_exists = SAM } is_neighbor_of = SAM }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_the_samnite_mountains"
 			if = { limit = { country_exists = SAM NOT = { has_war_with = SAM } }
 				create_wargoal = { type = annex_everything target = SAM }
 			}
@@ -1596,6 +1667,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_magna_graecia"
 			if = { limit = { country_exists = CUM NOT = { has_war_with = CUM } }
 				create_wargoal = { type = annex_everything target = CUM }
 			}
@@ -1629,6 +1701,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_umbria_and_picenum"
 			if = { limit = { country_exists = UMB NOT = { has_war_with = UMB } }
 				create_wargoal = { type = annex_everything target = UMB }
 			}
@@ -1652,6 +1725,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_apulia"
 			if = { limit = { country_exists = DAU NOT = { has_war_with = DAU } }
 				create_wargoal = { type = annex_everything target = DAU }
 			}
@@ -1679,6 +1753,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_bruttium"
 			if = { limit = { country_exists = OEN NOT = { has_war_with = OEN } }
 				create_wargoal = { type = annex_everything target = OEN }
 			}
@@ -1715,6 +1790,7 @@ focus_tree = {
 		available = { NOT = { has_country_flag = ROM_revolution } any_owned_state = { is_coastal = yes } }
 		mutually_exclusive = { focus = ROM_kingdom_of_the_po }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_across_the_strait"
 			if = { limit = { country_exists = ZAN NOT = { has_war_with = ZAN } }
 				create_wargoal = { type = annex_everything target = ZAN }
 			}
@@ -1746,6 +1822,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_across_the_strait }
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_kingdom_of_the_po"
 			if = { limit = { country_exists = FEL NOT = { has_war_with = FEL } }
 				create_wargoal = { type = annex_everything target = FEL }
 			}
@@ -1784,6 +1861,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_20 check_variable = { ante_realm_states > 19 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_king_of_italy"
 			add_political_power = 150
 			add_stability = 0.10
 			add_war_support = 0.10
@@ -1806,6 +1884,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_royal_amnesty"
 			add_political_power = -50
 			add_manpower = 1000
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
@@ -1827,6 +1906,7 @@ focus_tree = {
 			NOT = { has_war_with = CUM }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_grain_from_cumae"
 			add_stability = 0.05
 			add_political_power = -25
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M8
@@ -1847,6 +1927,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_call_back_the_settlers"
 			add_manpower = 1500
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M12
 			hidden_effect = { add_to_variable = { ROM_hatred = -12 } ROM_hatred_update = yes }
@@ -1866,6 +1947,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_hear_the_people }
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_crush_the_riots"
 			add_war_support = -0.05
 			set_country_flag = ROM_blood_in_the_forum
 			custom_effect_tooltip = ROM_TT_ROM_HATRED_M20
@@ -1886,6 +1968,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_crush_the_riots }
 		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_hear_the_people"
 			add_political_power = -75
 			add_stability = 0.05
 			set_country_flag = ROM_king_listens
@@ -1908,6 +1991,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ROM_TT_HATRED_BELOW_30 check_variable = { ROM_hatred < 30 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_a_loyal_rome"
 			add_ideas = ROM_loyal_subjects_spirit
 			add_stability = 0.05
 			set_country_flag = ROM_loyal
@@ -1928,6 +2012,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_forum_boarium"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -1951,6 +2036,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_via_salaria"
 			random_owned_controlled_state = {
 				limit = { impassable = no }
 				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
@@ -1973,6 +2059,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_salt_pans"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -1997,6 +2084,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = { any_owned_state = { is_coastal = yes } }
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_tiber_harbour"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -2020,6 +2108,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_aes_signatum"
 			add_ideas = ROM_coinage_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -2038,6 +2127,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_3 check_variable = { ante_realm_states > 2 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_ager_publicus"
 			add_ideas = ROM_ager_publicus_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -2053,6 +2143,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_smiths_of_rome"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
@@ -2089,6 +2180,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_6 check_variable = { ante_realm_states > 5 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_juno_moneta"
 			add_ideas = ROM_juno_moneta_spirit
 		}
 		ai_will_do = { factor = 1 }
@@ -2108,6 +2200,7 @@ focus_tree = {
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_9 check_variable = { ante_realm_states > 8 } }
 		}
 		completion_reward = {
+			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ROM_great_public_works"
 			random_owned_controlled_state = {
 				limit = {
 					impassable = no
