@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_punic
 oob = "ARW_245"
 set_naval_oob = "ARW_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = ARW_cmd_g0_sophonba
 recruit_character = ARW_cmd_g1_gisco_hasdrubal

@@ -31,6 +31,7 @@ recruit_character = FEN_kaleva
 add_ideas = ante_culture_northern
 oob = "FEN_245"
 set_naval_oob = "FEN_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = FEN_cmd_g0_ahti_vyatich
 # --- counsellors and war council (tools/government.py)

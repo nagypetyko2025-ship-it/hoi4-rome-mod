@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_celtic
 oob = "REM_245"
 set_naval_oob = "REM_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = REM_cmd_g0_atepomarus_atepomarios
 # --- counsellors and war council (tools/government.py)

@@ -31,6 +31,7 @@ recruit_character = GTA_zalmodegikos
 add_ideas = ante_culture_thracian
 oob = "GTA_245"
 set_naval_oob = "GTA_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = GTA_cmd_g0_tarsas_sapaios
 # --- counsellors and war council (tools/government.py)

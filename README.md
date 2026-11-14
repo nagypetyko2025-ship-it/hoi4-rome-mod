@@ -883,3 +883,11 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   elérési utakon, mint az alapjátékéi).
 - **Latin Culture** döntéskategória: a „Make <állam> Roman” itt van, a kezdettől elérhető.
 - Pipeline: … content.py, commanders.py, **government.py** (a commanders után: mindkettő a history-hoz ír), validate.py.
+
+## Huszonnegyedik kör (2026-11-14, Claude) – kereskedőhajók (konvoj), hajógyár Rómának
+- **Minden ország kap kezdő konvojt** (`set_convoys` a world.py-ban): 5 mindenkinek + 3 kikötőszintenként, legfeljebb
+  60 (Róma 11, Karthágó 50, Perzsia 60). Konvoj nélkül nem lehet távoli országokkal kereskedni.
+- **A konvoj ókori:** neve „Merchant Ships”, ókori leírással; saját képek (öblös kereskedőhajók négyszögletes
+  vitorlával) az alapjáték helyén: típuskép, gyártási kép, felső sáv ikonja (`tools/convoy.py`).
+- **Róma kap 1 hajógyárat** (Ostia, Róma tengerparti állama).
+- Pipeline: a convoy.py a world.py után fut (a replace lokalizációs mappába ír).

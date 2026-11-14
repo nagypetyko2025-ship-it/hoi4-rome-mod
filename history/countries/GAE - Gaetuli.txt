@@ -31,6 +31,7 @@ recruit_character = GAE_iarbas
 add_ideas = ante_culture_libyan
 oob = "GAE_245"
 set_naval_oob = "GAE_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = GAE_cmd_g0_oxyntas_gaetuli
 # --- counsellors and war council (tools/government.py)

@@ -31,6 +31,7 @@ recruit_character = SIG_artaios
 add_ideas = ante_culture_scythian
 oob = "SIG_245"
 set_naval_oob = "SIG_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = SIG_cmd_g0_aripharnes
 # --- counsellors and war council (tools/government.py)

@@ -31,6 +31,7 @@ recruit_character = THY_arpoxais
 add_ideas = ante_culture_northern
 oob = "THY_245"
 set_naval_oob = "THY_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = THY_cmd_g0_gediminas
 # --- counsellors and war council (tools/government.py)

@@ -31,6 +31,7 @@ recruit_character = ISS_kolaxais
 add_ideas = ante_culture_scythian
 oob = "ISS_245"
 set_naval_oob = "ISS_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = ISS_cmd_g0_skunkha_kallipides
 # --- counsellors and war council (tools/government.py)

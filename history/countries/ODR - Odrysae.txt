@@ -31,6 +31,7 @@ recruit_character = ODR_teres
 add_ideas = ante_culture_thracian
 oob = "ODR_245"
 set_naval_oob = "ODR_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = ODR_cmd_g0_getas
 # --- counsellors and war council (tools/government.py)

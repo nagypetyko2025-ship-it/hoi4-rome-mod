@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_celtic
 oob = "SEQ_245"
 set_naval_oob = "SEQ_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = SEQ_cmd_g0_ariovistus_plialethu
 # --- counsellors and war council (tools/government.py)

@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_greek
 oob = "POS_245"
 set_naval_oob = "POS_245_naval"
+set_convoys = 8
 # --- commanders (tools/commanders.py)
 recruit_character = POS_cmd_g0_antiphemos
 # --- counsellors and war council (tools/government.py)

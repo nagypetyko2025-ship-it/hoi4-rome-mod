@@ -31,6 +31,7 @@ recruit_character = LUG_vannius
 add_ideas = ante_culture_northern
 oob = "LUG_245"
 set_naval_oob = "LUG_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = LUG_cmd_g0_kauko_mantvydas
 # --- counsellors and war council (tools/government.py)

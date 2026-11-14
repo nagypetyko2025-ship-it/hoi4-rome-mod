@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_island
 oob = "SAR_245"
 set_naval_oob = "SAR_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = SAR_cmd_g0_gocaras_nora
 # --- counsellors and war council (tools/government.py)

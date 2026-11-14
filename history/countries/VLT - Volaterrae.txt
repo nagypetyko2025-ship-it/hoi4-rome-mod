@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_etruscan
 oob = "VLT_245"
 set_naval_oob = "VLT_245_naval"
+set_convoys = 14
 # --- commanders (tools/commanders.py)
 recruit_character = VLT_cmd_g0_velthur_camna
 # --- counsellors and war council (tools/government.py)

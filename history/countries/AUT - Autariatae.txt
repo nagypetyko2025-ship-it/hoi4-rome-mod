@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_iapygian
 oob = "AUT_245"
 set_naval_oob = "AUT_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = AUT_cmd_g0_bostahes_staboaos
 # --- counsellors and war council (tools/government.py)

@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_greek
 oob = "ARK_245"
 set_naval_oob = "ARK_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = ARK_cmd_g0_aristodemos_hipparinou
 # --- counsellors and war council (tools/government.py)

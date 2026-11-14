@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_iapygian
 oob = "TLN_245"
 set_naval_oob = "TLN_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = TLN_cmd_g0_artorres_brentesinos
 # --- counsellors and war council (tools/government.py)

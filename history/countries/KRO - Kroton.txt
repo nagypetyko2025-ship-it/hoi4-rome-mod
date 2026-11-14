@@ -33,6 +33,7 @@ recruit_character = KRO_milo
 add_ideas = ante_culture_greek
 oob = "KRO_245"
 set_naval_oob = "KRO_245_naval"
+set_convoys = 14
 # --- commanders (tools/commanders.py)
 recruit_character = KRO_cmd_philippos
 # --- counsellors and war council (tools/government.py)

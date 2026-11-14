@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_greek
 oob = "RHO_245"
 set_naval_oob = "RHO_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = RHO_cmd_g0_lysandros
 # --- counsellors and war council (tools/government.py)

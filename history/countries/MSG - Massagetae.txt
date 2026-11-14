@@ -31,6 +31,7 @@ recruit_character = MSG_tomyris
 add_ideas = ante_culture_scythian
 oob = "MSG_245"
 set_naval_oob = "MSG_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = MSG_cmd_g0_arpoxais
 # --- counsellors and war council (tools/government.py)

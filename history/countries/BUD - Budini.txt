@@ -31,6 +31,7 @@ recruit_character = BUD_taxakis
 add_ideas = ante_culture_northern
 oob = "BUD_245"
 set_naval_oob = "BUD_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = BUD_cmd_g0_radim_zarubin
 # --- counsellors and war council (tools/government.py)

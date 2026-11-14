@@ -33,6 +33,7 @@ recruit_character = CAR_hamilcar
 add_ideas = ante_culture_punic
 oob = "CAR_245"
 set_naval_oob = "CAR_245_naval"
+set_convoys = 50
 # --- commanders (tools/commanders.py)
 recruit_character = CAR_cmd_hasdrubal
 recruit_character = CAR_cmd_malchus

@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_etruscan
 oob = "TAR_245"
 set_naval_oob = "TAR_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = TAR_cmd_g0_vel
 # --- counsellors and war council (tools/government.py)

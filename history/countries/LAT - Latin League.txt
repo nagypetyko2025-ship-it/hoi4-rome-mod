@@ -33,6 +33,7 @@ recruit_character = LAT_mamilius
 add_ideas = ante_culture_latin
 oob = "LAT_245"
 set_naval_oob = "LAT_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = LAT_cmd_sextus
 # --- counsellors and war council (tools/government.py)

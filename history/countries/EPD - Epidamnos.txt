@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_greek
 oob = "EPD_245"
 set_naval_oob = "EPD_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = EPD_cmd_g0_hieron_hermokratous
 # --- counsellors and war council (tools/government.py)

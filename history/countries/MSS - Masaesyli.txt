@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_libyan
 oob = "MSS_245"
 set_naval_oob = "MSS_245_naval"
+set_convoys = 8
 # --- commanders (tools/commanders.py)
 recruit_character = MSS_cmd_g0_arabion
 # --- counsellors and war council (tools/government.py)

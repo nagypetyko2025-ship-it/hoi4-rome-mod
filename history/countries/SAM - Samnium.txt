@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_italic
 oob = "SAM_245"
 set_naval_oob = "SAM_245_naval"
+set_convoys = 8
 # --- commanders (tools/commanders.py)
 recruit_character = SAM_cmd_g0_novius_pompilius
 # --- counsellors and war council (tools/government.py)

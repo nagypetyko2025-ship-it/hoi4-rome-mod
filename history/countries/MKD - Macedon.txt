@@ -33,6 +33,7 @@ recruit_character = MKD_amyntas
 add_ideas = ante_culture_greek
 oob = "MKD_245"
 set_naval_oob = "MKD_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = MKD_cmd_alexander
 recruit_character = MKD_cmd_g1_philistos

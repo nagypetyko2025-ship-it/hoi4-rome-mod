@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_libyan
 oob = "MAK_245"
 set_naval_oob = "MAK_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = MAK_cmd_g0_hiempsal_the
 # --- counsellors and war council (tools/government.py)

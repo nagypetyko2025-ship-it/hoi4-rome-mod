@@ -911,6 +911,13 @@ def name_block(items, tabs):
 
 
 def write_world(M, C, states):
+    # harbour levels per country (merchant ships at the start) and Rome's shipyard at Ostia (round 24, Peti)
+    harbour_levels = {}
+    for s in states:
+        if not s.get("waste"):
+            harbour_levels[s["owner"]] = harbour_levels.get(s["owner"], 0) + sum(s["ports"].values())
+            if s["owner"] == "ROM" and s["ports"] and "dockyard" not in s["buildings"]:
+                s["buildings"]["dockyard"] = 1
     # --- wipe what this tool owns
     for rel in ("history/states", "history/countries", "gfx/flags", "localisation/english/replace", "common/bookmarks"):
         if (MOD / rel).is_dir():
@@ -963,6 +970,9 @@ def write_world(M, C, states):
         # starting army: history/units/<TAG>_245.txt, written by tools/army.py (the wilds have none)
         if tag != "WLD":
             hist += [f'oob = "{tag}_245"', f'set_naval_oob = "{tag}_245_naval"']
+            # merchant ships (round 24): without convoys a country cannot trade with far-away countries.
+            # 5 for everybody, 3 more for every harbour level, at most 60 (tools/convoy.py renames them)
+            hist.append(f"set_convoys = {min(60, 5 + 3 * harbour_levels.get(tag, 0))}")
         write(f"history/countries/{tag} - {safe_name(c['name'])}.txt", "\n".join(hist) + "\n", bom=True)
     write("common/country_tags/00_ante_countries.txt", "\n".join(tags_txt) + "\n")
     write("common/countries/colors.txt", "\n".join(colors_txt + dyn) + "\n")

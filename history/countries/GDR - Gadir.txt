@@ -32,6 +32,7 @@ set_technology = {
 add_ideas = ante_culture_punic
 oob = "GDR_245"
 set_naval_oob = "GDR_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = GDR_cmd_g0_baalyaton_baalhanno
 recruit_character = GDR_cmd_g1_bodmelqart_bin

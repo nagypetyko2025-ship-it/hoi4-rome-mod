@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_celtic
 oob = "INS_245"
 set_naval_oob = "INS_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = INS_cmd_g0_concolitanus_namunatios
 # --- counsellors and war council (tools/government.py)

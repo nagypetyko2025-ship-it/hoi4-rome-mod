@@ -31,6 +31,7 @@ recruit_character = PAN_pinnes
 add_ideas = ante_culture_iapygian
 oob = "PAN_245"
 set_naval_oob = "PAN_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = PAN_cmd_g0_solas_rudinos
 # --- counsellors and war council (tools/government.py)

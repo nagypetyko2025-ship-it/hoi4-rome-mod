@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_northern
 oob = "IYR_245"
 set_naval_oob = "IYR_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = IYR_cmd_g0_ukko_krakov
 # --- counsellors and war council (tools/government.py)

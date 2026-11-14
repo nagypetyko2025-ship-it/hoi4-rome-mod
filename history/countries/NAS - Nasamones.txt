@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_libyan
 oob = "NAS_245"
 set_naval_oob = "NAS_245_naval"
+set_convoys = 5
 # --- commanders (tools/commanders.py)
 recruit_character = NAS_cmd_g0_tychaeus
 # --- counsellors and war council (tools/government.py)

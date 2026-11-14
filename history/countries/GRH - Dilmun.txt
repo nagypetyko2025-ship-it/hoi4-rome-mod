@@ -30,6 +30,7 @@ set_technology = {
 add_ideas = ante_culture_arabian
 oob = "GRH_245"
 set_naval_oob = "GRH_245_naval"
+set_convoys = 11
 # --- commanders (tools/commanders.py)
 recruit_character = GRH_cmd_g0_ammuladi_shabwat
 # --- counsellors and war council (tools/government.py)
