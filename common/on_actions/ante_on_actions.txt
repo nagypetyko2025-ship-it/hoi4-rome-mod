@@ -19,6 +19,59 @@ on_actions = {
 					PREV = { add_to_variable = { ante_realm_states = PREV.num_controlled_states } }
 				}
 			}
+			if = {
+				limit = { original_tag = ROM has_country_flag = ROM_republic NOT = { has_country_flag = ROM_concord } }
+				if = {
+					limit = { has_war = yes }
+					add_to_variable = { ROM_discord = 0.35 }
+				}
+				else = {
+					add_to_variable = { ROM_discord = -0.12 }
+				}
+				if = { limit = { has_country_flag = ROM_fathers_rule } add_to_variable = { ROM_discord = 0.12 } }
+				if = { limit = { has_country_flag = ROM_tribunes } add_to_variable = { ROM_discord = -0.12 } }
+				if = { limit = { has_country_flag = ROM_blood_in_the_forum } add_to_variable = { ROM_discord = 0.06 } }
+				ROM_discord_update = yes
+				if = {
+					limit = { check_variable = { ROM_discord > 79.9 } NOT = { has_country_flag = ROM_secession_cooldown } }
+					set_country_flag = { flag = ROM_secession_cooldown days = 540 value = 1 }
+					country_event = { id = ante_rome.20 }
+				}
+			}
+			if = {
+				limit = { original_tag = ROM has_country_flag = ROM_kingdom }
+				if = { limit = { has_country_flag = ROM_tyranny } add_to_variable = { ROM_hatred = 0.25 } }
+				if = { limit = { has_country_flag = ROM_good_king } add_to_variable = { ROM_hatred = -0.12 } }
+				if = { limit = { has_country_flag = ROM_king_listens } add_to_variable = { ROM_hatred = -0.1 } }
+				if = { limit = { surrender_progress > 0.1 } add_to_variable = { ROM_hatred = 0.6 } }
+				ROM_hatred_update = yes
+				if = {
+					limit = { check_variable = { ROM_hatred > 99.9 } NOT = { has_country_flag = ROM_rising_done } }
+					set_country_flag = ROM_rising_done
+					country_event = { id = ante_rome.45 }
+				}
+				else_if = {
+					limit = { has_country_flag = ROM_brutus_at_court check_variable = { ROM_hatred > 79.9 } NOT = { has_country_flag = ROM_brutus_done } }
+					set_country_flag = ROM_brutus_done
+					country_event = { id = ante_rome.43 }
+				}
+				else_if = {
+					limit = { check_variable = { ROM_hatred > 49.9 } NOT = { has_country_flag = ROM_plot_cooldown } }
+					random = {
+						chance = 4
+						set_country_flag = { flag = ROM_plot_cooldown days = 150 value = 1 }
+						country_event = { id = ante_rome.40 }
+					}
+					if = {
+						limit = { has_country_flag = ROM_blood_in_the_forum NOT = { has_country_flag = ROM_plot_cooldown } }
+						random = {
+							chance = 4
+							set_country_flag = { flag = ROM_plot_cooldown days = 150 value = 1 }
+							country_event = { id = ante_rome.40 }
+						}
+					}
+				}
+			}
 		}
 	}
 }

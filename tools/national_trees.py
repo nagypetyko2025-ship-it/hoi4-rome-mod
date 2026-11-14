@@ -11,8 +11,11 @@ Icons and modifiers are base-game ones (GFX_goal_generic_*, modifiers_documentat
 Rome's plan: docs/rome_focus_tree.md. Dates in the texts are BC (the game counts AUC).
 """
 
+import rome_story as RS   # Rome's meters, events and decisions (tools/rome_story.py)
+
 P, I, R, M = "FOCUS_FILTER_POLITICAL", "FOCUS_FILTER_INDUSTRY", "FOCUS_FILTER_RESEARCH", "FOCUS_FILTER_MANPOWER"
 COAST = "available = { any_owned_state = { is_coastal = yes } }"
+disc, hate = RS.discord, RS.hatred
 
 
 REALM_N = set()   # thresholds used, for the tooltip localisation
@@ -78,8 +81,7 @@ def define(focus, build, infra, tech, wargoal):
     # Every branch has a choice between two focuses (mx) that both lead on.
     f = tree("ROM", "ROM_regifugium", "# Rome's focus tree, 509 BC (245 AUC) to the eve of the First Punic War. Plan: docs/rome_focus_tree.md\n"
              "# Left: the Republic. Right: the King Remains (mutually exclusive roots). Pairs of mutually exclusive choices in every branch.")
-    idea("ROM_struggle_of_the_orders_spirit", "Struggle of the Orders", "political_support",
-         stability_factor=-0.10, political_power_gain=-0.10)
+    # (the Struggle of the Orders itself is a meter now: ROM_discord, tools/rome_story.py)
     idea("ROM_twelve_tables_spirit", "The Law of the Twelve Tables", "constitutional_guarantees",
          stability_factor=-0.03, political_power_gain=0.05)
     idea("ROM_concordia_ordinum_spirit", "Concordia Ordinum", "pp_unity_bonus",
@@ -118,35 +120,39 @@ def define(focus, build, infra, tech, wargoal):
     def mx(*ids):
         return "mutually_exclusive = { " + " ".join(f"focus = {i}" for i in ids) + " }"
 
-    f("ROM_regifugium", "Regifugium", "Tarquinius Superbus and his house are driven from the city. Rome will never again have a king - but patricians and plebeians now fight over the Republic.",
-      "political_pressure", 8, 0, [], "add_political_power = 50\nadd_ideas = ROM_struggle_of_the_orders_spirit",
+    f("ROM_regifugium", "Regifugium", "Tarquinius Superbus and his house are driven from the city. Rome will never again have a king - but the exiled king has friends in Etruria, and patricians and plebeians now fight over the Republic.",
+      "political_pressure", 8, 0, [], "add_political_power = 50\n" + RS.START_REPUBLIC,
       extra=mx("ROM_the_king_remains"), ai=5)
-    # --- 1. Res Publica
+    # --- 1. Res Publica: every step moves the Struggle of the Orders (ROM_discord)
     f("ROM_consuls_and_senate", "Consuls and Senate", "Two magistrates for one year, the fathers of the Senate to advise them.",
       "national_unity", 2, 1, [["ROM_regifugium"]], "add_political_power = 75\nadd_stability = 0.05")
-    f("ROM_secession_of_the_plebs", "Secession of the Plebs", "494 BC: the plebeians march out to the Sacred Mount. Without them there is no army. Rome must choose: give way, or rule them.",
-      "demand_territory", 2, 2, [["ROM_consuls_and_senate"]], "add_manpower = 2000\nadd_political_power = 50")
-    f("ROM_tribunes_of_the_plebs", "Tribunes of the Plebs", "Give way: sacrosanct protectors of the common people, with the power to say: veto.",
-      "improve_relations", 1, 3, [["ROM_secession_of_the_plebs"]], "add_stability = 0.10\nadd_manpower = 2000",
+    f("ROM_secession_of_the_plebs", "The Plebs Organise", "The plebeians hold their own assemblies and elect their own leaders. Either they have already marched out to the Sacred Mount - or the discord is so deep that they soon will.",
+      "demand_territory", 2, 2, [["ROM_consuls_and_senate"]], "add_manpower = 2000\nadd_political_power = 50",
+      avail="OR = {\n\thas_country_flag = ROM_seceded\n\t" + RS.discord_above(55).replace("\n", " ") + "\n}")
+    f("ROM_tribunes_of_the_plebs", "Tribunes of the Plebs", "Give way: sacrosanct protectors of the common people, with the power to say: veto. The plebs will be quieter for ever after - and the fathers weaker.",
+      "improve_relations", 1, 3, [["ROM_secession_of_the_plebs"]],
+      "add_stability = 0.10\nadd_manpower = 2000\nset_country_flag = ROM_tribunes\n" + disc(-20),
       extra=mx("ROM_rule_of_the_fathers"))
-    f("ROM_rule_of_the_fathers", "Rule of the Fathers", "Rule them: the patricians close ranks; Appius Claudius and the Senate yield nothing.",
-      "political_pressure", 3, 3, [["ROM_secession_of_the_plebs"]], "add_ideas = ROM_rule_of_the_fathers_spirit\nadd_political_power = 50",
+    f("ROM_rule_of_the_fathers", "Rule of the Fathers", "Rule them: the patricians close ranks; Appius Claudius and the Senate yield nothing. Power and gold for the state - and a plebs that never stops grumbling.",
+      "political_pressure", 3, 3, [["ROM_secession_of_the_plebs"]],
+      "add_ideas = ROM_rule_of_the_fathers_spirit\nadd_political_power = 100\nset_country_flag = ROM_fathers_rule\n" + disc(10),
       extra=mx("ROM_tribunes_of_the_plebs"))
     f("ROM_twelve_tables", "The Twelve Tables", "451 BC: the Decemvirs write the law on bronze tablets in the Forum, for every citizen to read.",
       "neutrality_focus", 2, 4, [["ROM_tribunes_of_the_plebs", "ROM_rule_of_the_fathers"]],
-      swap("ROM_struggle_of_the_orders_spirit", "ROM_twelve_tables_spirit") + "\nadd_political_power = 50")
+      "add_ideas = ROM_twelve_tables_spirit\nadd_political_power = 50\n" + disc(-15))
     f("ROM_lex_canuleia", "Lex Canuleia", "445 BC: patricians and plebeians may marry. One people, slowly.",
-      "national_unity", 1, 5, [["ROM_twelve_tables"]], "add_stability = 0.05\nadd_manpower = 3000")
+      "national_unity", 1, 5, [["ROM_twelve_tables"]], "add_stability = 0.05\nadd_manpower = 3000\n" + disc(-10))
     f("ROM_censors", "The Censors", "Two censors count the citizens, judge their morals and let the public contracts.",
       "political_pressure", 3, 5, [["ROM_twelve_tables"]], "add_ideas = ROM_censors_spirit")
-    f("ROM_licinian_sextian_laws", "Licinian-Sextian Laws", "367 BC: one of the two consuls may be a plebeian. The great offices open to new men - and a new nobility is born.",
-      "political_pressure", 2, 6, [["ROM_lex_canuleia"], ["ROM_censors"]], "add_political_power = 100\nadd_stability = 0.05")
-    f("ROM_lex_hortensia", "Lex Hortensia", "287 BC: the votes of the plebs bind the whole people. The struggle of the orders ends in concord.",
+    f("ROM_licinian_sextian_laws", "Licinian-Sextian Laws", "367 BC: one of the two consuls may be a plebeian, and no man may hold more public land than five hundred iugera. A new nobility is born.",
+      "political_pressure", 2, 6, [["ROM_lex_canuleia"], ["ROM_censors"]], "add_political_power = 100\nadd_stability = 0.05\n" + disc(-15))
+    f("ROM_lex_hortensia", "Lex Hortensia", "287 BC: the votes of the plebs bind the whole people. The struggle of the orders ends in concord - but only where there is concord to seal.",
       "major_alliance", 1, 7, [["ROM_licinian_sextian_laws"]],
-      swap("ROM_twelve_tables_spirit", "ROM_concordia_ordinum_spirit"), extra=mx("ROM_the_nobilitas"))
-    f("ROM_the_nobilitas", "The Nobilitas", "The great families, old and new, share the consulships among themselves. The Senate rules Rome.",
+      swap("ROM_twelve_tables_spirit", "ROM_concordia_ordinum_spirit") + "\n" + RS.END_DISCORD, extra=mx("ROM_the_nobilitas"),
+      avail=RS.discord_below(30))
+    f("ROM_the_nobilitas", "The Nobilitas", "The great families, old and new, share the consulships among themselves. The Senate rules Rome - and the plebs are never quite at peace.",
       "political_pressure", 3, 7, [["ROM_licinian_sextian_laws"]],
-      swap("ROM_twelve_tables_spirit", "ROM_nobilitas_spirit"), extra=mx("ROM_lex_hortensia"))
+      swap("ROM_twelve_tables_spirit", "ROM_nobilitas_spirit") + "\n" + disc(5), extra=mx("ROM_lex_hortensia"))
     # --- 2. the gods of Rome
     f("ROM_capitoline_temple", "Temple of Jupiter on the Capitol", "The great temple vowed by the kings is dedicated in the first year of the Republic.",
       "propaganda", 6, 1, [["ROM_regifugium"]], "add_stability = 0.05\nadd_war_support = 0.05")
@@ -157,7 +163,7 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_vestal_virgins", "The Vestal Virgins", "As long as the fire of Vesta burns, Rome stands.",
       "national_unity", 5, 3, [["ROM_sibylline_books"]], "add_ideas = ROM_pax_deorum_spirit")
     f("ROM_ludi_romani", "Ludi Romani", "Races and contests in the valley of the Circus, in honour of Jupiter Best and Greatest.",
-      "consumer_goods", 7, 3, [["ROM_pontifex_maximus"]], "add_ideas = ROM_ludi_romani_spirit")
+      "consumer_goods", 7, 3, [["ROM_pontifex_maximus"]], "add_ideas = ROM_ludi_romani_spirit\n" + disc(-5))
     f("ROM_evocatio", "Evocatio", "Before Veii falls, Camillus calls on Juno of Veii to leave the city and come to Rome. She comes.",
       "propaganda", 6, 4, [["ROM_vestal_virgins"], ["ROM_ludi_romani"]], "add_ideas = ROM_evocatio_spirit")
     f("ROM_greek_gods", "Apollo and Asclepius", "Open the city to the gods of the Greeks: the healer of Epidaurus comes to the Tiber island.",
@@ -168,7 +174,7 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_servian_centuries", "Classes and Centuries", "Every citizen serves according to his property: the hoplite phalanx of Rome.",
       "army_doctrines", 10, 1, [["ROM_regifugium"]], "army_experience = 15\n" + doctrine("ROM_servian_centuries"), filters=M)
     f("ROM_stipendium", "Stipendium", "For the long siege of Veii the soldiers are paid for the first time. The army can stay in the field all winter.",
-      "allies_build_infantry", 10, 2, [["ROM_servian_centuries"]], "add_ideas = ROM_stipendium_spirit\nadd_manpower = 2000", filters=M)
+      "allies_build_infantry", 10, 2, [["ROM_servian_centuries"]], "add_ideas = ROM_stipendium_spirit\nadd_manpower = 2000\nadd_political_power = -25\n" + disc(-8), filters=M)
     f("ROM_camillus_reforms", "Reforms of Camillus", "Long shields, iron-rimmed helmets, the heavy javelin. Now: break up the phalanx, or perfect it?",
       "small_arms", 10, 3, [["ROM_stipendium"]], tech("infantry_weapons", "ROM_camillus_reforms") + "\narmy_experience = 20", filters=R)
     f("ROM_manipular_legion", "The Manipular Legion", "Hastati, principes and triarii in three lines of maniples: an army that bends but does not break.",
@@ -184,15 +190,22 @@ def define(focus, build, infra, tech, wargoal):
       "construction", 11, 5, [["ROM_manipular_legion", "ROM_citizen_phalanx"]],
       build("industrial_complex") + "\n" + build("industrial_complex"), filters=I, ai=3)
     f("ROM_coloniae", "Latin Colonies", "Settlers of Rome and Latium hold the conquered land: every colony a garrison, every colonist a soldier.",
-      "construct_civilian", 10, 6, [["ROM_via_appia"], ["ROM_aqua_appia"]], "add_ideas = ROM_coloniae_spirit\n" + cores(2), filters=M)
+      "construct_civilian", 10, 6, [["ROM_via_appia"], ["ROM_aqua_appia"]], "add_ideas = ROM_coloniae_spirit\n" + cores(2) + "\n" + disc(-10), filters=M)
     # --- 4. Latium and Etruria
-    f("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge.",
-      "defence", 14, 1, [["ROM_regifugium"]], "army_experience = 20\nadd_war_support = 0.10")
-    f("ROM_lake_regillus", "Battle of Lake Regillus", "The Latins and the exiled Tarquins are beaten; the Dioscuri fought for Rome. What now with Latium?",
-      "major_war", 12, 2, [["ROM_horatius_at_the_bridge"]], "army_experience = 25\nadd_war_support = 0.05")
+    f("ROM_horatius_at_the_bridge", "Horatius at the Bridge", "Lars Porsenna marches on Rome; one man holds the Sublician bridge until it falls behind him. (Comes after Porsenna has made his move - at war with Clusium or after his peace.)",
+      "defence", 14, 1, [["ROM_regifugium"]], "army_experience = 20\nadd_war_support = 0.10\n"
+      "if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }",
+      avail="OR = {\n\thas_war_with = CLU\n\thas_country_flag = ROM_porsenna_done\n}")
+    f("ROM_lake_regillus", "Battle of Lake Regillus", "The Thirty Latin towns take up arms for the exiled Tarquins. THE LATIN LEAGUE WILL DECLARE WAR - but the Dioscuri ride with Rome for half a year. Choose the moment.",
+      "major_war", 12, 2, [["ROM_horatius_at_the_bridge"]],
+      "army_experience = 25\nadd_war_support = 0.05\nadd_timed_idea = { idea = ROM_dioscuri_spirit days = 180 }\n"
+      "if = { limit = { country_exists = LAT LAT = { is_subject = no } NOT = { has_war_with = LAT is_in_faction_with = LAT } }\n"
+      "\tLAT = { declare_war_on = { target = ROM type = annex_everything } }\n}",
+      avail="has_country_flag = ROM_porsenna_done\nNOT = { has_war_with = CLU }")
     f("ROM_foedus_cassianum", "Foedus Cassianum", "493 BC: peace and alliance with the Latins - one army against the hill peoples.",
-      "alliance", 12, 3, [["ROM_lake_regillus"]], "add_political_power = 100\n" + faction("ante_faction_latin_alliance", "LAT"),
-      extra=mx("ROM_latium_by_the_sword"))
+      "alliance", 12, 3, [["ROM_lake_regillus"]], "add_political_power = 100\n" + faction("ante_faction_latin_alliance", "LAT")
+      + "\ncountry_event = { id = ante_rome.25 days = 365 }",
+      extra=mx("ROM_latium_by_the_sword"), avail="NOT = { has_war_with = LAT }")
     f("ROM_latium_by_the_sword", "Latium by the Sword", "No treaty: the Latin towns will be Rome's subjects, not its equals.",
       "territory_or_war", 14, 3, [["ROM_lake_regillus"]], wargoal("LAT") + "\n" + claims("LAT") + "\narmy_experience = 15",
       extra=mx("ROM_foedus_cassianum"))
@@ -242,20 +255,20 @@ def define(focus, build, infra, tech, wargoal):
       wargoal("INS") + "\n" + claims("INS", "FEL", "VEN") + "\narmy_experience = 20", extra=mx("ROM_towards_sicily"))
 
     # --- 7. the King Remains (right side): Tarquinius crushes the conspiracy of Brutus and Collatinus
-    f("ROM_the_king_remains", "The King Remains", "The conspiracy of Brutus and Collatinus is betrayed. Tarquinius Superbus stays on the throne, and Rome stays a kingdom - a kingdom whose people hate their king.",
+    f("ROM_the_king_remains", "The King Remains", "The conspiracy of Brutus and Collatinus is betrayed. Tarquinius Superbus stays on the throne, and Rome stays a kingdom - a kingdom whose people hate their king. Keep the hatred down, or Rome will rise.",
       "political_pressure", 26, 0, [],
       "set_politics = { ruling_party = neutrality elections_allowed = no }\n"
       "set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }\n"
-      "promote_character = ROM_tarquinius\nretire_character = ROM_brutus\n"
-      "add_ideas = { ROM_rex_tarquinius_spirit ROM_hated_king_spirit }\nadd_political_power = 50",
+      "promote_character = ROM_tarquinius\n"
+      "add_ideas = ROM_rex_tarquinius_spirit\nadd_political_power = 50\n" + RS.START_KINGDOM,
       extra=mx("ROM_regifugium"), ai=1)
     f("ROM_purge_the_conspirators", "Purge the Conspirators", "The sons of Brutus, the Vitellii, the Aquilii: every house that plotted pays with blood or exile.",
-      "political_pressure", 23, 1, [["ROM_the_king_remains"]], "add_political_power = 100\nadd_stability = -0.03")
+      "political_pressure", 23, 1, [["ROM_the_king_remains"]], "add_political_power = 100\nadd_stability = -0.03\n" + hate(5))
     f("ROM_tyranny_of_superbus", "Tyranny of Superbus", "The king rules without the Senate, judges without counsel and takes what he likes. Fear is enough.",
-      "political_pressure", 22, 2, [["ROM_purge_the_conspirators"]], swap("ROM_rex_tarquinius_spirit", "ROM_tyranny_spirit"),
+      "political_pressure", 22, 2, [["ROM_purge_the_conspirators"]], swap("ROM_rex_tarquinius_spirit", "ROM_tyranny_spirit") + "\nset_country_flag = ROM_tyranny\n" + hate(5),
       extra=mx("ROM_a_king_for_the_people"))
     f("ROM_a_king_for_the_people", "A King for the People", "Like Servius Tullius before him, the king takes the side of the poor against the great houses.",
-      "improve_relations", 24, 2, [["ROM_purge_the_conspirators"]], swap("ROM_rex_tarquinius_spirit", "ROM_good_king_spirit") + "\nadd_stability = 0.05",
+      "improve_relations", 24, 2, [["ROM_purge_the_conspirators"]], swap("ROM_rex_tarquinius_spirit", "ROM_good_king_spirit") + "\nadd_stability = 0.05\nset_country_flag = ROM_good_king\n" + hate(-5),
       extra=mx("ROM_tyranny_of_superbus"))
     f("ROM_the_celeres", "The Celeres", "Three hundred horsemen, the king's own guard since Romulus.",
       "cavalry", 23, 3, [["ROM_tyranny_of_superbus", "ROM_a_king_for_the_people"]], "add_ideas = ROM_celeres_spirit\narmy_experience = 15", filters=M)
@@ -268,21 +281,21 @@ def define(focus, build, infra, tech, wargoal):
     f("ROM_head_of_the_latin_league", "Head of the Latin League", "The kings of Rome lead the festival on the Alban Mount: the Latins follow Rome - or else.",
       "alliance", 29, 1, [["ROM_the_king_remains"]], puppet("LAT") + "\nadd_political_power = 50")
     f("ROM_stratagem_of_gabii", "The Stratagem of Gabii", "Sextus, the king's son, takes Gabii by treachery; Suessa Pometia of the Volsci falls to the king's army.",
-      "position_armies", 29, 2, [["ROM_head_of_the_latin_league"]], wargoal("VOL") + "\n" + wargoal("AEQ") + "\narmy_experience = 15")
+      "position_armies", 29, 2, [["ROM_head_of_the_latin_league"]], wargoal("VOL") + "\n" + wargoal("AEQ") + "\narmy_experience = 15\n" + hate(-5))
     # the Etruscan cities next door first (Veii borders Rome), Clusium only when Rome reaches it (it lies far
     # north: a war goal on a country we could not reach locked the tree up to round 16)
     f("ROM_the_twelve_cities", "The Twelve Cities", "Veii, Caere and Tarquinii, the Etruscan cities nearest Rome, must bow to the Etruscan king of Rome.",
       "more_territorial_claims", 29, 3, [["ROM_stratagem_of_gabii"]],
-      claims("VEI", "CAE", "TAR") + "\n" + wargoal("VEI") + "\n" + wargoal("CAE") + "\n" + wargoal("TAR") + "\nadd_war_support = 0.05", ai=2)
+      claims("VEI", "CAE", "TAR") + "\n" + wargoal("VEI") + "\n" + wargoal("CAE") + "\n" + wargoal("TAR") + "\nadd_war_support = 0.05\n" + hate(-10), ai=2)
     f("ROM_royal_army", "The Royal Army", "The king's phalanx, his Celeres and the levies of Latium and Etruria under one command.",
       "army_doctrines", 23, 4, [["ROM_the_celeres"]], "add_ideas = ROM_royal_army_spirit\n" + doctrine("ROM_royal_army"), filters=M)
     f("ROM_royal_roads", "The King's Roads", "Roads radiate from Rome to the subject towns, so that the king's army is everywhere in days.",
       "construct_infrastructure", 26, 4, [["ROM_etruscan_craftsmen"]], infra() + "\n" + infra() + "\nadd_ideas = ROM_roman_roads_spirit", filters=I)
     f("ROM_king_of_the_etruscans", "Lucumo of Etruria", "Now that our borders reach him, Porsenna of Clusium stands between the king of Rome and the crown of all Etruria.",
-      "major_war", 29, 4, [["ROM_the_twelve_cities"]], wargoal("CLU") + "\n" + claims("CLU") + "\n" + cores(1), ai=2)
+      "major_war", 29, 4, [["ROM_the_twelve_cities"]], wargoal("CLU") + "\n" + claims("CLU") + "\n" + cores(1) + "\n" + hate(-10), ai=2)
     f("ROM_regnum_italiae", "Regnum Italiae", "A kingdom, not a city: Latins, Etruscans and Italians under one crown.",
       "national_unity", 26, 5, [["ROM_royal_army"], ["ROM_royal_roads"], ["ROM_the_twelve_cities"]],
-      "add_ideas = ROM_regnum_spirit\n" + cores(2) + "\nadd_political_power = 100", ai=3)
+      "add_ideas = ROM_regnum_spirit\n" + cores(2) + "\nadd_political_power = 100\n" + hate(-10), ai=3)
     f("ROM_the_samnite_mountains", "The Samnite Mountains", "The hill peoples of the south have never had a master.",
       "major_war", 24, 6, [["ROM_regnum_italiae"]], wargoal("SAM") + "\n" + claims("SAM", "CAP") + "\narmy_experience = 25", ai=2)
     f("ROM_magna_graecia", "Magna Graecia", "Kyme, Taras, Kroton: the rich Greek cities of the south will pay tribute to the king.",
@@ -291,33 +304,27 @@ def define(focus, build, infra, tech, wargoal):
       "national_unity", 26, 7, [["ROM_the_samnite_mountains"], ["ROM_magna_graecia"]],
       "add_political_power = 150\nadd_stability = 0.10\nadd_war_support = 0.10\n" + cores(3) + "\nadd_research_slot = 1", ai=3)
 
-    # --- 8. the hated king (only after The King Remains, x 31..33): the people flee, riot and curse Tarquinius
-    idea("ROM_hated_king_spirit", "The People Hate the King", "political_support",
-         stability_factor=-0.25, war_support_factor=-0.15, monthly_population=-0.30, political_power_gain=-0.25,
-         production_speed_buildings_factor=-0.25, conscription=-0.05)
-    idea("ROM_smouldering_unrest_spirit", "Smouldering Unrest", "political_support",
-         stability_factor=-0.15, war_support_factor=-0.08, monthly_population=-0.10, political_power_gain=-0.10,
-         production_speed_buildings_factor=-0.10, conscription=-0.02)
-    idea("ROM_grudging_obedience_spirit", "Grudging Obedience", "political_support", stability_factor=-0.05, political_power_gain=-0.05)
+    # --- 8. the hated king (only after The King Remains, x 31..33): every step lowers ROM_hatred; the
+    #     last one needs it below 30. Crushing the riots is quick but leaves blood in the Forum (more plots).
     idea("ROM_loyal_subjects_spirit", "Loyal Subjects of the King", "pp_unity_bonus", stability_factor=0.05, conscription=0.01)
     f("ROM_royal_amnesty", "Amnesty for the Exiles", "Families fled to Veii, Gabii and Cumae. The king's heralds promise: come home, and nothing will be done to you.",
-      "improve_relations", 31, 1, [["ROM_the_king_remains"]], "add_political_power = -50\nadd_manpower = 1000")
-    f("ROM_grain_from_cumae", "Grain from Cumae", "Empty fields, empty granaries: the king buys grain from the Greeks so the city does not starve.",
-      "trade", 33, 1, [["ROM_the_king_remains"]], "add_stability = 0.05\nadd_political_power = -25", filters=I)
+      "improve_relations", 31, 1, [["ROM_the_king_remains"]], "add_political_power = -50\nadd_manpower = 1000\n" + hate(-10))
+    f("ROM_grain_from_cumae", "Grain from Cumae", "Empty fields, empty granaries: the king buys grain from the Greeks so the city does not starve. Aristodemus of Cumae sells - to friends.",
+      "trade", 33, 1, [["ROM_the_king_remains"]], "add_stability = 0.05\nadd_political_power = -25\n" + hate(-8), filters=I,
+      avail="NOT = { has_war_with = CUM }")
     f("ROM_call_back_the_settlers", "Call Back the Settlers", "Land and tax freedom for every family that returns to Rome.",
-      "construct_civilian", 31, 2, [["ROM_royal_amnesty"], ["ROM_grain_from_cumae"]],
-      swap("ROM_hated_king_spirit", "ROM_smouldering_unrest_spirit"), cost=15)
-    f("ROM_crush_the_riots", "Crush the Riots", "The Celeres clear the Forum. Order is restored - and remembered.",
+      "construct_civilian", 31, 2, [["ROM_royal_amnesty"], ["ROM_grain_from_cumae"]], "add_manpower = 1500\n" + hate(-12), cost=15)
+    f("ROM_crush_the_riots", "Crush the Riots", "The Celeres clear the Forum. Order is restored at once - and remembered: the plots will come thicker.",
       "defence", 31, 3, [["ROM_call_back_the_settlers"]],
-      swap("ROM_smouldering_unrest_spirit", "ROM_grudging_obedience_spirit") + "\nadd_war_support = -0.05",
+      "add_war_support = -0.05\nset_country_flag = ROM_blood_in_the_forum\n" + hate(-20),
       extra=mx("ROM_hear_the_people"))
-    f("ROM_hear_the_people", "Hear the People", "The king sits in judgement in the Forum himself and hears every complaint - at a price to his pride and his treasury.",
+    f("ROM_hear_the_people", "Hear the People", "The king sits in judgement in the Forum himself and hears every complaint - at a price to his pride and his treasury. The anger fades slowly, week by week.",
       "improve_relations", 33, 3, [["ROM_call_back_the_settlers"]],
-      swap("ROM_smouldering_unrest_spirit", "ROM_grudging_obedience_spirit") + "\nadd_political_power = -75\nadd_stability = 0.05",
+      "add_political_power = -75\nadd_stability = 0.05\nset_country_flag = ROM_king_listens\n" + hate(-15),
       extra=mx("ROM_crush_the_riots"), cost=15)
     f("ROM_a_loyal_rome", "A Loyal Rome", "A generation grows up that knows no other ruler. The hatred fades into habit, and habit into loyalty.",
       "national_unity", 32, 4, [["ROM_crush_the_riots", "ROM_hear_the_people"]],
-      swap("ROM_grudging_obedience_spirit", "ROM_loyal_subjects_spirit"), cost=20, avail="has_stability > 0.4")
+      "add_ideas = ROM_loyal_subjects_spirit\nadd_stability = 0.05\n" + RS.END_HATRED, cost=20, avail=RS.hatred_below(30))
 
     # --- 9. the economy of Rome (both roads, x 35..39)
     idea("ROM_coinage_spirit", "Aes Signatum", "economic_increase", production_speed_buildings_factor=0.10, political_power_gain=0.05)
@@ -562,18 +569,17 @@ def define(focus, build, infra, tech, wargoal):
 
     TUNE = {
         # Rome - Republic
-        "ROM_secession_of_the_plebs": (10, "", "add_stability = -0.05"),
-        "ROM_rule_of_the_fathers": (10, "", "add_stability = -0.05"),
+        "ROM_rule_of_the_fathers": (10, "", "add_stability = -0.03"),
         "ROM_twelve_tables": (15, "", ""),
         "ROM_licinian_sextian_laws": (15, "has_stability > 0.3", ""),
-        "ROM_lex_hortensia": (20, "has_stability > 0.5", ""),
+        "ROM_lex_hortensia": (20, "", ""),
         "ROM_the_nobilitas": (20, "has_political_power > 100", "add_political_power = -100"),
         "ROM_evocatio": (10, "has_war = yes", ""),
         "ROM_manipular_legion": (15, "has_army_experience > 20", ""),
         "ROM_citizen_phalanx": (15, "has_army_experience > 20", ""),
         "ROM_via_appia": (15, states(4), ""),
         "ROM_coloniae": (15, states(5), ""),
-        "ROM_lake_regillus": (10, "", "add_manpower = -1000"),
+        "ROM_lake_regillus": (10, "", ""),
         "ROM_siege_of_veii": (20, states(2), "add_political_power = -50"),
         "ROM_southern_etruria": (15, gone("VEI"), ""),
         "ROM_battle_of_the_allia": (10, "", "add_stability = -0.10"),
@@ -633,6 +639,25 @@ def define(focus, build, infra, tech, wargoal):
             assert "available" not in fo["extra"], fid
             fo["extra"] = (fo["extra"] + "\n" if fo["extra"] else "") + "available = {\n" + \
                 "\n".join("\t" + line for line in avail.splitlines()) + "\n}"
+
+    # after a revolution (rome_story.REVOLUTION) Rome is a Republic: every focus that can only be reached
+    # through The King Remains closes for good
+    rom = {fo["id"]: fo for fo in TREES["ROM"]["focuses"]}
+    king = {"ROM_the_king_remains"}
+    while True:
+        more = {fid for fid, fo in rom.items() if fid not in king
+                and any(all(p in king for p in group) for group in fo["pre"])}
+        if not more:
+            break
+        king |= more
+    gate = "NOT = { has_country_flag = ROM_revolution }"
+    for fid in king - {"ROM_the_king_remains"}:
+        fo = rom[fid]
+        assert fo["extra"].count("available = {") <= 1, fid
+        if "available = {" in fo["extra"]:
+            fo["extra"] = fo["extra"].replace("available = {", "available = { " + gate, 1)
+        else:
+            fo["extra"] = (fo["extra"] + "\n" if fo["extra"] else "") + "available = { " + gate + " }"
 
     # ============================================================== localisation
     LOC.update({

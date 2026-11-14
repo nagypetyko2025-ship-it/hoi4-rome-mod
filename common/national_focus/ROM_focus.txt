@@ -26,7 +26,13 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_the_king_remains }
 		completion_reward = {
 			add_political_power = 50
-			add_ideas = ROM_struggle_of_the_orders_spirit
+			set_country_flag = ROM_republic
+			set_variable = { ROM_discord = 40 }
+			ROM_discord_update = yes
+			add_dynamic_modifier = { modifier = ROM_struggle_of_the_orders }
+			custom_effect_tooltip = ROM_TT_START_REPUBLIC
+			country_event = { id = ante_rome.1 days = 25 }
+			country_event = { id = ante_rome.10 days = 300 }
 		}
 		ai_will_do = { factor = 5 }
 	}
@@ -56,10 +62,15 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = {
+				has_country_flag = ROM_seceded
+				custom_trigger_tooltip = { tooltip = ROM_TT_DISCORD_ABOVE_55 check_variable = { ROM_discord > 54.99 } }
+			}
+		}
 		completion_reward = {
 			add_manpower = 2000
 			add_political_power = 50
-			add_stability = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -77,6 +88,9 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.10
 			add_manpower = 2000
+			set_country_flag = ROM_tribunes
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M20
+			hidden_effect = { add_to_variable = { ROM_discord = -20 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -93,8 +107,11 @@ focus_tree = {
 		mutually_exclusive = { focus = ROM_tribunes_of_the_plebs }
 		completion_reward = {
 			add_ideas = ROM_rule_of_the_fathers_spirit
-			add_political_power = 50
-			add_stability = -0.05
+			add_political_power = 100
+			set_country_flag = ROM_fathers_rule
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_P10
+			hidden_effect = { add_to_variable = { ROM_discord = 10 } ROM_discord_update = yes }
+			add_stability = -0.03
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -109,8 +126,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		completion_reward = {
-			swap_ideas = { remove_idea = ROM_struggle_of_the_orders_spirit add_idea = ROM_twelve_tables_spirit }
+			add_ideas = ROM_twelve_tables_spirit
 			add_political_power = 50
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M15
+			hidden_effect = { add_to_variable = { ROM_discord = -15 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -127,6 +146,8 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_manpower = 3000
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M10
+			hidden_effect = { add_to_variable = { ROM_discord = -10 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -162,6 +183,8 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			add_stability = 0.05
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M15
+			hidden_effect = { add_to_variable = { ROM_discord = -15 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -177,10 +200,13 @@ focus_tree = {
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_the_nobilitas }
 		available = {
-			has_stability > 0.5
+			custom_trigger_tooltip = { tooltip = ROM_TT_DISCORD_BELOW_30 check_variable = { ROM_discord < 30.01 } }
 		}
 		completion_reward = {
 			swap_ideas = { remove_idea = ROM_twelve_tables_spirit add_idea = ROM_concordia_ordinum_spirit }
+			set_country_flag = ROM_concord
+			remove_dynamic_modifier = { modifier = ROM_struggle_of_the_orders }
+			set_variable = { ROM_discord = 0 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -200,6 +226,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			swap_ideas = { remove_idea = ROM_twelve_tables_spirit add_idea = ROM_nobilitas_spirit }
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_P5
+			hidden_effect = { add_to_variable = { ROM_discord = 5 } ROM_discord_update = yes }
 			add_political_power = -100
 		}
 		ai_will_do = { factor = 1 }
@@ -277,6 +305,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_ideas = ROM_ludi_romani_spirit
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M5
+			hidden_effect = { add_to_variable = { ROM_discord = -5 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -360,6 +390,9 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = ROM_stipendium_spirit
 			add_manpower = 2000
+			add_political_power = -25
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M8
+			hidden_effect = { add_to_variable = { ROM_discord = -8 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -495,6 +528,8 @@ focus_tree = {
 			add_ideas = ROM_coloniae_spirit
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
+			custom_effect_tooltip = ROM_TT_ROM_DISCORD_M10
+			hidden_effect = { add_to_variable = { ROM_discord = -10 } ROM_discord_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -508,9 +543,16 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = {
+				has_war_with = CLU
+				has_country_flag = ROM_porsenna_done
+			}
+		}
 		completion_reward = {
 			army_experience = 20
 			add_war_support = 0.10
+			if = { limit = { has_war_with = CLU } add_timed_idea = { idea = ROM_defend_the_city_spirit days = 180 } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -524,10 +566,17 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			has_country_flag = ROM_porsenna_done
+			NOT = { has_war_with = CLU }
+		}
 		completion_reward = {
 			army_experience = 25
 			add_war_support = 0.05
-			add_manpower = -1000
+			add_timed_idea = { idea = ROM_dioscuri_spirit days = 180 }
+			if = { limit = { country_exists = LAT LAT = { is_subject = no } NOT = { has_war_with = LAT is_in_faction_with = LAT } }
+				LAT = { declare_war_on = { target = ROM type = annex_everything } }
+			}
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -542,10 +591,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_latium_by_the_sword }
+		available = {
+			NOT = { has_war_with = LAT }
+		}
 		completion_reward = {
 			add_political_power = 100
 			if = { limit = { is_in_faction = no } create_faction = ante_faction_latin_alliance }
 			if = { limit = { is_faction_leader = yes country_exists = LAT NOT = { has_war_with = LAT } LAT = { is_in_faction = no is_subject = no } } add_to_faction = LAT }
+			country_event = { id = ante_rome.25 days = 365 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -964,9 +1017,15 @@ focus_tree = {
 			set_politics = { ruling_party = neutrality elections_allowed = no }
 			set_popularities = { democratic = 15 fascism = 0 communism = 0 neutrality = 85 }
 			promote_character = ROM_tarquinius
-			retire_character = ROM_brutus
-			add_ideas = { ROM_rex_tarquinius_spirit ROM_hated_king_spirit }
+			add_ideas = ROM_rex_tarquinius_spirit
 			add_political_power = 50
+			set_country_flag = ROM_kingdom
+			set_variable = { ROM_hatred = 70 }
+			ROM_hatred_update = yes
+			add_dynamic_modifier = { modifier = ROM_hatred_of_the_king }
+			custom_effect_tooltip = ROM_TT_START_KINGDOM
+			country_event = { id = ante_rome.42 days = 60 }
+			country_event = { id = ante_rome.44 days = 200 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -980,9 +1039,12 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			add_political_power = 100
 			add_stability = -0.03
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_P5
+			hidden_effect = { add_to_variable = { ROM_hatred = 5 } ROM_hatred_update = yes }
 			add_war_support = -0.05
 		}
 		ai_will_do = { factor = 1 }
@@ -998,8 +1060,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_a_king_for_the_people }
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			swap_ideas = { remove_idea = ROM_rex_tarquinius_spirit add_idea = ROM_tyranny_spirit }
+			set_country_flag = ROM_tyranny
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_P5
+			hidden_effect = { add_to_variable = { ROM_hatred = 5 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1014,9 +1080,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_tyranny_of_superbus }
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			swap_ideas = { remove_idea = ROM_rex_tarquinius_spirit add_idea = ROM_good_king_spirit }
 			add_stability = 0.05
+			set_country_flag = ROM_good_king
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M5
+			hidden_effect = { add_to_variable = { ROM_hatred = -5 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1030,6 +1100,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			add_ideas = ROM_celeres_spirit
 			army_experience = 15
@@ -1046,6 +1117,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
@@ -1073,6 +1145,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			add_research_slot = 1
 		}
@@ -1088,6 +1161,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			add_ideas = ROM_etruscan_crafts_spirit
 			random_owned_controlled_state = {
@@ -1112,6 +1186,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			if = { limit = { country_exists = LAT NOT = { has_war_with = LAT } LAT = { is_subject = no is_in_faction = no } } puppet = LAT }
 			add_political_power = 50
@@ -1128,6 +1203,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			if = { limit = { country_exists = VOL NOT = { has_war_with = VOL } }
 				create_wargoal = { type = annex_everything target = VOL }
@@ -1136,6 +1212,8 @@ focus_tree = {
 				create_wargoal = { type = annex_everything target = AEQ }
 			}
 			army_experience = 15
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M5
+			hidden_effect = { add_to_variable = { ROM_hatred = -5 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1149,7 +1227,7 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
+		available = { NOT = { has_country_flag = ROM_revolution }
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_3 check_variable = { ante_realm_states > 2 } }
 		}
 		completion_reward = {
@@ -1166,6 +1244,8 @@ focus_tree = {
 				create_wargoal = { type = annex_everything target = TAR }
 			}
 			add_war_support = 0.05
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
+			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 2 }
 	}
@@ -1179,6 +1259,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			add_ideas = ROM_royal_army_spirit
 			add_doctrine_cost_reduction = { name = ROM_royal_army cost_reduction = 0.5 uses = 1 category = land_doctrine }
@@ -1195,6 +1276,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = { impassable = no }
@@ -1218,7 +1300,7 @@ focus_tree = {
 		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
+		available = { NOT = { has_country_flag = ROM_revolution }
 			OR = { NOT = { country_exists = CLU } is_neighbor_of = CLU }
 		}
 		completion_reward = {
@@ -1227,6 +1309,8 @@ focus_tree = {
 			}
 			every_state = { limit = { is_owned_by = CLU } add_claim_by = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
+			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 2 }
 	}
@@ -1242,7 +1326,7 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
+		available = { NOT = { has_country_flag = ROM_revolution }
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_10 check_variable = { ante_realm_states > 9 } }
 			OR = { NOT = { country_exists = LAT } LAT = { is_subject_of = ROOT } is_in_faction_with = LAT }
 		}
@@ -1251,6 +1335,8 @@ focus_tree = {
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			random_owned_controlled_state = { limit = { impassable = no NOT = { is_core_of = ROOT } } add_core_of = ROOT }
 			add_political_power = 100
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
+			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 3 }
 	}
@@ -1264,6 +1350,7 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			if = { limit = { country_exists = SAM NOT = { has_war_with = SAM } }
 				create_wargoal = { type = annex_everything target = SAM }
@@ -1285,6 +1372,7 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			if = { limit = { country_exists = CUM NOT = { has_war_with = CUM } }
 				create_wargoal = { type = annex_everything target = CUM }
@@ -1309,7 +1397,7 @@ focus_tree = {
 		cost = 25
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
+		available = { NOT = { has_country_flag = ROM_revolution }
 			custom_trigger_tooltip = { tooltip = ANTE_REALM_STATES_20 check_variable = { ante_realm_states > 19 } }
 		}
 		completion_reward = {
@@ -1333,9 +1421,12 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
 			add_political_power = -50
 			add_manpower = 1000
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M10
+			hidden_effect = { add_to_variable = { ROM_hatred = -10 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1349,9 +1440,14 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution }
+			NOT = { has_war_with = CUM }
+		}
 		completion_reward = {
 			add_stability = 0.05
 			add_political_power = -25
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M8
+			hidden_effect = { add_to_variable = { ROM_hatred = -8 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1366,8 +1462,11 @@ focus_tree = {
 		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
-			swap_ideas = { remove_idea = ROM_hated_king_spirit add_idea = ROM_smouldering_unrest_spirit }
+			add_manpower = 1500
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M12
+			hidden_effect = { add_to_variable = { ROM_hatred = -12 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1382,9 +1481,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_hear_the_people }
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
-			swap_ideas = { remove_idea = ROM_smouldering_unrest_spirit add_idea = ROM_grudging_obedience_spirit }
 			add_war_support = -0.05
+			set_country_flag = ROM_blood_in_the_forum
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M20
+			hidden_effect = { add_to_variable = { ROM_hatred = -20 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1399,10 +1501,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = ROM_crush_the_riots }
+		available = { NOT = { has_country_flag = ROM_revolution } }
 		completion_reward = {
-			swap_ideas = { remove_idea = ROM_smouldering_unrest_spirit add_idea = ROM_grudging_obedience_spirit }
 			add_political_power = -75
 			add_stability = 0.05
+			set_country_flag = ROM_king_listens
+			custom_effect_tooltip = ROM_TT_ROM_HATRED_M15
+			hidden_effect = { add_to_variable = { ROM_hatred = -15 } ROM_hatred_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1416,11 +1521,16 @@ focus_tree = {
 		cost = 20
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
-			has_stability > 0.4
+		available = { NOT = { has_country_flag = ROM_revolution }
+			custom_trigger_tooltip = { tooltip = ROM_TT_HATRED_BELOW_30 check_variable = { ROM_hatred < 30 } }
 		}
 		completion_reward = {
-			swap_ideas = { remove_idea = ROM_grudging_obedience_spirit add_idea = ROM_loyal_subjects_spirit }
+			add_ideas = ROM_loyal_subjects_spirit
+			add_stability = 0.05
+			set_country_flag = ROM_loyal
+			clr_country_flag = ROM_kingdom
+			remove_dynamic_modifier = { modifier = ROM_hatred_of_the_king }
+			set_variable = { ROM_hatred = 0 }
 		}
 		ai_will_do = { factor = 1 }
 	}

@@ -767,3 +767,24 @@ Képek: `docs/screenshots/20261114_techtree_*.jpg` (Sim gépén, 1.19.5).
 - Tanulság: a felület elemeit **nem szabad törölni** (a játék név szerint keresi őket, és törlés után meg sem nyitja a
   kutatási képernyőt) – a tech.py üres képre, üres feliratra cseréli vagy a képernyőn kívülre tolja őket. Egy méretezett
   rácsdoboz a fáját a saját **közepéhez** igazítja (ezért áll a ló- és ostromfa a képernyő közepén).
+
+## Tizenkilencedik kör (2026-11-14, Claude) – Róma két útja: mérők, események, döntések, játékban ellenőrizve
+A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út mögött egy élő rendszer áll
+(`tools/rome_story.py`, részletek: `docs/rome_focus_tree.md`, „A két út rendszerei”).
+- **Köztársaság – a rendi harc mérője** (0–100, a Regifugium 40-ről indítja): háború hetente növeli, béke csökkenti,
+  a plebs felé tett lépések csökkentik, a patrícius lépések növelik (cserébe PP). A szellem az értékkel skálázódik
+  (+10% stabilitás 0-nál, −20% 100-nál). 80-nál a plebs kivonul (esemény, három válasz); a Lex Hortensia csak 30 alatt.
+- **Királyság – a nép gyűlöli a királyt** (0–100, 70-ről indul): −stabilitás, −PP, −besorozás, −népesség, −építés az
+  értékkel arányosan. 50 fölött összeesküvések, Brutus 80-nál leveti az álarcot, 100-nál Róma fellázad: polgárháború,
+  ha már 3+ állam az övé, előtte forradalom (a király elmenekül, Róma mégis köztársaság lesz, a királyi fókuszok
+  lezárulnak). A gyűlölt király ága és a hódítások csökkentik; a Hű Róma csak 30 alatt.
+- **12 esemény:** Tarquiniusok száműzetésben, Porsenna (Clusium valóban hadat üzen), évenkénti consulválasztás, a plebs
+  kivonulása, Spurius Cassius, a diktátor és a fasces; összeesküvés, tőrök a Forumon, Brutus a bolond, Brutus
+  leleplezi magát, Lucretia, Róma fellázad. Saját, procedurálisan rajzolt eseményképek (`gfx/event_pictures/ante_rome_*`).
+- **8 döntés** a „Res Romana” kategóriában (adósságelengedés, gabona, földosztás, a nép fegyverbe hívása, diktátor;
+  a király játékai, kémek, robotmunka).
+- A fa feltételei a helyzethez kötöttek: Horatius csak Porsenna lépése után, a Regillus-tavi csatánál a Latin Liga
+  tényleg hadat üzen, a Foedus Cassianum csak békében köthető.
+- Tanulságok: Róma kezdetben **egyetlen állam**, és egy államnál a `start_civil_war` semmit sem csinál; a
+  `complete_national_focus` viszont a kizáró fókuszt is teljesíti. A triggernév `num_of_controlled_states`
+  (a `num_owned_controlled_states` csak változóként létezik).

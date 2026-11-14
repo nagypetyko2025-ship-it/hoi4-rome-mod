@@ -91,6 +91,12 @@
 - Testing in the game on Sim's machine (2026-11-14): the game ignores SendKeys - only hardware scan codes reach it
   (keybd_event with the scan code). Entering the tech tree needs a mouse click on a research slot (ask Sim; mouse
   scripts are blocked by Windows Defender and must not be worked around). Pages: keys 1-7 once the tree is open.
+- Rome's story systems (tools/rome_story.py, round 19): two 0-100 meters (`ROM_discord` for the Republic,
+  `ROM_hatred` for the Kingdom) drive dynamic modifiers through scripted effects (`ROM_*_update`); events
+  `ante_rome.*`, decisions in category `ROM_res_romana`. Rome starts with ONE state: `start_civil_war` then does
+  nothing, so the uprising is a revolution until Rome holds 3+ states. `complete_national_focus` completes a
+  mutually exclusive focus (tested). Test such systems in a variant copy with `log = "...[?var]"` lines and read
+  game.log; the trigger is `num_of_controlled_states` (`num_owned_controlled_states` is only a variable).
 - Do not write HoI4 file formats from memory or from wiki prose alone: check a real file of a working mod
   (e.g. Kaiserreich's `map/` on GitHub) first.
 - `tutorial/tutorial.txt` must exist with `tutorial = { }` (the vanilla one references vanilla state ids → crash after

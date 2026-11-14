@@ -293,15 +293,6 @@ ideas = {
 				research_speed_factor = -0.1
 			}
 		}
-		ROM_struggle_of_the_orders_spirit = {
-			picture = generic_political_support
-			allowed = { always = no }
-			removal_cost = -1
-			modifier = {
-				stability_factor = -0.1
-				political_power_gain = -0.1
-			}
-		}
 		ROM_twelve_tables_spirit = {
 			picture = generic_constitutional_guarantees
 			allowed = { always = no }
@@ -524,41 +515,6 @@ ideas = {
 				political_power_gain = 0.1
 				stability_factor = 0.1
 				conscription = 0.02
-			}
-		}
-		ROM_hated_king_spirit = {
-			picture = generic_political_support
-			allowed = { always = no }
-			removal_cost = -1
-			modifier = {
-				stability_factor = -0.25
-				war_support_factor = -0.15
-				monthly_population = -0.3
-				political_power_gain = -0.25
-				production_speed_buildings_factor = -0.25
-				conscription = -0.05
-			}
-		}
-		ROM_smouldering_unrest_spirit = {
-			picture = generic_political_support
-			allowed = { always = no }
-			removal_cost = -1
-			modifier = {
-				stability_factor = -0.15
-				war_support_factor = -0.08
-				monthly_population = -0.1
-				political_power_gain = -0.1
-				production_speed_buildings_factor = -0.1
-				conscription = -0.02
-			}
-		}
-		ROM_grudging_obedience_spirit = {
-			picture = generic_political_support
-			allowed = { always = no }
-			removal_cost = -1
-			modifier = {
-				stability_factor = -0.05
-				political_power_gain = -0.05
 			}
 		}
 		ROM_loyal_subjects_spirit = {
@@ -814,6 +770,117 @@ ideas = {
 			modifier = {
 				army_org_factor = 0.1
 				army_morale_factor = 0.1
+			}
+		}
+		ROM_porsenna_terms_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.15
+				stability_factor = 0.05
+			}
+		}
+		ROM_defend_the_city_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.15
+				army_core_defence_factor = 0.1
+				war_support_factor = 0.1
+			}
+		}
+		ROM_dioscuri_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.1
+				army_morale_factor = 0.1
+			}
+		}
+		ROM_patrician_consuls_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+		ROM_popular_consuls_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = 0.05
+			}
+		}
+		ROM_military_tribunes_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+		ROM_secession_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription_factor = -0.5
+				production_speed_buildings_factor = -0.3
+				stability_factor = -0.1
+			}
+		}
+		ROM_dictator_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_org_factor = 0.1
+				political_power_gain = 0.3
+			}
+		}
+		ROM_the_king_wounded_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.3
+				stability_factor = -0.05
+			}
+		}
+		ROM_terror_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = -0.1
+			}
+		}
+		ROM_bread_and_games_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
+		ROM_debt_relief_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.03
+				war_support_factor = -0.03
 			}
 		}
 	}
