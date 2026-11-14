@@ -124,6 +124,8 @@
   country with a sublinear rule (`industry()` in world.py), not per head.
 
 ## Conventions
+- **The campaign has two centres of gravity** (Peti, 2026-11-14): Italy AND the Black Sea / Persia / Greek world -
+  the world of 509-264 BC was still strongly Greek-centred. Weigh new content and "important" countries against both.
 - Dates are AUC years (ab urbe condita): AUC = 754 - BC year. 509 BC = 245 AUC, 343 BC = 411 AUC, 264 BC = 490 AUC.
 - Overrides of vanilla defines go in `common/defines/zz_ante_imperium.lua` (loads after vanilla).
 - Localisation: `localisation/english/*_l_english.yml`, UTF-8 WITH BOM, `KEY:0 "text"`, one space indent.
