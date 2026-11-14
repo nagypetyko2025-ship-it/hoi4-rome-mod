@@ -29,6 +29,13 @@ focus_tree = {
 			add_ideas = CAR_magonid_rule_spirit
 			add_political_power = 50
 			army_experience = 10
+			set_country_flag = CAR_dynasty
+			set_variable = { CAR_suspicion = 30 }
+			CAR_suspicion_update = yes
+			add_dynamic_modifier = { modifier = CAR_suspicion_of_the_council }
+			custom_effect_tooltip = CAR_TT_START_DYNASTY
+			country_event = { id = ante_carthage.1 days = 60 random_days = 30 }
+			country_event = { id = ante_carthage.5 days = 900 random_days = 300 }
 		}
 		ai_will_do = { factor = 5 }
 	}
@@ -46,6 +53,13 @@ focus_tree = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_hundred_and_four"
 			add_ideas = CAR_council_rule_spirit
 			add_political_power = 50
+			set_country_flag = CAR_council
+			set_variable = { CAR_arrears = 20 }
+			CAR_arrears_update = yes
+			add_dynamic_modifier = { modifier = CAR_mercenaries_arrears }
+			custom_effect_tooltip = CAR_TT_START_COUNCIL
+			country_event = { id = ante_carthage.1 days = 60 random_days = 30 }
+			country_event = { id = ante_carthage.5 days = 900 random_days = 300 }
 		}
 		ai_will_do = { factor = 3 }
 	}
@@ -59,6 +73,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = CAR_council_coup } }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_reforms_of_mago"
 			army_experience = 20
@@ -76,6 +91,7 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = { NOT = { has_country_flag = CAR_council_coup } }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_suffete_for_life"
 			add_political_power = 100
@@ -94,10 +110,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = CAR_bargain_with_the_council }
+		available = { NOT = { has_country_flag = CAR_council_coup } }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_heirs_of_hamilcar"
 			add_war_support = 0.10
 			army_experience = 15
+			set_country_flag = CAR_rule_by_sword
+			custom_effect_tooltip = CAR_TT_CAR_SUSPICION_P10
+			hidden_effect = { add_to_variable = { CAR_suspicion = 10 } CAR_suspicion_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -112,10 +132,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = CAR_heirs_of_hamilcar }
+		available = { NOT = { has_country_flag = CAR_council_coup } }
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_bargain_with_the_council"
 			add_stability = 0.08
 			add_political_power = -50
+			set_country_flag = CAR_bargain
+			custom_effect_tooltip = CAR_TT_CAR_SUSPICION_M15
+			hidden_effect = { add_to_variable = { CAR_suspicion = -15 } CAR_suspicion_update = yes }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -129,8 +153,8 @@ focus_tree = {
 		cost = 15
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
-		available = {
-			has_stability > 0.4
+		available = { NOT = { has_country_flag = CAR_council_coup }
+			custom_trigger_tooltip = { tooltip = CAR_TT_SUSPICION_BELOW_40 check_variable = { CAR_suspicion < 40.01 } }
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_military_monarchy"
@@ -167,6 +191,7 @@ focus_tree = {
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_court_of_104"
 			add_ideas = CAR_court_of_104_spirit
+			set_country_flag = CAR_court_sits
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -237,6 +262,7 @@ focus_tree = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_assembly_of_the_people"
 			add_stability = 0.05
 			add_manpower = 2000
+			country_event = { id = ante_carthage.32 days = 200 random_days = 200 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -251,7 +277,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		available = {
-			has_stability > 0.5
+			custom_trigger_tooltip = { tooltip = CAR_TT_ARREARS_BELOW_50 check_variable = { CAR_arrears < 50.01 } }
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_merchant_republic"
@@ -663,6 +689,7 @@ focus_tree = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_periplus_of_hanno"
 			add_research_slot = 1
 			navy_experience = 15
+			country_event = { id = ante_carthage.2 days = 30 }
 		}
 		ai_will_do = { factor = 3 }
 	}
@@ -680,6 +707,7 @@ focus_tree = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_voyage_of_himilco"
 			add_tech_bonus = { name = CAR_voyage_of_himilco bonus = 1 uses = 1 category = industry }
 			navy_experience = 10
+			country_event = { id = ante_carthage.3 days = 30 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -961,6 +989,7 @@ focus_tree = {
 			add_ideas = CAR_lessons_of_himera_spirit
 			add_manpower = -2000
 			army_experience = 25
+			country_event = { id = ante_carthage.4 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1058,6 +1087,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
 			}
+			country_event = { id = ante_carthage.6 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1098,6 +1128,7 @@ focus_tree = {
 			}
 			every_state = { limit = { is_owned_by = ZAN } add_claim_by = ROOT }
 			add_war_support = 0.05
+			country_event = { id = ante_carthage.7 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -1132,6 +1163,11 @@ focus_tree = {
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_mercenary_army"
 			add_ideas = CAR_mercenaries_spirit
+			set_country_flag = CAR_mercenary_army
+			if = { limit = { has_country_flag = CAR_council }
+				custom_effect_tooltip = CAR_TT_CAR_ARREARS_P10
+				hidden_effect = { add_to_variable = { CAR_arrears = 10 } CAR_arrears_update = yes }
+			}
 			add_political_power = -50
 		}
 		ai_will_do = { factor = 1 }
@@ -1150,6 +1186,11 @@ focus_tree = {
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|CAR_citizen_army"
 			add_ideas = CAR_citizen_army_spirit
+			set_country_flag = CAR_citizen_army
+			if = { limit = { has_country_flag = CAR_council }
+				custom_effect_tooltip = CAR_TT_CAR_ARREARS_M15
+				hidden_effect = { add_to_variable = { CAR_arrears = -15 } CAR_arrears_update = yes }
+			}
 		}
 		ai_will_do = { factor = 1 }
 	}

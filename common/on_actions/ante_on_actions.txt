@@ -72,6 +72,57 @@ on_actions = {
 					}
 				}
 			}
+			if = {
+				limit = { original_tag = CAR has_country_flag = CAR_dynasty }
+				if = {
+					limit = { has_war = yes }
+					add_to_variable = { CAR_suspicion = 0.25 }
+				}
+				else = {
+					add_to_variable = { CAR_suspicion = -0.15 }
+				}
+				if = { limit = { has_country_flag = CAR_rule_by_sword } add_to_variable = { CAR_suspicion = 0.10 } }
+				if = { limit = { has_country_flag = CAR_bargain } add_to_variable = { CAR_suspicion = -0.10 } }
+				CAR_suspicion_update = yes
+				if = {
+					limit = { check_variable = { CAR_suspicion > 99.9 } NOT = { has_country_flag = CAR_council_coup } }
+					country_event = { id = ante_carthage.21 }
+				}
+				else_if = {
+					limit = { check_variable = { CAR_suspicion > 49.9 } NOT = { has_country_flag = CAR_plot_cooldown } }
+					random = {
+						chance = 4
+						set_country_flag = { flag = CAR_plot_cooldown days = 180 value = 1 }
+						country_event = { id = ante_carthage.20 }
+					}
+				}
+			}
+			if = {
+				limit = { original_tag = CAR has_country_flag = CAR_council }
+				if = {
+					limit = { has_war = yes }
+					add_to_variable = { CAR_arrears = 0.30 }
+				}
+				else = {
+					add_to_variable = { CAR_arrears = -0.15 }
+				}
+				if = { limit = { has_country_flag = CAR_mercenary_army } add_to_variable = { CAR_arrears = 0.12 } }
+				if = { limit = { has_country_flag = CAR_citizen_army } add_to_variable = { CAR_arrears = -0.10 } }
+				CAR_arrears_update = yes
+				if = {
+					limit = { check_variable = { CAR_arrears > 79.9 } NOT = { has_country_flag = CAR_mutiny_cooldown } }
+					set_country_flag = { flag = CAR_mutiny_cooldown days = 540 value = 1 }
+					country_event = { id = ante_carthage.30 }
+				}
+				if = {
+					limit = { has_country_flag = CAR_court_sits has_war = yes NOT = { has_country_flag = CAR_court_cooldown } }
+					random = {
+						chance = 3
+						set_country_flag = { flag = CAR_court_cooldown days = 365 value = 1 }
+						country_event = { id = ante_carthage.31 }
+					}
+				}
+			}
 		}
 	}
 }

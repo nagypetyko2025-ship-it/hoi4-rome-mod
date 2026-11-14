@@ -965,3 +965,20 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   eltűntek) → az ager Gallicus, zsoldoskardok, Clusium előtt → **Vae victis** (háborús cél Róma ellen).
   Vezető: Brennos, az Idősebb (kitalált: a 390-es Brennus őse), kelta portréval.
 - **Választóképernyő:** a szenonok a 7 nagy között (Szürakuszai helyén), Szürakuszai a kisebbek között.
+
+## Harmincegyedik kör (2026-11-14, Claude) – Karthágó mérői, döntései, eseményei; az utak jelölése
+- **Két mérő** (`tools/carthage_story.py`, Róma rendszerének mintájára, mindkettő két irányba mozog):
+  - Mago útja: **A tanács gyanúja** (30-ról indul): háború és „uralom karddal” növeli, béke, „alku a tanáccsal” és
+    ajándékok csökkentik; 50 felett összeesküvés, **100-nál a tanács puccsa**: a dinasztia elbukik, Karthágó a
+    Száznégyek útjára lép (a dinasztia fókuszai lezárulnak). A katonai monarchiához 40 alatt kell lennie.
+  - A tanács útja: **A zsoldosok hátraléka** (20-ról indul): háború és zsoldoshadsereg növeli, béke, polgárhadsereg,
+    bérfizetés és az ibériai ezüst csökkenti; **80-nál zsoldoslázadás**. A kereskedőköztársasághoz 50 alatt kell lennie.
+- **„Res Punica” döntések:** zsoldosfogadás (ibérek, baleári parittyások, gallok – a tanács útján nő a hátralék),
+  numida lovasok, ibériai ezüst, karaván a garamantészekhez, áldozat a szentélyben (csak végveszélyben);
+  Mago: ajándék a tanácsnak, diadalmenet; Tanács: a zsoldosok kifizetése, hazaküldése.
+- **12 esemény:** Malkhosz a kapuknál, Hannón és Himilkón visszatérése, a himerai hír, a pestis (Kr. e. 396),
+  Agathoklész Afrikában, Messana hívása, suttogás a tanácsban, a tanács puccsa, zsoldoslázadás, hadvezér a bíróság
+  előtt, a Nagy Hannó puccsa.
+- **Melyik út mi:** a dinasztia fókuszai és döntései „Mago: …”, az oligarchiáéi „Council: …” nevet kaptak; a közös
+  fókuszok, döntések leírása megmondja, melyik úton mit adnak; a „Res Punica” kategória szövege az aktuális utat és
+  mérőt mutatja.

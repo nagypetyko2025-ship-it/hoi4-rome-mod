@@ -1157,5 +1157,77 @@ ideas = {
 				war_support_factor = -0.03
 			}
 		}
+		CAR_mutiny_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.2
+				stability_factor = -0.15
+				conscription_factor = -0.3
+			}
+		}
+		CAR_numidian_riders_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.1
+			}
+		}
+		CAR_caravan_gold_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.05
+			}
+		}
+		CAR_precinct_sacrifice_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.15
+				war_support_factor = 0.15
+				stability_factor = 0.05
+			}
+		}
+		CAR_plague_spirit = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				monthly_population = -0.3
+				stability_factor = -0.05
+			}
+		}
+		CAR_crucified_general_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				army_morale_factor = -0.05
+			}
+		}
+		CAR_triumph_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.1
+				army_morale_factor = 0.05
+			}
+		}
+		CAR_walls_hold_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.15
+				army_core_defence_factor = 0.1
+			}
+		}
 	}
 }

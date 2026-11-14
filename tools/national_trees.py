@@ -12,6 +12,7 @@ Rome's plan: docs/rome_focus_tree.md. Dates in the texts are BC (the game counts
 """
 
 import rome_story as RS   # Rome's meters, events and decisions (tools/rome_story.py)
+import carthage_story as CS   # Carthage's meters, events and decisions (tools/carthage_story.py)
 
 P, I, R, M = "FOCUS_FILTER_POLITICAL", "FOCUS_FILTER_INDUSTRY", "FOCUS_FILTER_RESEARCH", "FOCUS_FILTER_MANPOWER"
 COAST = "available = { any_owned_state = { is_coastal = yes } }"
@@ -616,39 +617,40 @@ def define(focus, build, infra, tech, wargoal):
 
     # --- the two roads
     f("CAR_house_of_mago", "The House of Mago", "Mago and his sons command the armies and the city. Carthage is ruled by one family - as long as it wins.",
-      "political_pressure", 1, 0, [], "add_ideas = CAR_magonid_rule_spirit\nadd_political_power = 50\narmy_experience = 10",
+      "political_pressure", 1, 0, [], "add_ideas = CAR_magonid_rule_spirit\nadd_political_power = 50\narmy_experience = 10\n" + CS.START_DYNASTY,
       extra=mx("CAR_hundred_and_four"), ai=5)
     f("CAR_hundred_and_four", "The Hundred and Four", "The great merchant houses will not be ruled by generals: a court of a hundred and four judges watches every commander.",
-      "national_unity", 5, 0, [], "add_ideas = CAR_council_rule_spirit\nadd_political_power = 50",
+      "national_unity", 5, 0, [], "add_ideas = CAR_council_rule_spirit\nadd_political_power = 50\n" + CS.START_COUNCIL,
       extra=mx("CAR_house_of_mago"), ai=3)
     # dynasty (x 0..2)
-    f("CAR_reforms_of_mago", "The Reforms of Mago", "Mago turned the citizen levy into a professional army of paid soldiers.",
+    f("CAR_reforms_of_mago", "Mago: Reforms of Mago", "Mago turned the citizen levy into a professional army of paid soldiers.",
       "army_doctrines", 1, 1, [["CAR_house_of_mago"]], "army_experience = 20\n" + doctrine("CAR_reforms_of_mago"), filters=M)
-    f("CAR_suffete_for_life", "Suffete for Life", "The Magonid holds the highest office year after year: a king in all but name.",
+    f("CAR_suffete_for_life", "Mago: Suffete for Life", "The Magonid holds the highest office year after year: a king in all but name.",
       "political_pressure", 1, 2, [["CAR_reforms_of_mago"]], "add_political_power = 100\nadd_stability = -0.03")
-    f("CAR_heirs_of_hamilcar", "Rule by the Sword", "The sons of Hamilcar lead the armies and the council obeys. Victories pay for everything.",
-      "major_war", 0, 3, [["CAR_suffete_for_life"]], "add_war_support = 0.10\narmy_experience = 15",
+    f("CAR_heirs_of_hamilcar", "Mago: Rule by the Sword", "The sons of Hamilcar lead the armies and the council obeys. Victories pay for everything.",
+      "major_war", 0, 3, [["CAR_suffete_for_life"]], "add_war_support = 0.10\narmy_experience = 15\nset_country_flag = CAR_rule_by_sword\n" + CS.suspicion(10),
       extra=mx("CAR_bargain_with_the_council"))
-    f("CAR_bargain_with_the_council", "Bargain with the Council", "Seats, contracts and marriages for the great houses: the dynasty buys peace at home.",
-      "improve_relations", 2, 3, [["CAR_suffete_for_life"]], "add_stability = 0.08\nadd_political_power = -50",
+    f("CAR_bargain_with_the_council", "Mago: Bargain with the Council", "Seats, contracts and marriages for the great houses: the dynasty buys peace at home.",
+      "improve_relations", 2, 3, [["CAR_suffete_for_life"]], "add_stability = 0.08\nadd_political_power = -50\nset_country_flag = CAR_bargain\n" + CS.suspicion(-15),
       extra=mx("CAR_heirs_of_hamilcar"))
-    f("CAR_military_monarchy", "A Military Monarchy", "The Magonids rule Carthage the way they rule an army.",
+    f("CAR_military_monarchy", "Mago: A Military Monarchy", "The Magonids rule Carthage the way they rule an army.",
       "national_unity", 1, 4, [["CAR_heirs_of_hamilcar", "CAR_bargain_with_the_council"]],
       swap("CAR_magonid_rule_spirit", "CAR_military_monarchy_spirit"), cost=15, ai=3)
     # oligarchy (x 4..6)
-    f("CAR_suffetes", "Suffetes and Council", "Two judges elected each year, a council of elders, and the assembly of the citizens.",
+    f("CAR_suffetes", "Council: Suffetes and Elders", "Two judges elected each year, a council of elders, and the assembly of the citizens.",
       "national_unity", 5, 1, [["CAR_hundred_and_four"]], "add_political_power = 100")
-    f("CAR_court_of_104", "The Court of the Hundred and Four", "Every general returns to face the judges. The defeated are crucified.",
-      "political_pressure", 5, 2, [["CAR_suffetes"]], "add_ideas = CAR_court_of_104_spirit")
-    f("CAR_party_of_hanno", "The Landed Party", "The great estates of the hinterland: Africa first, the sea second.",
+    f("CAR_court_of_104", "Council: The Court of 104", "Every general returns to face the judges. The defeated are crucified.",
+      "political_pressure", 5, 2, [["CAR_suffetes"]], "add_ideas = CAR_court_of_104_spirit\nset_country_flag = CAR_court_sits")
+    f("CAR_party_of_hanno", "Council: The Landed Party", "The great estates of the hinterland: Africa first, the sea second.",
       "construct_civilian", 4, 3, [["CAR_court_of_104"]], "add_ideas = CAR_landed_party_spirit\n" + build("ante_farm"),
       extra=mx("CAR_party_of_the_sea"), filters=I)
-    f("CAR_party_of_the_sea", "The Party of the Sea", "The shipowners and the merchants of the harbour: the sea is Carthage's field.",
+    f("CAR_party_of_the_sea", "Council: Party of the Sea", "The shipowners and the merchants of the harbour: the sea is Carthage's field.",
       "trade", 6, 3, [["CAR_court_of_104"]], "add_ideas = CAR_sea_party_spirit\n" + build("dockyard", "is_coastal = yes"),
       extra=COAST + "\n" + mx("CAR_party_of_hanno"), filters=I)
-    f("CAR_assembly_of_the_people", "The Assembly of the People", "When the suffetes and the elders disagree, the citizens decide.",
-      "improve_relations", 5, 4, [["CAR_party_of_hanno", "CAR_party_of_the_sea"]], "add_stability = 0.05\nadd_manpower = 2000")
-    f("CAR_merchant_republic", "The Merchant Republic", "Aristotle praises it: the best-governed city of the barbarians.",
+    f("CAR_assembly_of_the_people", "Council: The People's Assembly", "When the suffetes and the elders disagree, the citizens decide.",
+      "improve_relations", 5, 4, [["CAR_party_of_hanno", "CAR_party_of_the_sea"]], "add_stability = 0.05\nadd_manpower = 2000\n"
+      "country_event = { id = ante_carthage.32 days = 200 random_days = 200 }")
+    f("CAR_merchant_republic", "Council: Merchant Republic", "Aristotle praises it: the best-governed city of the barbarians.",
       "national_unity", 5, 5, [["CAR_assembly_of_the_people"]],
       swap("CAR_council_rule_spirit", "CAR_merchant_republic_spirit"), cost=15, ai=3)
     # --- the gods (x 8..10)
@@ -705,10 +707,11 @@ def define(focus, build, infra, tech, wargoal):
       "occupy_states_coastal", 21, 3, [["CAR_island_stations"]], wargoal("SAR") + "\n" + claims("SAR"))
     f("CAR_periplus_of_hanno", "The Voyage of Hanno", "Sixty ships sail through the Pillars of Herakles and down the coast of Africa, to found cities and explore.",
       "scientific_exchange", 16, 4, [["CAR_purple_dye"], ["CAR_phoenician_league", "CAR_direct_rule"]],
-      "add_research_slot = 1\nnavy_experience = 15", filters=R, ai=3)
+      "add_research_slot = 1\nnavy_experience = 15\ncountry_event = { id = ante_carthage.2 days = 30 }", filters=R, ai=3)
     f("CAR_voyage_of_himilco", "The Voyage of Himilco", "North along the ocean coast to the Tin Islands: the secret route of the tin.",
       "scientific_exchange", 18, 4, [["CAR_phoenician_league", "CAR_direct_rule"]],
-      "add_tech_bonus = { name = CAR_voyage_of_himilco bonus = 1 uses = 1 category = industry }\nnavy_experience = 10", filters=R)
+      "add_tech_bonus = { name = CAR_voyage_of_himilco bonus = 1 uses = 1 category = industry }\nnavy_experience = 10\n"
+      "country_event = { id = ante_carthage.3 days = 30 }", filters=R)
     f("CAR_iberia", "The Silver of Iberia", "Tartessos falls silent; the mines of the south belong to the Phoenicians - and to Carthage.",
       "more_territorial_claims", 20, 4, [["CAR_phoenician_league", "CAR_direct_rule"]], wargoal("TTS") + "\n" + claims("TTS"))
     f("CAR_iberian_mines", "The Iberian Mines", "Silver from the Sierra Morena pays for fleets and armies.",
@@ -738,7 +741,8 @@ def define(focus, build, infra, tech, wargoal):
     f("CAR_sicily", "The Sicilian War", "The Greeks push against the Punic west of the island. Drive them back.",
       "major_war", 30, 2, [["CAR_elymian_alliance"]], wargoal("AKR") + "\n" + wargoal("GEL") + "\n" + claims("AKR", "GEL"), ai=2)
     f("CAR_himera", "Himera", "480 BC: Gelon of Syracuse destroys the army of Hamilcar before Himera. What does Carthage learn from it?",
-      "defence", 30, 3, [["CAR_sicily"]], "add_ideas = CAR_lessons_of_himera_spirit\nadd_manpower = -2000\narmy_experience = 25")
+      "defence", 30, 3, [["CAR_sicily"]], "add_ideas = CAR_lessons_of_himera_spirit\nadd_manpower = -2000\narmy_experience = 25\n"
+      "country_event = { id = ante_carthage.4 }")
     f("CAR_avenge_himera", "Avenge Himera", "Seventy years later Hannibal, grandson of Hamilcar, razes Himera to the ground.",
       "major_war", 29, 4, [["CAR_himera"]], wargoal("SYR") + "\nadd_war_support = 0.10", extra=mx("CAR_peace_of_gelon"))
     f("CAR_peace_of_gelon", "The Peace of Gelon", "Pay the indemnity, build Gelon his temples - and wait. Carthage can wait.",
@@ -747,18 +751,18 @@ def define(focus, build, infra, tech, wargoal):
     f("CAR_selinus_and_acragas", "Selinus and Acragas", "409-406 BC: the great Greek cities of the south coast fall to Punic armies.",
       "territory_or_war", 30, 5, [["CAR_avenge_himera", "CAR_peace_of_gelon"]], wargoal("AKR") + "\n" + wargoal("KAT") + "\n" + claims("AKR", "KAT"), ai=2)
     f("CAR_agathocles", "Agathocles in Africa", "310 BC: the tyrant of Syracuse lands in Africa and burns his ships. The walls of Carthage must hold.",
-      "fortify_city", 28, 6, [["CAR_selinus_and_acragas"]], "army_experience = 20\nadd_war_support = 0.05\n" + build("arms_factory"), filters=M)
+      "fortify_city", 28, 6, [["CAR_selinus_and_acragas"]], "army_experience = 20\nadd_war_support = 0.05\n" + build("arms_factory") + "\ncountry_event = { id = ante_carthage.6 }", filters=M)
     f("CAR_war_with_syracuse", "War with Syracuse", "Dionysius, Timoleon, Agathocles: the tyrants of Syracuse are the enemy of a hundred years.",
       "major_war", 32, 6, [["CAR_selinus_and_acragas"]], wargoal("SYR") + "\n" + claims("SYR"), ai=2)
     f("CAR_messana", "Messana", "264 BC: the Mamertines of Messana open their gates to a Punic garrison. Across the strait stands Rome.",
-      "occupy_states_coastal", 30, 7, [["CAR_agathocles"], ["CAR_war_with_syracuse"]], wargoal("ZAN") + "\n" + claims("ZAN") + "\nadd_war_support = 0.05")
+      "occupy_states_coastal", 30, 7, [["CAR_agathocles"], ["CAR_war_with_syracuse"]], wargoal("ZAN") + "\n" + claims("ZAN") + "\nadd_war_support = 0.05\ncountry_event = { id = ante_carthage.7 }")
     # --- the army (x 34..36)
     f("CAR_mercenaries", "Silver Buys Soldiers", "Iberians, Gauls, Balearic slingers: silver buys the best soldiers of the West.",
       "position_armies", 35, 1, ROOTS, "add_manpower = 3000\narmy_experience = 10", filters=M)
     f("CAR_mercenary_army", "A Mercenary Army", "Let the citizens trade: foreigners will fight for pay.",
-      "position_armies", 34, 2, [["CAR_mercenaries"]], "add_ideas = CAR_mercenaries_spirit", extra=mx("CAR_citizen_army"), filters=M)
+      "position_armies", 34, 2, [["CAR_mercenaries"]], "add_ideas = CAR_mercenaries_spirit\nset_country_flag = CAR_mercenary_army\n" + CS.per_road("", CS.arrears(10)), extra=mx("CAR_citizen_army"), filters=M)
     f("CAR_citizen_army", "A Citizen Army", "Carthaginians and Libyans under Punic officers: slower to raise, but loyal.",
-      "allies_build_infantry", 36, 2, [["CAR_mercenaries"]], "add_ideas = CAR_citizen_army_spirit", extra=mx("CAR_mercenary_army"), filters=M)
+      "allies_build_infantry", 36, 2, [["CAR_mercenaries"]], "add_ideas = CAR_citizen_army_spirit\nset_country_flag = CAR_citizen_army\n" + CS.per_road("", CS.arrears(-15)), extra=mx("CAR_mercenary_army"), filters=M)
     f("CAR_sacred_band", "The Sacred Band", "Two and a half thousand citizens of the best families: the heart of the army.",
       "special_forces", 35, 3, [["CAR_mercenary_army", "CAR_citizen_army"]], "add_ideas = CAR_sacred_band_spirit\n" + doctrine("CAR_sacred_band"), filters=M)
     f("CAR_war_elephants", "War Elephants", "Forest elephants from the Atlas, trained in the stables under the walls of Carthage.",
@@ -915,8 +919,8 @@ def define(focus, build, infra, tech, wargoal):
         # Carthage (round 30): big steps take time; war goals overseas are fine (Carthage has the fleet), but the
         # land wars in Africa need a common border, and no focus waits for a conquest it may never make
         "CAR_mercenary_army": (10, "", "add_political_power = -50"),
-        "CAR_military_monarchy": (15, "has_stability > 0.4", ""),
-        "CAR_merchant_republic": (15, "has_stability > 0.5", ""),
+        "CAR_military_monarchy": (15, CS.suspicion_below(40), ""),
+        "CAR_merchant_republic": (15, CS.arrears_below(50), ""),
         "CAR_sicily": (15, "", ""),
         "CAR_iberia": (15, "", ""),
         "CAR_conquer_numidia": (15, "OR = {\n" + reach("MSY") + "\n" + reach("MSS") + "\n}", ""),
@@ -953,6 +957,24 @@ def define(focus, build, infra, tech, wargoal):
     gate = "NOT = { has_country_flag = ROM_revolution }"
     for fid in king - {"ROM_the_king_remains"}:
         fo = rom[fid]
+        assert fo["extra"].count("available = {") <= 1, fid
+        if "available = {" in fo["extra"]:
+            fo["extra"] = fo["extra"].replace("available = {", "available = { " + gate, 1)
+        else:
+            fo["extra"] = (fo["extra"] + "\n" if fo["extra"] else "") + "available = { " + gate + " }"
+
+    # Carthage: after the council's coup (carthage_story.COUP) the House of Mago's own focuses close the same way
+    car = {fo["id"]: fo for fo in TREES["CAR"]["focuses"]}
+    mago = {"CAR_house_of_mago"}
+    while True:
+        more = {fid for fid, fo in car.items() if fid not in mago
+                and any(all(p in mago for p in group) for group in fo["pre"])}
+        if not more:
+            break
+        mago |= more
+    gate = "NOT = { has_country_flag = CAR_council_coup }"
+    for fid in mago - {"CAR_house_of_mago"}:
+        fo = car[fid]
         assert fo["extra"].count("available = {") <= 1, fid
         if "available = {" in fo["extra"]:
             fo["extra"] = fo["extra"].replace("available = {", "available = { " + gate, 1)

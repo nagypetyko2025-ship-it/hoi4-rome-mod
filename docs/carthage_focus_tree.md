@@ -1,8 +1,9 @@
 # Karthágó fókuszfája – terv (2026-11-14)
 
-Állapot (30. kör): **a fa kész – 65 fókusz, két út a gyökérnél, kizáró párok minden ágban** (`tools/national_trees.py`,
-CARTHAGE szakasz; feltételek a `TUNE`-ban). Még hátra van: a két mérő (a tanács gyanúja / a zsoldosok bére), a „Res
-Punica” döntések (zsoldosfogadás) és az események (`events/CAR_events.txt`) – a következő körben.
+Állapot (31. kör): **kész – 65 fókusz, két mérő, 11 döntés, 12 esemény.** Fa: `tools/national_trees.py`
+(CARTHAGE), mérők/döntések/események: `tools/carthage_story.py`. Az utak jelölése: a dinasztia fókuszai „Mago: …”, az
+oligarchiáé „Council: …” néven; a döntések is így; a döntéskategória leírása mutatja, melyik úton jársz és hol a mérő.
+A tanács puccsa (gyanú 100) után a dinasztia fókuszai lezárulnak, Karthágó a Száznégyek útjára lép.
 
 Időkeret: Kr. e. 509 (245 AUC, az első római–karthágói szerződés éve) → Kr. e. 264 (490 AUC, Messana, az első pun
 háború – a második kezdés). Karthágó Róma fő ellenfele: a két fa a végén ugyanoda fut (Szicília).
