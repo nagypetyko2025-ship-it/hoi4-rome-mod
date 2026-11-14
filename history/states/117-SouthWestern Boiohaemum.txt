@@ -10,7 +10,7 @@ state = {
 		owner = BOI
 		add_core_of = BOI
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

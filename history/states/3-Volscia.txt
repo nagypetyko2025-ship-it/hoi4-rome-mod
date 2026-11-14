@@ -9,7 +9,7 @@ state = {
 		victory_points = { 4840 2 }  # Velitrae
 		victory_points = { 4876 2 }  # Anxur
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			4903 = { naval_base = 2 }

@@ -8,7 +8,7 @@ state = {
 		add_core_of = CTB
 		victory_points = { 4700 3 }  # Numantia
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

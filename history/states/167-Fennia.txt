@@ -12,7 +12,7 @@ state = {
 		add_core_of = FEN
 		victory_points = { 337 1 }  # Aanaar
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 		}
 	}

@@ -11,7 +11,7 @@ state = {
 		add_core_of = CAR
 		victory_points = { 6080 3 }  # Hadrumetum
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 2
 			arms_factory = 1
 			6080 = { naval_base = 2 }

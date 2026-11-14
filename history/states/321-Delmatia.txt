@@ -11,7 +11,7 @@ state = {
 		add_core_of = DLM
 		victory_points = { 4412 1 }  # Delminium
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

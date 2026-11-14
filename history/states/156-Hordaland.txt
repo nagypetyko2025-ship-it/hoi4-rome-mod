@@ -11,7 +11,7 @@ state = {
 		add_core_of = HRD
 		victory_points = { 1145 1 }  # Avaldsnes
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 		}
 	}

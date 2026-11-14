@@ -12,7 +12,7 @@ state = {
 		add_core_of = CRV
 		victory_points = { 2299 1 }  # Ratae
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

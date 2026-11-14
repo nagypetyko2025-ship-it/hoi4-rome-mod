@@ -8,7 +8,7 @@ state = {
 		add_core_of = DAU
 		victory_points = { 4914 2 }  # Arpi
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			4866 = { naval_base = 2 }

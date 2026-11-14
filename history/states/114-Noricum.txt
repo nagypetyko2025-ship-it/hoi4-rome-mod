@@ -13,7 +13,7 @@ state = {
 		add_core_of = NRC
 		victory_points = { 3418 4 }  # Hallstatt
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

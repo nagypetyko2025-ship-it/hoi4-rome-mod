@@ -12,7 +12,7 @@ state = {
 		add_core_of = SIG
 		victory_points = { 3606 1 }  # Vekerzug
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

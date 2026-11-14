@@ -12,7 +12,7 @@ state = {
 		add_core_of = SIC
 		victory_points = { 5709 2 }  # Henna
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 		}

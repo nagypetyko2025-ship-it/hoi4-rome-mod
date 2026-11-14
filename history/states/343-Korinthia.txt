@@ -8,7 +8,7 @@ state = {
 		add_core_of = KRN
 		victory_points = { 5569 8 }  # Korinthos
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 			5569 = { naval_base = 2 }

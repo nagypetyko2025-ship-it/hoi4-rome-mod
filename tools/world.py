@@ -52,6 +52,7 @@ TERRAIN_COST = {"plains": 1.0, "urban": 1.0, "forest": 1.15, "hills": 1.3, "dese
                 "jungle": 1.4, "mountain": 2.1}
 TERRAIN_FOOD = {"plains": 1.0, "urban": 1.6, "forest": 0.6, "hills": 0.7, "desert": 0.12, "marsh": 0.35,
                 "jungle": 0.4, "mountain": 0.3}
+INFRA_SCALE = 2   # roads: 10 levels of 10% instead of the base game's 5 of 20% (tools/buildings.py, defines)
 GOV_IDEOLOGY = {"republic": "democratic", "monarchy": "neutrality", "tyranny": "fascism", "tribal": "communism"}   # ideologies renamed: tools/content.py (ancient forms)
 IDEOLOGIES = ("democratic", "fascism", "communism", "neutrality")
 # "parties" of the ancient world (short name, long name): who rules, by form of government ...
@@ -880,7 +881,8 @@ def state_text(s):
         lines += [f"\t\tadd_core_of = {t}" for t in s["cores"]]
         lines += [f"\t\tvictory_points = {{ {p} {v} }}  # {city}" for p, v, city in s["vps"]]
         lines.append("\t\tbuildings = {")
-        lines += [f"\t\t\t{k} = {v}" for k, v in s["buildings"].items()]
+        # roads have 10 levels (round 22): the levels of the sources (1-5 scale) are doubled when written
+        lines += [f"\t\t\t{k} = {min(10, v * INFRA_SCALE) if k == 'infrastructure' else v}" for k, v in s["buildings"].items()]
         lines += [f"\t\t\t{p} = {{ naval_base = {lv} }}" for p, lv in sorted(s["ports"].items())]
         lines.append("\t\t}")
     lines += ["\t}", "\tprovinces = {", "\t\t" + " ".join(str(p) for p in s["provinces"]), "\t}",

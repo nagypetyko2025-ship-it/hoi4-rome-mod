@@ -11,7 +11,7 @@ state = {
 		add_core_of = IST
 		victory_points = { 2432 1 }  # Tulifurdum
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

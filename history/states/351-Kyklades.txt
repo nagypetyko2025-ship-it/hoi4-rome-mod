@@ -8,7 +8,7 @@ state = {
 		add_core_of = NAX
 		victory_points = { 8873 5 }  # Naxos
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			8873 = { naval_base = 2 }

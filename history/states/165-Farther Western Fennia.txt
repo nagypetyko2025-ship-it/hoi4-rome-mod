@@ -10,7 +10,7 @@ state = {
 		owner = FEN
 		add_core_of = FEN
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

@@ -10,7 +10,7 @@ state = {
 		owner = LUS
 		add_core_of = LUS
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

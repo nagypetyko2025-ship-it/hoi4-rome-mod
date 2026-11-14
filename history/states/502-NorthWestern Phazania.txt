@@ -7,7 +7,7 @@ state = {
 		owner = GAR
 		add_core_of = GAR
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

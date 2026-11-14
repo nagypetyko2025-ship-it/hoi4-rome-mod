@@ -10,7 +10,7 @@ state = {
 		owner = LUG
 		add_core_of = LUG
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

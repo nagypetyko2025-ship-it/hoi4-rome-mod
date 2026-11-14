@@ -3607,6 +3607,17 @@ guiTypes = {
 					maxHeight = 26
 					format = centre
 				}
+				instantTextBoxType = {
+					name = "ante_lane_10"
+					position = { x = 950 y = -38 }
+					orientation = center_up
+					font = "hoi_22tech"
+					borderSize = { x = 0 y = 0 }
+					text = "ANTE_TECH_LANE_INDUSTRY_FOLDER_10"
+					maxWidth = 200
+					maxHeight = 26
+					format = centre
+				}
 			}
 			gridboxtype = {
 				name = "ante_bronze_casting_tree"
@@ -3631,6 +3642,13 @@ guiTypes = {
 			}
 			gridboxtype = {
 				name = "ante_coinage_tree"
+				position = { x = 0 y = 172 }
+				size = { width = 520 height = 800 }
+				slotsize = { width = 70 height = 70 }
+				format = "UP"
+			}
+			gridboxtype = {
+				name = "ante_synoecism_tree"
 				position = { x = 0 y = 172 }
 				size = { width = 520 height = 800 }
 				slotsize = { width = 70 height = 70 }

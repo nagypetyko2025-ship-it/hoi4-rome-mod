@@ -12,7 +12,7 @@ state = {
 		add_core_of = FNN
 		victory_points = { 948 1 }  # Tavastia
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 		}
 	}

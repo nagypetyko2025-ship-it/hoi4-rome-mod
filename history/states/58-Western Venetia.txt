@@ -11,7 +11,7 @@ state = {
 		add_core_of = VEN
 		victory_points = { 3992 2 }  # Verona
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

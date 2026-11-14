@@ -51,3 +51,9 @@ NDefines.NGame.TRADE_ROUTE_RECALCULATE_FREQUENCY_DAYS = 90 -- (45)
 -- 150 days per tech point: an average tech takes ~7 months, the tree about 20 years at 2-3 slots.
 NDefines.NTechnology.BASE_TECH_COST = 150                 -- (110)
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 0.10 -- (2)
+
+-- Roads (round 22): 10 levels instead of 5 (tools/buildings.py state_max, world.py doubles the start levels).
+-- What every level gives is halved, so ten levels of road are worth what five were: 10% a level instead of 20%.
+NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS = 0.075   -- (0.15)
+NDefines.NMilitary.INFRASTRUCTURE_MOVEMENT_SPEED_IMPACT = -0.025 -- (-0.05) per level below the maximum
+NDefines.NSupply.INFRA_TO_SUPPLY = 0.15                     -- (0.3)

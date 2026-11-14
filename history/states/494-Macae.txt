@@ -11,7 +11,7 @@ state = {
 		add_core_of = MAK
 		victory_points = { 6370 1 }  # Kinyps
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

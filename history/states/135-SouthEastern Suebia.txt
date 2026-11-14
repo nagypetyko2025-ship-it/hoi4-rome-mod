@@ -12,7 +12,7 @@ state = {
 		owner = SUE
 		add_core_of = SUE
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

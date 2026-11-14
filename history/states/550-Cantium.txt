@@ -12,7 +12,7 @@ state = {
 		add_core_of = CNI
 		victory_points = { 2591 1 }  # Durovernon
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 			2591 = { naval_base = 1 }

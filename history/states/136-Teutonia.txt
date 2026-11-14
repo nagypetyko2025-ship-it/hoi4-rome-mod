@@ -11,7 +11,7 @@ state = {
 		add_core_of = TEU
 		victory_points = { 2150 1 }  # Treva
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

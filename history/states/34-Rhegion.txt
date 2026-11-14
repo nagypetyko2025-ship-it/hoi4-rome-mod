@@ -8,7 +8,7 @@ state = {
 		add_core_of = RHE
 		victory_points = { 5578 4 }  # Rhegion
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5578 = { naval_base = 1 }
 		}

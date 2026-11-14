@@ -8,7 +8,7 @@ state = {
 		add_core_of = LBR
 		victory_points = { 8745 3 }  # Iader
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 			8745 = { naval_base = 1 }

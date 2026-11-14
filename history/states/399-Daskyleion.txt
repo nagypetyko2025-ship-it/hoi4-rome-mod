@@ -15,7 +15,7 @@ state = {
 		victory_points = { 5192 4 }  # Kyzikos
 		victory_points = { 5195 2 }  # Abydos
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5192 = { naval_base = 2 }
 			5195 = { naval_base = 1 }

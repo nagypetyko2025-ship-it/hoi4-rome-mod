@@ -10,7 +10,7 @@ state = {
 		owner = AES
 		add_core_of = AES
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

@@ -11,7 +11,7 @@ state = {
 		add_core_of = HDR
 		victory_points = { 7337 4 }  # Shabwat
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

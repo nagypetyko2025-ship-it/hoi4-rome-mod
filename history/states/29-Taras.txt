@@ -8,7 +8,7 @@ state = {
 		add_core_of = TAS
 		victory_points = { 5075 10 }  # Taras
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			arms_factory = 1
 			5075 = { naval_base = 2 }

@@ -11,7 +11,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 5490 4 }  # Chios
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			5490 = { naval_base = 2 }
 		}
 	}

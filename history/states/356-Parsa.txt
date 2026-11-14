@@ -12,7 +12,7 @@ state = {
 		victory_points = { 6543 20 }  # Parsa
 		victory_points = { 6549 5 }  # Pasargadai
 		buildings = {
-			infrastructure = 3
+			infrastructure = 6
 			arms_factory = 1
 			industrial_complex = 4
 		}

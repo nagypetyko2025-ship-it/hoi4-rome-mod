@@ -7,7 +7,7 @@ state = {
 		owner = KIL
 		add_core_of = KIL
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 		}
 	}
 	provinces = {

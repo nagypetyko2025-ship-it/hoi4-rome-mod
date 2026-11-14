@@ -8,7 +8,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 6401 3 }  # Gaza
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			6401 = { naval_base = 1 }
 		}
 	}

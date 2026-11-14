@@ -8,7 +8,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 6150 3 }  # Gubla
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			6150 = { naval_base = 1 }
 		}
 	}

@@ -12,7 +12,7 @@ state = {
 		add_core_of = ISS
 		victory_points = { 2727 1 }  # Issedon
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

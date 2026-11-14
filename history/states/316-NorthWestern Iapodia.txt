@@ -10,7 +10,7 @@ state = {
 		owner = IAP
 		add_core_of = IAP
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

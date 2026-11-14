@@ -12,7 +12,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 5004 3 }  # Doriskos
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5004 = { naval_base = 1 }
 		}

@@ -12,7 +12,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 6784 8 }  # Waset
 		buildings = {
-			infrastructure = 3
+			infrastructure = 6
 			arms_factory = 2
 			industrial_complex = 4
 		}

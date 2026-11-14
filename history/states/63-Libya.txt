@@ -13,7 +13,7 @@ state = {
 		add_core_of = LIB
 		victory_points = { 6084 1 }  # Thysdrus
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 		}

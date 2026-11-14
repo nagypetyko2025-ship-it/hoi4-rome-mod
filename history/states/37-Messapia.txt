@@ -11,7 +11,7 @@ state = {
 		add_core_of = MES
 		victory_points = { 5020 3 }  # Brentesion
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			5020 = { naval_base = 2 }

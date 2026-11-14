@@ -10,7 +10,7 @@ state = {
 		owner = ABG
 		add_core_of = ABG
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

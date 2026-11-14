@@ -11,7 +11,7 @@ state = {
 		add_core_of = SBA
 		victory_points = { 7242 8 }  # Maryab
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 		}

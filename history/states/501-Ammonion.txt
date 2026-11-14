@@ -11,7 +11,7 @@ state = {
 		add_core_of = AMM
 		victory_points = { 6574 3 }  # Sekhet-am
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 		}
 	}

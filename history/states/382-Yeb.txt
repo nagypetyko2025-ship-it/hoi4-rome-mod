@@ -11,7 +11,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 6882 3 }  # Yeb
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 		}

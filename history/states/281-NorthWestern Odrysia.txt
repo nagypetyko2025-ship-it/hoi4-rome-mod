@@ -11,7 +11,7 @@ state = {
 		owner = ODR
 		add_core_of = ODR
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

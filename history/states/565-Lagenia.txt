@@ -11,7 +11,7 @@ state = {
 		add_core_of = LGN
 		victory_points = { 2172 1 }  # Dun Ailinne
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

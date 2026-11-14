@@ -8,7 +8,7 @@ state = {
 		add_core_of = SAB
 		victory_points = { 4529 2 }  # Cures
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 		}

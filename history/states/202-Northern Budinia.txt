@@ -11,7 +11,7 @@ state = {
 		owner = BUD
 		add_core_of = BUD
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

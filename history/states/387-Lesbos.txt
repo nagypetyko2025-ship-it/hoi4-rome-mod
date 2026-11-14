@@ -8,7 +8,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 5306 4 }  # Mytilene
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			5306 = { naval_base = 2 }
 		}
 	}

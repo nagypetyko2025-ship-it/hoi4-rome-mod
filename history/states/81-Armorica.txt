@@ -12,7 +12,7 @@ state = {
 		add_core_of = VNT
 		victory_points = { 3245 2 }  # Darioritum
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 			3245 = { naval_base = 1 }

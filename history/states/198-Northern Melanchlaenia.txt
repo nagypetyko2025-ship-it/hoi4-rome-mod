@@ -12,7 +12,7 @@ state = {
 		owner = MLC
 		add_core_of = MLC
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

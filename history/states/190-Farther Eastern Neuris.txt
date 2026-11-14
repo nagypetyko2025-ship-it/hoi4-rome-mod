@@ -12,7 +12,7 @@ state = {
 		owner = NEU
 		add_core_of = NEU
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

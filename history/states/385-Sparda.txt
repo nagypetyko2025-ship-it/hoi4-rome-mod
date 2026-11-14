@@ -12,7 +12,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 5535 15 }  # Sardeis
 		buildings = {
-			infrastructure = 3
+			infrastructure = 6
 			arms_factory = 2
 			industrial_complex = 4
 		}

@@ -10,7 +10,7 @@ state = {
 		owner = AUL
 		add_core_of = AUL
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

@@ -8,7 +8,7 @@ state = {
 		add_core_of = SNP
 		victory_points = { 4789 5 }  # Sinope
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			4789 = { naval_base = 2 }

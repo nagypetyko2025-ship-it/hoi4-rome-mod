@@ -8,7 +8,7 @@ state = {
 		add_core_of = ABG
 		victory_points = { 4050 2 }  # Vienna
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

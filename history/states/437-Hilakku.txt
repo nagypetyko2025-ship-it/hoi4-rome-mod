@@ -12,7 +12,7 @@ state = {
 		add_core_of = KIL
 		victory_points = { 5813 6 }  # Tarsa
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 2
 			industrial_complex = 4
 			5813 = { naval_base = 2 }

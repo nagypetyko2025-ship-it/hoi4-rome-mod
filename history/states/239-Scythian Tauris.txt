@@ -12,7 +12,7 @@ state = {
 		add_core_of = SCY
 		victory_points = { 3965 1 }  # Neapolis
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

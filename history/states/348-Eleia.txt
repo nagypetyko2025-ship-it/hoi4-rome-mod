@@ -14,7 +14,7 @@ state = {
 		victory_points = { 5552 4 }  # Olympia
 		victory_points = { 5606 2 }  # Elis
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 		}

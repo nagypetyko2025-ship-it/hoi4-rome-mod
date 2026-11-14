@@ -10,7 +10,7 @@ state = {
 		owner = KSH
 		add_core_of = KSH
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 		}
 	}
 	provinces = {

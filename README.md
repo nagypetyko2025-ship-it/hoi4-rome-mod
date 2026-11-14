@@ -856,3 +856,8 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   amely Rómáé és Róma ellenőrzi, de nem magja, 250 PP-ért Róma magja lesz – hódítás és békekötés után is.
 - **Technológia:** két szomszédos évfelirat között legfeljebb 6 év (`MAX_GAP` a tech.py-ban; a kevés feliratú
   oldalak ezért korábban érnek véget, pl. a hajózás 245–263), és 1 kutatási pont 270 helyett 150 nap.
+- **Gyárhelyek:** új sáv az iparoldalon („Towns”): Synoecism (+15%), Hippodamian Planning (+20%), Insulae (+25%)
+  több épülethely minden államban (`global_building_slots_factor`).
+- **Utak 10 szinten:** a felső határ 5 helyett 10 (buildings.py), egy szint hatása feleakkora (nyersanyag 7,5%,
+  ellátás 0,15, mozgás −2,5% hiányzó szintenként – `zz_ante_imperium.lua`), a kezdő szintek duplázva (world.py
+  `INFRA_SCALE`), így a térkép ugyanolyan jó, csak finomabb lépésekben épül.

@@ -11,7 +11,7 @@ state = {
 		add_core_of = SNP
 		victory_points = { 5016 2 }  # Trapezous
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5016 = { naval_base = 1 }
 		}

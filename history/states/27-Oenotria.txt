@@ -11,7 +11,7 @@ state = {
 		add_core_of = OEN
 		victory_points = { 5143 1 }  # Pandosia
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

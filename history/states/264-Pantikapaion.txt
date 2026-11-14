@@ -11,7 +11,7 @@ state = {
 		add_core_of = PNT
 		victory_points = { 4114 5 }  # Pantikapaion
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			4114 = { naval_base = 2 }

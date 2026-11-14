@@ -10,7 +10,7 @@ state = {
 		owner = MOL
 		add_core_of = MOL
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 		}
 	}

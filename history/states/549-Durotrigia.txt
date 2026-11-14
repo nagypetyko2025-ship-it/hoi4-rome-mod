@@ -13,7 +13,7 @@ state = {
 		add_core_of = DRT
 		victory_points = { 2639 2 }  # Mai Dun
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

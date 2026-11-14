@@ -12,7 +12,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 5431 4 }  # Mazaka
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 		}
 	}

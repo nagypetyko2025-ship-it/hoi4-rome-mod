@@ -11,7 +11,7 @@ state = {
 		add_core_of = UMB
 		victory_points = { 4443 2 }  # Iguvium
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			4339 = { naval_base = 2 }

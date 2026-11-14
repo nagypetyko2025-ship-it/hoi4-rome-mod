@@ -12,7 +12,7 @@ state = {
 		owner = THY
 		add_core_of = THY
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

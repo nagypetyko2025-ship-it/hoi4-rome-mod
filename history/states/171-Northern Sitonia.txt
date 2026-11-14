@@ -12,7 +12,7 @@ state = {
 		owner = FNN
 		add_core_of = FNN
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

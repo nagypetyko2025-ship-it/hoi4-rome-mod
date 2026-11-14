@@ -12,7 +12,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 6425 5 }  # Uruk
 		buildings = {
-			infrastructure = 3
+			infrastructure = 6
 			arms_factory = 2
 			industrial_complex = 4
 		}

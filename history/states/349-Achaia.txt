@@ -8,7 +8,7 @@ state = {
 		add_core_of = AKH
 		victory_points = { 5527 2 }  # Aigion
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			5527 = { naval_base = 1 }

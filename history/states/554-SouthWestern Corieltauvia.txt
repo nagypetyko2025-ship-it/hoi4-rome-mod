@@ -10,7 +10,7 @@ state = {
 		owner = CRV
 		add_core_of = CRV
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

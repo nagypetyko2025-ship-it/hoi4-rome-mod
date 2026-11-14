@@ -8,7 +8,7 @@ state = {
 		add_core_of = KRO
 		victory_points = { 5327 8 }  # Kroton
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			arms_factory = 1
 			5327 = { naval_base = 2 }

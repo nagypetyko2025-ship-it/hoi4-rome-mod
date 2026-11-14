@@ -8,7 +8,7 @@ state = {
 		add_core_of = THS
 		victory_points = { 8808 4 }  # Thasos
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			8808 = { naval_base = 2 }

@@ -13,7 +13,7 @@ state = {
 		add_core_of = PRS
 		victory_points = { 6509 2 }  # Karmana
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 		}
 	}

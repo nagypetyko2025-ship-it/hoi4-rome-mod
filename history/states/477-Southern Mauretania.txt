@@ -11,7 +11,7 @@ state = {
 		owner = MAU
 		add_core_of = MAU
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

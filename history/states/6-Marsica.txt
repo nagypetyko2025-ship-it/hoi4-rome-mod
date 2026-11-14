@@ -11,7 +11,7 @@ state = {
 		add_core_of = MAR
 		victory_points = { 4684 1 }  # Marruvium
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			4533 = { naval_base = 2 }

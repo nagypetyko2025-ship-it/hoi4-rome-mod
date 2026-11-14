@@ -8,7 +8,7 @@ state = {
 		add_core_of = ATH
 		victory_points = { 5522 15 }  # Athenai
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 2
 			industrial_complex = 5
 			5522 = { naval_base = 3 }

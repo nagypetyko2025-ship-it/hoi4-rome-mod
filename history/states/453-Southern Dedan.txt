@@ -11,7 +11,7 @@ state = {
 		add_core_of = DDN
 		victory_points = { 6873 1 }  # Yathrib
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

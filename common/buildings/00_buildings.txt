@@ -45,7 +45,7 @@ buildings = {
 
 		infrastructure_construction_effect = yes
 		level_cap = {
-			state_max = 5
+			state_max = 10   # Ante Imperium: 10 levels of roads
 		}
 		country_modifiers = {
 			modifiers = {

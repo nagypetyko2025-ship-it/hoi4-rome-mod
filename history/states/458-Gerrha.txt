@@ -11,7 +11,7 @@ state = {
 		add_core_of = GRH
 		victory_points = { 6785 3 }  # Gerrha
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 			6785 = { naval_base = 1 }

@@ -11,7 +11,7 @@ state = {
 		add_core_of = HIS
 		victory_points = { 4121 2 }  # Nesactium
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 			4121 = { naval_base = 1 }

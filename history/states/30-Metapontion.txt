@@ -8,7 +8,7 @@ state = {
 		add_core_of = MET
 		victory_points = { 5135 4 }  # Metapontion
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5135 = { naval_base = 1 }
 		}

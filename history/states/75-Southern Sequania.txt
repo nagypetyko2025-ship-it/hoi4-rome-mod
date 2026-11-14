@@ -7,7 +7,7 @@ state = {
 		owner = SEQ
 		add_core_of = SEQ
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

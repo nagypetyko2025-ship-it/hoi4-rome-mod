@@ -7,7 +7,7 @@ state = {
 		owner = HDR
 		add_core_of = HDR
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

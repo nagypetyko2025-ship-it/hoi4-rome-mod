@@ -11,7 +11,7 @@ state = {
 		add_core_of = PHK
 		victory_points = { 5496 4 }  # Delphoi
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 		}

@@ -11,7 +11,7 @@ state = {
 		add_core_of = LOK
 		victory_points = { 5443 4 }  # Lokroi
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5443 = { naval_base = 1 }
 		}

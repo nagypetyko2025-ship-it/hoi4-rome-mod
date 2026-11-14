@@ -11,7 +11,7 @@ state = {
 		add_core_of = LIG
 		victory_points = { 4141 2 }  # Taurasia
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 		}

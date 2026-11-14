@@ -8,7 +8,7 @@ state = {
 		add_core_of = RUT
 		victory_points = { 4235 1 }  # Segodunum
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

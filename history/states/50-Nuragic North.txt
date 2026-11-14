@@ -11,7 +11,7 @@ state = {
 		add_core_of = SAR
 		victory_points = { 4986 1 }  # Barumini
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 		}

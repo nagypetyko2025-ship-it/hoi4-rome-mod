@@ -11,7 +11,7 @@ state = {
 		add_core_of = IVR
 		victory_points = { 2336 1 }  # Temuir Erann
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

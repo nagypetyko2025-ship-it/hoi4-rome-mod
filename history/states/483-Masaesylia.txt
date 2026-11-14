@@ -8,7 +8,7 @@ state = {
 		add_core_of = MSS
 		victory_points = { 6037 2 }  # Siga
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 			6037 = { naval_base = 1 }

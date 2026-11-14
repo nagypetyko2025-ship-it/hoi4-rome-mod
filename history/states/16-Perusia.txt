@@ -8,7 +8,7 @@ state = {
 		add_core_of = CLU
 		victory_points = { 4539 3 }  # Perusia
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 		}
 	}

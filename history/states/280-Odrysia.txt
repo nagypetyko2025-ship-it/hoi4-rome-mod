@@ -11,7 +11,7 @@ state = {
 		add_core_of = ODR
 		victory_points = { 4842 3 }  # Uscudama
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 		}

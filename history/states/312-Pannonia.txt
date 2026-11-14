@@ -11,7 +11,7 @@ state = {
 		add_core_of = PAN
 		victory_points = { 3923 1 }  # Sopianae
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

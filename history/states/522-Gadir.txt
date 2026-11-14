@@ -12,7 +12,7 @@ state = {
 		victory_points = { 5662 8 }  # Gadir
 		victory_points = { 5664 3 }  # Malaka
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			5662 = { naval_base = 2 }

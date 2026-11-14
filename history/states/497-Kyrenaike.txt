@@ -15,7 +15,7 @@ state = {
 		victory_points = { 6280 4 }  # Barke
 		victory_points = { 6344 3 }  # Euhesperides
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 			6344 = { naval_base = 1 }

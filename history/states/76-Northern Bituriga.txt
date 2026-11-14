@@ -12,7 +12,7 @@ state = {
 		owner = BIT
 		add_core_of = BIT
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

@@ -8,7 +8,7 @@ state = {
 		add_core_of = CAR
 		victory_points = { 5930 2 }  # Melite
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			5930 = { naval_base = 1 }
 		}
 	}

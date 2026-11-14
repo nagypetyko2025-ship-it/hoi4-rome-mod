@@ -11,7 +11,7 @@ state = {
 		add_core_of = KRO
 		victory_points = { 5245 3 }  # Sybaris
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5202 = { naval_base = 1 }
 		}

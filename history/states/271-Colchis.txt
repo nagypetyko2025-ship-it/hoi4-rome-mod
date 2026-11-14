@@ -15,7 +15,7 @@ state = {
 		victory_points = { 4587 3 }  # Aia
 		victory_points = { 4570 2 }  # Phasis
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			4570 = { naval_base = 1 }

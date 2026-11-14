@@ -10,7 +10,7 @@ state = {
 		owner = HRD
 		add_core_of = HRD
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

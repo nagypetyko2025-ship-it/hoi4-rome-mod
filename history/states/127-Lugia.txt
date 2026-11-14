@@ -13,7 +13,7 @@ state = {
 		add_core_of = LUG
 		victory_points = { 2322 2 }  # Biskupin
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

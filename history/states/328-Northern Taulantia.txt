@@ -10,7 +10,7 @@ state = {
 		owner = TLN
 		add_core_of = TLN
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

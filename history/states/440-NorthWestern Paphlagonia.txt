@@ -11,7 +11,7 @@ state = {
 		owner = PPH
 		add_core_of = PPH
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 		}
 	}
 	provinces = {

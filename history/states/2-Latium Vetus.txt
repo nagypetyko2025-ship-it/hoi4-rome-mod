@@ -9,7 +9,7 @@ state = {
 		victory_points = { 4852 5 }  # Aricia
 		victory_points = { 4760 3 }  # Praeneste
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 3
 			arms_factory = 1
 			4852 = { naval_base = 2 }

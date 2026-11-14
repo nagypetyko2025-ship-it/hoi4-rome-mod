@@ -12,7 +12,7 @@ state = {
 		owner = ISS
 		add_core_of = ISS
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

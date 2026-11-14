@@ -11,7 +11,7 @@ state = {
 		add_core_of = BAL
 		victory_points = { 5235 1 }  # Talati
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 		}
 	}

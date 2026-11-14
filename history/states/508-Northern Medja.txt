@@ -10,7 +10,7 @@ state = {
 		owner = BLM
 		add_core_of = BLM
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 		}
 	}
 	provinces = {

@@ -10,7 +10,7 @@ state = {
 		owner = EDT
 		add_core_of = EDT
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

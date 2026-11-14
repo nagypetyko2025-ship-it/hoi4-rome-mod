@@ -9,7 +9,7 @@ state = {
 		victory_points = { 3958 5 }  # Ateste
 		victory_points = { 3975 2 }  # Altinum
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			3975 = { naval_base = 2 }

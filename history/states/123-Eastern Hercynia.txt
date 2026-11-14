@@ -11,7 +11,7 @@ state = {
 		owner = VLK
 		add_core_of = VLK
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

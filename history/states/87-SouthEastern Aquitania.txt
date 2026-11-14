@@ -11,7 +11,7 @@ state = {
 		owner = AQT
 		add_core_of = AQT
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

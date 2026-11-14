@@ -7,7 +7,7 @@ state = {
 		owner = DDN
 		add_core_of = DDN
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

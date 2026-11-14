@@ -11,7 +11,7 @@ state = {
 		add_core_of = ARK
 		victory_points = { 5716 3 }  # Tegea
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 		}

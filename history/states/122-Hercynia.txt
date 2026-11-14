@@ -13,7 +13,7 @@ state = {
 		add_core_of = VLK
 		victory_points = { 2803 1 }  # Steinsburg
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

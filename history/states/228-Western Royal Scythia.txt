@@ -10,7 +10,7 @@ state = {
 		owner = SCY
 		add_core_of = SCY
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

@@ -8,7 +8,7 @@ state = {
 		add_core_of = APP
 		victory_points = { 4722 3 }  # Apollonia Pontike
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			4722 = { naval_base = 1 }
 		}

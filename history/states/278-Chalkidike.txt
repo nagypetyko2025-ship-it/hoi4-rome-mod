@@ -8,7 +8,7 @@ state = {
 		add_core_of = CHK
 		victory_points = { 8812 4 }  # Poteidaia
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 			8812 = { naval_base = 2 }

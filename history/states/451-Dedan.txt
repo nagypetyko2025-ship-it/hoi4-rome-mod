@@ -9,7 +9,7 @@ state = {
 		victory_points = { 6742 3 }  # Dedan
 		victory_points = { 6674 3 }  # Tayma
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

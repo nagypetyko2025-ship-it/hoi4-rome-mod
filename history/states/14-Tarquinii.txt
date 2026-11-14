@@ -12,7 +12,7 @@ state = {
 		victory_points = { 4678 6 }  # Tarquinii
 		victory_points = { 4579 3 }  # Vulci
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 2
 			arms_factory = 1
 			4678 = { naval_base = 2 }

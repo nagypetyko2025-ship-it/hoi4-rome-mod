@@ -13,7 +13,7 @@ state = {
 		add_core_of = AGP
 		victory_points = { 2480 1 }  # Arkaim
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 1
 		}

@@ -10,7 +10,7 @@ state = {
 		owner = HLV
 		add_core_of = HLV
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

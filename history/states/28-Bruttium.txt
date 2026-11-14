@@ -11,7 +11,7 @@ state = {
 		owner = OEN
 		add_core_of = OEN
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

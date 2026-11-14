@@ -10,7 +10,7 @@ state = {
 		owner = VTT
 		add_core_of = VTT
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

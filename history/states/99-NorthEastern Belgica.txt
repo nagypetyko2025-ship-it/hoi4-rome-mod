@@ -11,7 +11,7 @@ state = {
 		owner = BGA
 		add_core_of = BGA
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 		}
 	}

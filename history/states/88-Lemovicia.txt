@@ -13,7 +13,7 @@ state = {
 		add_core_of = LEM
 		victory_points = { 3821 1 }  # Durotincum
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

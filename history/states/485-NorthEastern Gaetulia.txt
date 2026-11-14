@@ -11,7 +11,7 @@ state = {
 		owner = GAE
 		add_core_of = GAE
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

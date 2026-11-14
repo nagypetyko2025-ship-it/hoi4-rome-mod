@@ -8,7 +8,7 @@ state = {
 		add_core_of = SLY
 		victory_points = { 4351 1 }  # Entremont
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			arms_factory = 1
 			industrial_complex = 2
 		}

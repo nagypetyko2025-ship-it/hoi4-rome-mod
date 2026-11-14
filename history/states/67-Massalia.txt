@@ -8,7 +8,7 @@ state = {
 		add_core_of = MAS
 		victory_points = { 4489 8 }  # Massalia
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			4489 = { naval_base = 2 }

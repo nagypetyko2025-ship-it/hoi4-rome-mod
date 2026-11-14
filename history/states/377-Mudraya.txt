@@ -14,7 +14,7 @@ state = {
 		victory_points = { 6440 6 }  # Sais
 		victory_points = { 6446 4 }  # Naukratis
 		buildings = {
-			infrastructure = 3
+			infrastructure = 6
 			arms_factory = 6
 			industrial_complex = 6
 		}

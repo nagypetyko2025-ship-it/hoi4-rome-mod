@@ -12,7 +12,7 @@ state = {
 		owner = IYR
 		add_core_of = IYR
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 		}
 	}
 	provinces = {

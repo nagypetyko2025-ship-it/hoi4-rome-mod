@@ -956,4 +956,45 @@ technologies = {
 		categories = { industry construction_tech }
 		ai_will_do = { factor = 1 }
 	}
+	ante_synoecism = {
+		global_building_slots_factor = 0.15
+		path = {
+			leads_to_tech = ante_town_planning
+			research_cost_coeff = 1
+		}
+		research_cost = 1
+		start_year = 248
+		folder = {
+			name = industry_folder
+			position = { x = 15 y = 2 }
+		}
+		categories = { industry construction_tech }
+		ai_will_do = { factor = 1 }
+	}
+	ante_town_planning = {
+		global_building_slots_factor = 0.20
+		path = {
+			leads_to_tech = ante_insulae
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 257
+		folder = {
+			name = industry_folder
+			position = { x = 15 y = 6 }
+		}
+		categories = { industry construction_tech }
+		ai_will_do = { factor = 1 }
+	}
+	ante_insulae = {
+		global_building_slots_factor = 0.25
+		research_cost = 2
+		start_year = 263
+		folder = {
+			name = industry_folder
+			position = { x = 15 y = 8 }
+		}
+		categories = { industry construction_tech }
+		ai_will_do = { factor = 1 }
+	}
 }

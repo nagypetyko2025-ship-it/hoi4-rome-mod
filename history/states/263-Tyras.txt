@@ -11,7 +11,7 @@ state = {
 		add_core_of = TYS
 		victory_points = { 3781 2 }  # Tyras
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			3781 = { naval_base = 1 }
 		}

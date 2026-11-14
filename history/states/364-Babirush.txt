@@ -15,7 +15,7 @@ state = {
 		victory_points = { 6324 28 }  # Babilu
 		victory_points = { 6151 3 }  # Sippar
 		buildings = {
-			infrastructure = 3
+			infrastructure = 6
 			arms_factory = 5
 			industrial_complex = 7
 		}

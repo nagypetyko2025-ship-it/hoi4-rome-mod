@@ -8,7 +8,7 @@ state = {
 		add_core_of = POS
 		victory_points = { 5108 4 }  # Poseidonia
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			industrial_complex = 1
 			5108 = { naval_base = 1 }
 		}

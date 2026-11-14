@@ -12,7 +12,7 @@ state = {
 		add_core_of = PEU
 		victory_points = { 4915 2 }  # Caelia
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
 			arms_factory = 1
 			4915 = { naval_base = 2 }

@@ -160,6 +160,13 @@ TECHS = [
      IND, 6, 485, ["ante_mining"], "industrial_capacity_factory = 0.05", "wheel", 2),
     ("ante_coinage", "Coinage", "Stamped metal of fixed weight: trade without weighing silver.",
      IND, 8, 305, [], "production_speed_buildings_factor = 0.05\npolitical_power_gain = 0.05", "coin", 1),
+    # towns: more room for workshops and armouries in every state (round 22, Peti)
+    ("ante_synoecism", "Synoecism", "The villages of a valley move together behind one wall: one town, one market, more workshops.",
+     IND, 10, 290, [], "global_building_slots_factor = 0.15", "column", 1),
+    ("ante_town_planning", "Hippodamian Planning", "Streets on a grid, quarters for every craft: Miletus and Piraeus are laid out as new.",
+     IND, 10, 365, ["ante_synoecism"], "global_building_slots_factor = 0.20", "column", 1.5),
+    ("ante_insulae", "Insulae", "Blocks of houses three and four storeys high: the city grows upwards and makes room for more.",
+     IND, 10, 455, ["ante_town_planning"], "global_building_slots_factor = 0.25", "wall", 2),
 ]
 
 # the headings of the lanes on every page (lane = the x of the techs above): they replace the base game's
@@ -171,7 +178,7 @@ LANES = {
     ART: {0: "Engines", 2: "Walls"},
     NAV: {0: "Oared Warships", 2: "Harbours"},
     LRN: {0: "Letters", 2: "Natural Philosophy", 4: "Medicine", 6: "Law and Oratory"},
-    IND: {0: "Metalwork", 2: "Building", 4: "Farming", 6: "Mining", 8: "Coin"},
+    IND: {0: "Metalwork", 2: "Building", 4: "Farming", 6: "Mining", 8: "Coin", 10: "Towns"},
 }
 # glyph on the page tabs (tools/tech.py draws them over the game's tab frames)
 TABS = {INF: "helmet", SUP: "wheel", ARM: "horse", ART: "catapult", NAV: "ship", LRN: "scroll", IND: "anvil"}

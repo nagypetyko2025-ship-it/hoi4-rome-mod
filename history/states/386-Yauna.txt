@@ -10,7 +10,7 @@ state = {
 		victory_points = { 5601 6 }  # Ephesos
 		victory_points = { 5461 3 }  # Phokaia
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 			5461 = { naval_base = 1 }

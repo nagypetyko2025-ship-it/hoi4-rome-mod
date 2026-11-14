@@ -8,7 +8,7 @@ state = {
 		add_core_of = TYR
 		victory_points = { 6239 8 }  # Sur
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 			6239 = { naval_base = 2 }

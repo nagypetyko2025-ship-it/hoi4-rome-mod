@@ -8,7 +8,7 @@ state = {
 		add_core_of = QTB
 		victory_points = { 7424 4 }  # Timna
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 2
 		}

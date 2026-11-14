@@ -13,7 +13,7 @@ state = {
 		add_core_of = KSH
 		victory_points = { 7263 8 }  # Medewi
 		buildings = {
-			infrastructure = 2
+			infrastructure = 4
 			arms_factory = 1
 			industrial_complex = 3
 		}
