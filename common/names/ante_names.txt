@@ -5959,3 +5959,30 @@ BKT = {
 		Ferrum Ignis
 	}
 }
+ARB = {
+	male = {
+		names = {
+			Gashmu Iyas Mahlay Shahr Qaynu Yautha Abiyate Uaite
+			Ammuladi Hazail Karibil Yithaamar Sumhuali Dhamarali Yadail Yakrubmalik
+			Abyada Waqahil Ilyafa Hawfathat "Shahr Yagul" Yadiab Ilsharah Nashakarib
+			Lahayathat Kabirel Matiil Nuran Tubba Zabibe
+		}
+	}
+	female = {
+		names = {
+			Zabibe Samsi Yatie Telkhunu Tabua Bilqis Adiya Halisa
+			Barraqish Abirillu Iapa Baslu
+		}
+	}
+	surnames = {
+		"bin Karibil" "bin Yithaamar" "bin Sumhuali" "bin Dhamarali" "bin Yadail" "bin Gashmu" "bin Hazail" "bin Shahr"
+		"bin Qaynu" "bin Iyas" "bin Abyada" "bin Waqahil" "bin Ilyafa" "dhu Raydan" "dhu Ghayman" "dhu Hamdan"
+		"dhu Khalil" "dhu Bayyin" "dhu Maryab" "dhu Timna" "dhu Shabwat" "al Qidri" "al Dadani" "al Lihyani"
+		"al Taymani"
+	}
+	callsigns = {
+		Aquila Lupus Falco Ursus Leo Corvus Taurus Aper
+		Vulpes Draco Fulmen Ventus Sagitta Hasta Scutum Gladius
+		Ferrum Ignis
+	}
+}

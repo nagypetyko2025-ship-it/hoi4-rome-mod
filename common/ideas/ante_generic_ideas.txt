@@ -832,6 +832,44 @@ ideas = {
 				conscription = 0.01
 			}
 		}
+		PRS_s_council_spirit = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.08
+				political_power_gain = 0.1
+			}
+		}
+		PRS_s_sword_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.08
+				war_support_factor = 0.1
+			}
+		}
+		PRS_s_ten_thousand_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+				army_attack_factor = 0.05
+				army_org_factor = 0.05
+			}
+		}
+		PRS_s_new_dynasty_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.12
+				political_power_gain = 0.2
+				industrial_capacity_factory = 0.08
+			}
+		}
 		CAR_magonid_rule_spirit = {
 			picture = generic_central_management
 			allowed = { always = no }

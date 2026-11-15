@@ -29,7 +29,9 @@ set_technology = {
 	ante_masonry = 1
 	popup = no
 }
+recruit_character = PRS_oroetes
 recruit_character = PRS_darius
+promote_character = PRS_darius
 add_ideas = ante_culture_persian
 oob = "PRS_245"
 set_naval_oob = "PRS_245_naval"

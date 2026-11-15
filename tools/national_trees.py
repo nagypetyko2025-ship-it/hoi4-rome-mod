@@ -79,9 +79,11 @@ def swap(old, new):
 def define(focus, build, infra, tech, wargoal):
     TREES, IDEAS, LOC = {}, {}, {}
 
-    def tree(tag, show, note):
+    def tree(tag, show, note, key=None, load_only=False):
+        """key: the tree's own name when a country has more than one (round 49: Persia); load_only: the tree is
+        only reached through load_focus_tree, never chosen at the start"""
         lst = []
-        TREES[tag] = dict(focuses=lst, show=show, note=note)
+        TREES[key or tag] = dict(focuses=lst, show=show, note=note, tag=tag, load_only=load_only)
 
         def f(fid, name, desc, icon, x, y, pre, reward, extra="", ai=1, filters=P, cost=10, avail=""):
             focus(fid, name, desc, "GFX_goal_generic_" + icon, x, y, pre, reward, extra=extra, ai=ai,
@@ -529,10 +531,21 @@ def define(focus, build, infra, tech, wargoal):
     # One root, eight branches: the satrapies (x 0..4), the treasury (7..11), the gods (12..14), the army (16..18),
     # the West and Hellas (21..25), Egypt (28..31), Babylon (33..35), the upper satrapies (37..39). The unrest of the
     # satrapies (tools/persia_story.py) is the thread: most branches calm it, some buy power with it.
-    f = tree("PRS", "PRS_king_of_kings", "# The Persian Empire of Darius I, 509-264 BC - plan: docs/persia_focus_tree.md\n"
+    # Round 49 (Peti): Persia starts with only two focuses - the first focus of each road. The one you take replaces
+    # the whole tree with its own (load_focus_tree): King of Kings loads the empire's tree below (PRS_empire_focus),
+    # The Satraps' Revolt sets Egypt, Arabaya and Bactria free, starts a civil war against the King and loads the
+    # usurper's tree (PRS_satraps_focus, tools/persia_story.py SATRAPS_REVOLT).
+    f = tree("PRS", "PRS_king_of_kings", "# Persia's start: two roads. Each loads a tree of its own - plan: docs/persia_focus_tree.md")
+    f("PRS_king_of_kings", "King of Kings", "Darius has crushed the rebel kings. From the Indus to the Aegean, one king rules - and twenty peoples wait to see if he can hold them.",
+      "political_pressure", 2, 0, [], "add_political_power = 75\nadd_stability = 0.05\n" + PS.unrest_all(-5)
+      + "\nload_focus_tree = PRS_empire_focus", extra=mx("PRS_satraps_revolt"), ai=10)
+    f("PRS_satraps_revolt", "The Satraps' Revolt", "Oroetes of Sardis will not bow to Darius. The satraps of the west crown him King of Kings; Egypt, Arabaya and Bactria go their own way, and Persis and the east stay loyal to the old King. First win the war for the throne.",
+      "major_war", 6, 0, [], PS.SATRAPS_REVOLT + "\nload_focus_tree = PRS_satraps_focus", extra=mx("PRS_king_of_kings"), ai=0)
+    # the empire's tree (the road of King of Kings)
+    f = tree("PRS", "PRS_satrapies", "# The Persian Empire of Darius I, 509-264 BC - plan: docs/persia_focus_tree.md\n"
              "# The unrest of five satrapies (persia_story.py) runs through the tree; the goal is a decision: "
-             "King of the Four Corners of the World.")
-    ROOT = [["PRS_king_of_kings"]]
+             "King of the Four Corners of the World.", key="PRS_empire", load_only=True)
+    ROOT = []
     idea("PRS_satrapies_spirit", "The Satrapies", "central_management", political_power_gain=0.15, stability_factor=0.05)
     idea("PRS_royal_road_spirit", "The Royal Road", "supply_line", supply_consumption_factor=-0.10, army_speed_factor=0.05)
     idea("PRS_immortals_spirit", "The Ten Thousand Immortals", "morale_bonus", army_attack_factor=0.05, army_org_factor=0.10)
@@ -556,8 +569,6 @@ def define(focus, build, infra, tech, wargoal):
     idea("PRS_hellas_spirit", "Earth and Water from All Hellas", "pp_unity_bonus", war_support_factor=0.10,
          political_power_gain=0.10)
     idea("PRS_upper_satrapies_spirit", "The Upper Satrapies", "morale_bonus", army_speed_factor=0.05, conscription=0.01)
-    f("PRS_king_of_kings", "King of Kings", "Darius has crushed the rebel kings. From the Indus to the Aegean, one king rules - and twenty peoples wait to see if he can hold them.",
-      "political_pressure", 19, 0, [], "add_political_power = 75\nadd_stability = 0.05\n" + PS.unrest_all(-5))
     # --- 1. the satrapies (x 0..4): the administration that holds the empire together
     f("PRS_satrapies", "The Satrapies", "Twenty provinces, each with a satrap, a fixed tribute and a royal secretary who reports to the King.",
       "political_pressure", 3, 1, ROOT, "add_ideas = PRS_satrapies_spirit\n" + PS.unrest_all(-5) + "\n"
@@ -724,6 +735,56 @@ def define(focus, build, infra, tech, wargoal):
           avail=PS.unrest_below(k, 20) + f"\nOR = {{\n\thas_country_flag = PRS_integrated_{k}\n\t" + PS.can_settle(k) + "\n}")
         f(f"PRS_free_{k}", fname, fdesc, "alliance", x + 2, 8, [["PRS_king_of_the_world"]], PS.set_free(k),
           extra=mx(f"PRS_integrate_{k}"), cost=10, ai=1, avail=PS.can_settle(k))
+
+    # ============================================================== PERSIA - the Satraps' road (round 49, Peti)
+    # Loaded by The Satraps' Revolt. Its first task is the civil war: the first focus waits until it is won.
+    # The middle (x 0..10): the new king, his council or his sword, Sardis, the Ten Thousand; then win back Egypt,
+    # Arabaya and Bactria, take the Aegean and Hellas, and found a new dynasty.
+    f = tree("PRS", "PRS_s_king_in_sardis", "# Persia - the Satraps' road: Oroetes of Sardis, King of Kings (loaded by The Satraps' Revolt)",
+             key="PRS_satraps", load_only=True)
+    idea("PRS_s_council_spirit", "The Council of Satraps", "constitutional_guarantees", stability_factor=0.08,
+         political_power_gain=0.10)
+    idea("PRS_s_sword_spirit", "The Sword of the West", "morale_bonus", army_attack_factor=0.08, war_support_factor=0.10)
+    idea("PRS_s_ten_thousand_spirit", "The Ten Thousand", "infantry_bonus", army_defence_factor=0.10,
+         army_attack_factor=0.05, army_org_factor=0.05)
+    idea("PRS_s_new_dynasty_spirit", "A New Dynasty", "pp_unity_bonus", stability_factor=0.12, political_power_gain=0.20,
+         industrial_capacity_factory=0.08)
+    LOC["PRS_TT_WIN_THE_THRONE"] = "The war for the throne is won (no civil war)"
+    won = "custom_trigger_tooltip = {\n\ttooltip = PRS_TT_WIN_THE_THRONE\n\thas_civil_war = no\n}"
+    f("PRS_s_king_in_sardis", "A King of Kings in Sardis", "Darius is beaten; the loyalists of Persis are scattered. In Sardis, Oroetes wears the upright tiara - the first King of Kings the satraps made.",
+      "political_pressure", 5, 0, [], "add_political_power = 150\nadd_stability = 0.15\nadd_war_support = -0.05\n" + PS.unrest_all(-10),
+      cost=5, avail=won, ai=10)
+    f("PRS_s_council", "The Council of Satraps", "The King rules with the satraps who made him: every great province has a voice at Sardis.",
+      "national_unity", 3, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_council_spirit\n" + PS.unrest_all(-15),
+      extra=mx("PRS_s_sword"))
+    f("PRS_s_sword", "The Sword of the West", "A king made by the sword keeps his throne by the sword.",
+      "major_war", 7, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_sword_spirit\narmy_experience = 20",
+      extra=mx("PRS_s_council"), filters=M)
+    f("PRS_s_ten_thousand", "The Ten Thousand", "Greek hoplites by the ten thousand, paid in Persian gold: the best infantry the King can buy.",
+      "small_arms", 1, 2, [["PRS_s_council", "PRS_s_sword"]], "add_ideas = PRS_s_ten_thousand_spirit\nadd_manpower = 10000",
+      filters=M)
+    f("PRS_s_sardis", "Sardis, Capital of the World", "The city of Croesus becomes the city of the King of Kings: palaces, mints and workshops.",
+      "construction2", 5, 2, [["PRS_s_council", "PRS_s_sword"]], build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + infra(),
+      filters=I)
+    f("PRS_s_persis_humbled", "Persis Humbled", "The old nobility of Persis kneels before a king from the west - and pays.",
+      "political_pressure", 9, 2, [["PRS_s_council", "PRS_s_sword"]], "add_political_power = 100\n" + PS.unrest_all(-10))
+    f("PRS_s_egypt", "Egypt Returns", "The pharaoh of Sais will learn that the new King is not weaker than the old one.",
+      "territory_or_war", 1, 3, [["PRS_s_ten_thousand"]], wargoal("KMT") + "\n" + claims("KMT"))
+    f("PRS_s_arabaya", "Arabaya Returns", "Damascus, Jerusalem and Gaza: the road to Egypt runs through the Arab lands.",
+      "territory_or_war", 5, 3, [["PRS_s_sardis"]], wargoal("ARB") + "\n" + claims("ARB"))
+    f("PRS_s_bactria", "Bactria Returns", "The horsemen of the upper satrapies obey the King who rides out to meet them.",
+      "territory_or_war", 9, 3, [["PRS_s_persis_humbled"]], wargoal("BKT") + "\n" + claims("BKT"))
+    f("PRS_s_aegean", "Master of the Aegean", "Ionian shipwrights and Phoenician crews: a fleet for the King of the west.",
+      "build_navy", 3, 4, [["PRS_s_sardis"]], build("dockyard", "is_coastal = yes") + "\n" + build("dockyard", "is_coastal = yes")
+      + "\nnavy_experience = 20", extra=COAST, filters=I)
+    f("PRS_s_earth_and_water", "Earth and Water for the New King", "Athens and Eretria laughed at Darius. They will not laugh at Oroetes.",
+      "major_war", 7, 4, [["PRS_s_sardis"]], wargoal("ATH") + "\n" + wargoal("EUB") + "\n" + claims("ATH", "EUB"))
+    f("PRS_s_hellas", "Hellas Bows", "Sparta, Thebes, Corinth, Argos: from Sardis it is a short way across the sea.",
+      "major_war", 5, 5, [["PRS_s_aegean"], ["PRS_s_earth_and_water"]], wargoal("LAK") + "\n" + wargoal("THB") + "\n"
+      + claims(*PS.GREECE), cost=15)
+    f("PRS_s_new_dynasty", "A New Dynasty", "Not the house of Achaemenes, but the house of the satraps: a new dynasty for the four corners of the world. (The goal: the decision King of the Four Corners of the World.)",
+      "national_unity", 5, 6, [["PRS_s_hellas"], ["PRS_s_egypt"], ["PRS_s_arabaya"], ["PRS_s_bactria"]],
+      "add_ideas = PRS_s_new_dynasty_spirit\nadd_research_slot = 1\n" + PS.unrest_all(-20), cost=20, ai=3)
 
     # ============================================================== CARTHAGE (CAR) - plan: docs/carthage_focus_tree.md
     # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).

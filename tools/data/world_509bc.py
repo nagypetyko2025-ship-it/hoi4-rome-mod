@@ -509,3 +509,5 @@ X("ION", "Ionian League", "Ionian", "greek", "republic", (84, 150, 210), ["Yauna
 X("LYD", "Lydia", "Lydian", "anatolian", "monarchy", (176, 84, 60),
   ["Sparda", "Phrygia", "Daskyleion", "Bithynia", "Pamphylia", "Katpatuka"], "Sparda")
 X("BKT", "Bactria", "Bactrian", "persian", "monarchy", (120, 150, 80), ["Bakhtrish", "Suguda", "Margush", "Uvarazmish"], "Bakhtrish")
+# round 49: the Satraps' Revolt (tools/national_trees.py) sets the Arab lands of the empire free as well
+X("ARB", "Arabaya", "Arabian", "arabian", "monarchy", (190, 150, 90), ["Ebir-Nari", "Yehud"], "Ebir-Nari")

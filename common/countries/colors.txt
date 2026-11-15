@@ -876,6 +876,10 @@ BKT = {
 	color = rgb { 120 150 80 }
 	color_ui = rgb { 150 187 100 }
 }
+ARB = {
+	color = rgb { 190 150 90 }
+	color_ui = rgb { 237 187 112 }
+}
 D01 = {
 	color = rgb { 122 179 97 }
 	color_ui = rgb { 159 233 126 }

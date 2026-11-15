@@ -18,6 +18,9 @@ LEADERS = [
      "Drove out Tarquinius Superbus, the last king, and became one of the first two consuls of the Republic."),
     ("CAR", "hamilcar", "Hamilcar", "ante_merchant_prince", False, True,
      "Of the house of Mago, which leads Carthage and its fleets in the late sixth century BC."),
+    # round 49: the leader of the Satraps' Revolt (the left road of Persia's tree) - not in power at the start
+    ("PRS", "oroetes", "Oroetes of Sardis", "ante_war_leader", False, True,
+     "Satrap of Sardis under Cambyses, who defied Darius and was put to death for it around 520 BC. Here the satraps of the west crown him King of Kings."),
     ("PRS", "darius", "Darius I", "ante_king_of_kings", False, True,
      "Dārayavauš, King of Kings since 522 BC, who organised the empire into satrapies and built the Royal Road."),
     ("ATH", "cleisthenes", "Cleisthenes", "ante_lawgiver", False, True,
@@ -97,6 +100,6 @@ TRAITS = {
 
 # leaders of a party that does not rule at the start (recruited in history like everybody, so a focus can
 # promote_character them); value = their sub-ideology (overrides the one taken from the ruling party)
-LATER = {"ROM_tarquinius": "despotism"}
+LATER = {"ROM_tarquinius": "despotism", "PRS_oroetes": "fascism_ideology"}
 # the leader in power at the start where it is not the first one recruited
-START_LEADER = {"ROM": "ROM_senate"}
+START_LEADER = {"ROM": "ROM_senate", "PRS": "PRS_darius"}

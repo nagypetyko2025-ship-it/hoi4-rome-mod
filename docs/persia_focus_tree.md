@@ -157,3 +157,23 @@ Peti szerint Perzsia több mint félmillió fős emberanyaggal indul, ezért a m
 ### Könnyítés az AI-nak (48. kör)
 Ha Perzsiát az AI irányítja, a szatrapiák lázongása csak 30%-os ütemben nő: a kezdetén heti kb. 2,2, nem 7,3. Így az AI
 is kezelni tudja őket a döntéseivel. A játékos Perzsiája marad a kemény tempónál.
+
+## Két út (49. kör)
+Perzsia kezdőfája csak két fókuszból áll, a két irány első fókuszából. A kettő kizárja egymást, és amelyiket elvégzed,
+az a teljes fát lecseréli a sajátjára (`load_focus_tree`).
+- **King of Kings** → az eddigi nagy birodalmi fa (`PRS_empire_focus`).
+- **The Satraps' Revolt** → a lázadók fája (`PRS_satraps_focus`):
+  - Egyiptom (KMT), Arabaya (ARB, új: Ebir-Nari és Yehud) és Baktria (BKT) háború nélkül függetlenedik, saját sereggel;
+  - a nyugati szatrapák Oroitészt, Szardeisz szatrapáját koronázzák királlyá: a játékos Perzsiája a „zsarnokság”
+    (fascism) ideológiára vált, a főváros Szardeisz lesz;
+  - Persis, Média és a kelet (20 állam) Dareioszhoz hű marad, és polgárháború tör ki („Achaemenid Loyalists”, saját zászló);
+  - Lüdia nem lázadhat (ott a király székhelye), Babilon és Iónia lázongása 20-ra áll, a lázongás ezen az úton
+    hetente 2,0-vel lassabban nő.
+- **A lázadók fája** (13 fókusz):
+  - az első feladat a polgárháború megnyerése: az első fókusz („A King of Kings in Sardis”) csak utána érhető el;
+  - választás: a szatrapák tanácsa ↔ a Nyugat kardja;
+  - a Tízezer (görög zsoldosok), Szardeisz a világ fővárosa, Persis megalázása;
+  - Egyiptom, Arabaya és Baktria visszaszerzése (háborús célok);
+  - az Égei-tenger ura, föld és víz az új királynak, Hellász meghódol;
+  - zárás: új dinasztia.
+- Az AI sosem választja a lázadás útját.

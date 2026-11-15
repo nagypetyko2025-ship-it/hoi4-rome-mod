@@ -1098,3 +1098,12 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Negyvennyolcadik kör (2026-11-15, Claude) – könnyítés az AI-Perzsiának
 - Ha Perzsiát az AI irányítja, a szatrapiák lázongása 30%-os ütemben nő (kezdetben heti kb. 2,2). A játékos
   Perzsiájára továbbra is a teljes tempó vonatkozik.
+
+## Negyvenkilencedik kör (2026-11-15, Claude) – Perzsia két útja
+- A perzsa kezdőfa két fókusz, a két irány első fókusza. Amelyiket elvégzed, az a teljes fát lecseréli a sajátjára.
+  - **King of Kings:** a nagy birodalmi fa.
+  - **The Satraps' Revolt:**
+    - Egyiptom, Arabaya (új felszabadítható ország) és Baktria függetlenedik;
+    - Oroitész, Szardeisz szatrapája lesz a király (zsarnokság), Persis és a kelet Dareioszhoz hű marad, és polgárháború tör ki;
+    - a megnyerése után nyílik a lázadók saját fája (13 fókusz).
+- A content.py egy országhoz több fát is tud írni (`tree(..., key=, load_only=True)` a national_trees.py-ban).

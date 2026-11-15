@@ -240,3 +240,102 @@ PRS_revolt_bactria = {
 	PRS_unrest_update = yes
 }
 
+PRS_secede_KMT = {
+	if = {
+		limit = { NOT = { country_exists = KMT } any_owned_state = { is_core_of = KMT } }
+		release = KMT
+		if = { limit = { KMT = { is_subject_of = PRS } } end_puppet = KMT }
+		KMT = {
+			add_manpower = 40000
+			division_template = {
+				name = "Host of the Rising"
+				regiments = {
+					ante_spearmen = { x = 0 y = 0 }
+					ante_spearmen = { x = 0 y = 1 }
+					ante_levy = { x = 0 y = 2 }
+					ante_archers = { x = 1 y = 0 }
+				}
+			}
+			capital_scope = {
+			create_unit = { division = "name = \"Guard 1\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Guard 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			}
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2500 producer = KMT }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1000 producer = KMT }
+		}
+		log = "ANTE|[GetDateText]|secede|PRS|KMT"
+	}
+}
+
+PRS_secede_ARB = {
+	if = {
+		limit = { NOT = { country_exists = ARB } any_owned_state = { is_core_of = ARB } }
+		release = ARB
+		if = { limit = { ARB = { is_subject_of = PRS } } end_puppet = ARB }
+		ARB = {
+			add_manpower = 24000
+			division_template = {
+				name = "Host of the Rising"
+				regiments = {
+					ante_spearmen = { x = 0 y = 0 }
+					ante_spearmen = { x = 0 y = 1 }
+					ante_levy = { x = 0 y = 2 }
+					ante_archers = { x = 1 y = 0 }
+				}
+			}
+			capital_scope = {
+			create_unit = { division = "name = \"Guard 1\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ARB }
+			create_unit = { division = "name = \"Guard 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ARB }
+			create_unit = { division = "name = \"Guard 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ARB }
+			create_unit = { division = "name = \"Guard 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ARB }
+			create_unit = { division = "name = \"Guard 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ARB }
+			create_unit = { division = "name = \"Guard 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ARB }
+			}
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 1500 producer = ARB }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 600 producer = ARB }
+		}
+		log = "ANTE|[GetDateText]|secede|PRS|ARB"
+	}
+}
+
+PRS_secede_BKT = {
+	if = {
+		limit = { NOT = { country_exists = BKT } any_owned_state = { is_core_of = BKT } }
+		release = BKT
+		if = { limit = { BKT = { is_subject_of = PRS } } end_puppet = BKT }
+		BKT = {
+			add_manpower = 32000
+			division_template = {
+				name = "Host of the Rising"
+				regiments = {
+					ante_spearmen = { x = 0 y = 0 }
+					ante_spearmen = { x = 0 y = 1 }
+					ante_levy = { x = 0 y = 2 }
+					ante_archers = { x = 1 y = 0 }
+				}
+			}
+			capital_scope = {
+			create_unit = { division = "name = \"Guard 1\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Guard 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			}
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2000 producer = BKT }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 800 producer = BKT }
+		}
+		log = "ANTE|[GetDateText]|secede|PRS|BKT"
+	}
+}
+

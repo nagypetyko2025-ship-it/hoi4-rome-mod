@@ -797,6 +797,42 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	ARB_adv_g1 = {
+		name = ARB_adv_g1
+		portraits = { civilian = { small = "GFX_ante_adv_greek_0" } army = { small = "GFX_ante_adv_greek_0" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = ARB_adv_g1
+			allowed = { original_tag = ARB }
+			traits = { ante_adv_philosopher }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ARB_adv_g2 = {
+		name = ARB_adv_g2
+		portraits = { civilian = { small = "GFX_ante_adv_greek_5" } army = { small = "GFX_ante_adv_greek_5" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = ARB_adv_g2
+			allowed = { original_tag = ARB }
+			traits = { ante_adv_orator }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ARB_adv_g3 = {
+		name = ARB_adv_g3
+		portraits = { civilian = { small = "GFX_ante_adv_greek_1" } army = { small = "GFX_ante_adv_greek_1" } }
+		advisor = {
+			slot = political_advisor
+			idea_token = ARB_adv_g3
+			allowed = { original_tag = ARB }
+			traits = { ante_adv_high_priest }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
 	ARD_adv_g1 = {
 		name = ARD_adv_g1
 		portraits = { civilian = { small = "GFX_ante_adv_latin_2" } army = { small = "GFX_ante_adv_latin_2" } }

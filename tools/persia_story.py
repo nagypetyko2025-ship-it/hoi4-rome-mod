@@ -293,12 +293,24 @@ EMPIRE_BREAKS += ["}"]
 def collapse_event():
     states = " ".join(str(s) for s in pretender_states())
     eff = "\n".join(EMPIRE_BREAKS) + f"""
-start_civil_war = {{
-	ideology = fascism
-	size = 0.3
-	states = {{ {states} }}
-	states_filter = {{ is_owned_by = ROOT }}
-	set_cosmetic_tag = PRS_PRETENDER
+if = {{
+	limit = {{ NOT = {{ has_government = fascism }} }}
+	start_civil_war = {{
+		ideology = fascism
+		size = 0.3
+		states = {{ {states} }}
+		states_filter = {{ is_owned_by = ROOT }}
+		set_cosmetic_tag = PRS_PRETENDER
+	}}
+}}
+else = {{
+	start_civil_war = {{
+		ideology = neutrality
+		size = 0.3
+		states = {{ {states} }}
+		states_filter = {{ is_owned_by = ROOT }}
+		set_cosmetic_tag = PRS_PRETENDER
+	}}
 }}
 log = "ANTE|[GetDateText]|empire_breaks|PRS|PRS"
 """ + "\n".join(f"set_variable = {{ PRS_unrest_{k} = 20 }}" for k, *_ in SATRAPIES) + "\nPRS_unrest_update = yes"
@@ -492,12 +504,12 @@ LOC["PRS_great_king_category_desc"] = ("Darius rules twenty peoples. One goal re
                                        "of the World.")
 
 
-def pretender_flag():
-    """the Median pretender: a dark field with a golden winged sun disc (own art)"""
+def pretender_flag(key="PRS_PRETENDER", field=(60, 40, 80)):
+    """a pretender or the loyalists: a dark field with a golden winged sun disc (own art)"""
     from PIL import Image, ImageDraw
     S = 4
     W, H = 82 * S, 52 * S
-    im = Image.new("RGBA", (W, H), (60, 40, 80, 255))
+    im = Image.new("RGBA", (W, H), field + (255,))
     d = ImageDraw.Draw(im)
     gold = (226, 182, 72, 255)
     cx, cy = W // 2, H // 2
@@ -509,9 +521,91 @@ def pretender_flag():
                        (cx + side * (30 - 4 * k) * S, y + 2 * S), (cx + side * 8 * S, y + 3 * S)], fill=gold)
     big = im.resize((82, 52), Image.LANCZOS)
     for sub, size in (("", (82, 52)), ("medium", (41, 26)), ("small", (10, 7))):
-        p = (MOD / "gfx" / "flags" / sub / "PRS_PRETENDER.tga") if sub else (MOD / "gfx" / "flags" / "PRS_PRETENDER.tga")
+        p = (MOD / "gfx" / "flags" / sub / f"{key}.tga") if sub else (MOD / "gfx" / "flags" / f"{key}.tga")
         p.parent.mkdir(parents=True, exist_ok=True)
         big.resize(size, Image.LANCZOS).save(p)
+
+
+# ------------------------------------------------------------------ the Satraps' Revolt (round 49, Peti)
+# The left road of Persia's start tree: Egypt, Arabaya and Bactria go free (not at war), the satraps of the west crown
+# Oroetes of Sardis (the player's Persia becomes the 'tyranny' of the ancient world), and Persis, Media and the east
+# stay loyal to Darius in a civil war. The usurper's own tree (national_trees.py, PRS_satraps) starts once it is won.
+SECEDE = {"KMT": 10, "ARB": 6, "BKT": 8}    # divisions of the countries that go free
+LOYAL_REGIONS = ("Parsa", "Uvja", "Mada", "Raga", "Karmana", "Maka", "Varkana", "Parthava", "Haraiva", "Zranka",
+                 "Harauvatish")
+
+
+def secede_effect(tag, n):
+    units = "\n".join(
+        f'\t\t\tcreate_unit = {{ division = "name = \\"Guard {i + 1}\\" division_template = \\"Host of the Rising\\" '
+        f'start_experience_factor = 0.2 start_equipment_factor = 1" owner = {tag} }}' for i in range(n))
+    return f"""PRS_secede_{tag} = {{
+	if = {{
+		limit = {{ NOT = {{ country_exists = {tag} }} any_owned_state = {{ is_core_of = {tag} }} }}
+		release = {tag}
+		if = {{ limit = {{ {tag} = {{ is_subject_of = PRS }} }} end_puppet = {tag} }}
+		{tag} = {{
+			add_manpower = {4000 * n}
+			division_template = {{
+				name = "Host of the Rising"
+				regiments = {{
+					ante_spearmen = {{ x = 0 y = 0 }}
+					ante_spearmen = {{ x = 0 y = 1 }}
+					ante_levy = {{ x = 0 y = 2 }}
+					ante_archers = {{ x = 1 y = 0 }}
+				}}
+			}}
+			capital_scope = {{
+{units}
+			}}
+			add_equipment_to_stockpile = {{ type = ante_arms_equipment_1 amount = {250 * n} producer = {tag} }}
+			add_equipment_to_stockpile = {{ type = ante_ranged_equipment_1 amount = {100 * n} producer = {tag} }}
+		}}
+		log = "ANTE|[GetDateText]|secede|PRS|{tag}"
+	}}
+}}
+"""
+
+
+for _t, _n in SECEDE.items():
+    EFFECTS.append(secede_effect(_t, _n))
+
+
+def loyal_states():
+    return _states_where(lambda name, owner, t: owner == "PRS" and any(r in name for r in LOYAL_REGIONS))
+
+
+def sardis():
+    return _states_where(lambda name, owner, t: name == "Sparda")[0]
+
+
+LOC["PRS_TT_SATRAPS_REVOLT"] = ("§YEgypt, Arabaya and Bactria§! go free. The satraps of the west crown §YOroetes of Sardis§! "
+                                "(Tyranny); §RPersis, Media and the east§! stay loyal to Darius in a §Rcivil war§!. "
+                                "Win it - then the usurper's own focus tree opens.")
+LOC["PRS_LOYALISTS"] = "Achaemenid Loyalists"
+LOC["PRS_LOYALISTS_DEF"] = "the Achaemenid Loyalists"
+LOC["PRS_LOYALISTS_ADJ"] = "Loyalist"
+for _ide in ("democratic", "fascism", "communism", "neutrality"):
+    LOC[f"PRS_LOYALISTS_{_ide}"] = LOC["PRS_LOYALISTS"]
+    LOC[f"PRS_LOYALISTS_{_ide}_DEF"] = LOC["PRS_LOYALISTS_DEF"]
+    LOC[f"PRS_LOYALISTS_{_ide}_ADJ"] = LOC["PRS_LOYALISTS_ADJ"]
+DRIFT_FLAGS["PRS_satraps_road"] = -2.0      # the satraps rule: the satrapies are calmer on this road
+SATRAPS_REVOLT = "\n".join([
+    "set_country_flag = PRS_satraps_road", "custom_effect_tooltip = PRS_TT_SATRAPS_REVOLT", "hidden_effect = {",
+    "\tPRS_secede_KMT = yes", "\tPRS_secede_ARB = yes", "\tPRS_secede_BKT = yes",
+    f"\tset_capital = {{ state = {sardis()} }}",
+    "\tset_politics = { ruling_party = fascism elections_allowed = no }",
+    "\tset_popularities = { fascism = 70 neutrality = 30 democratic = 0 communism = 0 }",
+    "\tpromote_character = PRS_oroetes",
+    "\tstart_civil_war = {", "\t\tideology = neutrality", "\t\tsize = 0.5",
+    "\t\tstates = { " + " ".join(str(x) for x in loyal_states()) + " }",
+    "\t\tstates_filter = { is_owned_by = ROOT }", "\t\tset_cosmetic_tag = PRS_LOYALISTS", "\t}",
+    "\tset_country_flag = PRS_integrated_lydia",      # Sardis is the King's city now: Lydia does not rise against it
+    "\tset_variable = { PRS_unrest_lydia = 0 }",
+    "\tset_variable = { PRS_unrest_babylon = 20 }", "\tset_variable = { PRS_unrest_ionia = 20 }",
+    "\tPRS_unrest_update = yes",
+    '\tlog = "ANTE|[GetDateText]|satraps_revolt|PRS|PRS"', "}",
+    "add_war_support = 0.15", "add_political_power = 100"])
 
 
 WEEKLY = ""   # filled by build() (needs history/states)
@@ -544,4 +638,5 @@ def write_all():
           + "\n\n".join(DECISIONS) + "\n}\n\nPRS_great_king_category = {\n" + "\n\n".join(goal) + "\n}\n")
     write("common/decisions/categories/PRS_categories.txt", CATEGORY)
     pretender_flag()
+    pretender_flag("PRS_LOYALISTS", (120, 26, 30))
     return len(EVENTS), len(DECISIONS) + len(goal)

@@ -323,10 +323,12 @@ def check_tree(tree):
             assert idea in IDEAS, f"{f['id']}: unknown idea {idea}"
 
 
-def focus_file(tree_id="ante_generic_focus", tree=None, tag=None, show="ante_tame_the_land", note=""):
+def focus_file(tree_id="ante_generic_focus", tree=None, tag=None, show="ante_tame_the_land", note="", load_only=False):
     """the generic tree (default = yes) or, with tag, a country's own tree"""
     tree = F if tree is None else tree
-    if tag:
+    if load_only:     # reached only through load_focus_tree (round 49: Persia's two roads)
+        country = ["\tcountry = {", "\t\tfactor = 0", "\t}", "\tdefault = no"]
+    elif tag:
         country = ["\tcountry = {", "\t\tfactor = 0", f"\t\tmodifier = {{ add = 10 tag = {tag} }}", "\t}", "\tdefault = no"]
     else:
         country = ["\tcountry = {", "\t\tfactor = 1", "\t}", "\tdefault = yes"]
@@ -356,7 +358,7 @@ def focus_file(tree_id="ante_generic_focus", tree=None, tag=None, show="ante_tam
 def on_actions_file():
     """ante_realm_states = states we control + the states our subjects control (focus conditions, realm() in
     national_trees.py). Only for the countries with a tree of their own; at the start and every week."""
-    tags = " ".join(f"tag = {t}" for t in TREES)
+    tags = " ".join(f"tag = {t}" for t in sorted({tr.get("tag", k) for k, tr in TREES.items()}))
     eff = ["\t\teffect = {", f"\t\t\tevery_country = {{", f"\t\t\t\tlimit = {{ OR = {{ {tags} }} }}",
            "\t\t\t\tset_variable = { ante_realm_states = num_controlled_states }",
            "\t\t\t\tevery_subject_country = {",
@@ -446,10 +448,11 @@ def main():
     write("common/national_focus/ante_generic_focus.txt", focus_file())
     ids = [f["id"] for f in F + COUNTRY_FOCUSES]
     assert len(ids) == len(set(ids)), "duplicate focus id"
-    for tag, t in TREES.items():
+    for key, t in TREES.items():
         check_tree(t["focuses"])
         assert t["focuses"][0]["id"] == t["show"]
-        write(f"common/national_focus/{tag}_focus.txt", focus_file(f"{tag}_focus", t["focuses"], tag, t["show"], t["note"]))
+        write(f"common/national_focus/{key}_focus.txt", focus_file(f"{key}_focus", t["focuses"], t.get("tag", key),
+                                                                    t["show"], t["note"], t.get("load_only", False)))
     write("common/ideas/ante_generic_ideas.txt", ideas_file())
     n_events, n_decisions = rome_story.write_all()
     print(f"Rome: {n_events} events, {n_decisions} decisions, two meters")

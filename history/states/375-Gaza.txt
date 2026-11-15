@@ -6,6 +6,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = ARB
 		victory_points = { 6401 3 }  # Gaza
 		buildings = {
 			infrastructure = 4

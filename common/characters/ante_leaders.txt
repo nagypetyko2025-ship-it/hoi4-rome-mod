@@ -30,6 +30,16 @@ characters = {
 			id = -1
 		}
 	}
+	PRS_oroetes = {
+		name = PRS_oroetes
+		portraits = { civilian = { large = "gfx/leaders/ante/PRS_oroetes.dds" } }
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { ante_war_leader }
+			expire = "999.1.1.1"
+			id = -1
+		}
+	}
 	PRS_darius = {
 		name = PRS_darius
 		portraits = { civilian = { large = "gfx/leaders/ante/PRS_darius.dds" } }

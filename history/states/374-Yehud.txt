@@ -11,6 +11,7 @@ state = {
 	history = {
 		owner = PRS
 		add_core_of = PRS
+		add_core_of = ARB
 		victory_points = { 6334 4 }  # Yerushalem
 		buildings = {
 			infrastructure = 4
