@@ -573,15 +573,18 @@ def pretender_flag(key="PRS_PRETENDER", field=(60, 40, 80)):
 
 
 # ------------------------------------------------------------------ the Satraps' Revolt (round 49, Peti)
-# The left road of Persia's start tree: Egypt, Arabaya and Bactria go free (not at war), the satraps of the west crown
+# The left road of Persia's start tree: Egypt, Arabaya and Bactria go free (not at war), Babylon and Ionia rise (war), the satraps of the west crown
 # Oroetes of Sardis (the player's Persia becomes the 'tyranny' of the ancient world), and Persis, Media and the east
 # stay loyal to Darius in a civil war. The usurper's own tree (national_trees.py, PRS_satraps) starts once it is won.
-SECEDE = {"KMT": 10, "ARB": 6, "BKT": 8}    # divisions of the countries that go free
+# round 54 (Peti): Egypt, Arabaya and Bactria go free in peace; Babylon and Ionia rise and fight in the civil war
+SECEDE = {"KMT": 10, "ARB": 6, "BKT": 8, "BBL": 12, "ION": 8}    # divisions of the countries that go free
+FIGHT = {"BBL", "ION"}
 LOYAL_REGIONS = ("Parsa", "Uvja", "Mada", "Raga", "Karmana", "Maka", "Varkana", "Parthava", "Haraiva", "Zranka",
                  "Harauvatish")
 
 
-def secede_effect(tag, n):
+def secede_effect(tag, n, war=False):
+    fight = "\t\t\tdeclare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war\n" if war else ""
     units = "\n".join(
         f'\t\t\tcreate_unit = {{ division = "name = \\"Guard {i + 1}\\" division_template = \\"Host of the Rising\\" '
         f'start_experience_factor = 0.2 start_equipment_factor = 1" owner = {tag} }}' for i in range(n))
@@ -606,8 +609,7 @@ def secede_effect(tag, n):
 			}}
 			add_equipment_to_stockpile = {{ type = ante_arms_equipment_1 amount = {250 * n} producer = {tag} }}
 			add_equipment_to_stockpile = {{ type = ante_ranged_equipment_1 amount = {100 * n} producer = {tag} }}
-			declare_war_on = {{ target = PRS type = annex_everything }}   # they fight in the civil war (round 53)
-		}}
+{fight}		}}
 		log = "ANTE|[GetDateText]|secede|PRS|{tag}"
 	}}
 }}
@@ -615,7 +617,7 @@ def secede_effect(tag, n):
 
 
 for _t, _n in SECEDE.items():
-    EFFECTS.append(secede_effect(_t, _n))
+    EFFECTS.append(secede_effect(_t, _n, _t in FIGHT))
 
 
 def loyal_states():
@@ -626,7 +628,8 @@ def sardis():
     return _states_where(lambda name, owner, t: name == "Sparda")[0]
 
 
-LOC["PRS_TT_SATRAPS_REVOLT"] = ("§YEgypt, Arabaya and Bactria§! break away and §Rmake war on you§!. The satraps of the west "
+LOC["PRS_TT_SATRAPS_REVOLT"] = ("§YEgypt, Arabaya and Bactria§! go their own way in peace; §RBabylon and Ionia§! rise and "
+                                "§Rmake war on you§!. The satraps of the west "
                                 "crown §YOroetes of Sardis§! (Tyranny) - the §YSatrap Empire§!; §RPersis, Media and the "
                                 "east§! stay loyal to Darius in a §Rcivil war§!. The satrapies no longer rise against you. "
                                 "Win the war for the throne - then the usurper's own focus tree opens.")
@@ -660,6 +663,7 @@ SATRAPS_REVOLT = "\n".join([
     "set_country_flag = PRS_satraps_road", "custom_effect_tooltip = PRS_TT_SATRAPS_REVOLT", "hidden_effect = {",
     "\tset_cosmetic_tag = PRS_SATRAPS",
     "\tPRS_secede_KMT = yes", "\tPRS_secede_ARB = yes", "\tPRS_secede_BKT = yes",
+    "\tPRS_secede_BBL = yes", "\tPRS_secede_ION = yes",
     f"\tset_capital = {{ state = {sardis()} }}",
     "\tset_politics = { ruling_party = fascism elections_allowed = no }",
     "\tset_popularities = { fascism = 70 neutrality = 30 democratic = 0 communism = 0 }",

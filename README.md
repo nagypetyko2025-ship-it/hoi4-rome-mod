@@ -1127,3 +1127,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   Baktriával megnemtámadási szerződés. Ezen az úton nincs szatrapia-lázongás.
 - Új, 25 fókuszos fa: Szardeisz gazdasága és ipara, a trón, Arabaya visszaszerzése, hódítás a Balkánon (Thrákia,
   Illíria, a pontoszi városok, Hellász). Cél: a „King of Europe and Asia” döntés, saját győzelmi képernyővel.
+
+## Ötvennegyedik kör (2026-11-15, Claude) – ki szakad el békésen
+- A Satraps' Revolt után Egyiptom, Arabaya és Baktria békésen szakad el. Babilon és Iónia fellázad, és a
+  polgárháborúban harcol a Satrap Empire ellen.

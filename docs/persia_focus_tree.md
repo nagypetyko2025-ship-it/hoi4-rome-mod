@@ -217,8 +217,8 @@ Minden más a felére csökkent:
     (karmazsin mező, arany nap, arany sáv);
   - Oroitész karmazsin ruhát és magas tiarát visel, így nem hasonlít Dareioszra;
   - a lojalisták neve „Persian Empire”, az eredeti zászlóval és aranyszínnel.
-- **Harcolva szakadnak el:** Egyiptom, Arabaya és Baktria hadat üzen a Satrap Empire-nek, és a polgárháború idején
-  harcolnak.
+- **Elszakadás (54. kör javítás):** Egyiptom, Arabaya és Baktria **békésen** szakad el. **Babilon és Iónia** fellázad,
+  hadat üzen, és a polgárháborúban harcol (12, illetve 8 hadosztállyal).
 - **A győzelem után** („A King of Kings in Sardis”):
   - béke mindhármukkal, és megnemtámadási szerződés Egyiptommal és Baktriával;
   - csak Arabaya visszaszerzésére van fókusz.

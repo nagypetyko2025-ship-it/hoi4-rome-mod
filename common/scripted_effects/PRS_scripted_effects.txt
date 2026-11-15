@@ -270,7 +270,6 @@ PRS_secede_KMT = {
 			}
 			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2500 producer = KMT }
 			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1000 producer = KMT }
-			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war (round 53)
 		}
 		log = "ANTE|[GetDateText]|secede|PRS|KMT"
 	}
@@ -302,7 +301,6 @@ PRS_secede_ARB = {
 			}
 			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 1500 producer = ARB }
 			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 600 producer = ARB }
-			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war (round 53)
 		}
 		log = "ANTE|[GetDateText]|secede|PRS|ARB"
 	}
@@ -336,9 +334,80 @@ PRS_secede_BKT = {
 			}
 			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2000 producer = BKT }
 			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 800 producer = BKT }
-			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war (round 53)
 		}
 		log = "ANTE|[GetDateText]|secede|PRS|BKT"
+	}
+}
+
+PRS_secede_BBL = {
+	if = {
+		limit = { NOT = { country_exists = BBL } any_owned_state = { is_core_of = BBL } }
+		release = BBL
+		if = { limit = { BBL = { is_subject_of = PRS } } end_puppet = BBL }
+		BBL = {
+			add_manpower = 48000
+			division_template = {
+				name = "Host of the Rising"
+				regiments = {
+					ante_spearmen = { x = 0 y = 0 }
+					ante_spearmen = { x = 0 y = 1 }
+					ante_levy = { x = 0 y = 2 }
+					ante_archers = { x = 1 y = 0 }
+				}
+			}
+			capital_scope = {
+			create_unit = { division = "name = \"Guard 1\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 11\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Guard 12\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			}
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 3000 producer = BBL }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1200 producer = BBL }
+			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war
+		}
+		log = "ANTE|[GetDateText]|secede|PRS|BBL"
+	}
+}
+
+PRS_secede_ION = {
+	if = {
+		limit = { NOT = { country_exists = ION } any_owned_state = { is_core_of = ION } }
+		release = ION
+		if = { limit = { ION = { is_subject_of = PRS } } end_puppet = ION }
+		ION = {
+			add_manpower = 32000
+			division_template = {
+				name = "Host of the Rising"
+				regiments = {
+					ante_spearmen = { x = 0 y = 0 }
+					ante_spearmen = { x = 0 y = 1 }
+					ante_levy = { x = 0 y = 2 }
+					ante_archers = { x = 1 y = 0 }
+				}
+			}
+			capital_scope = {
+			create_unit = { division = "name = \"Guard 1\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Guard 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			}
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2000 producer = ION }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 800 producer = ION }
+			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war
+		}
+		log = "ANTE|[GetDateText]|secede|PRS|ION"
 	}
 }
 

@@ -55,6 +55,8 @@ focus_tree = {
 				PRS_secede_KMT = yes
 				PRS_secede_ARB = yes
 				PRS_secede_BKT = yes
+				PRS_secede_BBL = yes
+				PRS_secede_ION = yes
 				set_capital = { state = 385 }
 				set_politics = { ruling_party = fascism elections_allowed = no }
 				set_popularities = { fascism = 70 neutrality = 30 democratic = 0 communism = 0 }
