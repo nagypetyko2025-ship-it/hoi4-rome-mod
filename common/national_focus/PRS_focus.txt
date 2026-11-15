@@ -51,6 +51,7 @@ focus_tree = {
 			set_country_flag = PRS_satraps_road
 			custom_effect_tooltip = PRS_TT_SATRAPS_REVOLT
 			hidden_effect = {
+				set_cosmetic_tag = PRS_SATRAPS
 				PRS_secede_KMT = yes
 				PRS_secede_ARB = yes
 				PRS_secede_BKT = yes
@@ -65,11 +66,18 @@ focus_tree = {
 					states_filter = { is_owned_by = ROOT }
 					set_cosmetic_tag = PRS_LOYALISTS
 				}
+				set_country_flag = PRS_integrated_egypt
+				set_country_flag = PRS_integrated_babylon
+				set_country_flag = PRS_integrated_ionia
 				set_country_flag = PRS_integrated_lydia
+				set_country_flag = PRS_integrated_bactria
+				set_variable = { PRS_unrest_egypt = 0 }
+				set_variable = { PRS_unrest_babylon = 0 }
+				set_variable = { PRS_unrest_ionia = 0 }
 				set_variable = { PRS_unrest_lydia = 0 }
-				set_variable = { PRS_unrest_babylon = 20 }
-				set_variable = { PRS_unrest_ionia = 20 }
+				set_variable = { PRS_unrest_bactria = 0 }
 				PRS_unrest_update = yes
+				if = { limit = { has_dynamic_modifier = { modifier = PRS_satrapal_unrest } } remove_dynamic_modifier = { modifier = PRS_satrapal_unrest } }
 				log = "ANTE|[GetDateText]|satraps_revolt|PRS|PRS"
 			}
 			add_war_support = 0.15

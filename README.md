@@ -1119,3 +1119,11 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Ötvenkettedik kör (2026-11-15, Claude) – heti 1,5 lázongás
 - A szatrapiák lázongása a kezdetén heti 1,5 ponttal nő. Figyelem nélkül 8–10 hónap alatt lázadnak fel.
   Minden kapcsolódó érték a felére csökkent.
+
+## Ötvenharmadik kör (2026-11-15, Claude) – a Satrap Empire
+- A lázadók Perzsiája saját nevet („Satrap Empire”), zászlót, karmazsin térképszínt és saját kinézetű vezetőt
+  (Oroitész) kap. A lojalisták „Persian Empire” néven az eredeti zászlóval harcolnak.
+- Egyiptom, Arabaya és Baktria harcolva szakad el. A polgárháború megnyerése után béke van velük, és Egyiptommal meg
+  Baktriával megnemtámadási szerződés. Ezen az úton nincs szatrapia-lázongás.
+- Új, 25 fókuszos fa: Szardeisz gazdasága és ipara, a trón, Arabaya visszaszerzése, hódítás a Balkánon (Thrákia,
+  Illíria, a pontoszi városok, Hellász). Cél: a „King of Europe and Asia” döntés, saját győzelmi képernyővel.

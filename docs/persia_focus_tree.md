@@ -210,3 +210,29 @@ Minden más a felére csökkent:
 - a regionális fókuszok: −0,40;
 - a szatrapák útja: −0,4;
 - a heti emelkedés alsó határa: 0,1.
+
+## A Satrap Empire (53. kör)
+- **Név, zászló, szín, vezető:**
+  - a lázadás után a játékos Perzsiája a „Satrap Empire” nevet viseli, karmazsin színnel és saját zászlóval
+    (karmazsin mező, arany nap, arany sáv);
+  - Oroitész karmazsin ruhát és magas tiarát visel, így nem hasonlít Dareioszra;
+  - a lojalisták neve „Persian Empire”, az eredeti zászlóval és aranyszínnel.
+- **Harcolva szakadnak el:** Egyiptom, Arabaya és Baktria hadat üzen a Satrap Empire-nek, és a polgárháború idején
+  harcolnak.
+- **A győzelem után** („A King of Kings in Sardis”):
+  - béke mindhármukkal, és megnemtámadási szerződés Egyiptommal és Baktriával;
+  - csak Arabaya visszaszerzésére van fókusz.
+- **Nincs több szatrapia-lázongás** ezen az úton: a mérők nullázódnak, a szellem és a döntések eltűnnek.
+- **Új fa** (25 fókusz):
+  - **Szardeisz gazdasága:** Szardeisz pénzverdéje, Szardeisz a világ fővárosa, az út Európába, az ión műhelyek,
+    az arzenálok, az Égei-tenger ura, a Paktólosz aranya;
+  - **a trón:**
+    - választás: a szatrapák tanácsa ↔ a Nyugat kardja;
+    - a Tízezer, Persis megalázása, Arabaya visszaszerzése, sereg Európának;
+  - **hadjárat Európába:** át a Hellészpontoszon, a trák királyok, Makedónia meghódol, a Haimoszon túl (getak,
+    triballoszok), Paiónia és Dardania, föld és víz, az illír part, a pontoszi városok, Hellász meghódol,
+    Európa királya;
+  - **zárás:** új dinasztia.
+- **Cél:** a „King of Europe and Asia” döntés.
+  - Feltétel: Thrákia, Illíria, a pontoszi városok, Hellász és Makedónia, valamint Arabaya.
+  - Saját győzelmi képernyője van, és a csalás ezen az úton ezeket a területeket adja.

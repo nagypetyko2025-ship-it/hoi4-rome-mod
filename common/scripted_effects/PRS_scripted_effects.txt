@@ -270,6 +270,7 @@ PRS_secede_KMT = {
 			}
 			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2500 producer = KMT }
 			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1000 producer = KMT }
+			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war (round 53)
 		}
 		log = "ANTE|[GetDateText]|secede|PRS|KMT"
 	}
@@ -301,6 +302,7 @@ PRS_secede_ARB = {
 			}
 			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 1500 producer = ARB }
 			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 600 producer = ARB }
+			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war (round 53)
 		}
 		log = "ANTE|[GetDateText]|secede|PRS|ARB"
 	}
@@ -334,6 +336,7 @@ PRS_secede_BKT = {
 			}
 			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2000 producer = BKT }
 			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 800 producer = BKT }
+			declare_war_on = { target = PRS type = annex_everything }   # they fight in the civil war (round 53)
 		}
 		log = "ANTE|[GetDateText]|secede|PRS|BKT"
 	}

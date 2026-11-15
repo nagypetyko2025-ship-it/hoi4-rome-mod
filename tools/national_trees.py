@@ -737,11 +737,12 @@ def define(focus, build, infra, tech, wargoal):
         f(f"PRS_free_{k}", fname, fdesc, "alliance", x + 2, 8, [["PRS_king_of_the_world"]], PS.set_free(k),
           extra=mx(f"PRS_integrate_{k}"), cost=10, ai=1, avail=PS.can_settle(k))
 
-    # ============================================================== PERSIA - the Satraps' road (round 49, Peti)
-    # Loaded by The Satraps' Revolt. Its first task is the civil war: the first focus waits until it is won.
-    # The middle (x 0..10): the new king, his council or his sword, Sardis, the Ten Thousand; then win back Egypt,
-    # Arabaya and Bactria, take the Aegean and Hellas, and found a new dynasty.
-    f = tree("PRS", "PRS_s_king_in_sardis", "# Persia - the Satraps' road: Oroetes of Sardis, King of Kings (loaded by The Satraps' Revolt)",
+    # ============================================================== PERSIA - the Satraps' road (rounds 49, 53, Peti)
+    # Loaded by The Satraps' Revolt. Its first task is the civil war: the first focus waits until it is won, and then
+    # makes peace with Egypt and Bactria (friends from now on) - only Arabaya is to be won back. The Satrap Empire turns
+    # west: Thrace, Illyria, the Pontic cities and Hellas. Three branches: the economy of Sardis (x 0..4), the throne
+    # (x 5..9), the march into Europe (x 11..15). Its goal is the decision King of Europe and Asia.
+    f = tree("PRS", "PRS_s_king_in_sardis", "# Persia - the Satraps' road: Oroetes of Sardis and the Satrap Empire (loaded by The Satraps' Revolt)",
              key="PRS_satraps", load_only=True)
     idea("PRS_s_council_spirit", "The Council of Satraps", "constitutional_guarantees", stability_factor=0.08,
          political_power_gain=0.10)
@@ -750,42 +751,78 @@ def define(focus, build, infra, tech, wargoal):
          army_attack_factor=0.05, army_org_factor=0.05)
     idea("PRS_s_new_dynasty_spirit", "A New Dynasty", "pp_unity_bonus", stability_factor=0.12, political_power_gain=0.20,
          industrial_capacity_factory=0.08)
+    idea("PRS_s_mint_spirit", "The Mint of Sardis", "economic_increase", political_power_gain=0.10,
+         production_speed_buildings_factor=0.05)
+    idea("PRS_s_pactolus_spirit", "The Gold of the Pactolus", "economic_increase", industrial_capacity_factory=0.10,
+         production_speed_buildings_factor=0.10)
+    idea("PRS_s_europe_spirit", "An Army for Europe", "supply_line", supply_consumption_factor=-0.10, army_speed_factor=0.05)
     LOC["PRS_TT_WIN_THE_THRONE"] = "The war for the throne is won (no civil war)"
     won = "custom_trigger_tooltip = {\n\ttooltip = PRS_TT_WIN_THE_THRONE\n\thas_civil_war = no\n}"
-    f("PRS_s_king_in_sardis", "A King of Kings in Sardis", "Darius is beaten; the loyalists of Persis are scattered. In Sardis, Oroetes wears the upright tiara - the first King of Kings the satraps made.",
-      "political_pressure", 5, 0, [], "add_political_power = 150\nadd_stability = 0.15\nadd_war_support = -0.05\n" + PS.unrest_all(-10),
+    f("PRS_s_king_in_sardis", "A King of Kings in Sardis", "Darius is beaten; the old Persia is no more. In Sardis, Oroetes wears the upright tiara - and makes peace with Egypt and Bactria: the Satrap Empire looks west.",
+      "political_pressure", 7, 0, [], "add_political_power = 150\nadd_stability = 0.15\nadd_war_support = -0.05\n" + PS.THRONE_PEACE,
       cost=5, avail=won, ai=10)
+    # --- the economy of Sardis (x 0..4)
+    f("PRS_s_mint", "The Mint of Sardis", "The Lydians struck the first coins of the world. The King's mint is in their city.",
+      "trade", 2, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_mint_spirit\n" + build("industrial_complex"), filters=I, ai=3)
+    f("PRS_s_sardis", "Sardis, Capital of the World", "The city of Croesus becomes the city of the King of Kings: palaces, markets and workshops.",
+      "construction2", 1, 2, [["PRS_s_mint"]], build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + infra(),
+      filters=I)
+    f("PRS_s_road_to_europe", "The Road to Europe", "From Sardis to the Hellespont: a paved road for the armies and the grain.",
+      "construct_infrastructure", 3, 2, [["PRS_s_mint"]], infra() + "\n" + infra() + "\n" + build("ante_farm"), filters=I)
+    f("PRS_s_ionian_workshops", "The Workshops of Ionia", "Miletus, Ephesus and Phocaea work for the King: cloth, pottery, bronze.",
+      "construct_civ_factory", 1, 3, [["PRS_s_sardis"]], build("industrial_complex") + "\n" + build("industrial_complex") + "\n"
+      "add_tech_bonus = { name = PRS_s_ionian_workshops bonus = 1 uses = 1 category = industry }", filters=I)
+    f("PRS_s_arsenals", "The Arsenals of Sardis", "Spears, shields and bows by the thousand for the march into Europe.",
+      "production", 3, 3, [["PRS_s_road_to_europe"]], build("arms_factory") + "\n" + build("arms_factory"), filters=I)
+    f("PRS_s_aegean", "Master of the Aegean", "Ionian shipwrights and Phoenician crews: a fleet for the King of the west.",
+      "build_navy", 2, 4, [["PRS_s_ionian_workshops", "PRS_s_arsenals"]], build("dockyard", "is_coastal = yes") + "\n"
+      + build("dockyard", "is_coastal = yes") + "\nnavy_experience = 20", extra=COAST, filters=I)
+    f("PRS_s_pactolus", "The Gold of the Pactolus", "The river of Sardis carries gold dust: Midas bathed in it, the King mines it.",
+      "construct_mil_factory", 2, 5, [["PRS_s_aegean"]], "add_ideas = PRS_s_pactolus_spirit\n" + build("industrial_complex"),
+      cost=15, filters=I)
+    # --- the throne (x 5..9)
     f("PRS_s_council", "The Council of Satraps", "The King rules with the satraps who made him: every great province has a voice at Sardis.",
-      "national_unity", 3, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_council_spirit\n" + PS.unrest_all(-15),
+      "national_unity", 5, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_council_spirit\nadd_stability = 0.05",
       extra=mx("PRS_s_sword"))
     f("PRS_s_sword", "The Sword of the West", "A king made by the sword keeps his throne by the sword.",
-      "major_war", 7, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_sword_spirit\narmy_experience = 20",
+      "major_war", 9, 1, [["PRS_s_king_in_sardis"]], "add_ideas = PRS_s_sword_spirit\narmy_experience = 20",
       extra=mx("PRS_s_council"), filters=M)
     f("PRS_s_ten_thousand", "The Ten Thousand", "Greek hoplites by the ten thousand, paid in Persian gold: the best infantry the King can buy.",
-      "small_arms", 1, 2, [["PRS_s_council", "PRS_s_sword"]], "add_ideas = PRS_s_ten_thousand_spirit\nadd_manpower = 10000",
+      "small_arms", 5, 2, [["PRS_s_council", "PRS_s_sword"]], "add_ideas = PRS_s_ten_thousand_spirit\nadd_manpower = 10000",
       filters=M)
-    f("PRS_s_sardis", "Sardis, Capital of the World", "The city of Croesus becomes the city of the King of Kings: palaces, mints and workshops.",
-      "construction2", 5, 2, [["PRS_s_council", "PRS_s_sword"]], build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + infra(),
-      filters=I)
     f("PRS_s_persis_humbled", "Persis Humbled", "The old nobility of Persis kneels before a king from the west - and pays.",
-      "political_pressure", 9, 2, [["PRS_s_council", "PRS_s_sword"]], "add_political_power = 100\n" + PS.unrest_all(-10))
-    f("PRS_s_egypt", "Egypt Returns", "The pharaoh of Sais will learn that the new King is not weaker than the old one.",
-      "territory_or_war", 1, 3, [["PRS_s_ten_thousand"]], wargoal("KMT") + "\n" + claims("KMT"))
-    f("PRS_s_arabaya", "Arabaya Returns", "Damascus, Jerusalem and Gaza: the road to Egypt runs through the Arab lands.",
-      "territory_or_war", 5, 3, [["PRS_s_sardis"]], wargoal("ARB") + "\n" + claims("ARB"))
-    f("PRS_s_bactria", "Bactria Returns", "The horsemen of the upper satrapies obey the King who rides out to meet them.",
-      "territory_or_war", 9, 3, [["PRS_s_persis_humbled"]], wargoal("BKT") + "\n" + claims("BKT"))
-    f("PRS_s_aegean", "Master of the Aegean", "Ionian shipwrights and Phoenician crews: a fleet for the King of the west.",
-      "build_navy", 3, 4, [["PRS_s_sardis"]], build("dockyard", "is_coastal = yes") + "\n" + build("dockyard", "is_coastal = yes")
-      + "\nnavy_experience = 20", extra=COAST, filters=I)
+      "political_pressure", 9, 2, [["PRS_s_council", "PRS_s_sword"]], "add_political_power = 100\nadd_stability = 0.05")
+    f("PRS_s_arabaya", "Arabaya Returns", "Damascus, Jerusalem and Gaza: the Arab lands broke away in the war for the throne. They come back.",
+      "territory_or_war", 9, 3, [["PRS_s_persis_humbled"]], wargoal("ARB") + "\n" + claims("ARB"))
+    f("PRS_s_army_for_europe", "An Army for Europe", "Bridges of boats, depots along the coast, guides who know the passes of the Haemus.",
+      "army_doctrines", 6, 3, [["PRS_s_ten_thousand"]], "add_ideas = PRS_s_europe_spirit\narmy_experience = 15", filters=M)
+    # --- the march into Europe (x 11..15)
+    f("PRS_s_hellespont", "Across the Hellespont", "Asia and Europe are a mile apart at Abydos. The King's army crosses.",
+      "position_armies", 13, 1, [["PRS_s_king_in_sardis"]], "army_experience = 10\n" + infra(), filters=M)
+    f("PRS_s_thrace", "The Thracian Kings", "The Odrysae, the Bessi and the island of Thasos: the first lands of Europe.",
+      "territory_or_war", 12, 2, [["PRS_s_hellespont"]], wargoal("ODR") + "\n" + wargoal("BES") + "\n" + claims("ODR", "BES", "THS"))
+    f("PRS_s_macedon", "Macedon Kneels", "The king of Macedon gave earth and water to Darius. He will give it to Oroetes.",
+      "territory_or_war", 14, 2, [["PRS_s_hellespont"]], submit("MKD") + "\n" + submit("CHK"))
+    f("PRS_s_haemus", "Beyond the Haemus", "North of the mountains: the Getae and the Triballi, riders of the Danube plain.",
+      "territory_or_war", 11, 3, [["PRS_s_thrace"]], wargoal("GTA") + "\n" + wargoal("TRB") + "\n" + claims("GTA", "TRB"))
+    f("PRS_s_dardania", "Paeonia and Dardania", "The highlands west of Macedon: Paeonian horsemen and Dardanian warriors.",
+      "territory_or_war", 13, 3, [["PRS_s_thrace", "PRS_s_macedon"]], wargoal("PAE") + "\n" + wargoal("DRD") + "\n" + claims("PAE", "DRD"))
     f("PRS_s_earth_and_water", "Earth and Water for the New King", "Athens and Eretria laughed at Darius. They will not laugh at Oroetes.",
-      "major_war", 7, 4, [["PRS_s_sardis"]], wargoal("ATH") + "\n" + wargoal("EUB") + "\n" + claims("ATH", "EUB"))
+      "major_war", 15, 3, [["PRS_s_macedon"]], wargoal("ATH") + "\n" + wargoal("EUB") + "\n" + claims("ATH", "EUB"))
+    f("PRS_s_pontic_cities", "The Pontic Cities", "Byzantion, Apollonia and Istros hold the grain road of the Black Sea.",
+      "occupy_states_coastal", 11, 4, [["PRS_s_haemus"]], submit("BYZ") + "\n" + submit("APP") + "\n" + submit("ITR"))
+    f("PRS_s_illyria", "The Illyrian Coast", "To the Adriatic: the Enchelei, the Taulantii, the Autariatae and Greek Epidamnos.",
+      "territory_or_war", 13, 4, [["PRS_s_dardania"]], wargoal("ENC") + "\n" + wargoal("TLN") + "\n" + wargoal("AUT") + "\n"
+      + claims("ENC", "TLN", "AUT", "EPD"))
     f("PRS_s_hellas", "Hellas Bows", "Sparta, Thebes, Corinth, Argos: from Sardis it is a short way across the sea.",
-      "major_war", 5, 5, [["PRS_s_aegean"], ["PRS_s_earth_and_water"]], wargoal("LAK") + "\n" + wargoal("THB") + "\n"
-      + claims(*PS.GREECE), cost=15)
-    f("PRS_s_new_dynasty", "A New Dynasty", "Not the house of Achaemenes, but the house of the satraps: a new dynasty for the four corners of the world. (The goal: the decision King of the Four Corners of the World.)",
-      "national_unity", 5, 6, [["PRS_s_hellas"], ["PRS_s_egypt"], ["PRS_s_arabaya"], ["PRS_s_bactria"]],
-      "add_ideas = PRS_s_new_dynasty_spirit\nadd_research_slot = 1\n" + PS.unrest_all(-20), cost=20, ai=3)
+      "major_war", 15, 4, [["PRS_s_earth_and_water"]], wargoal("LAK") + "\n" + wargoal("THB") + "\n" + claims(*PS.GREECE), cost=15)
+    f("PRS_s_king_of_europe", "King of Europe", "The Danube, the Adriatic and the Isthmus: Europe has a Great King. (The goal: the decision King of Europe and Asia.)",
+      "major_alliance", 13, 5, [["PRS_s_pontic_cities", "PRS_s_illyria"], ["PRS_s_hellas"]], "add_political_power = 150\nadd_war_support = 0.10",
+      cost=15, ai=3)
+    # --- the end
+    f("PRS_s_new_dynasty", "A New Dynasty", "Not the house of Achaemenes, but the house of the satraps: Sardis rules Asia and Europe.",
+      "national_unity", 7, 6, [["PRS_s_king_of_europe"], ["PRS_s_arabaya"], ["PRS_s_pactolus"]],
+      "add_ideas = PRS_s_new_dynasty_spirit\nadd_research_slot = 1", cost=20, ai=3)
 
     # ============================================================== CARTHAGE (CAR) - plan: docs/carthage_focus_tree.md
     # Two roads at the root (mutually exclusive): the House of Mago (x 0..2) or the Hundred and Four (x 4..6).

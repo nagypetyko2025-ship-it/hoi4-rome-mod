@@ -2,6 +2,7 @@
 PRS_satrapies_category = {
 	icon = generic_political_actions
 	allowed = { original_tag = PRS }
+	visible = { NOT = { has_country_flag = PRS_satraps_road } }
 	priority = 100
 }
 

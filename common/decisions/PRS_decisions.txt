@@ -327,6 +327,7 @@ PRS_great_king_category = {
 		allowed = { original_tag = PRS }
 		visible = {
 			NOT = { has_country_flag = PRS_four_corners }
+			NOT = { has_country_flag = PRS_satraps_road }
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -467,6 +468,147 @@ PRS_great_king_category = {
 				add_core_of = ROOT
 			}
 			if = { limit = { is_ai = no NOT = { has_country_flag = ante_victory_shown } } set_country_flag = ante_victory_shown news_event = { id = ante_victory.3 days = 1 } }
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+
+	PRS_king_of_europe = {
+		icon = GFX_decision_generic_formable_nations
+		allowed = { original_tag = PRS }
+		visible = {
+			has_country_flag = PRS_satraps_road
+			NOT = { has_country_flag = PRS_king_of_europe }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PRS_TT_EUROPE_THRACE
+				277 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				279 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				280 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				281 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				282 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				283 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				284 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				285 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				286 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				287 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				288 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				289 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				290 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				291 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				292 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				293 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				294 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				295 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = PRS_TT_EUROPE_ILLYRIA
+				323 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				324 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				325 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				326 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				327 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				328 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				329 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				330 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = PRS_TT_EUROPE_PONTUS
+				265 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				266 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				267 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = PRS_TT_EUROPE_HELLAS
+				274 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				275 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				276 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				278 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				337 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				339 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				340 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				341 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				343 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				344 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				345 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				346 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = PRS_TT_EUROPE_ARABAYA
+				369 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				370 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				371 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				372 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				373 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				374 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+				375 = { controller = { OR = { tag = ROOT is_subject_of = ROOT } } }
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 265
+				state = 266
+				state = 267
+				state = 274
+				state = 275
+				state = 276
+				state = 277
+				state = 278
+				state = 279
+				state = 280
+				state = 281
+				state = 282
+				state = 283
+				state = 284
+				state = 285
+				state = 286
+				state = 287
+				state = 288
+				state = 289
+				state = 290
+				state = 291
+				state = 292
+				state = 293
+				state = 294
+				state = 295
+				state = 323
+				state = 324
+				state = 325
+				state = 326
+				state = 327
+				state = 328
+				state = 329
+				state = 330
+				state = 337
+				state = 339
+				state = 340
+				state = 341
+				state = 343
+				state = 344
+				state = 345
+				state = 346
+				state = 369
+				state = 370
+				state = 371
+				state = 372
+				state = 373
+				state = 374
+				state = 375
+			}
+		}
+		on_map_mode = decision_view_only
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			set_country_flag = PRS_king_of_europe
+			add_ideas = PRS_king_of_europe_spirit
+			every_owned_state = {
+				limit = { OR = { state = 265 state = 266 state = 267 state = 274 state = 275 state = 276 state = 277 state = 278 state = 279 state = 280 state = 281 state = 282 state = 283 state = 284 state = 285 state = 286 state = 287 state = 288 state = 289 state = 290 state = 291 state = 292 state = 293 state = 294 state = 295 state = 323 state = 324 state = 325 state = 326 state = 327 state = 328 state = 329 state = 330 state = 337 state = 339 state = 340 state = 341 state = 343 state = 344 state = 345 state = 346 state = 369 state = 370 state = 371 state = 372 state = 373 state = 374 state = 375 } }
+				add_core_of = ROOT
+			}
+			if = { limit = { is_ai = no NOT = { has_country_flag = ante_victory_shown } } set_country_flag = ante_victory_shown news_event = { id = ante_victory.4 days = 1 } }
 		}
 		ai_will_do = {
 			base = 100

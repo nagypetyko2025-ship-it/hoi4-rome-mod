@@ -40,6 +40,9 @@ STYLE = {
                     head="corinthian", beard="full", hairstyle="long", bg=(60, 25, 25)),
     "macedonian": dict(skin="olive", hair=["brown", "black"], cloth=(120, 40, 60), accent=(200, 170, 80),
                        head="kausia", beard="full", hairstyle="curly", bg=(40, 35, 55)),
+    # round 50: Oroetes, the satraps' king - crimson and a tall tiara, so he does not look like Darius
+    "satrap_king": dict(skin="olive", hair=["black"], cloth=(150, 30, 40), accent=(226, 182, 72), head="tall",
+                        beard="full", hairstyle="curly", bg=(60, 18, 22)),
     "persian": dict(skin="olive", hair=["black"], cloth=(90, 40, 110), accent=(214, 176, 70), head="crown",
                     beard="long", hairstyle="bun", bg=(70, 55, 25)),
     "punic": dict(skin="olive", hair=["black"], cloth=(120, 30, 80), accent=(210, 180, 90), head="cone",
@@ -71,7 +74,7 @@ STYLE = {
     "northern": dict(skin="pale", hair=["fair", "red", "brown"], cloth=(80, 90, 60), accent=(214, 176, 70),
                      head="none", beard="full", hairstyle="flowing", bg=(30, 45, 40)),
 }
-LEADER_STYLE = {"ROM_tarquinius": "roman_king"}   # a leader who looks unlike his people
+LEADER_STYLE = {"ROM_tarquinius": "roman_king", "PRS_oroetes": "satrap_king"}   # a leader who looks unlike his people
 TAG_STYLE = {"ROM": "roman", "CAR": "punic", "PRS": "persian", "ATH": "greek", "LAK": "spartan", "CLU": "etruscan",
              "LAT": "latin", "MKD": "macedonian", "SCY": "scythian", "KSH": "kushite", "KYR": "greek",
              "SAK": "saka", "AGA": "scythian", "KRO": "greek", "ODR": "thracian", "MSG": "saka", "SAU": "scythian",

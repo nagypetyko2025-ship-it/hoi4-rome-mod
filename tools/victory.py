@@ -31,6 +31,10 @@ VICTORIES = [   # (id, tag, picture, focus point of the crop (0..1 across, 0..1 
     (3, "PRS", "prs.jpg", (0.5, 0.45), "Victory! King of the Four Corners of the World",
      "The Greeks have bowed before us. We are the greatest power in the world: the wealth and prosperity we have "
      "created make us the centre of civilisation! And we held the empire together - we did not fall apart!"),
+    # round 53: the Satrap Empire (Persia's left road) has a goal of its own, King of Europe and Asia
+    (4, "PRS_SATRAPS", "prs.jpg", (0.5, 0.6), "Victory! King of Europe and Asia",
+     "Thrace, Illyria and Hellas bow to Sardis, and Arabaya is ours again. From the Danube to the Euphrates the Satrap "
+     "Empire rules both shores of the straits. The old dynasty had its day - this is ours!"),
 ]
 
 
@@ -80,6 +84,8 @@ def cheat_event():
     goal_tags = {t for _, tags, _ in PS.GOAL_GROUPS for t in tags}   # everything the Persian focus tree can win
     persia = sorted(set(PS._states_where(lambda name, owner, t: owner in goal_tags)
                         + PS.core_states("KMT") + PS.core_states("BBL")))
+    europe_tags = {t for _, tags, _ in PS.EUROPE_GROUPS for t in tags}
+    satraps = sorted(set(PS._states_where(lambda name, owner, t: owner in europe_tags) + PS.core_states("ARB")))
 
     def give(ids):
         return "\n".join(f"\t\t\ttransfer_state = {i}" for i in ids)
@@ -92,6 +98,8 @@ def cheat_event():
            "ANTE_TT_CHEAT_CAR": "Carthage receives the Punic lands. Take the decision 'The Punic Empire' for the victory.",
            "ANTE_TT_CHEAT_PRS": "Persia receives Hellas, Phoenicia, the steppe, Kush, the Marmaridae, Cyrene, Egypt and Babylon. Take the decision 'King of the Four Corners of "
                                 "the World' for the victory.",
+           "ANTE_TT_CHEAT_PRS_SATRAPS": "The Satrap Empire receives Thrace, Illyria, the Pontic cities, Hellas and Arabaya. "
+                                        "Take the decision 'King of Europe and Asia' for the victory.",
            "ANTE_TT_CHEAT_NONE": "This country has no goal: nothing happens."}
     ev = f"""country_event = {{
 	id = {n}
@@ -110,6 +118,11 @@ def cheat_event():
 			limit = {{ original_tag = CAR }}
 			custom_effect_tooltip = ANTE_TT_CHEAT_CAR
 {give(carthage)}
+		}}
+		else_if = {{
+			limit = {{ original_tag = PRS has_country_flag = PRS_satraps_road }}
+			custom_effect_tooltip = ANTE_TT_CHEAT_PRS_SATRAPS
+{give(satraps)}
 		}}
 		else_if = {{
 			limit = {{ original_tag = PRS }}

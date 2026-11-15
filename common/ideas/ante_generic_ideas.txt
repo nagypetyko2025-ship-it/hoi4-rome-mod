@@ -870,6 +870,33 @@ ideas = {
 				industrial_capacity_factory = 0.08
 			}
 		}
+		PRS_s_mint_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		PRS_s_pactolus_spirit = {
+			picture = generic_economic_increase
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		PRS_s_europe_spirit = {
+			picture = generic_supply_line
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				supply_consumption_factor = -0.1
+				army_speed_factor = 0.05
+			}
+		}
 		CAR_magonid_rule_spirit = {
 			picture = generic_central_management
 			allowed = { always = no }
@@ -1549,6 +1576,18 @@ ideas = {
 			}
 		}
 		PRS_four_corners_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.3
+				war_support_factor = 0.1
+				industrial_capacity_factory = 0.1
+				conscription = 0.02
+			}
+		}
+		PRS_king_of_europe_spirit = {
 			picture = generic_pp_unity_bonus
 			allowed = { always = no }
 			removal_cost = -1
