@@ -1290,6 +1290,11 @@ def define(focus, build, infra, tech, wargoal):
         """a war goal focus only when the target can be reached by land (or is gone)"""
         return f"OR = {{ NOT = {{ country_exists = {t} }} is_neighbor_of = {t} }}"
 
+    def land_reach(t):
+        """a war goal only across a common land border - ours or one of our subjects' (or the target is gone)"""
+        return (f"OR = {{\n\tNOT = {{ country_exists = {t} }}\n\tis_neighbor_of = {t}\n"
+                f"\tany_country = {{ is_subject_of = ROOT is_neighbor_of = {t} }}\n}}")
+
     def states(n):
         return realm(n)
 
@@ -1387,11 +1392,15 @@ def define(focus, build, infra, tech, wargoal):
         # the Senones: the migration needs the passes open (the Insubres as friends, or gone)
         "SEN_great_migration": (15, "OR = {\n\tis_in_faction_with = INS\n\tNOT = { country_exists = INS }\n\tINS = { is_subject_of = ROOT }\n}", ""),
         "SEN_vae_victis": (15, "", ""),
+        # Athens and Sparta: the war goal only across a common border (ours or a subject's - its land is ours to march)
+        "ATH_peloponnesian_war": (10, land_reach("LAK"), ""),
+        "LAK_against_athens": (None, land_reach("ATH"), ""),
     }
     allf = {fo["id"]: fo for t in TREES.values() for fo in t["focuses"]}
     for fid, (cost, avail, more) in TUNE.items():
         fo = allf[fid]
-        fo["cost"] = cost
+        if cost is not None:
+            fo["cost"] = cost
         if more:
             fo["reward"] += "\n" + more
         if avail:

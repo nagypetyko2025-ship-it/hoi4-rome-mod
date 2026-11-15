@@ -1151,3 +1151,14 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - **Havonta újraszámol** (és a játék kezdetén): 2 pont zászlóaljanként, 3 katonai műhelyenként, 2 polgári műhelyenként,
   2 hajógyáranként, 2 hajónként, 1 államonként. A sor tooltipje mutatja a pontszámot és a múlt havi helyezésváltozást.
 - Az ablak a gombbal vagy a bezáró X-szel zárható (első teszt után: eredetileg mindig látszott bal oldalt). Forrás: `tools/ranking.py` (content.py után futtatandó).
+
+## Ötvenhetedik kör (2026-11-15, Claude) – nagyhatalmi képernyő, tanácsadók, Spárta
+- **A „Powers” gomb** (jobb felső sarok) most egy nagy, középre nyíló ablakot nyit, a kutatási képernyőhöz hasonlóan:
+  öt oszlop (I Hegemon … V Minor Power), mindegyikben kártyák zászlóval, névvel, erősséggel és havi elmozdulással.
+  A legerősebb 15 ország látszik. A szintek meredekebbek (50 / 20 / 10,5 / 7,5 %), mert 245-ben Perzsia
+  négyszer erősebb Karthágónál. Az ablak a gombbal vagy az X-szel zárható (két külön scripted GUI: a régi
+  egy-ablakos változat nem zárt be).
+- **Nincsenek többé öltönyös modern tanácsadók:** az alapjáték `history/general/generic_advisors.txt` fájlja minden
+  saját tanácsadó nélküli országnak generált ilyeneket; a mod egy üres fájllal felülírja.
+- **Athén – Spárta:** a peloponnészoszi háború háborús célja csak közös szárazföldi határnál érhető el (Athéné vagy
+  egy bábjáé). Ugyanez Spárta Athén elleni fókuszánál.

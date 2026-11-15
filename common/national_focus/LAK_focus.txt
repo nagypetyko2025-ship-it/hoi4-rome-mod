@@ -222,9 +222,16 @@ focus_tree = {
 		prerequisite = { focus = LAK_peloponnesian_league }
 		x = 5
 		y = 4
-		cost = 15
+		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = {
+				NOT = { country_exists = ATH }
+				is_neighbor_of = ATH
+				any_country = { is_subject_of = ROOT is_neighbor_of = ATH }
+			}
+		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|LAK_against_athens"
 			if = { limit = { country_exists = ATH NOT = { has_war_with = ATH } }
@@ -232,7 +239,6 @@ focus_tree = {
 			}
 			every_state = { limit = { is_owned_by = ATH } add_claim_by = ROOT }
 			add_war_support = 0.05
-			add_stability = -0.05
 		}
 		ai_will_do = { factor = 1 }
 	}

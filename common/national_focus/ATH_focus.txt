@@ -547,6 +547,13 @@ focus_tree = {
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
+		available = {
+			OR = {
+				NOT = { country_exists = LAK }
+				is_neighbor_of = LAK
+				any_country = { is_subject_of = ROOT is_neighbor_of = LAK }
+			}
+		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|ATH_peloponnesian_war"
 			if = { limit = { country_exists = LAK NOT = { has_war_with = LAK } }

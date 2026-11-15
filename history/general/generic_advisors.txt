@@ -1,0 +1,3 @@
+# Ante Imperium: empty on purpose. The base game's generic_advisors.txt gives every country without its own
+# political advisors a set of modern ministers in suits (Communist Revolutionary, Fascist Demagogue, ...).
+# Our counsellors and war council come from tools/government.py.
