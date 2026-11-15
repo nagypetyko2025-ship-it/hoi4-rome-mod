@@ -1094,3 +1094,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - A döntések erősebbek, de sűrűn kellenek: a helyőrség 15 000 főbe kerül.
 - A felkelők 10–16 hadosztállyal és harci lelkesedéssel kelnek fel, Perzsia pedig embereket veszít.
 - A levert felkelés végleges: az a szatrapia soha többé nem lázad fel.
+
+## Negyvennyolcadik kör (2026-11-15, Claude) – könnyítés az AI-Perzsiának
+- Ha Perzsiát az AI irányítja, a szatrapiák lázongása 30%-os ütemben nő (kezdetben heti kb. 2,2). A játékos
+  Perzsiájára továbbra is a teljes tempó vonatkozik.

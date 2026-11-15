@@ -44,6 +44,7 @@ SATRAPIES = [("egypt", "KMT", "Egypt", 40), ("babylon", "BBL", "Babylon", 40), (
 # loses 6000 men for each of their divisions)
 REBELS = {"egypt": 16, "babylon": 14, "ionia": 10, "lydia": 12, "bactria": 12}
 DRIFT_PER_STATE = 0.09   # weekly unrest for every state Persia controls (round 47: 81 states = 7.3 a week)
+AI_DRIFT_FACTOR = 0.3    # an AI Persia: 30 % of that (2.2 a week at the start) - the AI cannot keep up (round 48)
 PRETENDER_REGIONS = ("Mada", "Raga", "Armina", "Varkana", "Parthava")      # the north rises with a pretender
 GREECE = ["ATH", "LAK", "THB", "KRN", "AGS", "EUB", "THL", "MKD"]           # the Great King's goal
 # the goal needs everything the focus tree can win (round 45, Peti): (tooltip key, original owners, text)
@@ -320,7 +321,9 @@ def weekly():
              "\tif = { limit = { has_stability < 0.5 } add_to_variable = { PRS_drift = 2.5 } }"]
     drift += [f"\tif = {{ limit = {{ has_country_flag = {f} }} add_to_variable = {{ PRS_drift = {v} }} }}"
               for f, v in DRIFT_FLAGS.items()]
-    drift += ["\tif = { limit = { check_variable = { PRS_drift < 0.5 } } set_variable = { PRS_drift = 0.5 } }"]
+    # round 48 (Peti): the AI cannot keep up with that pace - an AI Persia's satrapies grow at 30 %
+    drift += [f"\tif = {{ limit = {{ is_ai = yes }} multiply_variable = {{ PRS_drift = {AI_DRIFT_FACTOR} }} }}",
+              "\tif = { limit = { check_variable = { PRS_drift < 0.5 } } set_variable = { PRS_drift = 0.5 } }"]
     per = []
     for k, tag, _, _ in SATRAPIES:
         reg = " ".join(f"if = {{ limit = {{ has_country_flag = {f} }} add_to_variable = {{ PRS_unrest_{k} = {v} }} }}"

@@ -153,3 +153,7 @@ Peti szerint Perzsia több mint félmillió fős emberanyaggal indul, ezért a m
   - egy évig tartó „Fighting for Freedom” szellem: +15% támadás és védekezés;
   - Perzsia hadosztályonként 6000 főt veszít, mert a szatrapia hadereje átáll.
 - **A levert felkelés végleges:** ha a felkelő ország megszűnik, a szatrapia soha többé nem lázad fel. A magterületei törlődnek, és az integráló fókusza elérhető.
+
+### Könnyítés az AI-nak (48. kör)
+Ha Perzsiát az AI irányítja, a szatrapiák lázongása csak 30%-os ütemben nő: a kezdetén heti kb. 2,2, nem 7,3. Így az AI
+is kezelni tudja őket a döntéseivel. A játékos Perzsiája marad a kemény tempónál.
