@@ -1081,3 +1081,9 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   a szkíták és a masszageták, Kús, a Marmaridák, Kürené, és Egyiptom és Babilon megtartása. Összesen 52 állam,
   mind kiemelve a térképen.
 - A Kürené-fókusz háborús célt is ad a Marmaridák ellen. A győzelmi csalás Perzsiának mindet megadja.
+
+## Negyvenhatodik kör (2026-11-15, Claude) – lázadóbb szatrapiák
+- A szatrapiák lázongása heti 0,40-nel nő az eddigi 0,18 helyett. Háborúban, 50% alatti stabilitással és nagy
+  birodalommal még gyorsabban.
+- A fókuszok hatása a duplája lett, így odafigyeléssel a birodalom egyben tartható.
+- A 60 fölötti figyelmeztetés gyakrabban jön.

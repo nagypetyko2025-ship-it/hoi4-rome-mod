@@ -121,3 +121,11 @@ Peti: a cél túl könnyű volt. Most minden kell, amit Perzsia a fókuszaival m
 - Egyiptom és Babilon megtartva.
 
 Összesen 52 állam, a döntés mindet fehér körvonallal kiemeli. A király vagy az alattvalói kezében kell lenniük.
+
+### Agresszívabb lázongás (46. kör)
+Peti szerint a szatrapiák szinte sosem lázadtak fel, ezért a lázongás gyorsabban nő:
+- **alap:** heti 0,40 (évente kb. 21 pont, eddig 0,18);
+- **gyorsítók:** háború +0,25, 50% alatti stabilitás +0,25, 80-nál több állam +0,10, 100-nál több további +0,15;
+- **fókuszok:** minden lassító és gyorsító fókusz hatása a duplája lett (pl. a király szemei −0,10, a fáraó −0,20),
+  így egy jól vezetett birodalom kézben tudja tartani a szatrapiákat;
+- **figyelmeztető esemény:** 60 fölött hetente 10% eséllyel jön (eddig 6%).
