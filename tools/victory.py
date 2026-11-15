@@ -69,6 +69,59 @@ FIRE = {tag: ("if = { limit = { is_ai = no NOT = { has_country_flag = ante_victo
 WEEKLY = ""
 
 
+def cheat_event():
+    """the win cheat (round 43, Peti): the console has no commands of its own for a mod, but it fires events -
+    'event ante_victory.10' gives the country you play the land its goal needs. Rome's victory screen then comes
+    with the next weekly check; Carthage and Persia then have their goal decision ready to take."""
+    import formables as FM
+    import persia_story as PS
+    rome = sorted(set(FM.states_of(FM.PENINSULA) + FM.states_of(FM.SICILY) + FM.states_of(FM.PO)))
+    carthage = FM.states_of(FM.PUNIC)
+    persia = sorted(set(PS.greek_states() + PS.core_states("KMT") + PS.core_states("BBL")))
+
+    def give(ids):
+        return "\n".join(f"\t\t\ttransfer_state = {i}" for i in ids)
+    n = "ante_victory.10"
+    loc = {f"{n}.t": "The Gods Favour You", f"{n}.a": "So be it.",
+           f"{n}.d": "[Root.GetName] receives every land its goal needs (cheat: Rome - Italy, Sicily and the Po valley; "
+                     "Carthage - the Punic lands; Persia - Hellas, Egypt and Babylon). Countries without a goal get "
+                     "nothing.",
+           "ANTE_TT_CHEAT_ROM": "Rome receives all of Italy, Sicily and the Po valley. The victory screen follows within a week.",
+           "ANTE_TT_CHEAT_CAR": "Carthage receives the Punic lands. Take the decision 'The Punic Empire' for the victory.",
+           "ANTE_TT_CHEAT_PRS": "Persia receives Hellas, Egypt and Babylon. Take the decision 'King of the Four Corners of "
+                                "the World' for the victory.",
+           "ANTE_TT_CHEAT_NONE": "This country has no goal: nothing happens."}
+    ev = f"""country_event = {{
+	id = {n}
+	title = {n}.t
+	desc = {n}.d
+	picture = GFX_ante_event_war
+	is_triggered_only = yes
+	option = {{
+		name = {n}.a
+		if = {{
+			limit = {{ original_tag = ROM }}
+			custom_effect_tooltip = ANTE_TT_CHEAT_ROM
+{give(rome)}
+		}}
+		else_if = {{
+			limit = {{ original_tag = CAR }}
+			custom_effect_tooltip = ANTE_TT_CHEAT_CAR
+{give(carthage)}
+		}}
+		else_if = {{
+			limit = {{ original_tag = PRS }}
+			custom_effect_tooltip = ANTE_TT_CHEAT_PRS
+{give(persia)}
+		}}
+		else = {{ custom_effect_tooltip = ANTE_TT_CHEAT_NONE }}
+		log = "ANTE|[GetDateText]|cheat|[ROOT.GetTag]|win"
+	}}
+}}
+"""
+    return ev, loc
+
+
 def main():
     out = MOD / "gfx" / "event_pictures"
     out.mkdir(parents=True, exist_ok=True)
@@ -87,6 +140,9 @@ def main():
                    "\toption = {", f"\t\tname = {n}.b", f'\t\tlog = "ANTE|[GetDateText]|victory|[ROOT.GetTag]|continue"',
                    "\t}", "}", ""]
         loc += [f' {n}.t:0 "{title}"', f' {n}.d:0 "{text}"', f' {n}.a:0 "We won!"', f' {n}.b:0 "We continue!"']
+    ev, cheat_loc = cheat_event()
+    events.append(ev)
+    loc += [f' {k}:0 "{v}"' for k, v in cheat_loc.items()]
     sprites.append("}")
     (MOD / "interface" / "ante_victory.gfx").write_text("\n".join(sprites) + "\n", encoding="utf-8", newline="\n")
     (MOD / "events" / "ante_victory.txt").write_text("\n".join(events), encoding="utf-8", newline="\n")

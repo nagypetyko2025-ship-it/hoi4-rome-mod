@@ -1068,3 +1068,10 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   - **Perzsia:** a King of the Four Corners of the World döntés.
 - Képek: Vernet: Aemilius Paulus diadalmenete (CC0, Met); Turner: Dido Karthágót építi (közkincs); Perszepolisz,
   Apadana (CC0, Met). Lásd docs/ASSET_LICENSES.md.
+
+## Negyvenharmadik kör (2026-11-15, Claude) – győzelmi csalás tesztre
+- Konzolban (a 0 melletti § / ` billentyű): `event ante_victory.10`. Az ország, amellyel játszol, megkapja a célja összes területét:
+  - Róma: Itália, Szicília és a Pó-völgy (a győzelmi képernyő a heti ellenőrzésnél jön);
+  - Karthágó: a pun földek (utána a The Punic Empire döntés adja a győzelmet);
+  - Perzsia: Hellász, Egyiptom és Babilon (utána a King of the Four Corners döntés).
+  - Cél nélküli országgal nem történik semmi.
