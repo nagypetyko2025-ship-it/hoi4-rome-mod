@@ -2,7 +2,7 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			if = { limit = { tag = WLD } ANTE_update_ranking = yes }
+			WLD = { ANTE_update_ranking = yes }
 		}
 	}
 	on_monthly = {
