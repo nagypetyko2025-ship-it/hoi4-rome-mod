@@ -1278,7 +1278,7 @@
  PRS_honours_bactria:0 "Honour the Gods and Nobles of Bactria"
  PRS_honours_bactria_desc:0 "Gifts to the temples, offices and land for the great families of Bactria, a royal visit. (Unrest now: [?PRS_unrest_bactria|0].)"
  PRS_satrapies_category:0 "The Satrapies"
- PRS_satrapies_category_desc:0 "Unrest in the satrapies (0-100): Egypt §Y[?PRS_unrest_egypt|0]§!, Babylon §Y[?PRS_unrest_babylon|0]§!, Ionia §Y[?PRS_unrest_ionia|0]§!, Lydia and Phrygia §Y[?PRS_unrest_lydia|0]§!, Bactria §Y[?PRS_unrest_bactria|0]§!.\nThe size of the empire makes them grow every week - faster at war, with low stability and beyond 100 states. At §R60§! a satrapy grows restless, at §R100§! it rises; when three stand above §R70§! at once, the empire breaks into civil war."
+ PRS_satrapies_category_desc:0 "Unrest in the satrapies (0-100): Egypt §Y[?PRS_unrest_egypt|0]§!, Babylon §Y[?PRS_unrest_babylon|0]§!, Ionia §Y[?PRS_unrest_ionia|0]§!, Lydia and Phrygia §Y[?PRS_unrest_lydia|0]§!, Bactria §Y[?PRS_unrest_bactria|0]§!.\nThe size of the empire makes them grow every week - faster at war, with low stability and beyond 100 states. At §R60§! a satrapy grows restless, at §R100§! it rises; when two have risen and a third stands above §R70§!, the empire breaks into civil war."
  PRS_satrapal_unrest:0 "Unrest of the Satrapies (average [?PRS_unrest_avg|0])"
  PRS_satrapal_unrest_desc:0 "Twenty peoples, twenty satraps, one King. The decisions of the category 'The Satrapies' keep the restless ones quiet."
  PRS_PRETENDER:0 "Median Pretender"

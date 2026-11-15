@@ -201,13 +201,19 @@ on_actions = {
 				else = { set_variable = { PRS_unrest_bactria = 0 } }
 				PRS_unrest_update = yes
 				set_variable = { PRS_hot = 0 }
+				set_variable = { PRS_risen = 0 }
 				if = { limit = { check_variable = { PRS_unrest_egypt > 69.9 } } add_to_variable = { PRS_hot = 1 } }
 				if = { limit = { check_variable = { PRS_unrest_babylon > 69.9 } } add_to_variable = { PRS_hot = 1 } }
 				if = { limit = { check_variable = { PRS_unrest_ionia > 69.9 } } add_to_variable = { PRS_hot = 1 } }
 				if = { limit = { check_variable = { PRS_unrest_lydia > 69.9 } } add_to_variable = { PRS_hot = 1 } }
 				if = { limit = { check_variable = { PRS_unrest_bactria > 69.9 } } add_to_variable = { PRS_hot = 1 } }
+				if = { limit = { country_exists = KMT has_country_flag = PRS_revolted_egypt } add_to_variable = { PRS_risen = 1 } }
+				if = { limit = { country_exists = BBL has_country_flag = PRS_revolted_babylon } add_to_variable = { PRS_risen = 1 } }
+				if = { limit = { country_exists = ION has_country_flag = PRS_revolted_ionia } add_to_variable = { PRS_risen = 1 } }
+				if = { limit = { country_exists = LYD has_country_flag = PRS_revolted_lydia } add_to_variable = { PRS_risen = 1 } }
+				if = { limit = { country_exists = BKT has_country_flag = PRS_revolted_bactria } add_to_variable = { PRS_risen = 1 } }
 				if = {
-					limit = { check_variable = { PRS_hot > 2.9 } NOT = { has_country_flag = PRS_empire_broke } }
+					limit = { check_variable = { PRS_risen > 1.9 } check_variable = { PRS_hot > 0.9 } NOT = { has_country_flag = PRS_empire_broke } }
 					country_event = { id = ante_persia.40 }
 				}
 				else = {

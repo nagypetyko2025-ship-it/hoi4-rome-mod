@@ -1107,3 +1107,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
     - Oroitész, Szardeisz szatrapája lesz a király (zsarnokság), Persis és a kelet Dareioszhoz hű marad, és polgárháború tör ki;
     - a megnyerése után nyílik a lázadók saját fája (13 fókusz).
 - A content.py egy országhoz több fát is tud írni (`tree(..., key=, load_only=True)` a national_trees.py-ban).
+
+## Ötvenedik kör (2026-11-15, Claude) – javítások az első perzsa teszt után
+- A birodalom csak akkor esik szét, ha már két szatrapia fellázadt, és egy harmadik 70 fölött van (az első tesztben az
+  ötödik héten szétesett). A The Satraps' Revolt csak polgárháború nélkül választható.

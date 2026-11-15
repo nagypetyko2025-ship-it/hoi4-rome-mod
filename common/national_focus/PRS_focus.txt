@@ -43,6 +43,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = PRS_king_of_kings }
+		available = {
+			has_civil_war = no
+		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_satraps_revolt"
 			set_country_flag = PRS_satraps_road

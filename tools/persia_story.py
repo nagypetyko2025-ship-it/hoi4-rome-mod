@@ -17,7 +17,7 @@ Persia needs a goal to reach, like Rome or Carthage."
   Decisions (category "The Satrapies"), for each satrapy: the King's Eye (50 PP, -15), a garrison (25 PP and 3000 men,
   -20), honours for its gods and nobles (100 PP, -30).
   At 60 a satrapy grows restless (an event with choices), at 100 it rises: it is released with an army and fights
-  for its freedom. When three satrapies stand above 70 at once, the empire breaks: every one of them above 70 rises,
+  for its freedom. When two satrapies have risen and a third stands above 70, the empire breaks (round 50): every one above 70 rises,
   and a pretender takes Media and the north in a civil war - a war of four or more sides.
   The goal: "King of the Four Corners of the World" - Hellas (Athens, Sparta, Thebes, Corinth, Argos, Euboea,
   Thessaly, Macedon) under the King or his subjects, Egypt and Babylon still his: a great spirit, the unrest falls
@@ -348,9 +348,14 @@ def weekly():
         per.append(f"\tif = {{ limit = {{ NOT = {{ country_exists = {tag} }} NOT = {{ has_country_flag = PRS_integrated_{k} }} }} "
                    f"add_to_variable = {{ PRS_unrest_{k} = PRS_drift }} {reg} }}\n"
                    f"\telse = {{ set_variable = {{ PRS_unrest_{k} = 0 }} }}")
-    hot = ["\tset_variable = { PRS_hot = 0 }"] + [
+    # round 50: the empire breaks only when two satrapies have actually risen (their rebel countries stand) and a
+    # third is above 70. The first test broke the empire in its fifth week: all five grow at the same pace, so three
+    # stood above 70 at once before the player could do anything at all.
+    hot = ["\tset_variable = { PRS_hot = 0 }", "\tset_variable = { PRS_risen = 0 }"] + [
         f"\tif = {{ limit = {{ check_variable = {{ PRS_unrest_{k} > 69.9 }} }} add_to_variable = {{ PRS_hot = 1 }} }}"
-        for k, *_ in SATRAPIES]
+        for k, *_ in SATRAPIES] + [
+        f"\tif = {{ limit = {{ country_exists = {tag} has_country_flag = PRS_revolted_{k} }} "
+        f"add_to_variable = {{ PRS_risen = 1 }} }}" for k, tag, *_ in SATRAPIES]
     rise = []
     for i, (k, tag, _, _) in enumerate(SATRAPIES):
         rise.append(f"""		if = {{
@@ -378,7 +383,7 @@ def weekly():
 	PRS_unrest_update = yes
 {chr(10).join(hot)}
 	if = {{
-		limit = {{ check_variable = {{ PRS_hot > 2.9 }} NOT = {{ has_country_flag = PRS_empire_broke }} }}
+		limit = {{ check_variable = {{ PRS_risen > 1.9 }} check_variable = {{ PRS_hot > 0.9 }} NOT = {{ has_country_flag = PRS_empire_broke }} }}
 		country_event = {{ id = ante_persia.40 }}
 	}}
 	else = {{
@@ -471,7 +476,7 @@ LOC["PRS_satrapies_category_desc"] = (
     "Unrest in the satrapies (0-100): Egypt §Y[?PRS_unrest_egypt|0]§!, Babylon §Y[?PRS_unrest_babylon|0]§!, "
     "Ionia §Y[?PRS_unrest_ionia|0]§!, Lydia and Phrygia §Y[?PRS_unrest_lydia|0]§!, Bactria §Y[?PRS_unrest_bactria|0]§!.\\n"
     "The size of the empire makes them grow every week - faster at war, with low stability and beyond 100 states. "
-    "At §R60§! a satrapy grows restless, at §R100§! it rises; when three stand above §R70§! at once, the empire breaks "
+    "At §R60§! a satrapy grows restless, at §R100§! it rises; when two have risen and a third stands above §R70§!, the empire breaks "
     "into civil war.")
 LOC["PRS_satrapal_unrest"] = "Unrest of the Satrapies (average [?PRS_unrest_avg|0])"
 LOC["PRS_satrapal_unrest_desc"] = ("Twenty peoples, twenty satraps, one King. The decisions of the category 'The "

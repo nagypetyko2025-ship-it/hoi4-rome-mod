@@ -540,7 +540,8 @@ def define(focus, build, infra, tech, wargoal):
       "political_pressure", 2, 0, [], "add_political_power = 75\nadd_stability = 0.05\n" + PS.unrest_all(-5)
       + "\nload_focus_tree = PRS_empire_focus", extra=mx("PRS_satraps_revolt"), ai=10)
     f("PRS_satraps_revolt", "The Satraps' Revolt", "Oroetes of Sardis will not bow to Darius. The satraps of the west crown him King of Kings; Egypt, Arabaya and Bactria go their own way, and Persis and the east stay loyal to the old King. First win the war for the throne.",
-      "major_war", 6, 0, [], PS.SATRAPS_REVOLT + "\nload_focus_tree = PRS_satraps_focus", extra=mx("PRS_king_of_kings"), ai=0)
+      "major_war", 6, 0, [], PS.SATRAPS_REVOLT + "\nload_focus_tree = PRS_satraps_focus", extra=mx("PRS_king_of_kings"), ai=0,
+      avail="has_civil_war = no")   # round 50: the engine starts no second civil war while one is running
     # the empire's tree (the road of King of Kings)
     f = tree("PRS", "PRS_satrapies", "# The Persian Empire of Darius I, 509-264 BC - plan: docs/persia_focus_tree.md\n"
              "# The unrest of five satrapies (persia_story.py) runs through the tree; the goal is a decision: "

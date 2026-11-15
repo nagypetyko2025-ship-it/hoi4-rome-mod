@@ -177,3 +177,10 @@ az a teljes fát lecseréli a sajátjára (`load_focus_tree`).
   - az Égei-tenger ura, föld és víz az új királynak, Hellász meghódol;
   - zárás: új dinasztia.
 - Az AI sosem választja a lázadás útját.
+
+### Javítás az első teszt után (50. kör)
+- **Szétesés:** az első játékban a birodalom már az ötödik héten szétesett. Mind az öt szatrapia egyforma ütemben nőtt,
+  ezért három egyszerre lépte át a 70-et, mielőtt a játékos bármit tehetett volna. Mostantól a szétesés csak akkor jön,
+  ha már két szatrapia ténylegesen fellázadt, és egy harmadik 70 fölött van. Előbb tehát az egyes felkelések jönnek.
+- **The Satraps' Revolt:** csak akkor választható, ha éppen nincs polgárháború. A játék nem indít másodikat, és az
+  első tesztben ezért ment végbe a lázadás csak félig.
