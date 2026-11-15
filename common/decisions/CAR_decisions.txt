@@ -88,7 +88,7 @@ CAR_res_punica = {
 	}
 
 	CAR_silver_from_iberia = {
-		icon = GFX_decision_generic_trade
+		icon = GFX_decision_generic_fundraising
 		allowed = { original_tag = CAR }
 		visible = {
 			OR = { has_country_flag = CAR_dynasty has_country_flag = CAR_council }
@@ -111,7 +111,7 @@ CAR_res_punica = {
 	}
 
 	CAR_caravan = {
-		icon = GFX_decision_generic_trade
+		icon = GFX_decision_generic_fundraising
 		allowed = { original_tag = CAR }
 		visible = {
 			OR = { has_country_flag = CAR_dynasty has_country_flag = CAR_council }
@@ -259,7 +259,7 @@ CAR_roman_question = {
 	}
 
 	CAR_rq_enemies_gold = {
-		icon = GFX_decision_generic_trade
+		icon = GFX_decision_generic_fundraising
 		allowed = { original_tag = CAR }
 		visible = {
 			has_country_flag = CAR_roman_question
@@ -284,7 +284,7 @@ CAR_roman_question = {
 	}
 
 	CAR_rq_close_ports = {
-		icon = GFX_decision_generic_trade
+		icon = GFX_decision_generic_fundraising
 		allowed = { original_tag = CAR }
 		visible = {
 			has_country_flag = CAR_roman_question

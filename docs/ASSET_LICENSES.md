@@ -18,3 +18,6 @@ Painted procedurally by `tools/world.py` / `tools/build.py`. Own work, CC0.
     (https://commons.wikimedia.org/wiki/File:Dido_building_Carthage_-_JMW_Turner.jpg)
   - Persia: Apadana Hall, eastern stairway, Persepolis (19th-century photograph), The Metropolitan Museum of Art - **CC0**
     (https://commons.wikimedia.org/wiki/File:(16)_-Apadana_Hall_Eastern_Stairway,_Persepolis,_Fars-_MET_DP203044.jpg)
+  - Athens: Thomas Hartley Cromek, *The Acropolis from the West, with the Propylaea and the Temple of Athena Nike*
+    (1830s), The Metropolitan Museum of Art - **CC0**
+    (https://commons.wikimedia.org/wiki/File:The_Acropolis_from_the_West,_with_the_Propylaea_and_the_Temple_of_Athena_Nike,_Athens_MET_DP820948.jpg)

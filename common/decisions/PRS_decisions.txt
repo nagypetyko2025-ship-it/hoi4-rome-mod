@@ -323,7 +323,7 @@ PRS_satrapies_category = {
 
 PRS_great_king_category = {
 	PRS_four_corners = {
-		icon = GFX_decision_generic_formable_nations
+		icon = GFX_decision_generic_form_nation
 		allowed = { original_tag = PRS }
 		visible = {
 			NOT = { has_country_flag = PRS_four_corners }
@@ -475,7 +475,7 @@ PRS_great_king_category = {
 	}
 
 	PRS_king_of_europe = {
-		icon = GFX_decision_generic_formable_nations
+		icon = GFX_decision_generic_form_nation
 		allowed = { original_tag = PRS }
 		visible = {
 			has_country_flag = PRS_satraps_road

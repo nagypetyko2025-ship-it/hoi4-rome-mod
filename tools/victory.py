@@ -10,6 +10,7 @@ Pictures (tools/data/victory/, cropped to the base game's news picture size 397 
   rom.jpg  Carle Vernet, The Triumph of Aemilius Paulus (1789), The Metropolitan Museum of Art - CC0
   car.jpg  J. M. W. Turner, Dido building Carthage (1815), National Gallery, London - public domain
   prs.jpg  Apadana Hall, eastern stairway, Persepolis (photograph, 19th c.), The Metropolitan Museum of Art - CC0
+  ath.jpg  Thomas Hartley Cromek, The Acropolis from the West (1830s), The Metropolitan Museum of Art - CC0
 Writes events/ante_victory.txt, interface/ante_victory.gfx, gfx/event_pictures/ante_victory_*.dds,
 localisation/english/ante_victory_l_english.yml. No game needed, ~1 s; run after formables.py.
 """
@@ -35,6 +36,10 @@ VICTORIES = [   # (id, tag, picture, focus point of the crop (0..1 across, 0..1 
     (4, "PRS_SATRAPS", "prs.jpg", (0.5, 0.6), "Victory! King of Europe and Asia",
      "Thrace, Illyria and Hellas bow to Sardis, and Arabaya is ours again. From the Danube to the Euphrates the Satrap "
      "Empire rules both shores of the straits. The old dynasty had its day - this is ours!"),
+    # round 55: Athens - The School of Hellas (picture: Thomas Hartley Cromek, The Acropolis from the West, MET, CC0)
+    (5, "ATH", "ath.jpg", (0.5, 0.45), "Victory! The School of Hellas",
+     "From Sicily to the Black Sea the Greeks learn from Athens, trade with Athens and stand with Athens. Not by the "
+     "sword but by silver, friendship and wisdom: our city is the school of Hellas!"),
 ]
 
 

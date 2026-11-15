@@ -123,6 +123,11 @@
   dormant countries of `RELEASABLE` in tools/data/world_509bc.py (no land at the start, cores on their regions; world.py
   and validate.py know them), the empire breaks into a civil war at three satrapies above 70, the goal is the decision
   `PRS_four_corners`. content.py imports it like rome_story / carthage_story.
+- Athens' systems (tools/athens_story.py, round 55, plan docs/athens_focus_tree.md): silver `ATH_silver` (custom_cost
+  decisions), influence `ATH_influence` stored ON every Greek country (country-targeted decisions, FROM = target), Great
+  Works (decisions with days_remove/remove_effect), a yearly strategos election event. No PP-vs-meter road.
+- Decision icons: only names that exist in the game's interface (e.g. GFX_decision_generic_form_nation, not
+  ..._formable_nations; no ..._trade). Category icons: generic_<name> of GFX_decision_category_generic_<name>.
 - Focus/idea/trait keys share one localisation namespace: an idea may not have the same key as a focus (ideas end in `_spirit` where they would clash).
 - Performance: ~215 AI countries at once; `zz_ante_imperium.lua` slows AI routines that have nothing to do yet (no units). Do not test speed with `-crash_data_log` / `-debug` (extra logging).
 - Country tags: three capitals, unique, not a script keyword (world.py checks a list). Country industry is set per

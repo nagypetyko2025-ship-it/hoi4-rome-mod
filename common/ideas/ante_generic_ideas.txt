@@ -577,26 +577,97 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_defence_factor = 0.1
+				army_defence_factor = 0.15
 				army_morale_factor = 0.05
 			}
 		}
-		ATH_long_walls_spirit = {
-			picture = generic_fortify_the_borders
+		ATH_salamis_spirit = {
+			picture = generic_navy_bonus
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_defence_factor = 0.1
+				naval_damage_factor = 0.15
+				navy_org_factor = 0.1
+			}
+		}
+		ATH_council_spirit = {
+			picture = generic_constitutional_guarantees
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.03
+			}
+		}
+		ATH_courts_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
 				stability_factor = 0.05
 			}
 		}
-		ATH_school_of_hellas_spirit = {
+		ATH_open_citizenship_spirit = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.02
+				monthly_population = 0.1
+			}
+		}
+		ATH_pericles_law_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.07
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		ATH_democracy_spirit = {
 			picture = generic_research_bonus
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				research_speed_factor = 0.1
-				political_power_factor = 0.1
+				research_speed_factor = 0.05
+				political_power_gain = 0.1
+				stability_factor = 0.05
+			}
+		}
+		ATH_mistress_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				naval_speed_factor = 0.05
+				trade_opinion_factor = 0.2
+			}
+		}
+		ATH_league_of_hellas_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				trade_opinion_factor = 0.15
+			}
+		}
+		ATH_hoplite_spirit = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.08
+				army_org_factor = 0.05
+			}
+		}
+		ATH_learning_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
 			}
 		}
 		LAK_agoge_spirit = {
@@ -1597,6 +1668,142 @@ ideas = {
 				war_support_factor = 0.1
 				industrial_capacity_factory = 0.1
 				conscription = 0.02
+			}
+		}
+		ATH_strategos_themistocles_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				navy_org_factor = 0.05
+			}
+		}
+		ATH_strategos_miltiades_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.1
+				army_org_factor = 0.05
+			}
+		}
+		ATH_strategos_aristides_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.03
+			}
+		}
+		ATH_strategos_pericles_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.03
+			}
+		}
+		ATH_strategos_ephialtes_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.07
+				political_power_gain = 0.1
+			}
+		}
+		ATH_work_parthenon_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.08
+				political_power_gain = 0.15
+			}
+		}
+		ATH_work_theatre_spirit = {
+			picture = generic_propaganda
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.05
+			}
+		}
+		ATH_work_long_walls_spirit = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_core_defence_factor = 0.1
+				army_defence_factor = 0.05
+			}
+		}
+		ATH_work_piraeus_spirit = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				trade_opinion_factor = 0.15
+			}
+		}
+		ATH_work_academy_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.07
+			}
+		}
+		ATH_work_stoa_spirit = {
+			picture = generic_political_support
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.03
+			}
+		}
+		ATH_work_odeion_spirit = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.03
+			}
+		}
+		ATH_golden_dawn_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				stability_factor = 0.03
+			}
+		}
+		ATH_age_of_pericles_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.1
+				stability_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+		ATH_school_of_hellas_goal_spirit = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.1
+				political_power_gain = 0.25
+				stability_factor = 0.1
+				trade_opinion_factor = 0.25
 			}
 		}
 	}

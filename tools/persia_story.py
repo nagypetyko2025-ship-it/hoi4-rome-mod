@@ -468,7 +468,7 @@ def europe_goal_decision():
     decision("PRS_king_of_europe", "King of Europe and Asia",
              "From the Danube to the Euphrates, from the Adriatic to the Halys: the Satrap Empire rules both shores of "
              "the straits. The house of Achaemenes had its day - this is the day of Sardis.",
-             "GFX_decision_generic_formable_nations",
+             "GFX_decision_generic_form_nation",
              "has_country_flag = PRS_satraps_road\nNOT = { has_country_flag = PRS_king_of_europe }", avail, 50,
              "set_country_flag = PRS_king_of_europe\nadd_ideas = PRS_king_of_europe_spirit\n"
              "every_owned_state = {\n\tlimit = { OR = { " + " ".join(f"state = {x}" for x in every)
@@ -499,7 +499,7 @@ def goal_decision():
              "I am Darius, the Great King, King of Kings, King of the lands of all peoples, King of this great earth "
              "far and wide. Hellas has given earth and water, Phoenicia sails for me, the Scythians and the Massagetae "
              "are beaten, Kush and Libya send their tribute; from Egypt to Bactria every land obeys.",
-             "GFX_decision_generic_formable_nations",
+             "GFX_decision_generic_form_nation",
              "NOT = { has_country_flag = PRS_four_corners }\nNOT = { has_country_flag = PRS_satraps_road }", avail,
              50, drift_flag("PRS_four_corners", "The unrest of every satrapy grows §G0.40 slower§! every week, for good.")
              + "\nadd_ideas = PRS_four_corners_spirit\n" + unrest_all(-40)

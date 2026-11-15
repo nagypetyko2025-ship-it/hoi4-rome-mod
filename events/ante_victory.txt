@@ -65,6 +65,22 @@ news_event = {
 	}
 }
 
+news_event = {
+	id = ante_victory.5
+	title = ante_victory.5.t
+	desc = ante_victory.5.d
+	picture = GFX_ante_victory_ath
+	is_triggered_only = yes
+	option = {
+		name = ante_victory.5.a
+		log = "ANTE|[GetDateText]|victory|[ROOT.GetTag]|won"
+	}
+	option = {
+		name = ante_victory.5.b
+		log = "ANTE|[GetDateText]|victory|[ROOT.GetTag]|continue"
+	}
+}
+
 country_event = {
 	id = ante_victory.10
 	title = ante_victory.10.t

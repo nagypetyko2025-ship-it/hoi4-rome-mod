@@ -194,3 +194,30 @@ választással elkerülni: háború Khalkisz ellen ↔ szövetség Khalkisszal.
    rendszerre épülne, és a peloponnészoszi háború a két befolyás-háló ütközése lenne.
 2. Az AI-Athén is használja a befolyás-döntéseket, vagy csak a játékos?
 3. A nagy műveknél maradjon az idő (hónapok), vagy legyen azonnali?
+
+---
+
+## Megvalósítva (55. kör)
+Peti válaszai:
+- Spárta barát vagy ellenség, ez egy választás.
+- Az AI is ugyanazt csinálja, mint a játékos.
+- A nagy művek időbe telnek.
+
+**A rendszerek:** `tools/athens_story.py`. A fa a `tools/national_trees.py`-ban (41 fókusz).
+
+**Döntés-kategóriák:**
+- **The Athenian Silver:** ezüst és bevétel, osztrakiszmosz.
+- **The Proxenia** (célzott döntések minden görög városra):
+  - proxenosz küldése (5 talentum, +10), a demokraták támogatása (15 talentum, +25);
+  - gabonakereskedelem a pontoszi városokkal (10 talentum, +15 befolyás, +3 ezüst), védőflotta (20 talentum, +20);
+  - meghívás a Szövetségbe (50-nél), adófizető vagy megbecsült szövetséges (80-nál);
+  - athéni polgárjog a kis szomszédoknak (100-nál);
+  - Panathénaia (20 talentum, mindenhol +5).
+- **The Great Works:** 7 nagy mű, 4–12 hónap építési idővel, ezüstért.
+- **The School of Hellas:** a cél, győzelmi képernyővel.
+
+**A spártai választás:**
+- **Barátság Spártával:** megnemtámadási szerződés, és nő a befolyás a Peloponnészoszon.
+- **Vetélytársság:** a spártai befolyás nullán marad, és nyílik a peloponnészoszi háború fókusz.
+
+**A sztratégosz-választás:** minden évben esemény jön, 2–5 jelölttel (a fókuszoktól függ).

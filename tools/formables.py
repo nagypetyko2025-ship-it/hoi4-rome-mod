@@ -109,7 +109,7 @@ def main():
     rome_needed = sorted(set(pen + po + sic))
     rome = f"""ROM_latin_culture = {{
 	ROM_form_italia = {{
-		icon = GFX_decision_generic_formable_nations
+		icon = GFX_decision_generic_form_nation
 {highlight(rome_needed)}		allowed = {{ original_tag = ROM }}
 		visible = {{ NOT = {{ has_country_flag = ROM_italy_formed }} }}
 		available = {{
@@ -147,7 +147,7 @@ def main():
 """
     carthage = f"""CAR_punic_world = {{
 	CAR_form_punic_empire = {{
-		icon = GFX_decision_generic_formable_nations
+		icon = GFX_decision_generic_form_nation
 {highlight(pun)}		allowed = {{ original_tag = CAR }}
 		visible = {{ NOT = {{ has_country_flag = CAR_empire_formed }} }}
 		available = {{

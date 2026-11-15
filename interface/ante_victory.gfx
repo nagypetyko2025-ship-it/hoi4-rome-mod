@@ -4,4 +4,5 @@ spriteTypes = {
 	spriteType = { name = "GFX_ante_victory_car" texturefile = "gfx/event_pictures/ante_victory_car.dds" }
 	spriteType = { name = "GFX_ante_victory_prs" texturefile = "gfx/event_pictures/ante_victory_prs.dds" }
 	spriteType = { name = "GFX_ante_victory_prs_satraps" texturefile = "gfx/event_pictures/ante_victory_prs_satraps.dds" }
+	spriteType = { name = "GFX_ante_victory_ath" texturefile = "gfx/event_pictures/ante_victory_ath.dds" }
 }

@@ -14,6 +14,7 @@ Rome's plan: docs/rome_focus_tree.md. Dates in the texts are BC (the game counts
 import rome_story as RS   # Rome's meters, events and decisions (tools/rome_story.py)
 import carthage_story as CS   # Carthage's meters, events and decisions (tools/carthage_story.py)
 import persia_story as PS   # Persia's satrapies (tools/persia_story.py)
+import athens_story as AS   # Athens' silver, proxenia, Great Works, strategoi (tools/athens_story.py)
 
 P, I, R, M = "FOCUS_FILTER_POLITICAL", "FOCUS_FILTER_INDUSTRY", "FOCUS_FILTER_RESEARCH", "FOCUS_FILTER_MANPOWER"
 COAST = "available = { any_owned_state = { is_coastal = yes } }"
@@ -412,49 +413,148 @@ def define(focus, build, infra, tech, wargoal):
       build("industrial_complex") + "\n" + build("industrial_complex") + "\n" + build("arms_factory"),
       filters=I, ai=3, cost=20, avail=realm(9))
 
-    # ============================================================== ATHENS (ATH)
-    f = tree("ATH", "ATH_reforms_of_cleisthenes", "# Athens, from the reforms of Cleisthenes to the school of Hellas (base tree)")
+    # ============================================================== ATHENS (ATH) - plan: docs/athens_focus_tree.md (round 55)
+    # A peaceful Athens of allies and puppets (tools/athens_story.py: silver, the proxenia web, the Great Works, the
+    # yearly strategos). One root, five branches: democracy (x 0..4), silver and the sea (5..9), the League (10..16),
+    # the golden age (18..22), defence (24..28). Almost no war goals: Chalcis is a choice, Sparta is friend or rival.
+    f = tree("ATH", "ATH_reforms_of_cleisthenes", "# Athens, 509-264 BC: the school of Hellas - plan: docs/athens_focus_tree.md\n"
+             "# Silver, influence over the Greek cities, Great Works and the yearly strategos (tools/athens_story.py).")
+    ROOT = [["ATH_reforms_of_cleisthenes"]]
     idea("ATH_isonomia_spirit", "Isonomia", "constitutional_guarantees", political_power_gain=0.10, stability_factor=0.05)
     idea("ATH_thalassocracy_spirit", "Athenian Thalassocracy", "navy_bonus",
          production_speed_dockyard_factor=0.15, naval_damage_factor=0.10, navy_org_factor=0.05)
-    idea("ATH_marathonomachai_spirit", "The Men of Marathon", "morale_bonus", army_defence_factor=0.10, army_morale_factor=0.05)
-    idea("ATH_long_walls_spirit", "The Long Walls", "fortify_the_borders", army_defence_factor=0.10, stability_factor=0.05)
-    idea("ATH_school_of_hellas_spirit", "The School of Hellas", "research_bonus", research_speed_factor=0.10, political_power_factor=0.10)
-    f("ATH_reforms_of_cleisthenes", "Reforms of Cleisthenes", "508 BC: the tyrants are gone; Cleisthenes gives power to the people of Attica.",
-      "political_pressure", 4, 0, [], "add_ideas = ATH_isonomia_spirit\nadd_political_power = 50")
+    idea("ATH_marathonomachai_spirit", "The Men of Marathon", "morale_bonus", army_defence_factor=0.15, army_morale_factor=0.05)
+    idea("ATH_salamis_spirit", "The Wooden Walls", "navy_bonus", naval_damage_factor=0.15, navy_org_factor=0.10)
+    idea("ATH_council_spirit", "The Council of Five Hundred", "constitutional_guarantees", political_power_gain=0.10,
+         stability_factor=0.03)
+    idea("ATH_courts_spirit", "The Jury Courts", "political_support", stability_factor=0.05)
+    idea("ATH_open_citizenship_spirit", "Open Citizenship", "manpower_bonus", conscription=0.02, monthly_population=0.10)
+    idea("ATH_pericles_law_spirit", "The Citizenship Law of Pericles", "pp_unity_bonus", stability_factor=0.07,
+         production_speed_buildings_factor=0.05)
+    idea("ATH_democracy_spirit", "A Democracy That Teaches", "research_bonus", research_speed_factor=0.05,
+         political_power_gain=0.10, stability_factor=0.05)
+    idea("ATH_mistress_spirit", "Mistress of the Aegean", "navy_bonus", naval_speed_factor=0.05, trade_opinion_factor=0.20)
+    idea("ATH_league_of_hellas_spirit", "The League of the Hellenes", "pp_unity_bonus", political_power_gain=0.10,
+         trade_opinion_factor=0.15)
+    idea("ATH_hoplite_spirit", "The Hoplite Phalanx", "infantry_bonus", army_defence_factor=0.08, army_org_factor=0.05)
+    idea("ATH_learning_spirit", "The Schools of Athens", "research_bonus", research_speed_factor=0.05)
+    f("ATH_reforms_of_cleisthenes", "Reforms of Cleisthenes", "508 BC: the tyrants are gone; Cleisthenes gives power to the people of Attica. The Assembly will elect a strategos every year, and the city's silver is its own.",
+      "political_pressure", 13, 0, [], "add_ideas = ATH_isonomia_spirit\nadd_political_power = 50\n" + AS.silver_gain(10))
+    # --- 1. democracy (x 0..4)
     f("ATH_ten_tribes", "The Ten Tribes", "Every deme of city, coast and inland mixed into ten new tribes: the old clans lose their grip.",
-      "national_unity", 2, 1, [["ATH_reforms_of_cleisthenes"]], "add_stability = 0.05\nadd_manpower = 1500")
-    f("ATH_ostracism", "Ostracism", "Once a year the people may write a name on a potsherd - and send a man into exile for ten years.",
-      "political_pressure", 2, 2, [["ATH_ten_tribes"]], "add_political_power = 100")
-    f("ATH_strategoi", "The Ten Strategoi", "Each tribe elects a general; the generals answer to the Assembly.",
-      "army_doctrines", 2, 3, [["ATH_ostracism"]], "army_experience = 15\n" + doctrine("ATH_strategoi"), filters=M)
-    f("ATH_age_of_pericles", "The Age of Pericles", "The first citizen of a democracy at the height of its power.",
-      "political_pressure", 2, 4, [["ATH_strategoi"]], "add_political_power = 100\nadd_stability = 0.05")
-    f("ATH_laurion_silver", "Silver of Laurion", "A new, rich vein is struck in the mines of Laurion.",
-      "production", 4, 1, [["ATH_reforms_of_cleisthenes"]], build("industrial_complex") + "\nadd_political_power = 25", filters=I, ai=3)
-    f("ATH_piraeus", "The Piraeus", "Three natural harbours are walled into the port of Athens.",
-      "construct_naval_dockyard", 4, 2, [["ATH_laurion_silver"]], build("dockyard", "is_coastal = yes"), extra=COAST, filters=I, ai=3)
+      "national_unity", 2, 1, ROOT, "add_stability = 0.05\nadd_manpower = 1500")
+    f("ATH_council_of_500", "The Council of Five Hundred", "Fifty citizens from every tribe, chosen by lot, prepare what the Assembly decides.",
+      "political_pressure", 1, 2, [["ATH_ten_tribes"]], "add_ideas = ATH_council_spirit")
+    f("ATH_ostracism", "Ostracism", "Once a year the people may write a name on a potsherd - and send a man into exile for ten years. (Unlocks the decision Ostracism.)",
+      "political_pressure", 3, 2, [["ATH_ten_tribes"]], "add_political_power = 75")
+    f("ATH_jury_courts", "The Jury Courts", "Hundreds of citizens judge every case: no rich man can buy them all.",
+      "national_unity", 2, 3, [["ATH_council_of_500", "ATH_ostracism"]], "add_ideas = ATH_courts_spirit")
+    f("ATH_reforms_of_ephialtes", "The Reforms of Ephialtes", "462 BC: the old council of the Areopagus loses its power; the people rule. (Ephialtes stands for strategos.)",
+      "political_pressure", 2, 4, [["ATH_jury_courts"]], "add_political_power = 100\nadd_stability = 0.03")
+    f("ATH_open_citizenship", "Open Citizenship", "Metics, freedmen and the sons of foreign mothers: whoever serves Athens may become Athenian.",
+      "allies_build_infantry", 1, 5, [["ATH_reforms_of_ephialtes"]], "add_ideas = ATH_open_citizenship_spirit\nadd_manpower = 3000",
+      extra=mx("ATH_pericles_law"), filters=M)
+    f("ATH_pericles_law", "The Citizenship Law of Pericles", "451 BC: only the child of two Athenian parents is a citizen. A proud, closed people.",
+      "national_unity", 3, 5, [["ATH_reforms_of_ephialtes"]], "add_ideas = ATH_pericles_law_spirit", extra=mx("ATH_open_citizenship"))
+    f("ATH_democracy_that_teaches", "A Democracy That Teaches", "Our constitution does not copy the laws of our neighbours: we are a model to others.",
+      "propaganda", 2, 6, [["ATH_open_citizenship", "ATH_pericles_law"]], "add_ideas = ATH_democracy_spirit\n" + AS.influence_all(5),
+      cost=15)
+    # --- 2. silver and the sea (x 5..9)
+    f("ATH_laurion_silver", "Silver of Laurion", "A new, rich vein is struck in the mines of Laurion: the city's own silver. (+4 talents a month.)",
+      "production", 7, 1, ROOT, "set_country_flag = ATH_laurion\n" + AS.silver_gain(20) + "\n" + build("industrial_complex"),
+      filters=I, ai=5)
+    f("ATH_owls", "The Owls of Athens", "Tetradrachms with Athena's owl: the coin every merchant of the sea trusts. (+10 % silver.)",
+      "trade", 6, 2, [["ATH_laurion_silver"]], "set_country_flag = ATH_owls\n" + build("industrial_complex"), filters=I, ai=3)
+    f("ATH_piraeus", "The Piraeus", "Three natural harbours are walled into the port of Athens. (Unlocks the Great Work: the Harbour of the Piraeus.)",
+      "construct_naval_dockyard", 8, 2, [["ATH_laurion_silver"]], build("dockyard", "is_coastal = yes"), extra=COAST, filters=I, ai=3)
+    f("ATH_aegean_trade", "The Trade of the Aegean", "Oil and painted vases out, grain, timber and slaves in: the Piraeus is the market of the sea.",
+      "trade", 6, 3, [["ATH_owls"]], build("industrial_complex") + "\n" + AS.silver_gain(30), filters=I)
     f("ATH_themistocles_fleet", "The Fleet of Themistocles", "The silver of Laurion is not shared out: it builds two hundred triremes.",
-      "build_navy", 4, 3, [["ATH_piraeus"]], "add_ideas = ATH_thalassocracy_spirit\nnavy_experience = 25\n" + build("dockyard", "is_coastal = yes"),
+      "build_navy", 8, 3, [["ATH_piraeus"]], "add_ideas = ATH_thalassocracy_spirit\nnavy_experience = 25\n" + build("dockyard", "is_coastal = yes"),
       extra=COAST, filters=I, ai=3)
+    f("ATH_ship_sheds", "The Ship Sheds", "Hundreds of covered slipways around the harbours of the Piraeus.",
+      "construct_naval_dockyard", 7, 4, [["ATH_aegean_trade", "ATH_themistocles_fleet"]], build("dockyard", "is_coastal = yes") + "\n"
+      + build("dockyard", "is_coastal = yes"), extra=COAST, filters=I)
+    f("ATH_mistress_of_the_aegean", "Mistress of the Aegean", "No island, no harbour of the Aegean is out of reach of the Athenian fleet - or of its trade.",
+      "navy_doctrines_tactics", 7, 5, [["ATH_ship_sheds"]], "add_ideas = ATH_mistress_spirit\n" + AS.influence_all(5), cost=15)
+    # --- 3. the League (x 10..16)
+    f("ATH_proxenia", "Proxenia", "In every Greek city a friend of Athens: a host for our envoys, a voice for our cause. (Unlocks the decisions of the Proxenia.)",
+      "improve_relations", 12, 1, ROOT, AS.influence_all(10), ai=5)
+    f("ATH_delian_league", "The Delian League", "The islands and the cities of the coast swear on sunken iron: a league against Persia, led by Athens. (Cities with influence 50 can be invited.)",
+      "major_alliance", 11, 2, [["ATH_proxenia"]],
+      "if = { limit = { is_in_faction = no } create_faction = ante_faction_delian_league }\n" + AS.influence_all(10), ai=5)
+    f("ATH_aid_the_ionians", "Aid the Ionians", "Twenty ships for the Greeks of Asia: Athens stands with every Greek city, even under the Great King.",
+      "attack_allies", 13, 2, [["ATH_proxenia"]], AS.influence_all(10) + "\nnavy_experience = 10")
+    f("ATH_treasury_at_delos", "The Treasury Stays at Delos", "The League's silver lies in the sanctuary of Apollo: the allies trust Athens.",
+      "improve_relations", 10, 3, [["ATH_delian_league"]], "set_country_flag = ATH_treasury_at_delos\n" + AS.influence_all(10),
+      extra=mx("ATH_treasury_to_athens"))
+    f("ATH_treasury_to_athens", "The Treasury Comes to Athens", "454 BC: the silver of the League is safer on the Acropolis - and closer to the builders.",
+      "trade", 12, 3, [["ATH_delian_league"]], "set_country_flag = ATH_treasury_in_athens\n" + AS.silver_gain(60) + "\n"
+      + AS.influence_all(-5), extra=mx("ATH_treasury_at_delos"))
+    f("ATH_pontic_grain", "The Grain of the Pontus", "Byzantion, Olbia, Pantikapaion: the grain of the Black Sea feeds Athens. (Unlocks the grain trade decisions.)",
+      "trade", 14, 3, [["ATH_aid_the_ionians"]], AS.influence_all(10, AS.PONTUS, "the cities of the Black Sea"), filters=I)
+    f("ATH_cleruchies", "Cleruchies", "Athenian citizens settle the islands and keep their citizenship. (Small neighbours at influence 100 can become Athenian.)",
+      "construct_civilian", 10, 4, [["ATH_treasury_at_delos", "ATH_treasury_to_athens"]], "add_manpower = 1000\n"
+      + AS.influence_all(15, AS.SMALL, "Euboea, Naxos, Epidauros and Thasos"), filters=M)
+    f("ATH_western_friends", "Friends in the West", "Thurii is founded by all Greeks under Athenian lead; Segesta and Rhegion seek our friendship.",
+      "improve_relations", 12, 4, [["ATH_treasury_at_delos", "ATH_treasury_to_athens"]],
+      AS.influence_all(15, AS.WEST, "the Greek cities of the West"))
+    f("ATH_friendship_with_sparta", "Friendship with Sparta", "Two leaders of Hellas, one by land and one by sea: Cimon's dream of a yoke-fellow.",
+      "alliance", 14, 4, [["ATH_aid_the_ionians"]],
+      "if = { limit = { country_exists = LAK NOT = { has_war_with = LAK } }\n"
+      "\tdiplomatic_relation = { country = LAK relation = non_aggression_pact active = yes }\n"
+      "\tLAK = { add_to_variable = { ATH_influence = 40 } }\n}\n"
+      + AS.influence_all(10, AS.PELOPONNESE, "the Peloponnese"), extra=mx("ATH_rivalry_with_sparta"), ai=3)
+    f("ATH_rivalry_with_sparta", "Rivalry with Sparta", "Sparta fears the growth of Athens - so be it. The Peloponnese will choose between us.",
+      "political_pressure", 16, 4, [["ATH_aid_the_ionians"]], "set_country_flag = ATH_sparta_rival\nadd_war_support = 0.10\n"
+      + AS.influence_all(10, [t for t in AS.PELOPONNESE if t != "LAK"], "the Peloponnese (but Sparta)"),
+      extra=mx("ATH_friendship_with_sparta"))
+    f("ATH_peloponnesian_war", "The Peloponnesian War", "431 BC: the war between Athens and Sparta and their allies. Sparta's land, Athens' sea.",
+      "major_war", 16, 5, [["ATH_rivalry_with_sparta"]], wargoal("LAK") + "\narmy_experience = 15")
+    f("ATH_peace_of_callias", "The Peace of Callias", "Athens and the Great King agree: no Persian ship in the Aegean, no Athenian army in Asia.",
+      "improve_relations", 11, 5, [["ATH_cleruchies", "ATH_western_friends"]],
+      "if = { limit = { country_exists = PRS NOT = { has_war_with = PRS } }\n"
+      "\tdiplomatic_relation = { country = PRS relation = non_aggression_pact active = yes }\n}\nadd_stability = 0.05")
+    f("ATH_league_of_hellas", "The League of the Hellenes", "Allies, not subjects: the League of Athens is the league of all the Greeks.",
+      "major_alliance", 12, 6, [["ATH_peace_of_callias"]], "add_ideas = ATH_league_of_hellas_spirit\n" + AS.influence_all(10), cost=15)
+    # --- 4. the golden age (x 18..22)
+    f("ATH_patronage", "Patronage of the Arts", "The rich pay for choruses, the city pays for temples. (Unlocks the Great Works: Parthenon, theatre, Stoa, Odeion.)",
+      "construction2", 20, 1, ROOT, "add_political_power = 50", ai=5)
+    f("ATH_tragedy", "Tragedy", "Aeschylus, Sophocles, Euripides: the whole city weeps and thinks in the theatre.",
+      "propaganda", 19, 2, [["ATH_patronage"]], "add_ideas = ATH_learning_spirit\n" + AS.influence_all(5), filters=R)
+    f("ATH_history", "History", "Herodotus reads his Histories to the Athenians: what the Greeks and the barbarians did, and why.",
+      "scientific_exchange", 21, 2, [["ATH_patronage"]], "add_tech_bonus = { name = ATH_history bonus = 1 uses = 1 category = industry }",
+      filters=R)
+    f("ATH_medicine", "Hippocratic Medicine", "Disease has natural causes, not divine ones: watch, record, treat.",
+      "secret_weapon", 19, 3, [["ATH_tragedy"]], "add_manpower = 2000\nadd_stability = 0.03", filters=R)
+    f("ATH_philosophy", "Philosophy", "Socrates asks questions in the Agora, and nobody's answers are safe. (Unlocks the Great Work: the Academy.)",
+      "scientific_exchange", 21, 3, [["ATH_history"]], "add_research_slot = 1", filters=R, ai=4)
+    f("ATH_schools", "The Schools of Athens", "The Academy, the Lyceum, the Stoa: young men from every Greek city come to learn.",
+      "scientific_exchange", 20, 4, [["ATH_medicine"], ["ATH_philosophy"]], AS.influence_all(10)
+      + "\nadd_tech_bonus = { name = ATH_schools bonus = 1 uses = 2 category = industry }", filters=R)
+    # --- 5. defence (x 24..28)
+    f("ATH_hoplites", "The Hoplites of Athens", "Every citizen of the middle class owns his shield and spear. (Unlocks the Great Work: the Long Walls.)",
+      "army_doctrines", 25, 1, ROOT, "add_ideas = ATH_hoplite_spirit\narmy_experience = 10", filters=M)
     f("ATH_war_with_chalcis", "War with Chalcis", "506 BC: the Boeotians and Chalcidians invade Attica and are beaten on one day.",
-      "territory_or_war", 6, 1, [["ATH_reforms_of_cleisthenes"]], wargoal("EUB") + "\narmy_experience = 15")
-    f("ATH_cleruchies", "Cleruchies", "Athenian citizens settle the conquered land and keep their citizenship.",
-      "construct_civilian", 6, 2, [["ATH_war_with_chalcis"]], cores(1) + "\nadd_manpower = 1000", filters=M)
-    f("ATH_aid_the_ionians", "Aid the Ionians", "Twenty ships sail to help the Greeks of Asia against the Great King. The beginning of evils.",
-      "attack_allies", 8, 2, [["ATH_war_with_chalcis"]], "add_war_support = 0.10\nnavy_experience = 10")
+      "territory_or_war", 24, 2, [["ATH_hoplites"]], wargoal("EUB") + "\narmy_experience = 15", extra=mx("ATH_alliance_with_chalcis"))
+    f("ATH_alliance_with_chalcis", "Alliance with Chalcis", "Better a friend across the strait than an enemy: Euboea and Athens swear peace.",
+      "alliance", 26, 2, [["ATH_hoplites"]], "EUB = { add_to_variable = { ATH_influence = 40 } }\nadd_political_power = 25",
+      extra=mx("ATH_war_with_chalcis"))
+    LOC["ATH_TT_PERSIA_ATTACKS"] = "Persia is at war with Athens"
+    persia = "custom_trigger_tooltip = {\n\ttooltip = ATH_TT_PERSIA_ATTACKS\n\thas_war_with = PRS\n}"
     f("ATH_marathon", "Marathon", "490 BC: the hoplites of Athens run at the Persian line - and win.",
-      "defence", 7, 3, [["ATH_cleruchies", "ATH_aid_the_ionians"]], "add_ideas = ATH_marathonomachai_spirit\narmy_experience = 20", filters=M)
-    f("ATH_delian_league", "The Delian League", "The islands and the cities of the coast swear on sunken iron: a league against Persia, led by Athens.",
-      "major_alliance", 5, 4, [["ATH_themistocles_fleet"], ["ATH_marathon"]],
-      faction("ante_faction_delian_league", "NAX", "RHO", "CHK", "THS", "BYZ", "EUB"), ai=2)
-    f("ATH_parthenon", "The Parthenon", "Marble from Pentelicus and gold of the League: a temple for the Maiden of Athens.",
-      "construction2", 3, 5, [["ATH_age_of_pericles"]], build("industrial_complex") + "\nadd_stability = 0.05", filters=I)
-    f("ATH_long_walls", "The Long Walls", "City and harbour joined by walls: Athens becomes an island that no army can starve.",
-      "fortify_city", 5, 5, [["ATH_delian_league"]], "add_ideas = ATH_long_walls_spirit", filters=I)
-    f("ATH_school_of_hellas", "The School of Hellas", "Philosophers, poets, historians and builders: all Greece learns from Athens.",
-      "scientific_exchange", 4, 6, [["ATH_parthenon"], ["ATH_long_walls"]], "add_ideas = ATH_school_of_hellas_spirit\nadd_research_slot = 1",
-      filters=R, ai=3)
+      "defence", 24, 3, [["ATH_war_with_chalcis", "ATH_alliance_with_chalcis"]], "add_ideas = ATH_marathonomachai_spirit\narmy_experience = 20",
+      avail=persia, filters=M)
+    f("ATH_hellenic_league", "The Hellenic League", "When the Great King comes, all Greeks stand together: Athens, Sparta, Corinth, Aegina.",
+      "alliance", 26, 3, [["ATH_war_with_chalcis", "ATH_alliance_with_chalcis"]],
+      AS.influence_all(15) + "\nadd_war_support = 0.10", avail=persia)
+    f("ATH_salamis", "Salamis", "480 BC: the wooden walls of the oracle are the ships - and in the strait of Salamis they break the Persian fleet.",
+      "navy_doctrines_tactics", 25, 4, [["ATH_marathon", "ATH_hellenic_league"]], "add_ideas = ATH_salamis_spirit\nnavy_experience = 25",
+      avail=persia, filters=M)
+    # --- the end
+    f("ATH_school_of_hellas", "The School of Hellas", "Philosophers, poets, historians and builders: all Greece learns from Athens. (The goal: the decision The School of Hellas.)",
+      "scientific_exchange", 13, 7, [["ATH_democracy_that_teaches"], ["ATH_mistress_of_the_aegean"], ["ATH_league_of_hellas"], ["ATH_schools"]],
+      "add_research_slot = 1\n" + AS.influence_all(10), cost=20, filters=R, ai=3)
 
     # ============================================================== SPARTA (LAK)
     f = tree("LAK", "LAK_lycurgan_order", "# Sparta, the Lycurgan order and the hegemony of the Peloponnese (base tree)")
@@ -1242,10 +1342,7 @@ def define(focus, build, infra, tech, wargoal):
         "ROM_king_of_italy": (25, states(20), ""),
         # Athens
         "ATH_themistocles_fleet": (15, "", "add_political_power = -50"),
-        "ATH_marathon": (15, "", ""),
-        "ATH_delian_league": (20, "has_navy_size = { size > 5 }", ""),
-        "ATH_long_walls": (20, "", ""),
-        "ATH_school_of_hellas": (20, states(4), ""),
+        "ATH_delian_league": (15, "", ""),
         # Sparta
         "LAK_helots": (10, "", "add_stability = -0.03"),
         "LAK_peloponnesian_league": (15, gone("AGS"), ""),

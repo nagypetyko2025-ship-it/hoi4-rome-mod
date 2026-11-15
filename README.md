@@ -1131,3 +1131,15 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Ötvennegyedik kör (2026-11-15, Claude) – ki szakad el békésen
 - A Satraps' Revolt után Egyiptom, Arabaya és Baktria békésen szakad el. Babilon és Iónia fellázad, és a
   polgárháborúban harcol a Satrap Empire ellen.
+
+## Ötvenötödik kör (2026-11-15, Claude) – Athén, Hellász iskolája
+- **Új mechanikák**, nem két út és egy mérő:
+  - **ezüst** (saját pénznem talentumban);
+  - **proxenia-háló:** athéni befolyás mind a 47 görög városban Itáliától a Fekete-tengerig. A városokat a
+    Déloszi Szövetségbe lehet hívni, adófizetővé vagy megbecsült szövetségessé lehet tenni, a kis szomszédokat békésen
+    be lehet olvasztani;
+  - **nagy művek:** időbe telnek, és 3, illetve 6 kész műnél aranykor jön;
+  - **évenkénti sztratégosz-választás.**
+- **Új, békés fókuszfa** (41 fókusz): demokrácia, ezüst és tenger, a Szövetség (Spárta barát vagy vetélytárs),
+  aranykor, védelem (Marathón, Szalamisz csak perzsa támadáskor). Cél: Hellász iskolája, győzelmi képernyővel.
+- **Javítás az egész modban:** két nem létező döntésikon (formable_nations, trade) és egy kategóriaikon cserélve.

@@ -280,6 +280,54 @@ on_actions = {
 				}
 			}
 			if = {
+				limit = { original_tag = ATH }
+				if = {
+					limit = { NOT = { has_country_flag = ATH_started } }
+					set_country_flag = ATH_started
+					set_variable = { ATH_silver = 15 }
+					every_country = { limit = { OR = { tag = MAS tag = OLB tag = TYS tag = PNT tag = ITR tag = APP tag = BYZ tag = HER tag = SNP tag = MKD tag = CHK tag = THS tag = EPD tag = MOL tag = KRK tag = AKN tag = AIT tag = THL tag = PHK tag = THB tag = EUB tag = EPI tag = KRN tag = AGS tag = LAK tag = ARK tag = EIS tag = AKH tag = KRT tag = NAX tag = RHO tag = KYP tag = KYR tag = EMP tag = CUM tag = POS tag = TAS tag = MET tag = KRO tag = LOK tag = RHE tag = SYR tag = GEL tag = AKR tag = ZAN tag = KAT } } set_country_flag = ante_greek set_variable = { ATH_influence = 10 } }
+				}
+				# silver: a quarter of the month's income every week
+				set_variable = { ATH_silver_income = 2 }
+				if = { limit = { has_country_flag = ATH_laurion } add_to_variable = { ATH_silver_income = 4 } }
+				every_country = {
+					limit = { is_in_faction_with = ROOT NOT = { tag = ROOT } is_subject = no }
+					ROOT = { add_to_variable = { ATH_silver_income = 1 } }
+				}
+				every_subject_country = { ROOT = { add_to_variable = { ATH_silver_income = 2 } } }
+				if = { limit = { has_country_flag = ATH_owls } multiply_variable = { ATH_silver_income = 1.1 } }
+				set_variable = { ATH_silver_week = ATH_silver_income }
+				divide_variable = { ATH_silver_week = 4 }
+				add_to_variable = { ATH_silver = ATH_silver_week }
+				set_variable = { ATH_league_size = 0 }
+				every_country = { limit = { is_in_faction_with = ROOT NOT = { tag = ROOT } } ROOT = { add_to_variable = { ATH_league_size = 1 } } }
+				every_subject_country = { limit = { NOT = { is_in_faction_with = ROOT } } ROOT = { add_to_variable = { ATH_league_size = 1 } } }
+				# influence: decay when neglected, faster in a rival league or at war; the golden age spreads it
+				set_variable = { ATH_influence_drift = -0.15 }
+				if = { limit = { has_idea = ATH_golden_dawn_spirit } add_to_variable = { ATH_influence_drift = 0.25 } }
+				if = { limit = { has_idea = ATH_age_of_pericles_spirit } add_to_variable = { ATH_influence_drift = 0.45 } }
+				if = { limit = { has_idea = ATH_work_theatre_spirit } add_to_variable = { ATH_influence_drift = 0.15 } }
+				every_country = {
+					limit = { has_country_flag = ante_greek }
+					if = {
+						limit = { OR = { is_in_faction_with = ROOT is_subject_of = ROOT has_country_flag = ATH_honoured } }
+						if = { limit = { check_variable = { ROOT.ATH_influence_drift > 0 } } add_to_variable = { ATH_influence = ROOT.ATH_influence_drift } }
+					}
+					else = {
+						add_to_variable = { ATH_influence = ROOT.ATH_influence_drift }
+						if = { limit = { OR = { has_war_with = ROOT AND = { is_in_faction = yes NOT = { is_in_faction_with = ROOT } } } } add_to_variable = { ATH_influence = -0.35 } }
+					}
+					if = { limit = { tag = LAK ROOT = { has_country_flag = ATH_sparta_rival } } set_variable = { ATH_influence = 0 } }
+					clamp_variable = { var = ATH_influence min = 0 max = 100 }
+				}
+				# the yearly election of the strategos
+				if = {
+					limit = { has_completed_focus = ATH_reforms_of_cleisthenes NOT = { has_country_flag = ATH_term } }
+					set_country_flag = { flag = ATH_term days = 365 value = 1 }
+					country_event = { id = ante_athens.1 }
+				}
+			}
+			if = {
 				limit = {
 					original_tag = ROM
 					is_ai = no

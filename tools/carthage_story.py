@@ -384,11 +384,11 @@ decision("CAR_numidian_riders", "Call the Numidian Riders",
          "base = 0\nmodifier = { add = 3 has_war = yes }", days_re_enable=240)
 decision("CAR_silver_from_iberia", "Silver from Iberia",
          "A convoy of silver ingots from the mines of the Sierra Morena. (Council: -15 arrears.)",
-         "GFX_decision_generic_trade", EITHER, "has_completed_focus = CAR_iberia", 25,
+         "GFX_decision_generic_fundraising", EITHER, "has_completed_focus = CAR_iberia", 25,
          "add_political_power = 75\n" + per_road("", arrears(-15)), "base = 2", days_re_enable=365)
 decision("CAR_caravan", "Caravan to the Garamantes",
          "Salt and Punic cloth south across the desert; gold, ivory and carbuncles back north.",
-         "GFX_decision_generic_trade", EITHER, "has_completed_focus = CAR_saharan_caravans", 50,
+         "GFX_decision_generic_fundraising", EITHER, "has_completed_focus = CAR_saharan_caravans", 50,
          "add_timed_idea = { idea = CAR_caravan_gold_spirit days = 365 }", "base = 2", days_re_enable=400)
 decision("CAR_precinct_sacrifice", "Sacrifice in the Precinct",
          "When the enemy is at the gates, the great families give the gods their own children. Only in the hour of "
@@ -619,13 +619,13 @@ decision("CAR_rq_pirates", "Tyrrhenian Pirates",
          HOSTILE_AI, days_re_enable=180)
 decision("CAR_rq_enemies_gold", "Gold for Rome's Enemies",
          "Silver for the Etruscans, the Samnites, the Gauls - for anyone who fights Rome.",
-         "GFX_decision_generic_trade", QUESTION, "NOT = { has_war_with = ROM }", 75,
+         "GFX_decision_generic_fundraising", QUESTION, "NOT = { has_war_with = ROM }", 75,
          "every_country = { limit = { has_war_with = ROM } add_manpower = 2000 add_political_power = 25 }\n"
          "ROM = { add_timed_idea = { idea = CAR_enemies_gold_spirit days = 270 } }\n" + relation(-20),
          HOSTILE_AI, days_re_enable=270)
 decision("CAR_rq_close_ports", "Close the Harbours to Rome",
          "No Roman merchant may land in Africa, Sardinia or Sicily. The treaties allowed it; Carthage forbids it.",
-         "GFX_decision_generic_trade", QUESTION, "NOT = { has_war_with = ROM }", 50,
+         "GFX_decision_generic_fundraising", QUESTION, "NOT = { has_war_with = ROM }", 50,
          "add_political_power = 25\nROM = { add_timed_idea = { idea = CAR_ports_closed_spirit days = 365 } }\n" + relation(-15),
          HOSTILE_AI, days_re_enable=365)
 decision("CAR_rq_grain", "Grain for Rome",
