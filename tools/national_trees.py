@@ -612,7 +612,7 @@ def define(focus, build, infra, tech, wargoal):
       "scientific_exchange", 13, 3, [["PRS_truth_against_the_lie", "PRS_gods_of_every_people"]], "add_research_slot = 1",
       filters=R, ai=3)
     f("PRS_magi", "The Magi", "The priestly tribe of the Medes keeps the fire, the calendar and the knowledge of the stars.",
-      "research", 13, 4, [["PRS_behistun"]], "add_ideas = PRS_magi_spirit", filters=R)
+      "secret_weapon", 13, 4, [["PRS_behistun"]], "add_ideas = PRS_magi_spirit", filters=R)
     # --- 4. the army (x 16..18)
     f("PRS_immortals", "The Immortals", "Ten thousand picked spearmen; when one falls, another takes his place.",
       "special_forces", 17, 1, ROOT, "add_ideas = PRS_immortals_spirit\narmy_experience = 15", filters=M, ai=3)
@@ -625,10 +625,10 @@ def define(focus, build, infra, tech, wargoal):
     f("PRS_kings_garrisons", "The King's Garrisons", "Persian commanders in the citadels of Sardis, Memphis and Babylon answer to the King, not the satrap.",
       "fortify_city", 17, 3, [["PRS_spara", "PRS_levy_of_nations"]], PS.unrest_all(-10) + "\narmy_experience = 10", filters=M)
     f("PRS_chariots", "Scythed Chariots", "Blades on the wheels and axles: a terror for close-packed infantry.",
-      "armor", 16, 4, [["PRS_kings_garrisons"]], "add_tech_bonus = { name = PRS_chariots bonus = 1 uses = 1 category = armor }",
+      "army_tanks", 16, 4, [["PRS_kings_garrisons"]], "add_tech_bonus = { name = PRS_chariots bonus = 1 uses = 1 category = armor }",
       filters=R)
     f("PRS_greek_mercenaries", "Greek Mercenaries", "Hoplites from every city of Hellas fight for the King's gold - against other Greeks.",
-      "infantry", 18, 4, [["PRS_kings_garrisons"]], "add_ideas = PRS_greek_mercenaries_spirit\nadd_manpower = 3000", filters=M)
+      "small_arms", 18, 4, [["PRS_kings_garrisons"]], "add_ideas = PRS_greek_mercenaries_spirit\nadd_manpower = 3000", filters=M)
     f("PRS_army_of_xerxes", "The Army of Xerxes", "The greatest army the world has seen: they drank rivers dry on the march.",
       "major_war", 17, 5, [["PRS_chariots", "PRS_greek_mercenaries"]], "add_ideas = PRS_army_of_xerxes_spirit\narmy_experience = 30",
       filters=M, ai=3)

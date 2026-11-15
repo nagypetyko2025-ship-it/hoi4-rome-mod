@@ -443,7 +443,7 @@ focus_tree = {
 
 	focus = {
 		id = PRS_magi
-		icon = GFX_goal_generic_research
+		icon = GFX_goal_generic_secret_weapon
 		prerequisite = { focus = PRS_behistun }
 		x = 13
 		y = 4
@@ -532,7 +532,7 @@ focus_tree = {
 
 	focus = {
 		id = PRS_chariots
-		icon = GFX_goal_generic_armor
+		icon = GFX_goal_generic_army_tanks
 		prerequisite = { focus = PRS_kings_garrisons }
 		x = 16
 		y = 4
@@ -548,7 +548,7 @@ focus_tree = {
 
 	focus = {
 		id = PRS_greek_mercenaries
-		icon = GFX_goal_generic_infantry
+		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = PRS_kings_garrisons }
 		x = 18
 		y = 4
