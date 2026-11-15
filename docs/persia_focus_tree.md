@@ -184,3 +184,18 @@ az a teljes fát lecseréli a sajátjára (`load_focus_tree`).
   ha már két szatrapia ténylegesen fellázadt, és egy harmadik 70 fölött van. Előbb tehát az egyes felkelések jönnek.
 - **The Satraps' Revolt:** csak akkor választható, ha éppen nincs polgárháború. A játék nem indít másodikat, és az
   első tesztben ezért ment végbe a lázadás csak félig.
+
+### A lázongás üteme: heti 3 (51. kör)
+Peti: a heti 7,3 túl sok volt. A kezdeti 81 államnál most heti 3 pont: az ellenőrzött államok száma × 0,037, tehát a
+terjeszkedéssel továbbra is nő. Iónia 50-ről kb. 4 hónap, a többi szatrapia 40-ről kb. 5 hónap alatt lázad fel, ha nem
+figyelsz rájuk. Az AI-Perzsiánál ennek 30%-a, kb. heti 0,9.
+
+A többi érték arányosan csökkent (0,4-szeresére):
+- háború és 50% alatti stabilitás: +1,0;
+- a király szemei: −0,40;
+- a fáraó és a többi regionális fókusz: −0,80;
+- a szatrapák útja: −0,8;
+- a nagy cél: −0,80;
+- a heti emelkedés alsó határa: 0,2.
+
+A döntések nem változtak (−25, −40, −60).

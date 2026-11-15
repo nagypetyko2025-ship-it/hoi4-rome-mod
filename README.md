@@ -1111,3 +1111,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Ötvenedik kör (2026-11-15, Claude) – javítások az első perzsa teszt után
 - A birodalom csak akkor esik szét, ha már két szatrapia fellázadt, és egy harmadik 70 fölött van (az első tesztben az
   ötödik héten szétesett). A The Satraps' Revolt csak polgárháború nélkül választható.
+
+## Ötvenegyedik kör (2026-11-15, Claude) – heti 3 lázongás
+- A szatrapiák lázongása a kezdetén heti 3 ponttal nő az eddigi 7,3 helyett (az államok számával arányosan). Figyelem
+  nélkül 4–5 hónap alatt lázadnak fel. A háború, a stabilitás és a fókuszok hatása arányosan kisebb lett.
