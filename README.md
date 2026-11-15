@@ -1115,3 +1115,7 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 ## Ötvenegyedik kör (2026-11-15, Claude) – heti 3 lázongás
 - A szatrapiák lázongása a kezdetén heti 3 ponttal nő az eddigi 7,3 helyett (az államok számával arányosan). Figyelem
   nélkül 4–5 hónap alatt lázadnak fel. A háború, a stabilitás és a fókuszok hatása arányosan kisebb lett.
+
+## Ötvenkettedik kör (2026-11-15, Claude) – heti 1,5 lázongás
+- A szatrapiák lázongása a kezdetén heti 1,5 ponttal nő. Figyelem nélkül 8–10 hónap alatt lázadnak fel.
+  Minden kapcsolódó érték a felére csökkent.

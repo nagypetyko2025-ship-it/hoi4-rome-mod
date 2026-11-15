@@ -573,21 +573,21 @@ def define(focus, build, infra, tech, wargoal):
     # --- 1. the satrapies (x 0..4): the administration that holds the empire together
     f("PRS_satrapies", "The Satrapies", "Twenty provinces, each with a satrap, a fixed tribute and a royal secretary who reports to the King.",
       "political_pressure", 3, 1, ROOT, "add_ideas = PRS_satrapies_spirit\n" + PS.unrest_all(-5) + "\n"
-      + PS.drift_flag("PRS_satrap_system", "The unrest of every satrapy grows §G0.24 slower§! every week."))
+      + PS.drift_flag("PRS_satrap_system", "The unrest of every satrapy grows §G0.12 slower§! every week."))
     f("PRS_kings_eyes", "The King's Eyes and Ears", "Inspectors who travel unannounced, informers in every palace: no satrap knows who is watching.",
       "intelligence_exchange", 2, 2, [["PRS_satrapies"]], PS.unrest_all(-10) + "\n"
-      + PS.drift_flag("PRS_kings_eyes", "The unrest of every satrapy grows §G0.40 slower§! every week."),
+      + PS.drift_flag("PRS_kings_eyes", "The unrest of every satrapy grows §G0.20 slower§! every week."),
       extra=mx("PRS_satrap_armies"))
     f("PRS_satrap_armies", "The Satraps Keep Armies", "Let every satrap raise and pay his own troops: more soldiers for the King - and for the satraps.",
       "allies_build_infantry", 4, 2, [["PRS_satrapies"]], "add_ideas = PRS_satrap_levies_spirit\nadd_manpower = 10000\n"
-      + PS.drift_flag("PRS_satrap_armies", "The unrest of every satrapy grows §R0.24 faster§! every week."),
+      + PS.drift_flag("PRS_satrap_armies", "The unrest of every satrapy grows §R0.12 faster§! every week."),
       extra=mx("PRS_kings_eyes"), filters=M)
     f("PRS_fixed_tribute", "The Fixed Tribute", "Every satrapy pays a fixed sum in silver: Babylon a thousand talents, Egypt seven hundred - no more, no less.",
       "trade", 3, 3, [["PRS_kings_eyes", "PRS_satrap_armies"]], "add_political_power = 100\n" + build("industrial_complex") + "\n"
       + PS.unrest_all(-5), filters=I)
     f("PRS_law_of_the_king", "The Law of the King", "The data of the King: one law above the laws of the peoples, judges who know it, and the King's seal.",
       "national_unity", 3, 4, [["PRS_fixed_tribute"]], "add_ideas = PRS_data_spirit\n"
-      + PS.drift_flag("PRS_law_of_the_king", "The unrest of every satrapy grows §G0.24 slower§! every week."), cost=15)
+      + PS.drift_flag("PRS_law_of_the_king", "The unrest of every satrapy grows §G0.12 slower§! every week."), cost=15)
     f("PRS_seven_houses", "The Seven Houses", "The six nobles who helped Darius to the throne and their families: the King's first servants, and his rivals.",
       "political_pressure", 2, 5, [["PRS_law_of_the_king"]], "add_ideas = PRS_seven_houses_spirit",
       extra=mx("PRS_royal_blood"))
@@ -599,7 +599,7 @@ def define(focus, build, infra, tech, wargoal):
       "trade", 8, 1, ROOT, build("industrial_complex") + "\nadd_political_power = 50", filters=I, ai=3)
     f("PRS_royal_road", "The Royal Road", "From Sardis to Susa in ninety days on foot, seven for the royal couriers: neither snow nor rain stays them.",
       "construct_infrastructure", 10, 1, ROOT, "add_ideas = PRS_royal_road_spirit\n" + infra() + "\n" + infra() + "\n"
-      + PS.drift_flag("PRS_royal_road_built", "The unrest of every satrapy grows §G0.16 slower§! every week."), filters=I)
+      + PS.drift_flag("PRS_royal_road_built", "The unrest of every satrapy grows §G0.08 slower§! every week."), filters=I)
     f("PRS_persepolis", "Persepolis", "A new royal city on a terrace in the mountains of Persis, where every people of the empire brings its gifts.",
       "construction2", 8, 2, [["PRS_daric"]], build("industrial_complex") + "\n" + build("industrial_complex"), filters=I, ai=3)
     f("PRS_qanats", "The Qanats", "Underground channels carry the water of the mountains to the fields of the plateau.",
@@ -618,7 +618,7 @@ def define(focus, build, infra, tech, wargoal):
       extra=mx("PRS_gods_of_every_people"))
     f("PRS_gods_of_every_people", "The Gods of Every People", "Cyrus restored the gods of Babylon and the temple of Jerusalem. The King honours every god of his peoples.",
       "improve_relations", 14, 2, [["PRS_ahura_mazda"]], PS.unrest_all(-10) + "\nadd_stability = 0.05\n"
-      + PS.drift_flag("PRS_gods_of_every_people", "The unrest of every satrapy grows §G0.32 slower§! every week."),
+      + PS.drift_flag("PRS_gods_of_every_people", "The unrest of every satrapy grows §G0.16 slower§! every week."),
       extra=mx("PRS_truth_against_the_lie"))
     f("PRS_behistun", "The Inscription of Behistun", "On the cliff, in three languages: what Darius did, by the favour of Ahura Mazda.",
       "scientific_exchange", 13, 3, [["PRS_truth_against_the_lie", "PRS_gods_of_every_people"]], "add_research_slot = 1",
@@ -647,16 +647,16 @@ def define(focus, build, infra, tech, wargoal):
     # --- 5. the West and Hellas (x 21..25)
     f("PRS_nobles_of_sardis", "The Nobles of Sardis", "Lydians and Phrygians in the satrap's council at Sardis: the old kingdom of Croesus keeps its pride.",
       "improve_relations", 21, 1, ROOT, PS.unrest("lydia", -15) + "\n"
-      + PS.drift_flag("PRS_lydian_nobles", "The unrest of Lydia and Phrygia grows §G0.64 slower§! every week."))
+      + PS.drift_flag("PRS_lydian_nobles", "The unrest of Lydia and Phrygia grows §G0.32 slower§! every week."))
     f("PRS_phoenician_fleet", "The Phoenician Fleet", "Sidon, Tyre and Arwad sail for the Great King.",
       "build_navy", 24, 1, ROOT, puppet("SDN", "TYR", "ARW") + "\nnavy_experience = 20", ai=2)
     f("PRS_ionian_tyrants", "Tyrants for Ionia", "A loyal tyrant in every Greek city: he owes the King everything, and his people hate him.",
       "political_pressure", 23, 2, [["PRS_phoenician_fleet"]], "add_political_power = 100\n" + PS.unrest("ionia", 10) + "\n"
-      + PS.drift_flag("PRS_ionian_tyrants", "The unrest of Ionia grows §R0.40 faster§! every week."),
+      + PS.drift_flag("PRS_ionian_tyrants", "The unrest of Ionia grows §R0.20 faster§! every week."),
       extra=mx("PRS_ionian_democracies"))
     f("PRS_ionian_democracies", "Democracy for the Ionians", "Mardonius deposes the tyrants: let the Greeks govern themselves - and pay their tribute.",
       "improve_relations", 25, 2, [["PRS_phoenician_fleet"]], PS.unrest("ionia", -20) + "\n"
-      + PS.drift_flag("PRS_ionian_democracies", "The unrest of Ionia grows §G0.80 slower§! every week."),
+      + PS.drift_flag("PRS_ionian_democracies", "The unrest of Ionia grows §G0.40 slower§! every week."),
       extra=mx("PRS_ionian_tyrants"))
     f("PRS_thrace", "Thrace and Macedon", "Across the Hellespont: the Thracian coast and the king of Macedon give earth and water.",
       "territory_or_war", 24, 3, [["PRS_ionian_tyrants", "PRS_ionian_democracies"]], submit("MKD") + "\n" + cores(1))
@@ -676,7 +676,7 @@ def define(focus, build, infra, tech, wargoal):
     # --- 6. Egypt (x 28..31)
     f("PRS_pharaoh", "Pharaoh of Egypt", "Darius takes the throne names of a pharaoh, builds temples and orders the old laws of Egypt written down.",
       "national_unity", 29, 1, ROOT, PS.unrest("egypt", -20) + "\n"
-      + PS.drift_flag("PRS_pharaoh", "The unrest of Egypt grows §G0.80 slower§! every week."))
+      + PS.drift_flag("PRS_pharaoh", "The unrest of Egypt grows §G0.40 slower§! every week."))
     f("PRS_temple_of_hibis", "The Temple of Hibis", "In the oasis of Kharga, a temple for Amun-Ra built in the King's name.",
       "construction", 28, 2, [["PRS_pharaoh"]], PS.unrest("egypt", -10) + "\nadd_stability = 0.03")
     f("PRS_nile_canal", "The Canal of the Nile", "Ships sail from the Nile to the Red Sea, as Darius ordered.",
@@ -692,11 +692,11 @@ def define(focus, build, infra, tech, wargoal):
       "improve_relations", 34, 1, ROOT, PS.unrest("babylon", -15) + "\nadd_political_power = 25")
     f("PRS_hands_of_marduk", "The Hands of Marduk", "The King honours the god of Babylon every year, and Babylon stays the second city of the empire.",
       "propaganda", 33, 2, [["PRS_king_of_babylon"]], PS.unrest("babylon", -15) + "\n"
-      + PS.drift_flag("PRS_marduk_honoured", "The unrest of Babylon grows §G0.80 slower§! every week."),
+      + PS.drift_flag("PRS_marduk_honoured", "The unrest of Babylon grows §G0.40 slower§! every week."),
       extra=mx("PRS_melt_marduk"))
     f("PRS_melt_marduk", "Melt the Statue of Marduk", "Xerxes carries away the golden statue of the god: Babylon is a satrapy like any other.",
       "political_pressure", 35, 2, [["PRS_king_of_babylon"]], "add_political_power = 150\n" + build("industrial_complex") + "\n"
-      + PS.unrest("babylon", 20) + "\n" + PS.drift_flag("PRS_marduk_melted", "The unrest of Babylon grows §R0.64 faster§! every week."),
+      + PS.unrest("babylon", 20) + "\n" + PS.drift_flag("PRS_marduk_melted", "The unrest of Babylon grows §R0.32 faster§! every week."),
       extra=mx("PRS_hands_of_marduk"))
     f("PRS_canals_of_babylon", "The Canals of Babylon", "Dig and clean the great canals between the Euphrates and the Tigris: the granary of the empire.",
       "construct_civilian", 34, 3, [["PRS_hands_of_marduk", "PRS_melt_marduk"]], build("ante_farm") + "\n" + build("ante_farm") + "\n"
@@ -704,7 +704,7 @@ def define(focus, build, infra, tech, wargoal):
     # --- 8. the upper satrapies (x 37..39)
     f("PRS_bactrian_prince", "A Prince for Bactria", "A son of the King governs Bactria: the most dangerous satrapy gets the most trusted satrap.",
       "national_unity", 38, 1, ROOT, PS.unrest("bactria", -15) + "\n"
-      + PS.drift_flag("PRS_bactrian_prince", "The unrest of Bactria grows §G0.80 slower§! every week."))
+      + PS.drift_flag("PRS_bactrian_prince", "The unrest of Bactria grows §G0.40 slower§! every week."))
     f("PRS_gold_of_hindush", "The Gold of Hindush", "The Indians pay the largest tribute of all: three hundred and sixty talents of gold dust.",
       "trade", 37, 2, [["PRS_bactrian_prince"]], "add_political_power = 100\n" + build("industrial_complex"), filters=I)
     f("PRS_massagetae", "Avenge Cyrus", "Queen Tomyris of the Massagetae killed Cyrus the Great. The King has not forgotten.",

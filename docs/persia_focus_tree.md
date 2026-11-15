@@ -199,3 +199,14 @@ A többi érték arányosan csökkent (0,4-szeresére):
 - a heti emelkedés alsó határa: 0,2.
 
 A döntések nem változtak (−25, −40, −60).
+
+### Heti 1,5 (52. kör)
+Peti: a 3 is sok. A kezdeti 81 államnál most heti 1,5 pont: az ellenőrzött államok száma × 0,0185. Iónia figyelem nélkül
+kb. 8 hónap, a többi szatrapia kb. 10 hónap alatt lázad fel. Az AI-Perzsiánál ennek 30%-a, kb. heti 0,45.
+
+Minden más a felére csökkent:
+- háború és alacsony stabilitás: +0,5;
+- a király szemei: −0,20;
+- a regionális fókuszok: −0,40;
+- a szatrapák útja: −0,4;
+- a heti emelkedés alsó határa: 0,1.
