@@ -1137,7 +1137,10 @@ focus_tree = {
 		mutually_exclusive = { focus = PRS_free_egypt }
 		available = {
 			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_EGYPT_BELOW_20 check_variable = { PRS_unrest_egypt < 20 } }
-			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_EGYPT NOT = { country_exists = KMT } any_owned_state = { is_core_of = KMT } }
+			OR = {
+				has_country_flag = PRS_integrated_egypt
+				custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_EGYPT NOT = { country_exists = KMT } any_owned_state = { is_core_of = KMT } }
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_egypt"
@@ -1200,7 +1203,10 @@ focus_tree = {
 		mutually_exclusive = { focus = PRS_free_babylon }
 		available = {
 			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_BABYLON_BELOW_20 check_variable = { PRS_unrest_babylon < 20 } }
-			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BABYLON NOT = { country_exists = BBL } any_owned_state = { is_core_of = BBL } }
+			OR = {
+				has_country_flag = PRS_integrated_babylon
+				custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BABYLON NOT = { country_exists = BBL } any_owned_state = { is_core_of = BBL } }
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_babylon"
@@ -1263,7 +1269,10 @@ focus_tree = {
 		mutually_exclusive = { focus = PRS_free_ionia }
 		available = {
 			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_IONIA_BELOW_20 check_variable = { PRS_unrest_ionia < 20 } }
-			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_IONIA NOT = { country_exists = ION } any_owned_state = { is_core_of = ION } }
+			OR = {
+				has_country_flag = PRS_integrated_ionia
+				custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_IONIA NOT = { country_exists = ION } any_owned_state = { is_core_of = ION } }
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_ionia"
@@ -1326,7 +1335,10 @@ focus_tree = {
 		mutually_exclusive = { focus = PRS_free_lydia }
 		available = {
 			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_LYDIA_BELOW_20 check_variable = { PRS_unrest_lydia < 20 } }
-			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_LYDIA NOT = { country_exists = LYD } any_owned_state = { is_core_of = LYD } }
+			OR = {
+				has_country_flag = PRS_integrated_lydia
+				custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_LYDIA NOT = { country_exists = LYD } any_owned_state = { is_core_of = LYD } }
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_lydia"
@@ -1389,7 +1401,10 @@ focus_tree = {
 		mutually_exclusive = { focus = PRS_free_bactria }
 		available = {
 			custom_trigger_tooltip = { tooltip = PRS_TT_UNREST_BACTRIA_BELOW_20 check_variable = { PRS_unrest_bactria < 20 } }
-			custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BACTRIA NOT = { country_exists = BKT } any_owned_state = { is_core_of = BKT } }
+			OR = {
+				has_country_flag = PRS_integrated_bactria
+				custom_trigger_tooltip = { tooltip = PRS_TT_SETTLE_BACTRIA NOT = { country_exists = BKT } any_owned_state = { is_core_of = BKT } }
+			}
 		}
 		completion_reward = {
 			log = "ANTE|[GetDateText]|focus|[ROOT.GetTag]|PRS_integrate_bactria"

@@ -27,7 +27,8 @@ PRS_revolt_egypt = {
 		release = KMT
 		if = { limit = { KMT = { is_subject_of = PRS } } end_puppet = KMT }   # free, not a puppet
 		KMT = {
-			add_manpower = 12000
+			add_manpower = 80000
+			add_timed_idea = { idea = PRS_rebel_fervour_spirit days = 365 }
 			division_template = {
 				name = "Host of the Rising"
 				regiments = {
@@ -44,11 +45,23 @@ PRS_revolt_egypt = {
 			create_unit = { division = "name = \"Rebels 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
 			create_unit = { division = "name = \"Rebels 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
 			create_unit = { division = "name = \"Rebels 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 11\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 12\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 13\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 14\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 15\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
+			create_unit = { division = "name = \"Rebels 16\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = KMT }
 			}
-			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 900 producer = KMT }
-			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 360 producer = KMT }
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 4000 producer = KMT }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1600 producer = KMT }
 			declare_war_on = { target = PRS type = annex_everything }
 		}
+		add_manpower = -96000
+		set_country_flag = PRS_revolted_egypt   # once crushed, it never rises again (weekly)
 		log = "ANTE|[GetDateText]|revolt|PRS|KMT"
 	}
 	set_variable = { PRS_unrest_egypt = 0 }
@@ -61,7 +74,8 @@ PRS_revolt_babylon = {
 		release = BBL
 		if = { limit = { BBL = { is_subject_of = PRS } } end_puppet = BBL }   # free, not a puppet
 		BBL = {
-			add_manpower = 10000
+			add_manpower = 70000
+			add_timed_idea = { idea = PRS_rebel_fervour_spirit days = 365 }
 			division_template = {
 				name = "Host of the Rising"
 				regiments = {
@@ -77,11 +91,22 @@ PRS_revolt_babylon = {
 			create_unit = { division = "name = \"Rebels 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
 			create_unit = { division = "name = \"Rebels 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
 			create_unit = { division = "name = \"Rebels 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 11\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 12\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 13\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
+			create_unit = { division = "name = \"Rebels 14\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BBL }
 			}
-			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 750 producer = BBL }
-			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 300 producer = BBL }
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 3500 producer = BBL }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1400 producer = BBL }
 			declare_war_on = { target = PRS type = annex_everything }
 		}
+		add_manpower = -84000
+		set_country_flag = PRS_revolted_babylon   # once crushed, it never rises again (weekly)
 		log = "ANTE|[GetDateText]|revolt|PRS|BBL"
 	}
 	set_variable = { PRS_unrest_babylon = 0 }
@@ -94,7 +119,8 @@ PRS_revolt_ionia = {
 		release = ION
 		if = { limit = { ION = { is_subject_of = PRS } } end_puppet = ION }   # free, not a puppet
 		ION = {
-			add_manpower = 8000
+			add_manpower = 50000
+			add_timed_idea = { idea = PRS_rebel_fervour_spirit days = 365 }
 			division_template = {
 				name = "Host of the Rising"
 				regiments = {
@@ -109,11 +135,19 @@ PRS_revolt_ionia = {
 			create_unit = { division = "name = \"Rebels 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
 			create_unit = { division = "name = \"Rebels 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
 			create_unit = { division = "name = \"Rebels 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Rebels 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Rebels 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Rebels 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Rebels 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Rebels 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
+			create_unit = { division = "name = \"Rebels 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = ION }
 			}
-			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 600 producer = ION }
-			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 240 producer = ION }
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 2500 producer = ION }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1000 producer = ION }
 			declare_war_on = { target = PRS type = annex_everything }
 		}
+		add_manpower = -60000
+		set_country_flag = PRS_revolted_ionia   # once crushed, it never rises again (weekly)
 		log = "ANTE|[GetDateText]|revolt|PRS|ION"
 	}
 	set_variable = { PRS_unrest_ionia = 0 }
@@ -126,7 +160,8 @@ PRS_revolt_lydia = {
 		release = LYD
 		if = { limit = { LYD = { is_subject_of = PRS } } end_puppet = LYD }   # free, not a puppet
 		LYD = {
-			add_manpower = 8000
+			add_manpower = 60000
+			add_timed_idea = { idea = PRS_rebel_fervour_spirit days = 365 }
 			division_template = {
 				name = "Host of the Rising"
 				regiments = {
@@ -141,11 +176,21 @@ PRS_revolt_lydia = {
 			create_unit = { division = "name = \"Rebels 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
 			create_unit = { division = "name = \"Rebels 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
 			create_unit = { division = "name = \"Rebels 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 11\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
+			create_unit = { division = "name = \"Rebels 12\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = LYD }
 			}
-			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 600 producer = LYD }
-			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 240 producer = LYD }
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 3000 producer = LYD }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1200 producer = LYD }
 			declare_war_on = { target = PRS type = annex_everything }
 		}
+		add_manpower = -72000
+		set_country_flag = PRS_revolted_lydia   # once crushed, it never rises again (weekly)
 		log = "ANTE|[GetDateText]|revolt|PRS|LYD"
 	}
 	set_variable = { PRS_unrest_lydia = 0 }
@@ -158,7 +203,8 @@ PRS_revolt_bactria = {
 		release = BKT
 		if = { limit = { BKT = { is_subject_of = PRS } } end_puppet = BKT }   # free, not a puppet
 		BKT = {
-			add_manpower = 8000
+			add_manpower = 60000
+			add_timed_idea = { idea = PRS_rebel_fervour_spirit days = 365 }
 			division_template = {
 				name = "Host of the Rising"
 				regiments = {
@@ -173,11 +219,21 @@ PRS_revolt_bactria = {
 			create_unit = { division = "name = \"Rebels 2\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
 			create_unit = { division = "name = \"Rebels 3\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
 			create_unit = { division = "name = \"Rebels 4\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 5\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 6\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 7\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 8\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 9\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 10\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 11\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
+			create_unit = { division = "name = \"Rebels 12\" division_template = \"Host of the Rising\" start_experience_factor = 0.2 start_equipment_factor = 1" owner = BKT }
 			}
-			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 600 producer = BKT }
-			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 240 producer = BKT }
+			add_equipment_to_stockpile = { type = ante_arms_equipment_1 amount = 3000 producer = BKT }
+			add_equipment_to_stockpile = { type = ante_ranged_equipment_1 amount = 1200 producer = BKT }
 			declare_war_on = { target = PRS type = annex_everything }
 		}
+		add_manpower = -72000
+		set_country_flag = PRS_revolted_bactria   # once crushed, it never rises again (weekly)
 		log = "ANTE|[GetDateText]|revolt|PRS|BKT"
 	}
 	set_variable = { PRS_unrest_bactria = 0 }

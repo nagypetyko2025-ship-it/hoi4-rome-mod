@@ -1087,3 +1087,10 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   birodalommal még gyorsabban.
 - A fókuszok hatása a duplája lett, így odafigyeléssel a birodalom egyben tartható.
 - A 60 fölötti figyelmeztetés gyakrabban jön.
+
+## Negyvenhetedik kör (2026-11-15, Claude) – Perzsia mérete ellene dolgozik
+- A szatrapiák lázongása hetente a Perzsia által ellenőrzött államok száma × 0,09 pontot nő, a kezdetén heti 7,3-at.
+  Mindegyik 40-ről indul, Iónia 50-ről. Figyelem nélkül mindegyik két hónapon belül fellázad.
+- A döntések erősebbek, de sűrűn kellenek: a helyőrség 15 000 főbe kerül.
+- A felkelők 10–16 hadosztállyal és harci lelkesedéssel kelnek fel, Perzsia pedig embereket veszít.
+- A levert felkelés végleges: az a szatrapia soha többé nem lázad fel.

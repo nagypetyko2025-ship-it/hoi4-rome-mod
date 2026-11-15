@@ -1500,6 +1500,16 @@ ideas = {
 				political_power_gain = 0.05
 			}
 		}
+		PRS_rebel_fervour_spirit = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.15
+				army_defence_factor = 0.15
+				army_org_factor = 0.1
+			}
+		}
 		PRS_four_corners_spirit = {
 			picture = generic_pp_unity_bonus
 			allowed = { always = no }

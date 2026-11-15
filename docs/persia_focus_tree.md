@@ -129,3 +129,27 @@ Peti szerint a szatrapiák szinte sosem lázadtak fel, ezért a lázongás gyors
 - **fókuszok:** minden lassító és gyorsító fókusz hatása a duplája lett (pl. a király szemei −0,10, a fáraó −0,20),
   így egy jól vezetett birodalom kézben tudja tartani a szatrapiákat;
 - **figyelmeztető esemény:** 60 fölött hetente 10% eséllyel jön (eddig 6%).
+
+### Igazi kihívás (47. kör)
+Peti szerint Perzsia több mint félmillió fős emberanyaggal indul, ezért a mérete ellene kell, hogy dolgozzon. Ha egy szatrapiára nem figyel, legfeljebb két hónapon belül lázadjon fel.
+
+- **Kezdőértékek:** minden szatrapia 40-ről indul, Iónia 50-ről (ő lázad fel elsőként).
+- **Heti emelkedés:** a Perzsia által ellenőrzött államok száma × 0,09. A kezdeti 81 államnál ez heti 7,3, ugyanannyi minden szatrapiánál.
+  - Háború +2,5, 50% alatti stabilitás +2,5.
+  - A fókuszok ennek egy részét elveszik (pl. a király szemei −1,0, a fáraó −2,0), de a heti emelkedés sosem megy 0,5 alá.
+  - Figyelem nélkül Iónia kb. 7 hét alatt, a többi kb. 8 hét alatt lázad fel.
+- **Döntések:**
+
+| Döntés | Ár | Hatás | Újra elérhető |
+|---|---|---|---|
+| A király szeme | 25 PP | −25 | 30 nap múlva |
+| Helyőrség | 10 PP és 15 000 fő | −40 | 45 nap múlva |
+| Az istenek és nemesek tisztelete | 75 PP | −60 | 120 nap múlva |
+
+  A félmilliós emberanyag így ára lesz a nyugalomnak.
+- **Figyelmeztetés:** 60 fölött hetente 30% eséllyel jön, legfeljebb 120 naponként.
+- **A felkelők** valódi sereggel kelnek fel:
+  - hadosztályok: Egyiptom 16, Babilon 14, Lüdia 12, Baktria 12, Iónia 10;
+  - egy évig tartó „Fighting for Freedom” szellem: +15% támadás és védekezés;
+  - Perzsia hadosztályonként 6000 főt veszít, mert a szatrapia hadereje átáll.
+- **A levert felkelés végleges:** ha a felkelő ország megszűnik, a szatrapia soha többé nem lázad fel. A magterületei törlődnek, és az integráló fókusza elérhető.

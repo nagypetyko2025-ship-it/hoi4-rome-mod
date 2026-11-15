@@ -8,15 +8,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_egypt }
 		}
-		cost = 50
-		days_re_enable = 90
+		cost = 25
+		days_re_enable = 30
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_EGYPT_M15
-			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -15 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_EGYPT_M25
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -25 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 5 check_variable = { PRS_unrest_egypt > 45 } }
+			modifier = { add = 5 check_variable = { PRS_unrest_egypt > 35 } }
 		}
 	}
 
@@ -29,18 +29,18 @@ PRS_satrapies_category = {
 			NOT = { has_country_flag = PRS_integrated_egypt }
 		}
 		available = {
-			has_manpower > 3000
+			has_manpower > 15000
 		}
-		cost = 25
-		days_re_enable = 180
+		cost = 10
+		days_re_enable = 45
 		complete_effect = {
-			add_manpower = -3000
-			custom_effect_tooltip = PRS_TT_UNREST_EGYPT_M20
-			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -20 } PRS_unrest_update = yes }
+			add_manpower = -15000
+			custom_effect_tooltip = PRS_TT_UNREST_EGYPT_M40
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -40 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 4 check_variable = { PRS_unrest_egypt > 60 } }
+			modifier = { add = 6 check_variable = { PRS_unrest_egypt > 50 } }
 		}
 	}
 
@@ -52,15 +52,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_egypt }
 		}
-		cost = 100
-		days_re_enable = 365
+		cost = 75
+		days_re_enable = 120
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_EGYPT_M30
-			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -30 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_EGYPT_M60
+			hidden_effect = { add_to_variable = { PRS_unrest_egypt = -60 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 8 check_variable = { PRS_unrest_egypt > 75 } }
+			modifier = { add = 8 check_variable = { PRS_unrest_egypt > 70 } }
 		}
 	}
 
@@ -72,15 +72,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_babylon }
 		}
-		cost = 50
-		days_re_enable = 90
+		cost = 25
+		days_re_enable = 30
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_BABYLON_M15
-			hidden_effect = { add_to_variable = { PRS_unrest_babylon = -15 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_BABYLON_M25
+			hidden_effect = { add_to_variable = { PRS_unrest_babylon = -25 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 5 check_variable = { PRS_unrest_babylon > 45 } }
+			modifier = { add = 5 check_variable = { PRS_unrest_babylon > 35 } }
 		}
 	}
 
@@ -93,18 +93,18 @@ PRS_satrapies_category = {
 			NOT = { has_country_flag = PRS_integrated_babylon }
 		}
 		available = {
-			has_manpower > 3000
+			has_manpower > 15000
 		}
-		cost = 25
-		days_re_enable = 180
+		cost = 10
+		days_re_enable = 45
 		complete_effect = {
-			add_manpower = -3000
-			custom_effect_tooltip = PRS_TT_UNREST_BABYLON_M20
-			hidden_effect = { add_to_variable = { PRS_unrest_babylon = -20 } PRS_unrest_update = yes }
+			add_manpower = -15000
+			custom_effect_tooltip = PRS_TT_UNREST_BABYLON_M40
+			hidden_effect = { add_to_variable = { PRS_unrest_babylon = -40 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 4 check_variable = { PRS_unrest_babylon > 60 } }
+			modifier = { add = 6 check_variable = { PRS_unrest_babylon > 50 } }
 		}
 	}
 
@@ -116,15 +116,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_babylon }
 		}
-		cost = 100
-		days_re_enable = 365
+		cost = 75
+		days_re_enable = 120
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_BABYLON_M30
-			hidden_effect = { add_to_variable = { PRS_unrest_babylon = -30 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_BABYLON_M60
+			hidden_effect = { add_to_variable = { PRS_unrest_babylon = -60 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 8 check_variable = { PRS_unrest_babylon > 75 } }
+			modifier = { add = 8 check_variable = { PRS_unrest_babylon > 70 } }
 		}
 	}
 
@@ -136,15 +136,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_ionia }
 		}
-		cost = 50
-		days_re_enable = 90
+		cost = 25
+		days_re_enable = 30
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_IONIA_M15
-			hidden_effect = { add_to_variable = { PRS_unrest_ionia = -15 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_IONIA_M25
+			hidden_effect = { add_to_variable = { PRS_unrest_ionia = -25 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 5 check_variable = { PRS_unrest_ionia > 45 } }
+			modifier = { add = 5 check_variable = { PRS_unrest_ionia > 35 } }
 		}
 	}
 
@@ -157,18 +157,18 @@ PRS_satrapies_category = {
 			NOT = { has_country_flag = PRS_integrated_ionia }
 		}
 		available = {
-			has_manpower > 3000
+			has_manpower > 15000
 		}
-		cost = 25
-		days_re_enable = 180
+		cost = 10
+		days_re_enable = 45
 		complete_effect = {
-			add_manpower = -3000
-			custom_effect_tooltip = PRS_TT_UNREST_IONIA_M20
-			hidden_effect = { add_to_variable = { PRS_unrest_ionia = -20 } PRS_unrest_update = yes }
+			add_manpower = -15000
+			custom_effect_tooltip = PRS_TT_UNREST_IONIA_M40
+			hidden_effect = { add_to_variable = { PRS_unrest_ionia = -40 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 4 check_variable = { PRS_unrest_ionia > 60 } }
+			modifier = { add = 6 check_variable = { PRS_unrest_ionia > 50 } }
 		}
 	}
 
@@ -180,15 +180,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_ionia }
 		}
-		cost = 100
-		days_re_enable = 365
+		cost = 75
+		days_re_enable = 120
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_IONIA_M30
-			hidden_effect = { add_to_variable = { PRS_unrest_ionia = -30 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_IONIA_M60
+			hidden_effect = { add_to_variable = { PRS_unrest_ionia = -60 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 8 check_variable = { PRS_unrest_ionia > 75 } }
+			modifier = { add = 8 check_variable = { PRS_unrest_ionia > 70 } }
 		}
 	}
 
@@ -200,15 +200,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_lydia }
 		}
-		cost = 50
-		days_re_enable = 90
+		cost = 25
+		days_re_enable = 30
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_LYDIA_M15
-			hidden_effect = { add_to_variable = { PRS_unrest_lydia = -15 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_LYDIA_M25
+			hidden_effect = { add_to_variable = { PRS_unrest_lydia = -25 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 5 check_variable = { PRS_unrest_lydia > 45 } }
+			modifier = { add = 5 check_variable = { PRS_unrest_lydia > 35 } }
 		}
 	}
 
@@ -221,18 +221,18 @@ PRS_satrapies_category = {
 			NOT = { has_country_flag = PRS_integrated_lydia }
 		}
 		available = {
-			has_manpower > 3000
+			has_manpower > 15000
 		}
-		cost = 25
-		days_re_enable = 180
+		cost = 10
+		days_re_enable = 45
 		complete_effect = {
-			add_manpower = -3000
-			custom_effect_tooltip = PRS_TT_UNREST_LYDIA_M20
-			hidden_effect = { add_to_variable = { PRS_unrest_lydia = -20 } PRS_unrest_update = yes }
+			add_manpower = -15000
+			custom_effect_tooltip = PRS_TT_UNREST_LYDIA_M40
+			hidden_effect = { add_to_variable = { PRS_unrest_lydia = -40 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 4 check_variable = { PRS_unrest_lydia > 60 } }
+			modifier = { add = 6 check_variable = { PRS_unrest_lydia > 50 } }
 		}
 	}
 
@@ -244,15 +244,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_lydia }
 		}
-		cost = 100
-		days_re_enable = 365
+		cost = 75
+		days_re_enable = 120
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_LYDIA_M30
-			hidden_effect = { add_to_variable = { PRS_unrest_lydia = -30 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_LYDIA_M60
+			hidden_effect = { add_to_variable = { PRS_unrest_lydia = -60 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 8 check_variable = { PRS_unrest_lydia > 75 } }
+			modifier = { add = 8 check_variable = { PRS_unrest_lydia > 70 } }
 		}
 	}
 
@@ -264,15 +264,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_bactria }
 		}
-		cost = 50
-		days_re_enable = 90
+		cost = 25
+		days_re_enable = 30
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_BACTRIA_M15
-			hidden_effect = { add_to_variable = { PRS_unrest_bactria = -15 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_BACTRIA_M25
+			hidden_effect = { add_to_variable = { PRS_unrest_bactria = -25 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 5 check_variable = { PRS_unrest_bactria > 45 } }
+			modifier = { add = 5 check_variable = { PRS_unrest_bactria > 35 } }
 		}
 	}
 
@@ -285,18 +285,18 @@ PRS_satrapies_category = {
 			NOT = { has_country_flag = PRS_integrated_bactria }
 		}
 		available = {
-			has_manpower > 3000
+			has_manpower > 15000
 		}
-		cost = 25
-		days_re_enable = 180
+		cost = 10
+		days_re_enable = 45
 		complete_effect = {
-			add_manpower = -3000
-			custom_effect_tooltip = PRS_TT_UNREST_BACTRIA_M20
-			hidden_effect = { add_to_variable = { PRS_unrest_bactria = -20 } PRS_unrest_update = yes }
+			add_manpower = -15000
+			custom_effect_tooltip = PRS_TT_UNREST_BACTRIA_M40
+			hidden_effect = { add_to_variable = { PRS_unrest_bactria = -40 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 4 check_variable = { PRS_unrest_bactria > 60 } }
+			modifier = { add = 6 check_variable = { PRS_unrest_bactria > 50 } }
 		}
 	}
 
@@ -308,15 +308,15 @@ PRS_satrapies_category = {
 			has_country_flag = PRS_unrest_started
 			NOT = { has_country_flag = PRS_integrated_bactria }
 		}
-		cost = 100
-		days_re_enable = 365
+		cost = 75
+		days_re_enable = 120
 		complete_effect = {
-			custom_effect_tooltip = PRS_TT_UNREST_BACTRIA_M30
-			hidden_effect = { add_to_variable = { PRS_unrest_bactria = -30 } PRS_unrest_update = yes }
+			custom_effect_tooltip = PRS_TT_UNREST_BACTRIA_M60
+			hidden_effect = { add_to_variable = { PRS_unrest_bactria = -60 } PRS_unrest_update = yes }
 		}
 		ai_will_do = {
 			base = 0
-			modifier = { add = 8 check_variable = { PRS_unrest_bactria > 75 } }
+			modifier = { add = 8 check_variable = { PRS_unrest_bactria > 70 } }
 		}
 	}
 }
