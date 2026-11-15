@@ -1145,9 +1145,9 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
 - **Javítás az egész modban:** két nem létező döntésikon (formable_nations, trade) és egy kategóriaikon cserélve.
 
 ## Ötvenhatodik kör (2026-11-15, Claude) – nagyhatalmak panel
-- **Új panel a bal felső sarokban** (a felső sáv alatt): a 10 legerősebb ország zászlóval, öt szintbe sorolva:
+- **Új „Powers” gomb a jobb felső sarokban** (a zene és a hadsereg gombjai mellett): kattintásra kis ablakban nyílik meg a 10 legerősebb ország zászlóval, öt szintbe sorolva:
   I Hegemon, II Great Power, III Major Power, IV Regional Power, V Minor Power. A szint a legerősebbhez mért arány
   (70 / 45 / 25 / 12 %).
 - **Havonta újraszámol** (és a játék kezdetén): 2 pont zászlóaljanként, 3 katonai műhelyenként, 2 polgári műhelyenként,
   2 hajógyáranként, 2 hajónként, 1 államonként. A sor tooltipje mutatja a pontszámot és a múlt havi helyezésváltozást.
-- A fejlécre kattintva összecsukható. Forrás: `tools/ranking.py` (content.py után futtatandó).
+- Az ablak a gombbal vagy a bezáró X-szel zárható (első teszt után: eredetileg mindig látszott bal oldalt). Forrás: `tools/ranking.py` (content.py után futtatandó).

@@ -7,13 +7,16 @@ scripted_gui = {
 
 		effects = {
 			ante_rank_header_click = {
-				if = { limit = { has_country_flag = ANTE_rank_hidden } clr_country_flag = ANTE_rank_hidden }
-				else = { set_country_flag = ANTE_rank_hidden }
+				if = { limit = { has_country_flag = ANTE_rank_open } clr_country_flag = ANTE_rank_open }
+				else = { set_country_flag = ANTE_rank_open }
+			}
+			ante_rank_close_click = {
+				clr_country_flag = ANTE_rank_open
 			}
 		}
 
 		triggers = {
-			ante_rank_body_visible = { NOT = { has_country_flag = ANTE_rank_hidden } }
+			ante_rank_body_visible = { has_country_flag = ANTE_rank_open }
 		}
 
 		dynamic_lists = {

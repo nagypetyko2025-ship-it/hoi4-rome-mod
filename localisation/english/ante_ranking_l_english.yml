@@ -1,6 +1,7 @@
 ﻿l_english:
  ANTE_RANK_HEADER:0 "Great Powers"
- ANTE_RANK_HEADER_TT:0 "The ten strongest countries of the known world, recounted on the first of every month.\nStrength: 2 per battalion, 3 per military workshop, 2 per civilian workshop, 2 per shipyard, 2 per ship, 1 per state.\n\n§YI Hegemon§!: at least 70% of the strongest\n§OII Great Power§!: at least 45% of the strongest\n§GIII Major Power§!: at least 25% of the strongest\n§BIV Regional Power§!: at least 12% of the strongest\n§gV Minor Power§!: the rest of the top ten\n\n§GClick§! to fold the list away or open it again."
+ ANTE_RANK_BUTTON:0 "Powers"
+ ANTE_RANK_HEADER_TT:0 "The ten strongest countries of the known world, recounted on the first of every month.\nStrength: 2 per battalion, 3 per military workshop, 2 per civilian workshop, 2 per shipyard, 2 per ship, 1 per state.\n\n§YI Hegemon§!: at least 70% of the strongest\n§OII Great Power§!: at least 45% of the strongest\n§GIII Major Power§!: at least 25% of the strongest\n§BIV Regional Power§!: at least 12% of the strongest\n§gV Minor Power§!: the rest of the top ten\n\n§GClick§! to open or close the list."
  ANTE_RANK_NUMBER:0 "[?This.ante_rank|0]."
  ANTE_RANK_NAME:0 "[This.GetName]"
  ANTE_RANK_TIER:0 "[This.GetAnteRankTier]"
