@@ -77,18 +77,20 @@ def cheat_event():
     import persia_story as PS
     rome = sorted(set(FM.states_of(FM.PENINSULA) + FM.states_of(FM.SICILY) + FM.states_of(FM.PO)))
     carthage = FM.states_of(FM.PUNIC)
-    persia = sorted(set(PS.greek_states() + PS.core_states("KMT") + PS.core_states("BBL")))
+    goal_tags = {t for _, tags, _ in PS.GOAL_GROUPS for t in tags}   # everything the Persian focus tree can win
+    persia = sorted(set(PS._states_where(lambda name, owner, t: owner in goal_tags)
+                        + PS.core_states("KMT") + PS.core_states("BBL")))
 
     def give(ids):
         return "\n".join(f"\t\t\ttransfer_state = {i}" for i in ids)
     n = "ante_victory.10"
     loc = {f"{n}.t": "The Gods Favour You", f"{n}.a": "So be it.",
            f"{n}.d": "[Root.GetName] receives every land its goal needs (cheat: Rome - Italy, Sicily and the Po valley; "
-                     "Carthage - the Punic lands; Persia - Hellas, Egypt and Babylon). Countries without a goal get "
+                     "Carthage - the Punic lands; Persia - everything its focus tree can win, Egypt and Babylon). Countries without a goal get "
                      "nothing.",
            "ANTE_TT_CHEAT_ROM": "Rome receives all of Italy, Sicily and the Po valley. The victory screen follows within a week.",
            "ANTE_TT_CHEAT_CAR": "Carthage receives the Punic lands. Take the decision 'The Punic Empire' for the victory.",
-           "ANTE_TT_CHEAT_PRS": "Persia receives Hellas, Egypt and Babylon. Take the decision 'King of the Four Corners of "
+           "ANTE_TT_CHEAT_PRS": "Persia receives Hellas, Phoenicia, the steppe, Kush, the Marmaridae, Cyrene, Egypt and Babylon. Take the decision 'King of the Four Corners of "
                                 "the World' for the victory.",
            "ANTE_TT_CHEAT_NONE": "This country has no goal: nothing happens."}
     ev = f"""country_event = {{

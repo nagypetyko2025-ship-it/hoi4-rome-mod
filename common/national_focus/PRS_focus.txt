@@ -907,6 +907,10 @@ focus_tree = {
 			else_if = { limit = { country_exists = KYR NOT = { has_war_with = KYR } NOT = { KYR = { is_subject_of = ROOT } } NOT = { is_in_faction_with = KYR } }
 				create_wargoal = { type = annex_everything target = KYR }
 			}
+			if = { limit = { country_exists = MRM NOT = { has_war_with = MRM } }
+				create_wargoal = { type = annex_everything target = MRM }
+			}
+			every_state = { limit = { is_owned_by = MRM } add_claim_by = ROOT }
 		}
 		ai_will_do = { factor = 1 }
 	}

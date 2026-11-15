@@ -672,8 +672,9 @@ def define(focus, build, infra, tech, wargoal):
       extra=COAST, filters=I)
     f("PRS_kush", "Beyond the Cataracts", "Cambyses marched into the desert towards Kush and lost his army. The King will find a better road.",
       "territory_or_war", 29, 3, [["PRS_temple_of_hibis", "PRS_nile_canal"]], wargoal("KSH") + "\n" + claims("KSH"))
-    f("PRS_cyrene", "Cyrene and Barca", "The Greek cities of Libya sent gifts to Cambyses. Now they will send tribute.",
-      "occupy_states_coastal", 31, 3, [["PRS_nile_canal"]], submit("KYR"))
+    f("PRS_cyrene", "Cyrene and Barca", "The Greek cities of Libya sent gifts to Cambyses. Now they will send tribute - and the Marmaridae of the desert coast between will obey too.",
+      "occupy_states_coastal", 31, 3, [["PRS_nile_canal"]],
+      submit("KYR") + "\n" + wargoal("MRM") + "\n" + claims("MRM"))   # round 45: the Marmaridae too (the goal needs them)
     # --- 7. Babylon (x 33..35)
     f("PRS_king_of_babylon", "King of Babylon", "At the New Year festival the King of Persia takes the hands of Marduk: King of Babylon, King of the Lands.",
       "improve_relations", 34, 1, ROOT, PS.unrest("babylon", -15) + "\nadd_political_power = 25")

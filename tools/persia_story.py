@@ -41,6 +41,11 @@ SATRAPIES = [("egypt", "KMT", "Egypt", 30), ("babylon", "BBL", "Babylon", 25), (
 REBELS = {"egypt": 6, "babylon": 5, "ionia": 4, "lydia": 4, "bactria": 4}   # divisions of a rising
 PRETENDER_REGIONS = ("Mada", "Raga", "Armina", "Varkana", "Parthava")      # the north rises with a pretender
 GREECE = ["ATH", "LAK", "THB", "KRN", "AGS", "EUB", "THL", "MKD"]           # the Great King's goal
+# the goal needs everything the focus tree can win (round 45, Peti): (tooltip key, original owners, text)
+GOAL_GROUPS = [("HELLAS", GREECE, "All of Hellas (Athens, Sparta, Thebes, Corinth, Argos, Euboea, Thessaly, Macedon)"),
+               ("PHOENICIA", ["SDN", "TYR", "ARW"], "Phoenicia (Sidon, Tyre, Arwad)"),
+               ("STEPPE", ["SCY", "MSG"], "The steppe (the Scythians, the Massagetae)"),
+               ("AFRICA", ["KSH", "MRM", "KYR"], "Africa beyond Egypt (Kush, the Marmaridae, Cyrene)")]
 
 
 def idea(key, name, pic, **mods):
@@ -392,27 +397,34 @@ idea("PRS_four_corners_spirit", "King of the Four Corners of the World", "pp_uni
 
 
 def goal_decision():
-    greek = greek_states()
-    held = "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in greek)
-    # a loyal puppet (the focus that sets a satrapy free) still counts as the King's (round 41)
-    egypt = "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in core_states("KMT"))
-    babylon = "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in core_states("BBL"))
-    LOC["PRS_TT_HELLAS_HELD"] = (f"All of Hellas ({len(greek)} states: Athens, Sparta, Thebes, Corinth, Argos, Euboea, "
-                                 "Thessaly, Macedon) is held by the King or his subjects")
-    LOC["PRS_TT_EGYPT_BABYLON_HELD"] = "Egypt and Babylon are still the King's (or his loyal subjects')"
+    """round 45 (Peti: too easy): everything the focus tree can win - Hellas, the Phoenician cities, the Scythians and
+    the Massagetae, Kush, the Marmaridae and Cyrene - and Egypt and Babylon kept. Every state is outlined on the map."""
+    def held(ids):
+        return "\n".join(f"{s} = {{ controller = {{ OR = {{ tag = ROOT is_subject_of = ROOT }} }} }}" for s in ids)
+    groups = []
+    for key, tags, text in GOAL_GROUPS:
+        ids = _states_where(lambda name, owner, t, tags=tags: owner in tags)
+        LOC[f"PRS_TT_GOAL_{key}"] = f"{text} ({len(ids)} states) is held by the King or his subjects"
+        groups.append((key, ids))
+    ids = core_states("KMT") + core_states("BBL")
+    LOC["PRS_TT_GOAL_HOME"] = "Egypt and Babylon are still the King's (or his loyal subjects')"
+    groups.append(("HOME", ids))
+    every = sorted({s for _, ids in groups for s in ids})
+    won = sorted({s for key, ids in groups if key != "HOME" for s in ids})
+    avail = "\n".join(f"custom_trigger_tooltip = {{\n\ttooltip = PRS_TT_GOAL_{key}\n{_ind(held(ids), 1)}\n}}"
+                      for key, ids in groups)
     decision("PRS_four_corners", "King of the Four Corners of the World",
              "I am Darius, the Great King, King of Kings, King of the lands of all peoples, King of this great earth "
-             "far and wide. Hellas has given earth and water; from Egypt to Bactria every land obeys.",
-             "GFX_decision_generic_formable_nations", "NOT = { has_country_flag = PRS_four_corners }",
-             f"custom_trigger_tooltip = {{\n\ttooltip = PRS_TT_HELLAS_HELD\n{_ind(held, 1)}\n}}\n"
-             f"custom_trigger_tooltip = {{\n\ttooltip = PRS_TT_EGYPT_BABYLON_HELD\n{_ind(egypt, 1)}\n{_ind(babylon, 1)}\n}}",
+             "far and wide. Hellas has given earth and water, Phoenicia sails for me, the Scythians and the Massagetae "
+             "are beaten, Kush and Libya send their tribute; from Egypt to Bactria every land obeys.",
+             "GFX_decision_generic_formable_nations", "NOT = { has_country_flag = PRS_four_corners }", avail,
              50, drift_flag("PRS_four_corners", "The unrest of every satrapy grows §G0.10 slower§! every week, for good.")
              + "\nadd_ideas = PRS_four_corners_spirit\n" + unrest_all(-40)
-             + "\nevery_owned_state = {\n\tlimit = { OR = { " + " ".join(f"state = {s}" for s in greek)
+             + "\nevery_owned_state = {\n\tlimit = { OR = { " + " ".join(f"state = {s}" for s in won)
              + " } }\n\tadd_core_of = ROOT\n}\n" + victory.FIRE["PRS"],
              "base = 100",
              extra="highlight_states = {\n\thighlight_state_targets = {\n"
-                   + "\n".join(f"\t\tstate = {s}" for s in greek) + "\n\t}\n}\non_map_mode = decision_view_only\n"
+                   + "\n".join(f"\t\tstate = {s}" for s in every) + "\n\t}\n}\non_map_mode = decision_view_only\n"
                    "fire_only_once = yes")
 
 

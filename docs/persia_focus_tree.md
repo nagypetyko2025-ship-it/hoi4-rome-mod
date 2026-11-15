@@ -111,3 +111,13 @@ Az AI 45, 60, illetve 75 fölött használja őket.
       soha többé nem lázadhat fel, az elszakadó ország magterületei törlődnek;
     - **vagy szabadon engedés** hűséges, legalacsonyabb autonómiájú bábként (integrated puppet). Ebben az esetben sincs
       többé lázongás, és a nagy célhoz a báb területe is a királyénak számít.
+
+### A cél szigorúbb (45. kör)
+Peti: a cél túl könnyű volt. Most minden kell, amit Perzsia a fókuszaival megszerezhet:
+- Hellász (11 állam);
+- a föníciai városok: Szidón, Türosz, Arwad;
+- a sztyeppe: a szkíták és a masszageták;
+- Afrika Egyiptomon túl: Kús, a Marmaridák (a Kürené-fókusz most háborús célt is ad ellenük) és Kürené;
+- Egyiptom és Babilon megtartva.
+
+Összesen 52 állam, a döntés mindet fehér körvonallal kiemeli. A király vagy az alattvalói kezében kell lenniük.

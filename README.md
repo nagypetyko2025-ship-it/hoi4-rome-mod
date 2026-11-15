@@ -1075,3 +1075,9 @@ A fókuszfa eddig egyenes sor volt („most X, aztán Y”); most mindkét út m
   - Karthágó: a pun földek (utána a The Punic Empire döntés adja a győzelmet);
   - Perzsia: Hellász, Egyiptom és Babilon (utána a King of the Four Corners döntés).
   - Cél nélküli országgal nem történik semmi.
+
+## Negyvenötödik kör (2026-11-15, Claude) – nehezebb perzsa cél
+- A King of the Four Corners of the World mindent kér, amit a perzsa fókuszok megszerezhetnek: Hellász, Fönícia,
+  a szkíták és a masszageták, Kús, a Marmaridák, Kürené, és Egyiptom és Babilon megtartása. Összesen 52 állam,
+  mind kiemelve a térképen.
+- A Kürené-fókusz háborús célt is ad a Marmaridák ellen. A győzelmi csalás Perzsiának mindet megadja.
