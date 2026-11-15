@@ -4,3 +4,9 @@ PRS_satrapies_category = {
 	allowed = { original_tag = PRS }
 	priority = 100
 }
+
+PRS_great_king_category = {
+	icon = generic_formable_nations
+	allowed = { original_tag = PRS }
+	priority = 90
+}

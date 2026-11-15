@@ -319,7 +319,9 @@ PRS_satrapies_category = {
 			modifier = { add = 8 check_variable = { PRS_unrest_bactria > 75 } }
 		}
 	}
+}
 
+PRS_great_king_category = {
 	PRS_four_corners = {
 		icon = GFX_decision_generic_formable_nations
 		allowed = { original_tag = PRS }

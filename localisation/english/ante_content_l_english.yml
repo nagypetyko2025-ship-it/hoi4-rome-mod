@@ -1257,6 +1257,8 @@
  PRS_PRETENDER_neutrality:0 "Median Pretender"
  PRS_PRETENDER_neutrality_DEF:0 "the Median Pretender"
  PRS_PRETENDER_neutrality_ADJ:0 "Median"
+ PRS_great_king_category:0 "The Great King"
+ PRS_great_king_category_desc:0 "Darius rules twenty peoples. One goal remains: Hellas must give earth and water, while Egypt and Babylon stay loyal - then the King is King of the Four Corners of the World."
  PRS_TT_UNREST_ALL_M5:0 "Unrest in every satrapy: §G-5§!"
  PRS_TT_DRIFT_PRS_SATRAP_SYSTEM:0 "The unrest of every satrapy grows §G0.03 slower§! every week."
  PRS_TT_UNREST_ALL_M10:0 "Unrest in every satrapy: §G-10§!"
